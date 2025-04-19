@@ -1,10 +1,14 @@
+"use client"
+
 import NavBar from "@/components/Navbar";
+import Link from "next/link";
+
 
 export default function ShowLogin() {
     return (
         <form >
-            <h3>Register Form:</h3>
             
+
             <label>Email:</label><br />
             <input
                 name="email"
@@ -12,7 +16,7 @@ export default function ShowLogin() {
                 type="email"
                 className="email"
             />
-            <br/>
+            <br />
 
             <label>Password:</label><br />
             <input
@@ -21,7 +25,10 @@ export default function ShowLogin() {
                 type="password"
                 className="password"
             />
-            <br/> <button type="submit">Login</button>
+            <br /> <button type="submit">Login</button>
+            <br />
+            <br />
+            <Link href="/register">Create new account?</Link>
         </form>
     );
 }
