@@ -2,7 +2,6 @@ package main
 
 import (
 	"database/sql"
-	"fmt"
 	"io"
 	"log"
 	"net/http"
@@ -20,7 +19,7 @@ func TakeImage(w http.ResponseWriter, r *http.Request) {
 	}
 
 	r.ParseMultipartForm(10 << 20)
-	file, handler, err := r.FormFile("h") 
+	file, handler, err := r.FormFile("h")
 	if err != nil {
 		log.Fatal(err)
 	}
