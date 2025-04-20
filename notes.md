@@ -1,0 +1,1 @@
+Check images extension in backend

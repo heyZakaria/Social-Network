@@ -14,7 +14,7 @@ func HandleRegister(w http.ResponseWriter, r *http.Request) {
 		fmt.Println("Error decoding JSON:", err)
 		return
 	}
-	/////////// Check The Profile Inpute and Response with true or false ////////////////
+	
 	var msg WriteMessage
 	msg.Success = "true"
 	err = json.NewEncoder(w).Encode(msg)

@@ -7,6 +7,7 @@ import (
 
 var originAllowlist = []string{
 	"http://localhost:3000",
+	"https://localhost:3000",
 	"http://cats.mew",
 	"http://dog.how",
 }
