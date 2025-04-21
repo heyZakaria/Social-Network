@@ -95,3 +95,11 @@ form button {
 h3 {
   margin-bottom: 16px;
 }
+
+
+.err-msg {
+  color: red;
+  font-size: 14px;
+  margin-top: -16px;
+  margin-bottom: 16px;
+}

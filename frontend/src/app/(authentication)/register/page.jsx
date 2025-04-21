@@ -1,65 +1,94 @@
 "use client";
 
 import Link from "next/link";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
 import { useState } from "react";
 
+export const registerSchema = z.object({
+  firstName: z.string().min(3, "First name must be at least 3 characters").max(20).trim(),
+  lastName: z.string().min(3).max(20).trim(),
+  email: z.string().email({ message: 'Enter a valid email.' }).trim(),
+  password: z
+    .string()
+    .min(8, { message: "Password must be at least 8 characters long." })
+    .regex(/[a-z]/, { message: "Must include lowercase letter." })
+    .regex(/[A-Z]/, { message: "Must include uppercase letter." })
+    .regex(/[0-9]/, { message: "Must include a number." })
+    .trim(),
+  birthday: z.coerce.date().refine((date) => {
+    const today = new Date();
+    const age = today.getFullYear() - date.getFullYear();
+    const m = today.getMonth() - date.getMonth();
+    const d = today.getDate() - date.getDate();
+    return age > 15 || (age === 15 && (m > 0 || (m === 0 && d >= 0)));
+  }, {
+    message: "You must be at least 15 years old.",
+  }),
+  nickName: z.string().optional(),
+  bio: z.string().optional(),
+  // avatar: z.string().optional(),
+});
+
 export default function RegisterPage() {
-  const [profileInfo, setProfileInfo] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    password: "",
-    nickName: "",
-    bio: "",
-    avatar: "",
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm({
+    resolver: zodResolver(registerSchema),
   });
 
-  const [uploadAvatar, setAvatar] = useState(null);
+  const [avatarError, setAvatarError] = useState("");
+  
+  const watchedAvatar = watch("avatar");
 
-  const handleAvatarUpload = (e) => {
-    console.log(e.target.files[0]);
-    console.log(e.target);
+  const uploadImage = async (file) => {
+    const formData = new FormData();
+    formData.append("image", file);
 
-    setAvatar(e.target.files[0]);
-  };
-
-  const getProfileInfo = async (e) => {
-    const { name, value } = e.target;
-    setProfileInfo((prevInfo) => ({
-      ...prevInfo,
-      [name]: value,
-    }));
-  };
-
-  const uploadImage = async () => {
-    const fr = new FormData();
-    fr.append("h", uploadAvatar);
-    console.log("bgcvbv", fr);
     const send = await fetch("http://localhost:8080/upload", {
       method: "POST",
-      body: fr,
+      body: formData,
     });
 
     if (send.ok) {
-      console.log("avatar sended");
-    } else {
-      console.log("avatar not sended");
+      const response = await send.json();
+      return response.filename || "";
     }
+
+    console.log("Upload failed");
+    return "";
   };
 
-  const fetchProfileInfo = async () => {
+  const onSubmit = async (data) => {
     try {
-      const response = await fetch("http://localhost:8080/api/register", {
+      const file = data.avatar?.[0];
+
+      if (file && file.size > 1 * 1024 * 1024) {
+        setAvatarError("Avatar must be less than 1MB.");
+        return;
+      }
+      setAvatarError("");
+
+      const avatar = file ? await uploadImage(file) : "";
+
+      const payload = {
+        ...data,
+        avatar,
+      };
+
+      const res = await fetch("http://localhost:8080/api/register", {
         method: "POST",
-        body: JSON.stringify(profileInfo),
-        headers: {
-          "Content-type": "application/json",
-        },
+        headers: { "Content-type": "application/json" },
+        body: JSON.stringify(payload),
       });
 
-      if (response.ok) {
-        const data = await response.json();
-        console.log(data);
+      if (res.ok) {
+        const result = await res.json();
+        console.log("Registered", result);
       }
     } catch (err) {
       console.error("Error:", err);
@@ -68,127 +97,34 @@ export default function RegisterPage() {
 
   return (
     <>
-      <form
-        method="POST"
-        onSubmit={(e) => (
-          e.preventDefault(),
-          uploadImage(),
-          getProfileInfo(e),
-          fetchProfileInfo()
-        )}
-      >
-        <h2>Create a new account:</h2>
-        <br />
-        <label>First Name:</label>
-        <br />
-        <input
-          name="firstName"
-          value={profileInfo.firstName}
-          onChange={getProfileInfo}
-          placeholder="First Name"
-          type="text"
-          className="first_name"
-          minLength="3"
-          required
-        />
-        <br />
-        <label>Last Name:</label>
-        <br />
-        <input
-          name="lastName"
-          value={profileInfo.lastName}
-          onChange={getProfileInfo}
-          placeholder="Last Name"
-          type="text"
-          className="last_name"
-          minLength="3"
-          required
-        />
-        <br />
-        <label>Email:</label>
-        <br />
-        <input
-          name="email"
-          value={profileInfo.email}
-          onChange={getProfileInfo}
-          placeholder="example@cnss.ma"
-          type="email"
-          className="email"
-          minLength="8"
-          required
-        />
-        <br />
-        <label>Password:</label>
-        <br />
-        <input
-          name="password"
-          value={profileInfo.password}
-          onChange={getProfileInfo}
-          placeholder="example@cnss.ma"
-          type="password"
-          className="password"
-          minLength="3"
-          required
-        />
-        <h4>This Section is Optional</h4>
-        <br />
-        <label>Nickname:</label>
-        <br />
-        <input
-          name="nickName"
-          value={profileInfo.nickName}
-          onChange={getProfileInfo}
-          placeholder="La7ya"
-          type="text"
-          className="nickname"
-        />
-        <br />
-        <label>Bio:</label>
-        <br />
-        <input
-          name="bio"
-          value={profileInfo.bio}
-          onChange={getProfileInfo}
-          type="text"
-          className="img"
-          placeholder="Hey my name is and you know me..."
-        />
-        <br />
-        <label>Avatar:</label>
-        <br />
-        <input
-          name="img"
-          type="file"
-          className="img"
-          accept="image/jpeg, image/png, image/jpg"
-          onChange={handleAvatarUpload}
-        />
-        <br />
-        <br />
-        <br /> <button type="submit">Register</button>
-        <br />
-        {/* Errooooooooor */}
-        <br />
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <h2>Create a new account</h2>
+        
+        <input {...register("firstName")} placeholder="First Name" />
+        {errors.firstName && <p className="err-msg">{errors.firstName.message}</p>}
+
+        <input {...register("lastName")} placeholder="Last Name" />
+        {errors.lastName && <p className="err-msg">{errors.lastName.message}</p>}
+
+        <input {...register("email")} placeholder="Email" type="email" />
+        {errors.email && <p className="err-msg">{errors.email.message}</p>}
+
+        <input {...register("password")} placeholder="Password" type="password" />
+        {errors.password && <p className="err-msg">{errors.password.message}</p>}
+
+        <input {...register("birthday")} type="date" />
+        {errors.birthday && <p className="err-msg">{errors.birthday.message}</p>}
+
+        <input {...register("nickName")} placeholder="Nickname (optional)" />
+        <input {...register("bio")} placeholder="Bio (optional)" />
+
+        <input type="file" {...register("avatar")} accept="image/*" />
+        {avatarError && <p className="err-msg">{avatarError}</p>}
+
+        <button type="submit">Register</button>
         <br />
         <Link href="/login">Already have an account?</Link>
       </form>
-      <div id="display_image"></div>
     </>
   );
 }
-
-// function name() {
-//    console.log("Gcxgkmdkgmkofmzsd");
-
-//        const file_reader = new FileReader();
-//        file_reader.onload = imageIsLoaded;
-//        console.log(file_reader);
-
-//        document.querySelector('#display_image').src = file_reader
-//        file_reader.readAsDataURL(this.files[0]);
-
-// }
-
-// function imageIsLoaded(e) {
-//     $('#display_image').attr('src', e.target.result);
-//   };
