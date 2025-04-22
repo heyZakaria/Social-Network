@@ -6,16 +6,15 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { useState } from "react";
 
-export const registerSchema = z.object({
-  firstName: z.string().min(3, "First name must be at least 3 characters").max(20).trim(),
-  lastName: z.string().min(3).max(20).trim(),
-  email: z.string().email({ message: 'Enter a valid email.' }).trim(),
-  password: z
-    .string()
-    .min(8, { message: "Password must be at least 8 characters long." })
-    .regex(/[a-z]/, { message: "Must include lowercase letter." })
-    .regex(/[A-Z]/, { message: "Must include uppercase letter." })
-    .regex(/[0-9]/, { message: "Must include a number." })
+const registerSchema = z.object({
+  firstName: z.string().min(3, "Min 3 chars.").max(20, "Max 20 chars.").trim(),
+  lastName: z.string().min(3, "Min 3 chars.").max(20, "Max 20 chars.").trim(),
+  email: z.string().email("Invalid email.").trim(),
+  password: z.string()
+    .min(8, "Min 8 chars.")
+    .regex(/[a-z]/, "Needs lowercase.")
+    .regex(/[A-Z]/, "Needs uppercase.")
+    .regex(/[0-9]/, "Needs number.")
     .trim(),
   birthday: z.coerce.date().refine((date) => {
     const today = new Date();
@@ -23,75 +22,88 @@ export const registerSchema = z.object({
     const m = today.getMonth() - date.getMonth();
     const d = today.getDate() - date.getDate();
     return age > 15 || (age === 15 && (m > 0 || (m === 0 && d >= 0)));
-  }, {
-    message: "You must be at least 15 years old.",
-  }),
-  nickName: z.string().optional(),
-  bio: z.string().optional(),
-  // avatar: z.string().optional(),
+  }, { message: "Must be 15+." }),
+  nickName: z.string()
+    .max(20, "Max 20 chars.")
+    .regex(/^[a-zA-Z0-9_]+$/, "Only letters, numbers, and underscore allowed.")
+    .trim()
+    .optional(),
+  bio: z.string().max(200, "Max 200 chars.").trim().optional(),
+  avatar: z.any().optional(),
 });
 
 export default function RegisterPage() {
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm({
     resolver: zodResolver(registerSchema),
   });
 
   const [avatarError, setAvatarError] = useState("");
-  
-  const watchedAvatar = watch("avatar");
-
-  const uploadImage = async (file) => {
-    const formData = new FormData();
-    formData.append("image", file);
-
-    const send = await fetch("http://localhost:8080/upload", {
-      method: "POST",
-      body: formData,
-    });
-
-    if (send.ok) {
-      const response = await send.json();
-      return response.filename || "";
-    }
-
-    console.log("Upload failed");
-    return "";
-  };
+  const [serverError, setServerError] = useState("");
+  const [emailrError, setEmailrError] = useState("");
 
   const onSubmit = async (data) => {
-    try {
-      const file = data.avatar?.[0];
+    const formData = new FormData();
 
-      if (file && file.size > 1 * 1024 * 1024) {
+    formData.append("firstname", data.firstName);
+    formData.append("lastname", data.lastName);
+    formData.append("email", data.email);
+    formData.append("password", data.password);
+    formData.append("birthday", data.birthday.toISOString().split("T")[0]);
+
+    if (data.nickName) formData.append("nickname", data.nickName);
+    if (data.bio) formData.append("bio", data.bio);
+
+    const avatarFile = data.avatar?.[0];
+    if (avatarFile) {
+      const allowedTypes = ["image/jpeg", "image/png", "image/webp"];
+      if (!allowedTypes.includes(avatarFile.type)) {
+        setAvatarError("Only jpeg, png, or webp images allowed.");
+        return;
+      }
+      if (avatarFile.size > 1 * 1024 * 1024) {
         setAvatarError("Avatar must be less than 1MB.");
         return;
       }
       setAvatarError("");
+      formData.append("avatar", avatarFile);
+    }
 
-      const avatar = file ? await uploadImage(file) : "";
-
-      const payload = {
-        ...data,
-        avatar,
-      };
-
+    try {
       const res = await fetch("http://localhost:8080/api/register", {
         method: "POST",
-        headers: { "Content-type": "application/json" },
-        body: JSON.stringify(payload),
+        body: formData,
       });
 
-      if (res.ok) {
-        const result = await res.json();
-        console.log("Registered", result);
+      const contentType = res.headers.get("content-type");
+
+      if (res.status === 409) {
+        setEmailrError("Email already exists.");
+        return;
       }
-    } catch (err) {
-      console.error("Error:", err);
+
+      if (!res.ok) {
+        const errorText = await res.text();
+        setServerError(errorText);
+        return;
+      }
+
+      if (contentType?.includes("application/json")) {
+        const result = await res.json();
+        if (result.success === "true") {
+          console.log("Registered", result);
+          setServerError("");
+        } else {
+          setServerError("Registration failed.");
+        }
+      } else {
+        setServerError("Unexpected server response.");
+      }
+    } catch {
+      setServerError("Failed to connect to server.");
     }
   };
 
@@ -99,15 +111,20 @@ export default function RegisterPage() {
     <>
       <form onSubmit={handleSubmit(onSubmit)}>
         <h2>Create a new account</h2>
-        
+
         <input {...register("firstName")} placeholder="First Name" />
         {errors.firstName && <p className="err-msg">{errors.firstName.message}</p>}
 
         <input {...register("lastName")} placeholder="Last Name" />
         {errors.lastName && <p className="err-msg">{errors.lastName.message}</p>}
 
-        <input {...register("email")} placeholder="Email" type="email" />
+        <input {...register("email")} placeholder="Email" type="email"
+        onChange={(e) => {setEmailrError("");
+          register("email").onChange(e);
+          
+          }} />
         {errors.email && <p className="err-msg">{errors.email.message}</p>}
+        {emailrError && <p className="err-msg">{emailrError}</p>}
 
         <input {...register("password")} placeholder="Password" type="password" />
         {errors.password && <p className="err-msg">{errors.password.message}</p>}
@@ -116,7 +133,10 @@ export default function RegisterPage() {
         {errors.birthday && <p className="err-msg">{errors.birthday.message}</p>}
 
         <input {...register("nickName")} placeholder="Nickname (optional)" />
+        {errors.nickName && <p className="err-msg">{errors.nickName.message}</p>}
+
         <input {...register("bio")} placeholder="Bio (optional)" />
+        {errors.bio && <p className="err-msg">{errors.bio.message}</p>}
 
         <input type="file" {...register("avatar")} accept="image/*" />
         {avatarError && <p className="err-msg">{avatarError}</p>}
@@ -124,6 +144,8 @@ export default function RegisterPage() {
         <button type="submit">Register</button>
         <br />
         <Link href="/login">Already have an account?</Link>
+        <br /><br />
+        {serverError && <p className="err-msg">{serverError}</p>}
       </form>
     </>
   );

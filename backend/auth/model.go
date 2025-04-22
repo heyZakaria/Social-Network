@@ -3,16 +3,16 @@ package auth
 import "time"
 
 type Profile struct {
-	id int
+	ID        string       `json:"-"`
 	FirstName string    `json:"firstname"`
 	LastName  string    `json:"lastname"`
 	Email     string    `json:"email"`
 	Password  string    `json:"password"`
 	NickName  string    `json:"nickname"`
 	Bio       string    `json:"bio"`
-	Image     string    `json:"fr"`
+	Avatar    string    `json:"avatar"`
 	Birthday  time.Time `json:"birthday"`
-	Creat_At  time.Time
+	CreatedAt time.Time `json:"-"`
 }
 
 type WriteMessage struct {
