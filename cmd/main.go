@@ -29,7 +29,7 @@ import (
 // }
 
 func CreateDatabase() (*sql.DB, error) {
-	db, err := sql.Open("sqlite3", "./database.db")
+	db, err := sql.Open("sqlite3", "./bitLkhzin.db")
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -39,10 +39,12 @@ func CreateDatabase() (*sql.DB, error) {
 	if err != nil {
 		log.Fatal(err)
 	}
+
 	schema, err := os.ReadFile("./schema.sql")
 	if err != nil {
 		log.Fatal(err)
 	}
+
 	_, err = db.Exec(string(schema))
 	if err != nil {
 		log.Fatal(err)
@@ -53,9 +55,12 @@ func CreateDatabase() (*sql.DB, error) {
 func main() {
 
 	log.Println("Starting HTTP server at http://localhost:8080 ...")
-	mux := http.NewServeMux()
+	router := http.NewServeMux()
 	CreateDatabase()
-	// mux.HandleFunc("/upload", TakeImage)
-	mux.HandleFunc("/api/register", auth.HandleRegister)
-	log.Fatal(http.ListenAndServe(":8080", middleware.CheckCORS(mux)))
+
+	router.Handle("/api/", http.StripPrefix("/api", auth.AuthMux()))
+
+	// router.HandleFunc("/upload", TakeImage)
+	router.HandleFunc("POST /api/register", auth.HandleRegister)
+	log.Fatal(http.ListenAndServe(":8080", middleware.CheckCORS(router)))
 }

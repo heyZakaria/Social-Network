@@ -7,7 +7,6 @@ import Link from "next/link";
 export default function ShowLogin() {
     return (
         <form >
-            
 
             <label>Email:</label><br />
             <input

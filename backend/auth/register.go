@@ -16,6 +16,7 @@ import (
 )
 
 func HandleRegister(w http.ResponseWriter, r *http.Request) {
+	
 	err := r.ParseMultipartForm(10 << 20)
 	if err != nil {
 		http.Error(w, "Failed to parse form", http.StatusBadRequest)
