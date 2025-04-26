@@ -1,37 +1,4 @@
-form {
-  display: flex;
-  justify-content: center;
-  padding: 15px;
-}
-
-form input {
-  width: 100%;
-  padding: 12px;
-  height: 45px;
-  border: 1px solid #000;
-  border: 0px solid #000;
-  border-bottom: 1px solid #ddd;
-}
-
-form button {
-  height: 50px;
-  background-color: #000;
-  color: #ddd;
-  width: 100%;
-  padding: 16px;
-}
-h3 {
-  margin-bottom: 16px;
-}
-
-.err-msg {
-  color: red;
-  font-size: 14px;
-  margin-top: -16px;
-  margin-bottom: 16px;
-  font-weight: 600;
-}
-.register-container {
+.registerContainer {
   margin: 50px;
   background: #fff;
   padding: 30px;
@@ -41,7 +8,7 @@ h3 {
   width: 100%;
 }
 
-.register-container h2 {
+.heading3 {
   text-align: center;
   color: #333;
   margin-bottom: 10px;
@@ -51,6 +18,8 @@ h3 {
   text-align: center;
   font-size: 14px;
   color: #666;
+  margin-bottom: 22px;
+  
 }
 
 .subtitle a {
@@ -59,18 +28,18 @@ h3 {
   font-weight: 600;
 }
 
-.register-form {
+.registerForm {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
-.form-group {
+.formGroup {
   display: flex;
   flex-direction: column;
 }
 
-.form-group.double {
+.formGroupDouble {
   flex-direction: row;
   gap: 20px;
 }
@@ -81,28 +50,34 @@ h3 {
   flex-direction: column;
 }
 
-label {
+.label {
   margin-bottom: 4px;
   font-size: 14px;
   font-weight: 600;
   color: #555;
 }
 
-input[type="text"],
-input[type="email"],
-input[type="password"],
-input[type="date"],
-input[type="file"],
-textarea {
+.inputText,
+.inputEmail,
+.inputPassword,
+.inputDate,
+.inputFile,
+.textarea {
+  width: 100%;
+  padding: 12px;
+  height: 45px;
   border: 1px solid #ddd;
   border-radius: 10px;
   font-size: 15px;
   resize: none;
-  padding: 8px;
 }
 
-input:focus,
-textarea:focus {
+.textarea {
+  height: auto;
+}
+
+.inputFocus,
+.textareaFocus {
   outline: none;
   border-color: #7c3aed;
 }
@@ -113,11 +88,11 @@ textarea:focus {
   margin-top: 5px;
 }
 
-.server-error {
+.serverError {
   text-align: center;
 }
 
-.submit-btn {
+.submitBtn {
   background: #7c3aed;
   color: white;
   padding: 12px;
@@ -128,12 +103,12 @@ textarea:focus {
   transition: background 0.3s;
 }
 
-.submit-btn:hover {
+.submitBtn:hover {
   background: #5b21b6;
 }
 
 @media (max-width: 500px) {
-  .form-group.double {
+  .formGroupDouble {
     flex-direction: column;
   }
 }
