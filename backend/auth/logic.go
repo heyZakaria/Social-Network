@@ -1,80 +1,126 @@
 package auth
 
 import (
-	"errors"
-	"mime/multipart"
+	"database/sql"
 	"regexp"
+	"socialNetwork/backend/utils"
 	"time"
+
+	"github.com/google/uuid"
+	"golang.org/x/crypto/bcrypt"
 )
 
-func ValidateRegisterInput(firstName, lastName, email, password, birthdayStr, nickName, bio string, avatarHeader *multipart.FileHeader) error {
-	if len(firstName) < 3 {
-		return errors.New("First name must be at least 3 characters")
-	}
-	if len(firstName) > 20 {
-		return errors.New("First name must be at most 20 characters")
+func ValidateRegistrationInput(p Profile) bool {
+	utils.Log("INFO", "Validating registration input")
+
+	if len(p.FirstName) < 3 || len(p.FirstName) > 20 {
+		utils.Log("WARNING", "Invalid first name length")
+		return false
 	}
 
-	if len(lastName) < 3 {
-		return errors.New("Last name must be at least 3 characters")
-	}
-	if len(lastName) > 20 {
-		return errors.New("Last name must be at most 20 characters")
+	if len(p.LastName) < 3 || len(p.LastName) > 20 {
+		utils.Log("WARNING", "Invalid last name length")
+		return false
 	}
 
 	emailRegex := regexp.MustCompile(`^[^\s@]+@[^\s@]+\.[^\s@]+$`)
-	if !emailRegex.MatchString(email) {
-		return errors.New("Invalid email format")
+	if !emailRegex.MatchString(p.Email) {
+		utils.Log("WARNING", "Invalid email format")
+		return false
 	}
 
-	if len(password) < 8 {
-		return errors.New("Password must be at least 8 characters")
+	if len(p.Password) < 8 {
+		utils.Log("WARNING", "Password too short")
+		return false
 	}
-	if !regexp.MustCompile(`[a-z]`).MatchString(password) {
-		return errors.New("Password must include a lowercase letter")
+	if !regexp.MustCompile(`[a-z]`).MatchString(p.Password) {
+		utils.Log("WARNING", "Password must include lowercase letter")
+		return false
 	}
-	if !regexp.MustCompile(`[A-Z]`).MatchString(password) {
-		return errors.New("Password must include an uppercase letter")
+	if !regexp.MustCompile(`[A-Z]`).MatchString(p.Password) {
+		utils.Log("WARNING", "Password must include uppercase letter")
+		return false
 	}
-	if !regexp.MustCompile(`[0-9]`).MatchString(password) {
-		return errors.New("Password must include a number")
+	if !regexp.MustCompile(`[0-9]`).MatchString(p.Password) {
+		utils.Log("WARNING", "Password must include digit")
+		return false
 	}
 
-	birthday, err := time.Parse("2006-01-02", birthdayStr)
+	if p.Birthday.After(time.Now().AddDate(-15, 0, 0)) || p.Birthday.Before(time.Now().AddDate(-120, 0, 0)) {
+		utils.Log("WARNING", "Invalid birthday range")
+		return false
+	}
+
+	if p.NickName != "" {
+		if len(p.NickName) > 20 {
+			utils.Log("WARNING", "Nickname too long")
+			return false
+		}
+		if !regexp.MustCompile(`^[a-zA-Z0-9_]+$`).MatchString(p.NickName) {
+			utils.Log("WARNING", "Invalid nickname characters")
+			return false
+		}
+	}
+
+	if len(p.Bio) > 200 {
+		utils.Log("WARNING", "Bio too long")
+		return false
+	}
+
+	utils.Log("INFO", "Registration input valid")
+	return true
+}
+
+func HashPassword(password string) (string, error) {
+	utils.Log("INFO", "Hashing password")
+	hashedPassword, err := bcrypt.GenerateFromPassword([]byte(password), bcrypt.DefaultCost)
 	if err != nil {
-		return errors.New("Invalid birthday format")
+		utils.Log("ERROR", "Password hashing failed: "+err.Error())
+		return "", err
 	}
-	today := time.Now()
-	age := today.Year() - birthday.Year()
-	if today.YearDay() < birthday.YearDay() {
-		age--
+	utils.Log("INFO", "Password hashed successfully")
+	return string(hashedPassword), nil
+}
+
+func EmailExists(db *sql.DB, email string) bool {
+	utils.Log("INFO", "Checking if email exists: "+email)
+	var exists bool
+	err := db.QueryRow("SELECT EXISTS(SELECT 1 FROM users WHERE email = ?)", email).Scan(&exists)
+	if err != nil {
+		utils.Log("ERROR", "Database query failed: "+err.Error())
 	}
-	if age < 15 {
-		return errors.New("You must be at least 15 years old")
+	return err == nil && exists
+}
+
+func SaveUserToDB(db *sql.DB, p Profile, hashedPassword string) (string, error) {
+	userID := uuid.New().String()
+	utils.Log("INFO", "Saving user to database with ID: "+userID)
+
+	stmt, err := db.Prepare(`
+		INSERT INTO users (id, first_name, last_name, email, password_hash, nickname, bio, avatar, birthday)
+		VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+	`)
+	if err != nil {
+		utils.Log("ERROR", "Prepare statement failed: "+err.Error())
+		return "", err
 	}
 
-	if nickName != "" {
-		if len(nickName) > 20 {
-			return errors.New("Nickname must be at most 20 characters")
-		}
-		if !regexp.MustCompile(`^[a-zA-Z0-9_]+$`).MatchString(nickName) {
-			return errors.New("Nickname can only include letters, numbers, and underscores")
-		}
+	_, err = stmt.Exec(
+		userID,
+		p.FirstName,
+		p.LastName,
+		p.Email,
+		hashedPassword,
+		p.NickName,
+		p.Bio,
+		p.Avatar,
+		p.Birthday,
+	)
+	if err != nil {
+		utils.Log("ERROR", "Failed to execute insert: "+err.Error())
+		return "", err
 	}
 
-	if len(bio) > 200 {
-		return errors.New("Bio must be at most 200 characters")
-	}
-
-	if avatarHeader != nil {
-		if avatarHeader.Size > 1*1024*1024 {
-			return errors.New("Avatar must be less than 1MB")
-		}
-		contentType := avatarHeader.Header.Get("Content-Type")
-		if contentType != "image/jpeg" && contentType != "image/png" && contentType != "image/webp" {
-			return errors.New("Only image files are allowed (jpeg, png, webp)")
-		}
-	}
-
-	return nil
+	utils.Log("INFO", "User saved successfully")
+	return userID, nil
 }

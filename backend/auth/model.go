@@ -1,9 +1,11 @@
 package auth
 
-import "time"
+import (
+	"time"
+)
 
 type Profile struct {
-	ID        string       `json:"-"`
+	ID        string    `json:"-"`
 	FirstName string    `json:"firstname"`
 	LastName  string    `json:"lastname"`
 	Email     string    `json:"email"`

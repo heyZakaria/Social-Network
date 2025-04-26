@@ -1,152 +1,242 @@
-"use client";
 
-import Link from "next/link";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { z } from "zod";
+// client component declaration
+// we write this because next work in server
+// and make next work in client side
+// without this part form validation, onChang && usestate not work
+"use client";
+import styles from "./register.css"
+
+// for save what we have in every input
 import { useState } from "react";
 
-const registerSchema = z.object({
-  firstName: z.string().min(3, "Min 3 chars.").max(20, "Max 20 chars.").trim(),
-  lastName: z.string().min(3, "Min 3 chars.").max(20, "Max 20 chars.").trim(),
-  email: z.string().email("Invalid email.").trim(),
-  password: z.string()
-    .min(8, "Min 8 chars.")
-    .regex(/[a-z]/, "Needs lowercase.")
-    .regex(/[A-Z]/, "Needs uppercase.")
-    .regex(/[0-9]/, "Needs number.")
-    .trim(),
-  birthday: z.coerce.date().refine((date) => {
-    const today = new Date();
-    const age = today.getFullYear() - date.getFullYear();
-    const m = today.getMonth() - date.getMonth();
-    const d = today.getDate() - date.getDate();
-    return age > 15 || (age === 15 && (m > 0 || (m === 0 && d >= 0)));
-  }, { message: "Must be 15+." }),
-  nickName: z.string()
-    .max(20, "Max 20 chars.")
-    .regex(/^[a-zA-Z0-9_]+$/, "Only letters, numbers, and underscore allowed.")
-    .trim()
-    .optional(),
-  bio: z.string().max(200, "Max 200 chars.").trim().optional(),
-  avatar: z.any().optional(),
-});
+// we use this import for not reload page
+import Link from "next/link";
 
+// so we need to make this page exportable to use by next
 export default function RegisterPage() {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({
-    resolver: zodResolver(registerSchema),
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+    birthday: "",
+    nickname: "",
+    bio: "",
+    avatar: null,
   });
 
-  const [avatarError, setAvatarError] = useState("");
+  //err of input len format....
+  const [errors, setErrors] = useState({});
+
+  //errors of backend for example if email exist
   const [serverError, setServerError] = useState("");
-  const [emailrError, setEmailrError] = useState("");
 
-  const onSubmit = async (data) => {
-    const formData = new FormData();
+  const validate = () => {
+    let errors = {};
+    // valid first.N
+    if(formData.firstName.trim().length < 3)
+      errors.firstName = "First name too short."
+    if (formData.firstName.trim().length > 20)
+      errors.firstName = "First name too long."
 
-    formData.append("firstname", data.firstName);
-    formData.append("lastname", data.lastName);
-    formData.append("email", data.email);
-    formData.append("password", data.password);
-    formData.append("birthday", data.birthday.toISOString().split("T")[0]);
 
-    if (data.nickName) formData.append("nickname", data.nickName);
-    if (data.bio) formData.append("bio", data.bio);
+    // valid last.N
+    if(formData.lastName.trim().length < 3)
+      errors.lastName = "Last name too short."
+    if (formData.lastName.trim().length > 20)
+      errors.lastName = "Last name too long."
 
-    const avatarFile = data.avatar?.[0];
-    if (avatarFile) {
-      const allowedTypes = ["image/jpeg", "image/png", "image/webp"];
-      if (!allowedTypes.includes(avatarFile.type)) {
-        setAvatarError("Only jpeg, png, or webp images allowed.");
-        return;
-      }
-      if (avatarFile.size > 1 * 1024 * 1024) {
-        setAvatarError("Avatar must be less than 1MB.");
-        return;
-      }
-      setAvatarError("");
-      formData.append("avatar", avatarFile);
+
+    // valid email
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    if (!emailRegex.test(formData.email))
+      errors.email = "Invalid email."
+    if (formData.email.trim().length > 70)
+      errors.email = "Email too long."
+
+    // valid password
+    if (formData.password.length < 8)
+      errors.password = "Password too short."
+    if (!/[a-z]/.test(formData.password))
+      errors.password = "Needs lowercase."
+    if (!/[A-Z]/.test(formData.password))
+    errors.password = "Needs Uppercase."
+     if (!/[0-9]/.test(formData.password))
+    errors.password = "Needs number."
+
+     //vald birthday
+     if (!formData.birthday) {
+      errors.birthday = "Birthday required."
+     } else {
+      const birth = new Date(formData.birthday)
+      const today = new Date()
+      const age = today.getFullYear() - birth.getFullYear()
+      const m = today.getMonth() - birth.getMonth();
+      const d = today.getDate() - birth.getDate();
+      const validAge = (m > 0 || (m === 0 && d >= 0))
+      if (age < 15 || age > 120 || !validAge)
+        errors.birthday = "Age must be between 15 and 120."
     }
+    //valid nickname
+    if (formData.nickname && !/^[a-zA-Z0-9]+$/.test(formData.nickname))
+      errors.nickname = "Only letters, numbers, and underscore."
+
+    if (formData.avatar) {
+      const allowedType = ["image/jpeg", "image/png", "image/webp", "image/jpg"]
+      if(!allowedType.includes(formData.avatar.type))
+        errors.avatar = "Only jpeg, jpg, png or webp allowed."
+      if (formData.avatar.size > 1024 * 1024)
+        errors.avatar = "Max size 1MB."
+    }
+
+    // valid bio
+    if (formData.bio.trim().length > 200)
+      errors.bio = "Bio too long."
+
+    return errors
+  }
+
+  const handleChange = (e) => {
+    const { name, value, files } = e.target;
+    setFormData((prev) => ({
+      // take all VALUES
+      ...prev,
+      // and modif in target to take now value
+      [name]: name === "avatar" ? files[0] : value,
+    }));
+    // give errors to function setErrors to modif
+    setErrors((prev) => ({ ...prev, [name]: "" }));
+
+    // make error empty
+    // cliwnt maybe solve prob
+    setServerError("");
+  };
+  
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    
+    // give errors to function setErrors to modif
+    const validErr = validate()
+    setErrors(validErr)
+    setServerError("");
+
+
+    // check len of obj if 0 so it's true
+    if (Object.keys(validErr).length > 0) return;
+
+    const submitData = new FormData()
+    submitData.append("firstname", formData.firstName.trim())
+    submitData.append("lastname", formData.lastName.trim())
+    submitData.append("email", formData.email.trim())
+    submitData.append("password", formData.password)
+    submitData.append("birthday", formData.birthday)
+    if(formData.nickname)
+      submitData.append("nickname", formData.nickname.trim())
+    if (formData.bio) 
+      submitData.append("bio", formData.bio.trim())
+    if(formData.avatar)
+      submitData.append("avatar", formData.avatar)
 
     try {
       const res = await fetch("http://localhost:8080/api/register", {
         method: "POST",
-        body: formData,
+        body: submitData,
       });
-
+    
       const contentType = res.headers.get("content-type");
-
+    
       if (res.status === 409) {
-        setEmailrError("Email already exists.");
+        setErrors({ email: "Email already exists." });
         return;
       }
-
+    
       if (!res.ok) {
         const errorText = await res.text();
         setServerError(errorText);
         return;
       }
-
-      if (contentType?.includes("application/json")) {
+    
+      if (contentType && contentType.includes("application/json")) {
         const result = await res.json();
-        if (result.success === "true") {
-          console.log("Registered", result);
+    
+        if (result.success) {
+          console.log(result.success === "true");
           setServerError("");
+          alert("Registration successful!");
         } else {
-          setServerError("Registration failed.");
+          setServerError(result.message || "Registration failed.");
         }
       } else {
         setServerError("Unexpected server response.");
       }
-    } catch {
+    } catch (error) {
       setServerError("Failed to connect to server.");
     }
-  };
+    
+  }
 
   return (
-    <>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <h2>Create a new account</h2>
+<div className="register-container">
+  <h2>Create Account</h2>
+  <p className="subtitle">Already have an account? <Link href="/login">Sign in</Link></p>
 
-        <input {...register("firstName")} placeholder="First Name" />
-        {errors.firstName && <p className="err-msg">{errors.firstName.message}</p>}
+  <form onSubmit={handleSubmit} className="register-form">
+    
+    <div className="form-group double">
+      <div className="field">
+        <label>First Name</label>
+        <input type="text" name="firstName" value={formData.firstName} onChange={handleChange} />
+        {errors.firstName && <p className="error">{errors.firstName}</p>}
+      </div>
+      <div className="field">
+        <label>Last Name</label>
+        <input type="text" name="lastName" value={formData.lastName} onChange={handleChange} />
+        {errors.lastName && <p className="error">{errors.lastName}</p>}
+      </div>
+    </div>
 
-        <input {...register("lastName")} placeholder="Last Name" />
-        {errors.lastName && <p className="err-msg">{errors.lastName.message}</p>}
+    <div className="form-group">
+      <label>Email</label>
+      <input type="email" name="email" value={formData.email} onChange={handleChange} />
+      {errors.email && <p className="error">{errors.email}</p>}
+    </div>
 
-        <input {...register("email")} placeholder="Email" type="email"
-        onChange={(e) => {setEmailrError("");
-          register("email").onChange(e);
-          
-          }} />
-        {errors.email && <p className="err-msg">{errors.email.message}</p>}
-        {emailrError && <p className="err-msg">{emailrError}</p>}
+    <div className="form-group">
+      <label>Password</label>
+      <input type="password" name="password" value={formData.password} onChange={handleChange} />
+      {errors.password && <p className="error">{errors.password}</p>}
+    </div>
 
-        <input {...register("password")} placeholder="Password" type="password" />
-        {errors.password && <p className="err-msg">{errors.password.message}</p>}
+    <div className="form-group">
+      <label>Date of Birth</label>
+      <input type="date" name="birthday" value={formData.birthday} onChange={handleChange} />
+      {errors.birthday && <p className="error">{errors.birthday}</p>}
+    </div>
 
-        <input {...register("birthday")} type="date" />
-        {errors.birthday && <p className="err-msg">{errors.birthday.message}</p>}
+    <div className="form-group">
+      <label>Nickname (Optional)</label>
+      <input type="text" name="nickname" value={formData.nickname} onChange={handleChange} />
+      {errors.nickname && <p className="error">{errors.nickname}</p>}
+    </div>
 
-        <input {...register("nickName")} placeholder="Nickname (optional)" />
-        {errors.nickName && <p className="err-msg">{errors.nickName.message}</p>}
+    <div className="form-group">
+      <label>About Me (Optional)</label>
+      <textarea name="bio" value={formData.bio} onChange={handleChange} rows="4" />
+      {errors.bio && <p className="error">{errors.bio}</p>}
+    </div>
 
-        <input {...register("bio")} placeholder="Bio (optional)" />
-        {errors.bio && <p className="err-msg">{errors.bio.message}</p>}
+    <div className="form-group">
+      <label>Avatar (Optional)</label>
+      <input type="file" name="avatar" onChange={handleChange} />
+      {errors.avatar && <p className="error">{errors.avatar}</p>}
+    </div>
 
-        <input type="file" {...register("avatar")} accept="image/*" />
-        {avatarError && <p className="err-msg">{avatarError}</p>}
+    {serverError && <p className="error server-error">{serverError}</p>}
 
-        <button type="submit">Register</button>
-        <br />
-        <Link href="/login">Already have an account?</Link>
-        <br /><br />
-        {serverError && <p className="err-msg">{serverError}</p>}
-      </form>
-    </>
-  );
+    <button type="submit" className="submit-btn">Create Account</button>
+
+  </form>
+</div>
+
+  )
 }

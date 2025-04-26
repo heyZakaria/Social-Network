@@ -7,26 +7,10 @@ import (
 	"os"
 	"socialNetwork/backend/auth"
 	"socialNetwork/backend/middleware"
+	"socialNetwork/backend/utils"
 
 	_ "github.com/mattn/go-sqlite3"
 )
-
-// func TakeImage(w http.ResponseWriter, r *http.Request) {
-// 	r.ParseMultipartForm(10 << 20)
-// 	file, handler, err := r.FormFile("image")
-// 	if err != nil {
-// 		log.Fatal(err)
-// 	}
-// 	defer file.Close()
-
-// 	os.MkdirAll("uploads", os.ModePerm)
-
-// 	filePath := filepath.Join("uploads", handler.Filename)
-// 	dst, _ := os.Create(filePath)
-// 	defer dst.Close()
-// 	io.Copy(dst, file)
-
-// }
 
 func CreateDatabase() (*sql.DB, error) {
 	db, err := sql.Open("sqlite3", "./database.db")
@@ -52,10 +36,16 @@ func CreateDatabase() (*sql.DB, error) {
 
 func main() {
 
-	log.Println("Starting HTTP server at http://localhost:8080 ...")
+	err := utils.InitLogger()
+	if err != nil {
+		log.Fatal("Cannot initialize logger:", err)
+	}
+	defer utils.CloseLogger()
+
+	utils.Log("INFO", "Starting HTTP server at http://localhost:8080 ...")
+
 	mux := http.NewServeMux()
 	CreateDatabase()
-	// mux.HandleFunc("/upload", TakeImage)
 	mux.HandleFunc("/api/register", auth.HandleRegister)
 	log.Fatal(http.ListenAndServe(":8080", middleware.CheckCORS(mux)))
 }
