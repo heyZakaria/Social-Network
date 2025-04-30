@@ -1,10 +1,10 @@
 package auth
 
 import (
-	"database/sql"
 	"fmt"
 	"net/http"
-	"socialNetwork/backend/utils"
+	"socialNetwork/db"
+	"socialNetwork/utils"
 
 	_ "github.com/mattn/go-sqlite3"
 )
@@ -13,31 +13,31 @@ func HandleRegister(w http.ResponseWriter, r *http.Request) {
 	err := r.ParseMultipartForm(10 << 20)
 	if err != nil {
 		utils.Log("ERROR", "Failed to parse form: "+err.Error())
-		http.Error(w, "Error parsing form", http.StatusBadRequest)
+		SendJSON(w, http.StatusBadRequest, JSONResponse{
+			Success: false,
+			Error:   "Error parsing form",
+		})
 		return
 	}
 	utils.Log("INFO", "Parsed multipart form")
 
-	db, err := sql.Open("sqlite3", "./database.db")
-	if err != nil {
-		utils.Log("ERROR", "Database connection error: "+err.Error())
-		http.Error(w, "Database connection error", http.StatusInternalServerError)
-		return
-	}
-	utils.Log("INFO", "Database opened successfully")
-	defer db.Close()
-
 	p, err := ParseForm(r)
 	if err != nil {
-		utils.Log("ERROR", "Failed to parse form fields: "+err.Error())
-		http.Error(w, err.Error(), http.StatusBadRequest)
+		utils.Log("ERROR", "Failed to parse form of register: "+err.Error())
+		SendJSON(w, http.StatusBadRequest, JSONResponse{
+			Success: false,
+			Error:   err.Error(),
+		})
 		return
 	}
 	utils.Log("INFO", "Form fields parsed")
 
-	if EmailExists(db, p.Email) {
+	if EmailExists(db.DB, p.Email) {
 		utils.Log("WARNING", "Tried to register with existing email: "+p.Email)
-		http.Error(w, "Email already exists", http.StatusConflict)
+		SendJSON(w, http.StatusConflict, JSONResponse{
+			Success: false,
+			Error:   "Email already exists",
+		})
 		return
 	}
 	utils.Log("INFO", "Email is unique")
@@ -45,7 +45,10 @@ func HandleRegister(w http.ResponseWriter, r *http.Request) {
 	avatarFilename, err := HandleUploadImage(r)
 	if err != nil {
 		utils.Log("ERROR", "Avatar upload failed: "+err.Error())
-		http.Error(w, err.Error(), http.StatusInternalServerError)
+		SendJSON(w, http.StatusInternalServerError, JSONResponse{
+			Success: false,
+			Error:   "Avatar upload failed",
+		})
 		return
 	}
 	p.Avatar = avatarFilename
@@ -53,7 +56,10 @@ func HandleRegister(w http.ResponseWriter, r *http.Request) {
 
 	if !ValidateRegistrationInput(p) {
 		utils.Log("WARNING", "Validation failed for user input")
-		http.Error(w, "Invalid input", http.StatusBadRequest)
+		SendJSON(w, http.StatusBadRequest, JSONResponse{
+			Success: false,
+			Error:   "Invalid input",
+		})
 		return
 	}
 	utils.Log("INFO", "User input validated")
@@ -61,19 +67,25 @@ func HandleRegister(w http.ResponseWriter, r *http.Request) {
 	hashedPassword, err := HashPassword(p.Password)
 	if err != nil {
 		utils.Log("ERROR", "Password hashing failed: "+err.Error())
-		http.Error(w, "Password hashing failed", http.StatusInternalServerError)
+		SendJSON(w, http.StatusInternalServerError, JSONResponse{
+			Success: false,
+			Error:   "Password hashing failed",
+		})
 		return
 	}
 	utils.Log("INFO", "Password hashed")
 
-	userID, err := SaveUserToDB(db, p, hashedPassword)
+	userID, err := SaveUserToDB(db.DB, p, hashedPassword)
 	if err != nil {
 		utils.Log("ERROR", "Failed to save user to DB: "+err.Error())
-		http.Error(w, "Failed to register user", http.StatusInternalServerError)
+		SendJSON(w, http.StatusInternalServerError, JSONResponse{
+			Success: false,
+			Error:   "Failed to register user",
+		})
 		return
 	}
-	utils.Log("INFO", fmt.Sprintf("User registered with ID: %d", userID))
+	utils.Log("INFO", fmt.Sprintf("User registered with ID: %s", userID))
 
-	SendSuccessResponse(w, userID)
-	utils.Log("INFO", "Success response sent to client")
+	SendSuccessWithToken(w, userID)
+	utils.Log("INFO", "Success login")
 }

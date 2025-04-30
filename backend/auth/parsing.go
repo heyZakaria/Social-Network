@@ -7,7 +7,7 @@ import (
 	"net/http"
 	"os"
 	"path/filepath"
-	"socialNetwork/backend/utils"
+	"socialNetwork/utils"
 	"time"
 
 	"github.com/google/uuid"
@@ -72,8 +72,9 @@ func HandleUploadImage(r *http.Request) (string, error) {
 
 	file.Seek(0, io.SeekStart)
 
-	if _, err := os.Stat("profile_images"); os.IsNotExist(err) {
-		err := os.MkdirAll("profile_images", os.ModePerm)
+	uploadPhotos := "../uploads/profile_images"
+	if _, err := os.Stat(uploadPhotos); os.IsNotExist(err) {
+		err := os.MkdirAll(uploadPhotos, os.ModePerm)
 		if err != nil {
 			utils.Log("ERROR", "Failed to create directory: "+err.Error())
 			return "", fmt.Errorf("Cannot create directory")
@@ -84,7 +85,7 @@ func HandleUploadImage(r *http.Request) (string, error) {
 	avatarFilename = uuid.New().String() + filepath.Ext(handler.Filename)
 	utils.Log("INFO", "Generated avatar filename: "+avatarFilename)
 
-	dst, err := os.Create(filepath.Join("profile_images", avatarFilename))
+	dst, err := os.Create(filepath.Join("../uploads/profile_images", avatarFilename))
 	if err != nil {
 		utils.Log("ERROR", "Failed to create file: "+err.Error())
 		return "", fmt.Errorf("Cannot save avatar: %v", err)
@@ -96,11 +97,8 @@ func HandleUploadImage(r *http.Request) (string, error) {
 	return avatarFilename, nil
 }
 
-func SendSuccessResponse(w http.ResponseWriter, userID string) {
-	utils.Log("INFO", "Sending success response with user ID: "+userID)
+func SendJSON(w http.ResponseWriter, status int, payload JSONResponse) {
 	w.Header().Set("Content-Type", "application/json")
-	json.NewEncoder(w).Encode(map[string]string{
-		"success": "true",
-		"id":      userID,
-	})
+	w.WriteHeader(status)
+	json.NewEncoder(w).Encode(payload)
 }

@@ -4,7 +4,7 @@ import { usePathname } from 'next/navigation';
 
 export default function NavBar() {
   const pathname = usePathname();
-  const hideNavBar = pathname === '/login' || pathname === '/register';
+  const hideNavBar = pathname === '/login' || pathname === '/register' || pathname === '/home';
   
   if (hideNavBar) {
     return null;

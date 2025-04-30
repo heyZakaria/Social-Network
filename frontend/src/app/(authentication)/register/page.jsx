@@ -160,6 +160,7 @@ export default function RegisterPage() {
       } else {
         setServerError("Unexpected server response.");
       }
+      window.location.href = "/home";
     } catch (error) {
       setServerError("Failed to connect to server.");
     }

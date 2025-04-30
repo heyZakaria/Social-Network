@@ -16,13 +16,19 @@ const (
 )
 
 var (
-	logFile   *os.File
-	Logger    *log.Logger
+	logFile *os.File
+	Logger  *log.Logger
 )
 
 func InitLogger() error {
-	var err error
-	logFile, err = os.OpenFile("app.log", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
+	logDir := "../logs"
+	if _, err := os.Stat(logDir); os.IsNotExist(err) {
+		err := os.MkdirAll(logDir, os.ModePerm)
+		if err != nil {
+			return fmt.Errorf("cannot create logs directory: %v", err)
+		}
+	}
+	logFile, err := os.OpenFile("../logs/app.log", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
 	if err != nil {
 		return err
 	}
