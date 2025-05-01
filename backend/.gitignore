@@ -1,4 +1,7 @@
-
 .log
 .db
-profile_images
+uploads
+
+# To be removed later
+Dockerfile
+caddy

@@ -3,7 +3,7 @@ package auth
 import (
 	"database/sql"
 	"regexp"
-	"socialNetwork/backend/utils"
+	"socialNetwork/utils"
 	"time"
 
 	"github.com/google/uuid"

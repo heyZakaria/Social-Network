@@ -1,4 +1,3 @@
-
 CREATE TABLE IF NOT EXISTS users (
     id TEXT PRIMARY KEY,
     first_name TEXT NOT NULL CHECK(LENGTH(first_name) >= 3 AND LENGTH(first_name) <= 20),

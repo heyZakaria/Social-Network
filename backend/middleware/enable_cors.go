@@ -7,11 +7,13 @@ import (
 
 var originAllowlist = []string{
 	"http://localhost:3000",
-	"https://localhost:3000",
 	"http://localhost:3001",
-	/* "https://localhost:3000",
-	"http://cats.mew",
-	"http://dog.how", */
+	"http://localhost:3002",
+	"http://localhost:3003",
+	"http://localhost:3004",
+	"http://localhost:3005",
+	"http://localhost:3006",
+	
 }
 
 var methodAllowlist = []string{"GET", "POST", "PUT", "DELETE", "OPTIONS"}

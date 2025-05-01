@@ -3,10 +3,10 @@ package main
 import (
 	"log"
 	"net/http"
-	"socialNetwork/backend/auth"
-	db "socialNetwork/backend/db/sqlite"
-	"socialNetwork/backend/middleware"
-	"socialNetwork/backend/utils"
+	"socialNetwork/auth"
+	db "socialNetwork/db/sqlite"
+	"socialNetwork/middleware"
+	"socialNetwork/utils"
 
 	_ "github.com/mattn/go-sqlite3"
 )

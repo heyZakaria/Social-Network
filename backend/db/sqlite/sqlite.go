@@ -6,7 +6,7 @@ import (
 	"log"
 	"os"
 	"path/filepath"
-	"socialNetwork/backend/utils"
+	"socialNetwork/utils"
 
 	_ "github.com/golang-migrate/migrate/v4/database/sqlite3"
 	_ "github.com/golang-migrate/migrate/v4/source/file"
@@ -15,23 +15,26 @@ import (
 	"github.com/golang-migrate/migrate/v4"
 )
 
+var DB *sql.DB
+
 func InitDB(dataSourceName string) (*sql.DB, error) {
-	db, err := sql.Open("sqlite3", dataSourceName)
+	var err error
+	DB, err = sql.Open("sqlite3", dataSourceName)
 	if err != nil {
 		return nil, err
 	}
-	err = db.Ping()
+	err = DB.Ping()
 	if err != nil {
 		return nil, err
 	}
 
-	_, err = db.Exec("PRAGMA foreign_keys = ON")
+	_, err = DB.Exec("PRAGMA foreign_keys = ON")
 	if err != nil {
 		return nil, fmt.Errorf("failed to enable foreign keys: %w", err)
 	}
 
 	initMig()
-	return db, nil
+	return DB, nil
 }
 
 func initMig() error {
@@ -44,7 +47,7 @@ func initMig() error {
 	migrationsPath := filepath.Join(dir, "../backend/db/migration")
 	sourceURL := "file://" + migrationsPath
 
-	dbURL := "sqlite3://database.db"
+	dbURL := "sqlite3://db/sqlite/database.db"
 
 	m, err := migrate.New(sourceURL, dbURL)
 	if err != nil {

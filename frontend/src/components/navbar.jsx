@@ -5,7 +5,8 @@ import { HiHome, HiChatBubbleLeft, HiMiniBellAlert, HiMiniUserGroup, HiMiniUser,
 
 export default function NavBar() {
   const pathname = usePathname();
-  const hideNavBar = pathname === '/login' || pathname === '/register';
+  const hideNavBar = pathname === '/login' || pathname === '/register' || pathname === '/home';
+
 
   if (hideNavBar) {
     return null;
@@ -18,7 +19,7 @@ export default function NavBar() {
           <Link href="/"><h1>SocialNetwork</h1></Link>
         </div>
         <div className="NavbarLinks">
-          <Link href="/"> <HiHome size={20} /> </Link>
+          <Link href="/home"> <HiHome size={20} /> </Link>
           <Link href="/"> <HiChatBubbleLeft size={20} /> </Link>
           <Link href="/"> <HiMiniBellAlert size={20} /> </Link>
           <Link href="/"> <HiMiniUserGroup size={20} /> </Link>

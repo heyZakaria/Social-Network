@@ -134,7 +134,6 @@ export default function RegisterPage() {
         body: submitData,
       });
 
-      
       const contentType = res.headers.get("content-type");
 
       if (res.status === 409) {
@@ -148,7 +147,6 @@ export default function RegisterPage() {
         return;
       }
 
-      //// hna dima gha iwaslek json from backend why you need to check
       if (contentType && contentType.includes("application/json")) {
         const result = await res.json();
 
@@ -162,6 +160,7 @@ export default function RegisterPage() {
       } else {
         setServerError("Unexpected server response.");
       }
+      window.location.href = "/home";
     } catch (error) {
       setServerError("Failed to connect to server.");
     }
@@ -270,6 +269,7 @@ export default function RegisterPage() {
             name="avatar"
             onChange={handleChange}
             className={styles.inputFile}
+            accept="image/*"
           />
           {errors.avatar && <p className={styles.error}>{errors.avatar}</p>}
         </div>
