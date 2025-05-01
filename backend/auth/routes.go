@@ -7,8 +7,8 @@ import (
 func AuthMux() http.Handler {
 	mux := http.NewServeMux()
 
-	mux.HandleFunc("/register", HandleRegister)
-	mux.HandleFunc("/login", HandleLogin)
+	mux.HandleFunc("POST /register", HandleRegister)
+	mux.HandleFunc("POST /login", HandleLogin)
 
 	return mux
 }
