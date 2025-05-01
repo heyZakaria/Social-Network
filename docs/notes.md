@@ -1,3 +1,0 @@
-- Check images extension in backend
-- Send Emoji in Chat
-- Post Image in comment

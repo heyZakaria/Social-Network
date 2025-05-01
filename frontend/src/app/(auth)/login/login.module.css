@@ -1,0 +1,93 @@
+.loginContainer {
+    margin: 20% auto;
+    background: #fff;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .heading3 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .subtitle {
+    text-align: center;
+    font-size: 14px;
+    color: #666;
+  }
+  
+  .subtitleLink {
+    color: #7c3aed;
+    text-decoration: none;
+    font-weight: 600;
+  }
+  
+  .loginForm {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .formGroup {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .label {
+    margin-bottom: 4px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #555;
+  }
+  
+  .inputEmail,
+  .inputPassword {
+    width: 100%;
+    padding: 12px;
+    height: 45px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-size: 15px;
+  }
+  
+  .inputEmail:focus,
+  .inputPassword:focus {
+    outline: none;
+    border-color: #7c3aed;
+  }
+  
+  .error {
+    color: #e63946;
+    font-size: 13px;
+    margin-top: 5px;
+  }
+  
+  .serverError {
+    text-align: center;
+  }
+  
+  .submitBtn {
+    background: #7c3aed;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .submitBtn:hover {
+    background: #5b21b6;
+  }
+  
+  @media (max-width: 500px) {
+    .loginContainer {
+      margin: 30px 20px;
+    }
+  }
+  

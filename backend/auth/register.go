@@ -2,123 +2,80 @@ package auth
 
 import (
 	"database/sql"
-	"encoding/json"
 	"fmt"
-	"io"
 	"net/http"
-	"os"
-	"path/filepath"
-	"time"
+	"socialNetwork/backend/utils"
 
-	"github.com/google/uuid"
 	_ "github.com/mattn/go-sqlite3"
-	"golang.org/x/crypto/bcrypt"
 )
 
 func HandleRegister(w http.ResponseWriter, r *http.Request) {
-	
 	err := r.ParseMultipartForm(10 << 20)
 	if err != nil {
-		http.Error(w, "Failed to parse form", http.StatusBadRequest)
+		utils.Log("ERROR", "Failed to parse form: "+err.Error())
+		http.Error(w, "Error parsing form", http.StatusBadRequest)
 		return
 	}
-
-	var avatarFilename string
-	file, handler, err := r.FormFile("avatar")
-	if err == nil {
-		defer file.Close()
-		os.MkdirAll("uploads", os.ModePerm)
-		avatarFilename = uuid.New().String() + filepath.Ext(handler.Filename)
-		dst, err := os.Create(filepath.Join("uploads", avatarFilename))
-		if err != nil {
-			http.Error(w, "Cannot save avatar", http.StatusInternalServerError)
-			return
-		}
-		defer dst.Close()
-		io.Copy(dst, file)
-	}
-
-	p := Profile{}
-	p.FirstName = r.FormValue("firstname")
-	p.LastName = r.FormValue("lastname")
-	p.Email = r.FormValue("email")
-	p.Password = r.FormValue("password")
-	p.NickName = r.FormValue("nickname")
-	p.Bio = r.FormValue("bio")
-	p.Avatar = avatarFilename
-
-	birthdayStr := r.FormValue("birthday")
-	p.Birthday, err = time.Parse("2006-01-02", birthdayStr)
-	if err != nil {
-		http.Error(w, "Invalid birthday format", http.StatusBadRequest)
-		return
-	}
-
-	err = ValidateRegisterInput(p.FirstName, p.LastName, p.Email, p.Password, birthdayStr, p.NickName, p.Bio, handler)
-	if err != nil {
-		http.Error(w, err.Error(), http.StatusBadRequest)
-		return
-	}
-
-	userID := uuid.New().String()
-	hashedPassword, err := bcrypt.GenerateFromPassword([]byte(p.Password), bcrypt.DefaultCost)
-	if err != nil {
-		http.Error(w, "Password hashing failed", http.StatusInternalServerError)
-		return
-	}
-
+	utils.Log("INFO", "Parsed multipart form")
+	// db := &db.MyDB{}
+	// fmt.Println("----- Register DB", db.DB)
 	db, err := sql.Open("sqlite3", "./database.db")
 	if err != nil {
+		utils.Log("ERROR", "Database connection error: "+err.Error())
 		http.Error(w, "Database connection error", http.StatusInternalServerError)
 		return
 	}
-	defer db.Close()
 
-	var exists bool
-	err = db.QueryRow("SELECT EXISTS(SELECT 1 FROM users WHERE email = ?)", p.Email).Scan(&exists)
+	utils.Log("INFO", "Database opened successfully")
+	//defer db.DB.Close()
+
+	p, err := ParseForm(r)
 	if err != nil {
-		http.Error(w, "Failed to check email", http.StatusInternalServerError)
+		utils.Log("ERROR", "Failed to parse form fields: "+err.Error())
+		http.Error(w, err.Error(), http.StatusBadRequest)
 		return
 	}
-	if exists {
+	utils.Log("INFO", "Form fields parsed")
+
+	if EmailExists(db, p.Email) {
+		utils.Log("WARNING", "Tried to register with existing email: "+p.Email)
 		http.Error(w, "Email already exists", http.StatusConflict)
 		return
 	}
+	utils.Log("INFO", "Email is unique")
 
-	stmt, err := db.Prepare(`
-    INSERT INTO users (id, first_name, last_name, email, password_hash, nickname, bio, avatar, birthday)
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
-`)
-
+	avatarFilename, err := HandleUploadImage(r)
 	if err != nil {
-		fmt.Println("Database prepare failed:", err)
-		http.Error(w, "Database prepare failed", http.StatusInternalServerError)
+		utils.Log("ERROR", "Avatar upload failed: "+err.Error())
+		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
+	p.Avatar = avatarFilename
+	utils.Log("INFO", "Avatar uploaded: "+avatarFilename)
 
-	_, err = stmt.Exec(
-		userID,
-		p.FirstName,
-		p.LastName,
-		p.Email,
-		string(hashedPassword),
-		p.NickName,
-		p.Bio,
-		p.Avatar,
-		p.Birthday,
-	)
-	if err != nil {
-		fmt.Printf("Insert error: %+v\n", err)
-		http.Error(w, "Insert failed", http.StatusInternalServerError)
+	if !ValidateRegistrationInput(p) {
+		utils.Log("WARNING", "Validation failed for user input")
+		http.Error(w, "Invalid input", http.StatusBadRequest)
 		return
 	}
+	utils.Log("INFO", "User input validated")
 
-	fmt.Println("User inserted successfully")
+	hashedPassword, err := HashPassword(p.Password)
+	if err != nil {
+		utils.Log("ERROR", "Password hashing failed: "+err.Error())
+		http.Error(w, "Password hashing failed", http.StatusInternalServerError)
+		return
+	}
+	utils.Log("INFO", "Password hashed")
 
-	w.Header().Set("Content-Type", "application/json")
-	json.NewEncoder(w).Encode(map[string]string{
-		"success": "true",
-		"id":      userID,
-	})
+	userID, err := SaveUserToDB(db, p, hashedPassword)
+	if err != nil {
+		utils.Log("ERROR", "Failed to save user to DB: "+err.Error())
+		http.Error(w, "Failed to register user", http.StatusInternalServerError)
+		return
+	}
+	utils.Log("INFO", fmt.Sprintf("User registered with ID: %d", userID))
 
+	SendSuccessResponse(w, userID)
+	utils.Log("INFO", "Success response sent to client")
 }

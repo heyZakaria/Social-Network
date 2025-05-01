@@ -1,6 +1,8 @@
 package auth
 
-import "time"
+import (
+	"time"
+)
 
 type Profile struct {
 	ID        string    `json:"-"`
