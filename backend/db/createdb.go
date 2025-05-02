@@ -3,12 +3,31 @@ package db
 import (
 	"database/sql"
 	"os"
+	"path/filepath"
 	"socialNetwork/utils"
+
+	_ "github.com/mattn/go-sqlite3"
 )
+
 var DB *sql.DB
+
 func CreateDatabase() error {
 	var err error
-	DB, err = sql.Open("sqlite3", "../database/database.db")
+
+	wd, err := os.Getwd()
+	if err != nil {
+		utils.Log("ERROR", "Failed to get working directory: "+err.Error())
+		return err
+	}
+	utils.Log("INFO", "Working dir: " + wd)
+
+	dbPath := filepath.Join(wd, "database", "database.db")
+
+	if _, err := os.Stat(dbPath); os.IsNotExist(err) {
+		utils.Log("INFO", "Database file does not exist. It will be created.")
+	}
+
+	DB, err = sql.Open("sqlite3", dbPath)
 	if err != nil {
 		utils.Log("ERROR", "Database connection error: "+err.Error())
 		return err
@@ -20,9 +39,10 @@ func CreateDatabase() error {
 		utils.Log("ERROR", "Ping fail: "+err.Error())
 		return err
 	}
-	utils.Log("INFO", "Pinging database...")
+	utils.Log("INFO", "Pinging database successful.")
 
-	schema, err := os.ReadFile("../database/migrations/schema.sql")
+	schemaPath := filepath.Join(wd, "database", "migrations", "schema.sql")
+	schema, err := os.ReadFile(schemaPath)
 	if err != nil {
 		utils.Log("ERROR", "Cannot read schema file: "+err.Error())
 		return err

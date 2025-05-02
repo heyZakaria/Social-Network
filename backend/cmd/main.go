@@ -31,6 +31,6 @@ func main() {
 	defer db.DB.Close()
 
 	server.HandleFunc("POST /api/register", auth.HandleRegister)
-	server.HandleFunc("POST /login", auth.HandleLogin)
+	server.HandleFunc("POST /api/login", auth.HandleLogin)
 	log.Fatal(http.ListenAndServe(":8080", middleware.CheckCORS(server)))
 }

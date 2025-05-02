@@ -6,6 +6,7 @@ import (
 	"net/http"
 	"socialNetwork/db"
 	"socialNetwork/utils"
+	"strings"
 
 	"golang.org/x/crypto/bcrypt"
 )
@@ -22,7 +23,8 @@ func HandleLogin(w http.ResponseWriter, r *http.Request) {
 		})
 		return
 	}
-
+	req.Email = strings.ToLower(req.Email)
+	
 	utils.Log("INFO", "Request body parsed successfully")
 	if req.Email == "" || req.Password == "" {
 		utils.Log("WARNING", "Login attempt with empty fields")
@@ -53,7 +55,6 @@ func HandleLogin(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	utils.Log("INFO", "User data retrieved from DB for email: "+req.Email)
-
 
 	if bcrypt.CompareHashAndPassword([]byte(hashedPassword), []byte(req.Password)) != nil {
 		utils.Log("WARNING", "Invalid password for user: "+req.Email)

@@ -8,6 +8,7 @@ import (
 	"os"
 	"path/filepath"
 	"socialNetwork/utils"
+	"strings"
 	"time"
 
 	"github.com/google/uuid"
@@ -17,7 +18,7 @@ func ParseForm(r *http.Request) (Profile, error) {
 	var p Profile
 	p.FirstName = r.FormValue("firstname")
 	p.LastName = r.FormValue("lastname")
-	p.Email = r.FormValue("email")
+	p.Email = strings.ToLower(r.FormValue("email"))
 	p.Password = r.FormValue("password")
 	p.NickName = r.FormValue("nickname")
 	p.Bio = r.FormValue("bio")

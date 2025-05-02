@@ -1,33 +1,39 @@
-version: "3.8"
-
 services:
   backend:
     build: ./backend
+    container_name: backend
     networks:
-      - web
+      - internal
 
   frontend:
-    build: ./frontend
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: frontend
+    environment:
+      - NODE_ENV=production
     networks:
-      - web
+      - internal
 
   caddy:
-    build: ./caddy
+    image: caddy:2
+    container_name: caddy
     ports:
-      - "80:80"
-      - "443:443"
+      - "3443:443"
+    volumes:
+      - ./caddy/Caddyfile:/etc/caddy/Caddyfile
+      - caddy_data:/data
+      - caddy_config:/config
     depends_on:
       - backend
       - frontend
     networks:
-      - web
-    volumes:
-      - caddy_data:/data
-      - caddy_config:/config
+      - internal
 
 volumes:
   caddy_data:
   caddy_config:
 
 networks:
-  web:
+  internal:
+    driver: bridge
