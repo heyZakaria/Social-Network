@@ -6,6 +6,8 @@ import (
 	"path/filepath"
 	"socialNetwork/utils"
 
+	"runtime"
+
 	_ "github.com/mattn/go-sqlite3"
 )
 
@@ -14,14 +16,12 @@ var DB *sql.DB
 func CreateDatabase() error {
 	var err error
 
-	wd, err := os.Getwd()
-	if err != nil {
-		utils.Log("ERROR", "Failed to get working directory: "+err.Error())
-		return err
-	}
-	utils.Log("INFO", "Working dir: " + wd)
+	_, filename, _, _ := runtime.Caller(0)
+	wd := filepath.Dir(filename)
 
-	dbPath := filepath.Join(wd, "database", "database.db")
+	utils.Log("INFO", "Working dir: "+wd)
+
+	dbPath := filepath.Join(wd, "..",  "database", "database.db")
 
 	if _, err := os.Stat(dbPath); os.IsNotExist(err) {
 		utils.Log("INFO", "Database file does not exist. It will be created.")
@@ -41,7 +41,8 @@ func CreateDatabase() error {
 	}
 	utils.Log("INFO", "Pinging database successful.")
 
-	schemaPath := filepath.Join(wd, "database", "migrations", "schema.sql")
+	schemaPath := filepath.Join(wd, "..", "database", "migrations", "schema.sql")
+
 	schema, err := os.ReadFile(schemaPath)
 	if err != nil {
 		utils.Log("ERROR", "Cannot read schema file: "+err.Error())

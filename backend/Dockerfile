@@ -2,13 +2,15 @@ FROM golang:1.24
 
 WORKDIR /app
 
+# Copy go.mod and go.sum first
 COPY go.mod go.sum ./
 RUN go mod download
 
+# Copy the whole backend folder
 COPY . .
 
-RUN mkdir -p /app/database
+# Build the Go application
+RUN go build -o app ./cmd
 
-RUN go build -o server ./cmd
-
-CMD ["./server"]
+# Run the app
+CMD ["./app"]

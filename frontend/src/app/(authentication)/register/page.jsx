@@ -59,15 +59,23 @@ export default function RegisterPage() {
     if (!formData.birthday) {
       errors.birthday = "Birthday required.";
     } else {
-      const birth = new Date(formData.birthday);
+      const [year, month, day] = formData.birthday.split("-").map(Number);
+      const birth = new Date(year, month - 1, day);
       const today = new Date();
-      const age = today.getFullYear() - birth.getFullYear();
+    
+      let age = today.getFullYear() - birth.getFullYear();
       const m = today.getMonth() - birth.getMonth();
       const d = today.getDate() - birth.getDate();
-      const validAge = m > 0 || (m === 0 && d >= 0);
-      if (age < 15 || age > 120 || !validAge)
+    
+      if (m < 0 || (m === 0 && d < 0)) {
+        age--;
+      }
+    
+      if (age < 15 || age > 120) {
         errors.birthday = "Age must be between 15 and 120.";
+      }
     }
+    
     //valid nickname
     if (formData.nickname && !/^[a-zA-Z0-9]+$/.test(formData.nickname))
       errors.nickname = "Only letters, numbers, and underscore.";
