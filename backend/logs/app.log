@@ -1,0 +1,5 @@
+2025/05/04 16:25:31 [INFO] 2025-05-04 16:25:31 - Starting HTTP server at http://localhost:8080 ...
+2025/05/04 16:25:31 [INFO] 2025-05-04 16:25:31 - Working dir: /Users/twlmed212/Desktop/MySpace/zone01/socialNetwork/backend/cmd
+2025/05/04 16:25:31 [INFO] 2025-05-04 16:25:31 - Database file does not exist. It will be created.
+2025/05/04 16:25:31 [INFO] 2025-05-04 16:25:31 - Database opened successfully
+2025/05/04 16:25:31 [ERROR] 2025-05-04 16:25:31 - Ping fail: unable to open database file: no such file or directory

@@ -19,12 +19,23 @@ var DB *sql.DB
 
 func InitDB(dataSourceName string) (*sql.DB, error) {
 	var err error
+	fmt.Println("Before starting open", DB)
+	dir, err := os.Getwd()
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	// Print the current working directory
+	fmt.Println("Current working directory:", dir)
 	DB, err = sql.Open("sqlite3", dataSourceName)
 	if err != nil {
 		return nil, err
 	}
+	fmt.Println("After starting open", DB)
+
 	err = DB.Ping()
 	if err != nil {
+		fmt.Println("inside Ping Error", DB, err)
 		return nil, err
 	}
 
@@ -44,10 +55,11 @@ func initMig() error {
 		log.Fatal(err)
 	}
 
-	migrationsPath := filepath.Join(dir, "../backend/db/migration")
-	sourceURL := "file://" + migrationsPath
+	migrationsPath := filepath.Join(dir, "../db/migration")
+	DatabasePath := filepath.Join(dir, "../db/sqlite/database.db")
 
-	dbURL := "sqlite3://db/sqlite/database.db"
+	sourceURL := "file://" + migrationsPath
+	dbURL := "sqlite3://" + DatabasePath
 
 	m, err := migrate.New(sourceURL, dbURL)
 	if err != nil {

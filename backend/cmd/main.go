@@ -23,7 +23,7 @@ func main() {
 
 	router := http.NewServeMux()
 
-	_, err = db.InitDB("../backend/db/sqlite/database.db")
+	_, err = db.InitDB("../db/sqlite/database.db")
 
 	router.Handle("/api/", http.StripPrefix("/api", auth.AuthMux()))
 
