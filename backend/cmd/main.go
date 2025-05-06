@@ -29,7 +29,7 @@ func main() {
 	router.Handle("/api/", http.StripPrefix("/api", auth.AuthMux()))
 
 	// Testing serving images
-	router.HandleFunc("/upload/", func(w http.ResponseWriter, r *http.Request) {
+	router.HandleFunc("/uploads/", func(w http.ResponseWriter, r *http.Request) {
 		// get Path and file name
 		filename := filepath.Base(r.URL.Path)
 		PathFolder := filepath.Dir(r.URL.Path)
