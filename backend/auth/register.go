@@ -41,18 +41,6 @@ func HandleRegister(w http.ResponseWriter, r *http.Request) {
 	}
 	utils.Log("INFO", "Email is unique")
 
-	avatarFilename, err := utils.HandleUploadImage(r, "avatar", "profile_image")
-	if err != nil {
-		utils.Log("ERROR", "Avatar upload failed: "+err.Error())
-		utils.SendJSON(w, http.StatusInternalServerError, utils.JSONResponse{
-			Success: false,
-			Error:   "Avatar upload failed",
-		})
-		return
-	}
-	p.Avatar = avatarFilename
-	utils.Log("INFO", "Avatar uploaded: "+avatarFilename)
-
 	if !ValidateRegistrationInput(p) {
 		utils.Log("WARNING", "Validation failed for user input")
 		utils.SendJSON(w, http.StatusBadRequest, utils.JSONResponse{
@@ -74,6 +62,18 @@ func HandleRegister(w http.ResponseWriter, r *http.Request) {
 	}
 	utils.Log("INFO", "Password hashed")
 
+	ImagePath, file, err := utils.PrepareImage(r, "avatar", "profile_image")
+	if err != nil {
+		utils.Log("ERROR", "Avatar upload failed: "+err.Error())
+		utils.SendJSON(w, http.StatusInternalServerError, utils.JSONResponse{
+			Success: false,
+			Error:   "Avatar upload failed",
+		})
+		return
+	}
+	p.Avatar = ImagePath
+	utils.Log("INFO", "Avatar uploaded: "+ImagePath)
+
 	userID, err := SaveUserToDB(db.DB, p, hashedPassword)
 	if err != nil {
 		utils.Log("ERROR", "Failed to save user to DB: "+err.Error())
@@ -85,6 +85,9 @@ func HandleRegister(w http.ResponseWriter, r *http.Request) {
 	}
 	utils.Log("INFO", fmt.Sprintf("User registered with ID: %s", userID))
 
+	utils.SaveImage(file, ImagePath)
+
 	SendSuccessWithToken(w, userID)
-	utils.Log("INFO", "Success login")
+	utils.Log("INFO", "Success Register")
+
 }

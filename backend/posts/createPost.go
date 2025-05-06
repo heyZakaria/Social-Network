@@ -12,18 +12,31 @@ import (
 // Json => content Json
 
 func CreatePost(w http.ResponseWriter, r *http.Request) {
+
+	Privacy := map[string]bool{
+		"public":    true,
+		"followers": true,
+		"costum":    true,
+	}
+
 	// TODO check the user Permission to create a Post
 	var err error
 	r.ParseMultipartForm(10 << 20)
 
 	PostData := Structs.Post{}
-	PostData.UserID = 1 // Get User ID From JWT Token
+	PostData.UserID = 1 // TODO Get User ID From JWT Token
 	PostData.Post = r.FormValue("post_content")
-	PostData.Privacy = r.FormValue("post_privacy")
-	PostData.Post_image, err = utils.HandleUploadImage(r, "post_image", "posts")
-	if err != nil {
-		fmt.Println("Handle  Form File error")
+	if PostData.Post == "" {
+		// TODO Handle Error
 	}
+	PostData.Privacy = r.FormValue("post_privacy") // TODO Handle Costum
+	if !Privacy[PostData.Privacy] {
+		// TODO Handle Errors once user entered something else
+	}
+	// x, PostData.Post_image, err := utils.PrepareImage(r, "post_image", "posts")
+	// if err != nil {
+	// 	fmt.Println("Handle  Form File error")
+	// }
 
 	// err = json.NewDecoder(r.Body).Decode(&PostData)
 	// if err != nil {

@@ -129,7 +129,7 @@ export default function RegisterPage() {
     if (formData.avatar) submitData.append("avatar", formData.avatar);
 
     try {
-      const res = await fetch("http://localhost:8080/api/register", {
+      const res = await fetch("api/register", {
         method: "POST",
         body: submitData,
       });

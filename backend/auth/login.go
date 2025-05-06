@@ -6,6 +6,7 @@ import (
 	"net/http"
 	db "socialNetwork/db/sqlite"
 	"socialNetwork/utils"
+	"strings"
 
 	"golang.org/x/crypto/bcrypt"
 )
@@ -35,7 +36,7 @@ func HandleLogin(w http.ResponseWriter, r *http.Request) {
 	utils.Log("INFO", "Email and password fields validated")
 
 	var userID, hashedPassword string
-	err := db.DB.QueryRow("SELECT id, password_hash FROM users WHERE email = ?", req.Email).Scan(&userID, &hashedPassword)
+	err := db.DB.QueryRow("SELECT id, password_hash FROM users WHERE email = ?", strings.ToLower(req.Email)).Scan(&userID, &hashedPassword)
 	if err != nil {
 		if err == sql.ErrNoRows {
 			utils.Log("WARNING", "Login attempt with unknown email: "+req.Email)

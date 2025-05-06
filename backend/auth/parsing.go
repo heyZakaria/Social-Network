@@ -22,6 +22,6 @@ func ParseForm(r *http.Request) (Profile, error) {
 	return p, nil
 }
 
-// HandleUploadImage Function Has been Transfered to Utils Package
+// PrepareImage Function Has been Transfered to Utils Package
 // Import Cycle not allowed in golang
 // Shared Functions Must be in single Package
