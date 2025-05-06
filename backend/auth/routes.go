@@ -2,6 +2,7 @@ package auth
 
 import (
 	"net/http"
+	post "socialNetwork/posts"
 )
 
 func AuthMux() http.Handler {
@@ -9,6 +10,8 @@ func AuthMux() http.Handler {
 
 	mux.HandleFunc("POST /register", HandleRegister)
 	mux.HandleFunc("POST /login", HandleLogin)
+
+	mux.HandleFunc("POST /post", post.CreatePost)
 
 	return mux
 }
