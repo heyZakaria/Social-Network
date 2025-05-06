@@ -3,7 +3,7 @@ package auth
 import (
 	"fmt"
 	"net/http"
-	"socialNetwork/db/sqlite"
+	db "socialNetwork/db/sqlite"
 	"socialNetwork/utils"
 
 	_ "github.com/mattn/go-sqlite3"
@@ -13,18 +13,17 @@ func HandleRegister(w http.ResponseWriter, r *http.Request) {
 	err := r.ParseMultipartForm(10 << 20)
 	if err != nil {
 		utils.Log("ERROR", "Failed to parse form: "+err.Error())
-		SendJSON(w, http.StatusBadRequest, JSONResponse{
+		utils.SendJSON(w, http.StatusBadRequest, utils.JSONResponse{
 			Success: false,
 			Error:   "Error parsing form",
 		})
 		return
 	}
 	utils.Log("INFO", "Parsed multipart form")
-
 	p, err := ParseForm(r)
 	if err != nil {
 		utils.Log("ERROR", "Failed to parse form of register: "+err.Error())
-		SendJSON(w, http.StatusBadRequest, JSONResponse{
+		utils.SendJSON(w, http.StatusBadRequest, utils.JSONResponse{
 			Success: false,
 			Error:   err.Error(),
 		})
@@ -34,7 +33,7 @@ func HandleRegister(w http.ResponseWriter, r *http.Request) {
 
 	if EmailExists(db.DB, p.Email) {
 		utils.Log("WARNING", "Tried to register with existing email: "+p.Email)
-		SendJSON(w, http.StatusConflict, JSONResponse{
+		utils.SendJSON(w, http.StatusConflict, utils.JSONResponse{
 			Success: false,
 			Error:   "Email already exists",
 		})
@@ -42,10 +41,10 @@ func HandleRegister(w http.ResponseWriter, r *http.Request) {
 	}
 	utils.Log("INFO", "Email is unique")
 
-	avatarFilename, err := HandleUploadImage(r)
+	avatarFilename, err := utils.HandleUploadImage(r, "avatar", "profile_image")
 	if err != nil {
 		utils.Log("ERROR", "Avatar upload failed: "+err.Error())
-		SendJSON(w, http.StatusInternalServerError, JSONResponse{
+		utils.SendJSON(w, http.StatusInternalServerError, utils.JSONResponse{
 			Success: false,
 			Error:   "Avatar upload failed",
 		})
@@ -56,7 +55,7 @@ func HandleRegister(w http.ResponseWriter, r *http.Request) {
 
 	if !ValidateRegistrationInput(p) {
 		utils.Log("WARNING", "Validation failed for user input")
-		SendJSON(w, http.StatusBadRequest, JSONResponse{
+		utils.SendJSON(w, http.StatusBadRequest, utils.JSONResponse{
 			Success: false,
 			Error:   "Invalid input",
 		})
@@ -67,7 +66,7 @@ func HandleRegister(w http.ResponseWriter, r *http.Request) {
 	hashedPassword, err := HashPassword(p.Password)
 	if err != nil {
 		utils.Log("ERROR", "Password hashing failed: "+err.Error())
-		SendJSON(w, http.StatusInternalServerError, JSONResponse{
+		utils.SendJSON(w, http.StatusInternalServerError, utils.JSONResponse{
 			Success: false,
 			Error:   "Password hashing failed",
 		})
@@ -78,7 +77,7 @@ func HandleRegister(w http.ResponseWriter, r *http.Request) {
 	userID, err := SaveUserToDB(db.DB, p, hashedPassword)
 	if err != nil {
 		utils.Log("ERROR", "Failed to save user to DB: "+err.Error())
-		SendJSON(w, http.StatusInternalServerError, JSONResponse{
+		utils.SendJSON(w, http.StatusInternalServerError, utils.JSONResponse{
 			Success: false,
 			Error:   "Failed to register user",
 		})

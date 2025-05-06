@@ -19,23 +19,13 @@ var DB *sql.DB
 
 func InitDB(dataSourceName string) (*sql.DB, error) {
 	var err error
-	fmt.Println("Before starting open", DB)
-	dir, err := os.Getwd()
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	// Print the current working directory
-	fmt.Println("Current working directory:", dir)
 	DB, err = sql.Open("sqlite3", dataSourceName)
 	if err != nil {
 		return nil, err
 	}
-	fmt.Println("After starting open", DB)
 
 	err = DB.Ping()
 	if err != nil {
-		fmt.Println("inside Ping Error", DB, err)
 		return nil, err
 	}
 

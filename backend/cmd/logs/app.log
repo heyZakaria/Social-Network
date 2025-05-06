@@ -85,3 +85,133 @@
 2025/05/04 17:16:55 [INFO] 2025-05-04 17:16:55 - Migrations applied successfully!
 2025/05/04 17:17:45 [INFO] 2025-05-04 17:17:45 - Starting HTTP server at http://localhost:8080 ...
 2025/05/04 17:17:45 [INFO] 2025-05-04 17:17:45 - Migrations applied successfully!
+2025/05/04 17:44:15 [INFO] 2025-05-04 17:44:15 - Starting HTTP server at http://localhost:8080 ...
+2025/05/04 17:44:15 [INFO] 2025-05-04 17:44:15 - Migrations applied successfully!
+2025/05/04 19:11:49 [INFO] 2025-05-04 19:11:49 - Parsed multipart form
+2025/05/04 19:11:49 [INFO] 2025-05-04 19:11:49 - Form fields parsed successfully
+2025/05/04 19:11:49 [INFO] 2025-05-04 19:11:49 - Form fields parsed
+2025/05/04 19:11:49 [INFO] 2025-05-04 19:11:49 - Checking if email exists: adslfkj@sdsd.sd
+2025/05/04 19:11:49 [INFO] 2025-05-04 19:11:49 - Email is unique
+2025/05/04 19:11:49 [INFO] 2025-05-04 19:11:49 - Starting avatar upload
+2025/05/04 19:11:49 [INFO] 2025-05-04 19:11:49 - No avatar file uploaded
+2025/05/04 19:11:49 [INFO] 2025-05-04 19:11:49 - Avatar uploaded: 
+2025/05/04 19:11:49 [INFO] 2025-05-04 19:11:49 - Validating registration input
+2025/05/04 19:11:49 [INFO] 2025-05-04 19:11:49 - Registration input valid
+2025/05/04 19:11:49 [INFO] 2025-05-04 19:11:49 - User input validated
+2025/05/04 19:11:49 [INFO] 2025-05-04 19:11:49 - Hashing password
+2025/05/04 19:11:49 [INFO] 2025-05-04 19:11:49 - Password hashed successfully
+2025/05/04 19:11:49 [INFO] 2025-05-04 19:11:49 - Password hashed
+2025/05/04 19:11:49 [INFO] 2025-05-04 19:11:49 - Saving user to database with ID: a8f9a714-03c4-4f76-90ac-d63ac52d195c
+2025/05/04 19:11:49 [INFO] 2025-05-04 19:11:49 - User saved successfully
+2025/05/04 19:11:49 [INFO] 2025-05-04 19:11:49 - User registered with ID: a8f9a714-03c4-4f76-90ac-d63ac52d195c
+2025/05/04 19:11:49 [INFO] 2025-05-04 19:11:49 - Login successful for user: a8f9a714-03c4-4f76-90ac-d63ac52d195c
+2025/05/04 19:11:49 [INFO] 2025-05-04 19:11:49 - Success login
+2025/05/05 13:20:17 [INFO] 2025-05-05 13:20:17 - Starting HTTP server at http://localhost:8080 ...
+2025/05/05 13:21:44 [INFO] 2025-05-05 13:21:44 - Starting HTTP server at http://localhost:8080 ...
+2025/05/05 13:21:58 [INFO] 2025-05-05 13:21:58 - Starting HTTP server at http://localhost:8080 ...
+2025/05/05 13:23:14 [INFO] 2025-05-05 13:23:14 - Starting HTTP server at http://localhost:8080 ...
+2025/05/05 13:23:14 [INFO] 2025-05-05 13:23:14 - Migrations applied successfully!
+2025/05/05 14:39:39 [INFO] 2025-05-05 14:39:39 - Starting HTTP server at http://localhost:8080 ...
+2025/05/05 14:39:39 [INFO] 2025-05-05 14:39:39 - Migrations applied successfully!
+2025/05/05 14:43:07 [INFO] 2025-05-05 14:43:07 - Starting HTTP server at http://localhost:8080 ...
+2025/05/05 14:43:07 [INFO] 2025-05-05 14:43:07 - Migrations applied successfully!
+2025/05/05 14:43:27 [INFO] 2025-05-05 14:43:27 - Starting HTTP server at http://localhost:8080 ...
+2025/05/05 14:43:27 [INFO] 2025-05-05 14:43:27 - Migrations applied successfully!
+2025/05/05 17:29:57 [INFO] 2025-05-05 17:29:57 - Starting HTTP server at http://localhost:8080 ...
+2025/05/05 17:29:57 [INFO] 2025-05-05 17:29:57 - Migrations applied successfully!
+2025/05/05 17:30:04 [INFO] 2025-05-05 17:30:04 - Starting HTTP server at http://localhost:8080 ...
+2025/05/05 17:30:04 [INFO] 2025-05-05 17:30:04 - Migrations applied successfully!
+2025/05/05 17:30:38 [INFO] 2025-05-05 17:30:38 - Starting HTTP server at http://localhost:8080 ...
+2025/05/05 17:30:38 [INFO] 2025-05-05 17:30:38 - Migrations applied successfully!
+2025/05/05 17:31:12 [INFO] 2025-05-05 17:31:12 - Starting HTTP server at http://localhost:8080 ...
+2025/05/05 17:31:12 [INFO] 2025-05-05 17:31:12 - Migrations applied successfully!
+2025/05/05 17:31:54 [INFO] 2025-05-05 17:31:54 - Starting HTTP server at http://localhost:8080 ...
+2025/05/05 17:31:54 [INFO] 2025-05-05 17:31:54 - Migrations applied successfully!
+2025/05/05 17:34:37 [INFO] 2025-05-05 17:34:37 - Starting HTTP server at http://localhost:8080 ...
+2025/05/05 17:34:37 [INFO] 2025-05-05 17:34:37 - Migrations applied successfully!
+2025/05/05 17:38:53 [INFO] 2025-05-05 17:38:53 - Starting HTTP server at http://localhost:8080 ...
+2025/05/05 17:38:53 [INFO] 2025-05-05 17:38:53 - Migrations applied successfully!
+2025/05/06 14:58:40 [INFO] 2025-05-06 14:58:40 - Starting HTTP server at http://localhost:8080 ...
+2025/05/06 14:58:40 [INFO] 2025-05-06 14:58:40 - Migrations applied successfully!
+2025/05/06 15:03:54 [INFO] 2025-05-06 15:03:54 - Starting HTTP server at http://localhost:8080 ...
+2025/05/06 15:03:54 [INFO] 2025-05-06 15:03:54 - Migrations applied successfully!
+2025/05/06 15:04:12 [INFO] 2025-05-06 15:04:12 - Starting HTTP server at http://localhost:8080 ...
+2025/05/06 15:04:12 [INFO] 2025-05-06 15:04:12 - Migrations applied successfully!
+2025/05/06 15:05:02 [INFO] 2025-05-06 15:05:02 - Starting HTTP server at http://localhost:8080 ...
+2025/05/06 15:05:02 [INFO] 2025-05-06 15:05:02 - Migrations applied successfully!
+2025/05/06 15:35:36 [INFO] 2025-05-06 15:35:36 - Starting HTTP server at http://localhost:8080 ...
+2025/05/06 15:35:36 [INFO] 2025-05-06 15:35:36 - Migrations applied successfully!
+2025/05/06 15:36:02 [INFO] 2025-05-06 15:36:02 - Starting HTTP server at http://localhost:8080 ...
+2025/05/06 15:36:02 [INFO] 2025-05-06 15:36:02 - Migrations applied successfully!
+2025/05/06 15:37:26 [INFO] 2025-05-06 15:37:26 - Starting HTTP server at http://localhost:8080 ...
+2025/05/06 15:37:26 [INFO] 2025-05-06 15:37:26 - Migrations applied successfully!
+2025/05/06 15:38:04 [INFO] 2025-05-06 15:38:04 - Starting HTTP server at http://localhost:8080 ...
+2025/05/06 15:38:04 [INFO] 2025-05-06 15:38:04 - Migrations applied successfully!
+2025/05/06 15:38:12 [INFO] 2025-05-06 15:38:12 - Starting HTTP server at http://localhost:8080 ...
+2025/05/06 15:38:12 [INFO] 2025-05-06 15:38:12 - Migrations applied successfully!
+2025/05/06 16:21:12 [INFO] 2025-05-06 16:21:12 - Starting HTTP server at http://localhost:8080 ...
+2025/05/06 16:21:12 [INFO] 2025-05-06 16:21:12 - Migrations applied successfully!
+2025/05/06 16:21:40 [INFO] 2025-05-06 16:21:40 - Starting HTTP server at http://localhost:8080 ...
+2025/05/06 16:21:40 [INFO] 2025-05-06 16:21:40 - Migrations applied successfully!
+2025/05/06 16:21:57 [INFO] 2025-05-06 16:21:57 - Starting HTTP server at http://localhost:8080 ...
+2025/05/06 16:21:57 [INFO] 2025-05-06 16:21:57 - Migrations applied successfully!
+2025/05/06 16:22:27 [INFO] 2025-05-06 16:22:27 - Starting HTTP server at http://localhost:8080 ...
+2025/05/06 16:22:27 [INFO] 2025-05-06 16:22:27 - Migrations applied successfully!
+2025/05/06 16:22:56 [INFO] 2025-05-06 16:22:56 - Starting HTTP server at http://localhost:8080 ...
+2025/05/06 16:22:56 [INFO] 2025-05-06 16:22:56 - Migrations applied successfully!
+2025/05/06 16:23:19 [INFO] 2025-05-06 16:23:19 - Starting HTTP server at http://localhost:8080 ...
+2025/05/06 16:23:19 [INFO] 2025-05-06 16:23:19 - Migrations applied successfully!
+2025/05/06 16:23:44 [INFO] 2025-05-06 16:23:44 - Starting HTTP server at http://localhost:8080 ...
+2025/05/06 16:23:44 [INFO] 2025-05-06 16:23:44 - Migrations applied successfully!
+2025/05/06 16:24:08 [INFO] 2025-05-06 16:24:08 - Starting HTTP server at http://localhost:8080 ...
+2025/05/06 16:24:08 [INFO] 2025-05-06 16:24:08 - Migrations applied successfully!
+2025/05/06 16:25:15 [INFO] 2025-05-06 16:25:15 - Starting HTTP server at http://localhost:8080 ...
+2025/05/06 16:25:15 [INFO] 2025-05-06 16:25:15 - Migrations applied successfully!
+2025/05/06 16:26:13 [INFO] 2025-05-06 16:26:13 - Starting HTTP server at http://localhost:8080 ...
+2025/05/06 16:26:13 [INFO] 2025-05-06 16:26:13 - Migrations applied successfully!
+2025/05/06 17:59:11 [INFO] 2025-05-06 17:59:11 - Starting HTTP server at http://localhost:8080 ...
+2025/05/06 17:59:11 [INFO] 2025-05-06 17:59:11 - Migrations applied successfully!
+2025/05/06 18:28:03 [INFO] 2025-05-06 18:28:03 - Starting HTTP server at http://localhost:8080 ...
+2025/05/06 18:28:03 [INFO] 2025-05-06 18:28:03 - Migrations applied successfully!
+2025/05/06 18:34:17 [INFO] 2025-05-06 18:34:17 - Starting avatar upload
+2025/05/06 18:34:17 [INFO] 2025-05-06 18:34:17 - Avatar file retrieved: profile.JPEG
+2025/05/06 18:34:17 [INFO] 2025-05-06 18:34:17 - Detected content type: image/jpeg
+2025/05/06 18:34:17 [INFO] 2025-05-06 18:34:17 - Created directory: profile_images
+2025/05/06 18:34:17 [INFO] 2025-05-06 18:34:17 - Generated avatar filename: 5e7f5472-bf4c-44bd-8e83-7fa445f6af70.JPEG
+2025/05/06 18:34:17 [ERROR] 2025-05-06 18:34:17 - Failed to create image file: open ../uploads/profile_images/5e7f5472-bf4c-44bd-8e83-7fa445f6af70.JPEG: no such file or directory
+2025/05/06 18:34:23 [INFO] 2025-05-06 18:34:23 - Starting avatar upload
+2025/05/06 18:34:23 [INFO] 2025-05-06 18:34:23 - Avatar file retrieved: profile.JPEG
+2025/05/06 18:34:23 [INFO] 2025-05-06 18:34:23 - Detected content type: image/jpeg
+2025/05/06 18:34:23 [INFO] 2025-05-06 18:34:23 - Generated avatar filename: 9d317523-7b44-43ff-8bb5-438a0021498c.JPEG
+2025/05/06 18:34:23 [ERROR] 2025-05-06 18:34:23 - Failed to create image file: open ../uploads/profile_images/9d317523-7b44-43ff-8bb5-438a0021498c.JPEG: no such file or directory
+2025/05/06 18:35:55 [INFO] 2025-05-06 18:35:55 - Starting avatar upload
+2025/05/06 18:35:55 [INFO] 2025-05-06 18:35:55 - Avatar file retrieved: profile.JPEG
+2025/05/06 18:35:55 [INFO] 2025-05-06 18:35:55 - Detected content type: image/jpeg
+2025/05/06 18:35:55 [INFO] 2025-05-06 18:35:55 - Generated avatar filename: b8e2c7ad-00ab-4b2f-b9f0-3da7d6237030.JPEG
+2025/05/06 18:35:55 [ERROR] 2025-05-06 18:35:55 - Failed to create image file: open ../uploads/profile_images/b8e2c7ad-00ab-4b2f-b9f0-3da7d6237030.JPEG: no such file or directory
+2025/05/06 18:36:03 [INFO] 2025-05-06 18:36:03 - Starting avatar upload
+2025/05/06 18:36:03 [INFO] 2025-05-06 18:36:03 - Avatar file retrieved: profile.JPEG
+2025/05/06 18:36:03 [INFO] 2025-05-06 18:36:03 - Detected content type: image/jpeg
+2025/05/06 18:36:03 [INFO] 2025-05-06 18:36:03 - Generated avatar filename: d0e01ee7-a928-4c75-a5ac-deb1e19a834f.JPEG
+2025/05/06 18:36:03 [ERROR] 2025-05-06 18:36:03 - Failed to create image file: open ../uploads/profile_images/d0e01ee7-a928-4c75-a5ac-deb1e19a834f.JPEG: no such file or directory
+2025/05/06 18:36:42 [INFO] 2025-05-06 18:36:42 - Starting HTTP server at http://localhost:8080 ...
+2025/05/06 18:36:42 [INFO] 2025-05-06 18:36:42 - Migrations applied successfully!
+2025/05/06 18:36:42 [INFO] 2025-05-06 18:36:42 - Starting avatar upload
+2025/05/06 18:36:42 [INFO] 2025-05-06 18:36:42 - Avatar file retrieved: profile.JPEG
+2025/05/06 18:36:42 [INFO] 2025-05-06 18:36:42 - Detected content type: image/jpeg
+2025/05/06 18:36:42 [INFO] 2025-05-06 18:36:42 - Generated avatar filename: 433d2c41-5f0d-4070-aa7f-43aa1f7d6aa3.JPEG
+2025/05/06 18:36:42 [INFO] 2025-05-06 18:36:42 - Avatar saved successfully
+2025/05/06 18:39:09 [INFO] 2025-05-06 18:39:09 - Starting HTTP server at http://localhost:8080 ...
+2025/05/06 18:39:09 [INFO] 2025-05-06 18:39:09 - Migrations applied successfully!
+2025/05/06 18:39:11 [INFO] 2025-05-06 18:39:11 - Starting avatar upload
+2025/05/06 18:39:11 [INFO] 2025-05-06 18:39:11 - Avatar file retrieved: profile.JPEG
+2025/05/06 18:39:11 [INFO] 2025-05-06 18:39:11 - Detected content type: image/jpeg
+2025/05/06 18:39:11 [INFO] 2025-05-06 18:39:11 - Generated avatar filename: 7ca974a6-7e67-4f10-afe3-3a38d12ab67e.JPEG
+2025/05/06 18:39:11 [INFO] 2025-05-06 18:39:11 - Avatar saved successfully
+2025/05/06 18:39:45 [INFO] 2025-05-06 18:39:45 - Starting HTTP server at http://localhost:8080 ...
+2025/05/06 18:39:45 [INFO] 2025-05-06 18:39:45 - Migrations applied successfully!
+2025/05/06 18:39:46 [INFO] 2025-05-06 18:39:46 - Starting avatar upload
+2025/05/06 18:39:46 [INFO] 2025-05-06 18:39:46 - Avatar file retrieved: profile.JPEG
+2025/05/06 18:39:46 [INFO] 2025-05-06 18:39:46 - Detected content type: image/jpeg
+2025/05/06 18:39:46 [INFO] 2025-05-06 18:39:46 - Generated avatar filename: 009b926f-93c7-4e50-abbc-b2f03e813470.JPEG
+2025/05/06 18:39:46 [INFO] 2025-05-06 18:39:46 - Avatar saved successfully

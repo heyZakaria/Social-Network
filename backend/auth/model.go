@@ -17,13 +17,6 @@ type Profile struct {
 	Birthday  time.Time `json:"birthday"`
 }
 
-type JSONResponse struct {
-	Success bool   `json:"success"`
-	Message string `json:"message,omitempty"`
-	Error   string `json:"error,omitempty"`
-	Token   string `json:"token,omitempty"`
-}
-
 type JWTPayload struct {
 	UserID string `json:"user_id"`
 	Role   string `json:"role"`
