@@ -11,33 +11,37 @@ import (
 	"github.com/google/uuid"
 )
 
-func PrepareImage(r *http.Request, ImageName, ImagePath string) (string, multipart.File, error) {
+func PrepareImage(r *http.Request, ImageName, ImagePath string) (imageProvided bool, path string, file multipart.File, err error) {
 	Log("INFO", "Starting avatar upload")
 
 	var avatarFilename string
-
+	if r.MultipartForm == nil || r.MultipartForm.File[ImageName] == nil {
+		imageProvided = false
+		Log("INFO", "No image file provided")
+		return imageProvided, "", nil, nil
+	}
 	file, handler, err := r.FormFile(ImageName)
 	if err != nil {
 		if err == http.ErrMissingFile {
 			Log("INFO", "No avatar file uploaded")
-			return "", file, nil
+			return false, "", nil, err
 		}
 		Log("ERROR", "Failed to retrieve avatar file: "+err.Error())
-		return "", file, fmt.Errorf("Failed to retrieve avatar file")
+		return false, "", nil, err
 	}
 	defer file.Close()
 	Log("INFO", "Avatar file retrieved: "+handler.Filename)
 
 	if handler.Size > 1024*1024 {
 		Log("WARNING", "Avatar file too large: "+fmt.Sprint(handler.Size))
-		return "", file, fmt.Errorf("Avatar file too large. Max size is 1MB")
+		return false, "", nil, fmt.Errorf("Avatar file too large. Max size is 1MB")
 	}
 
 	buffer := make([]byte, 512)
 	_, err = file.Read(buffer)
 	if err != nil {
 		Log("ERROR", "Cannot read avatar file: "+err.Error())
-		return "", file, fmt.Errorf("Cannot read file")
+		return false, "", nil, fmt.Errorf("Cannot read file")
 	}
 
 	contentType := http.DetectContentType(buffer)
@@ -51,7 +55,7 @@ func PrepareImage(r *http.Request, ImageName, ImagePath string) (string, multipa
 
 	if !allowedTypes[contentType] {
 		Log("WARNING", "Invalid image format: "+contentType)
-		return "", file, fmt.Errorf("Invalid image format. Allowed types are jpeg, png, and webp.")
+		return false, "", file, fmt.Errorf("Invalid image format. Allowed types are jpeg, png, and webp.")
 	}
 
 	file.Seek(0, io.SeekStart)
@@ -61,7 +65,7 @@ func PrepareImage(r *http.Request, ImageName, ImagePath string) (string, multipa
 		err := os.MkdirAll(uploadPhotos, os.ModePerm)
 		if err != nil {
 			Log("ERROR", "Failed to create directory: "+err.Error())
-			return "", file, fmt.Errorf("Cannot create directory")
+			return false, "", file, fmt.Errorf("Cannot create directory")
 		}
 		Log("INFO", "Created directory: profile_images")
 	}
@@ -69,12 +73,12 @@ func PrepareImage(r *http.Request, ImageName, ImagePath string) (string, multipa
 	avatarFilename = uuid.New().String() + filepath.Ext(handler.Filename) //sdafsdafk2323.jpg
 	Log("INFO", "Generated avatar filename: "+avatarFilename)
 
-	return "../uploads/" + ImagePath + "/" + avatarFilename, file, nil
+	return true, "./uploads/" + ImagePath + "/" + avatarFilename, file, nil
 }
 
 func SaveImage(file multipart.File, path string) {
 
-	dst, err := os.Create(filepath.Join(path))
+	dst, err := os.Create(filepath.Join("." + path))
 	if err != nil {
 		Log("ERROR", "Failed to create image file: "+err.Error())
 		return
