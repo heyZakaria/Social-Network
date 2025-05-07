@@ -736,3 +736,29 @@
 2025/05/06 20:43:16 [INFO] 2025-05-06 20:43:16 - Avatar saved successfully
 2025/05/06 20:43:16 [INFO] 2025-05-06 20:43:16 - Login successful for user: 048cf58a-fba1-4a98-8488-8a8cdc513e0f
 2025/05/06 20:43:16 [INFO] 2025-05-06 20:43:16 - Success Register
+2025/05/07 13:17:55 [INFO] 2025-05-07 13:17:55 - Starting HTTP server at http://localhost:8080 ...
+2025/05/07 13:17:55 [INFO] 2025-05-07 13:17:55 - Migrations applied successfully!
+2025/05/07 13:19:42 [INFO] 2025-05-07 13:19:42 - Received login request
+2025/05/07 13:19:42 [INFO] 2025-05-07 13:19:42 - Request body parsed successfully
+2025/05/07 13:19:42 [INFO] 2025-05-07 13:19:42 - Email and password fields validated
+2025/05/07 13:19:42 [WARNING] 2025-05-07 13:19:42 - Login attempt with unknown email: wefef@dfwe.ef
+2025/05/07 13:23:37 [INFO] 2025-05-07 13:23:37 - Parsed multipart form
+2025/05/07 13:23:37 [INFO] 2025-05-07 13:23:37 - Form fields parsed successfully
+2025/05/07 13:23:37 [INFO] 2025-05-07 13:23:37 - Form fields parsed
+2025/05/07 13:23:37 [INFO] 2025-05-07 13:23:37 - Checking if email exists: omar@gmail.com
+2025/05/07 13:23:37 [INFO] 2025-05-07 13:23:37 - Email is unique
+2025/05/07 13:23:37 [INFO] 2025-05-07 13:23:37 - Validating registration input
+2025/05/07 13:23:37 [INFO] 2025-05-07 13:23:37 - Registration input valid
+2025/05/07 13:23:37 [INFO] 2025-05-07 13:23:37 - User input validated
+2025/05/07 13:23:37 [INFO] 2025-05-07 13:23:37 - Hashing password
+2025/05/07 13:23:37 [INFO] 2025-05-07 13:23:37 - Password hashed successfully
+2025/05/07 13:23:37 [INFO] 2025-05-07 13:23:37 - Password hashed
+2025/05/07 13:23:37 [INFO] 2025-05-07 13:23:37 - Starting avatar upload
+2025/05/07 13:23:37 [INFO] 2025-05-07 13:23:37 - No avatar file uploaded
+2025/05/07 13:23:37 [INFO] 2025-05-07 13:23:37 - Avatar uploaded: 
+2025/05/07 13:23:37 [INFO] 2025-05-07 13:23:37 - Saving user to database with ID: fe345a79-e686-44c3-9bdc-86c2f436a178
+2025/05/07 13:23:37 [INFO] 2025-05-07 13:23:37 - User saved successfully
+2025/05/07 13:23:37 [INFO] 2025-05-07 13:23:37 - User registered with ID: fe345a79-e686-44c3-9bdc-86c2f436a178
+2025/05/07 13:23:37 [ERROR] 2025-05-07 13:23:37 - Failed to create image file: open : no such file or directory
+2025/05/07 13:23:37 [INFO] 2025-05-07 13:23:37 - Login successful for user: fe345a79-e686-44c3-9bdc-86c2f436a178
+2025/05/07 13:23:37 [INFO] 2025-05-07 13:23:37 - Success Register

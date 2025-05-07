@@ -75,6 +75,7 @@ func PrepareImage(r *http.Request, ImageName, ImagePath string) (string, multipa
 func SaveImage(file multipart.File, path string) {
 
 	dst, err := os.Create(filepath.Join(path))
+	fmt.Println(path)
 	if err != nil {
 		Log("ERROR", "Failed to create image file: "+err.Error())
 		return

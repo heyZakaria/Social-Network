@@ -85,7 +85,13 @@ func HandleRegister(w http.ResponseWriter, r *http.Request) {
 	}
 	utils.Log("INFO", fmt.Sprintf("User registered with ID: %s", userID))
 
-	utils.SaveImage(file, ImagePath)
+
+	if file != nil && ImagePath != "" {
+		utils.SaveImage(file, ImagePath)
+	}
+	utils.Log("", "No image uploaded")
+
+
 
 	SendSuccessWithToken(w, userID)
 	utils.Log("INFO", "Success Register")
