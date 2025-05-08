@@ -37,9 +37,9 @@ func CreatePost(w http.ResponseWriter, r *http.Request) {
 			Message: "Post content is required to create a post",
 		})
 	}
-	PostData.Privacy = r.FormValue("post_privacy") // TODO Handle Costum
+	PostData.Privacy = r.FormValue("post_privacy")
 	if !Privacy[PostData.Privacy] {
-		utils.Log("ERROR", "Privacy didnt selected Value recived : "+PostData.Privacy)
+		utils.Log("ERROR", "Error On the Privacy Mode user selected : "+PostData.Privacy)
 		utils.SendJSON(w, http.StatusBadRequest, utils.JSONResponse{
 			Success: false,
 			Message: "Please Check the privacy of your Post.",
