@@ -6,6 +6,7 @@ import (
 )
 
 func SaveToken(userID string, token string) error {
+	// TODO Check Old Sessions, replace delete
 	query := `
 		INSERT INTO sessions (user_id, token, expiration_time)
 		VALUES (?, ?, ?)

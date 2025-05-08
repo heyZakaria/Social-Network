@@ -23,9 +23,9 @@ func CreatePost(w http.ResponseWriter, r *http.Request) {
 	PostData.UserID = UserId
 	utils.Log("", "Start Creating the Post")
 	Privacy := map[string]bool{
-		"public":         true,
-		"almost_private": true,
-		"private":        true,
+		"public":       true,
+		"custom_users": true,
+		"followers":    true,
 	}
 	r.ParseMultipartForm(10 << 20)
 
@@ -68,10 +68,10 @@ func CreatePost(w http.ResponseWriter, r *http.Request) {
 
 	// Save The post ID with Users Allowed to see the post in Post-Allowed
 	//  Table in database
-	if PostData.Privacy == "almost_private" {
+	if PostData.Privacy == "custom_users" {
 		r.ParseForm()
 		PostData.AllowedUsers = r.Form["allowed_users"]
-		Posts_db.Proccess_Allowed_Users(int(last_id), PostData.AllowedUsers)
+		Posts_db.SaveAllowedUsers(int(last_id), PostData.AllowedUsers)
 	}
 
 	if ImageProvided {

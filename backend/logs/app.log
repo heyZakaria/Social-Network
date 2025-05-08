@@ -360,3 +360,5 @@
 2025/05/08 03:29:21 [INFO] 2025-05-08 03:29:21 - Detected content type: image/jpeg
 2025/05/08 03:29:21 [INFO] 2025-05-08 03:29:21 - Generated avatar filename: d23ae2d4-bc0e-45df-b150-62f59bf56097.JPEG
 2025/05/08 03:29:21 [INFO] 2025-05-08 03:29:21 - Avatar saved successfully
+2025/05/08 14:33:31 [INFO] 2025-05-08 14:33:31 - Starting HTTP server at http://localhost:8080 ...
+2025/05/08 14:33:31 [INFO] 2025-05-08 14:33:31 - Migrations applied successfully!

@@ -3,7 +3,7 @@ CREATE TABLE IF NOT EXISTS posts (
     user_id TEXT NOT NULL,
     post_content TEXT NOT NULL,
     post_image TEXT DEFAULT '',
-    post_privacy TEXT NOT NULL DEFAULT 'public', -- public - followers - costume
+    post_privacy TEXT NOT NULL DEFAULT 'public', -- public - custom_users - followers
     -- in custome option, we are saving users ids and post id 
     -- on the post_allowed table
     created_at    TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
