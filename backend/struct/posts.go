@@ -7,14 +7,16 @@ import (
 
 // POST /posts
 type Post struct {
-	UserID     int
+	UserID     string
 	Post       string
 	Post_image string
 	Privacy    string
+	AllowedUsers []string
 }
 
 func (p *Post) InsertPost() (lastInsertId int64, err error) {
-	statment, err := db.DB.Prepare("INSERT INTO posts (user_id, post, post_image, privacy) VALUES (?, ?, ?, ?)")
+	fmt.Println(p.UserID, p.Post, p.Post_image, p.Privacy)
+	statment, err := db.DB.Prepare("INSERT INTO posts (user_id, post_content, post_image, post_privacy) VALUES (?, ?, ?, ?)")
 	if err != nil {
 		fmt.Println("error in Prepare Statment Json", err)
 		// TODO Handel Error

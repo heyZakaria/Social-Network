@@ -1,62 +1,84 @@
 package post
 
 import (
-	"fmt"
 	"net/http"
+	Posts_db "socialNetwork/db/posts"
+	User_db "socialNetwork/db/user"
 	Structs "socialNetwork/struct"
 	"socialNetwork/utils"
 )
 
-// POST /post
-// Form Value, Form file -> POST Form / multipart form
-// Json => content Json
-
 func CreatePost(w http.ResponseWriter, r *http.Request) {
+	PostData := Structs.Post{}
 
-	Privacy := map[string]bool{
-		"public":    true,
-		"followers": true,
-		"costum":    true,
+	UserId, err := User_db.GetUserIDByToken(r)
+	if err != nil {
+		utils.Log("Error", err.Error())
+		utils.SendJSON(w, http.StatusUnauthorized, utils.JSONResponse{
+			Success: false,
+			Message: err.Error(),
+		})
+		return
 	}
-
-	// TODO check the user Permission to create a Post
-	var err error
+	PostData.UserID = UserId
+	utils.Log("", "Start Creating the Post")
+	Privacy := map[string]bool{
+		"public":         true,
+		"almost_private": true,
+		"private":        true,
+	}
 	r.ParseMultipartForm(10 << 20)
 
-	PostData := Structs.Post{}
-	PostData.UserID = 1 // TODO Get User ID From JWT Token
 	PostData.Post = r.FormValue("post_content")
 	if PostData.Post == "" {
-		// TODO Handle Error
+		utils.Log("ERROR", "Post Content is Empty")
+		utils.SendJSON(w, http.StatusBadRequest, utils.JSONResponse{
+			Success: false,
+			Message: "Post content is required to create a post",
+		})
 	}
 	PostData.Privacy = r.FormValue("post_privacy") // TODO Handle Costum
 	if !Privacy[PostData.Privacy] {
-		// TODO Handle Errors once user entered something else
+		utils.Log("ERROR", "Privacy didnt selected Value recived : "+PostData.Privacy)
+		utils.SendJSON(w, http.StatusBadRequest, utils.JSONResponse{
+			Success: false,
+			Message: "Please Check the privacy of your Post.",
+		})
 	}
-	// x, PostData.Post_image, err := utils.PrepareImage(r, "post_image", "posts")
-	// if err != nil {
-	// 	fmt.Println("Handle  Form File error")
-	// }
 
-	// err = json.NewDecoder(r.Body).Decode(&PostData)
-	// if err != nil {
-	// 	// TODO Handle Error Respond to The front
-	// 	fmt.Println("error in Decoding Json", err)
-	// }
+	ImageProvided, postImage, file, err := utils.PrepareImage(r, "post_image", "posts")
+	PostData.Post_image = postImage
+	if err != nil {
+		utils.Log("ERROR", "Error Trying to Prepare Image: "+postImage)
+		utils.SendJSON(w, http.StatusInternalServerError, utils.JSONResponse{
+			Success: false,
+			Message: "Error occured Please try again later.",
+		})
+	}
 
-	// Send suer Data to Database
 	last_id, err := PostData.InsertPost()
 	if err != nil {
-		// TODO Handle The error
-		fmt.Println("Error Inserting Post")
+		utils.Log("ERROR", "Error Trying to save post into db")
+		utils.SendJSON(w, http.StatusInternalServerError, utils.JSONResponse{
+			Success: false,
+			Message: "Error Inserting Post, Try again later.",
+		})
+		return
 	}
 
-	// Values needed from Front to create Post
-	// user_id
-	// post TEXT
-	// privacy TYPE
-	// TODO Succesfull MSG :D
-	utils.SendJSON(w, http.StatusBadRequest, utils.JSONResponse{
+	// Save The post ID with Users Allowed to see the post in Post-Allowed
+	//  Table in database
+	if PostData.Privacy == "almost_private" {
+		r.ParseForm()
+		PostData.AllowedUsers = r.Form["allowed_users"]
+		Posts_db.Proccess_Allowed_Users(int(last_id), PostData.AllowedUsers)
+	}
+
+	if ImageProvided {
+		utils.SaveImage(file, PostData.Post_image)
+	}
+	utils.SendJSON(w, http.StatusOK, utils.JSONResponse{
 		Success: last_id > 0,
+		Message: "Post Created Successfully",
 	})
 }

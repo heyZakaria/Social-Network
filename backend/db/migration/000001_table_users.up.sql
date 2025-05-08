@@ -1,5 +1,5 @@
 CREATE TABLE IF NOT EXISTS users (
-    id TEXT NOT NULL,
+    id TEXT PRIMARY KEY,
     first_name TEXT NOT NULL CHECK(LENGTH(first_name) >= 3 AND LENGTH(first_name) <= 20),
     last_name TEXT NOT NULL CHECK(LENGTH(last_name) >= 3 AND LENGTH(last_name) <= 20),
     email TEXT UNIQUE NOT NULL CHECK(LENGTH(email) < 70),

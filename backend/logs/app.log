@@ -3,3 +3,360 @@
 2025/05/04 16:25:31 [INFO] 2025-05-04 16:25:31 - Database file does not exist. It will be created.
 2025/05/04 16:25:31 [INFO] 2025-05-04 16:25:31 - Database opened successfully
 2025/05/04 16:25:31 [ERROR] 2025-05-04 16:25:31 - Ping fail: unable to open database file: no such file or directory
+2025/05/07 15:01:08 [INFO] 2025-05-07 15:01:08 - Starting HTTP server at http://localhost:8080 ...
+2025/05/07 15:01:08 [INFO] 2025-05-07 15:01:08 - Migrations applied successfully!
+2025/05/07 15:02:34 [INFO] 2025-05-07 15:02:34 - Starting HTTP server at http://localhost:8080 ...
+2025/05/07 15:02:34 [INFO] 2025-05-07 15:02:34 - Migrations applied successfully!
+2025/05/07 15:04:15 [INFO] 2025-05-07 15:04:15 - Starting HTTP server at http://localhost:8080 ...
+2025/05/07 15:04:15 [INFO] 2025-05-07 15:04:15 - Migrations applied successfully!
+2025/05/07 15:04:26 [INFO] 2025-05-07 15:04:26 - Parsed multipart form
+2025/05/07 15:04:26 [INFO] 2025-05-07 15:04:26 - Form fields parsed successfully
+2025/05/07 15:04:26 [INFO] 2025-05-07 15:04:26 - Form fields parsed
+2025/05/07 15:04:26 [INFO] 2025-05-07 15:04:26 - Checking if email exists: xtwlmefvsdxxxsxf@sdf.com
+2025/05/07 15:04:26 [INFO] 2025-05-07 15:04:26 - Email is unique
+2025/05/07 15:04:26 [INFO] 2025-05-07 15:04:26 - Validating registration input
+2025/05/07 15:04:26 [INFO] 2025-05-07 15:04:26 - Registration input valid
+2025/05/07 15:04:26 [INFO] 2025-05-07 15:04:26 - User input validated
+2025/05/07 15:04:26 [INFO] 2025-05-07 15:04:26 - Hashing password
+2025/05/07 15:04:26 [INFO] 2025-05-07 15:04:26 - Password hashed successfully
+2025/05/07 15:04:26 [INFO] 2025-05-07 15:04:26 - Password hashed
+2025/05/07 15:04:26 [INFO] 2025-05-07 15:04:26 - Starting avatar upload
+2025/05/07 15:04:26 [INFO] 2025-05-07 15:04:26 - Avatar file retrieved: profile.JPEG
+2025/05/07 15:04:26 [INFO] 2025-05-07 15:04:26 - Detected content type: image/jpeg
+2025/05/07 15:04:26 [INFO] 2025-05-07 15:04:26 - Generated avatar filename: 35f2c188-3d8f-467d-9121-dfa75d9f1432.JPEG
+2025/05/07 15:04:26 [INFO] 2025-05-07 15:04:26 - Avatar uploaded: ../uploads/profile_image/35f2c188-3d8f-467d-9121-dfa75d9f1432.JPEG
+2025/05/07 15:04:26 [INFO] 2025-05-07 15:04:26 - Saving user to database with ID: e43fe10a-e0d4-42a9-81f6-17b5171e80e1
+2025/05/07 15:04:26 [INFO] 2025-05-07 15:04:26 - User saved successfully
+2025/05/07 15:04:26 [INFO] 2025-05-07 15:04:26 - User registered with ID: e43fe10a-e0d4-42a9-81f6-17b5171e80e1
+2025/05/07 15:04:26 [INFO] 2025-05-07 15:04:26 - Avatar saved successfully
+2025/05/07 15:04:26 [INFO] 2025-05-07 15:04:26 - Login successful for user: e43fe10a-e0d4-42a9-81f6-17b5171e80e1
+2025/05/07 15:04:26 [INFO] 2025-05-07 15:04:26 - Success Register
+2025/05/07 15:07:38 [INFO] 2025-05-07 15:07:38 - Starting HTTP server at http://localhost:8080 ...
+2025/05/07 15:07:38 [INFO] 2025-05-07 15:07:38 - Migrations applied successfully!
+2025/05/07 15:07:55 [INFO] 2025-05-07 15:07:55 - Starting HTTP server at http://localhost:8080 ...
+2025/05/07 15:07:55 [INFO] 2025-05-07 15:07:55 - Migrations applied successfully!
+2025/05/07 15:08:00 [INFO] 2025-05-07 15:08:00 - Parsed multipart form
+2025/05/07 15:08:00 [INFO] 2025-05-07 15:08:00 - Form fields parsed successfully
+2025/05/07 15:08:00 [INFO] 2025-05-07 15:08:00 - Form fields parsed
+2025/05/07 15:08:00 [INFO] 2025-05-07 15:08:00 - Checking if email exists: xtwlmefvsdxxxsxf@sdf.com
+2025/05/07 15:08:00 [INFO] 2025-05-07 15:08:00 - Email is unique
+2025/05/07 15:08:00 [INFO] 2025-05-07 15:08:00 - Validating registration input
+2025/05/07 15:08:00 [INFO] 2025-05-07 15:08:00 - Registration input valid
+2025/05/07 15:08:00 [INFO] 2025-05-07 15:08:00 - User input validated
+2025/05/07 15:08:00 [INFO] 2025-05-07 15:08:00 - Hashing password
+2025/05/07 15:08:00 [INFO] 2025-05-07 15:08:00 - Password hashed successfully
+2025/05/07 15:08:00 [INFO] 2025-05-07 15:08:00 - Password hashed
+2025/05/07 15:08:00 [INFO] 2025-05-07 15:08:00 - Starting avatar upload
+2025/05/07 15:08:00 [INFO] 2025-05-07 15:08:00 - Avatar file retrieved: profile.JPEG
+2025/05/07 15:08:00 [INFO] 2025-05-07 15:08:00 - Detected content type: image/jpeg
+2025/05/07 15:08:00 [INFO] 2025-05-07 15:08:00 - Generated avatar filename: 10d77b38-e188-4795-a905-28263f7af317.JPEG
+2025/05/07 15:08:00 [INFO] 2025-05-07 15:08:00 - Avatar uploaded: ../uploads/profile_image/10d77b38-e188-4795-a905-28263f7af317.JPEG
+2025/05/07 15:08:00 [INFO] 2025-05-07 15:08:00 - Saving user to database with ID: fe7f418b-c557-40fe-b2c5-431c77363771
+2025/05/07 15:08:00 [INFO] 2025-05-07 15:08:00 - User saved successfully
+2025/05/07 15:08:00 [INFO] 2025-05-07 15:08:00 - User registered with ID: fe7f418b-c557-40fe-b2c5-431c77363771
+2025/05/07 15:08:00 [INFO] 2025-05-07 15:08:00 - Avatar saved successfully
+2025/05/07 15:08:00 [INFO] 2025-05-07 15:08:00 - Login successful for user: fe7f418b-c557-40fe-b2c5-431c77363771
+2025/05/07 15:08:00 [INFO] 2025-05-07 15:08:00 - Success Register
+2025/05/07 15:08:18 [INFO] 2025-05-07 15:08:18 - Starting HTTP server at http://localhost:8080 ...
+2025/05/07 15:08:18 [INFO] 2025-05-07 15:08:18 - Migrations applied successfully!
+2025/05/07 15:08:28 [INFO] 2025-05-07 15:08:28 - Starting HTTP server at http://localhost:8080 ...
+2025/05/07 15:08:28 [INFO] 2025-05-07 15:08:28 - Migrations applied successfully!
+2025/05/07 15:10:36 [INFO] 2025-05-07 15:10:36 - Starting HTTP server at http://localhost:8080 ...
+2025/05/07 15:10:36 [INFO] 2025-05-07 15:10:36 - Migrations applied successfully!
+2025/05/07 15:11:24 [INFO] 2025-05-07 15:11:24 - Starting HTTP server at http://localhost:8080 ...
+2025/05/07 15:11:24 [INFO] 2025-05-07 15:11:24 - Migrations applied successfully!
+2025/05/07 15:12:15 [INFO] 2025-05-07 15:12:15 - Starting HTTP server at http://localhost:8080 ...
+2025/05/07 15:12:15 [INFO] 2025-05-07 15:12:15 - Migrations applied successfully!
+2025/05/07 15:12:58 [INFO] 2025-05-07 15:12:58 - Starting HTTP server at http://localhost:8080 ...
+2025/05/07 15:12:58 [INFO] 2025-05-07 15:12:58 - Migrations applied successfully!
+2025/05/07 15:15:18 [INFO] 2025-05-07 15:15:18 - Starting HTTP server at http://localhost:8080 ...
+2025/05/07 15:15:18 [INFO] 2025-05-07 15:15:18 - Migrations applied successfully!
+2025/05/07 15:17:11 [INFO] 2025-05-07 15:17:11 - Starting HTTP server at http://localhost:8080 ...
+2025/05/07 15:17:11 [INFO] 2025-05-07 15:17:11 - Migrations applied successfully!
+2025/05/07 15:17:46 [INFO] 2025-05-07 15:17:46 - Starting HTTP server at http://localhost:8080 ...
+2025/05/07 15:17:46 [INFO] 2025-05-07 15:17:46 - Migrations applied successfully!
+2025/05/07 15:19:38 [INFO] 2025-05-07 15:19:38 - Starting HTTP server at http://localhost:8080 ...
+2025/05/07 15:19:38 [INFO] 2025-05-07 15:19:38 - Migrations applied successfully!
+2025/05/07 15:19:41 [INFO] 2025-05-07 15:19:41 - Parsed multipart form
+2025/05/07 15:19:41 [INFO] 2025-05-07 15:19:41 - Form fields parsed successfully
+2025/05/07 15:19:41 [INFO] 2025-05-07 15:19:41 - Form fields parsed
+2025/05/07 15:19:41 [INFO] 2025-05-07 15:19:41 - Checking if email exists: xtwlmefvsdxxxsxf@sdf.com
+2025/05/07 15:19:41 [INFO] 2025-05-07 15:19:41 - Email is unique
+2025/05/07 15:19:41 [INFO] 2025-05-07 15:19:41 - Validating registration input
+2025/05/07 15:19:41 [INFO] 2025-05-07 15:19:41 - Registration input valid
+2025/05/07 15:19:41 [INFO] 2025-05-07 15:19:41 - User input validated
+2025/05/07 15:19:41 [INFO] 2025-05-07 15:19:41 - Hashing password
+2025/05/07 15:19:41 [INFO] 2025-05-07 15:19:41 - Password hashed successfully
+2025/05/07 15:19:41 [INFO] 2025-05-07 15:19:41 - Password hashed
+2025/05/07 15:19:41 [INFO] 2025-05-07 15:19:41 - Starting avatar upload
+2025/05/07 15:19:41 [INFO] 2025-05-07 15:19:41 - Avatar file retrieved: profile.JPEG
+2025/05/07 15:19:41 [INFO] 2025-05-07 15:19:41 - Detected content type: image/jpeg
+2025/05/07 15:19:41 [INFO] 2025-05-07 15:19:41 - Generated avatar filename: 3e757229-2a9f-4e0b-a5a2-ef7d5031b98d.JPEG
+2025/05/07 15:19:41 [INFO] 2025-05-07 15:19:41 - Avatar uploaded: ../uploads/profile_image/3e757229-2a9f-4e0b-a5a2-ef7d5031b98d.JPEG
+2025/05/07 15:19:41 [INFO] 2025-05-07 15:19:41 - Saving user to database with ID: f221fea9-22d1-4193-9a0e-62c33fae2e2d
+2025/05/07 15:19:41 [INFO] 2025-05-07 15:19:41 - User saved successfully
+2025/05/07 15:19:41 [INFO] 2025-05-07 15:19:41 - User registered with ID: f221fea9-22d1-4193-9a0e-62c33fae2e2d
+2025/05/07 15:19:41 [INFO] 2025-05-07 15:19:41 - Avatar saved successfully
+2025/05/07 15:19:41 [INFO] 2025-05-07 15:19:41 - Login successful for user: f221fea9-22d1-4193-9a0e-62c33fae2e2d
+2025/05/07 15:19:41 [INFO] 2025-05-07 15:19:41 - Success Register
+2025/05/07 15:19:59 [INFO] 2025-05-07 15:19:59 - Starting HTTP server at http://localhost:8080 ...
+2025/05/07 15:19:59 [INFO] 2025-05-07 15:19:59 - Migrations applied successfully!
+2025/05/07 15:30:51 [INFO] 2025-05-07 15:30:51 - Starting HTTP server at http://localhost:8080 ...
+2025/05/07 15:30:51 [INFO] 2025-05-07 15:30:51 - Migrations applied successfully!
+2025/05/07 15:31:39 [INFO] 2025-05-07 15:31:39 - Starting avatar upload
+2025/05/07 15:31:39 [INFO] 2025-05-07 15:31:39 - Avatar file retrieved: profile.JPEG
+2025/05/07 15:31:39 [INFO] 2025-05-07 15:31:39 - Detected content type: image/jpeg
+2025/05/07 15:31:39 [INFO] 2025-05-07 15:31:39 - Generated avatar filename: cd8257fe-75be-4b9b-bdc6-00665b6bb245.JPEG
+2025/05/07 15:35:12 [INFO] 2025-05-07 15:35:12 - Starting HTTP server at http://localhost:8080 ...
+2025/05/07 15:35:12 [INFO] 2025-05-07 15:35:12 - Migrations applied successfully!
+2025/05/07 15:35:13 [INFO] 2025-05-07 15:35:13 - Starting avatar upload
+2025/05/07 15:35:13 [INFO] 2025-05-07 15:35:13 - Avatar file retrieved: profile.JPEG
+2025/05/07 15:35:13 [INFO] 2025-05-07 15:35:13 - Detected content type: image/jpeg
+2025/05/07 15:35:13 [INFO] 2025-05-07 15:35:13 - Generated avatar filename: ffe0f8b0-8afc-4070-82b8-7b8fff545206.JPEG
+2025/05/07 15:35:13 [INFO] 2025-05-07 15:35:13 - Avatar saved successfully
+2025/05/07 15:35:40 [INFO] 2025-05-07 15:35:40 - Parsed multipart form
+2025/05/07 15:35:40 [INFO] 2025-05-07 15:35:40 - Form fields parsed successfully
+2025/05/07 15:35:40 [INFO] 2025-05-07 15:35:40 - Form fields parsed
+2025/05/07 15:35:40 [INFO] 2025-05-07 15:35:40 - Checking if email exists: xtwlmefvsdxxxsxf@sdf.com
+2025/05/07 15:35:40 [WARNING] 2025-05-07 15:35:40 - Tried to register with existing email: xtwlmefvsdxxxsxf@sdf.com
+2025/05/07 15:35:48 [INFO] 2025-05-07 15:35:48 - Parsed multipart form
+2025/05/07 15:35:48 [INFO] 2025-05-07 15:35:48 - Form fields parsed successfully
+2025/05/07 15:35:48 [INFO] 2025-05-07 15:35:48 - Form fields parsed
+2025/05/07 15:35:48 [INFO] 2025-05-07 15:35:48 - Checking if email exists: xtwlmefvsdxxxsxxf@sdf.com
+2025/05/07 15:35:48 [INFO] 2025-05-07 15:35:48 - Email is unique
+2025/05/07 15:35:48 [INFO] 2025-05-07 15:35:48 - Validating registration input
+2025/05/07 15:35:48 [INFO] 2025-05-07 15:35:48 - Registration input valid
+2025/05/07 15:35:48 [INFO] 2025-05-07 15:35:48 - User input validated
+2025/05/07 15:35:48 [INFO] 2025-05-07 15:35:48 - Hashing password
+2025/05/07 15:35:48 [INFO] 2025-05-07 15:35:48 - Password hashed successfully
+2025/05/07 15:35:48 [INFO] 2025-05-07 15:35:48 - Password hashed
+2025/05/07 15:35:48 [INFO] 2025-05-07 15:35:48 - Starting avatar upload
+2025/05/07 15:35:48 [INFO] 2025-05-07 15:35:48 - Avatar file retrieved: profile.JPEG
+2025/05/07 15:35:48 [INFO] 2025-05-07 15:35:48 - Detected content type: image/jpeg
+2025/05/07 15:35:48 [INFO] 2025-05-07 15:35:48 - Generated avatar filename: 09ee5d0a-771e-4b11-8a6d-5b86bc870993.JPEG
+2025/05/07 15:35:48 [INFO] 2025-05-07 15:35:48 - Avatar uploaded: ./uploads/profile_image/09ee5d0a-771e-4b11-8a6d-5b86bc870993.JPEG
+2025/05/07 15:35:48 [INFO] 2025-05-07 15:35:48 - Saving user to database with ID: 95e885f8-76de-4c51-9f27-f2592f2feff7
+2025/05/07 15:35:48 [INFO] 2025-05-07 15:35:48 - User saved successfully
+2025/05/07 15:35:48 [INFO] 2025-05-07 15:35:48 - User registered with ID: 95e885f8-76de-4c51-9f27-f2592f2feff7
+2025/05/07 15:35:48 [INFO] 2025-05-07 15:35:48 - Avatar saved successfully
+2025/05/07 15:35:48 [INFO] 2025-05-07 15:35:48 - Login successful for user: 95e885f8-76de-4c51-9f27-f2592f2feff7
+2025/05/07 15:35:48 [INFO] 2025-05-07 15:35:48 - Success Register
+2025/05/07 15:38:19 [INFO] 2025-05-07 15:38:19 - Starting avatar upload
+2025/05/07 15:38:19 [INFO] 2025-05-07 15:38:19 - No avatar file uploaded
+2025/05/07 15:38:19 [ERROR] 2025-05-07 15:38:19 - Failed to create image file: open .: is a directory
+2025/05/07 15:39:32 [INFO] 2025-05-07 15:39:32 - Starting HTTP server at http://localhost:8080 ...
+2025/05/07 15:39:32 [INFO] 2025-05-07 15:39:32 - Migrations applied successfully!
+2025/05/07 15:39:33 [INFO] 2025-05-07 15:39:33 - Starting avatar upload
+2025/05/07 15:39:33 [INFO] 2025-05-07 15:39:33 - No avatar file uploaded
+2025/05/07 15:39:33 [ERROR] 2025-05-07 15:39:33 - Failed to create image file: open .: is a directory
+2025/05/07 23:09:54 [INFO] 2025-05-07 23:09:54 - Starting HTTP server at http://localhost:8080 ...
+2025/05/07 23:09:54 [INFO] 2025-05-07 23:09:54 - Migrations applied successfully!
+2025/05/07 23:09:56 [INFO] 2025-05-07 23:09:56 - Starting avatar upload
+2025/05/07 23:09:56 [INFO] 2025-05-07 23:09:56 - Avatar file retrieved: profile.JPEG
+2025/05/07 23:09:56 [INFO] 2025-05-07 23:09:56 - Detected content type: image/jpeg
+2025/05/07 23:09:56 [INFO] 2025-05-07 23:09:56 - Generated avatar filename: 58aab6a6-6fad-44ce-89b0-7639339b4c41.JPEG
+2025/05/07 23:09:56 [INFO] 2025-05-07 23:09:56 - Avatar saved successfully
+2025/05/07 23:11:40 [ERROR] 2025-05-07 23:11:40 - Failed to parse form: request Content-Type isn't multipart/form-data
+2025/05/07 23:12:49 [ERROR] 2025-05-07 23:12:49 - Failed to parse form: request Content-Type isn't multipart/form-data
+2025/05/08 00:52:14 [INFO] 2025-05-08 00:52:14 - Starting HTTP server at http://localhost:8080 ...
+2025/05/08 00:52:14 [INFO] 2025-05-08 00:52:14 - Migrations applied successfully!
+2025/05/08 00:52:18 [INFO] 2025-05-08 00:52:18 - Starting avatar upload
+2025/05/08 00:52:18 [INFO] 2025-05-08 00:52:18 - No image file provided
+2025/05/08 00:52:25 [INFO] 2025-05-08 00:52:25 - Starting avatar upload
+2025/05/08 00:52:25 [INFO] 2025-05-08 00:52:25 - Avatar file retrieved: profile.JPEG
+2025/05/08 00:52:25 [INFO] 2025-05-08 00:52:25 - Detected content type: image/jpeg
+2025/05/08 00:52:25 [INFO] 2025-05-08 00:52:25 - Generated avatar filename: ee86b73f-b232-47a2-a3e1-f6a6e676ea65.JPEG
+2025/05/08 00:52:25 [INFO] 2025-05-08 00:52:25 - Avatar saved successfully
+2025/05/08 00:52:56 [INFO] 2025-05-08 00:52:56 - Parsed multipart form
+2025/05/08 00:52:56 [INFO] 2025-05-08 00:52:56 - Form fields parsed successfully
+2025/05/08 00:52:56 [INFO] 2025-05-08 00:52:56 - Form fields parsed
+2025/05/08 00:52:56 [INFO] 2025-05-08 00:52:56 - Checking if email exists: xx@sdf.com
+2025/05/08 00:52:56 [INFO] 2025-05-08 00:52:56 - Email is unique
+2025/05/08 00:52:56 [INFO] 2025-05-08 00:52:56 - Validating registration input
+2025/05/08 00:52:56 [INFO] 2025-05-08 00:52:56 - Registration input valid
+2025/05/08 00:52:56 [INFO] 2025-05-08 00:52:56 - User input validated
+2025/05/08 00:52:56 [INFO] 2025-05-08 00:52:56 - Hashing password
+2025/05/08 00:52:56 [INFO] 2025-05-08 00:52:56 - Password hashed successfully
+2025/05/08 00:52:56 [INFO] 2025-05-08 00:52:56 - Password hashed
+2025/05/08 00:52:56 [INFO] 2025-05-08 00:52:56 - Starting avatar upload
+2025/05/08 00:52:56 [INFO] 2025-05-08 00:52:56 - Avatar file retrieved: profile.JPEG
+2025/05/08 00:52:56 [INFO] 2025-05-08 00:52:56 - Detected content type: image/jpeg
+2025/05/08 00:52:56 [INFO] 2025-05-08 00:52:56 - Generated avatar filename: e07b15ef-46d3-4414-80d0-6fbda6003e71.JPEG
+2025/05/08 00:52:56 [INFO] 2025-05-08 00:52:56 - Saving user to database with ID: 650d3c96-5504-4daa-ad7c-94902e31ed2b
+2025/05/08 00:52:56 [INFO] 2025-05-08 00:52:56 - User saved successfully
+2025/05/08 00:52:56 [INFO] 2025-05-08 00:52:56 - User registered with ID: 650d3c96-5504-4daa-ad7c-94902e31ed2b
+2025/05/08 00:52:56 [INFO] 2025-05-08 00:52:56 - Avatar uploaded: ./uploads/profile_image/e07b15ef-46d3-4414-80d0-6fbda6003e71.JPEG
+2025/05/08 00:52:56 [INFO] 2025-05-08 00:52:56 - Avatar saved successfully
+2025/05/08 00:52:56 [INFO] 2025-05-08 00:52:56 - Login successful for user: 650d3c96-5504-4daa-ad7c-94902e31ed2b
+2025/05/08 00:52:56 [INFO] 2025-05-08 00:52:56 - Success Register
+2025/05/08 01:50:13 [INFO] 2025-05-08 01:50:13 - Starting HTTP server at http://localhost:8080 ...
+2025/05/08 01:50:13 [INFO] 2025-05-08 01:50:13 - Migrations applied successfully!
+2025/05/08 01:55:46 [INFO] 2025-05-08 01:55:46 - Starting HTTP server at http://localhost:8080 ...
+2025/05/08 01:55:46 [INFO] 2025-05-08 01:55:46 - Migrations applied successfully!
+2025/05/08 01:55:51 [INFO] 2025-05-08 01:55:51 - Parsed multipart form
+2025/05/08 01:55:51 [INFO] 2025-05-08 01:55:51 - Form fields parsed successfully
+2025/05/08 01:55:51 [INFO] 2025-05-08 01:55:51 - Form fields parsed
+2025/05/08 01:55:51 [INFO] 2025-05-08 01:55:51 - Checking if email exists: xx@sdf.com
+2025/05/08 01:55:51 [INFO] 2025-05-08 01:55:51 - Email is unique
+2025/05/08 01:55:51 [INFO] 2025-05-08 01:55:51 - Validating registration input
+2025/05/08 01:55:51 [INFO] 2025-05-08 01:55:51 - Registration input valid
+2025/05/08 01:55:51 [INFO] 2025-05-08 01:55:51 - User input validated
+2025/05/08 01:55:51 [INFO] 2025-05-08 01:55:51 - Hashing password
+2025/05/08 01:55:51 [INFO] 2025-05-08 01:55:51 - Password hashed successfully
+2025/05/08 01:55:51 [INFO] 2025-05-08 01:55:51 - Password hashed
+2025/05/08 01:55:51 [INFO] 2025-05-08 01:55:51 - Starting avatar upload
+2025/05/08 01:55:51 [INFO] 2025-05-08 01:55:51 - Avatar file retrieved: profile.JPEG
+2025/05/08 01:55:51 [INFO] 2025-05-08 01:55:51 - Detected content type: image/jpeg
+2025/05/08 01:55:51 [INFO] 2025-05-08 01:55:51 - Generated avatar filename: 117afcc8-282d-4b9e-a7cb-12abaf5540a8.JPEG
+2025/05/08 01:55:51 [INFO] 2025-05-08 01:55:51 - Saving user to database with ID: ce379c74-3a2e-443c-a3ed-50cb80ab362d
+2025/05/08 01:55:51 [INFO] 2025-05-08 01:55:51 - User saved successfully
+2025/05/08 01:55:51 [INFO] 2025-05-08 01:55:51 - User registered with ID: ce379c74-3a2e-443c-a3ed-50cb80ab362d
+2025/05/08 01:55:51 [INFO] 2025-05-08 01:55:51 - Avatar uploaded: ./uploads/profile_image/117afcc8-282d-4b9e-a7cb-12abaf5540a8.JPEG
+2025/05/08 01:55:51 [INFO] 2025-05-08 01:55:51 - Avatar saved successfully
+2025/05/08 01:55:51 [INFO] 2025-05-08 01:55:51 - Save Token into Sessions
+2025/05/08 01:55:51 [INFO] 2025-05-08 01:55:51 - Login successful for user: ce379c74-3a2e-443c-a3ed-50cb80ab362d
+2025/05/08 01:55:51 [INFO] 2025-05-08 01:55:51 - Success Register
+2025/05/08 01:57:14 [LOG] 2025-05-08 01:57:14 - Start Creating the Post
+2025/05/08 01:57:14 [INFO] 2025-05-08 01:57:14 - Starting avatar upload
+2025/05/08 01:57:14 [INFO] 2025-05-08 01:57:14 - Avatar file retrieved: profile.JPEG
+2025/05/08 01:57:14 [INFO] 2025-05-08 01:57:14 - Detected content type: image/jpeg
+2025/05/08 01:57:14 [INFO] 2025-05-08 01:57:14 - Generated avatar filename: 9e3ce173-9120-4ca0-8300-edf25b349c93.JPEG
+2025/05/08 01:58:15 [INFO] 2025-05-08 01:58:15 - Starting HTTP server at http://localhost:8080 ...
+2025/05/08 01:58:15 [INFO] 2025-05-08 01:58:15 - Migrations applied successfully!
+2025/05/08 01:58:21 [INFO] 2025-05-08 01:58:21 - Parsed multipart form
+2025/05/08 01:58:21 [INFO] 2025-05-08 01:58:21 - Form fields parsed successfully
+2025/05/08 01:58:21 [INFO] 2025-05-08 01:58:21 - Form fields parsed
+2025/05/08 01:58:21 [INFO] 2025-05-08 01:58:21 - Checking if email exists: xx@sdf.com
+2025/05/08 01:58:21 [INFO] 2025-05-08 01:58:21 - Email is unique
+2025/05/08 01:58:21 [INFO] 2025-05-08 01:58:21 - Validating registration input
+2025/05/08 01:58:21 [INFO] 2025-05-08 01:58:21 - Registration input valid
+2025/05/08 01:58:21 [INFO] 2025-05-08 01:58:21 - User input validated
+2025/05/08 01:58:21 [INFO] 2025-05-08 01:58:21 - Hashing password
+2025/05/08 01:58:21 [INFO] 2025-05-08 01:58:21 - Password hashed successfully
+2025/05/08 01:58:21 [INFO] 2025-05-08 01:58:21 - Password hashed
+2025/05/08 01:58:21 [INFO] 2025-05-08 01:58:21 - Starting avatar upload
+2025/05/08 01:58:21 [INFO] 2025-05-08 01:58:21 - Avatar file retrieved: profile.JPEG
+2025/05/08 01:58:21 [INFO] 2025-05-08 01:58:21 - Detected content type: image/jpeg
+2025/05/08 01:58:21 [INFO] 2025-05-08 01:58:21 - Generated avatar filename: 9af87d14-2d2e-44a9-a43a-b7c2d0d32089.JPEG
+2025/05/08 01:58:21 [INFO] 2025-05-08 01:58:21 - Saving user to database with ID: 1e63a557-0fd0-492d-97bc-ead82c0c5cb2
+2025/05/08 01:58:21 [INFO] 2025-05-08 01:58:21 - User saved successfully
+2025/05/08 01:58:21 [INFO] 2025-05-08 01:58:21 - User registered with ID: 1e63a557-0fd0-492d-97bc-ead82c0c5cb2
+2025/05/08 01:58:21 [INFO] 2025-05-08 01:58:21 - Avatar uploaded: ./uploads/profile_image/9af87d14-2d2e-44a9-a43a-b7c2d0d32089.JPEG
+2025/05/08 01:58:21 [INFO] 2025-05-08 01:58:21 - Avatar saved successfully
+2025/05/08 01:58:21 [INFO] 2025-05-08 01:58:21 - Save Token into Sessions
+2025/05/08 01:58:21 [INFO] 2025-05-08 01:58:21 - Login successful for user: 1e63a557-0fd0-492d-97bc-ead82c0c5cb2
+2025/05/08 01:58:21 [INFO] 2025-05-08 01:58:21 - Success Register
+2025/05/08 01:59:00 [LOG] 2025-05-08 01:59:00 - Start Creating the Post
+2025/05/08 01:59:00 [INFO] 2025-05-08 01:59:00 - Starting avatar upload
+2025/05/08 01:59:00 [INFO] 2025-05-08 01:59:00 - Avatar file retrieved: profile.JPEG
+2025/05/08 01:59:00 [INFO] 2025-05-08 01:59:00 - Detected content type: image/jpeg
+2025/05/08 01:59:00 [INFO] 2025-05-08 01:59:00 - Generated avatar filename: 57dd406b-66fc-465a-878b-be9db744628d.JPEG
+2025/05/08 01:59:00 [INFO] 2025-05-08 01:59:00 - Avatar saved successfully
+2025/05/08 01:59:32 [INFO] 2025-05-08 01:59:32 - Parsed multipart form
+2025/05/08 01:59:32 [INFO] 2025-05-08 01:59:32 - Form fields parsed successfully
+2025/05/08 01:59:32 [INFO] 2025-05-08 01:59:32 - Form fields parsed
+2025/05/08 01:59:32 [INFO] 2025-05-08 01:59:32 - Checking if email exists: mohamed@sdf.com
+2025/05/08 01:59:32 [INFO] 2025-05-08 01:59:32 - Email is unique
+2025/05/08 01:59:32 [INFO] 2025-05-08 01:59:32 - Validating registration input
+2025/05/08 01:59:32 [INFO] 2025-05-08 01:59:32 - Registration input valid
+2025/05/08 01:59:32 [INFO] 2025-05-08 01:59:32 - User input validated
+2025/05/08 01:59:32 [INFO] 2025-05-08 01:59:32 - Hashing password
+2025/05/08 01:59:32 [INFO] 2025-05-08 01:59:32 - Password hashed successfully
+2025/05/08 01:59:32 [INFO] 2025-05-08 01:59:32 - Password hashed
+2025/05/08 01:59:32 [INFO] 2025-05-08 01:59:32 - Starting avatar upload
+2025/05/08 01:59:32 [INFO] 2025-05-08 01:59:32 - Avatar file retrieved: profile.JPEG
+2025/05/08 01:59:32 [INFO] 2025-05-08 01:59:32 - Detected content type: image/jpeg
+2025/05/08 01:59:32 [INFO] 2025-05-08 01:59:32 - Generated avatar filename: be9b76f4-2232-4381-80b7-93a5c3dbdaf3.JPEG
+2025/05/08 01:59:32 [INFO] 2025-05-08 01:59:32 - Saving user to database with ID: bbe8e624-4579-4c8f-9460-70dff5de4b56
+2025/05/08 01:59:32 [INFO] 2025-05-08 01:59:32 - User saved successfully
+2025/05/08 01:59:32 [INFO] 2025-05-08 01:59:32 - User registered with ID: bbe8e624-4579-4c8f-9460-70dff5de4b56
+2025/05/08 01:59:32 [INFO] 2025-05-08 01:59:32 - Avatar uploaded: ./uploads/profile_image/be9b76f4-2232-4381-80b7-93a5c3dbdaf3.JPEG
+2025/05/08 01:59:32 [INFO] 2025-05-08 01:59:32 - Avatar saved successfully
+2025/05/08 01:59:32 [INFO] 2025-05-08 01:59:32 - Save Token into Sessions
+2025/05/08 01:59:32 [INFO] 2025-05-08 01:59:32 - Login successful for user: bbe8e624-4579-4c8f-9460-70dff5de4b56
+2025/05/08 01:59:32 [INFO] 2025-05-08 01:59:32 - Success Register
+2025/05/08 02:00:37 [INFO] 2025-05-08 02:00:37 - Starting HTTP server at http://localhost:8080 ...
+2025/05/08 02:00:37 [INFO] 2025-05-08 02:00:37 - Migrations applied successfully!
+2025/05/08 02:01:04 [LOG] 2025-05-08 02:01:04 - Start Creating the Post
+2025/05/08 02:01:04 [INFO] 2025-05-08 02:01:04 - Starting avatar upload
+2025/05/08 02:01:04 [INFO] 2025-05-08 02:01:04 - Avatar file retrieved: profile.JPEG
+2025/05/08 02:01:04 [INFO] 2025-05-08 02:01:04 - Detected content type: image/jpeg
+2025/05/08 02:01:04 [INFO] 2025-05-08 02:01:04 - Generated avatar filename: f8149ef0-bc2b-4288-8cbd-0d634f4a1143.JPEG
+2025/05/08 02:01:04 [INFO] 2025-05-08 02:01:04 - Avatar saved successfully
+2025/05/08 02:03:24 [INFO] 2025-05-08 02:03:24 - Starting HTTP server at http://localhost:8080 ...
+2025/05/08 02:03:24 [INFO] 2025-05-08 02:03:24 - Migrations applied successfully!
+2025/05/08 03:09:23 [INFO] 2025-05-08 03:09:23 - Starting HTTP server at http://localhost:8080 ...
+2025/05/08 03:09:23 [INFO] 2025-05-08 03:09:23 - Migrations applied successfully!
+2025/05/08 03:10:59 [LOG] 2025-05-08 03:10:59 - Error retrieving token cookie
+2025/05/08 03:11:42 [LOG] 2025-05-08 03:11:42 - Start Creating the Post
+2025/05/08 03:11:42 [INFO] 2025-05-08 03:11:42 - Starting avatar upload
+2025/05/08 03:11:42 [INFO] 2025-05-08 03:11:42 - Avatar file retrieved: profile.JPEG
+2025/05/08 03:11:42 [INFO] 2025-05-08 03:11:42 - Detected content type: image/jpeg
+2025/05/08 03:11:42 [INFO] 2025-05-08 03:11:42 - Generated avatar filename: b033afc2-798a-421b-808d-1a7346fd37d6.JPEG
+2025/05/08 03:11:42 [INFO] 2025-05-08 03:11:42 - Avatar saved successfully
+2025/05/08 03:27:18 [INFO] 2025-05-08 03:27:18 - Starting HTTP server at http://localhost:8080 ...
+2025/05/08 03:27:18 [INFO] 2025-05-08 03:27:18 - Migrations applied successfully!
+2025/05/08 03:27:25 [INFO] 2025-05-08 03:27:25 - Parsed multipart form
+2025/05/08 03:27:25 [INFO] 2025-05-08 03:27:25 - Form fields parsed successfully
+2025/05/08 03:27:25 [INFO] 2025-05-08 03:27:25 - Form fields parsed
+2025/05/08 03:27:25 [INFO] 2025-05-08 03:27:25 - Checking if email exists: mohamed@sdf.com
+2025/05/08 03:27:25 [INFO] 2025-05-08 03:27:25 - Email is unique
+2025/05/08 03:27:25 [INFO] 2025-05-08 03:27:25 - Validating registration input
+2025/05/08 03:27:25 [INFO] 2025-05-08 03:27:25 - Registration input valid
+2025/05/08 03:27:25 [INFO] 2025-05-08 03:27:25 - User input validated
+2025/05/08 03:27:25 [INFO] 2025-05-08 03:27:25 - Hashing password
+2025/05/08 03:27:25 [INFO] 2025-05-08 03:27:25 - Password hashed successfully
+2025/05/08 03:27:25 [INFO] 2025-05-08 03:27:25 - Password hashed
+2025/05/08 03:27:25 [INFO] 2025-05-08 03:27:25 - Starting avatar upload
+2025/05/08 03:27:25 [INFO] 2025-05-08 03:27:25 - Avatar file retrieved: profile.JPEG
+2025/05/08 03:27:25 [INFO] 2025-05-08 03:27:25 - Detected content type: image/jpeg
+2025/05/08 03:27:25 [INFO] 2025-05-08 03:27:25 - Generated avatar filename: 6c27230d-4835-4923-ad86-d74ca3c86e08.JPEG
+2025/05/08 03:27:25 [INFO] 2025-05-08 03:27:25 - Saving user to database with ID: f57648ff-d29c-4703-9ea6-a5363e63eb85
+2025/05/08 03:27:25 [INFO] 2025-05-08 03:27:25 - User saved successfully
+2025/05/08 03:27:25 [INFO] 2025-05-08 03:27:25 - User registered with ID: f57648ff-d29c-4703-9ea6-a5363e63eb85
+2025/05/08 03:27:25 [INFO] 2025-05-08 03:27:25 - Avatar uploaded: ./uploads/profile_image/6c27230d-4835-4923-ad86-d74ca3c86e08.JPEG
+2025/05/08 03:27:25 [INFO] 2025-05-08 03:27:25 - Avatar saved successfully
+2025/05/08 03:27:25 [INFO] 2025-05-08 03:27:25 - Save Token into Sessions
+2025/05/08 03:27:25 [INFO] 2025-05-08 03:27:25 - Login successful for user: f57648ff-d29c-4703-9ea6-a5363e63eb85
+2025/05/08 03:27:25 [INFO] 2025-05-08 03:27:25 - Success Register
+2025/05/08 03:27:34 [INFO] 2025-05-08 03:27:34 - Parsed multipart form
+2025/05/08 03:27:34 [INFO] 2025-05-08 03:27:34 - Form fields parsed successfully
+2025/05/08 03:27:34 [INFO] 2025-05-08 03:27:34 - Form fields parsed
+2025/05/08 03:27:34 [INFO] 2025-05-08 03:27:34 - Checking if email exists: said@sdf.com
+2025/05/08 03:27:34 [INFO] 2025-05-08 03:27:34 - Email is unique
+2025/05/08 03:27:34 [INFO] 2025-05-08 03:27:34 - Validating registration input
+2025/05/08 03:27:34 [INFO] 2025-05-08 03:27:34 - Registration input valid
+2025/05/08 03:27:34 [INFO] 2025-05-08 03:27:34 - User input validated
+2025/05/08 03:27:34 [INFO] 2025-05-08 03:27:34 - Hashing password
+2025/05/08 03:27:34 [INFO] 2025-05-08 03:27:34 - Password hashed successfully
+2025/05/08 03:27:34 [INFO] 2025-05-08 03:27:34 - Password hashed
+2025/05/08 03:27:34 [INFO] 2025-05-08 03:27:34 - Starting avatar upload
+2025/05/08 03:27:34 [INFO] 2025-05-08 03:27:34 - Avatar file retrieved: profile.JPEG
+2025/05/08 03:27:34 [INFO] 2025-05-08 03:27:34 - Detected content type: image/jpeg
+2025/05/08 03:27:34 [INFO] 2025-05-08 03:27:34 - Generated avatar filename: 8434bf54-49d5-440e-b407-8aec8d372d4e.JPEG
+2025/05/08 03:27:34 [INFO] 2025-05-08 03:27:34 - Saving user to database with ID: a86b18fc-811f-4622-ae81-c11ef6fc0a14
+2025/05/08 03:27:34 [INFO] 2025-05-08 03:27:34 - User saved successfully
+2025/05/08 03:27:34 [INFO] 2025-05-08 03:27:34 - User registered with ID: a86b18fc-811f-4622-ae81-c11ef6fc0a14
+2025/05/08 03:27:34 [INFO] 2025-05-08 03:27:34 - Avatar uploaded: ./uploads/profile_image/8434bf54-49d5-440e-b407-8aec8d372d4e.JPEG
+2025/05/08 03:27:34 [INFO] 2025-05-08 03:27:34 - Avatar saved successfully
+2025/05/08 03:27:34 [INFO] 2025-05-08 03:27:34 - Save Token into Sessions
+2025/05/08 03:27:34 [INFO] 2025-05-08 03:27:34 - Login successful for user: a86b18fc-811f-4622-ae81-c11ef6fc0a14
+2025/05/08 03:27:34 [INFO] 2025-05-08 03:27:34 - Success Register
+2025/05/08 03:28:47 [LOG] 2025-05-08 03:28:47 - Start Creating the Post
+2025/05/08 03:28:47 [INFO] 2025-05-08 03:28:47 - Starting avatar upload
+2025/05/08 03:28:47 [INFO] 2025-05-08 03:28:47 - Avatar file retrieved: profile.JPEG
+2025/05/08 03:28:47 [INFO] 2025-05-08 03:28:47 - Detected content type: image/jpeg
+2025/05/08 03:28:47 [INFO] 2025-05-08 03:28:47 - Generated avatar filename: a0329af9-4f73-4531-a95c-4a4e5fb3bc22.JPEG
+2025/05/08 03:28:47 [INFO] 2025-05-08 03:28:47 - Avatar saved successfully
+2025/05/08 03:29:18 [LOG] 2025-05-08 03:29:18 - Start Creating the Post
+2025/05/08 03:29:18 [INFO] 2025-05-08 03:29:18 - Starting avatar upload
+2025/05/08 03:29:18 [INFO] 2025-05-08 03:29:18 - Avatar file retrieved: profile.JPEG
+2025/05/08 03:29:18 [INFO] 2025-05-08 03:29:18 - Detected content type: image/jpeg
+2025/05/08 03:29:18 [INFO] 2025-05-08 03:29:18 - Generated avatar filename: 9ce46088-be25-42d7-86a7-0785a812cc98.JPEG
+2025/05/08 03:29:18 [INFO] 2025-05-08 03:29:18 - Avatar saved successfully
+2025/05/08 03:29:21 [LOG] 2025-05-08 03:29:21 - Start Creating the Post
+2025/05/08 03:29:21 [INFO] 2025-05-08 03:29:21 - Starting avatar upload
+2025/05/08 03:29:21 [INFO] 2025-05-08 03:29:21 - Avatar file retrieved: profile.JPEG
+2025/05/08 03:29:21 [INFO] 2025-05-08 03:29:21 - Detected content type: image/jpeg
+2025/05/08 03:29:21 [INFO] 2025-05-08 03:29:21 - Generated avatar filename: d23ae2d4-bc0e-45df-b150-62f59bf56097.JPEG
+2025/05/08 03:29:21 [INFO] 2025-05-08 03:29:21 - Avatar saved successfully

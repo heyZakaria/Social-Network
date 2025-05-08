@@ -2,6 +2,7 @@ package auth
 
 import (
 	"net/http"
+	User_db "socialNetwork/db/user"
 	"socialNetwork/utils"
 	"time"
 )
@@ -42,6 +43,9 @@ func SendSuccessWithToken(w http.ResponseWriter, userID string) {
 		SameSite: http.SameSiteStrictMode,
 		Expires:  time.Now().Add(time.Hour * 24),
 	})
+
+	utils.Log("INFO", "Save Token into Sessions")
+	User_db.SaveToken(userID, token)
 
 	utils.SendJSON(w, http.StatusOK, utils.JSONResponse{
 		Success: true,

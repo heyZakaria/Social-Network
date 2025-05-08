@@ -21,14 +21,14 @@ var (
 )
 
 func InitLogger() error {
-	logDir := "./logs"
+	logDir := "../logs"
 	if _, err := os.Stat(logDir); os.IsNotExist(err) {
 		err := os.MkdirAll(logDir, os.ModePerm)
 		if err != nil {
 			return fmt.Errorf("cannot create logs directory: %v", err)
 		}
 	}
-	logFile, err := os.OpenFile("./logs/app.log", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
+	logFile, err := os.OpenFile("../logs/app.log", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
 	if err != nil {
 		return err
 	}
@@ -36,6 +36,8 @@ func InitLogger() error {
 	return nil
 }
 
+// Flags to use:
+// INFO - WARNING - ERROR - DEFAULT ""
 func Log(level string, message string) {
 	color := ""
 	prefix := ""
