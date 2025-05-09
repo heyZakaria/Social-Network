@@ -1,4 +1,4 @@
-package User_db
+package user
 
 // CREATE TABLE sessions (
 //     id INTEGER PRIMARY KEY AUTOINCREMENT,

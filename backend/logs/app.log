@@ -362,3 +362,232 @@
 2025/05/08 03:29:21 [INFO] 2025-05-08 03:29:21 - Avatar saved successfully
 2025/05/08 14:33:31 [INFO] 2025-05-08 14:33:31 - Starting HTTP server at http://localhost:8080 ...
 2025/05/08 14:33:31 [INFO] 2025-05-08 14:33:31 - Migrations applied successfully!
+2025/05/08 15:17:01 [INFO] 2025-05-08 15:17:01 - Starting HTTP server at http://localhost:8080 ...
+2025/05/08 15:17:01 [INFO] 2025-05-08 15:17:01 - Migrations applied successfully!
+2025/05/08 15:23:35 [INFO] 2025-05-08 15:23:35 - Starting HTTP server at http://localhost:8080 ...
+2025/05/08 15:23:35 [INFO] 2025-05-08 15:23:35 - Migrations applied successfully!
+2025/05/08 18:18:54 [INFO] 2025-05-08 18:18:54 - Starting HTTP server at http://localhost:8080 ...
+2025/05/08 18:18:54 [INFO] 2025-05-08 18:18:54 - Migrations applied successfully!
+2025/05/08 18:19:19 [ERROR] 2025-05-08 18:19:19 - Not Authorized request to get this post
+2025/05/08 18:19:48 [INFO] 2025-05-08 18:19:48 - Parsed multipart form
+2025/05/08 18:19:48 [INFO] 2025-05-08 18:19:48 - Form fields parsed successfully
+2025/05/08 18:19:48 [INFO] 2025-05-08 18:19:48 - Form fields parsed
+2025/05/08 18:19:48 [INFO] 2025-05-08 18:19:48 - Checking if email exists: xtwlmefvsdxxxsxf@sdf.com
+2025/05/08 18:19:48 [INFO] 2025-05-08 18:19:48 - Email is unique
+2025/05/08 18:19:48 [INFO] 2025-05-08 18:19:48 - Validating registration input
+2025/05/08 18:19:48 [INFO] 2025-05-08 18:19:48 - Registration input valid
+2025/05/08 18:19:48 [INFO] 2025-05-08 18:19:48 - User input validated
+2025/05/08 18:19:48 [INFO] 2025-05-08 18:19:48 - Hashing password
+2025/05/08 18:19:48 [INFO] 2025-05-08 18:19:48 - Password hashed successfully
+2025/05/08 18:19:48 [INFO] 2025-05-08 18:19:48 - Password hashed
+2025/05/08 18:19:48 [INFO] 2025-05-08 18:19:48 - Starting avatar upload
+2025/05/08 18:19:48 [INFO] 2025-05-08 18:19:48 - Avatar file retrieved: profile.JPEG
+2025/05/08 18:19:48 [INFO] 2025-05-08 18:19:48 - Detected content type: image/jpeg
+2025/05/08 18:19:48 [INFO] 2025-05-08 18:19:48 - Created directory: profile_images
+2025/05/08 18:19:48 [INFO] 2025-05-08 18:19:48 - Generated avatar filename: 4d6c1c3e-0938-4302-a723-300f4d76a866.JPEG
+2025/05/08 18:19:48 [INFO] 2025-05-08 18:19:48 - Saving user to database with ID: 19e67f2a-6558-4cda-a535-d565a0d6de81
+2025/05/08 18:19:48 [INFO] 2025-05-08 18:19:48 - User saved successfully
+2025/05/08 18:19:48 [INFO] 2025-05-08 18:19:48 - User registered with ID: 19e67f2a-6558-4cda-a535-d565a0d6de81
+2025/05/08 18:19:48 [INFO] 2025-05-08 18:19:48 - Avatar uploaded: ./uploads/profile_image/4d6c1c3e-0938-4302-a723-300f4d76a866.JPEG
+2025/05/08 18:19:48 [INFO] 2025-05-08 18:19:48 - Avatar saved successfully
+2025/05/08 18:19:48 [INFO] 2025-05-08 18:19:48 - Save Token into Sessions
+2025/05/08 18:19:48 [INFO] 2025-05-08 18:19:48 - Login successful for user: 19e67f2a-6558-4cda-a535-d565a0d6de81
+2025/05/08 18:19:48 [INFO] 2025-05-08 18:19:48 - Success Register
+2025/05/08 18:20:19 [ERROR] 2025-05-08 18:20:19 - Not Authorized request to get this post
+2025/05/08 18:23:29 [INFO] 2025-05-08 18:23:29 - Starting HTTP server at http://localhost:8080 ...
+2025/05/08 18:23:29 [INFO] 2025-05-08 18:23:29 - Migrations applied successfully!
+2025/05/08 18:23:55 [INFO] 2025-05-08 18:23:55 - Starting HTTP server at http://localhost:8080 ...
+2025/05/08 18:23:55 [INFO] 2025-05-08 18:23:55 - Migrations applied successfully!
+2025/05/08 18:24:14 [INFO] 2025-05-08 18:24:14 - Starting HTTP server at http://localhost:8080 ...
+2025/05/08 18:24:14 [INFO] 2025-05-08 18:24:14 - Migrations applied successfully!
+2025/05/08 18:25:41 [INFO] 2025-05-08 18:25:41 - Starting HTTP server at http://localhost:8080 ...
+2025/05/08 18:25:41 [INFO] 2025-05-08 18:25:41 - Migrations applied successfully!
+2025/05/08 18:27:57 [INFO] 2025-05-08 18:27:57 - Starting HTTP server at http://localhost:8080 ...
+2025/05/08 18:27:57 [INFO] 2025-05-08 18:27:57 - Migrations applied successfully!
+2025/05/08 18:28:03 [ERROR] 2025-05-08 18:28:03 - Incorrect Post ID
+2025/05/08 18:32:49 [LOG] 2025-05-08 18:32:49 - Start Creating the Post
+2025/05/08 18:32:49 [ERROR] 2025-05-08 18:32:49 - Error On the Privacy Mode user selected : almost_private
+2025/05/08 18:33:16 [LOG] 2025-05-08 18:33:16 - Start Creating the Post
+2025/05/08 18:33:16 [INFO] 2025-05-08 18:33:16 - Starting avatar upload
+2025/05/08 18:33:16 [INFO] 2025-05-08 18:33:16 - Avatar file retrieved: profile.JPEG
+2025/05/08 18:33:16 [INFO] 2025-05-08 18:33:16 - Detected content type: image/jpeg
+2025/05/08 18:33:16 [INFO] 2025-05-08 18:33:16 - Created directory: profile_images
+2025/05/08 18:33:16 [INFO] 2025-05-08 18:33:16 - Generated avatar filename: acc8ebfe-8f3c-47b7-9b94-2b130d1cdb68.JPEG
+2025/05/08 18:33:16 [ERROR] 2025-05-08 18:33:16 - Error executing statement for user :a86b18fc-811f-4622-ae81-c11ef6fc0a14FOREIGN KEY constraint failed
+2025/05/08 18:33:16 [INFO] 2025-05-08 18:33:16 - Avatar saved successfully
+2025/05/09 15:44:04 [INFO] 2025-05-09 15:44:04 - Parsed multipart form
+2025/05/09 15:44:04 [INFO] 2025-05-09 15:44:04 - Form fields parsed successfully
+2025/05/09 15:44:04 [INFO] 2025-05-09 15:44:04 - Form fields parsed
+2025/05/09 15:44:04 [INFO] 2025-05-09 15:44:04 - Checking if email exists: elhaoc@sdf.com
+2025/05/09 15:44:04 [INFO] 2025-05-09 15:44:04 - Email is unique
+2025/05/09 15:44:04 [INFO] 2025-05-09 15:44:04 - Validating registration input
+2025/05/09 15:44:04 [INFO] 2025-05-09 15:44:04 - Registration input valid
+2025/05/09 15:44:04 [INFO] 2025-05-09 15:44:04 - User input validated
+2025/05/09 15:44:04 [INFO] 2025-05-09 15:44:04 - Hashing password
+2025/05/09 15:44:04 [INFO] 2025-05-09 15:44:04 - Password hashed successfully
+2025/05/09 15:44:04 [INFO] 2025-05-09 15:44:04 - Password hashed
+2025/05/09 15:44:04 [INFO] 2025-05-09 15:44:04 - Starting avatar upload
+2025/05/09 15:44:04 [INFO] 2025-05-09 15:44:04 - Avatar file retrieved: profile.JPEG
+2025/05/09 15:44:04 [INFO] 2025-05-09 15:44:04 - Detected content type: image/jpeg
+2025/05/09 15:44:04 [INFO] 2025-05-09 15:44:04 - Generated avatar filename: 595c8c99-0b40-47bc-b32d-94b83b482775.JPEG
+2025/05/09 15:44:04 [INFO] 2025-05-09 15:44:04 - Saving user to database with ID: 10402768-3d69-46e4-9615-c0571c1d4b01
+2025/05/09 15:44:04 [INFO] 2025-05-09 15:44:04 - User saved successfully
+2025/05/09 15:44:04 [INFO] 2025-05-09 15:44:04 - User registered with ID: 10402768-3d69-46e4-9615-c0571c1d4b01
+2025/05/09 15:44:04 [INFO] 2025-05-09 15:44:04 - Avatar uploaded: ./uploads/profile_image/595c8c99-0b40-47bc-b32d-94b83b482775.JPEG
+2025/05/09 15:44:04 [INFO] 2025-05-09 15:44:04 - Avatar saved successfully
+2025/05/09 15:44:04 [INFO] 2025-05-09 15:44:04 - Save Token into Sessions
+2025/05/09 15:44:04 [INFO] 2025-05-09 15:44:04 - Login successful for user: 10402768-3d69-46e4-9615-c0571c1d4b01
+2025/05/09 15:44:04 [INFO] 2025-05-09 15:44:04 - Success Register
+2025/05/09 15:51:26 [INFO] 2025-05-09 15:51:26 - Parsed multipart form
+2025/05/09 15:51:26 [INFO] 2025-05-09 15:51:26 - Form fields parsed successfully
+2025/05/09 15:51:26 [INFO] 2025-05-09 15:51:26 - Form fields parsed
+2025/05/09 15:51:26 [INFO] 2025-05-09 15:51:26 - Checking if email exists: zcasaca@sdf.com
+2025/05/09 15:51:26 [INFO] 2025-05-09 15:51:26 - Email is unique
+2025/05/09 15:51:26 [INFO] 2025-05-09 15:51:26 - Validating registration input
+2025/05/09 15:51:26 [INFO] 2025-05-09 15:51:26 - Registration input valid
+2025/05/09 15:51:26 [INFO] 2025-05-09 15:51:26 - User input validated
+2025/05/09 15:51:26 [INFO] 2025-05-09 15:51:26 - Hashing password
+2025/05/09 15:51:26 [INFO] 2025-05-09 15:51:26 - Password hashed successfully
+2025/05/09 15:51:26 [INFO] 2025-05-09 15:51:26 - Password hashed
+2025/05/09 15:51:26 [INFO] 2025-05-09 15:51:26 - Starting avatar upload
+2025/05/09 15:51:26 [INFO] 2025-05-09 15:51:26 - Avatar file retrieved: profile.JPEG
+2025/05/09 15:51:26 [INFO] 2025-05-09 15:51:26 - Detected content type: image/jpeg
+2025/05/09 15:51:26 [INFO] 2025-05-09 15:51:26 - Generated avatar filename: 120edeba-85c9-4caa-ad08-3d3a6a454352.JPEG
+2025/05/09 15:51:26 [INFO] 2025-05-09 15:51:26 - Saving user to database with ID: 65f04e8d-1044-4ef0-9e7e-a93e1eba5c4c
+2025/05/09 15:51:26 [INFO] 2025-05-09 15:51:26 - User saved successfully
+2025/05/09 15:51:26 [INFO] 2025-05-09 15:51:26 - User registered with ID: 65f04e8d-1044-4ef0-9e7e-a93e1eba5c4c
+2025/05/09 15:51:26 [INFO] 2025-05-09 15:51:26 - Avatar uploaded: ./uploads/profile_image/120edeba-85c9-4caa-ad08-3d3a6a454352.JPEG
+2025/05/09 15:51:26 [INFO] 2025-05-09 15:51:26 - Avatar saved successfully
+2025/05/09 15:51:26 [INFO] 2025-05-09 15:51:26 - Save Token into Sessions
+2025/05/09 15:51:26 [INFO] 2025-05-09 15:51:26 - Login successful for user: 65f04e8d-1044-4ef0-9e7e-a93e1eba5c4c
+2025/05/09 15:51:26 [INFO] 2025-05-09 15:51:26 - Success Register
+2025/05/09 15:52:02 [LOG] 2025-05-09 15:52:02 - Error retrieving token cookie
+2025/05/09 15:53:36 [LOG] 2025-05-09 15:53:36 - Error retrieving token cookie
+2025/05/09 15:54:10 [LOG] 2025-05-09 15:54:10 - Error retrieving token cookie
+2025/05/09 15:54:32 [LOG] 2025-05-09 15:54:32 - Start Creating the Post
+2025/05/09 15:54:32 [INFO] 2025-05-09 15:54:32 - Starting avatar upload
+2025/05/09 15:54:32 [INFO] 2025-05-09 15:54:32 - Avatar file retrieved: profile.JPEG
+2025/05/09 15:54:32 [INFO] 2025-05-09 15:54:32 - Detected content type: image/jpeg
+2025/05/09 15:54:32 [INFO] 2025-05-09 15:54:32 - Generated avatar filename: 02ad8bae-168b-445f-8ac4-8e39c1988c1e.JPEG
+2025/05/09 15:54:32 [INFO] 2025-05-09 15:54:32 - Avatar saved successfully
+2025/05/09 15:54:47 [LOG] 2025-05-09 15:54:47 - Start Creating the Post
+2025/05/09 15:54:47 [INFO] 2025-05-09 15:54:47 - Starting avatar upload
+2025/05/09 15:54:47 [INFO] 2025-05-09 15:54:47 - Avatar file retrieved: profile.JPEG
+2025/05/09 15:54:47 [INFO] 2025-05-09 15:54:47 - Detected content type: image/jpeg
+2025/05/09 15:54:47 [INFO] 2025-05-09 15:54:47 - Generated avatar filename: 2b080359-edd5-4976-9630-8d3ba7b35c31.JPEG
+2025/05/09 15:54:47 [INFO] 2025-05-09 15:54:47 - Avatar saved successfully
+2025/05/09 15:55:17 [LOG] 2025-05-09 15:55:17 - Start Creating the Post
+2025/05/09 15:55:17 [INFO] 2025-05-09 15:55:17 - Starting avatar upload
+2025/05/09 15:55:17 [INFO] 2025-05-09 15:55:17 - Avatar file retrieved: profile.JPEG
+2025/05/09 15:55:17 [INFO] 2025-05-09 15:55:17 - Detected content type: image/jpeg
+2025/05/09 15:55:17 [INFO] 2025-05-09 15:55:17 - Generated avatar filename: 7c38d8de-d2c9-44d2-b53b-87922057e78e.JPEG
+2025/05/09 15:55:17 [INFO] 2025-05-09 15:55:17 - Avatar saved successfully
+2025/05/09 15:58:13 [INFO] 2025-05-09 15:58:13 - Received login request
+2025/05/09 15:58:13 [ERROR] 2025-05-09 15:58:13 - Failed to parse login form: EOF
+2025/05/09 15:59:35 [INFO] 2025-05-09 15:59:35 - Received login request
+2025/05/09 15:59:35 [INFO] 2025-05-09 15:59:35 - Request body parsed successfully
+2025/05/09 15:59:35 [INFO] 2025-05-09 15:59:35 - Email and password fields validated
+2025/05/09 15:59:35 [WARNING] 2025-05-09 15:59:35 - Login attempt with unknown email: tawohe@g.com
+2025/05/09 16:00:06 [INFO] 2025-05-09 16:00:06 - Received login request
+2025/05/09 16:00:06 [INFO] 2025-05-09 16:00:06 - Request body parsed successfully
+2025/05/09 16:00:06 [INFO] 2025-05-09 16:00:06 - Email and password fields validated
+2025/05/09 16:00:06 [INFO] 2025-05-09 16:00:06 - User data retrieved from DB for email: xtwlmefvsdxxxsxf@sdf.com
+2025/05/09 16:00:06 [INFO] 2025-05-09 16:00:06 - Password validated successfully
+2025/05/09 16:00:06 [INFO] 2025-05-09 16:00:06 - Sending success with token for user: 19e67f2a-6558-4cda-a535-d565a0d6de81
+2025/05/09 16:00:06 [INFO] 2025-05-09 16:00:06 - Save Token into Sessions
+2025/05/09 16:00:06 [INFO] 2025-05-09 16:00:06 - Login successful for user: 19e67f2a-6558-4cda-a535-d565a0d6de81
+2025/05/09 16:00:11 [INFO] 2025-05-09 16:00:11 - Received login request
+2025/05/09 16:00:11 [INFO] 2025-05-09 16:00:11 - Request body parsed successfully
+2025/05/09 16:00:11 [INFO] 2025-05-09 16:00:11 - Email and password fields validated
+2025/05/09 16:00:11 [INFO] 2025-05-09 16:00:11 - User data retrieved from DB for email: xtwlmefvsdxxxsxf@sdf.com
+2025/05/09 16:00:11 [INFO] 2025-05-09 16:00:11 - Password validated successfully
+2025/05/09 16:00:11 [INFO] 2025-05-09 16:00:11 - Sending success with token for user: 19e67f2a-6558-4cda-a535-d565a0d6de81
+2025/05/09 16:00:11 [INFO] 2025-05-09 16:00:11 - Save Token into Sessions
+2025/05/09 16:00:11 [INFO] 2025-05-09 16:00:11 - Login successful for user: 19e67f2a-6558-4cda-a535-d565a0d6de81
+2025/05/09 16:04:59 [INFO] 2025-05-09 16:04:59 - Starting HTTP server at http://localhost:8080 ...
+2025/05/09 16:04:59 [INFO] 2025-05-09 16:04:59 - Migrations applied successfully!
+2025/05/09 16:05:06 [INFO] 2025-05-09 16:05:06 - Received login request
+2025/05/09 16:05:06 [INFO] 2025-05-09 16:05:06 - Request body parsed successfully
+2025/05/09 16:05:06 [INFO] 2025-05-09 16:05:06 - Email and password fields validated
+2025/05/09 16:05:06 [INFO] 2025-05-09 16:05:06 - User data retrieved from DB for email: xtwlmefvsdxxxsxf@sdf.com
+2025/05/09 16:05:06 [INFO] 2025-05-09 16:05:06 - Password validated successfully
+2025/05/09 16:05:06 [INFO] 2025-05-09 16:05:06 - Sending success with token for user: 19e67f2a-6558-4cda-a535-d565a0d6de81
+2025/05/09 16:05:06 [INFO] 2025-05-09 16:05:06 - Save Token into Sessions
+2025/05/09 16:05:06 [INFO] 2025-05-09 16:05:06 - Login successful for user: 19e67f2a-6558-4cda-a535-d565a0d6de81
+2025/05/09 16:05:11 [INFO] 2025-05-09 16:05:11 - Received login request
+2025/05/09 16:05:11 [INFO] 2025-05-09 16:05:11 - Request body parsed successfully
+2025/05/09 16:05:11 [INFO] 2025-05-09 16:05:11 - Email and password fields validated
+2025/05/09 16:05:11 [INFO] 2025-05-09 16:05:11 - User data retrieved from DB for email: xtwlmefvsdxxxsxf@sdf.com
+2025/05/09 16:05:11 [INFO] 2025-05-09 16:05:11 - Password validated successfully
+2025/05/09 16:05:11 [INFO] 2025-05-09 16:05:11 - Sending success with token for user: 19e67f2a-6558-4cda-a535-d565a0d6de81
+2025/05/09 16:05:11 [INFO] 2025-05-09 16:05:11 - Save Token into Sessions
+2025/05/09 16:05:11 [INFO] 2025-05-09 16:05:11 - Login successful for user: 19e67f2a-6558-4cda-a535-d565a0d6de81
+2025/05/09 16:05:13 [INFO] 2025-05-09 16:05:13 - Received login request
+2025/05/09 16:05:13 [INFO] 2025-05-09 16:05:13 - Request body parsed successfully
+2025/05/09 16:05:13 [INFO] 2025-05-09 16:05:13 - Email and password fields validated
+2025/05/09 16:05:13 [INFO] 2025-05-09 16:05:13 - User data retrieved from DB for email: xtwlmefvsdxxxsxf@sdf.com
+2025/05/09 16:05:13 [INFO] 2025-05-09 16:05:13 - Password validated successfully
+2025/05/09 16:05:13 [INFO] 2025-05-09 16:05:13 - Sending success with token for user: 19e67f2a-6558-4cda-a535-d565a0d6de81
+2025/05/09 16:05:13 [INFO] 2025-05-09 16:05:13 - Save Token into Sessions
+2025/05/09 16:05:13 [INFO] 2025-05-09 16:05:13 - Login successful for user: 19e67f2a-6558-4cda-a535-d565a0d6de81
+2025/05/09 16:05:18 [INFO] 2025-05-09 16:05:18 - Received login request
+2025/05/09 16:05:18 [INFO] 2025-05-09 16:05:18 - Request body parsed successfully
+2025/05/09 16:05:18 [INFO] 2025-05-09 16:05:18 - Email and password fields validated
+2025/05/09 16:05:18 [INFO] 2025-05-09 16:05:18 - User data retrieved from DB for email: xtwlmefvsdxxxsxf@sdf.com
+2025/05/09 16:05:18 [INFO] 2025-05-09 16:05:18 - Password validated successfully
+2025/05/09 16:05:18 [INFO] 2025-05-09 16:05:18 - Sending success with token for user: 19e67f2a-6558-4cda-a535-d565a0d6de81
+2025/05/09 16:05:18 [INFO] 2025-05-09 16:05:18 - Save Token into Sessions
+2025/05/09 16:05:18 [INFO] 2025-05-09 16:05:18 - Login successful for user: 19e67f2a-6558-4cda-a535-d565a0d6de81
+2025/05/09 16:05:39 [INFO] 2025-05-09 16:05:39 - Received login request
+2025/05/09 16:05:39 [INFO] 2025-05-09 16:05:39 - Request body parsed successfully
+2025/05/09 16:05:39 [INFO] 2025-05-09 16:05:39 - Email and password fields validated
+2025/05/09 16:05:39 [INFO] 2025-05-09 16:05:39 - User data retrieved from DB for email: xtwlmefvsdxxxsxf@sdf.com
+2025/05/09 16:05:39 [INFO] 2025-05-09 16:05:39 - Password validated successfully
+2025/05/09 16:05:39 [INFO] 2025-05-09 16:05:39 - Sending success with token for user: 19e67f2a-6558-4cda-a535-d565a0d6de81
+2025/05/09 16:05:39 [INFO] 2025-05-09 16:05:39 - Save Token into Sessions
+2025/05/09 16:05:39 [INFO] 2025-05-09 16:05:39 - Login successful for user: 19e67f2a-6558-4cda-a535-d565a0d6de81
+2025/05/09 16:05:50 [INFO] 2025-05-09 16:05:50 - Received login request
+2025/05/09 16:05:50 [INFO] 2025-05-09 16:05:50 - Request body parsed successfully
+2025/05/09 16:05:50 [INFO] 2025-05-09 16:05:50 - Email and password fields validated
+2025/05/09 16:05:50 [INFO] 2025-05-09 16:05:50 - User data retrieved from DB for email: xtwlmefvsdxxxsxf@sdf.com
+2025/05/09 16:05:50 [INFO] 2025-05-09 16:05:50 - Password validated successfully
+2025/05/09 16:05:50 [INFO] 2025-05-09 16:05:50 - Sending success with token for user: 19e67f2a-6558-4cda-a535-d565a0d6de81
+2025/05/09 16:05:50 [INFO] 2025-05-09 16:05:50 - Save Token into Sessions
+2025/05/09 16:05:50 [INFO] 2025-05-09 16:05:50 - Login successful for user: 19e67f2a-6558-4cda-a535-d565a0d6de81
+2025/05/09 16:05:51 [INFO] 2025-05-09 16:05:51 - Received login request
+2025/05/09 16:05:51 [INFO] 2025-05-09 16:05:51 - Request body parsed successfully
+2025/05/09 16:05:51 [INFO] 2025-05-09 16:05:51 - Email and password fields validated
+2025/05/09 16:05:51 [INFO] 2025-05-09 16:05:51 - User data retrieved from DB for email: xtwlmefvsdxxxsxf@sdf.com
+2025/05/09 16:05:51 [INFO] 2025-05-09 16:05:51 - Password validated successfully
+2025/05/09 16:05:51 [INFO] 2025-05-09 16:05:51 - Sending success with token for user: 19e67f2a-6558-4cda-a535-d565a0d6de81
+2025/05/09 16:05:51 [INFO] 2025-05-09 16:05:51 - Save Token into Sessions
+2025/05/09 16:05:51 [INFO] 2025-05-09 16:05:51 - Login successful for user: 19e67f2a-6558-4cda-a535-d565a0d6de81
+2025/05/09 16:05:51 [INFO] 2025-05-09 16:05:51 - Received login request
+2025/05/09 16:05:51 [INFO] 2025-05-09 16:05:51 - Request body parsed successfully
+2025/05/09 16:05:51 [INFO] 2025-05-09 16:05:51 - Email and password fields validated
+2025/05/09 16:05:51 [INFO] 2025-05-09 16:05:51 - User data retrieved from DB for email: xtwlmefvsdxxxsxf@sdf.com
+2025/05/09 16:05:51 [INFO] 2025-05-09 16:05:51 - Password validated successfully
+2025/05/09 16:05:51 [INFO] 2025-05-09 16:05:51 - Sending success with token for user: 19e67f2a-6558-4cda-a535-d565a0d6de81
+2025/05/09 16:05:51 [INFO] 2025-05-09 16:05:51 - Save Token into Sessions
+2025/05/09 16:05:51 [INFO] 2025-05-09 16:05:51 - Login successful for user: 19e67f2a-6558-4cda-a535-d565a0d6de81
+2025/05/09 16:05:58 [INFO] 2025-05-09 16:05:58 - Received login request
+2025/05/09 16:05:58 [INFO] 2025-05-09 16:05:58 - Request body parsed successfully
+2025/05/09 16:05:58 [INFO] 2025-05-09 16:05:58 - Email and password fields validated
+2025/05/09 16:05:58 [INFO] 2025-05-09 16:05:58 - User data retrieved from DB for email: xtwlmefvsdxxxsxf@sdf.com
+2025/05/09 16:05:58 [INFO] 2025-05-09 16:05:58 - Password validated successfully
+2025/05/09 16:05:58 [INFO] 2025-05-09 16:05:58 - Sending success with token for user: 19e67f2a-6558-4cda-a535-d565a0d6de81
+2025/05/09 16:05:58 [INFO] 2025-05-09 16:05:58 - Save Token into Sessions
+2025/05/09 16:05:58 [INFO] 2025-05-09 16:05:58 - Login successful for user: 19e67f2a-6558-4cda-a535-d565a0d6de81
+2025/05/09 16:06:34 [LOG] 2025-05-09 16:06:34 - Token has expired
+2025/05/09 16:06:47 [LOG] 2025-05-09 16:06:47 - Start Creating the Post
+2025/05/09 16:06:47 [INFO] 2025-05-09 16:06:47 - Starting avatar upload
+2025/05/09 16:06:47 [INFO] 2025-05-09 16:06:47 - Avatar file retrieved: profile.JPEG
+2025/05/09 16:06:47 [INFO] 2025-05-09 16:06:47 - Detected content type: image/jpeg
+2025/05/09 16:06:47 [INFO] 2025-05-09 16:06:47 - Generated avatar filename: e0dd5ba3-de78-4334-a3cd-c079cbc79f1d.JPEG
+2025/05/09 16:06:47 [INFO] 2025-05-09 16:06:47 - Avatar saved successfully
+2025/05/09 16:07:03 [LOG] 2025-05-09 16:07:03 - Start Creating the Post
+2025/05/09 16:07:03 [INFO] 2025-05-09 16:07:03 - Starting avatar upload
+2025/05/09 16:07:03 [INFO] 2025-05-09 16:07:03 - Avatar file retrieved: profile.JPEG
+2025/05/09 16:07:03 [INFO] 2025-05-09 16:07:03 - Detected content type: image/jpeg
+2025/05/09 16:07:03 [INFO] 2025-05-09 16:07:03 - Generated avatar filename: 58906f3e-7b4c-419b-89d6-8f665500f0de.JPEG
+2025/05/09 16:07:03 [INFO] 2025-05-09 16:07:03 - Avatar saved successfully

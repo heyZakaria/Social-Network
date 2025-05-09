@@ -12,6 +12,7 @@ func AuthMux() http.Handler {
 	mux.HandleFunc("POST /login", HandleLogin)
 
 	mux.HandleFunc("POST /post", post.CreatePost)
+	mux.HandleFunc("GET /post", post.GetPost)
 
 	return mux
 }

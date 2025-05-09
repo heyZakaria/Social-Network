@@ -2,16 +2,15 @@ package post
 
 import (
 	"net/http"
-	Posts_db "socialNetwork/db/posts"
-	User_db "socialNetwork/db/user"
 	Structs "socialNetwork/struct"
+	user "socialNetwork/user"
 	"socialNetwork/utils"
 )
 
 func CreatePost(w http.ResponseWriter, r *http.Request) {
 	PostData := Structs.Post{}
 
-	UserId, err := User_db.GetUserIDByToken(r)
+	UserId, err := user.GetUserIDByToken(r)
 	if err != nil {
 		utils.Log("Error", err.Error())
 		utils.SendJSON(w, http.StatusUnauthorized, utils.JSONResponse{
@@ -36,6 +35,7 @@ func CreatePost(w http.ResponseWriter, r *http.Request) {
 			Success: false,
 			Message: "Post content is required to create a post",
 		})
+		return
 	}
 	PostData.Privacy = r.FormValue("post_privacy")
 	if !Privacy[PostData.Privacy] {
@@ -44,6 +44,7 @@ func CreatePost(w http.ResponseWriter, r *http.Request) {
 			Success: false,
 			Message: "Please Check the privacy of your Post.",
 		})
+		return
 	}
 
 	ImageProvided, postImage, file, err := utils.PrepareImage(r, "post_image", "posts")
@@ -54,6 +55,7 @@ func CreatePost(w http.ResponseWriter, r *http.Request) {
 			Success: false,
 			Message: "Error occured Please try again later.",
 		})
+		return
 	}
 
 	last_id, err := PostData.InsertPost()
@@ -71,7 +73,7 @@ func CreatePost(w http.ResponseWriter, r *http.Request) {
 	if PostData.Privacy == "custom_users" {
 		r.ParseForm()
 		PostData.AllowedUsers = r.Form["allowed_users"]
-		Posts_db.SaveAllowedUsers(int(last_id), PostData.AllowedUsers)
+		SaveAllowedUsers(int(last_id), PostData.AllowedUsers)
 	}
 
 	if ImageProvided {

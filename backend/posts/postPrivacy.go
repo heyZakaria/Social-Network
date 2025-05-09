@@ -1,4 +1,4 @@
-package Posts_db
+package post
 
 import (
 	db "socialNetwork/db/sqlite"

@@ -3,14 +3,16 @@ package Structs
 import (
 	"fmt"
 	db "socialNetwork/db/sqlite"
+	"time"
 )
 
 // POST /posts
 type Post struct {
-	UserID     string
-	Post       string
-	Post_image string
-	Privacy    string
+	UserID       string
+	Post         string
+	Post_image   string
+	Privacy      string
+	CreatedAt    *time.Time
 	AllowedUsers []string
 }
 
