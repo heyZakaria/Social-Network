@@ -6,10 +6,11 @@ import (
 )
 
 type JSONResponse struct {
-	Success bool   `json:"success"`
-	Message string `json:"message,omitempty"`
-	Error   string `json:"error,omitempty"`
-	Token   string `json:"token,omitempty"`
+	Success bool           `json:"success"`
+	Message string         `json:"message,omitempty"`
+	Error   string         `json:"error,omitempty"`
+	Token   string         `json:"token,omitempty"`
+	Data    map[string]any `json:"data,omitempty"`
 }
 
 func SendJSON(w http.ResponseWriter, status int, payload JSONResponse) {

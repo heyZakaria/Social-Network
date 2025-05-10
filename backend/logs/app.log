@@ -591,3 +591,164 @@
 2025/05/09 16:07:03 [INFO] 2025-05-09 16:07:03 - Detected content type: image/jpeg
 2025/05/09 16:07:03 [INFO] 2025-05-09 16:07:03 - Generated avatar filename: 58906f3e-7b4c-419b-89d6-8f665500f0de.JPEG
 2025/05/09 16:07:03 [INFO] 2025-05-09 16:07:03 - Avatar saved successfully
+2025/05/09 17:38:17 [LOG] 2025-05-09 17:38:17 - Get request made to GetPost Handler
+2025/05/09 17:38:17 [ERROR] 2025-05-09 17:38:17 - Error scanning Post in GetPost Handler: sql: statement is closed
+2025/05/09 17:39:20 [INFO] 2025-05-09 17:39:20 - Starting HTTP server at http://localhost:8080 ...
+2025/05/09 17:39:20 [INFO] 2025-05-09 17:39:20 - Migrations applied successfully!
+2025/05/09 17:39:20 [LOG] 2025-05-09 17:39:20 - Get request made to GetPost Handler
+2025/05/09 17:39:20 [ERROR] 2025-05-09 17:39:20 - Error scanning Post in GetPost Handler: sql: expected 6 destination arguments in Scan, not 4
+2025/05/09 17:42:37 [INFO] 2025-05-09 17:42:37 - Starting HTTP server at http://localhost:8080 ...
+2025/05/09 17:42:37 [INFO] 2025-05-09 17:42:37 - Migrations applied successfully!
+2025/05/09 17:42:38 [LOG] 2025-05-09 17:42:38 - Get request made to GetPost Handler
+2025/05/09 17:43:02 [INFO] 2025-05-09 17:43:02 - Starting HTTP server at http://localhost:8080 ...
+2025/05/09 17:43:02 [INFO] 2025-05-09 17:43:02 - Migrations applied successfully!
+2025/05/09 17:43:03 [LOG] 2025-05-09 17:43:03 - Get request made to GetPost Handler
+2025/05/09 22:10:14 [INFO] 2025-05-09 22:10:14 - Received login request
+2025/05/09 22:10:14 [INFO] 2025-05-09 22:10:14 - Request body parsed successfully
+2025/05/09 22:10:14 [INFO] 2025-05-09 22:10:14 - Email and password fields validated
+2025/05/09 22:10:14 [INFO] 2025-05-09 22:10:14 - User data retrieved from DB for email: xtwlmefvsdxxxsxf@sdf.com
+2025/05/09 22:10:14 [INFO] 2025-05-09 22:10:14 - Password validated successfully
+2025/05/09 22:10:14 [INFO] 2025-05-09 22:10:14 - Sending success with token for user: 19e67f2a-6558-4cda-a535-d565a0d6de81
+2025/05/09 22:10:14 [INFO] 2025-05-09 22:10:14 - Save Token into Sessions
+2025/05/09 22:10:14 [INFO] 2025-05-09 22:10:14 - Login successful for user: 19e67f2a-6558-4cda-a535-d565a0d6de81
+2025/05/09 22:10:36 [INFO] 2025-05-09 22:10:36 - Received login request
+2025/05/09 22:10:36 [ERROR] 2025-05-09 22:10:36 - Failed to parse login form: json: cannot unmarshal string into Go value of type auth.LoginRequest
+2025/05/09 22:10:39 [INFO] 2025-05-09 22:10:39 - Received login request
+2025/05/09 22:10:39 [INFO] 2025-05-09 22:10:39 - Request body parsed successfully
+2025/05/09 22:10:39 [INFO] 2025-05-09 22:10:39 - Email and password fields validated
+2025/05/09 22:10:39 [INFO] 2025-05-09 22:10:39 - User data retrieved from DB for email: xtwlmefvsdxxxsxf@sdf.com
+2025/05/09 22:10:39 [INFO] 2025-05-09 22:10:39 - Password validated successfully
+2025/05/09 22:10:39 [INFO] 2025-05-09 22:10:39 - Sending success with token for user: 19e67f2a-6558-4cda-a535-d565a0d6de81
+2025/05/09 22:10:39 [INFO] 2025-05-09 22:10:39 - Save Token into Sessions
+2025/05/09 22:10:39 [INFO] 2025-05-09 22:10:39 - Login successful for user: 19e67f2a-6558-4cda-a535-d565a0d6de81
+2025/05/09 22:10:46 [INFO] 2025-05-09 22:10:46 - Received login request
+2025/05/09 22:10:46 [INFO] 2025-05-09 22:10:46 - Request body parsed successfully
+2025/05/09 22:10:46 [INFO] 2025-05-09 22:10:46 - Email and password fields validated
+2025/05/09 22:10:46 [INFO] 2025-05-09 22:10:46 - User data retrieved from DB for email: xtwlmefvsdxxxsxf@sdf.com
+2025/05/09 22:10:46 [INFO] 2025-05-09 22:10:46 - Password validated successfully
+2025/05/09 22:10:46 [INFO] 2025-05-09 22:10:46 - Sending success with token for user: 19e67f2a-6558-4cda-a535-d565a0d6de81
+2025/05/09 22:10:46 [INFO] 2025-05-09 22:10:46 - Save Token into Sessions
+2025/05/09 22:10:46 [INFO] 2025-05-09 22:10:46 - Login successful for user: 19e67f2a-6558-4cda-a535-d565a0d6de81
+2025/05/09 22:11:21 [INFO] 2025-05-09 22:11:21 - Parsed multipart form
+2025/05/09 22:11:21 [INFO] 2025-05-09 22:11:21 - Form fields parsed successfully
+2025/05/09 22:11:21 [INFO] 2025-05-09 22:11:21 - Form fields parsed
+2025/05/09 22:11:21 [INFO] 2025-05-09 22:11:21 - Checking if email exists: xcxc@sdf.com
+2025/05/09 22:11:21 [INFO] 2025-05-09 22:11:21 - Email is unique
+2025/05/09 22:11:21 [INFO] 2025-05-09 22:11:21 - Validating registration input
+2025/05/09 22:11:21 [INFO] 2025-05-09 22:11:21 - Registration input valid
+2025/05/09 22:11:21 [INFO] 2025-05-09 22:11:21 - User input validated
+2025/05/09 22:11:21 [INFO] 2025-05-09 22:11:21 - Hashing password
+2025/05/09 22:11:21 [INFO] 2025-05-09 22:11:21 - Password hashed successfully
+2025/05/09 22:11:21 [INFO] 2025-05-09 22:11:21 - Password hashed
+2025/05/09 22:11:21 [INFO] 2025-05-09 22:11:21 - Starting avatar upload
+2025/05/09 22:11:21 [INFO] 2025-05-09 22:11:21 - Avatar file retrieved: profile.JPEG
+2025/05/09 22:11:21 [INFO] 2025-05-09 22:11:21 - Detected content type: image/jpeg
+2025/05/09 22:11:21 [INFO] 2025-05-09 22:11:21 - Generated avatar filename: 95fa55df-aaca-4a11-8051-92cdf4ea1691.JPEG
+2025/05/09 22:11:21 [INFO] 2025-05-09 22:11:21 - Saving user to database with ID: 0dc3238a-7ef9-4f0e-907a-54c860513327
+2025/05/09 22:11:21 [INFO] 2025-05-09 22:11:21 - User saved successfully
+2025/05/09 22:11:21 [INFO] 2025-05-09 22:11:21 - User registered with ID: 0dc3238a-7ef9-4f0e-907a-54c860513327
+2025/05/09 22:11:21 [INFO] 2025-05-09 22:11:21 - Avatar uploaded: ./uploads/profile_image/95fa55df-aaca-4a11-8051-92cdf4ea1691.JPEG
+2025/05/09 22:11:21 [INFO] 2025-05-09 22:11:21 - Avatar saved successfully
+2025/05/09 22:11:21 [INFO] 2025-05-09 22:11:21 - Save Token into Sessions
+2025/05/09 22:11:21 [INFO] 2025-05-09 22:11:21 - Login successful for user: 0dc3238a-7ef9-4f0e-907a-54c860513327
+2025/05/09 22:11:21 [INFO] 2025-05-09 22:11:21 - Success Register
+2025/05/09 22:11:38 [INFO] 2025-05-09 22:11:38 - Parsed multipart form
+2025/05/09 22:11:38 [INFO] 2025-05-09 22:11:38 - Form fields parsed successfully
+2025/05/09 22:11:38 [INFO] 2025-05-09 22:11:38 - Form fields parsed
+2025/05/09 22:11:38 [INFO] 2025-05-09 22:11:38 - Checking if email exists: xcxc@sdf.com
+2025/05/09 22:11:38 [WARNING] 2025-05-09 22:11:38 - Tried to register with existing email: xcxc@sdf.com
+2025/05/09 22:12:21 [LOG] 2025-05-09 22:12:21 - Error retrieving token cookie
+2025/05/09 22:13:43 [LOG] 2025-05-09 22:13:43 - Start Creating the Post
+2025/05/09 22:13:43 [INFO] 2025-05-09 22:13:43 - Starting avatar upload
+2025/05/09 22:13:43 [INFO] 2025-05-09 22:13:43 - Avatar file retrieved: profile.JPEG
+2025/05/09 22:13:43 [INFO] 2025-05-09 22:13:43 - Detected content type: image/jpeg
+2025/05/09 22:13:43 [INFO] 2025-05-09 22:13:43 - Generated avatar filename: e586cc46-914e-49eb-af5d-39df0675d4e6.JPEG
+2025/05/09 22:13:43 [INFO] 2025-05-09 22:13:43 - Avatar saved successfully
+2025/05/09 22:14:48 [LOG] 2025-05-09 22:14:48 - Start Creating the Post
+2025/05/09 22:14:48 [INFO] 2025-05-09 22:14:48 - Starting avatar upload
+2025/05/09 22:14:48 [INFO] 2025-05-09 22:14:48 - Avatar file retrieved: profile.JPEG
+2025/05/09 22:14:48 [INFO] 2025-05-09 22:14:48 - Detected content type: image/jpeg
+2025/05/09 22:14:48 [INFO] 2025-05-09 22:14:48 - Generated avatar filename: fe173f49-1834-4f1c-b56b-73e6060aa0f5.JPEG
+2025/05/09 22:14:48 [INFO] 2025-05-09 22:14:48 - Avatar saved successfully
+2025/05/09 22:14:59 [LOG] 2025-05-09 22:14:59 - Get request made to GetPost Handler
+2025/05/09 22:32:13 [LOG] 2025-05-09 22:32:13 - Token has expired
+2025/05/09 22:32:22 [LOG] 2025-05-09 22:32:22 - sql: no rows in result set
+2025/05/09 22:32:34 [LOG] 2025-05-09 22:32:34 - sql: no rows in result set
+2025/05/09 22:33:07 [INFO] 2025-05-09 22:33:07 - Starting HTTP server at http://localhost:8080 ...
+2025/05/09 22:33:07 [INFO] 2025-05-09 22:33:07 - Migrations applied successfully!
+2025/05/09 22:33:08 [LOG] 2025-05-09 22:33:08 - Token has expired
+2025/05/09 22:33:40 [INFO] 2025-05-09 22:33:40 - Starting HTTP server at http://localhost:8080 ...
+2025/05/09 22:33:40 [INFO] 2025-05-09 22:33:40 - Migrations applied successfully!
+2025/05/09 22:33:42 [LOG] 2025-05-09 22:33:42 - eyJhbGciOiJIUzI1NiIsInR5cGUiOiJKV1QifQ==.eyJ1c2VyX2lkIjoiMTA0MDI3NjgtM2Q2OS00NmU0LTk2MTUtYzA1NzFjMWQ0YjAxIiwicm9sZSI6InVzZXIiLCJleHAiOjE3NDY4ODgyNDR9.F_X252KuBTMtlygm1G59meTw3NstdnCn8kPT8z7wg9g=sql: no rows in result set
+2025/05/09 22:34:21 [INFO] 2025-05-09 22:34:21 - Starting HTTP server at http://localhost:8080 ...
+2025/05/09 22:34:21 [INFO] 2025-05-09 22:34:21 - Migrations applied successfully!
+2025/05/09 22:34:21 [LOG] 2025-05-09 22:34:21 - No user Found
+2025/05/09 22:34:47 [INFO] 2025-05-09 22:34:47 - Starting HTTP server at http://localhost:8080 ...
+2025/05/09 22:34:47 [INFO] 2025-05-09 22:34:47 - Migrations applied successfully!
+2025/05/09 22:34:55 [INFO] 2025-05-09 22:34:55 - Starting HTTP server at http://localhost:8080 ...
+2025/05/09 22:34:55 [INFO] 2025-05-09 22:34:55 - Migrations applied successfully!
+2025/05/09 22:34:57 [INFO] 2025-05-09 22:34:57 - Starting HTTP server at http://localhost:8080 ...
+2025/05/09 22:34:57 [INFO] 2025-05-09 22:34:57 - Migrations applied successfully!
+2025/05/09 22:35:58 [INFO] 2025-05-09 22:35:58 - Starting HTTP server at http://localhost:8080 ...
+2025/05/09 22:35:58 [INFO] 2025-05-09 22:35:58 - Migrations applied successfully!
+2025/05/09 22:37:15 [INFO] 2025-05-09 22:37:15 - Starting HTTP server at http://localhost:8080 ...
+2025/05/09 22:37:15 [INFO] 2025-05-09 22:37:15 - Migrations applied successfully!
+2025/05/10 10:55:11 [INFO] 2025-05-10 10:55:11 - Starting HTTP server at http://localhost:8080 ...
+2025/05/10 10:55:11 [INFO] 2025-05-10 10:55:11 - Migrations applied successfully!
+2025/05/10 10:56:10 [LOG] 2025-05-10 10:56:10 - Please login first.
+2025/05/10 10:56:41 [LOG] 2025-05-10 10:56:41 - Start Creating the Post
+2025/05/10 10:56:41 [INFO] 2025-05-10 10:56:41 - Starting avatar upload
+2025/05/10 10:56:41 [INFO] 2025-05-10 10:56:41 - Avatar file retrieved: profile.JPEG
+2025/05/10 10:56:41 [INFO] 2025-05-10 10:56:41 - Detected content type: image/jpeg
+2025/05/10 10:56:41 [INFO] 2025-05-10 10:56:41 - Generated avatar filename: a42e5538-c76d-4c39-b943-4b7c59060ad0.JPEG
+2025/05/10 10:56:41 [INFO] 2025-05-10 10:56:41 - Avatar saved successfully
+2025/05/10 11:09:15 [LOG] 2025-05-10 11:09:15 - Start Creating the Post
+2025/05/10 11:09:15 [INFO] 2025-05-10 11:09:15 - Starting avatar upload
+2025/05/10 11:09:15 [INFO] 2025-05-10 11:09:15 - Avatar file retrieved: profile.JPEG
+2025/05/10 11:09:15 [INFO] 2025-05-10 11:09:15 - Detected content type: image/jpeg
+2025/05/10 11:09:15 [INFO] 2025-05-10 11:09:15 - Generated avatar filename: 79780c4a-48c0-4f74-bf4b-d06f5c1b8565.JPEG
+2025/05/10 11:09:15 [INFO] 2025-05-10 11:09:15 - Avatar saved successfully
+2025/05/10 11:26:56 [INFO] 2025-05-10 11:26:56 - Starting HTTP server at http://localhost:8080 ...
+2025/05/10 11:26:56 [INFO] 2025-05-10 11:26:56 - Migrations applied successfully!
+2025/05/10 11:27:06 [LOG] 2025-05-10 11:27:06 - Start Creating the Post
+2025/05/10 11:27:06 [INFO] 2025-05-10 11:27:06 - Starting avatar upload
+2025/05/10 11:27:06 [INFO] 2025-05-10 11:27:06 - Avatar file retrieved: profile.JPEG
+2025/05/10 11:27:06 [INFO] 2025-05-10 11:27:06 - Detected content type: image/jpeg
+2025/05/10 11:27:06 [INFO] 2025-05-10 11:27:06 - Generated avatar filename: c659944d-3cce-430a-9577-d67ad56fbf33.JPEG
+2025/05/10 11:27:06 [INFO] 2025-05-10 11:27:06 - Avatar saved successfully
+2025/05/10 11:27:31 [LOG] 2025-05-10 11:27:31 - Get request made to GetPost Handler
+2025/05/10 11:28:52 [LOG] 2025-05-10 11:28:52 - Start Creating the Post
+2025/05/10 11:28:52 [INFO] 2025-05-10 11:28:52 - Starting avatar upload
+2025/05/10 11:28:52 [INFO] 2025-05-10 11:28:52 - Avatar file retrieved: profile.JPEG
+2025/05/10 11:28:52 [INFO] 2025-05-10 11:28:52 - Detected content type: image/jpeg
+2025/05/10 11:28:52 [INFO] 2025-05-10 11:28:52 - Generated avatar filename: bbf2be1c-6755-4442-a2f6-9a530dc85300.JPEG
+2025/05/10 11:28:52 [INFO] 2025-05-10 11:28:52 - Avatar saved successfully
+2025/05/10 11:28:57 [LOG] 2025-05-10 11:28:57 - Get request made to GetPost Handler
+2025/05/10 11:57:36 [INFO] 2025-05-10 11:57:36 - Starting HTTP server at http://localhost:8080 ...
+2025/05/10 11:57:36 [INFO] 2025-05-10 11:57:36 - Migrations applied successfully!
+2025/05/10 11:57:45 [INFO] 2025-05-10 11:57:45 - Received login request
+2025/05/10 11:57:45 [INFO] 2025-05-10 11:57:45 - Request body parsed successfully
+2025/05/10 11:57:45 [INFO] 2025-05-10 11:57:45 - Email and password fields validated
+2025/05/10 11:57:45 [INFO] 2025-05-10 11:57:45 - User data retrieved from DB for email: xtwlmefvsdxxxsxf@sdf.com
+2025/05/10 11:57:45 [INFO] 2025-05-10 11:57:45 - Password validated successfully
+2025/05/10 11:57:45 [INFO] 2025-05-10 11:57:45 - Sending success with token for user: 19e67f2a-6558-4cda-a535-d565a0d6de81
+2025/05/10 11:57:45 [INFO] 2025-05-10 11:57:45 - Save Token into Sessions
+2025/05/10 11:57:45 [INFO] 2025-05-10 11:57:45 - Login successful for user: 19e67f2a-6558-4cda-a535-d565a0d6de81
+2025/05/10 11:57:50 [INFO] 2025-05-10 11:57:50 - Starting HTTP server at http://localhost:8080 ...
+2025/05/10 11:57:50 [INFO] 2025-05-10 11:57:50 - Migrations applied successfully!
+2025/05/10 11:57:52 [INFO] 2025-05-10 11:57:52 - Received login request
+2025/05/10 11:57:52 [INFO] 2025-05-10 11:57:52 - Request body parsed successfully
+2025/05/10 11:57:52 [INFO] 2025-05-10 11:57:52 - Email and password fields validated
+2025/05/10 11:57:52 [INFO] 2025-05-10 11:57:52 - User data retrieved from DB for email: xtwlmefvsdxxxsxf@sdf.com
+2025/05/10 11:57:52 [INFO] 2025-05-10 11:57:52 - Password validated successfully
+2025/05/10 11:57:52 [INFO] 2025-05-10 11:57:52 - Sending success with token for user: 19e67f2a-6558-4cda-a535-d565a0d6de81
+2025/05/10 11:57:52 [INFO] 2025-05-10 11:57:52 - Save Token into Sessions
+2025/05/10 11:57:52 [INFO] 2025-05-10 11:57:52 - Login successful for user: 19e67f2a-6558-4cda-a535-d565a0d6de81
+2025/05/10 11:58:32 [INFO] 2025-05-10 11:58:32 - Starting HTTP server at http://localhost:8080 ...
+2025/05/10 11:58:32 [INFO] 2025-05-10 11:58:32 - Migrations applied successfully!
+2025/05/10 11:59:49 [INFO] 2025-05-10 11:59:49 - Starting HTTP server at http://localhost:8080 ...
+2025/05/10 11:59:49 [INFO] 2025-05-10 11:59:49 - Migrations applied successfully!
+2025/05/10 12:00:04 [INFO] 2025-05-10 12:00:04 - Starting HTTP server at http://localhost:8080 ...
+2025/05/10 12:00:04 [INFO] 2025-05-10 12:00:04 - Migrations applied successfully!
+2025/05/10 12:00:37 [INFO] 2025-05-10 12:00:37 - Starting HTTP server at http://localhost:8080 ...
+2025/05/10 12:00:37 [INFO] 2025-05-10 12:00:37 - Migrations applied successfully!

@@ -14,10 +14,10 @@ func GetPost(w http.ResponseWriter, r *http.Request) {
 	utils.Log("", "Get request made to GetPost Handler")
 	UserId, err := user.GetUserIDByToken(r)
 	if err != nil {
-		utils.Log("ERROR", "Not Authorized request to get this post")
+		utils.Log("ERROR", "Not Authorized request, to get this post")
 		utils.SendJSON(w, http.StatusUnauthorized, utils.JSONResponse{
 			Success: false,
-			Message: "Please Login to get this post",
+			Message: err.Error(),
 			Error:   "You are not Authorized",
 		})
 		return
@@ -34,6 +34,7 @@ func GetPost(w http.ResponseWriter, r *http.Request) {
 		})
 		return
 	}
+	// Check Post Status
 
 	// SaveAllowedUsers
 	// type Post struct {
@@ -56,8 +57,8 @@ func GetPost(w http.ResponseWriter, r *http.Request) {
 		})
 		return
 	}
-	stmnt.Close()
-	err = stmnt.QueryRow(PostId).Scan(&Post.UserID, &Post.Post, &Post.Post_image, &Post.Privacy)
+	defer stmnt.Close()
+	err = stmnt.QueryRow(PostId).Scan(&PostId, &Post.UserID, &Post.Post_Content, &Post.Post_image, &Post.Privacy, &Post.CreatedAt)
 	if err != nil {
 		utils.Log("ERROR", "Error scanning Post in GetPost Handler: "+err.Error())
 		utils.SendJSON(w, http.StatusInternalServerError, utils.JSONResponse{
@@ -67,12 +68,25 @@ func GetPost(w http.ResponseWriter, r *http.Request) {
 		})
 		return
 	}
+	if Post.Privacy == "custom_users" {
+		var post_id int
+		var user_id string
+		// Check if the User Id Has access to this post,
+		rows := db.DB.QueryRow("SELECT * FROM post_allowed WHERE post_id = ? AND user_id = ?", PostId, UserId)
+		err := rows.Scan(&post_id, &user_id)
+		if err != nil {
+			// TODO Handle ERror
+			fmt.Println("you are not Authorized to get this Post")
+			return
+		}
+	}
 	// if its public, no restriction
 	// if its for Followers, We have to check the current user
 	//  if he followes the Post Owner
 	// if is set to Costum, we need to check approved users table
 	fmt.Println("ids ID ", id)
 	fmt.Println("Post ID ", PostId)
+	fmt.Println("Post = ", Post)
 	_ = UserId
 
 }

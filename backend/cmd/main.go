@@ -32,8 +32,8 @@ func main() {
 	//http://localhost:8080/uploads/posts/40809c81-b8b6-45aa-8311-4abe9de995f8.JPEG
 	router.HandleFunc("/uploads/", func(w http.ResponseWriter, r *http.Request) {
 		// get Path and file name
-		filename := filepath.Base(r.URL.Path) // 40809c81-b8b6-45aa-8311-4abe9de995f8.JPEG
-		PathFolder := filepath.Dir(r.URL.Path)// uploads/posts/
+		filename := filepath.Base(r.URL.Path)  // 40809c81-b8b6-45aa-8311-4abe9de995f8.JPEG
+		PathFolder := filepath.Dir(r.URL.Path) // uploads/posts/
 
 		//concat Paths
 		fullPath := filepath.Join("../"+PathFolder, filename)

@@ -8,6 +8,12 @@ import (
 )
 
 func CreatePost(w http.ResponseWriter, r *http.Request) {
+	// This is the Name of fileds That should be in the frontEND
+	// post_content > Input Text Contain full Post
+	// post_privacy > Has tree option to choose between them (1: public, 2: custom_users, 3:followers)
+	// post_image >  File Contain the image that user selected
+	// allowed_users > (only if user selected "post_privacy = custom_users")
+	//  Select List that send an array contain all users ID that allowed to see the post
 	PostData := Structs.Post{}
 
 	UserId, err := user.GetUserIDByToken(r)
@@ -28,8 +34,8 @@ func CreatePost(w http.ResponseWriter, r *http.Request) {
 	}
 	r.ParseMultipartForm(10 << 20)
 
-	PostData.Post = r.FormValue("post_content")
-	if PostData.Post == "" {
+	PostData.Post_Content = r.FormValue("post_content")
+	if PostData.Post_Content == "" {
 		utils.Log("ERROR", "Post Content is Empty")
 		utils.SendJSON(w, http.StatusBadRequest, utils.JSONResponse{
 			Success: false,
@@ -82,5 +88,8 @@ func CreatePost(w http.ResponseWriter, r *http.Request) {
 	utils.SendJSON(w, http.StatusOK, utils.JSONResponse{
 		Success: last_id > 0,
 		Message: "Post Created Successfully",
+		Data: map[string]any{
+			"post_id": last_id,
+		},
 	})
 }

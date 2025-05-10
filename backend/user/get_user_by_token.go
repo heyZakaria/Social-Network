@@ -29,15 +29,14 @@ func GetUserIDByToken(r *http.Request) (string, error) {
 
 	stmnt, err := db.DB.Prepare("SELECT user_id, expiration_time FROM sessions WHERE token = ?")
 	if err != nil {
-		stmnt.Close()
 		return "", err
 	}
+	defer stmnt.Close()
+
 	err = stmnt.QueryRow(token).Scan(&userID, &expirationTime)
 	if err != nil {
-		stmnt.Close()
-		return "", err
+		return "", fmt.Errorf("Please login first.")
 	}
-	stmnt.Close()
 
 	// Check if the token has expired
 	if time.Now().After(expirationTime) {

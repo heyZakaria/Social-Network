@@ -8,8 +8,9 @@ import (
 
 // POST /posts
 type Post struct {
+	PostId       int
 	UserID       string
-	Post         string
+	Post_Content string
 	Post_image   string
 	Privacy      string
 	CreatedAt    *time.Time
@@ -17,7 +18,7 @@ type Post struct {
 }
 
 func (p *Post) InsertPost() (lastInsertId int64, err error) {
-	fmt.Println(p.UserID, p.Post, p.Post_image, p.Privacy)
+	fmt.Println(p.UserID, p.Post_Content, p.Post_image, p.Privacy)
 	statment, err := db.DB.Prepare("INSERT INTO posts (user_id, post_content, post_image, post_privacy) VALUES (?, ?, ?, ?)")
 	if err != nil {
 		fmt.Println("error in Prepare Statment Json", err)
@@ -25,7 +26,7 @@ func (p *Post) InsertPost() (lastInsertId int64, err error) {
 	}
 	defer statment.Close()
 
-	result, err := statment.Exec(p.UserID, p.Post, p.Post_image, p.Privacy)
+	result, err := statment.Exec(p.UserID, p.Post_Content, p.Post_image, p.Privacy)
 	if err != nil {
 		fmt.Println("error in Executing Statment ", err)
 		// TODO Handel Error
