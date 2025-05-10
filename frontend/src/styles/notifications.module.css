@@ -1,0 +1,98 @@
+.notificationsContainer {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .notificationsContainer button {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    transition: background-color 0.2s;
+  }
+  
+  .notificationsContainer button:hover {
+    background: #0056b3;
+  }
+  
+  .notificationsContainer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .notificationsContainer li {
+    display: flex;
+    align-items: flex-start;
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+    transition: background-color 0.2s;
+  }
+  
+  .notificationsContainer li:last-child {
+    border-bottom: none;
+  }
+  
+  .read {
+    background-color: #fff;
+    opacity: 0.7;
+  }
+  
+  .unread {
+    background-color: #f0f7ff;
+  }
+  
+  .notificationIcon {
+    font-size: 24px;
+    margin-right: 15px;
+    color: #007bff;
+    flex-shrink: 0;
+  }
+  
+  .notificationsContainer li div {
+    flex-grow: 1;
+  }
+  
+  .notificationsContainer p {
+    margin: 0 0 5px 0;
+    color: #333;
+  }
+  
+  .notificationsContainer small {
+    display: block;
+    color: #666;
+    margin-bottom: 8px;
+  }
+  
+  .notificationsContainer li button {
+    background: #dc3545;
+    padding: 4px 8px;
+    font-size: 12px;
+    margin: 0;
+  }
+  
+  .notificationsContainer li button:hover {
+    background: #c82333;
+  }
+  
+  @media (max-width: 600px) {
+    .notificationsContainer {
+      margin: 10px;
+      padding: 10px;
+    }
+  
+    .notificationIcon {
+      font-size: 20px;
+    }
+  
+    .notificationsContainer li {
+      padding: 10px;
+    }
+  }
