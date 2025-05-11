@@ -13,7 +13,7 @@ import (
 // GetPostsScroll is a handler function that handles the GET request to fetch posts with pagination
 func GetPostsScroll(w http.ResponseWriter, r *http.Request) {
 	utils.Log("", "Get request made to GetPostsScroll Handler")
-	_, err := user.GetUserIDByToken(r)
+	UserID, err := user.GetUserIDByToken(r)
 	if err != nil {
 		utils.Log("ERROR", "Invalid Token in GetPostsScroll Handler: "+err.Error())
 		utils.SendJSON(w, http.StatusUnauthorized, utils.JSONResponse{
@@ -95,6 +95,34 @@ func GetPostsScroll(w http.ResponseWriter, r *http.Request) {
 		}
 		// TODO Each Post Must Check if the exist user Has Liked the post or not
 		// TODO get Likes count as well
+		// check the privacy of post,
+		if Post.Privacy == "custom_users" {
+			var found bool
+			// Check if the User Id Has access to this post,
+			err := db.DB.QueryRow("SELECT EXISTS(SELECT 1 FROM post_allowed WHERE post_id = ? AND user_id = ?)", Post.PostId, UserID).Scan(&found)
+			if err != nil || !found {
+				continue
+			}
+		} else if Post.Privacy == "followers" {
+			var follower_status string
+			// Check if the User Id Has access to this post,
+			stmnt, err := db.DB.Prepare("SELECT follower_status FROM followers WHERE followed_id = ? AND follower_id = ?")
+			if err != nil {
+				utils.Log("ERROR", "Error Preparing Statment in GetPostsScroll Handler"+err.Error())
+				utils.SendJSON(w, http.StatusInternalServerError, utils.JSONResponse{
+					Success: false,
+					Message: "Please try again later",
+					Error:   "Please try again later",
+				})
+				return
+			}
+			defer stmnt.Close()
+			err = stmnt.QueryRow(Post.UserID, UserID).Scan(&follower_status)
+			if err != nil || follower_status != "accepted" {
+				continue
+			}
+		}
+		// Everything is fine, we can add the post to the list
 		Posts = append(Posts, Post)
 	}
 	// check if there are no posts
