@@ -1,7 +1,6 @@
 package post
 
 import (
-	"fmt"
 	"net/http"
 	db "socialNetwork/db/sqlite"
 	Structs "socialNetwork/struct"
@@ -14,11 +13,11 @@ func GetPost(w http.ResponseWriter, r *http.Request) {
 	utils.Log("", "Get request made to GetPost Handler")
 	UserId, err := user.GetUserIDByToken(r)
 	if err != nil {
-		utils.Log("ERROR", "Not Authorized request, to get this post")
+		utils.Log("ERROR", "Invalid Token in GetPost Handler: "+err.Error())
 		utils.SendJSON(w, http.StatusUnauthorized, utils.JSONResponse{
 			Success: false,
-			Message: err.Error(),
-			Error:   "You are not Authorized",
+			Message: "Please login to continue",
+			Error:   "You are not Authorized.",
 		})
 		return
 	}
@@ -26,95 +25,91 @@ func GetPost(w http.ResponseWriter, r *http.Request) {
 	id := r.URL.Query().Get("id")
 	PostId, err := strconv.Atoi(id)
 	if err != nil || PostId <= 0 {
-		utils.Log("ERROR", "Incorrect Post ID")
+		utils.Log("ERROR", "Post ID is not valid in GetPost Handler: "+err.Error())
 		utils.SendJSON(w, http.StatusBadRequest, utils.JSONResponse{
 			Success: false,
-			Message: "The requested Post is not available",
+			Message: "Post ID is not valid",
 			Error:   "Please check again",
 		})
 		return
 	}
-	// Check Post Status
 
-	// SaveAllowedUsers
-	// type Post struct {
-	// 	UserID       string
-	// 	Post         string
-	// 	Post_image   string
-	// 	Privacy      string
-	// 	AllowedUsers []string
-	// }
-	// TODO Check the Post Privacy
 	Post := Structs.Post{}
-	// get Post First
+	// Prepare the statement
 	stmnt, err := db.DB.Prepare("SELECT * FROM posts WHERE id = ?")
 	if err != nil {
 		utils.Log("ERROR", "Error Preparing Statment in GetPost Handler"+err.Error())
 		utils.SendJSON(w, http.StatusInternalServerError, utils.JSONResponse{
 			Success: false,
-			Message: "Please try again later",
-			Error:   err.Error(),
+			Message: "Something went wrong, Please try again later",
+			Error:   "Unable to fetch the post",
 		})
 		return
 	}
 	defer stmnt.Close()
+
+	// get the post from the database
 	err = stmnt.QueryRow(PostId).Scan(&Post.PostId, &Post.UserID, &Post.Post_Content, &Post.Post_image, &Post.Privacy, &Post.CreatedAt)
 	if err != nil {
 		utils.Log("ERROR", "Error scanning Post in GetPost Handler: "+err.Error())
 		utils.SendJSON(w, http.StatusInternalServerError, utils.JSONResponse{
 			Success: false,
-			Message: "Unable to fetch the post",
-			Error:   err.Error(),
+			Message: "Something went wrong, Please try again later",
+			Error:   "Unable to fetch the post",
 		})
 		return
 	}
+	// Check the post status (public, custom_users, followers)
 	if Post.Privacy == "custom_users" {
-		var post_id int
-		var user_id string
+		var found bool
 		// Check if the User Id Has access to this post,
-		rows := db.DB.QueryRow("SELECT * FROM post_allowed WHERE post_id = ? AND user_id = ?", PostId, UserId)
-		err := rows.Scan(&post_id, &user_id)
-		if err != nil && Post.UserID != UserId {
-			// TODO Handle ERror
-			fmt.Println("you are not Authorized to get this Post")
+		err := db.DB.QueryRow("SELECT EXISTS(SELECT 1 FROM post_allowed WHERE post_id = ? AND user_id = ?)", PostId, UserId).Scan(&found)
+		if err != nil && Post.UserID != UserId || !found {
+			utils.Log("ERROR", "Error scanning Post in GetPost Handler: "+err.Error())
+			utils.SendJSON(w, http.StatusUnauthorized, utils.JSONResponse{
+				Success: false,
+				Message: "You are not authorized to get this post",
+				Error:   "You are not authorized to get this post",
+			})
 			return
 		}
-		//TODO Fill the Allowed users struct Post.AllowedUsers
 	} else if Post.Privacy == "followers" {
-		followers := Structs.Followers{}
-		// TODO Handle The logic to check if the user has following the specific user
-		stmnt, err := db.DB.Prepare("SELECT * FROM followers WHERE followed_id = ? AND follower_id = ?")
+		var follower_status string
+		// Check if the User Id Has access to this post,
+		stmnt, err := db.DB.Prepare("SELECT follower_status FROM followers WHERE followed_id = ? AND follower_id = ?")
 		if err != nil {
 			utils.Log("ERROR", "Error Preparing Statment in GetPost Handler"+err.Error())
 			utils.SendJSON(w, http.StatusInternalServerError, utils.JSONResponse{
 				Success: false,
 				Message: "Please try again later",
+				Error:   "Please try again later",
 			})
 			return
 		}
 		defer stmnt.Close()
-		err = stmnt.QueryRow(Post.UserID, UserId).Scan(&followers.Followed_id, &followers.Follower_id, &followers.Follower_status, &followers.Created_at)
+
+		err = stmnt.QueryRow(Post.UserID, UserId).Scan(&follower_status)
 		if err != nil {
-			utils.Log("ERROR", "Unauthorized request made to this post:."+err.Error())
+			utils.Log("ERROR", "Unauthorized request made to post id:."+id+err.Error())
 			utils.SendJSON(w, http.StatusInternalServerError, utils.JSONResponse{
 				Success: false,
-				Message: "Follow the Post Author to read this Post.",
+				Message: "Only followers can see this post",
+				Error:   "Only followers can see this post",
 			})
 			return
 		}
-		if followers.Follower_status != "accepted" {
-			utils.Log("ERROR", "You are not authorized to get this post")
+		if follower_status != "accepted" { // 'pending' or 'rejected'
+			utils.Log("ERROR", "Unauthorized request made to this post:.")
 			utils.SendJSON(w, http.StatusUnauthorized, utils.JSONResponse{
 				Success: false,
 				Message: "You are not authorized to get this post",
+				Error:   "You are not authorized to get this post",
 			})
 			return
 		}
 	}
-	// if its public, no restriction
-	// if its for Followers, We have to check the current user
-	//  if he followes the Post Owner
-	// if is set to Costum, we need to check approved users table
+	// Everything is fine, send the post
+	utils.Log("INFO", "Post fetched successfully in GetPost Handler")
 	utils.SendJSON(w, http.StatusOK, utils.JSONResponse{
 		Success: true,
 		Data: map[string]any{
