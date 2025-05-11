@@ -58,7 +58,7 @@ func GetPost(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	defer stmnt.Close()
-	err = stmnt.QueryRow(PostId).Scan(&PostId, &Post.UserID, &Post.Post_Content, &Post.Post_image, &Post.Privacy, &Post.CreatedAt)
+	err = stmnt.QueryRow(PostId).Scan(&Post.PostId, &Post.UserID, &Post.Post_Content, &Post.Post_image, &Post.Privacy, &Post.CreatedAt)
 	if err != nil {
 		utils.Log("ERROR", "Error scanning Post in GetPost Handler: "+err.Error())
 		utils.SendJSON(w, http.StatusInternalServerError, utils.JSONResponse{
@@ -74,9 +74,40 @@ func GetPost(w http.ResponseWriter, r *http.Request) {
 		// Check if the User Id Has access to this post,
 		rows := db.DB.QueryRow("SELECT * FROM post_allowed WHERE post_id = ? AND user_id = ?", PostId, UserId)
 		err := rows.Scan(&post_id, &user_id)
-		if err != nil {
+		if err != nil && Post.UserID != UserId {
 			// TODO Handle ERror
 			fmt.Println("you are not Authorized to get this Post")
+			return
+		}
+		//TODO Fill the Allowed users struct Post.AllowedUsers
+	} else if Post.Privacy == "followers" {
+		followers := Structs.Followers{}
+		// TODO Handle The logic to check if the user has following the specific user
+		stmnt, err := db.DB.Prepare("SELECT * FROM followers WHERE followed_id = ? AND follower_id = ?")
+		if err != nil {
+			utils.Log("ERROR", "Error Preparing Statment in GetPost Handler"+err.Error())
+			utils.SendJSON(w, http.StatusInternalServerError, utils.JSONResponse{
+				Success: false,
+				Message: "Please try again later",
+			})
+			return
+		}
+		defer stmnt.Close()
+		err = stmnt.QueryRow(Post.UserID, UserId).Scan(&followers.Followed_id, &followers.Follower_id, &followers.Follower_status, &followers.Created_at)
+		if err != nil {
+			utils.Log("ERROR", "Unauthorized request made to this post:."+err.Error())
+			utils.SendJSON(w, http.StatusInternalServerError, utils.JSONResponse{
+				Success: false,
+				Message: "Follow the Post Author to read this Post.",
+			})
+			return
+		}
+		if followers.Follower_status != "accepted" {
+			utils.Log("ERROR", "You are not authorized to get this post")
+			utils.SendJSON(w, http.StatusUnauthorized, utils.JSONResponse{
+				Success: false,
+				Message: "You are not authorized to get this post",
+			})
 			return
 		}
 	}
@@ -88,5 +119,11 @@ func GetPost(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("Post ID ", PostId)
 	fmt.Println("Post = ", Post)
 	_ = UserId
+	utils.SendJSON(w, http.StatusOK, utils.JSONResponse{
+		Success: true,
+		Data: map[string]any{
+			"Post": Post,
+		},
+	})
 
 }
