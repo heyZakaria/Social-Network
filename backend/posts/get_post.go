@@ -115,10 +115,6 @@ func GetPost(w http.ResponseWriter, r *http.Request) {
 	// if its for Followers, We have to check the current user
 	//  if he followes the Post Owner
 	// if is set to Costum, we need to check approved users table
-	fmt.Println("ids ID ", id)
-	fmt.Println("Post ID ", PostId)
-	fmt.Println("Post = ", Post)
-	_ = UserId
 	utils.SendJSON(w, http.StatusOK, utils.JSONResponse{
 		Success: true,
 		Data: map[string]any{

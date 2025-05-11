@@ -752,3 +752,220 @@
 2025/05/10 12:00:04 [INFO] 2025-05-10 12:00:04 - Migrations applied successfully!
 2025/05/10 12:00:37 [INFO] 2025-05-10 12:00:37 - Starting HTTP server at http://localhost:8080 ...
 2025/05/10 12:00:37 [INFO] 2025-05-10 12:00:37 - Migrations applied successfully!
+2025/05/10 12:04:55 [INFO] 2025-05-10 12:04:55 - Starting HTTP server at http://localhost:8080 ...
+2025/05/10 12:04:55 [INFO] 2025-05-10 12:04:55 - Migrations applied successfully!
+2025/05/10 12:14:50 [INFO] 2025-05-10 12:14:50 - Starting HTTP server at http://localhost:8080 ...
+2025/05/10 12:14:50 [INFO] 2025-05-10 12:14:50 - Migrations applied successfully!
+2025/05/10 12:15:28 [INFO] 2025-05-10 12:15:28 - Starting HTTP server at http://localhost:8080 ...
+2025/05/10 12:15:28 [INFO] 2025-05-10 12:15:28 - Migrations applied successfully!
+2025/05/10 12:15:34 [INFO] 2025-05-10 12:15:34 - Starting HTTP server at http://localhost:8080 ...
+2025/05/10 12:15:34 [INFO] 2025-05-10 12:15:34 - Migrations applied successfully!
+2025/05/10 12:16:11 [INFO] 2025-05-10 12:16:11 - Starting HTTP server at http://localhost:8080 ...
+2025/05/10 12:16:11 [INFO] 2025-05-10 12:16:11 - Migrations applied successfully!
+2025/05/10 12:16:14 [LOG] 2025-05-10 12:16:14 - Get request made to GetPost Handler
+2025/05/10 12:16:14 [ERROR] 2025-05-10 12:16:14 - Not Authorized request, to get this post
+2025/05/10 12:16:42 [INFO] 2025-05-10 12:16:42 - Starting HTTP server at http://localhost:8080 ...
+2025/05/10 12:16:42 [INFO] 2025-05-10 12:16:42 - Migrations applied successfully!
+2025/05/10 12:16:47 [LOG] 2025-05-10 12:16:47 - Get request made to GetPost Handler
+2025/05/10 12:16:47 [ERROR] 2025-05-10 12:16:47 - Not Authorized request, to get this post
+2025/05/10 12:23:37 [INFO] 2025-05-10 12:23:37 - Starting HTTP server at http://localhost:8080 ...
+2025/05/10 12:23:37 [INFO] 2025-05-10 12:23:37 - Migrations applied successfully!
+2025/05/10 12:23:37 [LOG] 2025-05-10 12:23:37 - Get request made to GetPost Handler
+2025/05/10 12:23:37 [ERROR] 2025-05-10 12:23:37 - Not Authorized request, to get this post
+2025/05/10 12:24:16 [INFO] 2025-05-10 12:24:16 - Starting HTTP server at http://localhost:8080 ...
+2025/05/10 12:24:16 [INFO] 2025-05-10 12:24:16 - Migrations applied successfully!
+2025/05/10 12:24:18 [LOG] 2025-05-10 12:24:18 - Get request made to GetPost Handler
+2025/05/10 12:24:18 [ERROR] 2025-05-10 12:24:18 - Not Authorized request, to get this post
+2025/05/10 12:25:10 [INFO] 2025-05-10 12:25:10 - Starting HTTP server at http://localhost:8080 ...
+2025/05/10 12:25:10 [INFO] 2025-05-10 12:25:10 - Migrations applied successfully!
+2025/05/10 12:25:12 [LOG] 2025-05-10 12:25:12 - Get request made to GetPost Handler
+2025/05/10 12:25:12 [ERROR] 2025-05-10 12:25:12 - Not Authorized request, to get this post
+2025/05/10 12:25:18 [INFO] 2025-05-10 12:25:18 - Starting HTTP server at http://localhost:8080 ...
+2025/05/10 12:25:18 [INFO] 2025-05-10 12:25:18 - Migrations applied successfully!
+2025/05/10 12:27:15 [INFO] 2025-05-10 12:27:15 - Starting HTTP server at http://localhost:8080 ...
+2025/05/10 12:27:15 [INFO] 2025-05-10 12:27:15 - Migrations applied successfully!
+2025/05/10 12:27:16 [LOG] 2025-05-10 12:27:16 - Get request made to GetPost Handler
+2025/05/10 12:27:16 [ERROR] 2025-05-10 12:27:16 - Not Authorized request, to get this post
+2025/05/10 12:27:55 [INFO] 2025-05-10 12:27:55 - Starting HTTP server at http://localhost:8080 ...
+2025/05/10 12:27:55 [INFO] 2025-05-10 12:27:55 - Migrations applied successfully!
+2025/05/10 12:42:46 [LOG] 2025-05-10 12:42:46 - Error retrieving token cookie
+2025/05/10 12:43:31 [LOG] 2025-05-10 12:43:31 - Error retrieving token cookie
+2025/05/10 12:43:51 [LOG] 2025-05-10 12:43:51 - Error retrieving token cookie
+2025/05/10 12:44:00 [LOG] 2025-05-10 12:44:00 - Error retrieving token cookie
+2025/05/10 12:44:00 [LOG] 2025-05-10 12:44:00 - Error retrieving token cookie
+2025/05/10 12:44:12 [LOG] 2025-05-10 12:44:12 - Start Creating the Post
+2025/05/10 12:44:12 [INFO] 2025-05-10 12:44:12 - Starting avatar upload
+2025/05/10 12:44:12 [INFO] 2025-05-10 12:44:12 - Avatar file retrieved: profile.JPEG
+2025/05/10 12:44:12 [INFO] 2025-05-10 12:44:12 - Detected content type: image/jpeg
+2025/05/10 12:44:12 [INFO] 2025-05-10 12:44:12 - Generated avatar filename: c41efa4f-338a-4c88-8cd6-ed07ba64186b.JPEG
+2025/05/10 12:44:12 [INFO] 2025-05-10 12:44:12 - Avatar saved successfully
+2025/05/10 12:44:17 [LOG] 2025-05-10 12:44:17 - Start Creating the Post
+2025/05/10 12:44:17 [INFO] 2025-05-10 12:44:17 - Starting avatar upload
+2025/05/10 12:44:17 [INFO] 2025-05-10 12:44:17 - Avatar file retrieved: profile.JPEG
+2025/05/10 12:44:17 [INFO] 2025-05-10 12:44:17 - Detected content type: image/jpeg
+2025/05/10 12:44:17 [INFO] 2025-05-10 12:44:17 - Generated avatar filename: 2759aedf-6d5d-4351-8473-91f8e2a84d66.JPEG
+2025/05/10 12:44:17 [INFO] 2025-05-10 12:44:17 - Avatar saved successfully
+2025/05/10 12:44:22 [LOG] 2025-05-10 12:44:22 - Start Creating the Post
+2025/05/10 12:44:22 [INFO] 2025-05-10 12:44:22 - Starting avatar upload
+2025/05/10 12:44:22 [INFO] 2025-05-10 12:44:22 - Avatar file retrieved: profile.JPEG
+2025/05/10 12:44:22 [INFO] 2025-05-10 12:44:22 - Detected content type: image/jpeg
+2025/05/10 12:44:22 [INFO] 2025-05-10 12:44:22 - Generated avatar filename: 811fdd12-1f45-40e1-932b-749f4f8f4669.JPEG
+2025/05/10 12:44:22 [INFO] 2025-05-10 12:44:22 - Avatar saved successfully
+2025/05/10 12:45:00 [LOG] 2025-05-10 12:45:00 - Start Creating the Post
+2025/05/10 12:45:00 [INFO] 2025-05-10 12:45:00 - Starting avatar upload
+2025/05/10 12:45:00 [INFO] 2025-05-10 12:45:00 - Avatar file retrieved: profile.JPEG
+2025/05/10 12:45:00 [INFO] 2025-05-10 12:45:00 - Detected content type: image/jpeg
+2025/05/10 12:45:00 [INFO] 2025-05-10 12:45:00 - Generated avatar filename: cd4cf6a3-509d-4dc9-86f3-eb863d3336de.JPEG
+2025/05/10 12:45:00 [INFO] 2025-05-10 12:45:00 - Avatar saved successfully
+2025/05/10 12:49:29 [LOG] 2025-05-10 12:49:29 - Get request made to GetPost Handler
+2025/05/10 12:49:33 [LOG] 2025-05-10 12:49:33 - Get request made to GetPost Handler
+2025/05/10 12:50:25 [LOG] 2025-05-10 12:50:25 - Get request made to GetPost Handler
+2025/05/10 12:50:41 [LOG] 2025-05-10 12:50:41 - Get request made to GetPost Handler
+2025/05/10 12:50:41 [ERROR] 2025-05-10 12:50:41 - Not Authorized request, to get this post
+2025/05/10 12:50:46 [LOG] 2025-05-10 12:50:46 - Get request made to GetPost Handler
+2025/05/10 12:50:46 [ERROR] 2025-05-10 12:50:46 - Not Authorized request, to get this post
+2025/05/10 12:51:06 [LOG] 2025-05-10 12:51:06 - Get request made to GetPost Handler
+2025/05/10 12:52:20 [LOG] 2025-05-10 12:52:20 - Get request made to GetPost Handler
+2025/05/10 12:52:38 [LOG] 2025-05-10 12:52:38 - Get request made to GetPost Handler
+2025/05/10 12:53:18 [LOG] 2025-05-10 12:53:18 - Get request made to GetPost Handler
+2025/05/10 12:53:52 [LOG] 2025-05-10 12:53:52 - Get request made to GetPost Handler
+2025/05/10 12:53:55 [INFO] 2025-05-10 12:53:55 - Starting HTTP server at http://localhost:8080 ...
+2025/05/10 12:53:55 [INFO] 2025-05-10 12:53:55 - Migrations applied successfully!
+2025/05/10 12:53:57 [LOG] 2025-05-10 12:53:57 - Get request made to GetPost Handler
+2025/05/10 12:54:17 [INFO] 2025-05-10 12:54:17 - Starting HTTP server at http://localhost:8080 ...
+2025/05/10 12:54:17 [INFO] 2025-05-10 12:54:17 - Migrations applied successfully!
+2025/05/10 12:54:18 [LOG] 2025-05-10 12:54:18 - Get request made to GetPost Handler
+2025/05/10 12:54:51 [INFO] 2025-05-10 12:54:51 - Starting HTTP server at http://localhost:8080 ...
+2025/05/10 12:54:51 [INFO] 2025-05-10 12:54:51 - Migrations applied successfully!
+2025/05/10 12:54:52 [LOG] 2025-05-10 12:54:52 - Get request made to GetPost Handler
+2025/05/10 16:16:35 [LOG] 2025-05-10 16:16:35 - Get request made to GetPost Handler
+2025/05/10 16:16:38 [LOG] 2025-05-10 16:16:38 - Get request made to GetPost Handler
+2025/05/10 16:16:41 [LOG] 2025-05-10 16:16:41 - Get request made to GetPost Handler
+2025/05/10 16:17:32 [LOG] 2025-05-10 16:17:32 - Get request made to GetPost Handler
+2025/05/10 16:17:32 [ERROR] 2025-05-10 16:17:32 - Not Authorized request, to get this post
+2025/05/10 16:17:48 [LOG] 2025-05-10 16:17:48 - Get request made to GetPost Handler
+2025/05/10 16:21:33 [LOG] 2025-05-10 16:21:33 - Get request made to GetPost Handler
+2025/05/10 16:21:38 [INFO] 2025-05-10 16:21:38 - Starting HTTP server at http://localhost:8080 ...
+2025/05/10 16:21:38 [INFO] 2025-05-10 16:21:38 - Migrations applied successfully!
+2025/05/10 16:21:46 [LOG] 2025-05-10 16:21:46 - Start Creating the Post
+2025/05/10 16:21:46 [INFO] 2025-05-10 16:21:46 - Starting avatar upload
+2025/05/10 16:21:46 [INFO] 2025-05-10 16:21:46 - Avatar file retrieved: profile.JPEG
+2025/05/10 16:21:46 [INFO] 2025-05-10 16:21:46 - Detected content type: image/jpeg
+2025/05/10 16:21:46 [INFO] 2025-05-10 16:21:46 - Generated avatar filename: a6070e5d-7940-4f4a-bce6-4a47ebe9907f.JPEG
+2025/05/10 16:21:46 [INFO] 2025-05-10 16:21:46 - Avatar saved successfully
+2025/05/10 16:21:51 [LOG] 2025-05-10 16:21:51 - Get request made to GetPost Handler
+2025/05/10 16:23:33 [INFO] 2025-05-10 16:23:33 - Starting HTTP server at http://localhost:8080 ...
+2025/05/10 16:23:33 [INFO] 2025-05-10 16:23:33 - Migrations applied successfully!
+2025/05/10 16:23:33 [LOG] 2025-05-10 16:23:33 - Get request made to GetPost Handler
+2025/05/10 16:24:15 [INFO] 2025-05-10 16:24:15 - Starting HTTP server at http://localhost:8080 ...
+2025/05/10 16:24:15 [INFO] 2025-05-10 16:24:15 - Migrations applied successfully!
+2025/05/10 16:24:16 [LOG] 2025-05-10 16:24:16 - Get request made to GetPost Handler
+2025/05/10 16:24:16 [ERROR] 2025-05-10 16:24:16 - Error Preparing Statment in GetPost Handlernear "?": syntax error
+2025/05/10 16:24:18 [LOG] 2025-05-10 16:24:18 - Get request made to GetPost Handler
+2025/05/10 16:24:18 [ERROR] 2025-05-10 16:24:18 - Error Preparing Statment in GetPost Handlernear "?": syntax error
+2025/05/10 16:25:22 [INFO] 2025-05-10 16:25:22 - Starting HTTP server at http://localhost:8080 ...
+2025/05/10 16:25:22 [INFO] 2025-05-10 16:25:22 - Migrations applied successfully!
+2025/05/10 16:25:23 [LOG] 2025-05-10 16:25:23 - Get request made to GetPost Handler
+2025/05/11 11:27:52 [INFO] 2025-05-11 11:27:52 - Starting HTTP server at http://localhost:8080 ...
+2025/05/11 11:27:52 [INFO] 2025-05-11 11:27:52 - Migrations applied successfully!
+2025/05/11 11:28:31 [INFO] 2025-05-11 11:28:31 - Starting HTTP server at http://localhost:8080 ...
+2025/05/11 11:28:31 [INFO] 2025-05-11 11:28:31 - Migrations applied successfully!
+2025/05/11 11:29:20 [INFO] 2025-05-11 11:29:20 - Starting HTTP server at http://localhost:8080 ...
+2025/05/11 11:29:20 [INFO] 2025-05-11 11:29:20 - Migrations applied successfully!
+2025/05/11 12:31:50 [INFO] 2025-05-11 12:31:50 - Parsed multipart form
+2025/05/11 12:31:50 [INFO] 2025-05-11 12:31:50 - Form fields parsed successfully
+2025/05/11 12:31:50 [INFO] 2025-05-11 12:31:50 - Form fields parsed
+2025/05/11 12:31:50 [INFO] 2025-05-11 12:31:50 - Checking if email exists: xcxc@sdf.com
+2025/05/11 12:31:50 [INFO] 2025-05-11 12:31:50 - Email is unique
+2025/05/11 12:31:50 [INFO] 2025-05-11 12:31:50 - Validating registration input
+2025/05/11 12:31:50 [INFO] 2025-05-11 12:31:50 - Registration input valid
+2025/05/11 12:31:50 [INFO] 2025-05-11 12:31:50 - User input validated
+2025/05/11 12:31:50 [INFO] 2025-05-11 12:31:50 - Hashing password
+2025/05/11 12:31:51 [INFO] 2025-05-11 12:31:51 - Password hashed successfully
+2025/05/11 12:31:51 [INFO] 2025-05-11 12:31:51 - Password hashed
+2025/05/11 12:31:51 [INFO] 2025-05-11 12:31:51 - Starting avatar upload
+2025/05/11 12:31:51 [INFO] 2025-05-11 12:31:51 - Avatar file retrieved: profile.JPEG
+2025/05/11 12:31:51 [INFO] 2025-05-11 12:31:51 - Detected content type: image/jpeg
+2025/05/11 12:31:51 [INFO] 2025-05-11 12:31:51 - Generated avatar filename: 8f00ce58-7e8c-4716-af21-459e8a37c2f2.JPEG
+2025/05/11 12:31:51 [INFO] 2025-05-11 12:31:51 - Saving user to database with ID: fb240f84-2b12-43f7-804f-7d191571feef
+2025/05/11 12:31:51 [INFO] 2025-05-11 12:31:51 - User saved successfully
+2025/05/11 12:31:51 [INFO] 2025-05-11 12:31:51 - User registered with ID: fb240f84-2b12-43f7-804f-7d191571feef
+2025/05/11 12:31:51 [INFO] 2025-05-11 12:31:51 - Avatar uploaded: ./uploads/profile_image/8f00ce58-7e8c-4716-af21-459e8a37c2f2.JPEG
+2025/05/11 12:31:51 [INFO] 2025-05-11 12:31:51 - Avatar saved successfully
+2025/05/11 12:31:51 [INFO] 2025-05-11 12:31:51 - Save Token into Sessions
+2025/05/11 12:31:51 [INFO] 2025-05-11 12:31:51 - Login successful for user: fb240f84-2b12-43f7-804f-7d191571feef
+2025/05/11 12:31:51 [INFO] 2025-05-11 12:31:51 - Success Register
+2025/05/11 12:32:30 [INFO] 2025-05-11 12:32:30 - Parsed multipart form
+2025/05/11 12:32:30 [INFO] 2025-05-11 12:32:30 - Form fields parsed successfully
+2025/05/11 12:32:30 [INFO] 2025-05-11 12:32:30 - Form fields parsed
+2025/05/11 12:32:30 [INFO] 2025-05-11 12:32:30 - Checking if email exists: trac@sdf.com
+2025/05/11 12:32:30 [INFO] 2025-05-11 12:32:30 - Email is unique
+2025/05/11 12:32:30 [INFO] 2025-05-11 12:32:30 - Validating registration input
+2025/05/11 12:32:30 [INFO] 2025-05-11 12:32:30 - Registration input valid
+2025/05/11 12:32:30 [INFO] 2025-05-11 12:32:30 - User input validated
+2025/05/11 12:32:30 [INFO] 2025-05-11 12:32:30 - Hashing password
+2025/05/11 12:32:30 [INFO] 2025-05-11 12:32:30 - Password hashed successfully
+2025/05/11 12:32:30 [INFO] 2025-05-11 12:32:30 - Password hashed
+2025/05/11 12:32:30 [INFO] 2025-05-11 12:32:30 - Starting avatar upload
+2025/05/11 12:32:30 [INFO] 2025-05-11 12:32:30 - Avatar file retrieved: profile.JPEG
+2025/05/11 12:32:30 [INFO] 2025-05-11 12:32:30 - Detected content type: image/jpeg
+2025/05/11 12:32:30 [INFO] 2025-05-11 12:32:30 - Generated avatar filename: 00f8721e-1f03-4bff-8f1d-3315ea9e8a3b.JPEG
+2025/05/11 12:32:30 [INFO] 2025-05-11 12:32:30 - Saving user to database with ID: 296bdfe2-11a6-4db6-82e0-12124d8f8e6a
+2025/05/11 12:32:30 [INFO] 2025-05-11 12:32:30 - User saved successfully
+2025/05/11 12:32:30 [INFO] 2025-05-11 12:32:30 - User registered with ID: 296bdfe2-11a6-4db6-82e0-12124d8f8e6a
+2025/05/11 12:32:30 [INFO] 2025-05-11 12:32:30 - Avatar uploaded: ./uploads/profile_image/00f8721e-1f03-4bff-8f1d-3315ea9e8a3b.JPEG
+2025/05/11 12:32:30 [INFO] 2025-05-11 12:32:30 - Avatar saved successfully
+2025/05/11 12:32:30 [INFO] 2025-05-11 12:32:30 - Save Token into Sessions
+2025/05/11 12:32:30 [INFO] 2025-05-11 12:32:30 - Login successful for user: 296bdfe2-11a6-4db6-82e0-12124d8f8e6a
+2025/05/11 12:32:30 [INFO] 2025-05-11 12:32:30 - Success Register
+2025/05/11 12:34:05 [LOG] 2025-05-11 12:34:05 - Error retrieving token cookie
+2025/05/11 12:34:30 [LOG] 2025-05-11 12:34:30 - Start Creating the Post
+2025/05/11 12:34:30 [INFO] 2025-05-11 12:34:30 - Starting avatar upload
+2025/05/11 12:34:30 [INFO] 2025-05-11 12:34:30 - Avatar file retrieved: profile.JPEG
+2025/05/11 12:34:30 [INFO] 2025-05-11 12:34:30 - Detected content type: image/jpeg
+2025/05/11 12:34:30 [INFO] 2025-05-11 12:34:30 - Generated avatar filename: 67a48b26-492f-46bb-99c0-4f5fe88a2ef8.JPEG
+2025/05/11 12:34:30 [INFO] 2025-05-11 12:34:30 - Avatar saved successfully
+2025/05/11 12:35:14 [LOG] 2025-05-11 12:35:14 - Get request made to GetPost Handler
+2025/05/11 12:35:33 [INFO] 2025-05-11 12:35:33 - Parsed multipart form
+2025/05/11 12:35:33 [INFO] 2025-05-11 12:35:33 - Form fields parsed successfully
+2025/05/11 12:35:33 [INFO] 2025-05-11 12:35:33 - Form fields parsed
+2025/05/11 12:35:33 [INFO] 2025-05-11 12:35:33 - Checking if email exists: tawil@sdf.com
+2025/05/11 12:35:33 [INFO] 2025-05-11 12:35:33 - Email is unique
+2025/05/11 12:35:33 [INFO] 2025-05-11 12:35:33 - Validating registration input
+2025/05/11 12:35:33 [INFO] 2025-05-11 12:35:33 - Registration input valid
+2025/05/11 12:35:33 [INFO] 2025-05-11 12:35:33 - User input validated
+2025/05/11 12:35:33 [INFO] 2025-05-11 12:35:33 - Hashing password
+2025/05/11 12:35:33 [INFO] 2025-05-11 12:35:33 - Password hashed successfully
+2025/05/11 12:35:33 [INFO] 2025-05-11 12:35:33 - Password hashed
+2025/05/11 12:35:33 [INFO] 2025-05-11 12:35:33 - Starting avatar upload
+2025/05/11 12:35:33 [INFO] 2025-05-11 12:35:33 - Avatar file retrieved: profile.JPEG
+2025/05/11 12:35:33 [INFO] 2025-05-11 12:35:33 - Detected content type: image/jpeg
+2025/05/11 12:35:33 [INFO] 2025-05-11 12:35:33 - Generated avatar filename: a36f3064-3b9a-4a3b-a106-08aadd176099.JPEG
+2025/05/11 12:35:33 [INFO] 2025-05-11 12:35:33 - Saving user to database with ID: 6bcca54c-b80c-42d8-ae32-0a374a0c8154
+2025/05/11 12:35:33 [INFO] 2025-05-11 12:35:33 - User saved successfully
+2025/05/11 12:35:33 [INFO] 2025-05-11 12:35:33 - User registered with ID: 6bcca54c-b80c-42d8-ae32-0a374a0c8154
+2025/05/11 12:35:33 [INFO] 2025-05-11 12:35:33 - Avatar uploaded: ./uploads/profile_image/a36f3064-3b9a-4a3b-a106-08aadd176099.JPEG
+2025/05/11 12:35:33 [INFO] 2025-05-11 12:35:33 - Avatar saved successfully
+2025/05/11 12:35:33 [INFO] 2025-05-11 12:35:33 - Save Token into Sessions
+2025/05/11 12:35:33 [INFO] 2025-05-11 12:35:33 - Login successful for user: 6bcca54c-b80c-42d8-ae32-0a374a0c8154
+2025/05/11 12:35:33 [INFO] 2025-05-11 12:35:33 - Success Register
+2025/05/11 12:35:46 [LOG] 2025-05-11 12:35:46 - Get request made to GetPost Handler
+2025/05/11 12:35:46 [LOG] 2025-05-11 12:35:46 - Get request made to GetPost Handler
+2025/05/11 12:36:01 [LOG] 2025-05-11 12:36:01 - Get request made to GetPost Handler
+2025/05/11 12:37:00 [LOG] 2025-05-11 12:37:00 - Get request made to GetPost Handler
+2025/05/11 12:37:27 [INFO] 2025-05-11 12:37:27 - Starting HTTP server at http://localhost:8080 ...
+2025/05/11 12:37:27 [INFO] 2025-05-11 12:37:27 - Migrations applied successfully!
+2025/05/11 12:37:29 [LOG] 2025-05-11 12:37:29 - Get request made to GetPost Handler
+2025/05/11 12:37:29 [INFO] 2025-05-11 12:37:29 - ====>Post is set to followers
+2025/05/11 12:37:29 [ERROR] 2025-05-11 12:37:29 - Unauthorized request made to this post:.sql: no rows in result set
+2025/05/11 12:37:38 [LOG] 2025-05-11 12:37:38 - Get request made to GetPost Handler
+2025/05/11 12:37:38 [INFO] 2025-05-11 12:37:38 - ====>Post is set to followers
+2025/05/11 12:37:38 [ERROR] 2025-05-11 12:37:38 - Unauthorized request made to this post:.sql: no rows in result set
+2025/05/11 12:37:39 [LOG] 2025-05-11 12:37:39 - Get request made to GetPost Handler
+2025/05/11 12:37:39 [INFO] 2025-05-11 12:37:39 - ====>Post is set to followers
+2025/05/11 12:37:39 [ERROR] 2025-05-11 12:37:39 - Unauthorized request made to this post:.sql: no rows in result set
+2025/05/11 12:37:40 [LOG] 2025-05-11 12:37:40 - Get request made to GetPost Handler
+2025/05/11 12:37:40 [INFO] 2025-05-11 12:37:40 - ====>Post is set to followers
+2025/05/11 12:37:40 [ERROR] 2025-05-11 12:37:40 - Unauthorized request made to this post:.sql: no rows in result set
+2025/05/11 12:38:55 [LOG] 2025-05-11 12:38:55 - Get request made to GetPost Handler
+2025/05/11 12:38:55 [INFO] 2025-05-11 12:38:55 - ====>Post is set to followers

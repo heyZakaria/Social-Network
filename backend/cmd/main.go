@@ -27,6 +27,7 @@ func main() {
 	_, err = db.InitDB("../db/sqlite/database.db")
 
 	router.Handle("/api/", http.StripPrefix("/api", auth.AuthMux()))
+	// Handler for /api/post
 
 	// Testing serving images
 	//http://localhost:8080/uploads/posts/40809c81-b8b6-45aa-8311-4abe9de995f8.JPEG
