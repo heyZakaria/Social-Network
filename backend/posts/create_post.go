@@ -7,13 +7,17 @@ import (
 	"socialNetwork/utils"
 )
 
+// Example URL : http://localhost:8080/api/post
+// CreatePost is a handler function that handles the POST request to create a new post
+// It also checks if the user is logged in by validating the token
+// And this is the list of Inputs that we will have in the request
+// "post_content"		required > Input Text Contain full Post
+// "post_privacy"		required > Has tree option to choose between them (1: public, 2: custom_users, 3:followers)
+// "post_image"			optional >  File Contain the image that user selected
+// "allowed_users"		optional dependce on post_privacy> (only if user selected "post_privacy = custom_users")
+//  Select List that send an array contain all users ID that allowed to see the post
+// It returns the post details in JSON format
 func CreatePost(w http.ResponseWriter, r *http.Request) {
-	// This is the Name of fileds That should be in the frontEND
-	// post_content > Input Text Contain full Post
-	// post_privacy > Has tree option to choose between them (1: public, 2: custom_users, 3:followers)
-	// post_image >  File Contain the image that user selected
-	// allowed_users > (only if user selected "post_privacy = custom_users")
-	//  Select List that send an array contain all users ID that allowed to see the post
 	PostData := Structs.Post{}
 
 	UserId, err := user.GetUserIDByToken(r)

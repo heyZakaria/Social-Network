@@ -9,6 +9,8 @@ import (
 	"strconv"
 )
 
+// Example URL : http://localhost:8080/api/posts?limit=10&offset=0
+// GetPostsScroll is a handler function that handles the GET request to fetch posts with pagination
 func GetPostsScroll(w http.ResponseWriter, r *http.Request) {
 	utils.Log("", "Get request made to GetPostsScroll Handler")
 	_, err := user.GetUserIDByToken(r)
