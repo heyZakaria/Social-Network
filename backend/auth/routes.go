@@ -13,6 +13,7 @@ func AuthMux() http.Handler {
 
 	mux.HandleFunc("POST /post", post.CreatePost)
 	mux.HandleFunc("GET /post", post.GetPost)
+	mux.HandleFunc("GET /posts", post.PostsPagination)
 
 	return mux
 }
