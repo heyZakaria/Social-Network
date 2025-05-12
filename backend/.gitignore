@@ -1,7 +1,4 @@
-.log
+*.log
 *.db
 uploads
 
-# To be removed later
-Dockerfile
-caddy
