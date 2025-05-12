@@ -1,0 +1,239 @@
+.createGroupContainer {
+  margin: 10% auto;
+  background: #fff;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  width: 100%;
+}
+
+.heading3 {
+  text-align: center;
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  text-align: center;
+  font-size: 14px;
+  color: #666;
+}
+
+.createGroupForm {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  margin-bottom: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #555;
+}
+
+.inputText {
+  width: 100%;
+  padding: 12px;
+  height: 45px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  font-size: 15px;
+  transition: border 0.2s;
+}
+
+.inputText:focus {
+  outline: none;
+  border-color: #7c3aed;
+}
+
+.error {
+  color: #e63946;
+  font-size: 13px;
+  margin-top: 4px;
+}
+
+.successMessage {
+  color: #16a34a;
+  font-size: 14px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.serverError {
+  color: #e63946;
+  font-size: 14px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.submitBtn {
+  background: #7c3aed;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.submitBtn:hover {
+  background: #5b21b6;
+}
+
+@media (max-width: 500px) {
+  .createGroupContainer {
+    margin: 20px;
+    padding: 20px;
+  }
+}
+
+
+/* General Container */
+.GroupCardContainer {
+  margin: 20px auto;
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  width: 100%;
+}
+
+/* Group Title */
+.groupTitle {
+  font-size: 24px;
+  color: #333;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+/* Description Styling */
+.Description {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Members Section */
+.membersList {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.memberItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+.memberItem p {
+  margin: 0;
+  font-size: 16px;
+  color: #333;
+}
+
+.memberImage {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Group Navigation Section */
+.GroupNav {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.GroupNav a,
+.GroupNav button {
+  text-decoration: none;
+  font-size: 16px;
+  color: #7c3aed;
+  font-weight: 600;
+  padding: 10px 15px;
+  border-radius: 8px;
+  border: 1px solid #7c3aed;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+.GroupNav a:hover,
+.GroupNav button:hover {
+  background-color: #7c3aed;
+  color: white;
+}
+
+.GroupNav button {
+  background-color: transparent;
+}
+
+.GroupNav a {
+  background-color: transparent;
+}
+
+.GroupNav button:disabled {
+  background-color: #ddd;
+  cursor: not-allowed;
+}
+
+/* Error Styling (if needed) */
+.error {
+  color: #e63946;
+  font-size: 13px;
+  margin-top: 5px;
+}
+
+.serverError {
+  color: #e63946;
+  font-size: 14px;
+  text-align: center;
+}
+
+.successMessage {
+  color: #28a745;
+  font-size: 14px;
+  text-align: center;
+}
+
+@media (max-width: 500px) {
+  .GroupCardContainer {
+    margin: 20px 10px;
+  }
+
+  .groupTitle {
+    font-size: 20px;
+  }
+
+  .Description {
+    font-size: 14px;
+  }
+
+  .membersList {
+    flex-direction: column;
+  }
+
+  .memberItem {
+    justify-content: flex-start;
+  }
+}

@@ -9,6 +9,6 @@ func AuthMux() http.Handler {
 
 	mux.HandleFunc("POST /register", HandleRegister)
 	mux.HandleFunc("POST /login", HandleLogin)
-
+	
 	return mux
 }

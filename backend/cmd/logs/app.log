@@ -1,0 +1,84 @@
+2025/05/11 22:30:22 [INFO] 2025-05-11 22:30:22 - Starting HTTP server at http://localhost:8080 ...
+2025/05/12 01:31:02 [INFO] 2025-05-12 01:31:02 - Starting HTTP server at http://localhost:8080 ...
+2025/05/12 01:37:16 [INFO] 2025-05-12 01:37:16 - Parsed multipart form
+2025/05/12 01:37:16 [INFO] 2025-05-12 01:37:16 - Form fields parsed successfully
+2025/05/12 01:37:16 [INFO] 2025-05-12 01:37:16 - Form fields parsed
+2025/05/12 01:37:16 [INFO] 2025-05-12 01:37:16 - Checking if email exists: dsfdsfsdfdsf@dfdsfdsfd.com
+2025/05/12 01:37:16 [ERROR] 2025-05-12 01:37:16 - Database query failed: unable to open database file: no such file or directory
+2025/05/12 01:37:16 [INFO] 2025-05-12 01:37:16 - Email is unique
+2025/05/12 01:37:16 [INFO] 2025-05-12 01:37:16 - Starting avatar upload
+2025/05/12 01:37:16 [INFO] 2025-05-12 01:37:16 - No avatar file uploaded
+2025/05/12 01:37:16 [INFO] 2025-05-12 01:37:16 - Avatar uploaded: 
+2025/05/12 01:37:16 [INFO] 2025-05-12 01:37:16 - Validating registration input
+2025/05/12 01:37:16 [INFO] 2025-05-12 01:37:16 - Registration input valid
+2025/05/12 01:37:16 [INFO] 2025-05-12 01:37:16 - User input validated
+2025/05/12 01:37:16 [INFO] 2025-05-12 01:37:16 - Hashing password
+2025/05/12 01:37:16 [INFO] 2025-05-12 01:37:16 - Password hashed successfully
+2025/05/12 01:37:16 [INFO] 2025-05-12 01:37:16 - Password hashed
+2025/05/12 01:37:16 [INFO] 2025-05-12 01:37:16 - Saving user to database with ID: b57fe60c-a08e-4926-a725-26436f6b8732
+2025/05/12 01:37:16 [ERROR] 2025-05-12 01:37:16 - Prepare statement failed: unable to open database file: no such file or directory
+2025/05/12 01:37:16 [ERROR] 2025-05-12 01:37:16 - Failed to save user to DB: unable to open database file: no such file or directory
+2025/05/12 02:02:45 [INFO] 2025-05-12 02:02:45 - Starting HTTP server at http://localhost:8080 ...
+2025/05/12 02:14:32 [INFO] 2025-05-12 02:14:32 - Parsed multipart form
+2025/05/12 02:14:32 [INFO] 2025-05-12 02:14:32 - Form fields parsed successfully
+2025/05/12 02:14:32 [INFO] 2025-05-12 02:14:32 - Form fields parsed
+2025/05/12 02:14:32 [INFO] 2025-05-12 02:14:32 - Checking if email exists: dsfdsfsdfdsf@dfdsfdsfd.com
+2025/05/12 02:14:32 [ERROR] 2025-05-12 02:14:32 - Database query failed: unable to open database file: no such file or directory
+2025/05/12 02:14:32 [INFO] 2025-05-12 02:14:32 - Email is unique
+2025/05/12 02:14:32 [INFO] 2025-05-12 02:14:32 - Starting avatar upload
+2025/05/12 02:14:32 [INFO] 2025-05-12 02:14:32 - No avatar file uploaded
+2025/05/12 02:14:32 [INFO] 2025-05-12 02:14:32 - Avatar uploaded: 
+2025/05/12 02:14:32 [INFO] 2025-05-12 02:14:32 - Validating registration input
+2025/05/12 02:14:32 [INFO] 2025-05-12 02:14:32 - Registration input valid
+2025/05/12 02:14:32 [INFO] 2025-05-12 02:14:32 - User input validated
+2025/05/12 02:14:32 [INFO] 2025-05-12 02:14:32 - Hashing password
+2025/05/12 02:14:32 [INFO] 2025-05-12 02:14:32 - Password hashed successfully
+2025/05/12 02:14:32 [INFO] 2025-05-12 02:14:32 - Password hashed
+2025/05/12 02:14:32 [INFO] 2025-05-12 02:14:32 - Saving user to database with ID: ed896b21-a93a-4c17-9ae8-e92bdb3bb0ab
+2025/05/12 02:14:32 [ERROR] 2025-05-12 02:14:32 - Prepare statement failed: unable to open database file: no such file or directory
+2025/05/12 02:14:32 [ERROR] 2025-05-12 02:14:32 - Failed to save user to DB: unable to open database file: no such file or directory
+2025/05/12 02:14:39 [INFO] 2025-05-12 02:14:39 - Parsed multipart form
+2025/05/12 02:14:39 [INFO] 2025-05-12 02:14:39 - Form fields parsed successfully
+2025/05/12 02:14:39 [INFO] 2025-05-12 02:14:39 - Form fields parsed
+2025/05/12 02:14:39 [INFO] 2025-05-12 02:14:39 - Checking if email exists: dsfdsfsdfdsf@dfdsfdsfd.com
+2025/05/12 02:14:39 [ERROR] 2025-05-12 02:14:39 - Database query failed: unable to open database file: no such file or directory
+2025/05/12 02:14:39 [INFO] 2025-05-12 02:14:39 - Email is unique
+2025/05/12 02:14:39 [INFO] 2025-05-12 02:14:39 - Starting avatar upload
+2025/05/12 02:14:39 [INFO] 2025-05-12 02:14:39 - No avatar file uploaded
+2025/05/12 02:14:39 [INFO] 2025-05-12 02:14:39 - Avatar uploaded: 
+2025/05/12 02:14:39 [INFO] 2025-05-12 02:14:39 - Validating registration input
+2025/05/12 02:14:39 [INFO] 2025-05-12 02:14:39 - Registration input valid
+2025/05/12 02:14:39 [INFO] 2025-05-12 02:14:39 - User input validated
+2025/05/12 02:14:39 [INFO] 2025-05-12 02:14:39 - Hashing password
+2025/05/12 02:14:39 [INFO] 2025-05-12 02:14:39 - Password hashed successfully
+2025/05/12 02:14:39 [INFO] 2025-05-12 02:14:39 - Password hashed
+2025/05/12 02:14:39 [INFO] 2025-05-12 02:14:39 - Saving user to database with ID: 7994da83-e33a-4201-ac99-f3bce1b37a14
+2025/05/12 02:14:39 [ERROR] 2025-05-12 02:14:39 - Prepare statement failed: unable to open database file: no such file or directory
+2025/05/12 02:14:39 [ERROR] 2025-05-12 02:14:39 - Failed to save user to DB: unable to open database file: no such file or directory
+2025/05/12 05:13:12 [INFO] 2025-05-12 05:13:12 - Starting HTTP server at http://localhost:8080 ...
+2025/05/12 05:13:55 [INFO] 2025-05-12 05:13:55 - Starting HTTP server at http://localhost:8080 ...
+2025/05/12 05:15:01 [INFO] 2025-05-12 05:15:01 - Starting HTTP server at http://localhost:8080 ...
+2025/05/12 05:34:31 [INFO] 2025-05-12 05:34:31 - Starting HTTP server at http://localhost:8080 ...
+2025/05/12 05:36:31 [INFO] 2025-05-12 05:36:31 - Starting HTTP server at http://localhost:8080 ...
+2025/05/12 05:46:26 [INFO] 2025-05-12 05:46:26 - Starting HTTP server at http://localhost:8080 ...
+2025/05/12 05:49:07 [INFO] 2025-05-12 05:49:07 - Starting HTTP server at http://localhost:8080 ...
+2025/05/12 06:09:57 [INFO] 2025-05-12 06:09:57 - Starting HTTP server at http://localhost:8080 ...
+2025/05/12 06:12:27 [INFO] 2025-05-12 06:12:27 - Starting HTTP server at http://localhost:8080 ...
+2025/05/12 06:13:01 [INFO] 2025-05-12 06:13:01 - Starting HTTP server at http://localhost:8080 ...
+2025/05/12 06:19:35 [INFO] 2025-05-12 06:19:35 - Starting HTTP server at http://localhost:8080 ...
+2025/05/12 06:22:07 [INFO] 2025-05-12 06:22:07 - Starting HTTP server at http://localhost:8080 ...
+2025/05/12 06:25:04 [INFO] 2025-05-12 06:25:04 - Starting HTTP server at http://localhost:8080 ...
+2025/05/12 06:28:16 [INFO] 2025-05-12 06:28:16 - Starting HTTP server at http://localhost:8080 ...
+2025/05/12 06:32:12 [INFO] 2025-05-12 06:32:12 - Starting HTTP server at http://localhost:8080 ...
+2025/05/12 06:33:55 [INFO] 2025-05-12 06:33:55 - Starting HTTP server at http://localhost:8080 ...
+2025/05/12 06:35:09 [INFO] 2025-05-12 06:35:09 - Starting HTTP server at http://localhost:8080 ...
+2025/05/12 06:35:56 [INFO] 2025-05-12 06:35:56 - Starting HTTP server at http://localhost:8080 ...
+2025/05/12 06:39:20 [INFO] 2025-05-12 06:39:20 - Starting HTTP server at http://localhost:8080 ...
+2025/05/12 06:41:34 [INFO] 2025-05-12 06:41:34 - Starting HTTP server at http://localhost:8080 ...
+2025/05/12 06:41:41 [INFO] 2025-05-12 06:41:41 - Received request for GroupCreation
+2025/05/12 06:41:59 [INFO] 2025-05-12 06:41:59 - Received request for GroupCreation
+2025/05/12 06:52:48 [INFO] 2025-05-12 06:52:48 - Received request for GroupCreation
+2025/05/12 06:53:12 [INFO] 2025-05-12 06:53:12 - Received request for GroupCreation
+2025/05/12 06:53:26 [INFO] 2025-05-12 06:53:26 - Received request for GroupCreation
+2025/05/12 07:00:32 [INFO] 2025-05-12 07:00:32 - Starting HTTP server at http://localhost:8080 ...
+2025/05/12 07:02:19 [INFO] 2025-05-12 07:02:19 - Received request for GroupCreation

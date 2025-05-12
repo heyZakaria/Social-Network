@@ -1,0 +1,6 @@
+CREATE TABLE IF NOT EXISTS groupMember(
+    id INTEGER PRIMARY KEY,
+    user_id TEXT NOT NULL REFERENCES users(id)
+    group_id INTEGER NOT NULL REFERENCES groups(id)
+    joined_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
