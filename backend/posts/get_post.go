@@ -8,12 +8,14 @@ import (
 	"socialNetwork/utils"
 	"strconv"
 )
+
 // Example URL : http://localhost:8080/api/post?id=1
 // GetPost is a handler function that handles the GET request to fetch a single post
 // with the given post ID
 // It checks the privacy settings of the post and ensures that the user has access to it
 // It returns the post details in JSON format
 // It also checks if the user is logged in by validating the token
+
 func GetPost(w http.ResponseWriter, r *http.Request) {
 	utils.Log("", "Get request made to GetPost Handler")
 	UserId, err := user.GetUserIDByToken(r)
