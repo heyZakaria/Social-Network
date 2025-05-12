@@ -6,6 +6,8 @@ import EmojiPicker from "@/components/common/emoji-picker";
 import { IoSendSharp } from "react-icons/io5";
 import { IoClose } from "react-icons/io5";    
 import { IoChatbubbleEllipses } from "react-icons/io5";
+
+
 export default function ChatComponent({ currentUser, otherUser }) {
   const [messages, setMessages] = useState([]);
   const [newMessage, setNewMessage] = useState("");

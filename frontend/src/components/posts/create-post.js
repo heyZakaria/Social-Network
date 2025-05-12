@@ -1,8 +1,14 @@
 "use client";
 
 import { useState } from "react";
-import styles from "../../styles/posts.module.css";
-import EmojiPicker from "../common/emoji-picker";
+import styles from "@/styles/posts.module.css";
+import EmojiPicker from "@/components/common/emoji-picker";
+import { BsImage, BsX } from 'react-icons/bs';
+import { MdOutlineMood } from 'react-icons/md';
+import { HiOutlineLocationMarker } from 'react-icons/hi';
+import { IoGlobeOutline } from 'react-icons/io5';
+import { HiUsers, HiLockClosed } from 'react-icons/hi2';
+
 
 export default function CreatePost({ user, onPostCreated }) {
   const [content, setContent] = useState("");
@@ -109,20 +115,7 @@ export default function CreatePost({ user, onPostCreated }) {
                 className={styles.removeImageButton}
                 onClick={handleRemoveImage}
               >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <line x1="18" y1="6" x2="6" y2="18"></line>
-                  <line x1="6" y1="6" x2="18" y2="18"></line>
-                </svg>
+                <BsX size={20} />
               </button>
             </div>
           )}
@@ -134,9 +127,15 @@ export default function CreatePost({ user, onPostCreated }) {
                 value={privacy}
                 onChange={(e) => setPrivacy(e.target.value)}
               >
-                <option value="public">Everyone</option>
-                <option value="followers">Followers only</option>
-                <option value="private">Selected followers</option>
+                <option value="public">
+                  <IoGlobeOutline size={16} /> Everyone
+                </option>
+                <option value="followers">
+                  <HiUsers size={16} /> Followers only
+                </option>
+                <option value="private">
+                  <HiLockClosed size={16} /> Selected followers
+                </option>
               </select>
             </div>
 
@@ -148,44 +147,18 @@ export default function CreatePost({ user, onPostCreated }) {
                   onChange={handleImageChange}
                   style={{ display: "none" }}
                 />
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-                  <circle cx="8.5" cy="8.5" r="1.5"></circle>
-                  <polyline points="21 15 16 10 5 21"></polyline>
-                </svg>
-                Photo/Video
+                <BsImage size={20} />
+                Photo/GIF
               </label>
 
               <div className={styles.createPostAction}>
+                <MdOutlineMood size={20} />
                 <EmojiPicker onEmojiSelect={handleEmojiSelect} />
                 Emoji
               </div>
 
               <button className={styles.createPostAction} type="button">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                  <circle cx="12" cy="10" r="3"></circle>
-                </svg>
+              <HiOutlineLocationMarker size={20} />
                 Location
               </button>
             </div>

@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import styles from "@/styles/posts.module.css";
 import EmojiPicker from "@/components/common/emoji-picker";
+import { IoPaperPlaneOutline } from 'react-icons/io5';
 
 export default function CommentSection({ postId, currentUser }) {
   const [comments, setComments] = useState([]);
@@ -253,20 +254,7 @@ export default function CommentSection({ postId, currentUser }) {
           className={styles.commentSubmit}
           disabled={isSubmitting || !newComment.trim()}
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="16"
-            height="16"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <line x1="22" y1="2" x2="11" y2="13"></line>
-            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
-          </svg>
+          <IoPaperPlaneOutline size={16} />
         </button>
       </form>
     </div>

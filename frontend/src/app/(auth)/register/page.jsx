@@ -9,10 +9,11 @@ import { useState } from "react";
 
 // we use this import for not reload page
 import Link from "next/link";
-
+import { useRouter } from 'next/navigation';
 import styles from "./register.module.css";
 // so we need to make this page exportable to use by next
 export default function RegisterPage() {
+  const router = useRouter();
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -161,6 +162,7 @@ export default function RegisterPage() {
         if (result.success) {
           console.log(result.success);
           setServerError("");
+          router.push('/home');
           alert("Registration successful!");
         } else {
           setServerError(result.message || "Registration failed.");
@@ -171,6 +173,10 @@ export default function RegisterPage() {
       window.location.href = "/home";
     } catch (error) {
       setServerError("Failed to connect to server.");
+      return NextResponse.json({ 
+        success: false, 
+        message: 'Server error' 
+      }, { status: 500 })
     }
   };
 

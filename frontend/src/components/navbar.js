@@ -24,7 +24,17 @@ export default function Navbar({ user }) {
   const path = usePathname();
 
   const reg = /^\/profile\/\d+$/;
-  if (!path || !(reg.test(path) || path === '/home' || path === '/events' || path === '/groups' || path === '/friends' || path === '/notifications')) {
+  if (
+    !path ||
+    !(
+      reg.test(path) ||
+      path === "/home" ||
+      path === "/events" ||
+      path === "/groups" ||
+      path === "/friends" ||
+      path === "/notifications"
+    )
+  ) {
     return null;
   }
   const router = useRouter();
@@ -36,6 +46,7 @@ export default function Navbar({ user }) {
   const [notifications, setNotifications] = useState([]);
   const [unreadNotifications, setUnreadNotifications] = useState(0);
   const [unreadMessages, setUnreadMessages] = useState(0);
+
 
   useEffect(() => {
     // In a real app, you would fetch these from an API
@@ -70,6 +81,7 @@ export default function Navbar({ user }) {
     }
   }, [user]);
 
+  
   const handleLogout = async () => {
     await logoutUser();
     // The action will handle the redirect
@@ -127,42 +139,45 @@ export default function Navbar({ user }) {
     <nav className={styles.navbar}>
       <div className={styles.navbarContainer}>
         <div className={styles.navbarLogo}>
-          <Link href="/" className={styles.logoLink} onClick={closeAllMenus}>
+          <Link href="/home" className={styles.logoLink} onClick={closeAllMenus}>
             <span className={styles.logoText}>ConnectHub</span>
           </Link>
         </div>
 
-        {/* {user ? ( */}
         <>
           <div className={styles.navbarCenter}>
             <Link
               href="/home"
-              className={`${styles.navLink} ${isActive("/home") ? styles.active : ""
-                }`}
+              className={`${styles.navLink} ${
+                isActive("/home") ? styles.active : ""
+              }`}
               onClick={closeAllMenus}
             >
               <HiHome size={24} />
             </Link>
             <Link
               href="/friends"
-              className={`${styles.navLink} ${isActive("/friends") ? styles.active : ""
-                }`}
+              className={`${styles.navLink} ${
+                isActive("/friends") ? styles.active : ""
+              }`}
               onClick={closeAllMenus}
             >
               <HiUserGroup size={24} />
             </Link>
             <Link
               href="/groups"
-              className={`${styles.navLink} ${isActive("/groups") ? styles.active : ""
-                }`}
+              className={`${styles.navLink} ${
+                isActive("/groups") ? styles.active : ""
+              }`}
               onClick={closeAllMenus}
             >
               <HiUsers size={24} />
             </Link>
             <Link
               href="/events"
-              className={`${styles.navLink} ${isActive("/events") ? styles.active : ""
-                }`}
+              className={`${styles.navLink} ${
+                isActive("/events") ? styles.active : ""
+              }`}
               onClick={closeAllMenus}
             >
               <HiCalendar size={24} />
@@ -210,8 +225,9 @@ export default function Navbar({ user }) {
                         notifications.map((notification) => (
                           <div
                             key={notification.id}
-                            className={`${styles.notificationItem} ${!notification.read ? styles.unread : ""
-                              }`}
+                            className={`${styles.notificationItem} ${
+                              !notification.read ? styles.unread : ""
+                            }`}
                             onClick={() =>
                               handleNotificationClick(notification.id)
                             }
@@ -319,19 +335,21 @@ export default function Navbar({ user }) {
                   setIsMessagesOpen(false);
                 }}
               >
-                {/* <img
-                  src={user.avatar || "/placeholder.svg?height=32&width=32"}
+              
+                <img
+                  src={user.avatar || "https://i.pravatar.cc/150?u=10"}
                   alt={user.firstName}
                   className={styles.userAvatar}
                 />
-                <span className={styles.userName}>{user.firstName}</span> */}
+                <span className={styles.userName}>{user.firstName}</span>
                 <HiChevronDown size={16} />
               </button>
 
               {isMenuOpen && (
                 <div className={styles.userDropdown}>
                   <Link
-                    href={`/profile/${user.id}`}
+                    // href={`/profile/${user.id}`}
+                    href="/profile/1"
                     className={styles.userDropdownItem}
                     onClick={closeAllMenus}
                   >
@@ -422,18 +440,7 @@ export default function Navbar({ user }) {
             </div>
           )}
         </>
-        {/* // ) : (
-        //   <div className={styles.navbarAuth}>
-        //     <Link href="/login" className={styles.loginButton}>
-        //       Log In
-        //     </Link>
-        //     <Link href="/register" className={styles.registerButton}>
-        //       Sign Up
-        //     </Link>
-        //   </div>
-        // )} */}
       </div>
     </nav>
-
   );
 }

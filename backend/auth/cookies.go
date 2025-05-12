@@ -36,7 +36,7 @@ func SendSuccessWithToken(w http.ResponseWriter, userID string) {
 
 		// TO run server use SSL
 		// 	err = http.ListenAndServeTLS(":8080", "server.crt", "server.key", nil)
-		Secure: true,
+		Secure: false,
 
 		// secure vs CSRF attacks (Cross Site Request Forgery)
 		SameSite: http.SameSiteStrictMode,

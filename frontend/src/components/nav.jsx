@@ -1,33 +1,34 @@
 "use client";
+
 import Link from "next/link";
-import { usePathname } from 'next/navigation';
-import { HiHome, HiChatBubbleLeft, HiMiniBellAlert, HiMiniUserGroup, HiMiniUser, HiArrowRightOnRectangle } from "react-icons/hi2";
+import styles from "@/styles/navbar.module.css";
+import { usePathname } from "next/navigation";
 
-export default function NavBar() {
-  const pathname = usePathname();
-  const hideNavBar = pathname === '/login' || pathname === '/register' || pathname === '/home';
+export default function Nav() {
+  const path = usePathname();
 
-
-  if (hideNavBar) {
+  if (!path || !( path === "/" || path === "/login" || path === "/register)")) {
     return null;
   }
 
   return (
-    <>
-      <nav>
-        <div className="logo">
-          <Link href="/"><h1>SocialNetwork</h1></Link>
+    <nav className={styles.navbar}>
+      <div className={styles.navbarContainer}>
+        <div className={styles.navbarLogo}>
+          <Link href="/" className={styles.logoLink}>
+            <span className={styles.logoText}>ConnectHub</span>
+          </Link>
         </div>
-        <div className="NavbarLinks">
-          <Link href="/home"> <HiHome size={20} /> </Link>
-          <Link href="/"> <HiChatBubbleLeft size={20} /> </Link>
-          <Link href="/"> <HiMiniBellAlert size={20} /> </Link>
-          <Link href="/"> <HiMiniUserGroup size={20} /> </Link>
-          <Link href="/"> <HiMiniUser size={20} /> </Link>
-          <Link href="/"> <HiArrowRightOnRectangle size={20} color="red" /> </Link>
+
+        <div className={styles.navbarAuth}>
+          <Link href="/login" className={styles.loginButton}>
+            Log In
+          </Link>
+          <Link href="/register" className={styles.registerButton}>
+            Sign Up
+          </Link>
         </div>
-      </nav>
-    </>
+      </div>
+    </nav>
   );
 }
-

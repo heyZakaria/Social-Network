@@ -1,7 +1,8 @@
-import { getCurrentUser } from "@/actions/auth";
+// import { getCurrentUser } from "@/actions/auth";
 import Link from "next/link";
 import styles from "@/styles/events.module.css";
 import { IoAddOutline } from "react-icons/io5";
+import FloatingChat from "@/components/chat/floating-chat";
 
 // Sample events data
 const sampleEvents = [
@@ -20,7 +21,8 @@ const sampleEvents = [
       going: [1, 3],
       notGoing: [2],
     },
-    image: "https://imgs.search.brave.com/jLfYC2vnVrdKM1pTa5AmFzHt4c7QNiv3c6zQe-UtXoA/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9wcm9t/by5jb20vdG9vbHMv/aW1hZ2UtcmVzaXpl/ci9zdGF0aWMvUGF0/dGVybl9pbWFnZS04/YzA1MDA1M2VhYjg4/NGU1MWI4NTk5NjA3/ODY1ZDExMi5qcGc",
+    image:
+      "https://imgs.search.brave.com/jLfYC2vnVrdKM1pTa5AmFzHt4c7QNiv3c6zQe-UtXoA/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9wcm9t/by5jb20vdG9vbHMv/aW1hZ2UtcmVzaXpl/ci9zdGF0aWMvUGF0/dGVybl9pbWFnZS04/YzA1MDA1M2VhYjg4/NGU1MWI4NTk5NjA3/ODY1ZDExMi5qcGc",
     groupId: 1,
     groupName: "Photography Enthusiasts",
   },
@@ -39,7 +41,8 @@ const sampleEvents = [
       going: [2],
       notGoing: [],
     },
-    image: "https://imgs.search.brave.com/jLfYC2vnVrdKM1pTa5AmFzHt4c7QNiv3c6zQe-UtXoA/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9wcm9t/by5jb20vdG9vbHMv/aW1hZ2UtcmVzaXpl/ci9zdGF0aWMvUGF0/dGVybl9pbWFnZS04/YzA1MDA1M2VhYjg4/NGU1MWI4NTk5NjA3/ODY1ZDExMi5qcGc",
+    image:
+      "https://imgs.search.brave.com/jLfYC2vnVrdKM1pTa5AmFzHt4c7QNiv3c6zQe-UtXoA/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9wcm9t/by5jb20vdG9vbHMv/aW1hZ2UtcmVzaXpl/ci9zdGF0aWMvUGF0/dGVybl9pbWFnZS04/YzA1MDA1M2VhYjg4/NGU1MWI4NTk5NjA3/ODY1ZDExMi5qcGc",
     groupId: 2,
     groupName: "Hiking Adventures",
   },
@@ -59,14 +62,31 @@ const sampleEvents = [
       going: [1, 2],
       notGoing: [],
     },
-    image: "https://imgs.search.brave.com/jLfYC2vnVrdKM1pTa5AmFzHt4c7QNiv3c6zQe-UtXoA/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9wcm9t/by5jb20vdG9vbHMv/aW1hZ2UtcmVzaXpl/ci9zdGF0aWMvUGF0/dGVybl9pbWFnZS04/YzA1MDA1M2VhYjg4/NGU1MWI4NTk5NjA3/ODY1ZDExMi5qcGc",
+    image:
+      "https://imgs.search.brave.com/jLfYC2vnVrdKM1pTa5AmFzHt4c7QNiv3c6zQe-UtXoA/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9wcm9t/by5jb20vdG9vbHMv/aW1hZ2UtcmVzaXpl/ci9zdGF0aWMvUGF0/dGVybl9pbWFnZS04/YzA1MDA1M2VhYjg4/NGU1MWI4NTk5NjA3/ODY1ZDExMi5qcGc",
     groupId: 3,
     groupName: "Music Producers",
   },
 ];
 
 export default async function EventsPage() {
-  const currentUser = await getCurrentUser();
+  // const currentUser = await getCurrentUser();
+
+  const currentUser = {
+    id: 1,
+    email: "john@example.com",
+    password: "password123",
+    firstName: "John",
+    lastName: "Doe",
+    dateOfBirth: "1990-05-15",
+    nickname: "JD",
+    aboutMe: "Software developer and hiking enthusiast",
+    avatar: "https://i.pravatar.cc/150?u=100",
+    isPublic: true,
+    followers: [2, 3],
+    following: [2],
+    createdAt: "2023-01-15T08:30:00Z",
+  };
 
   if (!currentUser) {
     return null; // This should be handled by middleware
@@ -89,7 +109,7 @@ export default async function EventsPage() {
       <div className={styles.eventsHeader}>
         <h1>Events</h1>
         <Link href="/events" className={styles.createEventButton}>
-        <IoAddOutline size={20} />
+          <IoAddOutline size={20} />
           Create Event
         </Link>
       </div>
@@ -143,6 +163,7 @@ export default async function EventsPage() {
           </div>
         ))}
       </div>
+      <FloatingChat currentUser={currentUser} />
     </div>
   );
 }

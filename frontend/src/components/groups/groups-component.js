@@ -1,52 +1,71 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import Link from "next/link"
-import styles from "../../styles/groups.module.css"
-import CreateGroupModal from "./create-group-modal"
+import { useState } from "react";
+import Link from "next/link";
+import styles from "@/styles/groups.module.css";
+import CreateGroupModal from "./create-group-modal";
+import { IoClose } from "react-icons/io5";
+import { BsImage } from "react-icons/bs";
+import { HiPlus, HiUserGroup } from "react-icons/hi2";
+import FloatingChat from "@/components/chat/floating-chat";
 
-export default function GroupsComponent({ currentUser, userGroups, groupSuggestions }) {
-  const [showCreateModal, setShowCreateModal] = useState(false)
-  const [activeTab, setActiveTab] = useState("my-groups")
+export default function GroupsComponent({
+  currentUser,
+  userGroups,
+  groupSuggestions,
+}) {
+  const [showCreateModal, setShowCreateModal] = useState(false);
+  const [activeTab, setActiveTab] = useState("my-groups");
 
+  currentUser = {
+    id: 1,
+    email: "john@example.com",
+    password: "password123",
+    firstName: "John",
+    lastName: "Doe",
+    dateOfBirth: "1990-05-15",
+    nickname: "JD",
+    aboutMe: "Software developer and hiking enthusiast",
+    avatar: "https://i.pravatar.cc/150?u=100",
+    isPublic: true,
+    followers: [2, 3],
+    following: [2],
+    createdAt: "2023-01-15T08:30:00Z",
+  };
   return (
     <div className={styles.groupsContainer}>
       <div className={styles.groupsHeader}>
         <h1>Groups</h1>
-        <button className={styles.createGroupButton} onClick={() => setShowCreateModal(true)}>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <line x1="12" y1="5" x2="12" y2="19"></line>
-            <line x1="5" y1="12" x2="19" y2="12"></line>
-          </svg>
+        <button
+          className={styles.createGroupButton}
+          onClick={() => setShowCreateModal(true)}
+        >
+          <HiPlus size={20} />
           Create Group
         </button>
       </div>
 
       <div className={styles.groupsTabs}>
         <button
-          className={`${styles.tabButton} ${activeTab === "my-groups" ? styles.activeTab : ""}`}
+          className={`${styles.tabButton} ${
+            activeTab === "my-groups" ? styles.activeTab : ""
+          }`}
           onClick={() => setActiveTab("my-groups")}
         >
           My Groups
         </button>
         <button
-          className={`${styles.tabButton} ${activeTab === "discover" ? styles.activeTab : ""}`}
+          className={`${styles.tabButton} ${
+            activeTab === "discover" ? styles.activeTab : ""
+          }`}
           onClick={() => setActiveTab("discover")}
         >
           Discover
         </button>
         <button
-          className={`${styles.tabButton} ${activeTab === "invitations" ? styles.activeTab : ""}`}
+          className={`${styles.tabButton} ${
+            activeTab === "invitations" ? styles.activeTab : ""
+          }`}
           onClick={() => setActiveTab("invitations")}
         >
           Invitations
@@ -58,40 +77,41 @@ export default function GroupsComponent({ currentUser, userGroups, groupSuggesti
           <div className={styles.groupsGrid}>
             {userGroups.length > 0 ? (
               userGroups.map((group) => (
-                <Link href={`/groups/${group.id}`} key={group.id} className={styles.groupCard}>
+                <Link
+                  href={`/groups/${group.id}`}
+                  key={group.id}
+                  className={styles.groupCard}
+                >
                   <div className={styles.groupCardImage}>
-                    <img src={group.image || "/placeholder.svg?height=150&width=300"} alt={group.name} />
+                    <img
+                      src={
+                        group.image || "/placeholder.svg?height=150&width=300"
+                      }
+                      alt={group.name}
+                    />
                   </div>
                   <div className={styles.groupCardContent}>
                     <h3 className={styles.groupCardTitle}>{group.name}</h3>
-                    <p className={styles.groupCardMembers}>{group.members.length} members</p>
-                    {group.creatorId === currentUser.id && <span className={styles.adminBadge}>Admin</span>}
+                    <p className={styles.groupCardMembers}>
+                      {group.members.length} members
+                    </p>
+                    {group.creatorId === currentUser.id && (
+                      <span className={styles.adminBadge}>Admin</span>
+                    )}
                   </div>
                 </Link>
               ))
             ) : (
               <div className={styles.emptyState}>
                 <div className={styles.emptyStateIcon}>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="48"
-                    height="48"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                    <circle cx="9" cy="7" r="4"></circle>
-                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                  </svg>
+                  <HiUserGroup size={48} />
                 </div>
                 <h2>You haven't joined any groups yet</h2>
                 <p>Discover groups or create your own</p>
-                <button className={styles.emptyStateButton} onClick={() => setActiveTab("discover")}>
+                <button
+                  className={styles.emptyStateButton}
+                  onClick={() => setActiveTab("discover")}
+                >
                   Discover Groups
                 </button>
               </div>
@@ -105,11 +125,18 @@ export default function GroupsComponent({ currentUser, userGroups, groupSuggesti
               groupSuggestions.map((group) => (
                 <div key={group.id} className={styles.groupCard}>
                   <div className={styles.groupCardImage}>
-                    <img src={group.image || "/placeholder.svg?height=150&width=300"} alt={group.name} />
+                    <img
+                      src={
+                        group.image || "/placeholder.svg?height=150&width=300"
+                      }
+                      alt={group.name}
+                    />
                   </div>
                   <div className={styles.groupCardContent}>
                     <h3 className={styles.groupCardTitle}>{group.name}</h3>
-                    <p className={styles.groupCardMembers}>{group.members.length} members</p>
+                    <p className={styles.groupCardMembers}>
+                      {group.members.length} members
+                    </p>
                     <button className={styles.joinButton}>Join Group</button>
                   </div>
                 </div>
@@ -137,11 +164,12 @@ export default function GroupsComponent({ currentUser, userGroups, groupSuggesti
           onClose={() => setShowCreateModal(false)}
           onGroupCreated={(newGroup) => {
             // In a real app, we would update the groups list
-            setShowCreateModal(false)
-            setActiveTab("my-groups")
+            setShowCreateModal(false);
+            setActiveTab("my-groups");
           }}
         />
       )}
+      <FloatingChat currentUser={currentUser} />
     </div>
-  )
+  );
 }
