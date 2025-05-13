@@ -1065,3 +1065,24 @@
 2025/05/12 16:31:15 [INFO] 2025-05-12 16:31:15 - Sending success with token for user: fe345a79-e686-44c3-9bdc-86c2f436a178
 2025/05/12 16:31:15 [INFO] 2025-05-12 16:31:15 - Login successful for user: fe345a79-e686-44c3-9bdc-86c2f436a178
 >>>>>>> Omar-Profile
+2025/05/13 12:54:39 [INFO] 2025-05-13 12:54:39 - Starting HTTP server at http://localhost:8080 ...
+2025/05/13 12:54:39 [INFO] 2025-05-13 12:54:39 - Migrations applied successfully!
+2025/05/13 12:55:21 [INFO] 2025-05-13 12:55:21 - Parsed multipart form
+2025/05/13 12:55:21 [INFO] 2025-05-13 12:55:21 - Form fields parsed successfully
+2025/05/13 12:55:21 [INFO] 2025-05-13 12:55:21 - Form fields parsed
+2025/05/13 12:55:21 [INFO] 2025-05-13 12:55:21 - Checking if email exists: hh01@gmail.com
+2025/05/13 12:55:21 [INFO] 2025-05-13 12:55:21 - Email is unique
+2025/05/13 12:55:21 [INFO] 2025-05-13 12:55:21 - Validating registration input
+2025/05/13 12:55:21 [INFO] 2025-05-13 12:55:21 - Registration input valid
+2025/05/13 12:55:21 [INFO] 2025-05-13 12:55:21 - User input validated
+2025/05/13 12:55:21 [INFO] 2025-05-13 12:55:21 - Hashing password
+2025/05/13 12:55:21 [INFO] 2025-05-13 12:55:21 - Password hashed successfully
+2025/05/13 12:55:21 [INFO] 2025-05-13 12:55:21 - Password hashed
+2025/05/13 12:55:21 [INFO] 2025-05-13 12:55:21 - Starting avatar upload
+2025/05/13 12:55:21 [INFO] 2025-05-13 12:55:21 - No image file provided
+2025/05/13 12:55:21 [INFO] 2025-05-13 12:55:21 - Saving user to database with ID: 1fffeaea-ce8f-4ae7-aaa7-43bdd6ce570f
+2025/05/13 12:55:21 [INFO] 2025-05-13 12:55:21 - User saved successfully
+2025/05/13 12:55:21 [INFO] 2025-05-13 12:55:21 - User registered with ID: 1fffeaea-ce8f-4ae7-aaa7-43bdd6ce570f
+2025/05/13 12:55:21 [INFO] 2025-05-13 12:55:21 - Save Token into Sessions
+2025/05/13 12:55:21 [INFO] 2025-05-13 12:55:21 - Login successful for user: 1fffeaea-ce8f-4ae7-aaa7-43bdd6ce570f
+2025/05/13 12:55:21 [INFO] 2025-05-13 12:55:21 - Success Register
