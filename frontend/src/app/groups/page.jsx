@@ -31,13 +31,6 @@ export default function CreateGroupCard() {
         children: <p>Join our next meetup on Friday!</p> //posts will be here
       };
 
-      <GroupCard
-      groupName={groupCardData.groupName}
-      description={groupCardData.description}
-      members={groupCardData.members}
-    >
-      {groupCardData.children}
-    </GroupCard>  
 
     /* Create Group Logic Begin From Here 
     - Still Need to check if the user is Authenticated 
@@ -136,6 +129,15 @@ export default function CreateGroupCard() {
     }
     return (
         <div className={styles.createGroupContainer}>
+
+<GroupCard
+      groupName={groupCardData.groupName}
+      description={groupCardData.description}
+      members={groupCardData.members}
+    >
+      {groupCardData.children}
+    </GroupCard>  
+
         <h3 className={styles.heading3}>Create Group</h3>
         <form onSubmit={handleSubmit} className={styles.createGroupForm}>
     
