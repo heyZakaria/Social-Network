@@ -2,20 +2,21 @@ package post
 
 import (
 	"net/http"
+	"socialNetwork/auth"
 	db "socialNetwork/db/sqlite"
-	Structs "socialNetwork/struct"
 	user "socialNetwork/user"
 	"socialNetwork/utils"
 	"strconv"
 )
 
-// Example URL : http://localhost:8080/api/posts?limit=10&offset=0
+// Example URL : http://localhost:8080/rest/posts?limit=10&offset=0
 // GetPostsScroll is a handler function that handles the GET request to fetch posts with pagination
 
 func PostsPagination(w http.ResponseWriter, r *http.Request) {
 	utils.Log("", "Get request made to GetPostsScroll Handler")
-	
-	UserID, err := user.GetUserIDByToken(r)
+	token := auth.GetToken(w, r)
+
+	UserID, err := user.GetUserIDByToken(token)
 	if err != nil {
 		utils.Log("ERROR", "Invalid Token in GetPostsScroll Handler: "+err.Error())
 		utils.SendJSON(w, http.StatusUnauthorized, utils.JSONResponse{
@@ -59,7 +60,7 @@ func PostsPagination(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	// we will get the posts from the database
-	Posts := []Structs.Post{}
+	Posts := []Post{}
 	// Prepare the statement
 	stmnt, err := db.DB.Prepare("SELECT * FROM posts ORDER BY created_at DESC LIMIT ? OFFSET ?")
 	if err != nil {
@@ -85,7 +86,7 @@ func PostsPagination(w http.ResponseWriter, r *http.Request) {
 	}
 	defer rows.Close()
 	for rows.Next() {
-		Post := Structs.Post{}
+		Post := Post{}
 		err = rows.Scan(&Post.PostId, &Post.UserID, &Post.Post_Content, &Post.Post_image, &Post.Privacy, &Post.CreatedAt)
 		if err != nil {
 			utils.Log("ERROR", "Error scanning Post in GetPostsScroll Handler: "+err.Error())

@@ -2,14 +2,14 @@ package post
 
 import (
 	"net/http"
+	"socialNetwork/auth"
 	db "socialNetwork/db/sqlite"
-	Structs "socialNetwork/struct"
 	"socialNetwork/user"
 	"socialNetwork/utils"
 	"strconv"
 )
 
-// Example URL : http://localhost:8080/api/post?id=1
+// Example URL : http://localhost:8080/rest/post?id=1
 // GetPost is a handler function that handles the GET request to fetch a single post
 // with the given post ID
 // It checks the privacy settings of the post and ensures that the user has access to it
@@ -18,7 +18,9 @@ import (
 
 func GetPost(w http.ResponseWriter, r *http.Request) {
 	utils.Log("", "Get request made to GetPost Handler")
-	UserId, err := user.GetUserIDByToken(r)
+	token := auth.GetToken(w, r)
+
+	UserId, err := user.GetUserIDByToken(token)
 	if err != nil {
 		utils.Log("ERROR", "Invalid Token in GetPost Handler: "+err.Error())
 		utils.SendJSON(w, http.StatusUnauthorized, utils.JSONResponse{
@@ -41,7 +43,7 @@ func GetPost(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	Post := Structs.Post{}
+	Post := Post{}
 	// Prepare the statement
 	stmnt, err := db.DB.Prepare("SELECT * FROM posts WHERE id = ?")
 	if err != nil {

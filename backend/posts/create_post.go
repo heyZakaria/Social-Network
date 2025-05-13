@@ -2,11 +2,12 @@ package post
 
 import (
 	"net/http"
-	Structs "socialNetwork/struct"
+	"socialNetwork/auth"
 	user "socialNetwork/user"
 	"socialNetwork/utils"
 )
-// Example URL: http://localhost:8080/api/post
+
+// Example URL: http://localhost:8080/rest/post
 // CreatePost is a handler function that handles the POST request to create a new post.
 // It also checks if the user is logged in by validating the token.
 // Below is the list of inputs expected in the request:
@@ -14,12 +15,14 @@ import (
 // "post_privacy"      (required) > Has three options to choose from: "public", "custom_users", or "followers".
 // "post_image"        (optional) > File containing the image that the user selected.
 // "allowed_users"     (optional, depends on post_privacy) > Only required if "post_privacy = custom_users".
-//                     This should be a list (array) of user IDs allowed to see the post.
+//
+//	This should be a list (array) of user IDs allowed to see the post.
+//
 // The function returns the post details in JSON format.
 func CreatePost(w http.ResponseWriter, r *http.Request) {
-	PostData := Structs.Post{}
-
-	UserId, err := user.GetUserIDByToken(r)
+	PostData := Post{}
+	token := auth.GetToken(w, r)
+	UserId, err := user.GetUserIDByToken(token)
 	if err != nil {
 		utils.Log("Error", err.Error())
 		utils.SendJSON(w, http.StatusUnauthorized, utils.JSONResponse{

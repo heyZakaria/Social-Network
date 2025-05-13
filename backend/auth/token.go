@@ -6,6 +6,9 @@ import (
 	"encoding/base64"
 	"encoding/json"
 	"errors"
+	"net/http"
+	db "socialNetwork/db/sqlite"
+	"socialNetwork/utils"
 	"strings"
 	"time"
 )
@@ -87,4 +90,49 @@ func VerifyJWT(token string) (JWTPayload, error) {
 	}
 
 	return payload, nil
+}
+
+func GetToken(w http.ResponseWriter, r *http.Request) (token string) {
+	token = r.Header.Get("Authorization")
+	if token == "" {
+		utils.Log("ERROR", "Authorization header is missing in CheckUserExeting Handler")
+		utils.SendJSON(w, http.StatusUnauthorized, utils.JSONResponse{
+			Success: false,
+			Message: "Authorization header is missing",
+			Error:   "You are not Authorized.",
+		})
+		return
+	}
+
+	// Extract the token value from "Bearer <token>"
+	if len(token) > 7 && token[:7] == "Bearer " {
+		token = token[7:]
+	} else {
+		utils.Log("ERROR", "Invalid Authorization header format in CheckUserExeting Handler")
+		utils.SendJSON(w, http.StatusUnauthorized, utils.JSONResponse{
+			Success: false,
+			Message: "Invalid Authorization header format",
+			Error:   "You are not Authorized.",
+		})
+		return
+	}
+	return
+}
+
+func SaveToken(userID string, token string) error {
+	// Check for old sessions and delete them
+	deleteQuery := "DELETE FROM sessions WHERE user_id = ?"
+	_, err := db.DB.Exec(deleteQuery, userID)
+	if err != nil {
+		return err // Handle the error appropriately
+	}
+
+	// Insert the new session
+	insertQuery := `
+		INSERT INTO sessions (user_id, token, expiration_time)
+		VALUES (?, ?, ?)
+	`
+	expirationTime := time.Now().Add(24 * time.Hour)
+	_, err = db.DB.Exec(insertQuery, userID, token, expirationTime)
+	return err
 }

@@ -7,6 +7,7 @@ import (
 	"socialNetwork/auth"
 	db "socialNetwork/db/sqlite"
 	"socialNetwork/middleware"
+	post "socialNetwork/posts"
 	"socialNetwork/utils"
 
 	_ "github.com/mattn/go-sqlite3"
@@ -27,6 +28,10 @@ func main() {
 	_, err = db.InitDB("../db/sqlite/database.db")
 
 	router.Handle("/api/", http.StripPrefix("/api", auth.AuthMux()))
+	router.Handle("/rest/", http.StripPrefix("/rest", post.PostMux()))
+
+	router.HandleFunc("GET /api/verify", middleware.CheckUserExeting)
+
 	// Handler for /api/post
 
 	// Testing serving images
