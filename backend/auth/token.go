@@ -95,7 +95,7 @@ func VerifyJWT(token string) (JWTPayload, error) {
 func GetToken(w http.ResponseWriter, r *http.Request) (token string) {
 	token = r.Header.Get("Authorization")
 	if token == "" {
-		utils.Log("ERROR", "Authorization header is missing in CheckUserExeting Handler")
+		utils.Log("ERROR", "Authorization header is missing in GetToken Handler")
 		utils.SendJSON(w, http.StatusUnauthorized, utils.JSONResponse{
 			Success: false,
 			Message: "Authorization header is missing",
