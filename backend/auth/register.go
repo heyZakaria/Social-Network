@@ -3,7 +3,7 @@ package auth
 import (
 	"fmt"
 	"net/http"
-	"socialNetwork/db/sqlite"
+	db "socialNetwork/db/sqlite"
 	"socialNetwork/utils"
 
 	_ "github.com/mattn/go-sqlite3"

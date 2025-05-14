@@ -1,0 +1,112 @@
+:root {
+  --primary: #7c3aed;
+  --secondary: #fff;
+  --textColor: #555;
+  --error: #ff4b4b;
+}
+
+
+.labelContainer {
+  display: flex;
+  flex-direction: column;
+  
+}
+/* ShowFormButton.css or ShowFormButton.module.css */
+
+/* Container for the entire form */
+.CreateEvent {
+  width: 100%;
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Button to toggle form visibility */
+.CreateEvent button {
+  padding: 12px 20px;
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  transition: background-color 0.3s;
+}
+
+.CreateEvent button:hover {
+  background-color: #5a2d8e;
+}
+
+/* Form itself */
+.CreateEvent form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Form label styling */
+.CreateEvent .label {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--textColor);
+  
+}
+
+/* Text input fields */
+.CreateEvent input[type="text"]{
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 16px;
+  transition: border-color 0.3s;
+}
+
+.CreateEvent input[type="text"]:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+/* Date input fields */
+
+.CreateEvent input[type="date"]{
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 16px;
+  color: var(--textColor);
+  transition: border-color 0.3s;
+}
+
+/* Submit button */
+.CreateEvent .submitButton {
+  padding: 12px;
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.CreateEvent .submitButton:hover {
+  background-color: #5a2d8e;
+}
+
+.CreateEvent .submitButton:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+/* Error messages */
+.error {
+  color: var(--error);
+  font-size: 13px;
+  margin-top: 5px;
+}

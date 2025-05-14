@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"net/http"
 	db "socialNetwork/db/sqlite"
+	"socialNetwork/middleware"
 	"socialNetwork/utils"
 	"time"
 )
@@ -12,10 +13,29 @@ func CreateEvent(w http.ResponseWriter, r *http.Request) {
 	// Check user Auth and get id
 	// Check if the user is in the group
 	// Check form input
+	token := middleware.GetToken(w, r)
+	if token == "" {
+		utils.Log("Error", "Token is empty")
+		utils.SendJSON(w, http.StatusUnauthorized, utils.JSONResponse{
+			Success: false,
+			Message: "Unauthorized",
+			Error:   "You are not Authorized.",
+		})
+		return
+	}
+	UserId, err := middleware.GetUserIDByToken(token)
+	if err != nil || UserId == "" {
+		utils.Log("Error", err.Error())
+		utils.SendJSON(w, http.StatusUnauthorized, utils.JSONResponse{
+			Success: false,
+			Message: err.Error(),
+		})
+		return
+	}
 
 	var event Event
 
-	err := json.NewDecoder(r.Body).Decode(&event)
+	err = json.NewDecoder(r.Body).Decode(&event)
 	if err != nil {
 		utils.Log("ERROR", "Failed to decode request body: "+err.Error())
 	}
@@ -37,7 +57,7 @@ func CreateEvent(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	utils.Log("INFO", "Event Request body parsed successfully")
+	utils.Log("INFO", "Event Created and Inserted in DB successfully")
 	utils.SendJSON(w, http.StatusOK, utils.JSONResponse{
 		Success: true,
 		Message: "Event created successfully",

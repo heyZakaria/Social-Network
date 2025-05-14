@@ -30,3 +30,86 @@
 2025/05/14 15:20:39 [INFO] 2025-05-14 15:20:39 - Migrations applied successfully!
 2025/05/14 15:30:02 [INFO] 2025-05-14 15:30:02 - Starting HTTP server at http://localhost:8080 ...
 2025/05/14 15:30:02 [INFO] 2025-05-14 15:30:02 - Migrations applied successfully!
+2025/05/14 15:41:59 [INFO] 2025-05-14 15:41:59 - Starting HTTP server at http://localhost:8080 ...
+2025/05/14 15:41:59 [INFO] 2025-05-14 15:41:59 - Migrations applied successfully!
+2025/05/14 15:42:15 [ERROR] 2025-05-14 15:42:15 - Authorization header is missing in GetToken Handler
+2025/05/14 15:42:15 [ERROR] 2025-05-14 15:42:15 - Token is empty
+2025/05/14 15:42:15 [LOG] 2025-05-14 15:42:15 - Token is empty
+2025/05/14 15:43:52 [INFO] 2025-05-14 15:43:52 - Starting HTTP server at http://localhost:8080 ...
+2025/05/14 15:43:52 [INFO] 2025-05-14 15:43:52 - Migrations applied successfully!
+2025/05/14 15:44:04 [ERROR] 2025-05-14 15:44:04 - Authorization header is missing in GetToken Handler
+2025/05/14 15:44:04 [ERROR] 2025-05-14 15:44:04 - Token is empty
+2025/05/14 15:44:04 [LOG] 2025-05-14 15:44:04 - Token is empty
+2025/05/14 15:46:33 [ERROR] 2025-05-14 15:46:33 - Authorization header is missing in GetToken Handler
+2025/05/14 15:46:33 [ERROR] 2025-05-14 15:46:33 - Token is empty
+2025/05/14 15:46:33 [LOG] 2025-05-14 15:46:33 - Token is empty
+2025/05/14 15:46:41 [INFO] 2025-05-14 15:46:41 - Starting HTTP server at http://localhost:8080 ...
+2025/05/14 15:46:41 [INFO] 2025-05-14 15:46:41 - Migrations applied successfully!
+2025/05/14 15:46:55 [ERROR] 2025-05-14 15:46:55 - Authorization header is missing in GetToken Handler
+2025/05/14 15:46:55 [LOG] 2025-05-14 15:46:55 - Token is empty
+2025/05/14 15:48:52 [INFO] 2025-05-14 15:48:52 - Parsed multipart form
+2025/05/14 15:48:52 [INFO] 2025-05-14 15:48:52 - Form fields parsed successfully
+2025/05/14 15:48:52 [INFO] 2025-05-14 15:48:52 - Form fields parsed
+2025/05/14 15:48:52 [INFO] 2025-05-14 15:48:52 - Checking if email exists: zabdelal2@m.mm
+2025/05/14 15:48:52 [INFO] 2025-05-14 15:48:52 - Email is unique
+2025/05/14 15:48:52 [INFO] 2025-05-14 15:48:52 - Starting avatar upload
+2025/05/14 15:48:52 [INFO] 2025-05-14 15:48:52 - No avatar file uploaded
+2025/05/14 15:48:52 [INFO] 2025-05-14 15:48:52 - Avatar uploaded: 
+2025/05/14 15:48:52 [INFO] 2025-05-14 15:48:52 - Validating registration input
+2025/05/14 15:48:52 [INFO] 2025-05-14 15:48:52 - Registration input valid
+2025/05/14 15:48:52 [INFO] 2025-05-14 15:48:52 - User input validated
+2025/05/14 15:48:52 [INFO] 2025-05-14 15:48:52 - Hashing password
+2025/05/14 15:48:53 [INFO] 2025-05-14 15:48:53 - Password hashed successfully
+2025/05/14 15:48:53 [INFO] 2025-05-14 15:48:53 - Password hashed
+2025/05/14 15:48:53 [INFO] 2025-05-14 15:48:53 - Saving user to database with ID: e145455f-19ff-43c7-bcb7-d887be94e934
+2025/05/14 15:48:53 [INFO] 2025-05-14 15:48:53 - User saved successfully
+2025/05/14 15:48:53 [INFO] 2025-05-14 15:48:53 - User registered with ID: e145455f-19ff-43c7-bcb7-d887be94e934
+2025/05/14 15:48:53 [INFO] 2025-05-14 15:48:53 - Login successful for user: e145455f-19ff-43c7-bcb7-d887be94e934
+2025/05/14 15:48:53 [INFO] 2025-05-14 15:48:53 - Success login
+2025/05/14 15:49:18 [ERROR] 2025-05-14 15:49:18 - Authorization header is missing in GetToken Handler
+2025/05/14 15:49:18 [LOG] 2025-05-14 15:49:18 - Token is empty
+2025/05/14 15:49:57 [INFO] 2025-05-14 15:49:57 - Starting HTTP server at http://localhost:8080 ...
+2025/05/14 15:49:57 [INFO] 2025-05-14 15:49:57 - Migrations applied successfully!
+2025/05/14 15:50:14 [ERROR] 2025-05-14 15:50:14 - Authorization header is missing in GetToken Handler
+2025/05/14 15:50:14 [LOG] 2025-05-14 15:50:14 - Token is empty
+2025/05/14 15:51:29 [INFO] 2025-05-14 15:51:29 - Starting HTTP server at http://localhost:8080 ...
+2025/05/14 15:51:29 [INFO] 2025-05-14 15:51:29 - Migrations applied successfully!
+2025/05/14 15:53:20 [INFO] 2025-05-14 15:53:20 - Parsed multipart form
+2025/05/14 15:53:20 [INFO] 2025-05-14 15:53:20 - Form fields parsed successfully
+2025/05/14 15:53:20 [INFO] 2025-05-14 15:53:20 - Form fields parsed
+2025/05/14 15:53:20 [INFO] 2025-05-14 15:53:20 - Checking if email exists: zabdelal2@m.mm
+2025/05/14 15:53:20 [WARNING] 2025-05-14 15:53:20 - Tried to register with existing email: zabdelal2@m.mm
+2025/05/14 15:53:33 [INFO] 2025-05-14 15:53:33 - Parsed multipart form
+2025/05/14 15:53:33 [INFO] 2025-05-14 15:53:33 - Form fields parsed successfully
+2025/05/14 15:53:33 [INFO] 2025-05-14 15:53:33 - Form fields parsed
+2025/05/14 15:53:33 [INFO] 2025-05-14 15:53:33 - Checking if email exists: zabdelal1@m.mm
+2025/05/14 15:53:33 [INFO] 2025-05-14 15:53:33 - Email is unique
+2025/05/14 15:53:33 [INFO] 2025-05-14 15:53:33 - Starting avatar upload
+2025/05/14 15:53:33 [INFO] 2025-05-14 15:53:33 - No avatar file uploaded
+2025/05/14 15:53:33 [INFO] 2025-05-14 15:53:33 - Avatar uploaded: 
+2025/05/14 15:53:33 [INFO] 2025-05-14 15:53:33 - Validating registration input
+2025/05/14 15:53:33 [WARNING] 2025-05-14 15:53:33 - Nickname too long
+2025/05/14 15:53:33 [WARNING] 2025-05-14 15:53:33 - Validation failed for user input
+2025/05/14 15:54:13 [INFO] 2025-05-14 15:54:13 - Parsed multipart form
+2025/05/14 15:54:13 [INFO] 2025-05-14 15:54:13 - Form fields parsed successfully
+2025/05/14 15:54:13 [INFO] 2025-05-14 15:54:13 - Form fields parsed
+2025/05/14 15:54:13 [INFO] 2025-05-14 15:54:13 - Checking if email exists: zabdelal1@m.mm
+2025/05/14 15:54:13 [INFO] 2025-05-14 15:54:13 - Email is unique
+2025/05/14 15:54:13 [INFO] 2025-05-14 15:54:13 - Starting avatar upload
+2025/05/14 15:54:13 [INFO] 2025-05-14 15:54:13 - No avatar file uploaded
+2025/05/14 15:54:13 [INFO] 2025-05-14 15:54:13 - Avatar uploaded: 
+2025/05/14 15:54:13 [INFO] 2025-05-14 15:54:13 - Validating registration input
+2025/05/14 15:54:13 [INFO] 2025-05-14 15:54:13 - Registration input valid
+2025/05/14 15:54:13 [INFO] 2025-05-14 15:54:13 - User input validated
+2025/05/14 15:54:13 [INFO] 2025-05-14 15:54:13 - Hashing password
+2025/05/14 15:54:13 [INFO] 2025-05-14 15:54:13 - Password hashed successfully
+2025/05/14 15:54:13 [INFO] 2025-05-14 15:54:13 - Password hashed
+2025/05/14 15:54:13 [INFO] 2025-05-14 15:54:13 - Saving user to database with ID: 2142c43a-091b-4a78-ad05-d1b60099011f
+2025/05/14 15:54:13 [INFO] 2025-05-14 15:54:13 - User saved successfully
+2025/05/14 15:54:13 [INFO] 2025-05-14 15:54:13 - User registered with ID: 2142c43a-091b-4a78-ad05-d1b60099011f
+2025/05/14 15:54:13 [INFO] 2025-05-14 15:54:13 - Login successful for user: 2142c43a-091b-4a78-ad05-d1b60099011f
+2025/05/14 15:54:13 [INFO] 2025-05-14 15:54:13 - Success login
+2025/05/14 15:58:16 [ERROR] 2025-05-14 15:58:16 - Authorization header is missing in GetToken Handler
+2025/05/14 15:58:16 [LOG] 2025-05-14 15:58:16 - Token is empty
+2025/05/14 16:27:41 [ERROR] 2025-05-14 16:27:41 - Authorization header is missing in GetToken Handler
+2025/05/14 16:27:41 [LOG] 2025-05-14 16:27:41 - Token is empty
