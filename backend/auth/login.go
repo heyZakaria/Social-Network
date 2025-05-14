@@ -4,9 +4,8 @@ import (
 	"database/sql"
 	"encoding/json"
 	"net/http"
-	db "socialNetwork/db/sqlite"
+	"socialNetwork/db/sqlite"
 	"socialNetwork/utils"
-	"strings"
 
 	"golang.org/x/crypto/bcrypt"
 )
@@ -17,7 +16,7 @@ func HandleLogin(w http.ResponseWriter, r *http.Request) {
 	var req LoginRequest
 	if err := json.NewDecoder(r.Body).Decode(&req); err != nil {
 		utils.Log("ERROR", "Failed to parse login form: "+err.Error())
-		utils.SendJSON(w, http.StatusBadRequest, utils.JSONResponse{
+		SendJSON(w, http.StatusBadRequest, JSONResponse{
 			Success: false,
 			Error:   "Invalid request format",
 		})
@@ -27,7 +26,7 @@ func HandleLogin(w http.ResponseWriter, r *http.Request) {
 	utils.Log("INFO", "Request body parsed successfully")
 	if req.Email == "" || req.Password == "" {
 		utils.Log("WARNING", "Login attempt with empty fields")
-		utils.SendJSON(w, http.StatusBadRequest, utils.JSONResponse{
+		SendJSON(w, http.StatusBadRequest, JSONResponse{
 			Success: false,
 			Error:   "Email and password are required",
 		})
@@ -36,18 +35,18 @@ func HandleLogin(w http.ResponseWriter, r *http.Request) {
 	utils.Log("INFO", "Email and password fields validated")
 
 	var userID, hashedPassword string
-	err := db.DB.QueryRow("SELECT id, password_hash FROM users WHERE email = ?", strings.ToLower(req.Email)).Scan(&userID, &hashedPassword)
+	err := db.DB.QueryRow("SELECT id, password_hash FROM users WHERE email = ?", req.Email).Scan(&userID, &hashedPassword)
 	if err != nil {
 		if err == sql.ErrNoRows {
 			utils.Log("WARNING", "Login attempt with unknown email: "+req.Email)
-			utils.SendJSON(w, http.StatusUnauthorized, utils.JSONResponse{
+			SendJSON(w, http.StatusUnauthorized, JSONResponse{
 				Success: false,
 				Error:   "Account not found",
 			})
 			return
 		}
 		utils.Log("ERROR", "DB error on login: "+err.Error())
-		utils.SendJSON(w, http.StatusInternalServerError, utils.JSONResponse{
+		SendJSON(w, http.StatusInternalServerError, JSONResponse{
 			Success: false,
 			Error:   "Internal server error",
 		})
@@ -57,7 +56,7 @@ func HandleLogin(w http.ResponseWriter, r *http.Request) {
 
 	if bcrypt.CompareHashAndPassword([]byte(hashedPassword), []byte(req.Password)) != nil {
 		utils.Log("WARNING", "Invalid password for user: "+req.Email)
-		utils.SendJSON(w, http.StatusUnauthorized, utils.JSONResponse{
+		SendJSON(w, http.StatusUnauthorized, JSONResponse{
 			Success: false,
 			Error:   "Invalid credentials",
 		})

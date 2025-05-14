@@ -2,7 +2,6 @@ package auth
 
 import (
 	"net/http"
-	user "socialNetwork/user"
 	"socialNetwork/utils"
 	"time"
 )
@@ -13,7 +12,7 @@ func SendSuccessWithToken(w http.ResponseWriter, userID string) {
 	token, err := CreateJWT(userID, "user")
 	if err != nil {
 		utils.Log("ERROR", "Failed to create JWT: "+err.Error())
-		utils.SendJSON(w, http.StatusBadRequest, utils.JSONResponse{
+		SendJSON(w, http.StatusInternalServerError, JSONResponse{
 			Success: false,
 			Error:   "Internal server error",
 		})
@@ -44,10 +43,7 @@ func SendSuccessWithToken(w http.ResponseWriter, userID string) {
 		Expires:  time.Now().Add(time.Hour * 24),
 	})
 
-	utils.Log("INFO", "Save Token into Sessions")
-	user.SaveToken(userID, token)
-
-	utils.SendJSON(w, http.StatusOK, utils.JSONResponse{
+	SendJSON(w, http.StatusOK, JSONResponse{
 		Success: true,
 		Message: "Login successful",
 		Token:   token,

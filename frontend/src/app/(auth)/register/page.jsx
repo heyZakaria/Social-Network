@@ -9,11 +9,10 @@ import { useState } from "react";
 
 // we use this import for not reload page
 import Link from "next/link";
-import { useRouter } from 'next/navigation';
+
 import styles from "./register.module.css";
 // so we need to make this page exportable to use by next
 export default function RegisterPage() {
-  const router = useRouter();
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -57,27 +56,18 @@ export default function RegisterPage() {
     if (!/[0-9]/.test(formData.password)) errors.password = "Needs number.";
 
     //vald birthday
-     //vald birthday
-     if (!formData.birthday) {
+    if (!formData.birthday) {
       errors.birthday = "Birthday required.";
     } else {
-      const [year, month, day] = formData.birthday.split("-").map(Number);
-      const birth = new Date(year, month - 1, day);
+      const birth = new Date(formData.birthday);
       const today = new Date();
-
-      let age = today.getFullYear() - birth.getFullYear();
+      const age = today.getFullYear() - birth.getFullYear();
       const m = today.getMonth() - birth.getMonth();
       const d = today.getDate() - birth.getDate();
-
-      if (m < 0 || (m === 0 && d < 0)) {
-        age--;
-      }
-
-      if (age < 15 || age > 120) {
+      const validAge = m > 0 || (m === 0 && d >= 0);
+      if (age < 15 || age > 120 || !validAge)
         errors.birthday = "Age must be between 15 and 120.";
-      }
     }
-
     //valid nickname
     if (formData.nickname && !/^[a-zA-Z0-9]+$/.test(formData.nickname))
       errors.nickname = "Only letters, numbers, and underscore.";
@@ -139,7 +129,7 @@ export default function RegisterPage() {
     if (formData.avatar) submitData.append("avatar", formData.avatar);
 
     try {
-      const res = await fetch("api/register", {
+      const res = await fetch("http://localhost:8080/api/register", {
         method: "POST",
         body: submitData,
       });
@@ -163,7 +153,6 @@ export default function RegisterPage() {
         if (result.success) {
           console.log(result.success);
           setServerError("");
-          router.push('/home');
           alert("Registration successful!");
         } else {
           setServerError(result.message || "Registration failed.");
@@ -174,10 +163,6 @@ export default function RegisterPage() {
       window.location.href = "/home";
     } catch (error) {
       setServerError("Failed to connect to server.");
-      return NextResponse.json({ 
-        success: false, 
-        message: 'Server error' 
-      }, { status: 500 })
     }
   };
 
