@@ -23,6 +23,7 @@ func InitDB(dataSourceName string) (*sql.DB, error) {
 	if err != nil {
 		return nil, err
 	}
+
 	err = DB.Ping()
 	if err != nil {
 		return nil, err
@@ -44,10 +45,11 @@ func initMig() error {
 		log.Fatal(err)
 	}
 
-	migrationsPath := filepath.Join(dir, "../backend/db/migration")
-	sourceURL := "file://" + migrationsPath
+	migrationsPath := filepath.Join(dir, "../db/migration")
+	DatabasePath := filepath.Join(dir, "../db/sqlite/database.db")
 
-	dbURL := "sqlite3://db/sqlite/database.db"
+	sourceURL := "file://" + migrationsPath
+	dbURL := "sqlite3://" + DatabasePath
 
 	m, err := migrate.New(sourceURL, dbURL)
 	if err != nil {
