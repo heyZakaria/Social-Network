@@ -1,7 +1,8 @@
 CREATE TABLE IF NOT EXISTS events (
     id INTEGER PRIMARY KEY,
-    title TEXT NOT NULL CHECK(LENGTH(title) > 10 AND LENGTH(title) <120),
-    content TEXT NOT NULL CHECK(LENGTH(content) > 150 AND LENGTH(content) <300),
+    title TEXT NOT NULL CHECK(LENGTH(title) > 10 AND LENGTH(title) <100),
+    content TEXT NOT NULL CHECK(LENGTH(content) > 50 AND LENGTH(content) <250),
+    day_of_event DATETIME NOT NULL,
     group_id INTEGER NOT NULL REFERENCES groups(id),
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP
-)
+);

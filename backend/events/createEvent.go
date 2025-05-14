@@ -1,9 +1,75 @@
 package Events
 
 import (
+	"encoding/json"
 	"net/http"
+	db "socialNetwork/db/sqlite"
+	"socialNetwork/utils"
+	"time"
 )
 
 func CreateEvent(w http.ResponseWriter, r *http.Request) {
-	
+	// Check user Auth and get id
+	// Check if the user is in the group
+	// Check form input
+
+	var event Event
+
+	err := json.NewDecoder(r.Body).Decode(&event)
+	if err != nil {
+		utils.Log("ERROR", "Failed to decode request body: "+err.Error())
+	}
+	if !ValideEventForm(event) {
+		utils.SendJSON(w, http.StatusBadRequest, utils.JSONResponse{
+			Success: false,
+			Error:   "Invalid request format",
+		})
+		return
+	}
+
+	_, err = db.DB.Exec("INSERT INTO events (title, description, day_of_event, group_id) VALUES (?, ?, ?, ?)", event.Title, event.Description, event.DayOfEvent, event.GroupID)
+	if err != nil {
+		utils.Log("ERROR", "Failed to create event: "+err.Error())
+		utils.SendJSON(w, http.StatusInternalServerError, utils.JSONResponse{
+			Success: false,
+			Error:   "Failed to create event",
+		})
+		return
+	}
+
+	utils.Log("INFO", "Event Request body parsed successfully")
+	utils.SendJSON(w, http.StatusOK, utils.JSONResponse{
+		Success: true,
+		Message: "Event created successfully",
+	})
+
+}
+
+func ValideEventForm(event Event) bool {
+
+	if len(event.Title) < 10 || len(event.Title) > 100 {
+		utils.Log("WARNING", "Title is required.")
+		return false
+	}
+
+	if len(event.Description) < 50 || len(event.Description) > 250 {
+		utils.Log("WARNING", "Description is required.")
+
+		return false
+	}
+
+	yourDate, err := time.Parse("2006-01-02", event.DayOfEvent)
+	if err != nil {
+		utils.Log("WARNING", "Invalide date format.")
+		return false
+	}
+
+	currentDate := time.Now()
+	if yourDate.Before(currentDate) {
+		utils.Log("WARNING", "Date must be in the future.")
+		return false
+	}
+
+	return true
+
 }
