@@ -222,7 +222,7 @@
   background-color: white;
   border-radius: 10px;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-  padding: 15px;
+  padding: 25px;
   margin-bottom: 20px;
 }
 
@@ -241,17 +241,19 @@
 }
 
 .createPostInput {
-  flex: 1;
-  padding: 10px 15px;
+  flex: 0;
+  padding: 13px 17px;
   border: none;
-  background-color: #f0f2f5;
+  background-color: #898c9142;
   border-radius: 20px;
   font-size: 14px;
+  display: flex;
+  /* width: 200%; */
 }
 
-.createPostInput:focus {
+/* .createPostInput:focus {
   outline: none;
-}
+} */
 
 .createPostActions {
   display: flex;
@@ -551,4 +553,247 @@
   .rightSidebar {
     width: 100%;
   }
+}
+
+
+/* This would go in your CSS module file */
+.popupOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+.popupContent {
+  background: #fff;
+  border-radius: 12px;
+  padding: 24px;
+  max-width: 600px;
+  width: 90%;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+  position: relative;
+  /* display: flex; */
+  flex-direction: column;
+}
+
+.closeButton {
+  position: absolute;
+  top: 2px;
+  right: 12px;
+  font-size: 40px;
+  cursor: pointer;
+  color: #8a7da3;
+  transition: color 0.3s ease;
+}
+
+.closeButton:hover {
+  color: #000000;
+}
+
+.popupTextarea {
+  width: 100%;
+  height: 250px;
+  margin: 15px 0;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  resize: none;
+  /* background-color: #971d1d; */
+}
+
+.postButton {
+  background-color: #7c3aed;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 15px;
+  transition: background-color 0.4s ease;
+}
+
+.postButton:hover {
+  color: #d8c8f5;
+  background-color: #1c1f24;
+}
+
+
+
+
+.privacyContainer {
+  position: relative;
+  display: inline-block;
+}
+
+.privacyButton {
+  background-color: #333;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.optionsMenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #222;
+  border-radius: 4px;
+  overflow: hidden;
+  width: 200px;
+  z-index: 10;
+}
+
+.optionItem {
+  display: block;
+  width: 100%;
+  padding: 8px 12px;
+  text-align: left;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.optionItem:hover {
+  background-color: #444;
+}
+
+.followerPopup {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #222;
+  padding: 15px;
+  border-radius: 8px;
+  width: 300px;
+  z-index: 100;
+  color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.popupTitle {
+  text-align: center;
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+.followerList {
+  max-height: 200px;
+  overflow-y: auto;
+  margin-bottom: 15px;
+}
+
+.followerItem {
+  display: flex;
+  align-items: center;
+  padding: 5px 0;
+}
+
+.checkbox {
+  margin-right: 10px;
+}
+
+.followerLabel {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.popupButtons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.cancelButton, .saveButton {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.cancelButton {
+  background-color: #555;
+  color: white;
+}
+
+.saveButton {
+  background-color: #1877f2;
+  color: white;
+}
+
+.titleStyle {
+  color: #7c3aed;
+}
+
+.optionsDropdown {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.optionsWrapper {
+  background: #f3f1f1;
+  border-radius: 12px;
+  padding: 34px;
+  max-width: 430px;
+  height: 340px;
+  width: 90%;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+  /* position: relative; */
+  display: flex;
+  flex-direction: column;
+}
+.optionButton {
+  display: flex;
+  align-items: center;
+  background-color: #f8f9fa; 
+  border: 2px solid #ccc; 
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin: 8px 0; 
+  cursor: pointer; 
+  transition: background-color 0.3s ease, border-color 0.3s ease; 
+  max-width: 360px;
+}
+.optionButton:hover {
+  background-color: #e7e1f1; 
+  border-color: #7c3aed; 
+}
+.optionIcon {
+  font-size: 24px;
+  margin-right: 12px; 
+}
+.optionTitle {
+  font-size: 18px;
+  font-weight: bold; 
+  margin: 0; 
+}
+.textStyle {
+  font-size: 14px; 
+  color: #666; 
+  margin: 0;
 }
