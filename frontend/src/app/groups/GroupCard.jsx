@@ -1,14 +1,32 @@
 import { useState } from "react";
 import styles from './CreateGroup.module.css'; // Import CSS Module
+import InviteFriends from "@/components/Group/InviteFriends";
 
 function isMember(DummyTest) {
   // Need To Check if the user is a Member
   return DummyTest; 
 }
 
-function GroupNav() {
+function GroupNav({FriendsList}) {
   const [JoinRequest, setJoinRequest] = useState(false);
+  const [ShowInvite , setShowInvite] = useState(false);
+      const [invitedFriends, setInvitedFriends] = useState(
+          FriendsList.map(friend => ({ ...friend, invited: false }))
+      );
   
+      const handleInvite = (id) => {
+          setInvitedFriends(prevInvite =>
+              prevInvite.map(friend =>
+                  friend.Id === id ? { ...friend, invited: !friend.invited } : friend
+              )
+          );
+      };
+
+  
+  const HandleShowInvite = ()=>{
+    setShowInvite(prev=> !prev)
+  } 
+
   let Nav = (
     <div className={styles.GroupNav}>
       <button
@@ -31,7 +49,8 @@ function GroupNav() {
   if (isMember(true)) {
     Nav = (
       <div className={styles.GroupNav}>
-        <a href="#" onClick={()=>{console.log("DisplayListOfFriendsToInvite")}}>Invite Friends</a>
+        <a href="#" onClick={()=>{ HandleShowInvite()}}>Invite Friends</a>
+        {ShowInvite && <InviteFriends FriendsList={invitedFriends} onInvite = {handleInvite}></InviteFriends>}
         <a href="#" onClick={()=>{console.log("DisplayEVents")}}>Events</a>
       </div>
     );
@@ -68,11 +87,44 @@ function Description({ Text }) {
 export default function GroupCard({ groupName, description, children, members }) {
   return (
     <div className={styles.GroupCardContainer}>
-      <GroupNav></GroupNav>
+      <GroupNav FriendsList={FriendsList1}></GroupNav>
       <h1 className={styles.groupTitle}>{groupName}</h1>
       <Description Text={description} />
       <Members members={members} />
       {children}
+
     </div>
   );
 }
+const FriendsList1 = [
+    {
+        Id: 1,
+        name: "John Doe",
+        Pic: "https://randomuser.me/api/portraits/men/1.jpg",
+    },
+    {
+        Id: 2,
+        name: "Jane Smith",
+        Pic: "https://randomuser.me/api/portraits/women/2.jpg",
+    },
+    {
+        Id: 3,
+        name: "Alice Johnson",
+        Pic: "https://randomuser.me/api/portraits/women/3.jpg",
+    },
+    {
+        Id: 4,
+        name: "Michael Brown",
+        Pic: "https://randomuser.me/api/portraits/men/4.jpg",
+    },
+    {
+        Id: 5,
+        name: "Emily Davis",
+        Pic: "https://randomuser.me/api/portraits/women/5.jpg",
+    },
+    {
+        Id: 6,
+        name: "Chris Lee",
+        Pic: "https://randomuser.me/api/portraits/men/6.jpg",
+    }
+];
