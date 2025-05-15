@@ -29,7 +29,7 @@ func main() {
 	_, err = db.InitDB("../db/sqlite/database.db")
 
 	router.Handle("/api/", http.StripPrefix("/api", auth.AuthMux()))
-	router.Handle("/rest/", http.StripPrefix("/rest", post.PostMux()))
+	router.Handle("/posts/", http.StripPrefix("/posts", post.PostMux()))
 	router.Handle("/likes/", http.StripPrefix("/likes", likes.LikesMux()))
 
 	router.HandleFunc("GET /api/verify", middleware.CheckUserExeting)

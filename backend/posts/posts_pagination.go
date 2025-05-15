@@ -9,7 +9,7 @@ import (
 	"strconv"
 )
 
-// Example URL : http://localhost:8080/rest/posts?limit=10&offset=0
+// Example URL : http://localhost:8080/posts/getposts?limit=10&offset=0
 // GetPostsScroll is a handler function that handles the GET request to fetch posts with pagination
 
 func PostsPagination(w http.ResponseWriter, r *http.Request) {

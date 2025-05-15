@@ -8,7 +8,7 @@ import (
 	"socialNetwork/utils"
 	"strconv"
 )
-
+// http://localhost:8080/likes/react?id=1
 func LikePost(w http.ResponseWriter, r *http.Request) {
 	token := auth.GetToken(w, r)
 	UserId, err := user.GetUserIDByToken(token)

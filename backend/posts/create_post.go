@@ -7,7 +7,7 @@ import (
 	"socialNetwork/utils"
 )
 
-// Example URL: http://localhost:8080/rest/post
+// Example URL: http://localhost:8080/posts/createpost
 // CreatePost is a handler function that handles the POST request to create a new post.
 // It also checks if the user is logged in by validating the token.
 // Below is the list of inputs expected in the request:
