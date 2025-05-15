@@ -6,6 +6,7 @@ import (
 	"path/filepath"
 	"socialNetwork/auth"
 	db "socialNetwork/db/sqlite"
+	"socialNetwork/likes"
 	"socialNetwork/middleware"
 	post "socialNetwork/posts"
 	"socialNetwork/utils"
@@ -29,6 +30,7 @@ func main() {
 
 	router.Handle("/api/", http.StripPrefix("/api", auth.AuthMux()))
 	router.Handle("/rest/", http.StripPrefix("/rest", post.PostMux()))
+	router.Handle("/likes/", http.StripPrefix("/likes", likes.LikesMux()))
 
 	router.HandleFunc("GET /api/verify", middleware.CheckUserExeting)
 
