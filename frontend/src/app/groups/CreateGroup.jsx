@@ -98,10 +98,21 @@ export default function CreateGroupCard() {
                     onChange={HandleChange}
                     name="Description">
                 {FormErr.DescriptionErr && <ErrorComponent Err={FormErr.deci}></ErrorComponent>}
-
                 </InputComp>
+
+
+                                <InputComp
+                    
+                    onChange={HandleChange}
+                    name="Description">
+                {FormErr.DescriptionErr && <ErrorComponent Err={FormErr.deci}></ErrorComponent>}
+                </InputComp>
+                
+              
+                   
                 <button type="submit"
                     disabled={Display}></button>
+                
             </form>
             {SuccessMsg && <p>{SuccessMsg}</p>}
             {Err && <p>{Err}</p>}

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import styles from './CreateGroup.module.css'; // Import CSS Module
 import InviteFriends from "@/components/Group/InviteFriends";
+import GroupsList from "@/components/Group/suggestedGroups";
 
 function isMember(DummyTest) {
   // Need To Check if the user is a Member
@@ -92,6 +93,7 @@ export default function GroupCard({ groupName, description, children, members })
       <Description Text={description} />
       <Members members={members} />
       {children}
+      <GroupsList></GroupsList>
 
     </div>
   );
