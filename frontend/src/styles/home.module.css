@@ -1,5 +1,24 @@
 .homePage {
-  margin-top: 20px;
+  width: 100%;
+}
+
+.postForm {
+  position: sticky;
+  left: 0;
+  top: 0;
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+  padding: 25px;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.buttonContainer {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
 }
 
 /* Hero section for logged out users */
@@ -93,9 +112,7 @@
   flex-shrink: 0;
 }
 
-.contentArea {
-  flex: 1;
-}
+
 
 .rightSidebar {
   width: 300px;
@@ -219,16 +236,19 @@
 
 /* Create post */
 .createPost {
-  background-color: white;
+  /* position: sticky;
+  left: 10;
+  top: 20; */
+  /* background-color: rgb(255, 255, 255);
   border-radius: 10px;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: 3 4px 6px rgba(0, 0, 0, 0.089);
   padding: 25px;
-  margin-bottom: 20px;
+  margin-bottom: 20px; */
+  width: 100%;
 }
 
 .createPostHeader {
   display: flex;
-  align-items: center;
   margin-bottom: 15px;
 }
 
@@ -241,24 +261,29 @@
 }
 
 .createPostInput {
-  flex: 0;
-  padding: 13px 17px;
-  border: none;
-  background-color: #898c9142;
-  border-radius: 20px;
-  font-size: 14px;
+  margin-left: 1%;
+  height: 80px;
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid #ccc;
+  background-color: #ffffff;
+  border-radius: 10px;
+  font-size: 16px;
   display: flex;
-  /* width: 200%; */
+  cursor: pointer;
+  transition: border-color 0.5s ease;
 }
 
-/* .createPostInput:focus {
+
+
+.createPostInput:focus {
   outline: none;
-} */
+}
 
 .createPostActions {
   display: flex;
   justify-content: space-between;
-  border-top: 1px solid #e4e6eb;
+  /* border-top: 1px solid #040505; */
   padding-top: 10px;
 }
 
@@ -268,19 +293,24 @@
   gap: 8px;
   padding: 8px;
   border: none;
-  background: none;
   border-radius: 6px;
-  color: #65676b;
+  color: #000000;
   font-size: 14px;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: background-color 0.5s;
 }
 
 .createPostAction:hover {
-  background-color: #f0f2f5;
+  background-color: #60667031;
 }
 
 /* Feed toggle */
+.feed {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+}
+
 .feedToggle {
   display: flex;
   background-color: white;
@@ -370,7 +400,7 @@
   border-top: 1px solid #e4e6eb;
 }
 
-.postAction {
+/* .postAction {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -382,11 +412,11 @@
   font-size: 14px;
   cursor: pointer;
   transition: background-color 0.3s;
-}
-
+} */
+/* 
 .postAction:hover {
-  background-color: #f0f2f5;
-}
+  background-color: #f7f4f4;
+} */
 
 /* Sidebar cards */
 .sidebarCard {
@@ -530,7 +560,7 @@
 }
 
 /* Responsive */
-@media (max-width: 992px) {
+/* @media (max-width: 992px) {
   .hero {
     flex-direction: column;
     text-align: center;
@@ -553,7 +583,7 @@
   .rightSidebar {
     width: 100%;
   }
-}
+} */
 
 
 /* This would go in your CSS module file */
@@ -569,13 +599,14 @@
   align-items: center;
   z-index: 1000;
 }
+
 .popupContent {
   background: #fff;
   border-radius: 12px;
   padding: 24px;
   max-width: 600px;
   width: 90%;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
   position: relative;
   /* display: flex; */
   flex-direction: column;
@@ -595,6 +626,22 @@
   color: #000000;
 }
 
+.closeButtoOptions{
+  position: relative;
+  /* margin-bottom: 10%; */
+  margin-left: 91%;
+  margin-top: 0%;
+  /* margin-left: 12px; */
+  font-size: 40px;
+  cursor: pointer;
+  color: #8a7da3;
+  transition: color 0.3s ease;
+}
+
+.closeButtoOptions:hover {
+  color: #000000;
+}
+
 .popupTextarea {
   width: 100%;
   height: 250px;
@@ -610,12 +657,13 @@
   background-color: #7c3aed;
   color: white;
   border: none;
-  border-radius: 4px;
+  border-radius: 6px;
   padding: 8px 16px;
   font-weight: bold;
   cursor: pointer;
   font-size: 15px;
   transition: background-color 0.4s ease;
+  margin: 10px;
 }
 
 .postButton:hover {
@@ -632,15 +680,19 @@
 }
 
 .privacyButton {
-  background-color: #333;
-  color: white;
-  border: none;
-  padding: 5px 10px;
+  /* margin-top: 10px;
+  margin-left: 650px; */
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+  border: 2px solid #080808;
+ height: 33px;
+  padding: 7px 10px;
   border-radius: 4px;
   cursor: pointer;
+  font-size: 14px;
 }
 
-.optionsMenu {
+/* .optionsMenu {
   position: absolute;
   top: 100%;
   left: 0;
@@ -649,9 +701,9 @@
   overflow: hidden;
   width: 200px;
   z-index: 10;
-}
+} */
 
-.optionItem {
+/* .optionItem {
   display: block;
   width: 100%;
   padding: 8px 12px;
@@ -660,75 +712,75 @@
   border: none;
   color: white;
   cursor: pointer;
-}
+} */
 
-.optionItem:hover {
+/* .optionItem:hover {
   background-color: #444;
-}
+} */
 
-.followerPopup {
+/* .followerPopup {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: #222;
+  background-color: #ffffff;
   padding: 15px;
   border-radius: 8px;
   width: 300px;
   z-index: 100;
-  color: white;
+  color: rgb(0, 0, 0);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-}
+} */
 
-.popupTitle {
+/* .popupTitle {
   text-align: center;
   margin-bottom: 15px;
   font-size: 18px;
-}
-
+} */
+/* 
 .followerList {
   max-height: 200px;
   overflow-y: auto;
   margin-bottom: 15px;
-}
+} */
 
-.followerItem {
+/* .followerItem {
   display: flex;
   align-items: center;
   padding: 5px 0;
-}
+} */
 
-.checkbox {
+/* .checkbox {
   margin-right: 10px;
-}
+} */
 
-.followerLabel {
+/* .followerLabel {
   display: flex;
   align-items: center;
   cursor: pointer;
-}
+} */
 
-.avatar {
+/* .avatar {
   width: 30px;
   height: 30px;
   border-radius: 50%;
   margin-right: 10px;
-}
+} */
 
-.popupButtons {
+/* .popupButtons {
   display: flex;
   justify-content: flex-end;
   gap: 10px;
-}
+} */
 
-.cancelButton, .saveButton {
+/* .cancelButton, .saveButton {
   padding: 5px 10px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
-}
+} */
 
-.cancelButton {
+/* .cancelButton {
   background-color: #555;
   color: white;
 }
@@ -736,11 +788,13 @@
 .saveButton {
   background-color: #1877f2;
   color: white;
-}
+} */
 
-.titleStyle {
+/* .titleStyle {
   color: #7c3aed;
-}
+} */
+
+/* for option */
 
 .optionsDropdown {
   position: fixed;
@@ -758,42 +812,137 @@
 .optionsWrapper {
   background: #f3f1f1;
   border-radius: 12px;
-  padding: 34px;
+  /* padding: 34px; */
   max-width: 430px;
   height: 340px;
   width: 90%;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+  box-shadow: 0 6px 30px rgb(0, 0, 0);
   /* position: relative; */
   display: flex;
   flex-direction: column;
 }
+
 .optionButton {
   display: flex;
   align-items: center;
-  background-color: #f8f9fa; 
-  border: 2px solid #ccc; 
+  background-color: #f8f9fa;
+  border: 2px solid #ccc;
   border-radius: 8px;
-  padding: 12px 16px;
-  margin: 8px 0; 
-  cursor: pointer; 
-  transition: background-color 0.3s ease, border-color 0.3s ease; 
+  padding: 12px 30px;
+  margin: 10px 35px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
   max-width: 360px;
 }
+
 .optionButton:hover {
-  background-color: #e7e1f1; 
-  border-color: #7c3aed; 
+  background-color: #e7e1f1;
+  border-color: #7c3aed;
 }
+
 .optionIcon {
   font-size: 24px;
-  margin-right: 12px; 
+  margin-right: 12px;
 }
+
 .optionTitle {
   font-size: 18px;
-  font-weight: bold; 
-  margin: 0; 
-}
-.textStyle {
-  font-size: 14px; 
-  color: #666; 
+  font-weight: bold;
   margin: 0;
+}
+
+.textStyle {
+  font-size: 14px;
+  color: #666;
+  margin: 0;
+}
+
+.popupContainer {
+  /* background-color: #a82a2a; */
+  /* display: grid; */
+  gap: 14px;
+  /* padding: 20px;  */
+  /* font-weight: 900; */
+  background: #f3f1f1;
+  border-radius: 12px;
+  /* border-color: #ec2525; */
+  padding: 22px;
+  max-width: 430px;
+  height: 340px;
+  width: 90%;
+  box-shadow: 0 6px 30px rgb(0, 0, 0);
+  /* position: relative; */
+  display: flex;
+  flex-direction: column;
+  font-family: 'Courier New', Courier, monospace;
+  /* font-size: 20px */
+}
+
+.popupTitle{
+  font-size: 23px;
+  text-align: center;
+}
+
+.followersList {
+  overflow-y: auto; /* Enable vertical scrolling */
+  padding: 5px; /* Padding around the list */
+  border: 1px solid #ccc; /* Light border around the list */
+  border-radius: 8px; /* Rounded corners */
+  background-color: #f8f9fa; /* Light background color */
+}
+
+.followerItem {
+  display: flex; /* Flexbox for layout */
+  align-items: center; /* Center items vertically */
+  padding: 10px; /* Padding for each item */
+}
+
+
+
+.followerCheckbox {
+  margin-right: 12px; /* Space between checkbox and avatar */
+  cursor: pointer; /* Pointer cursor for checkbox */
+}
+
+.followerAvatar {
+  width: 40px; /* Avatar size */
+  height: 40px; /* Avatar size */
+  border-radius: 50%; /* Circular avatar */
+  margin-right: 15px; /* Space between avatar and name */
+}
+
+
+.popupFooter {
+  display: flex; /* Flexbox for footer layout */
+  justify-content: flex-end; /* Align buttons to the right */
+  margin-top: 10px; /* Space above the footer */
+}
+
+.cancelButton {
+  background-color: #f44336; /* Red background for cancel button */
+  color: white; /* White text color */
+  border: none; /* No border */
+  border-radius: 5px; /* Rounded corners */
+  padding: 10px 15px; /* Padding for the button */
+  cursor: pointer; /* Pointer cursor on hover */
+  margin-right: 10px; /* Space between buttons */
+  transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+.cancelButton:hover {
+  background-color: #d32f2fcc; /* Darker red on hover */
+}
+
+.saveButton {
+  background-color: #6f4caf67; /* Green background for save button */
+  color: white; /* White text color */
+  border: none; /* No border */
+  border-radius: 5px; /* Rounded corners */
+  padding: 10px 15px; /* Padding for the button */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+.saveButton:hover {
+  background-color: #5928a7; /* Darker green on hover */
 }
