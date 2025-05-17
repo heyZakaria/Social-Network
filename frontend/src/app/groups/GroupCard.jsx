@@ -3,31 +3,16 @@ import styles from './CreateGroup.module.css'; // Import CSS Module
 import InviteFriends from "@/components/Group/InviteFriends";
 import GroupsList from "@/components/Group/suggestedGroups";
 
+
+
 function isMember(DummyTest) {
   // Need To Check if the user is a Member
   return DummyTest; 
 }
 
-function GroupNav({FriendsList}) {
+function GroupNav({OnMembers, HandleShowInvite}) {
   const [JoinRequest, setJoinRequest] = useState(false);
-  const [ShowInvite , setShowInvite] = useState(false);
-      const [invitedFriends, setInvitedFriends] = useState(
-          FriendsList.map(friend => ({ ...friend, invited: false }))
-      );
   
-      const handleInvite = (id) => {
-          setInvitedFriends(prevInvite =>
-              prevInvite.map(friend =>
-                  friend.Id === id ? { ...friend, invited: !friend.invited } : friend
-              )
-          );
-      };
-
-  
-  const HandleShowInvite = ()=>{
-    setShowInvite(prev=> !prev)
-  } 
-
   let Nav = (
     <div className={styles.GroupNav}>
       <button
@@ -51,8 +36,11 @@ function GroupNav({FriendsList}) {
     Nav = (
       <div className={styles.GroupNav}>
         <a href="#" onClick={()=>{ HandleShowInvite()}}>Invite Friends</a>
-        {ShowInvite && <InviteFriends FriendsList={invitedFriends} onInvite = {handleInvite}></InviteFriends>}
+                <a href="#" onClick={()=>{ OnMembers()}}>Members</a>
+
+        {/* {ShowInvite && <InviteFriends FriendsList={invitedFriends} onInvite = {handleInvite}></InviteFriends>} */}
         <a href="#" onClick={()=>{console.log("DisplayEVents")}}>Events</a>
+        
       </div>
     );
   }
@@ -62,7 +50,7 @@ function GroupNav({FriendsList}) {
 
 function Members({ members }) {
   const MembersList = (
-    <ul className={styles.membersList}>
+<ul className={styles.membersList}>
       {members.map((member) => (
         <li key={member.id} className={styles.memberItem}>
           <p>{member.name}</p>
@@ -76,6 +64,7 @@ function Members({ members }) {
         </li>
       ))}
     </ul>
+    
   );
 
   return MembersList;
@@ -85,14 +74,46 @@ function Description({ Text }) {
   return <p className={styles.Description}>{Text}</p>;
 }
 
-export default function GroupCard({ groupName, description, children, members }) {
+
+
+export default function GroupCard({  imgSrc , groupName, description, children, members }) {
+  const [ShowInvite , setShowInvite] = useState(false);
+      const [invitedFriends, setInvitedFriends] = useState(
+          FriendsList1.map(friend => ({ ...friend, invited: false }))
+      );
+
+      const handleInvite = (id) => {
+          setInvitedFriends(prevInvite =>
+              prevInvite.map(friend =>
+                  friend.Id === id ? { ...friend, invited: !friend.invited } : friend
+              )
+          );
+      };
+
+  
+  const HandleShowInvite = ()=>{
+    setShowInvite(prev=> !prev)
+  } 
+
+      const [ShowMembers , setShowMembers ] = useState(false)
+
+      const HandleMembersList = ()=>{
+        setShowMembers(!ShowMembers)
+        console.log("toggled Members");
+        
+      }
+  
   return (
     <div className={styles.GroupCardContainer}>
-      <GroupNav FriendsList={FriendsList1}></GroupNav>
+      <img src={imgSrc}
+      alt= {groupName}></img>
       <h1 className={styles.groupTitle}>{groupName}</h1>
       <Description Text={description} />
-      <Members members={members} />
+      <GroupNav HandleShowInvite={HandleShowInvite}  OnMembers= {HandleMembersList}FriendsList={FriendsList1}></GroupNav>
+      {ShowMembers && <Members members={members} />}
       {children}
+      {ShowInvite && <InviteFriends FriendsList={invitedFriends} onInvite = {handleInvite}></InviteFriends>}
+
       <GroupsList></GroupsList>
 
     </div>

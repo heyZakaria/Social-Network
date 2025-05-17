@@ -28,7 +28,8 @@ export default function CreateGroupCard() {
             picture: null // No picture
           }
         ],
-        children: <p>Join our next meetup on Friday!</p> //posts will be here
+        children: <p>Join our next meetup on Friday!</p> ,//posts will be here
+        srcImg: "https://media.licdn.com/dms/image/v2/D4D12AQF26-NZ279EaA/article-cover_image-shrink_600_2000/article-cover_image-shrink_600_2000/0/1688018102545?e=2147483647&v=beta&t=XMRwgTVSCknARngRO6R3_nFRrOX-BVxrpFLuwVX-SOA"
       };
 
 
@@ -134,6 +135,7 @@ export default function CreateGroupCard() {
       groupName={groupCardData.groupName}
       description={groupCardData.description}
       members={groupCardData.members}
+      imgSrc={groupCardData.srcImg}
     >
       {groupCardData.children}
     </GroupCard>  
