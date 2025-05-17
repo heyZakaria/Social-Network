@@ -1,14 +1,15 @@
 'use client';
 
 import { useState } from 'react';
-import styles from '@/app/styles/newEvent.module.css';
+import styles from "@/styles/newEvent.module.css";
 
 export default function ShowEventForm() {
     const [showForm, setShowForm] = useState(false);
     const [formData, setFormData] = useState({
         title: "",
         description: "",
-        date: "",
+        event_date: "",
+        event_time: "",
     });
     const [errors, setErrors] = useState({});
     const [serverError, setServerError] = useState('')
@@ -28,27 +29,27 @@ export default function ShowEventForm() {
     const validateForm = () => {
         const newErrors = {};
 
-        // Title validation
         if (!formData.title || formData.title.trim() === "" || formData.title.length < 10 || formData.title.length > 100) {
             newErrors.title = "Title is required.";
         }
 
-        // Description validation
         if (!formData.description || formData.description.trim() === "" || formData.description.length < 50 || formData.description.length > 250) {
             newErrors.description = "Description is required.";
         }
 
-        // Date validation
         if (!formData.date || formData.date.trim() === "") {
             newErrors.date = "Event date is required.";
         } else {
             const selectedDate = new Date(formData.date);
             const currentDate = new Date();
 
-            // Compare the dates
             if (selectedDate <= currentDate) {
                 newErrors.date = "Event date must be in the future.";
             }
+        }
+
+        if (!formData.time || formData.time.trim() === "") {
+            newErrors.time = "Event time is required.";
         }
 
         setErrors(newErrors);
@@ -112,6 +113,17 @@ export default function ShowEventForm() {
                             className={styles.eventDate}
                         />
                         {errors.date && <p className={styles.error}>{errors.date}</p>}
+                    </div>
+                    <div className={styles.labelContainer}>
+                        <label className={styles.label}>Select Event Time:</label>
+                        <input
+                            type="time"
+                            name="time"
+                            value={formData.time}
+                            onChange={handleChange}
+                            className={styles.eventTime}
+                        />
+                        {errors.time && <p className={styles.error}>{errors.time}</p>}
                     </div>
 
                     <button type="submit">Create Event</button>

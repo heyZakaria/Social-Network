@@ -1,0 +1,76 @@
+:root {
+    --primary: #7c3aed;
+    --secondary: #fff;
+    --textColor: #555;
+    --error: #ff4b4b;
+  }
+  
+  .GroupChat {
+    width: 100%;
+    max-width: 500px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: var(--secondary);
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .GroupChat h2 {
+    font-size: 24px;
+    color: var(--primary);
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  
+  .ShowMessages {
+    height: 250px;
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 12px;
+    background-color: #f9f9f9;
+    color: var(--textColor);
+  }
+  
+  .ShowMessages > div {
+    margin-bottom: 10px;
+    padding: 8px 12px;
+    background-color: #eee;
+    border-radius: 6px;
+    word-wrap: break-word;
+  }
+  
+  .GroupChatInput {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+  }
+  
+  .GroupChatInput:focus {
+    outline: none;
+    border-color: var(--primary);
+  }
+  
+  .SendButton {
+    padding: 12px;
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .SendButton:hover {
+    background-color: #5a2d8e;
+  }
+   

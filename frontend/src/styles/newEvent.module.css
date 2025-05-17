@@ -73,13 +73,15 @@
 
 /* Date input fields */
 
-.CreateEvent input[type="date"]{
+.CreateEvent input[type="date"],
+.CreateEvent input[type="time"]{
   padding: 12px;
   border: 1px solid #ddd;
   border-radius: 6px;
   font-size: 16px;
   color: var(--textColor);
   transition: border-color 0.3s;
+  color: var(--primary);
 }
 
 /* Submit button */
