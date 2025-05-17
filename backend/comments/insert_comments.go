@@ -1,45 +1,51 @@
-package post
+package comments
 
-// import (
-// 	"fmt"
-// 	"html"
-// 	db "socialNetwork/db/sqlite"
-// )
+import (
+	"fmt"
+	"html"
 
-// func (c *Post) InsertComment(comment *Comment) error {
-// 	if !c.PostExist(Post.PostId) {
-// 		return fmt.Errorf("post does not exist")
-// 	}
+	db "socialNetwork/db/sqlite"
+	post "socialNetwork/posts"
 
-// 	query := "INSERT INTO comments (id, user_id, post_id, content) VALUES (?, ?, ?, ?)"
-// 	prp, prepareErr := db.DB.Prepare(query)
-// 	if prepareErr != nil {
-// 		return prepareErr
-// 	}
-// 	defer prp.Close()
-// 	comment.Content = html.EscapeString(comment.Content)
-// 	_, execErr := prp.Exec(
-// 		comment.ID,
-// 		comment.UserID,
-// 		comment.PostID,
-// 		comment.Content,
-// 	)
-// 	if execErr != nil {
-// 		return execErr
-// 	}
-// 	return nil
-// }
+	"github.com/gofrs/uuid/v5"
+)
 
-// func (c *Post) PostExist(postID string) bool {
-// 	var num int
-// 	query := `SELECT COUNT(*) FROM posts WHERE id = ?`
-// 	row := db.DB.QueryRow(query, postID)
-// 	err := row.Scan(&num)
-// 	if err != nil {
-// 		return false
-// 	}
-// 	if num == 1 {
-// 		return true
-// 	}
-// 	return false
-// }
+func (c *Comment) SaveComment(userID string, postID int, content string) error {
+	if !c.PostExist(postID) {
+		return fmt.Errorf("post does not exist")
+	}
+
+	comment := &Comment{
+		ID:      uuid.Must(uuid.NewV4()),
+		UserID:  userID,
+		PostID:  postID,
+		Content: content,
+	}
+	return c.InsertComment(comment)
+}
+
+func (c *Comment) InsertComment(comment *Comment) error {
+	var post post.Post
+
+	if !c.PostExist(post.PostId) {
+		return fmt.Errorf("post does not exist")
+	}
+
+	query := "INSERT INTO comments (id, user_id, post_id, content) VALUES (?, ?, ?, ?)"
+	prp, prepareErr := db.DB.Prepare(query)
+	if prepareErr != nil {
+		return prepareErr
+	}
+	defer prp.Close()
+	comment.Content = html.EscapeString(comment.Content)
+	_, execErr := prp.Exec(
+		comment.ID,
+		comment.UserID,
+		comment.PostID,
+		comment.Content,
+	)
+	if execErr != nil {
+		return execErr
+	}
+	return nil
+}

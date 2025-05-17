@@ -5,7 +5,7 @@ import (
 	"net/http"
 	"path/filepath"
 
-	comment "socialNetwork/comment"
+	comment "socialNetwork/comments"
 
 	"socialNetwork/auth"
 	db "socialNetwork/db/sqlite"
