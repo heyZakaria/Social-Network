@@ -1,5 +1,7 @@
 import { useState } from "react"
 import './suggestedGroups.css'
+import { MdOutlineGroups, MdEvent , MdOutlineInsertComment } from "react-icons/md";
+
 
 function SuggGroupCard({ Group, onSendJoinRequest }) {
   return (
@@ -17,9 +19,9 @@ function SuggGroupCard({ Group, onSendJoinRequest }) {
 
       </div>
       <GroupCardInfo
-      MembersCount={Group.Members}
-      PostCount={Group.PostCount}
-      CreatedAt={Group.CreationDate}
+        MembersCount={Group.Members}
+        PostCount={Group.PostCount}
+        CreatedAt={Group.EventsCount}
       ></GroupCardInfo>
     </div>
   );
@@ -30,7 +32,7 @@ function SuggGroupCard({ Group, onSendJoinRequest }) {
 
 
 export default function GroupsList() {
-  const [Groups, setGroups] = useState([
+const [Groups, setGroups] = useState([
   {
     Id: 1,
     name: "React Developers",
@@ -39,7 +41,7 @@ export default function GroupsList() {
     JoiningState: "Join",
     Members: 1230,
     PostCount: 215,
-    CreationDate: "2021-04-15",
+    EventsCount: 10,  // Replaced CreationDate with EventsCount
   },
   {
     Id: 2,
@@ -49,7 +51,7 @@ export default function GroupsList() {
     JoiningState: "Pending",
     Members: 120,
     PostCount: 58,
-    CreationDate: "2022-09-10",
+    EventsCount: 5,  // Replaced CreationDate with EventsCount
   },
   {
     Id: 3,
@@ -59,7 +61,7 @@ export default function GroupsList() {
     JoiningState: "Join",
     Members: 11,
     PostCount: 12,
-    CreationDate: "2023-01-05",
+    EventsCount: 2,  // Replaced CreationDate with EventsCount
   },
   {
     Id: 4,
@@ -69,7 +71,7 @@ export default function GroupsList() {
     JoiningState: "Join",
     Members: 1,
     PostCount: 3,
-    CreationDate: "2024-02-20",
+    EventsCount: 1,  // Replaced CreationDate with EventsCount
   },
   {
     Id: 5,
@@ -79,7 +81,7 @@ export default function GroupsList() {
     JoiningState: "Pending",
     Members: 657,
     PostCount: 129,
-    CreationDate: "2022-06-30",
+    EventsCount: 7,  // Replaced CreationDate with EventsCount
   },
   {
     Id: 6,
@@ -89,7 +91,7 @@ export default function GroupsList() {
     JoiningState: "Join",
     Members: 546,
     PostCount: 94,
-    CreationDate: "2021-12-11",
+    EventsCount: 15,  // Replaced CreationDate with EventsCount
   },
   {
     Id: 7,
@@ -99,9 +101,10 @@ export default function GroupsList() {
     JoiningState: "Pending",
     Members: 14850,
     PostCount: 842,
-    CreationDate: "2019-08-22",
+    EventsCount: 25,  // Replaced CreationDate with EventsCount
   },
 ]);
+
 
   const [FiltredGroups, setFiltredGroups] = useState([]);
   const [FilterState, setFilterState] = useState("Join");
@@ -164,13 +167,18 @@ function GroupCardInfo({ MembersCount, PostCount, CreatedAt }) {
 
   return (
     <div className="InfoCountainer">
-      <Section Title="X"
+      <Section Title={<MdOutlineGroups></MdOutlineGroups>}
         Content={MembersCount}
+        Name="Members"
+
       ></Section>
-      <Section Title="X"
+      <Section Title={<MdOutlineInsertComment></MdOutlineInsertComment>}
+        Name="Posts"
         Content={PostCount}
       ></Section>
-      <Section Title="X"
+      <Section
+        Name="Events"
+        Title={<MdEvent></MdEvent>}
         Content={CreatedAt}
       ></Section>
 
@@ -179,16 +187,14 @@ function GroupCardInfo({ MembersCount, PostCount, CreatedAt }) {
 }
 
 
-function Section({ Title, Content }) {
-
-
-
-  return <section className="Section">
-    <h2>{Title}</h2>
-    <p>{Content}</p>
-  </section>
-
-
-
-
+function Section({ Title, Content, Name }) {
+  return (
+    <div className="Section">
+        <div>{Title}</div>
+      <div className="TitleContent">
+        <h2>{Name}</h2>
+        <p>{Content}</p>
+      </div>
+    </div>
+  );
 }
