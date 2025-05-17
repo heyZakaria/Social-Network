@@ -93,12 +93,20 @@ export default function GroupCard({  imgSrc , groupName, description, children, 
   
   const HandleShowInvite = ()=>{
     setShowInvite(prev=> !prev)
+    if (ShowMembers){
+              setShowMembers(!ShowMembers)
+
+    }
   } 
 
       const [ShowMembers , setShowMembers ] = useState(false)
 
       const HandleMembersList = ()=>{
         setShowMembers(!ShowMembers)
+if (ShowInvite){
+              setShowInvite(prev=> !prev)
+}
+
         console.log("toggled Members");
         
       }

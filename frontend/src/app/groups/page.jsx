@@ -137,7 +137,7 @@ export default function CreateGroupCard() {
       members={groupCardData.members}
       imgSrc={groupCardData.srcImg}
     >
-      {groupCardData.children}
+      {/* {groupCardData.children} */}
     </GroupCard>  
 
         <h3 className={styles.heading3}>Create Group</h3>
