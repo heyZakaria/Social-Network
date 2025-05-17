@@ -8,7 +8,6 @@ import (
 	"errors"
 	"net/http"
 	db "socialNetwork/db/sqlite"
-	"socialNetwork/utils"
 	"strings"
 	"time"
 )
@@ -92,30 +91,22 @@ func VerifyJWT(token string) (JWTPayload, error) {
 	return payload, nil
 }
 
-func GetToken(w http.ResponseWriter, r *http.Request) (token string) {
+func GetToken(w http.ResponseWriter, r *http.Request) (token string, err error) {
 	token = r.Header.Get("Authorization")
 	if token == "" {
-		utils.Log("ERROR", "Authorization header is missing in GetToken Handler")
-		utils.SendJSON(w, http.StatusUnauthorized, utils.JSONResponse{
-			Success: false,
-			Message: "Authorization header is missing",
-			Error:   "You are not Authorized.",
-		})
+		err = errors.New("Authorization header is missing")
 		return
 	}
 
 	// Extract the token value from "Bearer <token>"
+
 	if len(token) > 7 && token[:7] == "Bearer " {
 		token = token[7:]
 	} else {
-		utils.Log("ERROR", "Invalid Authorization header format in CheckUserExeting Handler")
-		utils.SendJSON(w, http.StatusUnauthorized, utils.JSONResponse{
-			Success: false,
-			Message: "Invalid Authorization header format",
-			Error:   "You are not Authorized.",
-		})
+		err = errors.New("Invalid Authorization header format")
 		return
 	}
+	err = nil
 	return
 }
 

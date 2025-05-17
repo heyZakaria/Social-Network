@@ -11,7 +11,17 @@ import (
 
 // Handler /verify
 func CheckUserExeting(w http.ResponseWriter, r *http.Request) {
-	token := auth.GetToken(w, r)
+	token, err := auth.GetToken(w, r)
+	if err != nil {
+		utils.Log("ERROR", "Error getting token in CheckUserExeting Handler: "+err.Error())
+		utils.SendJSON(w, http.StatusUnauthorized, utils.JSONResponse{
+			Success: false,
+			Message: "Please login to continue",
+			Error:   "You are not Authorized.",
+		})
+		return
+	}
+
 	if token == "" {
 		utils.Log("ERROR", "Invalid Token in CheckUserExeting Handler")
 		utils.SendJSON(w, http.StatusUnauthorized, utils.JSONResponse{

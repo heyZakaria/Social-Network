@@ -14,7 +14,16 @@ import (
 
 func PostsPagination(w http.ResponseWriter, r *http.Request) {
 	utils.Log("", "Get request made to GetPostsScroll Handler")
-	token := auth.GetToken(w, r)
+	token, err := auth.GetToken(w, r)
+	if err != nil {
+		utils.Log("ERROR", "Error getting token in GetPost Handler: "+err.Error())
+		utils.SendJSON(w, http.StatusUnauthorized, utils.JSONResponse{
+			Success: false,
+			Message: "Please login to continue",
+			Error:   "You are not Authorized.",
+		})
+		return
+	}
 
 	UserID, err := user.GetUserIDByToken(token)
 	if err != nil {
