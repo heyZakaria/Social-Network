@@ -8,8 +8,9 @@ export default function ShowEventForm() {
     const [formData, setFormData] = useState({
         title: "",
         description: "",
-        event_date: "",
-        event_time: "",
+        date: "",
+        time: "",
+        location: "",
     });
     const [errors, setErrors] = useState({});
     const [serverError, setServerError] = useState('')
@@ -48,8 +49,12 @@ export default function ShowEventForm() {
             }
         }
 
-        if (!formData.time || formData.time.trim() === "") {
+        if (!formData.time || formData.time.trim() === "" ) {
             newErrors.time = "Event time is required.";
+        }
+
+        if (!formData.location || formData.location.trim() === "" || formData.location.length < 10 || formData.location.length > 50) {
+            newErrors.location = "Event location is required.";
         }
 
         setErrors(newErrors);
@@ -67,10 +72,7 @@ export default function ShowEventForm() {
 
         SendEventForm(formData)
 
-        // Proceed with form submission (if valid)
-        console.log("Form data submitted:", formData);
-        // Reset form data after submission
-        setFormData({ title: "", description: "", date: "" });
+        setFormData({ title: "", description: "", date: "", time: "", location: "" });
     };
 
     return (
@@ -124,6 +126,18 @@ export default function ShowEventForm() {
                             className={styles.eventTime}
                         />
                         {errors.time && <p className={styles.error}>{errors.time}</p>}
+                    </div>
+                    <div>
+                        <label className={styles.label}>Location:</label>
+                        <input
+                            type="text"
+                            name="location"
+                            placeholder="Enter event location"
+                            value={formData.location}
+                            onChange={handleChange}
+                            className={styles.eventTime}
+                        />
+                        {errors.location && <p className={styles.error}>{errors.location}</p>}
                     </div>
 
                     <button type="submit">Create Event</button>
