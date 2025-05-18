@@ -3,6 +3,8 @@ import styles from './CreateGroup.module.css'; // Import CSS Module
 import InviteFriends from "@/components/Group/InviteFriends";
 import GroupsList from "@/components/Group/suggestedGroups";
 import { IoChevronBackCircleSharp , IoChevronForwardCircleSharp } from "react-icons/io5";
+import { motion } from "motion/react"
+
 
 
 
@@ -90,6 +92,7 @@ function Members({ members }) {
 
     <ul className={styles.membersList}>
       {PaginatedMembers.map((member) => (
+    
         <li key={member.id} className={styles.memberItem}>
           <img
             className={styles.memberImage}
@@ -112,11 +115,44 @@ function Members({ members }) {
     >
       <IoChevronForwardCircleSharp />
     </button>
+ 
   </div>
 );
 
 }
 
+
+
+ function Keyframes() {
+    return (
+        <motion.div
+            animate={{
+                scale: [1, 2, 2, 1, 1],
+                rotate: [0, 0, 180, 180, 0],
+                borderRadius: ["0%", "0%", "50%", "50%", "0%"],
+            }}
+            transition={{
+                duration: 2,
+                ease: "easeInOut",
+                times: [0, 0.2, 0.5, 0.8, 1],
+                repeat: Infinity,
+                repeatDelay: 1,
+            }}
+            style={box}
+        />
+    )
+}
+
+/**
+ * ==============   Styles   ================
+ */
+
+const box = {
+    width: 100,
+    height: 100,
+    backgroundColor: "#f5f5f5",
+    borderRadius: 5,
+}
 function Description({ Text }) {
   return <p className={styles.Description}>{Text}</p>;
 }
