@@ -27,6 +27,9 @@ func main() {
 
 	_, err = db.InitDB("../backend/db/sqlite/database.db")
 
+	router.HandleFunc("/ws", Group.GroupChat)
+
+
 	router.Handle("/api/", http.StripPrefix("/api", auth.AuthMux()))
 	router.Handle("/api/groups/", http.StripPrefix("/api/groups", Group.GroupMux()))
 	router.Handle("/events/", http.StripPrefix("/events", Events.EventsMux()))

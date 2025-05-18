@@ -4,7 +4,6 @@ import (
 	"encoding/json"
 	"net/http"
 	db "socialNetwork/db/sqlite"
-	"socialNetwork/middleware"
 	"socialNetwork/utils"
 	"time"
 )
@@ -13,7 +12,7 @@ func CreateEvent(w http.ResponseWriter, r *http.Request) {
 	// Check user Auth and get id
 	// Check if the user is in the group
 	// Check form input
-	token := middleware.GetToken(w, r)
+	/* token := middleware.GetToken(w, r)
 	if token == "" {
 		utils.Log("Error", "Token is empty")
 		utils.SendJSON(w, http.StatusUnauthorized, utils.JSONResponse{
@@ -31,11 +30,11 @@ func CreateEvent(w http.ResponseWriter, r *http.Request) {
 			Message: err.Error(),
 		})
 		return
-	}
+	} */
 
 	var event Event
 
-	err = json.NewDecoder(r.Body).Decode(&event)
+	err := json.NewDecoder(r.Body).Decode(&event)
 	if err != nil {
 		utils.Log("ERROR", "Failed to decode request body: "+err.Error())
 	}
@@ -46,8 +45,8 @@ func CreateEvent(w http.ResponseWriter, r *http.Request) {
 		})
 		return
 	}
-
-	_, err = db.DB.Exec("INSERT INTO events (title, description, day_of_event, group_id) VALUES (?, ?, ?, ?)", event.Title, event.Description, event.DayOfEvent, event.GroupID)
+	event.GroupID = 1
+	_, err = db.DB.Exec("INSERT INTO events ( title, event_description, day_of_event, time_of_event, event_location) VALUES (?, ?, ?, ?, ?)", event.Title, event.Description, event.DayOfEvent, event.TimeOfEvent, event.EventLocation /* event.GroupID */)
 	if err != nil {
 		utils.Log("ERROR", "Failed to create event: "+err.Error())
 		utils.SendJSON(w, http.StatusInternalServerError, utils.JSONResponse{
@@ -77,10 +76,11 @@ func ValideEventForm(event Event) bool {
 
 		return false
 	}
+	date_time := event.DayOfEvent + " " + event.TimeOfEvent
 
-	yourDate, err := time.Parse("2006-01-02", event.DayOfEvent)
+	yourDate, err := time.Parse("2006-01-02 15:04", date_time)
 	if err != nil {
-		utils.Log("WARNING", "Invalide date format.")
+		utils.Log("WARNING", "Invalid date format.")
 		return false
 	}
 
