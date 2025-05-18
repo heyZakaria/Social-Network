@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useState  , useEffect} from "react";
 import styles from './CreateGroup.module.css'; // Import CSS Module
 import InviteFriends from "@/components/Group/InviteFriends";
 import GroupsList from "@/components/Group/suggestedGroups";
+import { IoChevronBackCircleSharp , IoChevronForwardCircleSharp } from "react-icons/io5";
 
 
 
@@ -38,7 +39,6 @@ function GroupNav({OnMembers, HandleShowInvite}) {
         <a href="#" onClick={()=>{ HandleShowInvite()}}>Invite Friends</a>
                 <a href="#" onClick={()=>{ OnMembers()}}>Members</a>
 
-        {/* {ShowInvite && <InviteFriends FriendsList={invitedFriends} onInvite = {handleInvite}></InviteFriends>} */}
         <a href="#" onClick={()=>{console.log("DisplayEVents")}}>Events</a>
         
       </div>
@@ -49,25 +49,72 @@ function GroupNav({OnMembers, HandleShowInvite}) {
 }
 
 function Members({ members }) {
+  const [Current , setCurrent] = useState(0)
+  const [PaginatedMembers , setPaginatedMembers] = useState(members.slice(Current , Current+3))
+    useEffect(() => {
+    setPaginatedMembers(members.slice(Current, Current + 3));
+  }, [Current, members]);
+
   const MembersList = (
 <ul className={styles.membersList}>
-      {members.map((member) => (
+      {PaginatedMembers.map((member) => (
+
         <li key={member.id} className={styles.memberItem}>
           <p>{member.name}</p>
-          {member.picture && (
             <img
               className={styles.memberImage}
-              src={member.picture}
+              src={member.picture || "https://cdn1.iconfinder.com/data/icons/fillio-users-and-hand-gestures/48/person_-_man_2-512.png"}
               alt={member.name}
             />
-          )}
+        
         </li>
       ))}
     </ul>
     
+    
   );
 
-  return MembersList;
+  return (
+  <div className={styles.membersNavigationWrapper}>
+    <button
+      className={styles.paginationButton}
+      onClick={() => {
+        if (Current > 0) {
+          setCurrent(prev => prev - 3);
+        }
+      }}
+      disabled={Current <= 0}
+    >
+      <IoChevronBackCircleSharp />
+    </button>
+
+    <ul className={styles.membersList}>
+      {PaginatedMembers.map((member) => (
+        <li key={member.id} className={styles.memberItem}>
+          <img
+            className={styles.memberImage}
+            src={member.picture || "https://cdn1.iconfinder.com/data/icons/fillio-users-and-hand-gestures/48/person_-_man_2-512.png"}
+            alt={member.name}
+          />
+          <p>{member.name}</p>
+        </li>
+      ))}
+    </ul>
+
+    <button
+      className={styles.paginationButton}
+      onClick={() => {
+        if (Current + 3 < members.length) {
+          setCurrent(prev => prev + 3);
+        }
+      }}
+      disabled={Current + 3 >= members.length}
+    >
+      <IoChevronForwardCircleSharp />
+    </button>
+  </div>
+);
+
 }
 
 function Description({ Text }) {

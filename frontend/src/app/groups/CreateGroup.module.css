@@ -238,3 +238,104 @@
     height: 50px;
   }
 }
+/*-------------- Pagination Button ----------------------*/
+.membersNavigationWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.paginationButton {
+  background-color: #7c3aed;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.paginationButton:hover {
+  background-color: #5b21b6;
+  transform: scale(1.1);
+}
+
+.paginationButton:disabled {
+  background-color: #e5e7eb;
+  color: #9ca3af;
+  cursor: not-allowed;
+}
+
+
+/* ________________ Members Css __________________ */
+
+
+
+.memberItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 16px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.memberItem:hover {
+  transform: translateY(-8px); /* Lift effect on hover */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Darker shadow for hover effect */
+}
+
+.memberImage {
+  width: 30px;
+  height: 30px;
+  border-radius: 80%;
+  object-fit: cover;
+  border: 2px solid #e5e7eb; /* Subtle border around the image */
+  margin-bottom: 12px;
+}
+
+.memberItem p {
+  font-size: 16px;
+  color: #374151;
+  font-weight: 600;
+  margin: 0;
+}
+
+.memberItem p:hover {
+  color: #7c3aed; /* Hover effect on member name */
+  cursor: pointer;
+}
+
+.paginationButton {
+  background-color: #7c3aed;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  padding: 12px;
+  font-size: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.paginationButton:hover {
+  background-color: #5b21b6;
+  transform: scale(1.1);
+}
+
+.paginationButton:disabled {
+  background-color: #e5e7eb;
+  color: #9ca3af;
+  cursor: not-allowed;
+}
