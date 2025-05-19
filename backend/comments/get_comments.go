@@ -1,49 +1,70 @@
 package comments
 
 import (
-	"encoding/json"
-	"net/http"
+	"database/sql"
 
 	db "socialNetwork/db/sqlite"
-	"socialNetwork/utils"
 )
 
-func (c *Comment) GetCommentByPost(w http.ResponseWriter, r *http.Request) {
-	comment, err := c.Getcomments(c.PostID, 0)
-	if err != nil {
-		utils.Log("Error", "have problem in post id or pagination!!! ")
-		utils.SendJSON(w, http.StatusBadRequest, utils.JSONResponse{
-			Success: false,
-			Message: "have problem in post id or pagination!!!",
-		})
-		return
-	}
+// func (c *Comment) GetCommentByPost(w http.ResponseWriter, r *http.Request) {
+// 	comment, err := c.Getcomments(c.PostID, 0)
+// 	if err != nil {
+// 		utils.Log("Error", "have problem in post id or pagination!!! ")
+// 		utils.SendJSON(w, http.StatusBadRequest, utils.JSONResponse{
+// 			Success: false,
+// 			Message: "have problem in post id or pagination!!!",
+// 		})
+// 		return
+// 	}
 
-	w.Header().Set("Content-Type", "application/json")
-	json.NewEncoder(w).Encode(comment)
-}
+// 	w.Header().Set("Content-Type", "application/json")
+// 	json.NewEncoder(w).Encode(comment)
+// }
 
 func (c *Comment) Getcomments(postID int, pagination int) ([]Comment, error) {
-	// querySelect := `
-	// SELECT
-	//  comments.id AS comment_id,
-	//  comments.content,
-	//  comments.created_at,
-	//  users.id AS user_id,
-	//  users.username,
-	// FROM
-	//  comments
-	// JOIN
-	//  users ON comments.user_id = users.id
-	// WHERE
-	//  comments.post_id = ?
-	// ORDER BY
-	//  comments.created_at DESC
-	//  LIMIT 2 OFFSET ?;`
+	var querySelect string
+	var rows *sql.Rows
+	var queryErr error
+	if pagination <= 0 {
+		querySelect = `
+		SELECT
+			comments.id AS comment_id,
+			comments.content,
+			comments.created_at,
+			users.id AS user_id
+		FROM
+			comments
+		JOIN
+			users ON comments.user_id = users.id
+		WHERE
+			comments.post_id = ?
+		ORDER BY
+			comments.created_at DESC
+		LIMIT 1;`
 
-	x, err := db.DB.Prepare("SELECT * FROM comments WHERE post_id = ? AND user_id = ?")
-	_ = err
-	rows, queryErr := x.Query(postID, c.UserID)
+		rows, queryErr = db.DB.Query(querySelect, postID)
+	} else {
+		querySelect = `
+		SELECT
+			comments.id AS comment_id,
+			comments.content,
+			comments.created_at,
+			users.id AS user_id
+		FROM
+			comments
+		JOIN
+			users ON comments.user_id = users.id
+		WHERE
+			comments.post_id = ?
+		ORDER BY
+			comments.created_at DESC
+		LIMIT ? OFFSET ?;`
+
+		limit := 2
+		offset := (pagination - 1) * limit
+
+		rows, queryErr = db.DB.Query(querySelect, postID, limit, offset)
+	}
 	if queryErr != nil {
 		return nil, queryErr
 	}
@@ -56,7 +77,6 @@ func (c *Comment) Getcomments(postID int, pagination int) ([]Comment, error) {
 			&currentComment.Content,
 			&currentComment.CreatedAt,
 			&currentComment.UserID,
-			&currentComment.Username,
 		)
 		if scanErr != nil {
 			return nil, scanErr

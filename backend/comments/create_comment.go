@@ -59,12 +59,12 @@ func (c *Comment) CommentSaver(w http.ResponseWriter, r *http.Request) {
 		})
 		return
 	}
-	comment, err := c.Getcomments(c.PostID, 1)
+	comment, err := c.Getcomments(c.PostID, 0)
 	if err != nil {
-		utils.Log("Error", "have problem in id post!!!!")
+		utils.Log("Error", "have problem ==> getting comments!!!!")
 		utils.SendJSON(w, http.StatusInternalServerError, utils.JSONResponse{
 			Success: false,
-			Message: "have problem in id post!!!",
+			Message: "have problem ==> getting comments!!!!",
 		})
 		return
 	}
