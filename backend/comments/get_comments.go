@@ -2,24 +2,49 @@ package comments
 
 import (
 	"database/sql"
+	"encoding/json"
+	"fmt"
+	"net/http"
+	"strconv"
 
 	db "socialNetwork/db/sqlite"
+	"socialNetwork/utils"
 )
 
-// func (c *Comment) GetCommentByPost(w http.ResponseWriter, r *http.Request) {
-// 	comment, err := c.Getcomments(c.PostID, 0)
-// 	if err != nil {
-// 		utils.Log("Error", "have problem in post id or pagination!!! ")
-// 		utils.SendJSON(w, http.StatusBadRequest, utils.JSONResponse{
-// 			Success: false,
-// 			Message: "have problem in post id or pagination!!!",
-// 		})
-// 		return
-// 	}
+func (c *Comment) GetCommentByPost(w http.ResponseWriter, r *http.Request) {
+	var err error
+	postID := r.URL.Query().Get("postId")
+	pagination := r.URL.Query().Get("page")
+	fmt.Println(pagination, postID)
+		nPagination, err := strconv.Atoi(pagination)
+		if err != nil {
+			fmt.Println(err)
+			utils.Log("Error", "have problem to convert to int for pagination")
+			utils.SendJSON(w, http.StatusBadRequest, utils.JSONResponse{
+				Success: false,
+				Message: "have problem to convert to int for pagination",
+			})
+			return
+		}
 
-// 	w.Header().Set("Content-Type", "application/json")
-// 	json.NewEncoder(w).Encode(comment)
-// }
+	postId, err := strconv.Atoi(postID)
+	if err != nil {
+		utils.Log("Error", "have problem to convert to int for postID")
+		utils.SendJSON(w, http.StatusBadRequest, utils.JSONResponse{
+			Success: false,
+			Message: "have problem to convert to int for postID",
+		})
+		return
+	}
+	comment, err := c.Getcomments(postId, nPagination)
+	if err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
+		return
+	}
+
+	w.Header().Set("Content-Type", "application/json")
+	json.NewEncoder(w).Encode(comment)
+}
 
 func (c *Comment) Getcomments(postID int, pagination int) ([]Comment, error) {
 	var querySelect string
