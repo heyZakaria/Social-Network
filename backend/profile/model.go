@@ -1,6 +1,5 @@
 package profile
 
-
 type Post struct {
 	ID        string `json:"id"`
 	UserID    string `json:"userId"`
@@ -32,7 +31,8 @@ type UserProfile struct {
 	CreatedAt      string `json:"created_at"`
 	FollowerCount  int    `json:"followerCount"`
 	FollowingCount int    `json:"followingCount"`
-	Posts          []Post `json:"posts"`
+	Posts          int    `json:"posts"`
 	Followers      []User `json:"followers"`
 	Following      []User `json:"following"`
+	IsOwnProfile   bool
 }

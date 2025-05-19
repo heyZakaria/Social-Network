@@ -1,12 +1,17 @@
 package profile
 
 import (
+	"fmt"
 	"net/http"
+
 	"socialNetwork/auth"
 	"socialNetwork/user"
 	"socialNetwork/utils"
-	"strings"
 )
+
+type userInfo struct {
+	User_id string `json:"user_id"`
+}
 
 // GetOtherUserProfile gets another user's profile
 func GetOtherUserProfile(w http.ResponseWriter, r *http.Request) {
@@ -21,21 +26,11 @@ func GetOtherUserProfile(w http.ResponseWriter, r *http.Request) {
 		})
 		return
 	}
-
-	// Get target user ID from URL
-	parts := strings.Split(r.URL.Path, "/")
-	if len(parts) < 4 {
-		utils.SendJSON(w, http.StatusBadRequest, utils.JSONResponse{
-			Success: false,
-			Message: "Invalid user ID",
-			Error:   "User ID not provided",
-		})
-		return
-	}
-	targetUserId := parts[3]
-
+	targetUserId := userInfo{}
+	targetUserId.User_id = r.URL.Query().Get("id")
+	fmt.Println("targetUserId===========>", targetUserId.User_id)
 	// Get target user's profile
-	profile, err := getUserProfileData(targetUserId)
+	profile, err := getUserProfileData(targetUserId.User_id)
 	if err != nil {
 		utils.SendJSON(w, http.StatusNotFound, utils.JSONResponse{
 			Success: false,
@@ -46,7 +41,7 @@ func GetOtherUserProfile(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// Check if current user can view this profile
-	canView := currentUserId == targetUserId || profile.ProfileStatus == "public"
+	canView := currentUserId == targetUserId.User_id || profile.ProfileStatus == "public"
 	if !canView {
 		// Check if follower
 		for _, follower := range profile.Followers {
@@ -65,6 +60,7 @@ func GetOtherUserProfile(w http.ResponseWriter, r *http.Request) {
 		})
 		return
 	}
+	profile.IsOwnProfile = currentUserId == targetUserId.User_id
 
 	utils.SendJSON(w, http.StatusOK, utils.JSONResponse{
 		Success: true,

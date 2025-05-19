@@ -4,24 +4,37 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import ProfileComponent from '@/components/profile/profile-component';
 import { useUser } from '@/app/(utils)/user_context';
+import { fetchWithAuth } from '@/app/(utils)/api';
+import { useParams } from 'next/navigation';
 
 export default function ProfilePage({ params }) {
+  console.log("params:", params);
+
   const router = useRouter();
   const { user: currentUser, loading } = useUser();
   const [profileUser, setProfileUser] = useState(null);
   const [profileLoading, setProfileLoading] = useState(true);
   const [notFoundFlag, setNotFoundFlag] = useState(false);
 
+  console.log("user from profile page", currentUser);
+  // params.id = currentUser.id
+  const paramsx = useParams();
+  const ids = paramsx.id
+  console.log("|ID", ids);
+  
+  // params is a Record<string, string> | null
+  // const id = params?.id;
   useEffect(() => {
     async function loadProfileUser() {
       try {
-        const res = await fetch(`/api/user/${params.id}`);
+        const res = await fetch(`/api/users/get/profile?id=${ids}`);
         if (!res.ok) {
           setNotFoundFlag(true);
           return;
         }
         const json = await res.json();
-        setProfileUser(json.data);
+        setProfileUser(json.data.Data);
+        console.log("setprofile", json.data.Data);
       } catch (error) {
         console.error('Error fetching profile:', error);
         setNotFoundFlag(true);
@@ -31,47 +44,37 @@ export default function ProfilePage({ params }) {
     }
 
     loadProfileUser();
-  }, [params.id]);
-
+  }, [ids]);
+  console.log("===========================================");
+  console.log(profileUser);
+  console.log("===========================================");
+  
   if (loading || profileLoading) return <div>Loading...</div>;
 
-  if (!currentUser || notFoundFlag) {
-    useEffect(() => {
-      router.replace('/404');
-    }, []);
-    return null;
-  }
-
-  const canView = currentUser.UserID === profileUser.UserID || profileUser.ProfileStatus === 'public';
-
+  const canView = true // currentUser.id === profileUser.id || profileUser.ProfileStatus === 'public';
+  // profileUser.isPublic = true
   return (
     <ProfileComponent
-      currentUser={{
-        id: currentUser.UserID,
-        firstName: currentUser.FirstName,
-        lastName: currentUser.LastName,
-        email: currentUser.Email,
-        nickname: currentUser.NickName,
-        avatar: currentUser.Avatar,
-        profileStatus: currentUser.ProfileStatus,
-      }}
-      profileUser={{
-        id: profileUser.UserID,
-        firstName: profileUser.FirstName,
-        lastName: profileUser.LastName,
-        email: profileUser.Email,
-        nickname: profileUser.NickName,
-        bio: profileUser.Bio,
-        avatar: profileUser.Avatar,
-        profileStatus: profileUser.ProfileStatus,
-        birthday: profileUser.Birthday,
-        createdAt: profileUser.CreatedAt,
-        Posts: profileUser.Posts || [],
-        Followers: profileUser.Followers || [],
-        Following: profileUser.Following || [],
-        FollowerCount: profileUser.FollowerCount || 0,
-        FollowingCount: profileUser.FollowingCount || 0,
-      }}
+      ProfileData={
+        profileUser
+      }
+      // profileUser={{
+      //   id: profileUser.id,
+      //   firstName: profileUser.FirstName,
+      //   lastName: profileUser.LastName,
+      //   email: profileUser.Email,
+      //   nickname: profileUser.NickName,
+      //   bio: profileUser.Bio,
+      //   avatar: profileUser.Avatar,
+      //   profileStatus: profileUser.ProfileStatus,
+      //   birthday: profileUser.Birthday,
+      //   createdAt: profileUser.CreatedAt,
+      //   Posts: profileUser.Posts || [],
+      //   Followers: profileUser.Followers || [],
+      //   Following: profileUser.Following || [],
+      //   FollowerCount: profileUser.FollowerCount || 0,
+      //   FollowingCount: profileUser.FollowingCount || 0,
+      // }}
       canView={canView}
     />
   );

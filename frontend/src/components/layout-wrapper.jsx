@@ -11,7 +11,7 @@ export default function LayoutWrapper({ children }) {
 
   return user ? (
     <>
-      <Navbar user={user.firstName} />
+      <Navbar user={user} />
       <div className="container">
             <div className="main-content">
               <div className="left-sidebar">

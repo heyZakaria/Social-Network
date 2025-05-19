@@ -9,34 +9,61 @@ import PrivacyToggle from "./privacy-toggle";
 import UserList from "./user-list";
 import FloatingChat from "@/components/chat/floating-chat";
 import { FaLock } from "react-icons/fa";
-
+// ProfileData={{
+//   profileUser
+// }}
 export default function ProfileComponent({
-  currentUser,
-  profileUser,
+  ProfileData,
   canView,
-  posts,
-  followers,
-  following,
+  // posts,
+  // followers,
+  // following,
 }) {
   const [activeTab, setActiveTab] = useState("posts");
-  const isOwnProfile = currentUser.id === profileUser.id;
+  // const ProfileData.isOwnProfile = currentUser.id === currentUser.id;
+  // if (ProfileData.isOwnProfile) {
+  //   currentUser = currentUser
+  // }
+
+  //   {
+  //     "id": "2bab197e-fc65-426e-8227-ae60182b8b41",
+  //     "firstName": "AMine",
+  //     "lastName": "Habchi",
+  //     "email": "xxcxc@sdf.comx",
+  //     "nickname": "zcxasa",
+  //     "bio": "",
+  //     "avatar": "./uploads/profile_image/b9d82136-6c8b-4c35-9874-206adc84633c.JPEG",
+  //     "profile_status": "public",
+  //     "birthday": "2000-05-05T00:00:00Z",
+  //     "created_at": "2025-05-13T17:47:47Z",
+  //     "followerCount": 0,
+  //     "followingCount": 0,
+  //     "posts": null,
+  //     "followers": null,
+  //     "following": null
+  // }
+  console.log("ProfileData.avatar:", ProfileData.avatar);
+
 
   return (
     <div className={styles.profileContainer}>
       <div className={styles.profileHeader}>
         <div className={styles.profileCover}>
           <img
-            src="https://imgs.search.brave.com/jLfYC2vnVrdKM1pTa5AmFzHt4c7QNiv3c6zQe-UtXoA/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9wcm9t/by5jb20vdG9vbHMv/aW1hZ2UtcmVzaXpl/ci9zdGF0aWMvUGF0/dGVybl9pbWFnZS04/YzA1MDA1M2VhYjg4/NGU1MWI4NTk5NjA3/ODY1ZDExMi5qcGc"
+            src={"http://localhost:8080/" + ProfileData.avatar}// ./uploads/profile_image/b27c2604-404b-48e4-a20c-f4afa29a9c57.jpeg
             alt="Cover"
+            onError={(e) => {
+              e.currentTarget.onerror = null; // Prevent infinite loop if fallback also fails
+              e.currentTarget.src = 'http://localhost:8080/uploads/profile_image/b27c2604-404b-48e4-a20c-f4afa29a9c57.jpeg';
+            }}
             className={styles.coverImage}
           />
         </div>
-
         <div className={styles.profileInfo}>
           <div className={styles.profileAvatar}>
             <img
-              src="https://imgs.search.brave.com/jLfYC2vnVrdKM1pTa5AmFzHt4c7QNiv3c6zQe-UtXoA/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9wcm9t/by5jb20vdG9vbHMv/aW1hZ2UtcmVzaXpl/ci9zdGF0aWMvUGF0/dGVybl9pbWFnZS04/YzA1MDA1M2VhYjg4/NGU1MWI4NTk5NjA3/ODY1ZDExMi5qcGc"
-              alt={profileUser.firstName}
+              src={"http://localhost:8080/" + ProfileData.avatar || "https://cdn.pixabay.com/photo/2018/04/18/18/56/user-3331256_1280.png" }
+              alt={ProfileData.FirstName}
               className={styles.avatarImage}
             />
           </div>
@@ -44,26 +71,27 @@ export default function ProfileComponent({
           <div className={styles.profileDetails}>
             <div className={styles.profileNameSection}>
               <h1 className={styles.profileName}>
-                {profileUser.firstName} {profileUser.lastName}
-                {profileUser.nickname && (
+                {ProfileData.firstName} {ProfileData.lastName}
+                {ProfileData.nickname && (
                   <span className={styles.nickname}>
-                    ({profileUser.nickname})
+                    ({ProfileData.nickname})
                   </span>
                 )}
               </h1>
 
-              {isOwnProfile ? (
+              {ProfileData.isOwnProfile ? (
                 <div className={styles.profileActions}>
                   <Link href="/settings" className={styles.editButton}>
                     Edit Profile
                   </Link>
-                  <PrivacyToggle user={profileUser} />
+
+                  <PrivacyToggle user={ProfileData} />
                 </div>
               ) : (
                 <div className={styles.profileActions}>
                   <FollowButton
-                    currentUser={currentUser}
-                    profileUser={profileUser}
+                    currentUser={ProfileData}
+                  // currentUser={currentUser}
                   />
                   <button className={styles.messageButton}>Message</button>
                 </div>
@@ -72,20 +100,20 @@ export default function ProfileComponent({
 
             <div className={styles.profileStats}>
               <div className={styles.stat}>
-                <span className={styles.statNumber}>{posts.length}</span> posts
+                <span className={styles.statNumber}>{ProfileData.posts}</span> posts
               </div>
               <div className={styles.stat}>
-                <span className={styles.statNumber}>{followers.length}</span>{" "}
+                <span className={styles.statNumber}>{ProfileData.followerCount}</span>{" "}
                 followers
               </div>
               <div className={styles.stat}>
-                <span className={styles.statNumber}>{following.length}</span>{" "}
+                <span className={styles.statNumber}>{ProfileData.followingCount}</span>{" "}
                 following
               </div>
             </div>
 
-            {profileUser.aboutMe && (
-              <div className={styles.profileBio}>{profileUser.aboutMe}</div>
+            {ProfileData.aboutMe && ( // TODO Change the logic
+              <div className={styles.profileBio}>{ProfileData.aboutMe}</div>
             )}
           </div>
         </div>
@@ -95,25 +123,22 @@ export default function ProfileComponent({
         <div className={styles.profileContent}>
           <div className={styles.profileTabs}>
             <button
-              className={`${styles.tabButton} ${
-                activeTab === "posts" ? styles.activeTab : ""
-              }`}
+              className={`${styles.tabButton} ${activeTab === "posts" ? styles.activeTab : ""
+                }`}
               onClick={() => setActiveTab("posts")}
             >
               Posts
             </button>
             <button
-              className={`${styles.tabButton} ${
-                activeTab === "followers" ? styles.activeTab : ""
-              }`}
+              className={`${styles.tabButton} ${activeTab === "followers" ? styles.activeTab : ""
+                }`}
               onClick={() => setActiveTab("followers")}
             >
               Followers
             </button>
             <button
-              className={`${styles.tabButton} ${
-                activeTab === "following" ? styles.activeTab : ""
-              }`}
+              className={`${styles.tabButton} ${activeTab === "following" ? styles.activeTab : ""
+                }`}
               onClick={() => setActiveTab("following")}
             >
               Following
@@ -121,14 +146,14 @@ export default function ProfileComponent({
           </div>
 
           <div className={styles.tabContent}>
-            {activeTab === "posts" && (
+            {/* {activeTab === "posts" && (
               <div className={styles.postsGrid}>
                 {posts.length > 0 ? (
                   posts.map((post) => (
                     <PostComponent
                       key={post.id}
                       post={post}
-                      user={profileUser}
+                      user={currentUser}
                       currentUser={currentUser}
                     />
                   ))
@@ -138,7 +163,7 @@ export default function ProfileComponent({
                   </div>
                 )}
               </div>
-            )}
+            )} */}
 
             {activeTab === "followers" && (
               <UserList users={followers} currentUser={currentUser} />
@@ -160,7 +185,7 @@ export default function ProfileComponent({
       )}
 
       {/* Always visible floating chat */}
-      <FloatingChat currentUser={currentUser} />
+      <FloatingChat currentUser={ProfileData} />
     </div>
   );
 }

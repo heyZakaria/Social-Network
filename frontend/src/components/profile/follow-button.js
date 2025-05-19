@@ -5,7 +5,7 @@ import styles from "@/styles/profile.module.css"
 
 export default function FollowButton({ currentUser, profileUser }) {
   const [isFollowing, setIsFollowing] = useState(
-    profileUser.Followers?.some(f => f.ID === currentUser.id)
+    currentUser.followers?.some(f => f.ID === currentUser.id)
   );
   const [isPending, setIsPending] = useState(false)
 
