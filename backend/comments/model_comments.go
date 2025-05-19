@@ -12,7 +12,6 @@ type Comment struct {
 	Content   string
 	CreatedAt time.Time
 	FormattedDate      string
-	TotalCount          int
 }
 
 type CommentData struct {

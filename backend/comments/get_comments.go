@@ -1,18 +1,24 @@
 package comments
 
 import (
+	"encoding/json"
+	"net/http"
+
 	db "socialNetwork/db/sqlite"
 )
 
-func (c *Comment) GetCommentByPost(postID int, pagination int) ([]Comment, error) {
-	comment, err := c.Getcomments(postID, pagination)
+func (c *Comment) GetCommentByPost(w http.ResponseWriter, r *http.Request) {
+	comment, err := c.Getcomments(c.PostID, 0)
 	if err != nil {
-		return nil, err
+		w.WriteHeader(http.StatusInternalServerError)
+		return
 	}
-	return comment, nil
+
+	w.Header().Set("Content-Type", "application/json")
+	json.NewEncoder(w).Encode(comment)
 }
 
-func (c *Comment) Getcomments(postID string, pagination int) ([]Comment, error) {
+func (c *Comment) Getcomments(postID int, pagination int) ([]Comment, error) {
 	querySelect := `
 	SELECT
 	 comments.id AS comment_id,
@@ -20,7 +26,6 @@ func (c *Comment) Getcomments(postID string, pagination int) ([]Comment, error) 
 	 comments.created_at,
 	 users.id AS user_id,
 	 users.username,
-	 COUNT(*) OVER() AS total_count
 	FROM 
 	 comments
 	JOIN
@@ -45,7 +50,6 @@ func (c *Comment) Getcomments(postID string, pagination int) ([]Comment, error) 
 			&currentComment.CreatedAt,
 			&currentComment.UserID,
 			&currentComment.Username,
-			&currentComment.TotalCount,
 		)
 		if scanErr != nil {
 			return nil, scanErr

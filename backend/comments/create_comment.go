@@ -23,6 +23,8 @@ func (c *Comment) CommentSaver(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(http.StatusBadRequest)
 		return
 	}
+	c.Content = commentData.Comment
+	c.PostID = commentData.PostID
 	token := auth.GetToken(w, r)
 	UserId, err := user.GetUserIDByToken(token)
 	if err != nil {
@@ -34,17 +36,17 @@ func (c *Comment) CommentSaver(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	profile.UserID = UserId
-	commentData.Comment = strings.TrimSpace(commentData.Comment)
-	if commentData.Comment == "" || len(commentData.Comment) > 10000 {
+	c.Content = strings.TrimSpace(c.Content)
+	if c.Content == "" || len(c.Content) > 10000 {
 		w.WriteHeader(http.StatusBadRequest)
 		return
 	}
-	err = c.SaveComment(UserId, commentData.PostID, commentData.Comment)
+	err = c.SaveComment(UserId, c.PostID, c.Content)
 	if err != nil {
 		w.WriteHeader(http.StatusBadRequest)
 		return
 	}
-	comment, err := c.GetCommentByPost(commentData.PostID, 0)
+	comment, err := c.Getcomments(c.PostID, 0)
 	if err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
 		return
