@@ -5,12 +5,6 @@ import styles from "@/styles/navbar.module.css";
 import { usePathname } from "next/navigation";
 
 export default function Nav() {
-  const path = usePathname();
-
-  if (!path || !( path === "/" || path === "/login" || path === "/register)")) {
-    return null;
-  }
-
   return (
     <nav className={styles.navbar}>
       <div className={styles.navbarContainer}>

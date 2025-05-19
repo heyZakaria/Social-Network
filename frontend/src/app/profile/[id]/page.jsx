@@ -1,56 +1,78 @@
-// import { getCurrentUser } from "@/actions/auth"
-import ProfileComponent from "@/components/profile/profile-component";
-import db from "@/lib/mock-data";
+'use client';
 
-import { notFound } from "next/navigation";
+import { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
+import ProfileComponent from '@/components/profile/profile-component';
+import { useUser } from '@/app/(utils)/user_context';
 
-export default async function ProfilePage({ params }) {
-  try {
-    // const currentUser = await getCurrentUser()
-    const currentUser = {
-      id: 1,
-      email: "john@example.com",
-      password: "password123",
-      firstName: "John",
-      lastName: "Doe",
-      dateOfBirth: "1990-05-15",
-      nickname: "JD",
-      aboutMe: "Software developer and hiking enthusiast",
-      avatar: "https://i.pravatar.cc/150?u=100",
-      isPublic: true,
-      followers: [2, 3],
-      following: [2],
-      createdAt: "2023-01-15T08:30:00Z",
-    };
+export default function ProfilePage({ params }) {
+  const router = useRouter();
+  const { user: currentUser, loading } = useUser();
+  const [profileUser, setProfileUser] = useState(null);
+  const [profileLoading, setProfileLoading] = useState(true);
+  const [notFoundFlag, setNotFoundFlag] = useState(false);
 
-    if (!currentUser) {
-      return notFound();
+  useEffect(() => {
+    async function loadProfileUser() {
+      try {
+        const res = await fetch(`/api/user/${params.id}`);
+        if (!res.ok) {
+          setNotFoundFlag(true);
+          return;
+        }
+        const json = await res.json();
+        setProfileUser(json.data);
+      } catch (error) {
+        console.error('Error fetching profile:', error);
+        setNotFoundFlag(true);
+      } finally {
+        setProfileLoading(false);
+      }
     }
 
-    const userId = parseInt(params.id, 10);
-    const profileUser = db.users.findById(userId);
+    loadProfileUser();
+  }, [params.id]);
 
-    if (!profileUser) {
-      return notFound();
-    }
+  if (loading || profileLoading) return <div>Loading...</div>;
 
-    // Get user data from mock DB
-    const posts = db.posts.findByUserId(userId);
-    const followers = db.users.getFollowers(userId);
-    const following = db.users.getFollowing(userId);
-
-    return (
-      <ProfileComponent
-        currentUser={currentUser}
-        profileUser={profileUser}
-        canView={currentUser.id === profileUser.id || profileUser.isPublic}
-        posts={posts}
-        followers={followers}
-        following={following}
-      />
-    );
-  } catch (error) {
-    console.error("Profile page error:", error);
-    return notFound();
+  if (!currentUser || notFoundFlag) {
+    useEffect(() => {
+      router.replace('/404');
+    }, []);
+    return null;
   }
+
+  const canView = currentUser.UserID === profileUser.UserID || profileUser.ProfileStatus === 'public';
+
+  return (
+    <ProfileComponent
+      currentUser={{
+        id: currentUser.UserID,
+        firstName: currentUser.FirstName,
+        lastName: currentUser.LastName,
+        email: currentUser.Email,
+        nickname: currentUser.NickName,
+        avatar: currentUser.Avatar,
+        profileStatus: currentUser.ProfileStatus,
+      }}
+      profileUser={{
+        id: profileUser.UserID,
+        firstName: profileUser.FirstName,
+        lastName: profileUser.LastName,
+        email: profileUser.Email,
+        nickname: profileUser.NickName,
+        bio: profileUser.Bio,
+        avatar: profileUser.Avatar,
+        profileStatus: profileUser.ProfileStatus,
+        birthday: profileUser.Birthday,
+        createdAt: profileUser.CreatedAt,
+        Posts: profileUser.Posts || [],
+        Followers: profileUser.Followers || [],
+        Following: profileUser.Following || [],
+        FollowerCount: profileUser.FollowerCount || 0,
+        FollowingCount: profileUser.FollowingCount || 0,
+      }}
+      canView={canView}
+    />
+  );
 }

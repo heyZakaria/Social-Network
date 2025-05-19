@@ -1,34 +1,32 @@
 "use client"
 
 import { useState } from "react"
-import styles from "../../styles/profile.module.css"
+import styles from "@/styles/profile.module.css"
 
 export default function FollowButton({ currentUser, profileUser }) {
-  const [isFollowing, setIsFollowing] = useState(profileUser.followers.includes(currentUser.id))
+  const [isFollowing, setIsFollowing] = useState(
+    profileUser.Followers?.some(f => f.ID === currentUser.id)
+  );
   const [isPending, setIsPending] = useState(false)
 
   const handleFollowAction = async () => {
     setIsPending(true)
 
     try {
-      // In a real app, this would be an API call
-      // For now, we'll simulate the behavior
-
-      if (isFollowing) {
-        // Unfollow
-        console.log(`Unfollowing user ${profileUser.id}`)
-        setIsFollowing(false)
-      } else {
-        // Follow or send follow request
-        if (profileUser.isPublic) {
-          console.log(`Following user ${profileUser.id}`)
-          setIsFollowing(true)
-        } else {
-          console.log(`Sending follow request to user ${profileUser.id}`)
-          // In a real app, we would show a "Requested" state
-          // For simplicity, we'll just log it
+      const response = await fetch(`/api/users/${profileUser.id}/${isFollowing ? 'unfollow' : 'follow'}`, {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${document.cookie.split(';').find(c => c.trim().startsWith('token='))?.split('=')[1]}`,
+          'Content-Type': 'application/json'
         }
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to update follow status');
       }
+
+      const data = await response.json();
+      setIsFollowing(data.isFollowing);
     } catch (error) {
       console.error("Error following/unfollowing user:", error)
     } finally {

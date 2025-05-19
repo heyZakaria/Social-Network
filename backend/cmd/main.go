@@ -9,6 +9,7 @@ import (
 	"socialNetwork/likes"
 	"socialNetwork/middleware"
 	post "socialNetwork/posts"
+	"socialNetwork/profile"
 	"socialNetwork/utils"
 
 	_ "github.com/mattn/go-sqlite3"
@@ -34,6 +35,11 @@ func main() {
 
 	router.HandleFunc("GET /api/verify", middleware.CheckUserExeting)
 
+    // Profile routes
+    router.HandleFunc("GET /api/users/profile", profile.GetUserProfile)
+    router.HandleFunc("GET /api/users/{id}/profile", profile.GetOtherUserProfile)
+    router.HandleFunc("POST /api/users/{id}/follow", profile.FollowUser)
+    router.HandleFunc("POST /api/users/{id}/unfollow", profile.UnfollowUser)
 	// Handler for /api/post
 
 	// Testing serving images

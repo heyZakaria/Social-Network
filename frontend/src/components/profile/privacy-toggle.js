@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import styles from "@/styles/profile.module.css"
+import { fetchWithAuth } from "@/app/(utils)/api"
 
 export default function PrivacyToggle({ user }) {
   const [isPublic, setIsPublic] = useState(user.isPublic)
@@ -11,10 +12,17 @@ export default function PrivacyToggle({ user }) {
     setIsPending(true)
 
     try {
-      // In a real app, this would be an API call
-      // For now, we'll simulate the behavior
-      console.log(`Setting profile privacy to ${!isPublic ? "public" : "private"}`)
-      setIsPublic(!isPublic)
+      const response = await fetchWithAuth(`/api/users/privacy`, {
+        method: 'PUT',
+        body: JSON.stringify({ isPublic: !isPublic })
+      });
+
+      if (!response || !response.ok) {
+        throw new Error('Failed to update privacy settings');
+      }
+
+      const data = await response.json();
+      setIsPublic(data.isPublic);
     } catch (error) {
       console.error("Error toggling privacy:", error)
     } finally {

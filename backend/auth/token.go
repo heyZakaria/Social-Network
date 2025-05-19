@@ -93,30 +93,18 @@ func VerifyJWT(token string) (JWTPayload, error) {
 }
 
 func GetToken(w http.ResponseWriter, r *http.Request) (token string) {
-	token = r.Header.Get("Authorization")
-	if token == "" {
-		utils.Log("ERROR", "Authorization header is missing in GetToken Handler")
+	cookie, err := r.Cookie("token")
+	if err != nil {
+		utils.Log("ERROR", "Token cookie is missing in GetToken")
 		utils.SendJSON(w, http.StatusUnauthorized, utils.JSONResponse{
 			Success: false,
-			Message: "Authorization header is missing",
+			Message: "Token cookie is missing",
 			Error:   "You are not Authorized.",
 		})
-		return
+		return ""
 	}
 
-	// Extract the token value from "Bearer <token>"
-	if len(token) > 7 && token[:7] == "Bearer " {
-		token = token[7:]
-	} else {
-		utils.Log("ERROR", "Invalid Authorization header format in CheckUserExeting Handler")
-		utils.SendJSON(w, http.StatusUnauthorized, utils.JSONResponse{
-			Success: false,
-			Message: "Invalid Authorization header format",
-			Error:   "You are not Authorized.",
-		})
-		return
-	}
-	return
+	return cookie.Value
 }
 
 func SaveToken(userID string, token string) error {
