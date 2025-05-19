@@ -16,7 +16,7 @@ func (c *Comment) SaveComment(userID string, postID int, content string) error {
 	}
 
 	comment := &Comment{
-		ID:      uuid.Must(uuid.NewV4()),
+		ID:      uuid.Must(uuid.NewV4()).String(),
 		UserID:  userID,
 		PostID:  postID,
 		Content: content,
