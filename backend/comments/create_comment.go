@@ -11,20 +11,6 @@ import (
 )
 
 func (c *Comment) CommentSaver(w http.ResponseWriter, r *http.Request) {
-	var commentData CommentData
-	var profile auth.Profile
-
-	decoder := json.NewDecoder(r.Body)
-	err := decoder.Decode(&commentData)
-
-	defer r.Body.Close()
-
-	if err != nil {
-		w.WriteHeader(http.StatusBadRequest)
-		return
-	}
-	c.Content = commentData.Comment
-	c.PostID = commentData.PostID
 	token := auth.GetToken(w, r)
 	UserId, err := user.GetUserIDByToken(token)
 	if err != nil {
@@ -35,20 +21,51 @@ func (c *Comment) CommentSaver(w http.ResponseWriter, r *http.Request) {
 		})
 		return
 	}
+
+	var commentData CommentData
+	var profile auth.Profile
+
+	decoder := json.NewDecoder(r.Body)
+	err = decoder.Decode(&commentData)
+
+	defer r.Body.Close()
+
+	if err != nil {
+		utils.Log("Error", err.Error())
+		utils.SendJSON(w, http.StatusUnauthorized, utils.JSONResponse{
+			Success: false,
+			Message: err.Error(),
+		})
+		return
+	}
+	c.Content = commentData.Comment
+	c.PostID = commentData.PostID
 	profile.UserID = UserId
 	c.Content = strings.TrimSpace(c.Content)
 	if c.Content == "" || len(c.Content) > 10000 {
-		w.WriteHeader(http.StatusBadRequest)
+		utils.Log("Error", "comment is empty or length of comment is more then 10000 ")
+		utils.SendJSON(w, http.StatusBadRequest, utils.JSONResponse{
+			Success: false,
+			Message: "comment is empty or length of comment is more then 10000!! ",
+		})
 		return
 	}
 	err = c.SaveComment(UserId, c.PostID, c.Content)
 	if err != nil {
-		w.WriteHeader(http.StatusBadRequest)
+		utils.Log("Error", "data it's given machi hiya hadik!!!")
+		utils.SendJSON(w, http.StatusBadRequest, utils.JSONResponse{
+			Success: false,
+			Message: "data it's given machi hiya hadik!!!",
+		})
 		return
 	}
-	comment, err := c.Getcomments(c.PostID, 0)
+	comment, err := c.Getcomments(c.PostID, 1)
 	if err != nil {
-		w.WriteHeader(http.StatusInternalServerError)
+		utils.Log("Error", "have problem in id post!!!!")
+		utils.SendJSON(w, http.StatusInternalServerError, utils.JSONResponse{
+			Success: false,
+			Message: "have problem in id post!!!",
+		})
 		return
 	}
 
