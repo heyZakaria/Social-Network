@@ -29,6 +29,7 @@ func main() {
 	_, err = db.InitDB("../db/sqlite/database.db")
 
 	router.Handle("/api/", http.StripPrefix("/api", auth.AuthMux()))
+	router.Handle("/chat/", http.StripPrefix("/chat", auth.AuthMux()))
 	router.Handle("/posts/", http.StripPrefix("/posts", post.PostMux()))
 	router.Handle("/likes/", http.StripPrefix("/likes", likes.LikesMux()))
 
