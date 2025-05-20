@@ -16,7 +16,7 @@ export function UserProvider({ children }) {
       if (res?.ok) {
         const json = await res.json();
         setUser(json.data.Data);
-        console.log("data user ", json.data.Data);
+        
         
       } else {
         setUser(null);

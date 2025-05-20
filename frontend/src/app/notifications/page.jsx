@@ -81,7 +81,7 @@ export default function NotificationsComponent({ currentUser }) {
     };
 
     const handleNotificationAction = (notificationId, action) => {
-        console.log(`Notification ${notificationId} action: ${action}`);
+        
         setNotifications((prevNotifications) =>
             prevNotifications.filter((notif) => notif.id !== notificationId)
         );

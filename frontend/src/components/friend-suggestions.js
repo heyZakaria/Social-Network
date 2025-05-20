@@ -9,7 +9,7 @@ export default function FriendSuggestions({ suggestions = [] }) {
 
   const handleSendRequest = (userId) => {
     // In a real app, this would send an API request to send a friend request
-    console.log(`Sending friend request to user ${userId}`)
+    
 
     // Remove from suggestions after sending request
     setCurrentSuggestions(currentSuggestions.filter((user) => user.id !== userId))

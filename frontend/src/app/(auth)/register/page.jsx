@@ -163,7 +163,7 @@ export default function RegisterPage() {
         const result = await res.json();
 
         if (result.success) {
-          console.log(result.success);
+          
           setServerError("");
           router.push('/home');
           alert("Registration successful!");

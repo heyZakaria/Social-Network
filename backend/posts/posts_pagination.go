@@ -2,6 +2,7 @@ package post
 
 import (
 	"database/sql"
+	"fmt"
 	"net/http"
 	"socialNetwork/auth"
 	db "socialNetwork/db/sqlite"
@@ -32,7 +33,7 @@ func PostsPagination(w http.ResponseWriter, r *http.Request) {
 	offset := r.URL.Query().Get("offset")
 	limit := r.URL.Query().Get("limit")
 	specificUser := r.URL.Query().Get("user_id")
-
+	fmt.Println("specificUser", specificUser)
 	if offset == "" || limit == "" {
 		utils.Log("ERROR", "Offset or Limit is not valid in GetPostsScroll Handler: ")
 		utils.SendJSON(w, http.StatusBadRequest, utils.JSONResponse{
@@ -112,7 +113,7 @@ func PostsPagination(w http.ResponseWriter, r *http.Request) {
 		// TODO Each Post Must Check if the exist user Has Liked the post or not
 		// TODO get Likes count as well
 		// check the privacy of post,
-		if Post.Privacy == "custom_users" {
+		if Post.Privacy == "custom_users" && Post.UserID != UserID {
 			var found bool
 			// Check if the User Id Has access to this post,
 			err := db.DB.QueryRow("SELECT EXISTS(SELECT 1 FROM post_allowed WHERE post_id = ? AND user_id = ?)", Post.PostId, UserID).Scan(&found)
@@ -152,6 +153,7 @@ func PostsPagination(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	// send the posts to the client
+	utils.Log("INFO", "Posts fetched successfully in GetPostsScroll Handler")
 	utils.SendJSON(w, http.StatusOK, utils.JSONResponse{
 		Success: true,
 		Message: "Posts fetched successfully",
