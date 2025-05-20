@@ -9810,3 +9810,509 @@
 2025/05/13 18:52:53 [INFO] 2025-05-13 18:52:53 - Detected content type: image/jpeg
 2025/05/13 18:52:53 [INFO] 2025-05-13 18:52:53 - Generated avatar filename: 46aafaa7-a8e3-41b8-b87f-04d3196ce313.JPEG
 2025/05/13 18:52:53 [INFO] 2025-05-13 18:52:53 - Avatar saved successfully
+2025/05/16 18:03:54 [INFO] 2025-05-16 18:03:54 - Starting HTTP server at http://localhost:8080 ...
+2025/05/16 18:03:54 [INFO] 2025-05-16 18:03:54 - Migrations applied successfully!
+2025/05/16 21:28:28 [INFO] 2025-05-16 21:28:28 - Starting HTTP server at http://localhost:8080 ...
+2025/05/16 21:28:28 [INFO] 2025-05-16 21:28:28 - Migrations applied successfully!
+2025/05/16 23:56:36 [INFO] 2025-05-16 23:56:36 - Starting HTTP server at http://localhost:8080 ...
+2025/05/16 23:56:36 [INFO] 2025-05-16 23:56:36 - Migrations applied successfully!
+2025/05/17 01:40:13 [INFO] 2025-05-17 01:40:13 - Parsed multipart form
+2025/05/17 01:40:13 [INFO] 2025-05-17 01:40:13 - Form fields parsed successfully
+2025/05/17 01:40:13 [INFO] 2025-05-17 01:40:13 - Form fields parsed
+2025/05/17 01:40:13 [INFO] 2025-05-17 01:40:13 - Checking if email exists: omar@gmail.com
+2025/05/17 01:40:13 [WARNING] 2025-05-17 01:40:13 - Tried to register with existing email: omar@gmail.com
+2025/05/17 01:40:25 [INFO] 2025-05-17 01:40:25 - Parsed multipart form
+2025/05/17 01:40:25 [INFO] 2025-05-17 01:40:25 - Form fields parsed successfully
+2025/05/17 01:40:25 [INFO] 2025-05-17 01:40:25 - Form fields parsed
+2025/05/17 01:40:25 [INFO] 2025-05-17 01:40:25 - Checking if email exists: omaromar123@gmail.com
+2025/05/17 01:40:25 [INFO] 2025-05-17 01:40:25 - Email is unique
+2025/05/17 01:40:25 [INFO] 2025-05-17 01:40:25 - Validating registration input
+2025/05/17 01:40:25 [INFO] 2025-05-17 01:40:25 - Registration input valid
+2025/05/17 01:40:25 [INFO] 2025-05-17 01:40:25 - User input validated
+2025/05/17 01:40:25 [INFO] 2025-05-17 01:40:25 - Hashing password
+2025/05/17 01:40:26 [INFO] 2025-05-17 01:40:26 - Password hashed successfully
+2025/05/17 01:40:26 [INFO] 2025-05-17 01:40:26 - Password hashed
+2025/05/17 01:40:26 [INFO] 2025-05-17 01:40:26 - Starting avatar upload
+2025/05/17 01:40:26 [INFO] 2025-05-17 01:40:26 - No image file provided
+2025/05/17 01:40:26 [INFO] 2025-05-17 01:40:26 - Saving user to database with ID: 7e9b1627-3a34-4076-b2d8-e5a54874c278
+2025/05/17 01:40:26 [INFO] 2025-05-17 01:40:26 - User saved successfully
+2025/05/17 01:40:26 [INFO] 2025-05-17 01:40:26 - User registered with ID: 7e9b1627-3a34-4076-b2d8-e5a54874c278
+2025/05/17 01:40:26 [INFO] 2025-05-17 01:40:26 - Save Token into Sessions
+2025/05/17 01:40:26 [INFO] 2025-05-17 01:40:26 - Login successful for user: 7e9b1627-3a34-4076-b2d8-e5a54874c278
+2025/05/17 01:40:26 [INFO] 2025-05-17 01:40:26 - Success Register
+2025/05/17 02:11:38 [INFO] 2025-05-17 02:11:38 - Starting HTTP server at http://localhost:8080 ...
+2025/05/17 02:11:38 [INFO] 2025-05-17 02:11:38 - Migrations applied successfully!
+2025/05/17 02:28:37 [INFO] 2025-05-17 02:28:37 - Received login request
+2025/05/17 02:28:37 [INFO] 2025-05-17 02:28:37 - Request body parsed successfully
+2025/05/17 02:28:37 [INFO] 2025-05-17 02:28:37 - Email and password fields validated
+2025/05/17 02:28:37 [WARNING] 2025-05-17 02:28:37 - Login attempt with unknown email: omaromar@gmail.com
+2025/05/17 02:28:47 [INFO] 2025-05-17 02:28:47 - Received login request
+2025/05/17 02:28:47 [INFO] 2025-05-17 02:28:47 - Request body parsed successfully
+2025/05/17 02:28:47 [INFO] 2025-05-17 02:28:47 - Email and password fields validated
+2025/05/17 02:28:47 [INFO] 2025-05-17 02:28:47 - User data retrieved from DB for email: omar@gmail.com
+2025/05/17 02:28:47 [INFO] 2025-05-17 02:28:47 - Password validated successfully
+2025/05/17 02:28:47 [INFO] 2025-05-17 02:28:47 - Sending success with token for user: b41ea87d-f35d-4c6e-beac-5bea5591865e
+2025/05/17 02:28:47 [INFO] 2025-05-17 02:28:47 - Save Token into Sessions
+2025/05/17 02:28:47 [INFO] 2025-05-17 02:28:47 - Login successful for user: b41ea87d-f35d-4c6e-beac-5bea5591865e
+2025/05/17 02:31:31 [ERROR] 2025-05-17 02:31:31 - User ID is required
+2025/05/17 02:32:08 [ERROR] 2025-05-17 02:32:08 - User ID is required
+2025/05/17 02:34:43 [INFO] 2025-05-17 02:34:43 - Starting HTTP server at http://localhost:8080 ...
+2025/05/17 02:34:43 [INFO] 2025-05-17 02:34:43 - Migrations applied successfully!
+2025/05/17 02:35:12 [INFO] 2025-05-17 02:35:12 - Starting HTTP server at http://localhost:8080 ...
+2025/05/17 02:35:12 [INFO] 2025-05-17 02:35:12 - Migrations applied successfully!
+2025/05/17 02:36:55 [ERROR] 2025-05-17 02:36:55 - User ID is required
+2025/05/17 02:39:55 [INFO] 2025-05-17 02:39:55 - Starting HTTP server at http://localhost:8080 ...
+2025/05/17 02:39:55 [INFO] 2025-05-17 02:39:55 - Migrations applied successfully!
+2025/05/17 02:40:04 [ERROR] 2025-05-17 02:40:04 - Authorization header is missing in GetToken Handler
+2025/05/17 02:40:04 [ERROR] 2025-05-17 02:40:04 - Token is empty
+2025/05/17 02:40:04 [ERROR] 2025-05-17 02:40:04 - Invalid Token in LikePost Handler: Token is empty
+2025/05/17 02:42:56 [INFO] 2025-05-17 02:42:56 - Starting HTTP server at http://localhost:8080 ...
+2025/05/17 02:42:56 [INFO] 2025-05-17 02:42:56 - Migrations applied successfully!
+2025/05/17 02:43:09 [ERROR] 2025-05-17 02:43:09 - Authorization header is missing in GetToken Handler
+2025/05/17 02:43:09 [ERROR] 2025-05-17 02:43:09 - Token is empty
+2025/05/17 02:43:09 [ERROR] 2025-05-17 02:43:09 - Invalid Token in LikePost Handler: Token is empty
+2025/05/17 02:44:34 [INFO] 2025-05-17 02:44:34 - Starting HTTP server at http://localhost:8080 ...
+2025/05/17 02:44:34 [INFO] 2025-05-17 02:44:34 - Migrations applied successfully!
+2025/05/17 11:58:09 [INFO] 2025-05-17 11:58:09 - Starting HTTP server at http://localhost:8080 ...
+2025/05/17 11:58:09 [INFO] 2025-05-17 11:58:09 - Migrations applied successfully!
+2025/05/17 12:17:32 [INFO] 2025-05-17 12:17:32 - Received login request
+2025/05/17 12:17:32 [INFO] 2025-05-17 12:17:32 - Request body parsed successfully
+2025/05/17 12:17:32 [INFO] 2025-05-17 12:17:32 - Email and password fields validated
+2025/05/17 12:17:32 [INFO] 2025-05-17 12:17:32 - User data retrieved from DB for email: omar@gmail.com
+2025/05/17 12:17:32 [INFO] 2025-05-17 12:17:32 - Password validated successfully
+2025/05/17 12:17:32 [INFO] 2025-05-17 12:17:32 - Sending success with token for user: b41ea87d-f35d-4c6e-beac-5bea5591865e
+2025/05/17 12:17:32 [INFO] 2025-05-17 12:17:32 - Save Token into Sessions
+2025/05/17 12:17:32 [INFO] 2025-05-17 12:17:32 - Login successful for user: b41ea87d-f35d-4c6e-beac-5bea5591865e
+2025/05/17 12:21:27 [INFO] 2025-05-17 12:21:27 - Received login request
+2025/05/17 12:21:27 [INFO] 2025-05-17 12:21:27 - Request body parsed successfully
+2025/05/17 12:21:27 [INFO] 2025-05-17 12:21:27 - Email and password fields validated
+2025/05/17 12:21:27 [INFO] 2025-05-17 12:21:27 - User data retrieved from DB for email: omar@gmail.com
+2025/05/17 12:21:28 [INFO] 2025-05-17 12:21:28 - Password validated successfully
+2025/05/17 12:21:28 [INFO] 2025-05-17 12:21:28 - Sending success with token for user: b41ea87d-f35d-4c6e-beac-5bea5591865e
+2025/05/17 12:21:28 [INFO] 2025-05-17 12:21:28 - Save Token into Sessions
+2025/05/17 12:21:28 [INFO] 2025-05-17 12:21:28 - Login successful for user: b41ea87d-f35d-4c6e-beac-5bea5591865e
+2025/05/17 12:24:02 [INFO] 2025-05-17 12:24:02 - Received login request
+2025/05/17 12:24:02 [INFO] 2025-05-17 12:24:02 - Request body parsed successfully
+2025/05/17 12:24:02 [INFO] 2025-05-17 12:24:02 - Email and password fields validated
+2025/05/17 12:24:02 [INFO] 2025-05-17 12:24:02 - User data retrieved from DB for email: omar@gmail.com
+2025/05/17 12:24:03 [INFO] 2025-05-17 12:24:03 - Password validated successfully
+2025/05/17 12:24:03 [INFO] 2025-05-17 12:24:03 - Sending success with token for user: b41ea87d-f35d-4c6e-beac-5bea5591865e
+2025/05/17 12:24:03 [INFO] 2025-05-17 12:24:03 - Save Token into Sessions
+2025/05/17 12:24:03 [INFO] 2025-05-17 12:24:03 - Login successful for user: b41ea87d-f35d-4c6e-beac-5bea5591865e
+2025/05/17 12:24:11 [INFO] 2025-05-17 12:24:11 - Received login request
+2025/05/17 12:24:11 [INFO] 2025-05-17 12:24:11 - Request body parsed successfully
+2025/05/17 12:24:11 [INFO] 2025-05-17 12:24:11 - Email and password fields validated
+2025/05/17 12:24:11 [INFO] 2025-05-17 12:24:11 - User data retrieved from DB for email: omar@gmail.com
+2025/05/17 12:24:11 [INFO] 2025-05-17 12:24:11 - Password validated successfully
+2025/05/17 12:24:11 [INFO] 2025-05-17 12:24:11 - Sending success with token for user: b41ea87d-f35d-4c6e-beac-5bea5591865e
+2025/05/17 12:24:11 [INFO] 2025-05-17 12:24:11 - Save Token into Sessions
+2025/05/17 12:24:11 [INFO] 2025-05-17 12:24:11 - Login successful for user: b41ea87d-f35d-4c6e-beac-5bea5591865e
+2025/05/17 12:24:37 [INFO] 2025-05-17 12:24:37 - Received login request
+2025/05/17 12:24:37 [INFO] 2025-05-17 12:24:37 - Request body parsed successfully
+2025/05/17 12:24:37 [INFO] 2025-05-17 12:24:37 - Email and password fields validated
+2025/05/17 12:24:37 [INFO] 2025-05-17 12:24:37 - User data retrieved from DB for email: omar@gmail.com
+2025/05/17 12:24:37 [INFO] 2025-05-17 12:24:37 - Password validated successfully
+2025/05/17 12:24:37 [INFO] 2025-05-17 12:24:37 - Sending success with token for user: b41ea87d-f35d-4c6e-beac-5bea5591865e
+2025/05/17 12:24:37 [INFO] 2025-05-17 12:24:37 - Save Token into Sessions
+2025/05/17 12:24:37 [INFO] 2025-05-17 12:24:37 - Login successful for user: b41ea87d-f35d-4c6e-beac-5bea5591865e
+2025/05/17 12:28:46 [ERROR] 2025-05-17 12:28:46 - Authorization header is missing in GetToken Handler
+2025/05/17 12:28:46 [ERROR] 2025-05-17 12:28:46 - Token is empty
+2025/05/17 12:28:46 [ERROR] 2025-05-17 12:28:46 - Invalid Token in LikePost Handler: Token is empty
+2025/05/17 12:28:55 [INFO] 2025-05-17 12:28:55 - Received login request
+2025/05/17 12:28:55 [INFO] 2025-05-17 12:28:55 - Request body parsed successfully
+2025/05/17 12:28:55 [INFO] 2025-05-17 12:28:55 - Email and password fields validated
+2025/05/17 12:28:55 [INFO] 2025-05-17 12:28:55 - User data retrieved from DB for email: omar@gmail.com
+2025/05/17 12:28:55 [INFO] 2025-05-17 12:28:55 - Password validated successfully
+2025/05/17 12:28:55 [INFO] 2025-05-17 12:28:55 - Sending success with token for user: b41ea87d-f35d-4c6e-beac-5bea5591865e
+2025/05/17 12:28:55 [INFO] 2025-05-17 12:28:55 - Save Token into Sessions
+2025/05/17 12:28:55 [INFO] 2025-05-17 12:28:55 - Login successful for user: b41ea87d-f35d-4c6e-beac-5bea5591865e
+2025/05/17 12:28:56 [ERROR] 2025-05-17 12:28:56 - Authorization header is missing in GetToken Handler
+2025/05/17 12:28:56 [ERROR] 2025-05-17 12:28:56 - Token is empty
+2025/05/17 12:28:56 [ERROR] 2025-05-17 12:28:56 - Invalid Token in LikePost Handler: Token is empty
+2025/05/17 12:28:57 [ERROR] 2025-05-17 12:28:57 - Authorization header is missing in GetToken Handler
+2025/05/17 12:28:57 [ERROR] 2025-05-17 12:28:57 - Token is empty
+2025/05/17 12:28:57 [ERROR] 2025-05-17 12:28:57 - Invalid Token in LikePost Handler: Token is empty
+2025/05/17 12:30:16 [INFO] 2025-05-17 12:30:16 - Received login request
+2025/05/17 12:30:16 [INFO] 2025-05-17 12:30:16 - Request body parsed successfully
+2025/05/17 12:30:16 [INFO] 2025-05-17 12:30:16 - Email and password fields validated
+2025/05/17 12:30:16 [INFO] 2025-05-17 12:30:16 - User data retrieved from DB for email: omar@gmail.com
+2025/05/17 12:30:16 [INFO] 2025-05-17 12:30:16 - Password validated successfully
+2025/05/17 12:30:16 [INFO] 2025-05-17 12:30:16 - Sending success with token for user: b41ea87d-f35d-4c6e-beac-5bea5591865e
+2025/05/17 12:30:16 [INFO] 2025-05-17 12:30:16 - Save Token into Sessions
+2025/05/17 12:30:16 [INFO] 2025-05-17 12:30:16 - Login successful for user: b41ea87d-f35d-4c6e-beac-5bea5591865e
+2025/05/17 12:30:18 [ERROR] 2025-05-17 12:30:18 - Authorization header is missing in GetToken Handler
+2025/05/17 12:30:18 [ERROR] 2025-05-17 12:30:18 - Token is empty
+2025/05/17 12:30:18 [ERROR] 2025-05-17 12:30:18 - Invalid Token in LikePost Handler: Token is empty
+2025/05/17 12:30:18 [ERROR] 2025-05-17 12:30:18 - Authorization header is missing in GetToken Handler
+2025/05/17 12:30:18 [ERROR] 2025-05-17 12:30:18 - Token is empty
+2025/05/17 12:30:18 [ERROR] 2025-05-17 12:30:18 - Invalid Token in LikePost Handler: Token is empty
+2025/05/17 12:30:43 [INFO] 2025-05-17 12:30:43 - Received login request
+2025/05/17 12:30:43 [INFO] 2025-05-17 12:30:43 - Request body parsed successfully
+2025/05/17 12:30:43 [INFO] 2025-05-17 12:30:43 - Email and password fields validated
+2025/05/17 12:30:43 [INFO] 2025-05-17 12:30:43 - User data retrieved from DB for email: omar@gmail.com
+2025/05/17 12:30:43 [INFO] 2025-05-17 12:30:43 - Password validated successfully
+2025/05/17 12:30:43 [INFO] 2025-05-17 12:30:43 - Sending success with token for user: b41ea87d-f35d-4c6e-beac-5bea5591865e
+2025/05/17 12:30:43 [INFO] 2025-05-17 12:30:43 - Save Token into Sessions
+2025/05/17 12:30:43 [INFO] 2025-05-17 12:30:43 - Login successful for user: b41ea87d-f35d-4c6e-beac-5bea5591865e
+2025/05/17 12:30:45 [ERROR] 2025-05-17 12:30:45 - Authorization header is missing in GetToken Handler
+2025/05/17 12:30:45 [ERROR] 2025-05-17 12:30:45 - Token is empty
+2025/05/17 12:30:45 [ERROR] 2025-05-17 12:30:45 - Invalid Token in LikePost Handler: Token is empty
+2025/05/17 12:30:45 [ERROR] 2025-05-17 12:30:45 - Authorization header is missing in GetToken Handler
+2025/05/17 12:30:45 [ERROR] 2025-05-17 12:30:45 - Token is empty
+2025/05/17 12:30:45 [ERROR] 2025-05-17 12:30:45 - Invalid Token in LikePost Handler: Token is empty
+2025/05/17 12:31:41 [INFO] 2025-05-17 12:31:41 - Received login request
+2025/05/17 12:31:41 [INFO] 2025-05-17 12:31:41 - Request body parsed successfully
+2025/05/17 12:31:41 [INFO] 2025-05-17 12:31:41 - Email and password fields validated
+2025/05/17 12:31:41 [INFO] 2025-05-17 12:31:41 - User data retrieved from DB for email: omar@gmail.com
+2025/05/17 12:31:41 [INFO] 2025-05-17 12:31:41 - Password validated successfully
+2025/05/17 12:31:41 [INFO] 2025-05-17 12:31:41 - Sending success with token for user: b41ea87d-f35d-4c6e-beac-5bea5591865e
+2025/05/17 12:31:41 [INFO] 2025-05-17 12:31:41 - Save Token into Sessions
+2025/05/17 12:31:41 [INFO] 2025-05-17 12:31:41 - Login successful for user: b41ea87d-f35d-4c6e-beac-5bea5591865e
+2025/05/17 12:31:43 [ERROR] 2025-05-17 12:31:43 - Authorization header is missing in GetToken Handler
+2025/05/17 12:31:43 [ERROR] 2025-05-17 12:31:43 - Token is empty
+2025/05/17 12:31:43 [ERROR] 2025-05-17 12:31:43 - Invalid Token in LikePost Handler: Token is empty
+2025/05/17 12:31:43 [ERROR] 2025-05-17 12:31:43 - Authorization header is missing in GetToken Handler
+2025/05/17 12:31:43 [ERROR] 2025-05-17 12:31:43 - Token is empty
+2025/05/17 12:31:43 [ERROR] 2025-05-17 12:31:43 - Invalid Token in LikePost Handler: Token is empty
+2025/05/17 12:33:27 [INFO] 2025-05-17 12:33:27 - Starting HTTP server at http://localhost:8080 ...
+2025/05/17 12:33:27 [INFO] 2025-05-17 12:33:27 - Migrations applied successfully!
+2025/05/17 12:33:41 [ERROR] 2025-05-17 12:33:41 - Authorization header is missing in GetToken Handler
+2025/05/17 12:33:41 [ERROR] 2025-05-17 12:33:41 - Token is empty
+2025/05/17 12:33:41 [ERROR] 2025-05-17 12:33:41 - Invalid Token in LikePost Handler: Token is empty
+2025/05/17 12:37:02 [ERROR] 2025-05-17 12:37:02 - Authorization header is missing in GetToken Handler
+2025/05/17 12:37:02 [ERROR] 2025-05-17 12:37:02 - Token is empty
+2025/05/17 12:37:02 [ERROR] 2025-05-17 12:37:02 - Invalid Token in LikePost Handler: Token is empty
+2025/05/17 12:37:02 [ERROR] 2025-05-17 12:37:02 - Authorization header is missing in GetToken Handler
+2025/05/17 12:37:02 [ERROR] 2025-05-17 12:37:02 - Token is empty
+2025/05/17 12:37:02 [ERROR] 2025-05-17 12:37:02 - Invalid Token in LikePost Handler: Token is empty
+2025/05/17 12:43:10 [ERROR] 2025-05-17 12:43:10 - Authorization header is missing in GetToken Handler
+2025/05/17 12:43:10 [ERROR] 2025-05-17 12:43:10 - Token is empty
+2025/05/17 12:43:10 [ERROR] 2025-05-17 12:43:10 - Invalid Token in LikePost Handler: Token is empty
+2025/05/17 12:43:10 [ERROR] 2025-05-17 12:43:10 - Authorization header is missing in GetToken Handler
+2025/05/17 12:43:10 [ERROR] 2025-05-17 12:43:10 - Token is empty
+2025/05/17 12:43:10 [ERROR] 2025-05-17 12:43:10 - Invalid Token in LikePost Handler: Token is empty
+2025/05/17 12:45:15 [ERROR] 2025-05-17 12:45:15 - Authorization header is missing in GetToken Handler
+2025/05/17 12:45:15 [ERROR] 2025-05-17 12:45:15 - Token is empty
+2025/05/17 12:45:15 [ERROR] 2025-05-17 12:45:15 - Invalid Token in LikePost Handler: Token is empty
+2025/05/17 12:48:05 [ERROR] 2025-05-17 12:48:05 - Authorization header is missing in GetToken Handler
+2025/05/17 12:48:05 [ERROR] 2025-05-17 12:48:05 - Token is empty
+2025/05/17 12:48:05 [ERROR] 2025-05-17 12:48:05 - Invalid Token in LikePost Handler: Token is empty
+2025/05/17 12:49:06 [ERROR] 2025-05-17 12:49:06 - Authorization header is missing in GetToken Handler
+2025/05/17 12:49:06 [ERROR] 2025-05-17 12:49:06 - Token is empty
+2025/05/17 12:49:06 [ERROR] 2025-05-17 12:49:06 - Invalid Token in LikePost Handler: Token is empty
+2025/05/17 12:49:23 [ERROR] 2025-05-17 12:49:23 - Authorization header is missing in GetToken Handler
+2025/05/17 12:49:23 [ERROR] 2025-05-17 12:49:23 - Token is empty
+2025/05/17 12:49:23 [ERROR] 2025-05-17 12:49:23 - Invalid Token in LikePost Handler: Token is empty
+2025/05/17 12:50:18 [INFO] 2025-05-17 12:50:18 - Starting HTTP server at http://localhost:8080 ...
+2025/05/17 12:50:18 [INFO] 2025-05-17 12:50:18 - Migrations applied successfully!
+2025/05/17 12:50:29 [INFO] 2025-05-17 12:50:29 - Received login request
+2025/05/17 12:50:29 [INFO] 2025-05-17 12:50:29 - Request body parsed successfully
+2025/05/17 12:50:29 [INFO] 2025-05-17 12:50:29 - Email and password fields validated
+2025/05/17 12:50:29 [INFO] 2025-05-17 12:50:29 - User data retrieved from DB for email: omar@gmail.com
+2025/05/17 12:50:29 [INFO] 2025-05-17 12:50:29 - Password validated successfully
+2025/05/17 12:50:29 [INFO] 2025-05-17 12:50:29 - Sending success with token for user: b41ea87d-f35d-4c6e-beac-5bea5591865e
+2025/05/17 12:50:29 [INFO] 2025-05-17 12:50:29 - Save Token into Sessions
+2025/05/17 12:50:29 [INFO] 2025-05-17 12:50:29 - Login successful for user: b41ea87d-f35d-4c6e-beac-5bea5591865e
+2025/05/17 13:14:53 [ERROR] 2025-05-17 13:14:53 - Authorization header is missing in GetToken Handler
+2025/05/17 13:14:53 [ERROR] 2025-05-17 13:14:53 - Token is empty
+2025/05/17 13:14:53 [ERROR] 2025-05-17 13:14:53 - Invalid Token in LikePost Handler: Token is empty
+2025/05/17 13:14:53 [ERROR] 2025-05-17 13:14:53 - Authorization header is missing in GetToken Handler
+2025/05/17 13:14:53 [ERROR] 2025-05-17 13:14:53 - Token is empty
+2025/05/17 13:14:53 [ERROR] 2025-05-17 13:14:53 - Invalid Token in LikePost Handler: Token is empty
+2025/05/17 13:16:36 [INFO] 2025-05-17 13:16:36 - Received login request
+2025/05/17 13:16:36 [INFO] 2025-05-17 13:16:36 - Request body parsed successfully
+2025/05/17 13:16:36 [INFO] 2025-05-17 13:16:36 - Email and password fields validated
+2025/05/17 13:16:36 [INFO] 2025-05-17 13:16:36 - User data retrieved from DB for email: omar@gmail.com
+2025/05/17 13:16:36 [INFO] 2025-05-17 13:16:36 - Password validated successfully
+2025/05/17 13:16:36 [INFO] 2025-05-17 13:16:36 - Sending success with token for user: b41ea87d-f35d-4c6e-beac-5bea5591865e
+2025/05/17 13:16:36 [INFO] 2025-05-17 13:16:36 - Save Token into Sessions
+2025/05/17 13:16:36 [INFO] 2025-05-17 13:16:36 - Login successful for user: b41ea87d-f35d-4c6e-beac-5bea5591865e
+2025/05/17 16:58:39 [INFO] 2025-05-17 16:58:39 - Starting HTTP server at http://localhost:8080 ...
+2025/05/17 16:58:39 [INFO] 2025-05-17 16:58:39 - Migrations applied successfully!
+2025/05/17 17:11:40 [INFO] 2025-05-17 17:11:40 - Starting HTTP server at http://localhost:8080 ...
+2025/05/17 17:11:40 [INFO] 2025-05-17 17:11:40 - Migrations applied successfully!
+2025/05/17 17:12:36 [INFO] 2025-05-17 17:12:36 - Starting HTTP server at http://localhost:8080 ...
+2025/05/17 17:12:36 [INFO] 2025-05-17 17:12:36 - Migrations applied successfully!
+2025/05/17 17:13:58 [INFO] 2025-05-17 17:13:58 - Received login request
+2025/05/17 17:13:58 [INFO] 2025-05-17 17:13:58 - Request body parsed successfully
+2025/05/17 17:13:58 [INFO] 2025-05-17 17:13:58 - Email and password fields validated
+2025/05/17 17:13:58 [INFO] 2025-05-17 17:13:58 - User data retrieved from DB for email: omar@gmail.com
+2025/05/17 17:13:58 [INFO] 2025-05-17 17:13:58 - Password validated successfully
+2025/05/17 17:13:58 [INFO] 2025-05-17 17:13:58 - Sending success with token for user: b41ea87d-f35d-4c6e-beac-5bea5591865e
+2025/05/17 17:13:58 [INFO] 2025-05-17 17:13:58 - Save Token into Sessions
+2025/05/17 17:13:58 [INFO] 2025-05-17 17:13:58 - Login successful for user: b41ea87d-f35d-4c6e-beac-5bea5591865e
+2025/05/17 17:22:31 [INFO] 2025-05-17 17:22:31 - Starting HTTP server at http://localhost:8080 ...
+2025/05/17 17:22:31 [INFO] 2025-05-17 17:22:31 - Migrations applied successfully!
+2025/05/17 17:42:14 [INFO] 2025-05-17 17:42:14 - Starting HTTP server at http://localhost:8080 ...
+2025/05/17 17:42:14 [INFO] 2025-05-17 17:42:14 - Migrations applied successfully!
+2025/05/17 17:42:45 [INFO] 2025-05-17 17:42:45 - Starting HTTP server at http://localhost:8080 ...
+2025/05/17 17:42:45 [INFO] 2025-05-17 17:42:45 - Migrations applied successfully!
+2025/05/17 17:44:10 [INFO] 2025-05-17 17:44:10 - Starting HTTP server at http://localhost:8080 ...
+2025/05/17 17:44:10 [INFO] 2025-05-17 17:44:10 - Migrations applied successfully!
+2025/05/17 17:44:52 [INFO] 2025-05-17 17:44:52 - Starting HTTP server at http://localhost:8080 ...
+2025/05/17 17:44:52 [INFO] 2025-05-17 17:44:52 - Migrations applied successfully!
+2025/05/17 20:07:12 [INFO] 2025-05-17 20:07:12 - Starting HTTP server at http://localhost:8080 ...
+2025/05/17 20:07:12 [INFO] 2025-05-17 20:07:12 - Migrations applied successfully!
+2025/05/17 20:08:20 [INFO] 2025-05-17 20:08:20 - Received login request
+2025/05/17 20:08:20 [INFO] 2025-05-17 20:08:20 - Request body parsed successfully
+2025/05/17 20:08:20 [INFO] 2025-05-17 20:08:20 - Email and password fields validated
+2025/05/17 20:08:20 [INFO] 2025-05-17 20:08:20 - User data retrieved from DB for email: omar@gmail.com
+2025/05/17 20:08:21 [INFO] 2025-05-17 20:08:21 - Password validated successfully
+2025/05/17 20:08:21 [INFO] 2025-05-17 20:08:21 - Sending success with token for user: b41ea87d-f35d-4c6e-beac-5bea5591865e
+2025/05/17 20:08:21 [INFO] 2025-05-17 20:08:21 - Save Token into Sessions
+2025/05/17 20:08:21 [INFO] 2025-05-17 20:08:21 - Login successful for user: b41ea87d-f35d-4c6e-beac-5bea5591865e
+2025/05/17 21:48:22 [INFO] 2025-05-17 21:48:22 - Starting HTTP server at http://localhost:8080 ...
+2025/05/17 21:48:22 [INFO] 2025-05-17 21:48:22 - Migrations applied successfully!
+2025/05/17 22:15:21 [INFO] 2025-05-17 22:15:21 - Starting HTTP server at http://localhost:8080 ...
+2025/05/17 22:15:21 [INFO] 2025-05-17 22:15:21 - Migrations applied successfully!
+2025/05/17 22:40:56 [INFO] 2025-05-17 22:40:56 - Starting HTTP server at http://localhost:8080 ...
+2025/05/17 22:40:56 [INFO] 2025-05-17 22:40:56 - Migrations applied successfully!
+2025/05/18 13:23:22 [INFO] 2025-05-18 13:23:22 - Starting HTTP server at http://localhost:8080 ...
+2025/05/18 13:23:22 [INFO] 2025-05-18 13:23:22 - Migrations applied successfully!
+2025/05/18 13:24:15 [INFO] 2025-05-18 13:24:15 - Received login request
+2025/05/18 13:24:15 [INFO] 2025-05-18 13:24:15 - Request body parsed successfully
+2025/05/18 13:24:15 [INFO] 2025-05-18 13:24:15 - Email and password fields validated
+2025/05/18 13:24:15 [INFO] 2025-05-18 13:24:15 - User data retrieved from DB for email: omar@gmail.com
+2025/05/18 13:24:16 [INFO] 2025-05-18 13:24:16 - Password validated successfully
+2025/05/18 13:24:16 [INFO] 2025-05-18 13:24:16 - Sending success with token for user: b41ea87d-f35d-4c6e-beac-5bea5591865e
+2025/05/18 13:24:16 [INFO] 2025-05-18 13:24:16 - Save Token into Sessions
+2025/05/18 13:24:16 [INFO] 2025-05-18 13:24:16 - Login successful for user: b41ea87d-f35d-4c6e-beac-5bea5591865e
+2025/05/18 13:54:58 [INFO] 2025-05-18 13:54:58 - Received login request
+2025/05/18 13:54:58 [INFO] 2025-05-18 13:54:58 - Request body parsed successfully
+2025/05/18 13:54:58 [INFO] 2025-05-18 13:54:58 - Email and password fields validated
+2025/05/18 13:54:58 [INFO] 2025-05-18 13:54:58 - User data retrieved from DB for email: omar@gmail.com
+2025/05/18 13:54:58 [INFO] 2025-05-18 13:54:58 - Password validated successfully
+2025/05/18 13:54:58 [INFO] 2025-05-18 13:54:58 - Sending success with token for user: b41ea87d-f35d-4c6e-beac-5bea5591865e
+2025/05/18 13:54:58 [INFO] 2025-05-18 13:54:58 - Save Token into Sessions
+2025/05/18 13:54:58 [INFO] 2025-05-18 13:54:58 - Login successful for user: b41ea87d-f35d-4c6e-beac-5bea5591865e
+2025/05/18 13:57:26 [INFO] 2025-05-18 13:57:26 - Received login request
+2025/05/18 13:57:26 [INFO] 2025-05-18 13:57:26 - Request body parsed successfully
+2025/05/18 13:57:26 [INFO] 2025-05-18 13:57:26 - Email and password fields validated
+2025/05/18 13:57:26 [INFO] 2025-05-18 13:57:26 - User data retrieved from DB for email: omar@gmail.com
+2025/05/18 13:57:26 [INFO] 2025-05-18 13:57:26 - Password validated successfully
+2025/05/18 13:57:26 [INFO] 2025-05-18 13:57:26 - Sending success with token for user: b41ea87d-f35d-4c6e-beac-5bea5591865e
+2025/05/18 13:57:26 [INFO] 2025-05-18 13:57:26 - Save Token into Sessions
+2025/05/18 13:57:26 [INFO] 2025-05-18 13:57:26 - Login successful for user: b41ea87d-f35d-4c6e-beac-5bea5591865e
+2025/05/18 13:58:44 [INFO] 2025-05-18 13:58:44 - Received login request
+2025/05/18 13:58:44 [INFO] 2025-05-18 13:58:44 - Request body parsed successfully
+2025/05/18 13:58:44 [INFO] 2025-05-18 13:58:44 - Email and password fields validated
+2025/05/18 13:58:44 [INFO] 2025-05-18 13:58:44 - User data retrieved from DB for email: omar@gmail.com
+2025/05/18 13:58:45 [INFO] 2025-05-18 13:58:45 - Password validated successfully
+2025/05/18 13:58:45 [INFO] 2025-05-18 13:58:45 - Sending success with token for user: b41ea87d-f35d-4c6e-beac-5bea5591865e
+2025/05/18 13:58:45 [INFO] 2025-05-18 13:58:45 - Save Token into Sessions
+2025/05/18 13:58:45 [INFO] 2025-05-18 13:58:45 - Login successful for user: b41ea87d-f35d-4c6e-beac-5bea5591865e
+2025/05/18 14:02:19 [INFO] 2025-05-18 14:02:19 - Received login request
+2025/05/18 14:02:19 [ERROR] 2025-05-18 14:02:19 - Failed to parse login form: EOF
+2025/05/18 14:05:57 [INFO] 2025-05-18 14:05:57 - Received login request
+2025/05/18 14:05:57 [ERROR] 2025-05-18 14:05:57 - Failed to parse login form: invalid character '-' in numeric literal
+2025/05/18 14:06:19 [INFO] 2025-05-18 14:06:19 - Received login request
+2025/05/18 14:06:19 [ERROR] 2025-05-18 14:06:19 - Failed to parse login form: invalid character '-' in numeric literal
+2025/05/18 14:08:40 [INFO] 2025-05-18 14:08:40 - Received login request
+2025/05/18 14:08:40 [INFO] 2025-05-18 14:08:40 - Request body parsed successfully
+2025/05/18 14:08:40 [INFO] 2025-05-18 14:08:40 - Email and password fields validated
+2025/05/18 14:08:40 [INFO] 2025-05-18 14:08:40 - User data retrieved from DB for email: omar@gmail.com
+2025/05/18 14:08:40 [INFO] 2025-05-18 14:08:40 - Password validated successfully
+2025/05/18 14:08:40 [INFO] 2025-05-18 14:08:40 - Sending success with token for user: b41ea87d-f35d-4c6e-beac-5bea5591865e
+2025/05/18 14:08:40 [INFO] 2025-05-18 14:08:40 - Save Token into Sessions
+2025/05/18 14:08:40 [INFO] 2025-05-18 14:08:40 - Login successful for user: b41ea87d-f35d-4c6e-beac-5bea5591865e
+2025/05/18 14:14:17 [ERROR] 2025-05-18 14:14:17 - Error executing query: sql: no rows in result set
+2025/05/18 14:15:09 [ERROR] 2025-05-18 14:15:09 - Error executing query: sql: no rows in result set
+2025/05/18 14:16:11 [INFO] 2025-05-18 14:16:11 - Received login request
+2025/05/18 14:16:11 [INFO] 2025-05-18 14:16:11 - Request body parsed successfully
+2025/05/18 14:16:11 [INFO] 2025-05-18 14:16:11 - Email and password fields validated
+2025/05/18 14:16:11 [INFO] 2025-05-18 14:16:11 - User data retrieved from DB for email: omar@gmail.com
+2025/05/18 14:16:11 [INFO] 2025-05-18 14:16:11 - Password validated successfully
+2025/05/18 14:16:11 [INFO] 2025-05-18 14:16:11 - Sending success with token for user: b41ea87d-f35d-4c6e-beac-5bea5591865e
+2025/05/18 14:16:11 [INFO] 2025-05-18 14:16:11 - Save Token into Sessions
+2025/05/18 14:16:11 [INFO] 2025-05-18 14:16:11 - Login successful for user: b41ea87d-f35d-4c6e-beac-5bea5591865e
+2025/05/18 14:41:21 [INFO] 2025-05-18 14:41:21 - Received login request
+2025/05/18 14:41:21 [INFO] 2025-05-18 14:41:21 - Request body parsed successfully
+2025/05/18 14:41:21 [INFO] 2025-05-18 14:41:21 - Email and password fields validated
+2025/05/18 14:41:21 [INFO] 2025-05-18 14:41:21 - User data retrieved from DB for email: omar@gmail.com
+2025/05/18 14:41:21 [INFO] 2025-05-18 14:41:21 - Password validated successfully
+2025/05/18 14:41:21 [INFO] 2025-05-18 14:41:21 - Sending success with token for user: b41ea87d-f35d-4c6e-beac-5bea5591865e
+2025/05/18 14:41:21 [INFO] 2025-05-18 14:41:21 - Save Token into Sessions
+2025/05/18 14:41:21 [INFO] 2025-05-18 14:41:21 - Login successful for user: b41ea87d-f35d-4c6e-beac-5bea5591865e
+2025/05/18 14:42:19 [INFO] 2025-05-18 14:42:19 - Starting HTTP server at http://localhost:8080 ...
+2025/05/18 14:42:19 [INFO] 2025-05-18 14:42:19 - Migrations applied successfully!
+2025/05/18 14:42:40 [INFO] 2025-05-18 14:42:40 - Received login request
+2025/05/18 14:42:40 [INFO] 2025-05-18 14:42:40 - Request body parsed successfully
+2025/05/18 14:42:40 [INFO] 2025-05-18 14:42:40 - Email and password fields validated
+2025/05/18 14:42:40 [INFO] 2025-05-18 14:42:40 - User data retrieved from DB for email: omar@gmail.com
+2025/05/18 14:42:40 [INFO] 2025-05-18 14:42:40 - Password validated successfully
+2025/05/18 14:42:40 [INFO] 2025-05-18 14:42:40 - Sending success with token for user: b41ea87d-f35d-4c6e-beac-5bea5591865e
+2025/05/18 14:42:40 [INFO] 2025-05-18 14:42:40 - Save Token into Sessions
+2025/05/18 14:42:40 [INFO] 2025-05-18 14:42:40 - Login successful for user: b41ea87d-f35d-4c6e-beac-5bea5591865e
+2025/05/18 14:43:04 [INFO] 2025-05-18 14:43:04 - Starting HTTP server at http://localhost:8080 ...
+2025/05/18 14:43:04 [INFO] 2025-05-18 14:43:04 - Migrations applied successfully!
+2025/05/18 21:23:30 [INFO] 2025-05-18 21:23:30 - Starting HTTP server at http://localhost:8080 ...
+2025/05/18 21:23:30 [INFO] 2025-05-18 21:23:30 - Migrations applied successfully!
+2025/05/18 21:23:43 [ERROR] 2025-05-18 21:23:43 - Token cookie is missing in GetToken
+2025/05/18 21:23:49 [INFO] 2025-05-18 21:23:49 - Received login request
+2025/05/18 21:23:49 [INFO] 2025-05-18 21:23:49 - Request body parsed successfully
+2025/05/18 21:23:49 [INFO] 2025-05-18 21:23:49 - Email and password fields validated
+2025/05/18 21:23:49 [INFO] 2025-05-18 21:23:49 - User data retrieved from DB for email: omar@gmail.com
+2025/05/18 21:23:49 [INFO] 2025-05-18 21:23:49 - Password validated successfully
+2025/05/18 21:23:49 [INFO] 2025-05-18 21:23:49 - Sending success with token for user: b41ea87d-f35d-4c6e-beac-5bea5591865e
+2025/05/18 21:23:49 [INFO] 2025-05-18 21:23:49 - Save Token into Sessions
+2025/05/18 21:23:49 [INFO] 2025-05-18 21:23:49 - Login successful for user: b41ea87d-f35d-4c6e-beac-5bea5591865e
+2025/05/18 21:24:59 [ERROR] 2025-05-18 21:24:59 - Token cookie is missing in GetToken
+2025/05/18 21:30:14 [INFO] 2025-05-18 21:30:14 - Starting HTTP server at http://localhost:8080 ...
+2025/05/18 21:30:14 [INFO] 2025-05-18 21:30:14 - Migrations applied successfully!
+2025/05/18 21:30:16 [INFO] 2025-05-18 21:30:16 - Received login request
+2025/05/18 21:30:16 [INFO] 2025-05-18 21:30:16 - Request body parsed successfully
+2025/05/18 21:30:16 [INFO] 2025-05-18 21:30:16 - Email and password fields validated
+2025/05/18 21:30:16 [INFO] 2025-05-18 21:30:16 - User data retrieved from DB for email: omar@gmail.com
+2025/05/18 21:30:16 [INFO] 2025-05-18 21:30:16 - Password validated successfully
+2025/05/18 21:30:16 [INFO] 2025-05-18 21:30:16 - Sending success with token for user: b41ea87d-f35d-4c6e-beac-5bea5591865e
+2025/05/18 21:30:16 [INFO] 2025-05-18 21:30:16 - Save Token into Sessions
+2025/05/18 21:30:16 [INFO] 2025-05-18 21:30:16 - Login successful for user: b41ea87d-f35d-4c6e-beac-5bea5591865e
+2025/05/18 21:43:46 [INFO] 2025-05-18 21:43:46 - Received login request
+2025/05/18 21:43:46 [INFO] 2025-05-18 21:43:46 - Request body parsed successfully
+2025/05/18 21:43:46 [INFO] 2025-05-18 21:43:46 - Email and password fields validated
+2025/05/18 21:43:46 [INFO] 2025-05-18 21:43:46 - User data retrieved from DB for email: omar@gmail.com
+2025/05/18 21:43:46 [INFO] 2025-05-18 21:43:46 - Password validated successfully
+2025/05/18 21:43:46 [INFO] 2025-05-18 21:43:46 - Sending success with token for user: b41ea87d-f35d-4c6e-beac-5bea5591865e
+2025/05/18 21:43:46 [INFO] 2025-05-18 21:43:46 - Save Token into Sessions
+2025/05/18 21:43:46 [INFO] 2025-05-18 21:43:46 - Login successful for user: b41ea87d-f35d-4c6e-beac-5bea5591865e
+2025/05/18 23:24:07 [INFO] 2025-05-18 23:24:07 - Received login request
+2025/05/18 23:24:07 [INFO] 2025-05-18 23:24:07 - Request body parsed successfully
+2025/05/18 23:24:07 [INFO] 2025-05-18 23:24:07 - Email and password fields validated
+2025/05/18 23:24:07 [INFO] 2025-05-18 23:24:07 - User data retrieved from DB for email: omar@gmail.com
+2025/05/18 23:24:07 [INFO] 2025-05-18 23:24:07 - Password validated successfully
+2025/05/18 23:24:07 [INFO] 2025-05-18 23:24:07 - Sending success with token for user: b41ea87d-f35d-4c6e-beac-5bea5591865e
+2025/05/18 23:24:07 [INFO] 2025-05-18 23:24:07 - Save Token into Sessions
+2025/05/18 23:24:07 [INFO] 2025-05-18 23:24:07 - Login successful for user: b41ea87d-f35d-4c6e-beac-5bea5591865e
+2025/05/18 23:43:59 [INFO] 2025-05-18 23:43:59 - Received login request
+2025/05/18 23:43:59 [INFO] 2025-05-18 23:43:59 - Request body parsed successfully
+2025/05/18 23:43:59 [INFO] 2025-05-18 23:43:59 - Email and password fields validated
+2025/05/18 23:43:59 [INFO] 2025-05-18 23:43:59 - User data retrieved from DB for email: omar@gmail.com
+2025/05/18 23:43:59 [INFO] 2025-05-18 23:43:59 - Password validated successfully
+2025/05/18 23:43:59 [INFO] 2025-05-18 23:43:59 - Sending success with token for user: b41ea87d-f35d-4c6e-beac-5bea5591865e
+2025/05/18 23:43:59 [INFO] 2025-05-18 23:43:59 - Save Token into Sessions
+2025/05/18 23:43:59 [INFO] 2025-05-18 23:43:59 - Login successful for user: b41ea87d-f35d-4c6e-beac-5bea5591865e
+2025/05/19 00:05:34 [INFO] 2025-05-19 00:05:34 - Starting HTTP server at http://localhost:8080 ...
+2025/05/19 00:05:34 [INFO] 2025-05-19 00:05:34 - Migrations applied successfully!
+2025/05/19 00:06:26 [ERROR] 2025-05-19 00:06:26 - Token cookie is missing in GetToken
+2025/05/19 00:06:38 [ERROR] 2025-05-19 00:06:38 - Token cookie is missing in GetToken
+2025/05/19 00:06:41 [INFO] 2025-05-19 00:06:41 - Received login request
+2025/05/19 00:06:41 [INFO] 2025-05-19 00:06:41 - Request body parsed successfully
+2025/05/19 00:06:41 [INFO] 2025-05-19 00:06:41 - Email and password fields validated
+2025/05/19 00:06:41 [INFO] 2025-05-19 00:06:41 - User data retrieved from DB for email: omar@gmail.com
+2025/05/19 00:06:41 [INFO] 2025-05-19 00:06:41 - Password validated successfully
+2025/05/19 00:06:41 [INFO] 2025-05-19 00:06:41 - Sending success with token for user: b41ea87d-f35d-4c6e-beac-5bea5591865e
+2025/05/19 00:06:41 [INFO] 2025-05-19 00:06:41 - Save Token into Sessions
+2025/05/19 00:06:41 [INFO] 2025-05-19 00:06:41 - Login successful for user: b41ea87d-f35d-4c6e-beac-5bea5591865e
+2025/05/19 00:26:38 [INFO] 2025-05-19 00:26:38 - Starting HTTP server at http://localhost:8080 ...
+2025/05/19 00:26:38 [INFO] 2025-05-19 00:26:38 - Migrations applied successfully!
+2025/05/19 00:26:47 [ERROR] 2025-05-19 00:26:47 - Error fetching posts: no such table: post_likes
+2025/05/19 00:26:47 [ERROR] 2025-05-19 00:26:47 - Error fetching followers: no such column: f.following_id
+2025/05/19 00:26:47 [ERROR] 2025-05-19 00:26:47 - Error fetching following: no such column: f.following_id
+2025/05/19 00:27:03 [INFO] 2025-05-19 00:27:03 - Starting HTTP server at http://localhost:8080 ...
+2025/05/19 00:27:03 [INFO] 2025-05-19 00:27:03 - Migrations applied successfully!
+2025/05/19 12:37:58 [INFO] 2025-05-19 12:37:58 - Starting HTTP server at http://localhost:8080 ...
+2025/05/19 12:37:58 [INFO] 2025-05-19 12:37:58 - Migrations applied successfully!
+2025/05/19 12:38:03 [ERROR] 2025-05-19 12:38:03 - Token cookie is missing in GetToken
+2025/05/19 12:39:19 [ERROR] 2025-05-19 12:39:19 - Token cookie is missing in GetToken
+2025/05/19 12:39:22 [INFO] 2025-05-19 12:39:22 - Received login request
+2025/05/19 12:39:22 [INFO] 2025-05-19 12:39:22 - Request body parsed successfully
+2025/05/19 12:39:22 [INFO] 2025-05-19 12:39:22 - Email and password fields validated
+2025/05/19 12:39:22 [INFO] 2025-05-19 12:39:22 - User data retrieved from DB for email: omar@gmail.com
+2025/05/19 12:39:22 [INFO] 2025-05-19 12:39:22 - Password validated successfully
+2025/05/19 12:39:22 [INFO] 2025-05-19 12:39:22 - Sending success with token for user: b41ea87d-f35d-4c6e-beac-5bea5591865e
+2025/05/19 12:39:22 [INFO] 2025-05-19 12:39:22 - Save Token into Sessions
+2025/05/19 12:39:22 [INFO] 2025-05-19 12:39:22 - Login successful for user: b41ea87d-f35d-4c6e-beac-5bea5591865e
+2025/05/19 15:12:56 [INFO] 2025-05-19 15:12:56 - Starting HTTP server at http://localhost:8080 ...
+2025/05/19 15:12:56 [INFO] 2025-05-19 15:12:56 - Migrations applied successfully!
+2025/05/19 15:15:18 [ERROR] 2025-05-19 15:15:18 - Token cookie is missing in GetToken
+2025/05/19 15:15:18 [ERROR] 2025-05-19 15:15:18 - Token is empty
+2025/05/19 15:20:42 [INFO] 2025-05-19 15:20:42 - Starting HTTP server at http://localhost:8080 ...
+2025/05/19 15:20:42 [INFO] 2025-05-19 15:20:42 - Migrations applied successfully!
+2025/05/19 15:21:40 [INFO] 2025-05-19 15:21:40 - Starting HTTP server at http://localhost:8080 ...
+2025/05/19 15:21:40 [INFO] 2025-05-19 15:21:40 - Migrations applied successfully!
+2025/05/19 15:23:39 [INFO] 2025-05-19 15:23:39 - Starting HTTP server at http://localhost:8080 ...
+2025/05/19 15:23:39 [INFO] 2025-05-19 15:23:39 - Migrations applied successfully!
+2025/05/19 15:34:10 [INFO] 2025-05-19 15:34:10 - Received login request
+2025/05/19 15:34:10 [INFO] 2025-05-19 15:34:10 - Request body parsed successfully
+2025/05/19 15:34:10 [INFO] 2025-05-19 15:34:10 - Email and password fields validated
+2025/05/19 15:34:10 [INFO] 2025-05-19 15:34:10 - User data retrieved from DB for email: omar@gmail.com
+2025/05/19 15:34:10 [INFO] 2025-05-19 15:34:10 - Password validated successfully
+2025/05/19 15:34:10 [INFO] 2025-05-19 15:34:10 - Sending success with token for user: b41ea87d-f35d-4c6e-beac-5bea5591865e
+2025/05/19 15:34:10 [INFO] 2025-05-19 15:34:10 - Save Token into Sessions
+2025/05/19 15:34:10 [INFO] 2025-05-19 15:34:10 - Login successful for user: b41ea87d-f35d-4c6e-beac-5bea5591865e
+2025/05/19 15:39:34 [INFO] 2025-05-19 15:39:34 - Starting HTTP server at http://localhost:8080 ...
+2025/05/19 15:39:34 [INFO] 2025-05-19 15:39:34 - Migrations applied successfully!
+2025/05/19 15:39:39 [ERROR] 2025-05-19 15:39:39 - Error executing query: sql: no rows in result set
+2025/05/19 15:40:16 [ERROR] 2025-05-19 15:40:16 - Error executing query: sql: no rows in result set
+2025/05/19 15:43:44 [ERROR] 2025-05-19 15:43:44 - Error executing query: sql: no rows in result set
+2025/05/19 15:45:26 [INFO] 2025-05-19 15:45:26 - Received login request
+2025/05/19 15:45:26 [INFO] 2025-05-19 15:45:26 - Request body parsed successfully
+2025/05/19 15:45:26 [INFO] 2025-05-19 15:45:26 - Email and password fields validated
+2025/05/19 15:45:26 [INFO] 2025-05-19 15:45:26 - User data retrieved from DB for email: omar@gmail.com
+2025/05/19 15:45:26 [INFO] 2025-05-19 15:45:26 - Password validated successfully
+2025/05/19 15:45:26 [INFO] 2025-05-19 15:45:26 - Sending success with token for user: b41ea87d-f35d-4c6e-beac-5bea5591865e
+2025/05/19 15:45:26 [INFO] 2025-05-19 15:45:26 - Save Token into Sessions
+2025/05/19 15:45:26 [INFO] 2025-05-19 15:45:26 - Login successful for user: b41ea87d-f35d-4c6e-beac-5bea5591865e
+2025/05/19 15:47:04 [ERROR] 2025-05-19 15:47:04 - Error executing query: sql: no rows in result set
+2025/05/19 15:47:21 [ERROR] 2025-05-19 15:47:21 - Error executing query: sql: no rows in result set
+2025/05/19 15:47:21 [ERROR] 2025-05-19 15:47:21 - Error executing query: sql: no rows in result set
+2025/05/19 15:47:21 [ERROR] 2025-05-19 15:47:21 - Error executing query: sql: no rows in result set
+2025/05/19 15:47:24 [INFO] 2025-05-19 15:47:24 - Received login request
+2025/05/19 15:47:24 [INFO] 2025-05-19 15:47:24 - Request body parsed successfully
+2025/05/19 15:47:24 [INFO] 2025-05-19 15:47:24 - Email and password fields validated
+2025/05/19 15:47:24 [INFO] 2025-05-19 15:47:24 - User data retrieved from DB for email: omar@gmail.com
+2025/05/19 15:47:24 [INFO] 2025-05-19 15:47:24 - Password validated successfully
+2025/05/19 15:47:24 [INFO] 2025-05-19 15:47:24 - Sending success with token for user: b41ea87d-f35d-4c6e-beac-5bea5591865e
+2025/05/19 15:47:24 [INFO] 2025-05-19 15:47:24 - Save Token into Sessions
+2025/05/19 15:47:24 [INFO] 2025-05-19 15:47:24 - Login successful for user: b41ea87d-f35d-4c6e-beac-5bea5591865e
+2025/05/19 16:16:07 [INFO] 2025-05-19 16:16:07 - Starting HTTP server at http://localhost:8080 ...
+2025/05/19 16:16:07 [INFO] 2025-05-19 16:16:07 - Migrations applied successfully!
+2025/05/19 16:16:56 [ERROR] 2025-05-19 16:16:56 - Error executing query: sql: no rows in result set
+2025/05/19 16:16:56 [ERROR] 2025-05-19 16:16:56 - Error executing query: sql: no rows in result set
+2025/05/19 16:16:56 [ERROR] 2025-05-19 16:16:56 - Error executing query: sql: no rows in result set
+2025/05/19 16:17:05 [ERROR] 2025-05-19 16:17:05 - Error executing query: sql: no rows in result set
+2025/05/19 16:17:05 [ERROR] 2025-05-19 16:17:05 - Error executing query: sql: no rows in result set
+2025/05/19 16:17:05 [ERROR] 2025-05-19 16:17:05 - Error executing query: sql: no rows in result set
+2025/05/19 16:17:28 [ERROR] 2025-05-19 16:17:28 - Error executing query: sql: no rows in result set
+2025/05/19 16:17:29 [ERROR] 2025-05-19 16:17:29 - Error executing query: sql: no rows in result set
+2025/05/19 16:17:29 [ERROR] 2025-05-19 16:17:29 - Error executing query: sql: no rows in result set
+2025/05/19 16:17:39 [ERROR] 2025-05-19 16:17:39 - Error executing query: sql: no rows in result set
+2025/05/19 16:17:39 [ERROR] 2025-05-19 16:17:39 - Error executing query: sql: no rows in result set
+2025/05/19 16:17:39 [ERROR] 2025-05-19 16:17:39 - Error executing query: sql: no rows in result set
+2025/05/19 16:18:00 [ERROR] 2025-05-19 16:18:00 - Error executing query: sql: no rows in result set
+2025/05/19 16:18:02 [INFO] 2025-05-19 16:18:02 - Received login request
+2025/05/19 16:18:02 [INFO] 2025-05-19 16:18:02 - Request body parsed successfully
+2025/05/19 16:18:02 [INFO] 2025-05-19 16:18:02 - Email and password fields validated
+2025/05/19 16:18:02 [INFO] 2025-05-19 16:18:02 - User data retrieved from DB for email: omar@gmail.com
+2025/05/19 16:18:02 [INFO] 2025-05-19 16:18:02 - Password validated successfully
+2025/05/19 16:18:02 [INFO] 2025-05-19 16:18:02 - Sending success with token for user: b41ea87d-f35d-4c6e-beac-5bea5591865e
+2025/05/19 16:18:02 [INFO] 2025-05-19 16:18:02 - Save Token into Sessions
+2025/05/19 16:18:02 [INFO] 2025-05-19 16:18:02 - Login successful for user: b41ea87d-f35d-4c6e-beac-5bea5591865e
+2025/05/19 16:25:10 [INFO] 2025-05-19 16:25:10 - Parsed multipart form
+2025/05/19 16:25:10 [INFO] 2025-05-19 16:25:10 - Form fields parsed successfully
+2025/05/19 16:25:10 [INFO] 2025-05-19 16:25:10 - Form fields parsed
+2025/05/19 16:25:10 [INFO] 2025-05-19 16:25:10 - Checking if email exists: med@gmail.com
+2025/05/19 16:25:10 [INFO] 2025-05-19 16:25:10 - Email is unique
+2025/05/19 16:25:10 [INFO] 2025-05-19 16:25:10 - Validating registration input
+2025/05/19 16:25:10 [INFO] 2025-05-19 16:25:10 - Registration input valid
+2025/05/19 16:25:10 [INFO] 2025-05-19 16:25:10 - User input validated
+2025/05/19 16:25:10 [INFO] 2025-05-19 16:25:10 - Hashing password
+2025/05/19 16:25:10 [INFO] 2025-05-19 16:25:10 - Password hashed successfully
+2025/05/19 16:25:10 [INFO] 2025-05-19 16:25:10 - Password hashed
+2025/05/19 16:25:10 [INFO] 2025-05-19 16:25:10 - Starting avatar upload
+2025/05/19 16:25:10 [INFO] 2025-05-19 16:25:10 - Avatar file retrieved: pexels-photo-842711.jpeg
+2025/05/19 16:25:10 [INFO] 2025-05-19 16:25:10 - Detected content type: image/jpeg
+2025/05/19 16:25:10 [INFO] 2025-05-19 16:25:10 - Created directory: profile_images
+2025/05/19 16:25:10 [INFO] 2025-05-19 16:25:10 - Generated avatar filename: b27c2604-404b-48e4-a20c-f4afa29a9c57.jpeg
+2025/05/19 16:25:10 [INFO] 2025-05-19 16:25:10 - Saving user to database with ID: 7e7235ed-859a-4a0e-bcb7-2fbb9dffb5a0
+2025/05/19 16:25:10 [INFO] 2025-05-19 16:25:10 - User saved successfully
+2025/05/19 16:25:10 [INFO] 2025-05-19 16:25:10 - User registered with ID: 7e7235ed-859a-4a0e-bcb7-2fbb9dffb5a0
+2025/05/19 16:25:10 [INFO] 2025-05-19 16:25:10 - Avatar uploaded: ./uploads/profile_image/b27c2604-404b-48e4-a20c-f4afa29a9c57.jpeg
+2025/05/19 16:25:10 [INFO] 2025-05-19 16:25:10 - Avatar saved successfully
+2025/05/19 16:25:10 [INFO] 2025-05-19 16:25:10 - Save Token into Sessions
+2025/05/19 16:25:10 [INFO] 2025-05-19 16:25:10 - Login successful for user: 7e7235ed-859a-4a0e-bcb7-2fbb9dffb5a0
+2025/05/19 16:25:10 [INFO] 2025-05-19 16:25:10 - Success Register
+2025/05/19 16:39:39 [INFO] 2025-05-19 16:39:39 - Starting HTTP server at http://localhost:8080 ...
+2025/05/19 16:39:39 [INFO] 2025-05-19 16:39:39 - Migrations applied successfully!
+2025/05/19 16:42:25 [INFO] 2025-05-19 16:42:25 - Starting HTTP server at http://localhost:8080 ...
+2025/05/19 16:42:25 [INFO] 2025-05-19 16:42:25 - Migrations applied successfully!

@@ -1,7 +1,6 @@
 package middleware
 
 import (
-	"fmt"
 	"net/http"
 	"socialNetwork/auth"
 	db "socialNetwork/db/sqlite"
@@ -11,9 +10,9 @@ import (
 
 // Handler /verify
 func CheckUserExeting(w http.ResponseWriter, r *http.Request) {
-	token, err := auth.GetToken(w, r)
-	if err != nil {
-		utils.Log("ERROR", "Error getting token in CheckUserExeting Handler: "+err.Error())
+	token := auth.GetToken(w, r)
+	if token == "" {
+		utils.Log("ERROR", "Error getting token in CheckUserExeting Handler")
 		utils.SendJSON(w, http.StatusUnauthorized, utils.JSONResponse{
 			Success: false,
 			Message: "Please login to continue",
@@ -22,18 +21,7 @@ func CheckUserExeting(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	if token == "" {
-		utils.Log("ERROR", "Invalid Token in CheckUserExeting Handler")
-		utils.SendJSON(w, http.StatusUnauthorized, utils.JSONResponse{
-			Success: false,
-			Message: "Please login to continue",
-			Error:   "You are not Authorized.",
-		})
-		return
-	}
-	fmt.Println("Token: ", token)
 	UserID, err := user.GetUserIDByToken(token)
-	fmt.Println("UserID: ", UserID)
 	if err != nil || UserID == "" {
 		utils.Log("ERROR", "Invalid Token in CheckUserExeting Handler: "+err.Error())
 		utils.SendJSON(w, http.StatusUnauthorized, utils.JSONResponse{

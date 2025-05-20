@@ -21,22 +21,6 @@ import {
 } from "react-icons/hi2";
 
 export default function Navbar({ user }) {
-  const path = usePathname();
-
-  const reg = /^\/profile\/\d+$/;
-  if (
-    !path ||
-    !(
-      reg.test(path) ||
-      path === "/home" ||
-      path === "/events" ||
-      path === "/groups" ||
-      path === "/friends" ||
-      path === "/notifications"
-    )
-  ) {
-    return null;
-  }
   const router = useRouter();
   const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -337,7 +321,7 @@ export default function Navbar({ user }) {
               >
               
                 <img
-                  src={user.avatar || "https://i.pravatar.cc/150?u=10"}
+                  src={user.avatar}
                   alt={user.firstName}
                   className={styles.userAvatar}
                 />
@@ -348,8 +332,7 @@ export default function Navbar({ user }) {
               {isMenuOpen && (
                 <div className={styles.userDropdown}>
                   <Link
-                    // href={`/profile/${user.id}`}
-                    href="/profile/1"
+                    href={`/profile/${user.id}`}
                     className={styles.userDropdownItem}
                     onClick={closeAllMenus}
                   >

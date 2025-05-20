@@ -1,56 +1,81 @@
-// import { getCurrentUser } from "@/actions/auth"
-import ProfileComponent from "@/components/profile/profile-component";
-import db from "@/lib/mock-data";
+'use client';
 
-import { notFound } from "next/navigation";
+import { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
+import ProfileComponent from '@/components/profile/profile-component';
+import { useUser } from '@/app/(utils)/user_context';
+import { fetchWithAuth } from '@/app/(utils)/api';
+import { useParams } from 'next/navigation';
 
-export default async function ProfilePage({ params }) {
-  try {
-    // const currentUser = await getCurrentUser()
-    const currentUser = {
-      id: 1,
-      email: "john@example.com",
-      password: "password123",
-      firstName: "John",
-      lastName: "Doe",
-      dateOfBirth: "1990-05-15",
-      nickname: "JD",
-      aboutMe: "Software developer and hiking enthusiast",
-      avatar: "https://i.pravatar.cc/150?u=100",
-      isPublic: true,
-      followers: [2, 3],
-      following: [2],
-      createdAt: "2023-01-15T08:30:00Z",
-    };
+export default function ProfilePage({ params }) {
+  console.log("params:", params);
 
-    if (!currentUser) {
-      return notFound();
+  const router = useRouter();
+  const { user: currentUser, loading } = useUser();
+  const [profileUser, setProfileUser] = useState(null);
+  const [profileLoading, setProfileLoading] = useState(true);
+  const [notFoundFlag, setNotFoundFlag] = useState(false);
+
+  console.log("user from profile page", currentUser);
+  // params.id = currentUser.id
+  const paramsx = useParams();
+  const ids = paramsx.id
+  console.log("|ID", ids);
+  
+  // params is a Record<string, string> | null
+  // const id = params?.id;
+  useEffect(() => {
+    async function loadProfileUser() {
+      try {
+        const res = await fetch(`/api/users/get/profile?id=${ids}`);
+        if (!res.ok) {
+          setNotFoundFlag(true);
+          return;
+        }
+        const json = await res.json();
+        setProfileUser(json.data.Data);
+        console.log("setprofile", json.data.Data);
+      } catch (error) {
+        console.error('Error fetching profile:', error);
+        setNotFoundFlag(true);
+      } finally {
+        setProfileLoading(false);
+      }
     }
 
-    const userId = parseInt(params.id, 10);
-    const profileUser = db.users.findById(userId);
+    loadProfileUser();
+  }, [ids]);
+  console.log("===========================================");
+  console.log(profileUser);
+  console.log("===========================================");
+  
+  if (loading || profileLoading) return <div>Loading...</div>;
 
-    if (!profileUser) {
-      return notFound();
-    }
-
-    // Get user data from mock DB
-    const posts = db.posts.findByUserId(userId);
-    const followers = db.users.getFollowers(userId);
-    const following = db.users.getFollowing(userId);
-
-    return (
-      <ProfileComponent
-        currentUser={currentUser}
-        profileUser={profileUser}
-        canView={currentUser.id === profileUser.id || profileUser.isPublic}
-        posts={posts}
-        followers={followers}
-        following={following}
-      />
-    );
-  } catch (error) {
-    console.error("Profile page error:", error);
-    return notFound();
-  }
+  const canView = true // currentUser.id === profileUser.id || profileUser.ProfileStatus === 'public';
+  // profileUser.isPublic = true
+  return (
+    <ProfileComponent
+      ProfileData={
+        profileUser
+      }
+      // profileUser={{
+      //   id: profileUser.id,
+      //   firstName: profileUser.FirstName,
+      //   lastName: profileUser.LastName,
+      //   email: profileUser.Email,
+      //   nickname: profileUser.NickName,
+      //   bio: profileUser.Bio,
+      //   avatar: profileUser.Avatar,
+      //   profileStatus: profileUser.ProfileStatus,
+      //   birthday: profileUser.Birthday,
+      //   createdAt: profileUser.CreatedAt,
+      //   Posts: profileUser.Posts || [],
+      //   Followers: profileUser.Followers || [],
+      //   Following: profileUser.Following || [],
+      //   FollowerCount: profileUser.FollowerCount || 0,
+      //   FollowingCount: profileUser.FollowingCount || 0,
+      // }}
+      canView={canView}
+    />
+  );
 }

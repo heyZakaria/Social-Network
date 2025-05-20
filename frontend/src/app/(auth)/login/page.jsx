@@ -7,8 +7,8 @@ import { useRouter } from "next/navigation";
 
 export default function Login() {
   const router = useRouter();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("omar@gmail.com");
+  const [password, setPassword] = useState("Abcd1234");
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
   const [serverError, setServerErrors] = useState("");
@@ -48,6 +48,10 @@ export default function Login() {
         return;
       }
       if (res.ok && data.success) {
+        // Store the token in localStorage
+        if (data.token) {
+          localStorage.setItem('authToken', data.token);
+        }
         router.push("/home");
       } else {
         setServerErrors(data.error || "Login failed");

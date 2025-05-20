@@ -21,9 +21,9 @@ import (
 // The function returns the post details in JSON format.
 func CreatePost(w http.ResponseWriter, r *http.Request) {
 	PostData := Post{}
-	token, err := auth.GetToken(w, r)
-	if err != nil {
-		utils.Log("ERROR", "Error getting token in CreatePost Handler: "+err.Error())
+	token := auth.GetToken(w, r)
+	if token == "" {
+		utils.Log("ERROR", "Error getting token in CreatePost Handler")
 		utils.SendJSON(w, http.StatusUnauthorized, utils.JSONResponse{
 			Success: false,
 			Message: "Please login to continue",

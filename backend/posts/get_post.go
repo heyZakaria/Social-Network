@@ -18,9 +18,9 @@ import (
 
 func GetPost(w http.ResponseWriter, r *http.Request) {
 	utils.Log("", "Get request made to GetPost Handler")
-	token, err := auth.GetToken(w, r)
-	if err != nil {
-		utils.Log("ERROR", "Error getting token in GetPost Handler: "+err.Error())
+	token := auth.GetToken(w, r)
+	if token == "" {
+		utils.Log("ERROR", "Error getting token in GetPost Handler")
 		utils.SendJSON(w, http.StatusUnauthorized, utils.JSONResponse{
 			Success: false,
 			Message: "Please login to continue",
