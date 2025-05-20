@@ -19,7 +19,7 @@ export default function InviteFriends({ FriendsList, onInvite }) {
           </li>
         ))}
       </ul>
-    </div>
+     </div>
   );
 }
 

@@ -22,7 +22,7 @@ export default function NavBar() {
           <Link href="/home"> <HiHome size={20} /> </Link>
           <Link href="/"> <HiChatBubbleLeft size={20} /> </Link>
           <Link href="/"> <HiMiniBellAlert size={20} /> </Link>
-          <Link href="/"> <HiMiniUserGroup size={20} /> </Link>
+          <Link href="/groups"> <HiMiniUserGroup size={20} /> </Link>
           <Link href="/"> <HiMiniUser size={20} /> </Link>
           <Link href="/"> <HiArrowRightOnRectangle size={20} color="red" /> </Link>
         </div>
