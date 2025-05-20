@@ -321,7 +321,7 @@ export default function Navbar({ user }) {
               >
               
                 <img
-                  src={user.avatar}
+                  src={user.avatar || "/uploads/profile.jpeg"}
                   alt={user.firstName}
                   className={styles.userAvatar}
                 />

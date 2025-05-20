@@ -87,9 +87,7 @@ export default function FloatingChat({ currentUser }) {
     if (!newMessage.trim() || !activeChat) return;
 
     // In a real app, this would send the message through WebSocket
-    console.log(
-      `Sending message to ${activeChat.user.firstName}: ${newMessage}`
-    );
+    
 
     // Reset input
     setNewMessage("");

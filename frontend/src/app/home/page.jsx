@@ -12,7 +12,7 @@ import FloatingChat from "@/components/chat/floating-chat";
 
 export default function Home() {
   // const current = await getCurrentUser()
-  // console.log("-------", current);
+  // 
   
   // if (!currentUser) {
   //   // This should be handled by middleware, but just in case
@@ -96,14 +96,14 @@ export default function Home() {
           </div>
 
           <div className={styles.feed}>
-            {posts.map((post) => (
+            {/* {posts.map((post) => (
               <PostComponent
                 key={post.id}
                 post={post}
                 user={post.user}
                 currentUser={currentUser}
               />
-            ))}
+            ))} */}
           </div>
         </div>
       </div>

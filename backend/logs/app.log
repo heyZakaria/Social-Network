@@ -10316,3 +10316,501 @@
 2025/05/19 16:39:39 [INFO] 2025-05-19 16:39:39 - Migrations applied successfully!
 2025/05/19 16:42:25 [INFO] 2025-05-19 16:42:25 - Starting HTTP server at http://localhost:8080 ...
 2025/05/19 16:42:25 [INFO] 2025-05-19 16:42:25 - Migrations applied successfully!
+2025/05/20 10:52:14 [INFO] 2025-05-20 10:52:14 - Starting HTTP server at http://localhost:8080 ...
+2025/05/20 10:52:14 [INFO] 2025-05-20 10:52:14 - Migrations applied successfully!
+2025/05/20 10:52:27 [INFO] 2025-05-20 10:52:27 - Parsed multipart form
+2025/05/20 10:52:27 [INFO] 2025-05-20 10:52:27 - Form fields parsed successfully
+2025/05/20 10:52:27 [INFO] 2025-05-20 10:52:27 - Form fields parsed
+2025/05/20 10:52:27 [INFO] 2025-05-20 10:52:27 - Checking if email exists: sdf@sd.sdx
+2025/05/20 10:52:27 [INFO] 2025-05-20 10:52:27 - Email is unique
+2025/05/20 10:52:27 [INFO] 2025-05-20 10:52:27 - Validating registration input
+2025/05/20 10:52:27 [INFO] 2025-05-20 10:52:27 - Registration input valid
+2025/05/20 10:52:27 [INFO] 2025-05-20 10:52:27 - User input validated
+2025/05/20 10:52:27 [INFO] 2025-05-20 10:52:27 - Hashing password
+2025/05/20 10:52:27 [INFO] 2025-05-20 10:52:27 - Password hashed successfully
+2025/05/20 10:52:27 [INFO] 2025-05-20 10:52:27 - Password hashed
+2025/05/20 10:52:27 [INFO] 2025-05-20 10:52:27 - Starting avatar upload
+2025/05/20 10:52:27 [INFO] 2025-05-20 10:52:27 - Avatar file retrieved: profile.JPEG
+2025/05/20 10:52:27 [INFO] 2025-05-20 10:52:27 - Detected content type: image/jpeg
+2025/05/20 10:52:27 [INFO] 2025-05-20 10:52:27 - Created directory: profile_images
+2025/05/20 10:52:27 [INFO] 2025-05-20 10:52:27 - Generated avatar filename: 567c014a-564a-4c56-8ea7-375da8da1a95.JPEG
+2025/05/20 10:52:27 [INFO] 2025-05-20 10:52:27 - Saving user to database with ID: 84598b4a-367f-4fe8-900b-0d0ad6e3e513
+2025/05/20 10:52:27 [INFO] 2025-05-20 10:52:27 - User saved successfully
+2025/05/20 10:52:27 [INFO] 2025-05-20 10:52:27 - User registered with ID: 84598b4a-367f-4fe8-900b-0d0ad6e3e513
+2025/05/20 10:52:27 [INFO] 2025-05-20 10:52:27 - Avatar uploaded: /uploads/profile_image/567c014a-564a-4c56-8ea7-375da8da1a95.JPEG
+2025/05/20 10:52:27 [INFO] 2025-05-20 10:52:27 - Avatar saved successfully
+2025/05/20 10:52:27 [INFO] 2025-05-20 10:52:27 - Save Token into Sessions
+2025/05/20 10:52:27 [INFO] 2025-05-20 10:52:27 - Login successful for user: 84598b4a-367f-4fe8-900b-0d0ad6e3e513
+2025/05/20 10:52:27 [INFO] 2025-05-20 10:52:27 - Success Register
+2025/05/20 10:52:56 [LOG] 2025-05-20 10:52:56 - Start Creating the Post
+2025/05/20 10:52:56 [INFO] 2025-05-20 10:52:56 - Starting avatar upload
+2025/05/20 10:52:56 [INFO] 2025-05-20 10:52:56 - Avatar file retrieved: profile.JPEG
+2025/05/20 10:52:56 [INFO] 2025-05-20 10:52:56 - Detected content type: image/jpeg
+2025/05/20 10:52:56 [INFO] 2025-05-20 10:52:56 - Created directory: profile_images
+2025/05/20 10:52:56 [INFO] 2025-05-20 10:52:56 - Generated avatar filename: 33dcee48-9762-4b67-b461-f85324c3446e.JPEG
+2025/05/20 10:52:56 [INFO] 2025-05-20 10:52:56 - Avatar saved successfully
+2025/05/20 10:53:27 [LOG] 2025-05-20 10:53:27 - Get request made to GetPostsScroll Handler
+2025/05/20 10:53:27 [ERROR] 2025-05-20 10:53:27 - Offset or Limit is not valid in GetPostsScroll Handler: 
+2025/05/20 10:53:39 [LOG] 2025-05-20 10:53:39 - Get request made to GetPostsScroll Handler
+2025/05/20 10:55:22 [ERROR] 2025-05-20 10:55:22 - Error executing query: sql: no rows in result set
+2025/05/20 10:55:24 [INFO] 2025-05-20 10:55:24 - Received login request
+2025/05/20 10:55:24 [INFO] 2025-05-20 10:55:24 - Request body parsed successfully
+2025/05/20 10:55:24 [INFO] 2025-05-20 10:55:24 - Email and password fields validated
+2025/05/20 10:55:24 [INFO] 2025-05-20 10:55:24 - User data retrieved from DB for email: omar@gmail.com
+2025/05/20 10:55:24 [INFO] 2025-05-20 10:55:24 - Password validated successfully
+2025/05/20 10:55:24 [INFO] 2025-05-20 10:55:24 - Sending success with token for user: b41ea87d-f35d-4c6e-beac-5bea5591865e
+2025/05/20 10:55:24 [INFO] 2025-05-20 10:55:24 - Save Token into Sessions
+2025/05/20 10:55:24 [INFO] 2025-05-20 10:55:24 - Login successful for user: b41ea87d-f35d-4c6e-beac-5bea5591865e
+2025/05/20 10:56:27 [LOG] 2025-05-20 10:56:27 - Get request made to GetPostsScroll Handler
+2025/05/20 10:56:27 [ERROR] 2025-05-20 10:56:27 - Token cookie is missing in GetToken
+2025/05/20 10:56:27 [ERROR] 2025-05-20 10:56:27 - Token is empty
+2025/05/20 10:56:27 [ERROR] 2025-05-20 10:56:27 - Invalid Token in GetPostsScroll Handler: Token is empty
+2025/05/20 10:56:27 [LOG] 2025-05-20 10:56:27 - Get request made to GetPostsScroll Handler
+2025/05/20 10:56:27 [ERROR] 2025-05-20 10:56:27 - Token cookie is missing in GetToken
+2025/05/20 10:56:27 [ERROR] 2025-05-20 10:56:27 - Token is empty
+2025/05/20 10:56:27 [ERROR] 2025-05-20 10:56:27 - Invalid Token in GetPostsScroll Handler: Token is empty
+2025/05/20 10:56:36 [LOG] 2025-05-20 10:56:36 - Get request made to GetPostsScroll Handler
+2025/05/20 10:56:36 [ERROR] 2025-05-20 10:56:36 - Token cookie is missing in GetToken
+2025/05/20 10:56:36 [ERROR] 2025-05-20 10:56:36 - Token is empty
+2025/05/20 10:56:36 [ERROR] 2025-05-20 10:56:36 - Invalid Token in GetPostsScroll Handler: Token is empty
+2025/05/20 10:56:36 [LOG] 2025-05-20 10:56:36 - Get request made to GetPostsScroll Handler
+2025/05/20 10:56:36 [ERROR] 2025-05-20 10:56:36 - Token cookie is missing in GetToken
+2025/05/20 10:56:36 [ERROR] 2025-05-20 10:56:36 - Token is empty
+2025/05/20 10:56:36 [ERROR] 2025-05-20 10:56:36 - Invalid Token in GetPostsScroll Handler: Token is empty
+2025/05/20 10:57:24 [LOG] 2025-05-20 10:57:24 - Get request made to GetPostsScroll Handler
+2025/05/20 10:57:24 [LOG] 2025-05-20 10:57:24 - Get request made to GetPostsScroll Handler
+2025/05/20 10:58:27 [LOG] 2025-05-20 10:58:27 - Get request made to GetPostsScroll Handler
+2025/05/20 10:58:27 [LOG] 2025-05-20 10:58:27 - Get request made to GetPostsScroll Handler
+2025/05/20 10:59:04 [LOG] 2025-05-20 10:59:04 - Get request made to GetPostsScroll Handler
+2025/05/20 10:59:04 [LOG] 2025-05-20 10:59:04 - Get request made to GetPostsScroll Handler
+2025/05/20 10:59:34 [LOG] 2025-05-20 10:59:34 - Get request made to GetPostsScroll Handler
+2025/05/20 10:59:34 [LOG] 2025-05-20 10:59:34 - Get request made to GetPostsScroll Handler
+2025/05/20 10:59:55 [LOG] 2025-05-20 10:59:55 - Get request made to GetPostsScroll Handler
+2025/05/20 10:59:55 [LOG] 2025-05-20 10:59:55 - Get request made to GetPostsScroll Handler
+2025/05/20 11:02:43 [LOG] 2025-05-20 11:02:43 - Get request made to GetPostsScroll Handler
+2025/05/20 11:02:43 [LOG] 2025-05-20 11:02:43 - Get request made to GetPostsScroll Handler
+2025/05/20 11:02:57 [LOG] 2025-05-20 11:02:57 - Get request made to GetPostsScroll Handler
+2025/05/20 11:02:57 [LOG] 2025-05-20 11:02:57 - Get request made to GetPostsScroll Handler
+2025/05/20 11:03:09 [LOG] 2025-05-20 11:03:09 - Get request made to GetPostsScroll Handler
+2025/05/20 11:03:09 [LOG] 2025-05-20 11:03:09 - Get request made to GetPostsScroll Handler
+2025/05/20 11:03:17 [LOG] 2025-05-20 11:03:17 - Get request made to GetPostsScroll Handler
+2025/05/20 11:03:17 [LOG] 2025-05-20 11:03:17 - Get request made to GetPostsScroll Handler
+2025/05/20 11:05:16 [LOG] 2025-05-20 11:05:16 - Get request made to GetPostsScroll Handler
+2025/05/20 11:05:16 [LOG] 2025-05-20 11:05:16 - Get request made to GetPostsScroll Handler
+2025/05/20 11:05:56 [LOG] 2025-05-20 11:05:56 - Get request made to GetPostsScroll Handler
+2025/05/20 11:05:56 [LOG] 2025-05-20 11:05:56 - Get request made to GetPostsScroll Handler
+2025/05/20 11:06:04 [LOG] 2025-05-20 11:06:04 - Get request made to GetPostsScroll Handler
+2025/05/20 11:06:04 [LOG] 2025-05-20 11:06:04 - Get request made to GetPostsScroll Handler
+2025/05/20 11:06:14 [LOG] 2025-05-20 11:06:14 - Get request made to GetPostsScroll Handler
+2025/05/20 11:06:14 [LOG] 2025-05-20 11:06:14 - Get request made to GetPostsScroll Handler
+2025/05/20 11:09:45 [LOG] 2025-05-20 11:09:45 - Get request made to GetPostsScroll Handler
+2025/05/20 11:09:45 [LOG] 2025-05-20 11:09:45 - Get request made to GetPostsScroll Handler
+2025/05/20 11:10:39 [LOG] 2025-05-20 11:10:39 - Get request made to GetPostsScroll Handler
+2025/05/20 11:10:39 [LOG] 2025-05-20 11:10:39 - Get request made to GetPostsScroll Handler
+2025/05/20 11:10:43 [LOG] 2025-05-20 11:10:43 - Get request made to GetPostsScroll Handler
+2025/05/20 11:10:43 [LOG] 2025-05-20 11:10:43 - Get request made to GetPostsScroll Handler
+2025/05/20 11:11:37 [LOG] 2025-05-20 11:11:37 - Get request made to GetPostsScroll Handler
+2025/05/20 11:11:37 [LOG] 2025-05-20 11:11:37 - Get request made to GetPostsScroll Handler
+2025/05/20 11:12:02 [LOG] 2025-05-20 11:12:02 - Get request made to GetPostsScroll Handler
+2025/05/20 11:12:02 [LOG] 2025-05-20 11:12:02 - Get request made to GetPostsScroll Handler
+2025/05/20 11:15:25 [LOG] 2025-05-20 11:15:25 - Get request made to GetPostsScroll Handler
+2025/05/20 11:15:25 [LOG] 2025-05-20 11:15:25 - Get request made to GetPostsScroll Handler
+2025/05/20 11:16:54 [LOG] 2025-05-20 11:16:54 - Start Creating the Post
+2025/05/20 11:16:54 [INFO] 2025-05-20 11:16:54 - Starting avatar upload
+2025/05/20 11:16:54 [INFO] 2025-05-20 11:16:54 - Avatar file retrieved: profile.JPEG
+2025/05/20 11:16:54 [INFO] 2025-05-20 11:16:54 - Detected content type: image/jpeg
+2025/05/20 11:16:54 [INFO] 2025-05-20 11:16:54 - Generated avatar filename: e89432d2-c7f9-497d-bfd5-08a013fc3aa5.JPEG
+2025/05/20 11:16:54 [INFO] 2025-05-20 11:16:54 - Avatar saved successfully
+2025/05/20 11:17:05 [LOG] 2025-05-20 11:17:05 - Start Creating the Post
+2025/05/20 11:17:05 [INFO] 2025-05-20 11:17:05 - Starting avatar upload
+2025/05/20 11:17:05 [INFO] 2025-05-20 11:17:05 - Avatar file retrieved: profile.JPEG
+2025/05/20 11:17:05 [INFO] 2025-05-20 11:17:05 - Detected content type: image/jpeg
+2025/05/20 11:17:05 [INFO] 2025-05-20 11:17:05 - Generated avatar filename: 6e9f945e-f10d-4b17-b65f-5575cc62483c.JPEG
+2025/05/20 11:17:05 [INFO] 2025-05-20 11:17:05 - Avatar saved successfully
+2025/05/20 11:17:10 [LOG] 2025-05-20 11:17:10 - Get request made to GetPostsScroll Handler
+2025/05/20 11:17:10 [LOG] 2025-05-20 11:17:10 - Get request made to GetPostsScroll Handler
+2025/05/20 11:17:27 [LOG] 2025-05-20 11:17:27 - Start Creating the Post
+2025/05/20 11:17:27 [INFO] 2025-05-20 11:17:27 - Starting avatar upload
+2025/05/20 11:17:27 [INFO] 2025-05-20 11:17:27 - Avatar file retrieved: profile.JPEG
+2025/05/20 11:17:27 [INFO] 2025-05-20 11:17:27 - Detected content type: image/jpeg
+2025/05/20 11:17:27 [INFO] 2025-05-20 11:17:27 - Generated avatar filename: a5d00dff-6c61-40a5-8eab-fbee6c57466f.JPEG
+2025/05/20 11:17:27 [INFO] 2025-05-20 11:17:27 - Avatar saved successfully
+2025/05/20 11:17:32 [LOG] 2025-05-20 11:17:32 - Get request made to GetPostsScroll Handler
+2025/05/20 11:17:32 [LOG] 2025-05-20 11:17:32 - Get request made to GetPostsScroll Handler
+2025/05/20 11:18:57 [LOG] 2025-05-20 11:18:57 - Get request made to GetPostsScroll Handler
+2025/05/20 11:20:38 [LOG] 2025-05-20 11:20:38 - Get request made to GetPostsScroll Handler
+2025/05/20 11:20:38 [ERROR] 2025-05-20 11:20:38 - No Posts found in GetPostsScroll Handler: 
+2025/05/20 11:20:47 [LOG] 2025-05-20 11:20:47 - Get request made to GetPostsScroll Handler
+2025/05/20 11:20:47 [ERROR] 2025-05-20 11:20:47 - No Posts found in GetPostsScroll Handler: 
+2025/05/20 11:20:53 [LOG] 2025-05-20 11:20:53 - Get request made to GetPostsScroll Handler
+2025/05/20 11:20:53 [LOG] 2025-05-20 11:20:53 - Get request made to GetPostsScroll Handler
+2025/05/20 11:21:33 [LOG] 2025-05-20 11:21:33 - Get request made to GetPostsScroll Handler
+2025/05/20 11:21:49 [LOG] 2025-05-20 11:21:49 - Get request made to GetPostsScroll Handler
+2025/05/20 11:21:54 [LOG] 2025-05-20 11:21:54 - Get request made to GetPostsScroll Handler
+2025/05/20 11:21:54 [ERROR] 2025-05-20 11:21:54 - No Posts found in GetPostsScroll Handler: 
+2025/05/20 11:21:56 [LOG] 2025-05-20 11:21:56 - Get request made to GetPostsScroll Handler
+2025/05/20 11:22:20 [LOG] 2025-05-20 11:22:20 - Get request made to GetPostsScroll Handler
+2025/05/20 11:22:20 [LOG] 2025-05-20 11:22:20 - Get request made to GetPostsScroll Handler
+2025/05/20 11:22:36 [LOG] 2025-05-20 11:22:36 - Get request made to GetPostsScroll Handler
+2025/05/20 11:22:50 [LOG] 2025-05-20 11:22:50 - Get request made to GetPostsScroll Handler
+2025/05/20 11:22:55 [LOG] 2025-05-20 11:22:55 - Get request made to GetPostsScroll Handler
+2025/05/20 11:22:57 [LOG] 2025-05-20 11:22:57 - Get request made to GetPostsScroll Handler
+2025/05/20 11:23:00 [LOG] 2025-05-20 11:23:00 - Get request made to GetPostsScroll Handler
+2025/05/20 11:23:03 [LOG] 2025-05-20 11:23:03 - Get request made to GetPostsScroll Handler
+2025/05/20 11:23:25 [INFO] 2025-05-20 11:23:25 - Starting HTTP server at http://localhost:8080 ...
+2025/05/20 11:23:25 [INFO] 2025-05-20 11:23:25 - Migrations applied successfully!
+2025/05/20 11:23:33 [LOG] 2025-05-20 11:23:33 - Get request made to GetPostsScroll Handler
+2025/05/20 11:23:35 [LOG] 2025-05-20 11:23:35 - Get request made to GetPostsScroll Handler
+2025/05/20 11:23:37 [LOG] 2025-05-20 11:23:37 - Get request made to GetPostsScroll Handler
+2025/05/20 11:24:08 [LOG] 2025-05-20 11:24:08 - Get request made to GetPost Handler
+2025/05/20 11:24:08 [INFO] 2025-05-20 11:24:08 - Post fetched successfully in GetPost Handler
+2025/05/20 11:24:11 [LOG] 2025-05-20 11:24:11 - Get request made to GetPost Handler
+2025/05/20 11:24:11 [ERROR] 2025-05-20 11:24:11 - Unauthorized request made to post id:.1sql: no rows in result set
+2025/05/20 11:24:13 [LOG] 2025-05-20 11:24:13 - Get request made to GetPost Handler
+2025/05/20 11:24:13 [ERROR] 2025-05-20 11:24:13 - Unauthorized request made to post id:.2sql: no rows in result set
+2025/05/20 11:24:14 [LOG] 2025-05-20 11:24:14 - Get request made to GetPost Handler
+2025/05/20 11:24:14 [INFO] 2025-05-20 11:24:14 - Post fetched successfully in GetPost Handler
+2025/05/20 11:24:15 [LOG] 2025-05-20 11:24:15 - Get request made to GetPost Handler
+2025/05/20 11:24:15 [ERROR] 2025-05-20 11:24:15 - Error scanning Post in GetPost Handler: sql: no rows in result set
+2025/05/20 11:24:18 [LOG] 2025-05-20 11:24:18 - Get request made to GetPost Handler
+2025/05/20 11:24:18 [INFO] 2025-05-20 11:24:18 - Post fetched successfully in GetPost Handler
+2025/05/20 11:24:23 [LOG] 2025-05-20 11:24:23 - Get request made to GetPostsScroll Handler
+2025/05/20 11:24:42 [INFO] 2025-05-20 11:24:42 - Starting HTTP server at http://localhost:8080 ...
+2025/05/20 11:24:42 [INFO] 2025-05-20 11:24:42 - Migrations applied successfully!
+2025/05/20 11:24:42 [LOG] 2025-05-20 11:24:42 - Get request made to GetPostsScroll Handler
+2025/05/20 11:24:42 [INFO] 2025-05-20 11:24:42 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/20 11:25:17 [INFO] 2025-05-20 11:25:17 - Starting HTTP server at http://localhost:8080 ...
+2025/05/20 11:25:17 [INFO] 2025-05-20 11:25:17 - Migrations applied successfully!
+2025/05/20 11:25:18 [LOG] 2025-05-20 11:25:18 - Get request made to GetPostsScroll Handler
+2025/05/20 11:25:18 [INFO] 2025-05-20 11:25:18 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/20 11:25:32 [LOG] 2025-05-20 11:25:32 - Get request made to GetPostsScroll Handler
+2025/05/20 11:25:32 [ERROR] 2025-05-20 11:25:32 - No Posts found in GetPostsScroll Handler: 
+2025/05/20 11:26:18 [LOG] 2025-05-20 11:26:18 - Get request made to GetPostsScroll Handler
+2025/05/20 11:26:18 [ERROR] 2025-05-20 11:26:18 - Token cookie is missing in GetToken
+2025/05/20 11:26:18 [ERROR] 2025-05-20 11:26:18 - Token is empty
+2025/05/20 11:26:18 [ERROR] 2025-05-20 11:26:18 - Invalid Token in GetPostsScroll Handler: Token is empty
+2025/05/20 11:26:33 [LOG] 2025-05-20 11:26:33 - Get request made to GetPostsScroll Handler
+2025/05/20 11:26:33 [LOG] 2025-05-20 11:26:33 - Get request made to GetPostsScroll Handler
+2025/05/20 11:26:33 [INFO] 2025-05-20 11:26:33 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/20 11:26:33 [INFO] 2025-05-20 11:26:33 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/20 11:27:23 [LOG] 2025-05-20 11:27:23 - Start Creating the Post
+2025/05/20 11:27:23 [INFO] 2025-05-20 11:27:23 - Starting avatar upload
+2025/05/20 11:27:23 [INFO] 2025-05-20 11:27:23 - Avatar file retrieved: profile.JPEG
+2025/05/20 11:27:23 [INFO] 2025-05-20 11:27:23 - Detected content type: image/jpeg
+2025/05/20 11:27:23 [INFO] 2025-05-20 11:27:23 - Generated avatar filename: d7b090e9-8920-487a-bb0d-4a9aa3215cba.JPEG
+2025/05/20 11:27:23 [INFO] 2025-05-20 11:27:23 - Avatar saved successfully
+2025/05/20 11:27:28 [LOG] 2025-05-20 11:27:28 - Get request made to GetPostsScroll Handler
+2025/05/20 11:27:28 [INFO] 2025-05-20 11:27:28 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/20 11:27:28 [LOG] 2025-05-20 11:27:28 - Get request made to GetPostsScroll Handler
+2025/05/20 11:27:28 [INFO] 2025-05-20 11:27:28 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/20 11:28:12 [LOG] 2025-05-20 11:28:12 - Get request made to GetPostsScroll Handler
+2025/05/20 11:28:12 [INFO] 2025-05-20 11:28:12 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/20 11:28:12 [LOG] 2025-05-20 11:28:12 - Get request made to GetPostsScroll Handler
+2025/05/20 11:28:12 [INFO] 2025-05-20 11:28:12 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/20 11:33:16 [LOG] 2025-05-20 11:33:16 - Start Creating the Post
+2025/05/20 11:33:16 [INFO] 2025-05-20 11:33:16 - Starting avatar upload
+2025/05/20 11:33:16 [INFO] 2025-05-20 11:33:16 - Avatar file retrieved: ChatGPT Image May 3, 2025, 07_04_34 PM.png
+2025/05/20 11:33:16 [WARNING] 2025-05-20 11:33:16 - Avatar file too large: 1936593
+2025/05/20 11:33:16 [ERROR] 2025-05-20 11:33:16 - Error Trying to Prepare Image: 
+2025/05/20 11:34:51 [LOG] 2025-05-20 11:34:51 - Start Creating the Post
+2025/05/20 11:34:51 [INFO] 2025-05-20 11:34:51 - Starting avatar upload
+2025/05/20 11:34:51 [INFO] 2025-05-20 11:34:51 - Avatar file retrieved: تعرض للتنمر بسبب التواء العمود الفقري 'الجنف'.. تعرفوا على حالة هذا الشاب (HQ).jpg
+2025/05/20 11:34:51 [INFO] 2025-05-20 11:34:51 - Detected content type: image/jpeg
+2025/05/20 11:34:51 [INFO] 2025-05-20 11:34:51 - Generated avatar filename: d465f473-b25a-47d9-8e22-73f3ebfc3a54.jpg
+2025/05/20 11:34:51 [INFO] 2025-05-20 11:34:51 - Avatar saved successfully
+2025/05/20 11:35:00 [LOG] 2025-05-20 11:35:00 - Get request made to GetPostsScroll Handler
+2025/05/20 11:35:00 [INFO] 2025-05-20 11:35:00 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/20 11:35:00 [LOG] 2025-05-20 11:35:00 - Get request made to GetPostsScroll Handler
+2025/05/20 11:35:00 [INFO] 2025-05-20 11:35:00 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/20 11:35:59 [INFO] 2025-05-20 11:35:59 - Parsed multipart form
+2025/05/20 11:35:59 [INFO] 2025-05-20 11:35:59 - Form fields parsed successfully
+2025/05/20 11:35:59 [INFO] 2025-05-20 11:35:59 - Form fields parsed
+2025/05/20 11:35:59 [INFO] 2025-05-20 11:35:59 - Checking if email exists: farid@gmail.com
+2025/05/20 11:35:59 [INFO] 2025-05-20 11:35:59 - Email is unique
+2025/05/20 11:35:59 [INFO] 2025-05-20 11:35:59 - Validating registration input
+2025/05/20 11:35:59 [INFO] 2025-05-20 11:35:59 - Registration input valid
+2025/05/20 11:35:59 [INFO] 2025-05-20 11:35:59 - User input validated
+2025/05/20 11:35:59 [INFO] 2025-05-20 11:35:59 - Hashing password
+2025/05/20 11:35:59 [INFO] 2025-05-20 11:35:59 - Password hashed successfully
+2025/05/20 11:35:59 [INFO] 2025-05-20 11:35:59 - Password hashed
+2025/05/20 11:35:59 [INFO] 2025-05-20 11:35:59 - Starting avatar upload
+2025/05/20 11:35:59 [INFO] 2025-05-20 11:35:59 - Avatar file retrieved: profile.JPEG
+2025/05/20 11:35:59 [INFO] 2025-05-20 11:35:59 - Detected content type: image/jpeg
+2025/05/20 11:35:59 [INFO] 2025-05-20 11:35:59 - Generated avatar filename: 2be204b5-d7d9-4221-bfbc-c8fce77fa9b6.JPEG
+2025/05/20 11:35:59 [INFO] 2025-05-20 11:35:59 - Saving user to database with ID: 823b47fb-fe09-42d6-96ef-1f7ea0d75840
+2025/05/20 11:35:59 [INFO] 2025-05-20 11:35:59 - User saved successfully
+2025/05/20 11:35:59 [INFO] 2025-05-20 11:35:59 - User registered with ID: 823b47fb-fe09-42d6-96ef-1f7ea0d75840
+2025/05/20 11:35:59 [INFO] 2025-05-20 11:35:59 - Avatar uploaded: /uploads/profile_image/2be204b5-d7d9-4221-bfbc-c8fce77fa9b6.JPEG
+2025/05/20 11:35:59 [INFO] 2025-05-20 11:35:59 - Avatar saved successfully
+2025/05/20 11:35:59 [INFO] 2025-05-20 11:35:59 - Save Token into Sessions
+2025/05/20 11:35:59 [INFO] 2025-05-20 11:35:59 - Login successful for user: 823b47fb-fe09-42d6-96ef-1f7ea0d75840
+2025/05/20 11:35:59 [INFO] 2025-05-20 11:35:59 - Success Register
+2025/05/20 11:36:45 [INFO] 2025-05-20 11:36:45 - Parsed multipart form
+2025/05/20 11:36:45 [INFO] 2025-05-20 11:36:45 - Form fields parsed successfully
+2025/05/20 11:36:45 [INFO] 2025-05-20 11:36:45 - Form fields parsed
+2025/05/20 11:36:45 [INFO] 2025-05-20 11:36:45 - Checking if email exists: ibarhim@gmail.com
+2025/05/20 11:36:45 [INFO] 2025-05-20 11:36:45 - Email is unique
+2025/05/20 11:36:45 [INFO] 2025-05-20 11:36:45 - Validating registration input
+2025/05/20 11:36:45 [INFO] 2025-05-20 11:36:45 - Registration input valid
+2025/05/20 11:36:45 [INFO] 2025-05-20 11:36:45 - User input validated
+2025/05/20 11:36:45 [INFO] 2025-05-20 11:36:45 - Hashing password
+2025/05/20 11:36:45 [INFO] 2025-05-20 11:36:45 - Password hashed successfully
+2025/05/20 11:36:45 [INFO] 2025-05-20 11:36:45 - Password hashed
+2025/05/20 11:36:45 [INFO] 2025-05-20 11:36:45 - Starting avatar upload
+2025/05/20 11:36:45 [INFO] 2025-05-20 11:36:45 - Avatar file retrieved: profile.JPEG
+2025/05/20 11:36:45 [INFO] 2025-05-20 11:36:45 - Detected content type: image/jpeg
+2025/05/20 11:36:45 [INFO] 2025-05-20 11:36:45 - Generated avatar filename: dcd7cd26-55ea-436b-bc10-5f8d18a426a1.JPEG
+2025/05/20 11:36:45 [INFO] 2025-05-20 11:36:45 - Saving user to database with ID: baf51d75-a3cc-488e-ba8a-bceda2135557
+2025/05/20 11:36:45 [INFO] 2025-05-20 11:36:45 - User saved successfully
+2025/05/20 11:36:45 [INFO] 2025-05-20 11:36:45 - User registered with ID: baf51d75-a3cc-488e-ba8a-bceda2135557
+2025/05/20 11:36:45 [INFO] 2025-05-20 11:36:45 - Avatar uploaded: /uploads/profile_image/dcd7cd26-55ea-436b-bc10-5f8d18a426a1.JPEG
+2025/05/20 11:36:45 [INFO] 2025-05-20 11:36:45 - Avatar saved successfully
+2025/05/20 11:36:45 [INFO] 2025-05-20 11:36:45 - Save Token into Sessions
+2025/05/20 11:36:45 [INFO] 2025-05-20 11:36:45 - Login successful for user: baf51d75-a3cc-488e-ba8a-bceda2135557
+2025/05/20 11:36:45 [INFO] 2025-05-20 11:36:45 - Success Register
+2025/05/20 11:37:07 [LOG] 2025-05-20 11:37:07 - Start Creating the Post
+2025/05/20 11:37:07 [ERROR] 2025-05-20 11:37:07 - Error On the Privacy Mode user selected : costum_users
+2025/05/20 11:37:23 [LOG] 2025-05-20 11:37:23 - Start Creating the Post
+2025/05/20 11:37:23 [INFO] 2025-05-20 11:37:23 - Starting avatar upload
+2025/05/20 11:37:23 [INFO] 2025-05-20 11:37:23 - Avatar file retrieved: تعرض للتنمر بسبب التواء العمود الفقري 'الجنف'.. تعرفوا على حالة هذا الشاب (HQ).jpg
+2025/05/20 11:37:23 [INFO] 2025-05-20 11:37:23 - Detected content type: image/jpeg
+2025/05/20 11:37:23 [INFO] 2025-05-20 11:37:23 - Generated avatar filename: 3a73764d-6686-4179-b4ca-ab2c77f2d70e.jpg
+2025/05/20 11:40:30 [LOG] 2025-05-20 11:40:30 - Start Creating the Post
+2025/05/20 11:40:30 [INFO] 2025-05-20 11:40:30 - Starting avatar upload
+2025/05/20 11:40:30 [INFO] 2025-05-20 11:40:30 - Avatar file retrieved: تعرض للتنمر بسبب التواء العمود الفقري 'الجنف'.. تعرفوا على حالة هذا الشاب (HQ).jpg
+2025/05/20 11:40:30 [INFO] 2025-05-20 11:40:30 - Detected content type: image/jpeg
+2025/05/20 11:40:30 [INFO] 2025-05-20 11:40:30 - Generated avatar filename: cb7fd940-f3a1-4b13-ab38-01d9a5109a24.jpg
+2025/05/20 11:40:46 [LOG] 2025-05-20 11:40:46 - Start Creating the Post
+2025/05/20 11:40:46 [INFO] 2025-05-20 11:40:46 - Starting avatar upload
+2025/05/20 11:40:46 [INFO] 2025-05-20 11:40:46 - Avatar file retrieved: تعرض للتنمر بسبب التواء العمود الفقري 'الجنف'.. تعرفوا على حالة هذا الشاب (HQ).jpg
+2025/05/20 11:40:46 [INFO] 2025-05-20 11:40:46 - Detected content type: image/jpeg
+2025/05/20 11:40:46 [INFO] 2025-05-20 11:40:46 - Generated avatar filename: f34d2290-e4ff-4900-ac1b-4c86a53e823f.jpg
+2025/05/20 11:40:46 [INFO] 2025-05-20 11:40:46 - Avatar saved successfully
+2025/05/20 11:40:53 [LOG] 2025-05-20 11:40:53 - Get request made to GetPostsScroll Handler
+2025/05/20 11:40:53 [INFO] 2025-05-20 11:40:53 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/20 11:40:53 [LOG] 2025-05-20 11:40:53 - Get request made to GetPostsScroll Handler
+2025/05/20 11:40:53 [INFO] 2025-05-20 11:40:53 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/20 11:41:06 [LOG] 2025-05-20 11:41:06 - Get request made to GetPostsScroll Handler
+2025/05/20 11:41:06 [INFO] 2025-05-20 11:41:06 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/20 11:41:06 [LOG] 2025-05-20 11:41:06 - Get request made to GetPostsScroll Handler
+2025/05/20 11:41:06 [INFO] 2025-05-20 11:41:06 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/20 11:41:32 [LOG] 2025-05-20 11:41:32 - Get request made to GetPostsScroll Handler
+2025/05/20 11:41:32 [INFO] 2025-05-20 11:41:32 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/20 11:41:32 [LOG] 2025-05-20 11:41:32 - Get request made to GetPostsScroll Handler
+2025/05/20 11:41:32 [INFO] 2025-05-20 11:41:32 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/20 11:42:15 [LOG] 2025-05-20 11:42:15 - Get request made to GetPostsScroll Handler
+2025/05/20 11:42:15 [INFO] 2025-05-20 11:42:15 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/20 11:42:52 [LOG] 2025-05-20 11:42:52 - Get request made to GetPostsScroll Handler
+2025/05/20 11:42:52 [INFO] 2025-05-20 11:42:52 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/20 11:44:01 [INFO] 2025-05-20 11:44:01 - Starting HTTP server at http://localhost:8080 ...
+2025/05/20 11:44:01 [INFO] 2025-05-20 11:44:01 - Migrations applied successfully!
+2025/05/20 11:44:02 [LOG] 2025-05-20 11:44:02 - Get request made to GetPostsScroll Handler
+2025/05/20 11:44:02 [INFO] 2025-05-20 11:44:02 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/20 11:44:02 [LOG] 2025-05-20 11:44:02 - Get request made to GetPostsScroll Handler
+2025/05/20 11:44:02 [INFO] 2025-05-20 11:44:02 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/20 11:44:03 [LOG] 2025-05-20 11:44:03 - Get request made to GetPostsScroll Handler
+2025/05/20 11:44:03 [INFO] 2025-05-20 11:44:03 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/20 11:44:54 [INFO] 2025-05-20 11:44:54 - Starting HTTP server at http://localhost:8080 ...
+2025/05/20 11:44:54 [INFO] 2025-05-20 11:44:54 - Migrations applied successfully!
+2025/05/20 11:44:56 [LOG] 2025-05-20 11:44:56 - Get request made to GetPostsScroll Handler
+2025/05/20 11:44:56 [INFO] 2025-05-20 11:44:56 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/20 11:46:13 [LOG] 2025-05-20 11:46:13 - Start Creating the Post
+2025/05/20 11:46:13 [INFO] 2025-05-20 11:46:13 - Starting avatar upload
+2025/05/20 11:46:13 [INFO] 2025-05-20 11:46:13 - Avatar file retrieved: تعرض للتنمر بسبب التواء العمود الفقري 'الجنف'.. تعرفوا على حالة هذا الشاب (HQ).jpg
+2025/05/20 11:46:13 [INFO] 2025-05-20 11:46:13 - Detected content type: image/jpeg
+2025/05/20 11:46:13 [INFO] 2025-05-20 11:46:13 - Generated avatar filename: c8daef54-59b6-4f03-8605-8b08c533cc58.jpg
+2025/05/20 11:46:13 [INFO] 2025-05-20 11:46:13 - Avatar saved successfully
+2025/05/20 11:46:16 [LOG] 2025-05-20 11:46:16 - Get request made to GetPost Handler
+2025/05/20 11:46:16 [ERROR] 2025-05-20 11:46:16 - Unauthorized request made to post id:.3sql: no rows in result set
+2025/05/20 11:46:21 [LOG] 2025-05-20 11:46:21 - Get request made to GetPostsScroll Handler
+2025/05/20 11:46:21 [INFO] 2025-05-20 11:46:21 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/20 11:46:34 [LOG] 2025-05-20 11:46:34 - Get request made to GetPostsScroll Handler
+2025/05/20 11:46:34 [INFO] 2025-05-20 11:46:34 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/20 11:46:34 [LOG] 2025-05-20 11:46:34 - Get request made to GetPostsScroll Handler
+2025/05/20 11:46:34 [INFO] 2025-05-20 11:46:34 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/20 11:53:18 [LOG] 2025-05-20 11:53:18 - Start Creating the Post
+2025/05/20 11:53:18 [INFO] 2025-05-20 11:53:18 - Starting avatar upload
+2025/05/20 11:53:18 [INFO] 2025-05-20 11:53:18 - Avatar file retrieved: تعرض للتنمر بسبب التواء العمود الفقري 'الجنف'.. تعرفوا على حالة هذا الشاب (HQ).jpg
+2025/05/20 11:53:18 [INFO] 2025-05-20 11:53:18 - Detected content type: image/jpeg
+2025/05/20 11:53:18 [INFO] 2025-05-20 11:53:18 - Generated avatar filename: 8ddadb7e-7d10-407d-9bfd-7a00d3a53909.jpg
+2025/05/20 11:53:18 [INFO] 2025-05-20 11:53:18 - Avatar saved successfully
+2025/05/20 11:53:20 [LOG] 2025-05-20 11:53:20 - Start Creating the Post
+2025/05/20 11:53:20 [INFO] 2025-05-20 11:53:20 - Starting avatar upload
+2025/05/20 11:53:20 [INFO] 2025-05-20 11:53:20 - Avatar file retrieved: تعرض للتنمر بسبب التواء العمود الفقري 'الجنف'.. تعرفوا على حالة هذا الشاب (HQ).jpg
+2025/05/20 11:53:20 [INFO] 2025-05-20 11:53:20 - Detected content type: image/jpeg
+2025/05/20 11:53:20 [INFO] 2025-05-20 11:53:20 - Generated avatar filename: 2ff1c088-b30e-4b52-9b71-b7793435cd73.jpg
+2025/05/20 11:53:20 [INFO] 2025-05-20 11:53:20 - Avatar saved successfully
+2025/05/20 11:53:27 [LOG] 2025-05-20 11:53:27 - Start Creating the Post
+2025/05/20 11:53:27 [INFO] 2025-05-20 11:53:27 - Starting avatar upload
+2025/05/20 11:53:27 [INFO] 2025-05-20 11:53:27 - Avatar file retrieved: تعرض للتنمر بسبب التواء العمود الفقري 'الجنف'.. تعرفوا على حالة هذا الشاب (HQ).jpg
+2025/05/20 11:53:27 [INFO] 2025-05-20 11:53:27 - Detected content type: image/jpeg
+2025/05/20 11:53:27 [INFO] 2025-05-20 11:53:27 - Generated avatar filename: 865134d6-d058-4830-a6e5-9d2dee296815.jpg
+2025/05/20 11:53:27 [INFO] 2025-05-20 11:53:27 - Avatar saved successfully
+2025/05/20 11:53:31 [LOG] 2025-05-20 11:53:31 - Start Creating the Post
+2025/05/20 11:53:31 [INFO] 2025-05-20 11:53:31 - Starting avatar upload
+2025/05/20 11:53:31 [INFO] 2025-05-20 11:53:31 - Avatar file retrieved: تعرض للتنمر بسبب التواء العمود الفقري 'الجنف'.. تعرفوا على حالة هذا الشاب (HQ).jpg
+2025/05/20 11:53:31 [INFO] 2025-05-20 11:53:31 - Detected content type: image/jpeg
+2025/05/20 11:53:31 [INFO] 2025-05-20 11:53:31 - Generated avatar filename: b9c03243-9c88-49e6-8b05-3f73247a9ed1.jpg
+2025/05/20 11:53:31 [INFO] 2025-05-20 11:53:31 - Avatar saved successfully
+2025/05/20 11:53:34 [LOG] 2025-05-20 11:53:34 - Start Creating the Post
+2025/05/20 11:53:34 [INFO] 2025-05-20 11:53:34 - Starting avatar upload
+2025/05/20 11:53:34 [INFO] 2025-05-20 11:53:34 - Avatar file retrieved: تعرض للتنمر بسبب التواء العمود الفقري 'الجنف'.. تعرفوا على حالة هذا الشاب (HQ).jpg
+2025/05/20 11:53:34 [INFO] 2025-05-20 11:53:34 - Detected content type: image/jpeg
+2025/05/20 11:53:34 [INFO] 2025-05-20 11:53:34 - Generated avatar filename: d6570495-9104-4d36-9c91-fbe7f33d6588.jpg
+2025/05/20 11:53:34 [INFO] 2025-05-20 11:53:34 - Avatar saved successfully
+2025/05/20 11:53:37 [LOG] 2025-05-20 11:53:37 - Start Creating the Post
+2025/05/20 11:53:37 [INFO] 2025-05-20 11:53:37 - Starting avatar upload
+2025/05/20 11:53:37 [INFO] 2025-05-20 11:53:37 - Avatar file retrieved: تعرض للتنمر بسبب التواء العمود الفقري 'الجنف'.. تعرفوا على حالة هذا الشاب (HQ).jpg
+2025/05/20 11:53:37 [INFO] 2025-05-20 11:53:37 - Detected content type: image/jpeg
+2025/05/20 11:53:37 [INFO] 2025-05-20 11:53:37 - Generated avatar filename: e20b0b38-b230-4b7f-a5c2-0e6fdab944f0.jpg
+2025/05/20 11:53:37 [INFO] 2025-05-20 11:53:37 - Avatar saved successfully
+2025/05/20 11:53:41 [LOG] 2025-05-20 11:53:41 - Start Creating the Post
+2025/05/20 11:53:41 [INFO] 2025-05-20 11:53:41 - Starting avatar upload
+2025/05/20 11:53:41 [INFO] 2025-05-20 11:53:41 - Avatar file retrieved: تعرض للتنمر بسبب التواء العمود الفقري 'الجنف'.. تعرفوا على حالة هذا الشاب (HQ).jpg
+2025/05/20 11:53:41 [INFO] 2025-05-20 11:53:41 - Detected content type: image/jpeg
+2025/05/20 11:53:41 [INFO] 2025-05-20 11:53:41 - Generated avatar filename: bd191217-dac9-4764-8f2d-891b5999bb24.jpg
+2025/05/20 11:53:41 [INFO] 2025-05-20 11:53:41 - Avatar saved successfully
+2025/05/20 11:53:45 [LOG] 2025-05-20 11:53:45 - Start Creating the Post
+2025/05/20 11:53:45 [INFO] 2025-05-20 11:53:45 - Starting avatar upload
+2025/05/20 11:53:45 [INFO] 2025-05-20 11:53:45 - Avatar file retrieved: تعرض للتنمر بسبب التواء العمود الفقري 'الجنف'.. تعرفوا على حالة هذا الشاب (HQ).jpg
+2025/05/20 11:53:45 [INFO] 2025-05-20 11:53:45 - Detected content type: image/jpeg
+2025/05/20 11:53:45 [INFO] 2025-05-20 11:53:45 - Generated avatar filename: 4e9105df-78cb-401a-9947-52ff823f41fa.jpg
+2025/05/20 11:53:45 [INFO] 2025-05-20 11:53:45 - Avatar saved successfully
+2025/05/20 11:54:03 [LOG] 2025-05-20 11:54:03 - Start Creating the Post
+2025/05/20 11:54:03 [INFO] 2025-05-20 11:54:03 - Starting avatar upload
+2025/05/20 11:54:03 [INFO] 2025-05-20 11:54:03 - Avatar file retrieved: تعرض للتنمر بسبب التواء العمود الفقري 'الجنف'.. تعرفوا على حالة هذا الشاب (HQ).jpg
+2025/05/20 11:54:03 [INFO] 2025-05-20 11:54:03 - Detected content type: image/jpeg
+2025/05/20 11:54:03 [INFO] 2025-05-20 11:54:03 - Generated avatar filename: e2cec09a-8c45-4215-9f36-bbbc619908ff.jpg
+2025/05/20 11:54:03 [INFO] 2025-05-20 11:54:03 - Avatar saved successfully
+2025/05/20 11:57:14 [LOG] 2025-05-20 11:57:14 - Get request made to GetPostsScroll Handler
+2025/05/20 11:57:14 [ERROR] 2025-05-20 11:57:14 - No Posts found in GetPostsScroll Handler: 
+2025/05/20 11:57:28 [LOG] 2025-05-20 11:57:28 - Get request made to GetPostsScroll Handler
+2025/05/20 11:57:28 [INFO] 2025-05-20 11:57:28 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/20 12:00:33 [LOG] 2025-05-20 12:00:33 - Get request made to GetPostsScroll Handler
+2025/05/20 12:00:33 [INFO] 2025-05-20 12:00:33 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/20 12:00:33 [LOG] 2025-05-20 12:00:33 - Get request made to GetPostsScroll Handler
+2025/05/20 12:00:33 [INFO] 2025-05-20 12:00:33 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/20 12:01:20 [LOG] 2025-05-20 12:01:20 - Get request made to GetPostsScroll Handler
+2025/05/20 12:01:20 [INFO] 2025-05-20 12:01:20 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/20 12:01:20 [LOG] 2025-05-20 12:01:20 - Get request made to GetPostsScroll Handler
+2025/05/20 12:01:20 [INFO] 2025-05-20 12:01:20 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/20 12:01:35 [LOG] 2025-05-20 12:01:35 - Get request made to GetPostsScroll Handler
+2025/05/20 12:01:35 [INFO] 2025-05-20 12:01:35 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/20 12:02:11 [LOG] 2025-05-20 12:02:11 - Start Creating the Post
+2025/05/20 12:02:11 [INFO] 2025-05-20 12:02:11 - Starting avatar upload
+2025/05/20 12:02:11 [INFO] 2025-05-20 12:02:11 - Avatar file retrieved: تعرض للتنمر بسبب التواء العمود الفقري 'الجنف'.. تعرفوا على حالة هذا الشاب (HQ).jpg
+2025/05/20 12:02:11 [INFO] 2025-05-20 12:02:11 - Detected content type: image/jpeg
+2025/05/20 12:02:11 [INFO] 2025-05-20 12:02:11 - Generated avatar filename: f8f5d037-e01a-4389-8956-f645ff248a5b.jpg
+2025/05/20 12:02:11 [INFO] 2025-05-20 12:02:11 - Avatar saved successfully
+2025/05/20 12:02:20 [LOG] 2025-05-20 12:02:20 - Start Creating the Post
+2025/05/20 12:02:20 [INFO] 2025-05-20 12:02:20 - Starting avatar upload
+2025/05/20 12:02:20 [INFO] 2025-05-20 12:02:20 - Avatar file retrieved: تعرض للتنمر بسبب التواء العمود الفقري 'الجنف'.. تعرفوا على حالة هذا الشاب (HQ).jpg
+2025/05/20 12:02:20 [INFO] 2025-05-20 12:02:20 - Detected content type: image/jpeg
+2025/05/20 12:02:20 [INFO] 2025-05-20 12:02:20 - Generated avatar filename: d5beb7e6-260a-4e42-b4f8-6cd6552d7568.jpg
+2025/05/20 12:02:20 [INFO] 2025-05-20 12:02:20 - Avatar saved successfully
+2025/05/20 12:02:50 [LOG] 2025-05-20 12:02:50 - Get request made to GetPostsScroll Handler
+2025/05/20 12:02:50 [INFO] 2025-05-20 12:02:50 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/20 12:02:50 [LOG] 2025-05-20 12:02:50 - Get request made to GetPostsScroll Handler
+2025/05/20 12:02:50 [INFO] 2025-05-20 12:02:50 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/20 12:03:07 [LOG] 2025-05-20 12:03:07 - Get request made to GetPostsScroll Handler
+2025/05/20 12:03:07 [INFO] 2025-05-20 12:03:07 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/20 12:03:07 [LOG] 2025-05-20 12:03:07 - Get request made to GetPostsScroll Handler
+2025/05/20 12:03:07 [INFO] 2025-05-20 12:03:07 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/20 12:03:16 [LOG] 2025-05-20 12:03:16 - Get request made to GetPostsScroll Handler
+2025/05/20 12:03:16 [INFO] 2025-05-20 12:03:16 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/20 12:03:16 [LOG] 2025-05-20 12:03:16 - Get request made to GetPostsScroll Handler
+2025/05/20 12:03:16 [INFO] 2025-05-20 12:03:16 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/20 12:13:05 [LOG] 2025-05-20 12:13:05 - Get request made to GetPostsScroll Handler
+2025/05/20 12:13:05 [INFO] 2025-05-20 12:13:05 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/20 12:13:05 [LOG] 2025-05-20 12:13:05 - Get request made to GetPostsScroll Handler
+2025/05/20 12:13:05 [INFO] 2025-05-20 12:13:05 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/20 12:13:15 [LOG] 2025-05-20 12:13:15 - Get request made to GetPostsScroll Handler
+2025/05/20 12:13:15 [INFO] 2025-05-20 12:13:15 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/20 12:13:21 [LOG] 2025-05-20 12:13:21 - Get request made to GetPostsScroll Handler
+2025/05/20 12:13:21 [ERROR] 2025-05-20 12:13:21 - No Posts found in GetPostsScroll Handler: 
+2025/05/20 12:13:26 [LOG] 2025-05-20 12:13:26 - Get request made to GetPostsScroll Handler
+2025/05/20 12:13:26 [INFO] 2025-05-20 12:13:26 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/20 12:13:26 [LOG] 2025-05-20 12:13:26 - Get request made to GetPostsScroll Handler
+2025/05/20 12:13:26 [INFO] 2025-05-20 12:13:26 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/20 12:13:57 [LOG] 2025-05-20 12:13:57 - Get request made to GetPostsScroll Handler
+2025/05/20 12:13:57 [INFO] 2025-05-20 12:13:57 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/20 12:14:00 [LOG] 2025-05-20 12:14:00 - Get request made to GetPostsScroll Handler
+2025/05/20 12:14:00 [ERROR] 2025-05-20 12:14:00 - No Posts found in GetPostsScroll Handler: 
+2025/05/20 12:14:26 [LOG] 2025-05-20 12:14:26 - Get request made to GetPostsScroll Handler
+2025/05/20 12:14:26 [ERROR] 2025-05-20 12:14:26 - No Posts found in GetPostsScroll Handler: 
+2025/05/20 12:14:31 [LOG] 2025-05-20 12:14:31 - Get request made to GetPostsScroll Handler
+2025/05/20 12:14:31 [INFO] 2025-05-20 12:14:31 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/20 12:14:31 [LOG] 2025-05-20 12:14:31 - Get request made to GetPostsScroll Handler
+2025/05/20 12:14:31 [INFO] 2025-05-20 12:14:31 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/20 12:14:51 [LOG] 2025-05-20 12:14:51 - Get request made to GetPostsScroll Handler
+2025/05/20 12:14:51 [INFO] 2025-05-20 12:14:51 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/20 12:14:53 [LOG] 2025-05-20 12:14:53 - Get request made to GetPostsScroll Handler
+2025/05/20 12:14:53 [ERROR] 2025-05-20 12:14:53 - No Posts found in GetPostsScroll Handler: 
+2025/05/20 12:14:58 [LOG] 2025-05-20 12:14:58 - Get request made to GetPostsScroll Handler
+2025/05/20 12:14:58 [INFO] 2025-05-20 12:14:58 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/20 12:14:58 [LOG] 2025-05-20 12:14:58 - Get request made to GetPostsScroll Handler
+2025/05/20 12:14:58 [INFO] 2025-05-20 12:14:58 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/20 12:15:05 [LOG] 2025-05-20 12:15:05 - Get request made to GetPostsScroll Handler
+2025/05/20 12:15:05 [INFO] 2025-05-20 12:15:05 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/20 12:15:05 [LOG] 2025-05-20 12:15:05 - Get request made to GetPostsScroll Handler
+2025/05/20 12:15:05 [INFO] 2025-05-20 12:15:05 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/20 12:16:57 [LOG] 2025-05-20 12:16:57 - Get request made to GetPostsScroll Handler
+2025/05/20 12:16:57 [INFO] 2025-05-20 12:16:57 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/20 12:16:57 [LOG] 2025-05-20 12:16:57 - Get request made to GetPostsScroll Handler
+2025/05/20 12:16:57 [INFO] 2025-05-20 12:16:57 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/20 12:19:34 [LOG] 2025-05-20 12:19:34 - Get request made to GetPostsScroll Handler
+2025/05/20 12:19:34 [INFO] 2025-05-20 12:19:34 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/20 12:19:34 [LOG] 2025-05-20 12:19:34 - Get request made to GetPostsScroll Handler
+2025/05/20 12:19:34 [INFO] 2025-05-20 12:19:34 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/20 12:32:12 [LOG] 2025-05-20 12:32:12 - Get request made to GetPostsScroll Handler
+2025/05/20 12:32:12 [INFO] 2025-05-20 12:32:12 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/20 12:32:12 [LOG] 2025-05-20 12:32:12 - Get request made to GetPostsScroll Handler
+2025/05/20 12:32:12 [INFO] 2025-05-20 12:32:12 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/20 13:20:13 [LOG] 2025-05-20 13:20:13 - Get request made to GetPostsScroll Handler
+2025/05/20 13:20:13 [INFO] 2025-05-20 13:20:13 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/20 13:20:13 [LOG] 2025-05-20 13:20:13 - Get request made to GetPostsScroll Handler
+2025/05/20 13:20:13 [INFO] 2025-05-20 13:20:13 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/20 13:21:10 [LOG] 2025-05-20 13:21:10 - Get request made to GetPostsScroll Handler
+2025/05/20 13:21:10 [INFO] 2025-05-20 13:21:10 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/20 13:21:10 [LOG] 2025-05-20 13:21:10 - Get request made to GetPostsScroll Handler
+2025/05/20 13:21:10 [INFO] 2025-05-20 13:21:10 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/20 13:21:37 [LOG] 2025-05-20 13:21:37 - Get request made to GetPostsScroll Handler
+2025/05/20 13:21:37 [INFO] 2025-05-20 13:21:37 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/20 13:21:37 [LOG] 2025-05-20 13:21:37 - Get request made to GetPostsScroll Handler
+2025/05/20 13:21:37 [INFO] 2025-05-20 13:21:37 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/20 13:22:22 [LOG] 2025-05-20 13:22:22 - Get request made to GetPostsScroll Handler
+2025/05/20 13:22:22 [INFO] 2025-05-20 13:22:22 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/20 13:22:22 [LOG] 2025-05-20 13:22:22 - Get request made to GetPostsScroll Handler
+2025/05/20 13:22:22 [INFO] 2025-05-20 13:22:22 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/20 13:22:59 [LOG] 2025-05-20 13:22:59 - Get request made to GetPostsScroll Handler
+2025/05/20 13:22:59 [INFO] 2025-05-20 13:22:59 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/20 13:22:59 [LOG] 2025-05-20 13:22:59 - Get request made to GetPostsScroll Handler
+2025/05/20 13:22:59 [INFO] 2025-05-20 13:22:59 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/20 13:23:27 [LOG] 2025-05-20 13:23:27 - Get request made to GetPostsScroll Handler
+2025/05/20 13:23:27 [INFO] 2025-05-20 13:23:27 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/20 13:23:27 [LOG] 2025-05-20 13:23:27 - Get request made to GetPostsScroll Handler
+2025/05/20 13:23:27 [INFO] 2025-05-20 13:23:27 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/20 13:23:39 [LOG] 2025-05-20 13:23:39 - Get request made to GetPostsScroll Handler
+2025/05/20 13:23:39 [INFO] 2025-05-20 13:23:39 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/20 13:27:05 [LOG] 2025-05-20 13:27:05 - Get request made to GetPostsScroll Handler
+2025/05/20 13:27:05 [INFO] 2025-05-20 13:27:05 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/20 13:27:05 [LOG] 2025-05-20 13:27:05 - Get request made to GetPostsScroll Handler
+2025/05/20 13:27:05 [INFO] 2025-05-20 13:27:05 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/20 13:28:18 [LOG] 2025-05-20 13:28:18 - Get request made to GetPostsScroll Handler
+2025/05/20 13:28:18 [LOG] 2025-05-20 13:28:18 - Get request made to GetPostsScroll Handler
+2025/05/20 13:28:18 [INFO] 2025-05-20 13:28:18 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/20 13:28:18 [INFO] 2025-05-20 13:28:18 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/20 13:29:05 [LOG] 2025-05-20 13:29:05 - Get request made to GetPostsScroll Handler
+2025/05/20 13:29:05 [LOG] 2025-05-20 13:29:05 - Get request made to GetPostsScroll Handler
+2025/05/20 13:29:05 [ERROR] 2025-05-20 13:29:05 - No Posts found in GetPostsScroll Handler: 
+2025/05/20 13:29:05 [ERROR] 2025-05-20 13:29:05 - No Posts found in GetPostsScroll Handler: 
+2025/05/20 13:30:10 [LOG] 2025-05-20 13:30:10 - Start Creating the Post
+2025/05/20 13:30:10 [INFO] 2025-05-20 13:30:10 - Starting avatar upload
+2025/05/20 13:30:10 [INFO] 2025-05-20 13:30:10 - Avatar file retrieved: تعرض للتنمر بسبب التواء العمود الفقري 'الجنف'.. تعرفوا على حالة هذا الشاب (HQ).jpg
+2025/05/20 13:30:10 [INFO] 2025-05-20 13:30:10 - Detected content type: image/jpeg
+2025/05/20 13:30:10 [INFO] 2025-05-20 13:30:10 - Generated avatar filename: 64e7a644-8e17-4130-a96c-33f53c1ca6e1.jpg
+2025/05/20 13:30:10 [INFO] 2025-05-20 13:30:10 - Avatar saved successfully
+2025/05/20 13:30:17 [LOG] 2025-05-20 13:30:17 - Get request made to GetPostsScroll Handler
+2025/05/20 13:30:17 [LOG] 2025-05-20 13:30:17 - Get request made to GetPostsScroll Handler
+2025/05/20 13:30:17 [INFO] 2025-05-20 13:30:17 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/20 13:30:17 [INFO] 2025-05-20 13:30:17 - Posts fetched successfully in GetPostsScroll Handler

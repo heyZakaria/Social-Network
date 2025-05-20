@@ -8,7 +8,7 @@ import { fetchWithAuth } from '@/app/(utils)/api';
 import { useParams } from 'next/navigation';
 
 export default function ProfilePage({ params }) {
-  console.log("params:", params);
+  
 
   const router = useRouter();
   const { user: currentUser, loading } = useUser();
@@ -16,11 +16,11 @@ export default function ProfilePage({ params }) {
   const [profileLoading, setProfileLoading] = useState(true);
   const [notFoundFlag, setNotFoundFlag] = useState(false);
 
-  console.log("user from profile page", currentUser);
+  
   // params.id = currentUser.id
   const paramsx = useParams();
   const ids = paramsx.id
-  console.log("|ID", ids);
+  
   
   // params is a Record<string, string> | null
   // const id = params?.id;
@@ -34,7 +34,7 @@ export default function ProfilePage({ params }) {
         }
         const json = await res.json();
         setProfileUser(json.data.Data);
-        console.log("setprofile", json.data.Data);
+        
       } catch (error) {
         console.error('Error fetching profile:', error);
         setNotFoundFlag(true);
@@ -45,9 +45,9 @@ export default function ProfilePage({ params }) {
 
     loadProfileUser();
   }, [ids]);
-  console.log("===========================================");
-  console.log(profileUser);
-  console.log("===========================================");
+  
+  
+  
   
   if (loading || profileLoading) return <div>Loading...</div>;
 

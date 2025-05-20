@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import styles from "@/styles/profile.module.css";
 import PostComponent from "@/components/posts/post-component";
@@ -25,11 +25,51 @@ export default function ProfileComponent({
   //   currentUser = currentUser
   // }
 
+  const [posts, setPosts] = useState([]);
+  const [offset, setOffset] = useState(0);
+  const limit = 10; // You can change this value if needed
+  const [loading, setLoading] = useState(false);
+  const [hasMore, setHasMore] = useState(true); // for pagination
 
-  console.log("ProfileData.avatar:", ProfileData.avatar);
- 
+  useEffect(() => {
+    if (activeTab === "posts") {
+      fetchPosts();
+    }
+  }, [activeTab, offset]);
 
-  return (
+  const fetchPosts = async () => {
+    try {
+      setLoading(true);
+      const res = await fetch(
+        `http://localhost:8080/posts/getposts?limit=${limit}&offset=${offset}&user_id=${ProfileData.id}`, {
+          credentials: "include",
+        }
+      );
+
+      if (!res.ok) {
+        throw new Error("Failed to fetch posts");
+      }
+
+      const data = await res.json();
+
+      
+      if (data.data.posts.length < limit) setHasMore(false); // no more posts
+
+      setPosts((prev) => [...data?.data?.posts]);//setPosts((prev) => [...prev, ...data?.data?.posts]);
+    } catch (error) {
+      console.error("Error loading posts:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const loadMore = () => {
+    if (!loading && hasMore) {
+      setOffset((prev) => prev + limit);
+    }
+  };
+
+return (
     <div className={styles.profileContainer}>
       <div className={styles.profileHeader}>
         <div className={styles.profileCover}>
@@ -126,24 +166,38 @@ export default function ProfileComponent({
           </div>
 
           <div className={styles.tabContent}>
-            {activeTab === "posts" && (
-              <div className={styles.postsGrid}>
-                {ProfileData.post > 0 ? (
-                  posts.map((post) => (
-                    <PostComponent
-                      key={post.id}
-                      post={post}
-                      user={currentUser}
-                      currentUser={currentUser}
-                    />
-                  ))
-                ) : (
-                  <div className={styles.emptyState}>
-                    <p>No posts yet</p>
-                  </div>
-                )}
-              </div>
-            )}
+          {activeTab === "posts" && (
+  <div className={styles.postsGrid}>
+    {loading && posts.length === 0 ? (
+      <p>Loading...</p>
+    ) : posts.length > 0 ? (
+      <>
+        {posts.map((post) => (
+          <PostComponent
+            key={post.PostId}
+            post={post}
+            user={ProfileData} // or actual logged in user
+            currentUser={ProfileData}
+          />
+        ))}
+        {hasMore && (
+          <button
+            className={styles.loadMoreButton}
+            onClick={loadMore}
+            disabled={loading}
+          >
+            {loading ? "Loading..." : "Load More"}
+          </button>
+        )}
+      </>
+    ) : (
+      <div className={styles.emptyState}>
+        <p>No posts yet</p>
+      </div>
+    )}
+  </div>
+)}
+
 
             {activeTab === "followers" && (
               <UserList users={followers} currentUser={currentUser} />

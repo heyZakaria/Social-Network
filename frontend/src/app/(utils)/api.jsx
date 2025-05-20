@@ -13,7 +13,7 @@ export async function fetchWithAuth(url, options = {}, router) {
       },
     });
 
-    console.log('Response status:', response.status);
+    
 
     if (!response.ok) {
       if (response.status === 401) {

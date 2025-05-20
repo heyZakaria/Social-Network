@@ -14,8 +14,8 @@ export default function PostComponent({
   currentUser,
   showComments = false,
 }) {
-  const [isLiked, setIsLiked] = useState(post.likes.includes(currentUser.id));
-  const [likesCount, setLikesCount] = useState(post.likes.length);
+  const [isLiked, setIsLiked] = useState(post.Liked);
+  const [likesCount, setLikesCount] = useState(post.LikeCounts);
   const [showCommentsSection, setShowCommentsSection] = useState(showComments);
   const [isExpanded, setIsExpanded] = useState(false);
   const MAX_CONTENT_LENGTH = 250; // Maximum characters to show before "See more"
@@ -49,12 +49,12 @@ export default function PostComponent({
   };
 
   const getPrivacyIcon = () => {
-    switch (post.privacy) {
+    switch (post.Privacy) {
       case "public":
         return <IoGlobeOutline size={16} />;
       case "followers":
         return <HiUsers size={16} />;
-      case "private":
+      case "custom_users":
         return <HiLockClosed size={16} />;
       default:
         return null;
@@ -62,15 +62,15 @@ export default function PostComponent({
   };
   // Function to render post content with "See more" functionality
   const renderPostContent = () => {
-    if (!post.content) return null;
+    if (!post.Post_Content) return null;
 
-    if (post.content.length <= MAX_CONTENT_LENGTH || isExpanded) {
-      return <p>{post.content}</p>;
+    if (post.Post_Content.length <= MAX_CONTENT_LENGTH || isExpanded) {
+      return <p>{post.Post_Content}</p>;
     }
 
     return (
       <p>
-        {post.content.substring(0, MAX_CONTENT_LENGTH)}...
+        {post.Post_Content.substring(0, MAX_CONTENT_LENGTH)}...
         <button
           className={styles.seeMoreButton}
           onClick={() => setIsExpanded(true)}
@@ -86,7 +86,7 @@ export default function PostComponent({
       <div className={styles.postHeader}>
         <Link href={`/profile/${user.id}`} className={styles.postUser}>
           <img
-            src={user.avatar || "https://i.pravatar.cc/150?u=10`"}
+            src={user.avatar || "/uploads/profile.jpeg"}
             alt={user.firstName}
             className={styles.postAvatar}
           />
@@ -96,11 +96,11 @@ export default function PostComponent({
             </div>
             <div className={styles.postMeta}>
               <span className={styles.postTime}>
-                {formatDate(post.createdAt)}
+                {formatDate(post.CreatedAt)}
               </span>
               <span
                 className={styles.postPrivacy}
-                title={`This post is ${post.privacy}`}
+                title={`This post is ${post.Privacy}`}
               >
                 {getPrivacyIcon()}
               </span>
@@ -119,9 +119,9 @@ export default function PostComponent({
 
       <div className={styles.postContent}>
         {renderPostContent()}
-        {post.image && (
+        {post.Post_image && (
           <img
-            src={post.image || "/placeholder.svg"}
+            src={post.Post_image || "/placeholder.svg"}
             alt="Post"
             className={styles.postImage}
           />

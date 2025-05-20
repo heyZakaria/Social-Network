@@ -5,9 +5,9 @@ import styles from "@/styles/profile.module.css"
 import { fetchWithAuth } from "@/app/(utils)/api"
 
 export default function PrivacyToggle({ user }) {
-  console.log("==============user============");
-  console.log(user)
-  console.log("==========================");
+  
+  
+  
   
   const [isPublic, setIsPublic] = useState(user.isPublic)
   const [isPending, setIsPending] = useState(false)
