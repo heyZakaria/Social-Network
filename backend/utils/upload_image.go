@@ -60,7 +60,7 @@ func PrepareImage(r *http.Request, ImageName, ImagePath string) (imageProvided b
 
 	file.Seek(0, io.SeekStart)
 
-	uploadPhotos := "../uploads/" + ImagePath
+	uploadPhotos := "../../frontend/public/uploads/" + ImagePath
 	if _, err := os.Stat(uploadPhotos); os.IsNotExist(err) {
 		err := os.MkdirAll(uploadPhotos, os.ModePerm)
 		if err != nil {
@@ -73,12 +73,12 @@ func PrepareImage(r *http.Request, ImageName, ImagePath string) (imageProvided b
 	avatarFilename = uuid.New().String() + filepath.Ext(handler.Filename) //sdafsdafk2323.jpg
 	Log("INFO", "Generated avatar filename: "+avatarFilename)
 
-	return true, "./uploads/" + ImagePath + "/" + avatarFilename, file, nil
+	return true, "/uploads/" + ImagePath + "/" + avatarFilename, file, nil
 }
 
 func SaveImage(file multipart.File, path string) {
-
-	dst, err := os.Create(filepath.Join("." + path))
+	fmt.Println("===> path", path)
+	dst, err := os.Create(filepath.Join("../../frontend/public/" + path))
 	if err != nil {
 		Log("ERROR", "Failed to create image file: "+err.Error())
 		return

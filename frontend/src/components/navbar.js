@@ -321,7 +321,7 @@ export default function Navbar({ user }) {
               >
               
                 <img
-                  src={user.avatar || "https://i.pravatar.cc/150?u=10"}
+                  src={user.avatar}
                   alt={user.firstName}
                   className={styles.userAvatar}
                 />

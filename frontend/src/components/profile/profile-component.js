@@ -25,44 +25,24 @@ export default function ProfileComponent({
   //   currentUser = currentUser
   // }
 
-  //   {
-  //     "id": "2bab197e-fc65-426e-8227-ae60182b8b41",
-  //     "firstName": "AMine",
-  //     "lastName": "Habchi",
-  //     "email": "xxcxc@sdf.comx",
-  //     "nickname": "zcxasa",
-  //     "bio": "",
-  //     "avatar": "./uploads/profile_image/b9d82136-6c8b-4c35-9874-206adc84633c.JPEG",
-  //     "profile_status": "public",
-  //     "birthday": "2000-05-05T00:00:00Z",
-  //     "created_at": "2025-05-13T17:47:47Z",
-  //     "followerCount": 0,
-  //     "followingCount": 0,
-  //     "posts": null,
-  //     "followers": null,
-  //     "following": null
-  // }
-  console.log("ProfileData.avatar:", ProfileData.avatar);
 
+  console.log("ProfileData.avatar:", ProfileData.avatar);
+ 
 
   return (
     <div className={styles.profileContainer}>
       <div className={styles.profileHeader}>
         <div className={styles.profileCover}>
           <img
-            src={"http://localhost:8080/" + ProfileData.avatar}// ./uploads/profile_image/b27c2604-404b-48e4-a20c-f4afa29a9c57.jpeg
+            src={ProfileData.avatar || "/uploads/profile.jpeg"}// ./uploads/profile_image/b27c2604-404b-48e4-a20c-f4afa29a9c57.jpeg
             alt="Cover"
-            onError={(e) => {
-              e.currentTarget.onerror = null; // Prevent infinite loop if fallback also fails
-              e.currentTarget.src = 'http://localhost:8080/uploads/profile_image/b27c2604-404b-48e4-a20c-f4afa29a9c57.jpeg';
-            }}
             className={styles.coverImage}
           />
         </div>
         <div className={styles.profileInfo}>
           <div className={styles.profileAvatar}>
             <img
-              src={"http://localhost:8080/" + ProfileData.avatar || "https://cdn.pixabay.com/photo/2018/04/18/18/56/user-3331256_1280.png" }
+              src={ProfileData.avatar || "/uploads/profile.jpeg"}
               alt={ProfileData.FirstName}
               className={styles.avatarImage}
             />
@@ -112,8 +92,8 @@ export default function ProfileComponent({
               </div>
             </div>
 
-            {ProfileData.aboutMe && ( // TODO Change the logic
-              <div className={styles.profileBio}>{ProfileData.aboutMe}</div>
+            {ProfileData.bio && ( // TODO Change the logic
+              <div className={styles.profileBio}>{ProfileData.bio}</div>
             )}
           </div>
         </div>
@@ -146,9 +126,9 @@ export default function ProfileComponent({
           </div>
 
           <div className={styles.tabContent}>
-            {/* {activeTab === "posts" && (
+            {activeTab === "posts" && (
               <div className={styles.postsGrid}>
-                {posts.length > 0 ? (
+                {ProfileData.post > 0 ? (
                   posts.map((post) => (
                     <PostComponent
                       key={post.id}
@@ -163,7 +143,7 @@ export default function ProfileComponent({
                   </div>
                 )}
               </div>
-            )} */}
+            )}
 
             {activeTab === "followers" && (
               <UserList users={followers} currentUser={currentUser} />

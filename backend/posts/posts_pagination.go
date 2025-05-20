@@ -1,6 +1,7 @@
 package post
 
 import (
+	"database/sql"
 	"net/http"
 	"socialNetwork/auth"
 	db "socialNetwork/db/sqlite"
@@ -30,6 +31,8 @@ func PostsPagination(w http.ResponseWriter, r *http.Request) {
 	// we will have both, Limit of Posts, and Offset of Posts 10 in our case
 	offset := r.URL.Query().Get("offset")
 	limit := r.URL.Query().Get("limit")
+	specificUser := r.URL.Query().Get("user_id")
+
 	if offset == "" || limit == "" {
 		utils.Log("ERROR", "Offset or Limit is not valid in GetPostsScroll Handler: ")
 		utils.SendJSON(w, http.StatusBadRequest, utils.JSONResponse{
@@ -62,7 +65,11 @@ func PostsPagination(w http.ResponseWriter, r *http.Request) {
 	// we will get the posts from the database
 	Posts := []Post{}
 	// Prepare the statement
-	stmnt, err := db.DB.Prepare("SELECT * FROM posts ORDER BY created_at DESC LIMIT ? OFFSET ?")
+	query := "SELECT * FROM posts ORDER BY created_at DESC LIMIT ? OFFSET ?"
+	if specificUser != "" {
+		query = "SELECT * FROM posts WHERE user_id = ? ORDER BY created_at DESC LIMIT ? OFFSET ?"
+	}
+	stmnt, err := db.DB.Prepare(query)
 	if err != nil {
 		utils.Log("ERROR", "Error Preparing Statment in GetPostsScroll Handler"+err.Error())
 		utils.SendJSON(w, http.StatusInternalServerError, utils.JSONResponse{
@@ -74,7 +81,12 @@ func PostsPagination(w http.ResponseWriter, r *http.Request) {
 	}
 	defer stmnt.Close()
 	// get the posts from the database
-	rows, err := stmnt.Query(Limit, Offset)
+	var rows *sql.Rows
+	if specificUser != "" {
+		rows, err = stmnt.Query(specificUser, Limit, Offset)
+	} else {
+		rows, err = stmnt.Query(Limit, Offset)
+	}
 	if err != nil {
 		utils.Log("ERROR", "Error scanning Post in GetPostsScroll Handler: "+err.Error())
 		utils.SendJSON(w, http.StatusInternalServerError, utils.JSONResponse{
