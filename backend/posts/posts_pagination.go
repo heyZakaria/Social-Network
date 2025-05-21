@@ -1,6 +1,8 @@
 package post
 
 import (
+	"database/sql"
+	"fmt"
 	"net/http"
 	"socialNetwork/auth"
 	db "socialNetwork/db/sqlite"
@@ -14,16 +16,7 @@ import (
 
 func PostsPagination(w http.ResponseWriter, r *http.Request) {
 	utils.Log("", "Get request made to GetPostsScroll Handler")
-	token, err := auth.GetToken(w, r)
-	if err != nil {
-		utils.Log("ERROR", "Error getting token in GetPost Handler: "+err.Error())
-		utils.SendJSON(w, http.StatusUnauthorized, utils.JSONResponse{
-			Success: false,
-			Message: "Please login to continue",
-			Error:   "You are not Authorized.",
-		})
-		return
-	}
+	token := auth.GetToken(w, r)
 
 	UserID, err := user.GetUserIDByToken(token)
 	if err != nil {
@@ -39,6 +32,8 @@ func PostsPagination(w http.ResponseWriter, r *http.Request) {
 	// we will have both, Limit of Posts, and Offset of Posts 10 in our case
 	offset := r.URL.Query().Get("offset")
 	limit := r.URL.Query().Get("limit")
+	specificUser := r.URL.Query().Get("user_id")
+	fmt.Println("specificUser", specificUser)
 	if offset == "" || limit == "" {
 		utils.Log("ERROR", "Offset or Limit is not valid in GetPostsScroll Handler: ")
 		utils.SendJSON(w, http.StatusBadRequest, utils.JSONResponse{
@@ -71,7 +66,11 @@ func PostsPagination(w http.ResponseWriter, r *http.Request) {
 	// we will get the posts from the database
 	Posts := []Post{}
 	// Prepare the statement
-	stmnt, err := db.DB.Prepare("SELECT * FROM posts ORDER BY created_at DESC LIMIT ? OFFSET ?")
+	query := "SELECT * FROM posts ORDER BY created_at DESC LIMIT ? OFFSET ?"
+	if specificUser != "" {
+		query = "SELECT * FROM posts WHERE user_id = ? ORDER BY created_at DESC LIMIT ? OFFSET ?"
+	}
+	stmnt, err := db.DB.Prepare(query)
 	if err != nil {
 		utils.Log("ERROR", "Error Preparing Statment in GetPostsScroll Handler"+err.Error())
 		utils.SendJSON(w, http.StatusInternalServerError, utils.JSONResponse{
@@ -83,7 +82,12 @@ func PostsPagination(w http.ResponseWriter, r *http.Request) {
 	}
 	defer stmnt.Close()
 	// get the posts from the database
-	rows, err := stmnt.Query(Limit, Offset)
+	var rows *sql.Rows
+	if specificUser != "" {
+		rows, err = stmnt.Query(specificUser, Limit, Offset)
+	} else {
+		rows, err = stmnt.Query(Limit, Offset)
+	}
 	if err != nil {
 		utils.Log("ERROR", "Error scanning Post in GetPostsScroll Handler: "+err.Error())
 		utils.SendJSON(w, http.StatusInternalServerError, utils.JSONResponse{
@@ -109,7 +113,7 @@ func PostsPagination(w http.ResponseWriter, r *http.Request) {
 		// TODO Each Post Must Check if the exist user Has Liked the post or not
 		// TODO get Likes count as well
 		// check the privacy of post,
-		if Post.Privacy == "custom_users" {
+		if Post.Privacy == "custom_users" && Post.UserID != UserID {
 			var found bool
 			// Check if the User Id Has access to this post,
 			err := db.DB.QueryRow("SELECT EXISTS(SELECT 1 FROM post_allowed WHERE post_id = ? AND user_id = ?)", Post.PostId, UserID).Scan(&found)
@@ -149,6 +153,7 @@ func PostsPagination(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	// send the posts to the client
+	utils.Log("INFO", "Posts fetched successfully in GetPostsScroll Handler")
 	utils.SendJSON(w, http.StatusOK, utils.JSONResponse{
 		Success: true,
 		Message: "Posts fetched successfully",

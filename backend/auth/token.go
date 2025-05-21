@@ -8,6 +8,7 @@ import (
 	"errors"
 	"net/http"
 	db "socialNetwork/db/sqlite"
+	"socialNetwork/utils"
 	"strings"
 	"time"
 )
@@ -91,23 +92,14 @@ func VerifyJWT(token string) (JWTPayload, error) {
 	return payload, nil
 }
 
-func GetToken(w http.ResponseWriter, r *http.Request) (token string, err error) {
-	token = r.Header.Get("Authorization")
-	if token == "" {
-		err = errors.New("Authorization header is missing")
-		return
+func GetToken(w http.ResponseWriter, r *http.Request) (token string) {
+	cookie, err := r.Cookie("token")
+	if err != nil {
+		utils.Log("ERROR", "Token cookie is missing in GetToken")
+		return ""
 	}
 
-	// Extract the token value from "Bearer <token>"
-
-	if len(token) > 7 && token[:7] == "Bearer " {
-		token = token[7:]
-	} else {
-		err = errors.New("Invalid Authorization header format")
-		return
-	}
-	err = nil
-	return
+	return cookie.Value
 }
 
 func SaveToken(userID string, token string) error {

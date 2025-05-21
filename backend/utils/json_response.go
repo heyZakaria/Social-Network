@@ -15,6 +15,12 @@ type JSONResponse struct {
 
 func SendJSON(w http.ResponseWriter, status int, payload JSONResponse) {
 	w.Header().Set("Content-Type", "application/json")
-	w.WriteHeader(status)
+
+	// ما نديروش WriteHeader إلا إلا مازال متدارش
+	if w.Header().Get("X-Status-Written") == "" {
+		w.Header().Set("X-Status-Written", "yes")
+		w.WriteHeader(status)
+	}
+
 	json.NewEncoder(w).Encode(payload)
 }

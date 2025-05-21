@@ -7,7 +7,17 @@ import { MdOutlineMood } from "react-icons/md";
 import { HiOutlineLocationMarker } from "react-icons/hi";
 import PostComponent from "@/components/posts/post-component";
 import FloatingChat from "@/components/chat/floating-chat";
+// import { getCurrentUser } from "@/app/(auth)/(utils)/api"
+
+
 export default function Home() {
+  // const current = await getCurrentUser()
+  // 
+  
+  // if (!currentUser) {
+  //   // This should be handled by middleware, but just in case
+  //   return notFound()
+  // }
   const currentUser = {
     id: 1,
     avatar: "",
@@ -86,14 +96,14 @@ export default function Home() {
           </div>
 
           <div className={styles.feed}>
-            {posts.map((post) => (
+            {/* {posts.map((post) => (
               <PostComponent
                 key={post.id}
                 post={post}
                 user={post.user}
                 currentUser={currentUser}
               />
-            ))}
+            ))} */}
           </div>
         </div>
       </div>

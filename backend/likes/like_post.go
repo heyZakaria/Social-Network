@@ -11,9 +11,9 @@ import (
 
 // http://localhost:8080/likes/react?id=1
 func LikePost(w http.ResponseWriter, r *http.Request) {
-	token, err := auth.GetToken(w, r)
-	if err != nil {
-		utils.Log("ERROR", "Error getting token in LikePost Handler: "+err.Error())
+	token := auth.GetToken(w, r)
+	if token == "" {
+		utils.Log("ERROR", "Error getting token in LikePost Handler")
 		utils.SendJSON(w, http.StatusUnauthorized, utils.JSONResponse{
 			Success: false,
 			Message: "Please login to continue",
