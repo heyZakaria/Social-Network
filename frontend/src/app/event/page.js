@@ -2,6 +2,7 @@
 
 import ShowEventForm from "@/components/newEvent"
 import GroupChat from "@/components/groupChat"
+import UpcomingEvents from "@/components/upcoming-events"
 
 
 export default function Event() {
@@ -11,6 +12,8 @@ export default function Event() {
         <ShowEventForm />
         
         <GroupChat />
+
+        <UpcomingEvents />
 
     </>
 } 

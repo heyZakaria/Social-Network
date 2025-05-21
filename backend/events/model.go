@@ -1,11 +1,14 @@
 package Events
 
 type Event struct {
+	ID            int
 	Title         string `json:"title"`
 	Description   string `json:"description"`
-	DayOfEvent    string `json:"date"`
-	TimeOfEvent   string `json:"time"`
+	DateOfEvent   string `json:"date"`
 	EventLocation string `json:"location"`
 	GroupID       int    `json:"group_id"`
 	Creator       string
+	CreatedAt     string
 }
+
+type Events []Event

@@ -71,3 +71,28 @@ func GetUserIDByToken(token string) (string, error) {
 	}
 	return userID, nil
 }
+
+func IsLoggedIn(w http.ResponseWriter, r *http.Request) bool{
+
+	token := GetToken(w, r)
+	if token == "" {
+		utils.Log("Error", "Token is empty")
+		utils.SendJSON(w, http.StatusUnauthorized, utils.JSONResponse{
+			Success: false,
+			Message: "Unauthorized",
+			Error:   "You are not Authorized.",
+		})
+		return false
+	}
+	UserId, err := GetUserIDByToken(token)
+	if err != nil || UserId == "" {
+		utils.Log("Error", err.Error())
+		utils.SendJSON(w, http.StatusUnauthorized, utils.JSONResponse{
+			Success: false,
+			Message: err.Error(),
+		})
+		return false
+	}
+
+	return true
+}

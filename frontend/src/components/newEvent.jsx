@@ -8,8 +8,9 @@ export default function ShowEventForm() {
     const [formData, setFormData] = useState({
         title: "",
         description: "",
-        date: "",
+        day: "",
         time: "",
+        date: "",
         location: "",
     });
     const [errors, setErrors] = useState({});
@@ -34,26 +35,28 @@ export default function ShowEventForm() {
             newErrors.title = "Title is required.";
         }
 
-        if (!formData.description || formData.description.trim() === "" || formData.description.length < 50 || formData.description.length > 250) {
+        if (!formData.description || formData.description.trim() === "" || formData.description.length < 30 || formData.description.length > 250) {
             newErrors.description = "Description is required.";
         }
 
-        if (!formData.date || formData.date.trim() === "") {
-            newErrors.date = "Event date is required.";
+        if (!formData.day || formData.day.trim() === "") {
+            newErrors.day = "Event day is required.";
         } else {
-            const selectedDate = new Date(formData.date);
+            const selectedDate = new Date(formData.day);
             const currentDate = new Date();
 
             if (selectedDate <= currentDate) {
-                newErrors.date = "Event date must be in the future.";
+                newErrors.day = "Event date must be in the future.";
             }
         }
 
-        if (!formData.time || formData.time.trim() === "" ) {
+        if (!formData.time || formData.time.trim() === "") {
             newErrors.time = "Event time is required.";
         }
 
-        if (!formData.location || formData.location.trim() === "" || formData.location.length < 10 || formData.location.length > 50) {
+        formData.date = formData.day + " " + formData.time
+
+        if (!formData.location || formData.location.trim() === "" || formData.location.length < 5 || formData.location.length > 30) {
             newErrors.location = "Event location is required.";
         }
 
@@ -72,7 +75,7 @@ export default function ShowEventForm() {
 
         SendEventForm(formData)
 
-        setFormData({ title: "", description: "", date: "", time: "", location: "" });
+        setFormData({ title: "", description: "", day: "", time: "", date: "", location: "" });
     };
 
     return (
@@ -106,11 +109,11 @@ export default function ShowEventForm() {
                     </div>
 
                     <div className={styles.labelContainer}>
-                        <label className={styles.label}>Select Event Date:</label>
+                        <label className={styles.label}>Select Event Day:</label>
                         <input
                             type="date"
-                            name="date"
-                            value={formData.date}
+                            name="day"
+                            value={formData.day}
                             onChange={handleChange}
                             className={styles.eventDate}
                         />
@@ -149,7 +152,7 @@ export default function ShowEventForm() {
 
 
 function SendEventForm(formData) {
-    // Last version --> /groups/{id}/events
+    // Last version --> /groups/{id}/newEvent
     fetch("http://localhost:8080/events/newEvent", {
         method: "POST",
         headers: {
@@ -157,12 +160,15 @@ function SendEventForm(formData) {
         },
         body: JSON.stringify(formData),
     })
-        .then((res) => res.json())
-        .then((data) => {
+        .then((res) => {
             if (!res.ok) {
-                // setServerError(data.error || 'Event creation failed')
-                return
+                return res.json().then(errData => {
+                    throw new Error(errData.error || "Event fetch failed");
+                });
             }
+            return res.json();
+        })
+        .then((data) => {
             // setServerError("");
             console.log("Event created:", data);
         })

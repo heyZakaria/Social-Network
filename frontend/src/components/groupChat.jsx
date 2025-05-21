@@ -28,7 +28,7 @@ export default function GroupChat() {
 
     const sendMessage = () => {
         if (input.trim()) {
-            console.log("Sending message:", input);
+            console.log("Sending msg:", input);
             
             ws.current.send(input);
            // setMessages(prev => [...prev, input]);

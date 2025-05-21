@@ -32,7 +32,7 @@ func main() {
 
 	router.Handle("/api/", http.StripPrefix("/api", auth.AuthMux()))
 	router.Handle("/api/groups/", http.StripPrefix("/api/groups", Group.GroupMux()))
-	router.Handle("/events/", http.StripPrefix("/events", Events.EventsMux()))
+	router.Handle("/events/", http.StripPrefix("/events", Events.EventsMux())) // /groups/{id}/event
 
 	log.Fatal(http.ListenAndServe(":8080", middleware.CheckCORS(router)))
 }

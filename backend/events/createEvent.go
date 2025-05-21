@@ -32,6 +32,9 @@ func CreateEvent(w http.ResponseWriter, r *http.Request) {
 		return
 	} */
 
+	// TO DO get Event Creator id
+	// TO DO check if the user is in the group
+	
 	var event Event
 
 	err := json.NewDecoder(r.Body).Decode(&event)
@@ -42,11 +45,12 @@ func CreateEvent(w http.ResponseWriter, r *http.Request) {
 		utils.SendJSON(w, http.StatusBadRequest, utils.JSONResponse{
 			Success: false,
 			Error:   "Invalid request format",
+			Message: "Event created successfully",
 		})
 		return
 	}
 	event.GroupID = 1
-	_, err = db.DB.Exec("INSERT INTO events ( title, event_description, day_of_event, time_of_event, event_location) VALUES (?, ?, ?, ?, ?)", event.Title, event.Description, event.DayOfEvent, event.TimeOfEvent, event.EventLocation /* event.GroupID */)
+	_, err = db.DB.Exec("INSERT INTO events ( title, event_description, date_of_event, event_location) VALUES (?, ?, ?, ?)", event.Title, event.Description, event.DateOfEvent, event.EventLocation /* event.GroupID */)
 	if err != nil {
 		utils.Log("ERROR", "Failed to create event: "+err.Error())
 		utils.SendJSON(w, http.StatusInternalServerError, utils.JSONResponse{
@@ -71,22 +75,28 @@ func ValideEventForm(event Event) bool {
 		return false
 	}
 
-	if len(event.Description) < 50 || len(event.Description) > 250 {
+	if len(event.Description) < 30 || len(event.Description) > 250 {
 		utils.Log("WARNING", "Description is required.")
 
 		return false
 	}
-	date_time := event.DayOfEvent + " " + event.TimeOfEvent
 
-	yourDate, err := time.Parse("2006-01-02 15:04", date_time)
+	yourDate, err := time.Parse("2006-01-02 15:04", event.DateOfEvent)
 	if err != nil {
 		utils.Log("WARNING", "Invalid date format.")
 		return false
 	}
 
+	
+
 	currentDate := time.Now()
 	if yourDate.Before(currentDate) {
 		utils.Log("WARNING", "Date must be in the future.")
+		return false
+	}
+
+	if len(event.EventLocation) < 5 || len(event.EventLocation) > 30 {
+		utils.Log("WARNING", "Location is required.")
 		return false
 	}
 

@@ -1,0 +1,234 @@
+.eventsContainer {
+  margin-top: 20px;
+}
+
+.eventsHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.eventsHeader h1 {
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.createEventButton {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background-color: #7c3aed;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  text-decoration: none;
+}
+
+.createEventButton:hover {
+  background-color: #3d6293;
+  text-decoration: none;
+}
+
+.eventsTabs {
+  display: flex;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.tabButton {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  background: none;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.tabButton.activeTab {
+  color: #7c3aed;
+  border-bottom: 2px solid #7c3aed;
+}
+
+.tabButton:hover:not(.activeTab) {
+  background-color: #f0f2f5;
+}
+
+.eventsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.eventCard {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.eventCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.eventCardImage {
+  height: 150px;
+  overflow: hidden;
+  position: relative;
+}
+
+.eventCardImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.eventDate {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: white;
+  border-radius: 8px;
+  padding: 5px 10px;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.eventMonth {
+  font-size: 12px;
+  font-weight: 500;
+  color: #65676b;
+  text-transform: uppercase;
+}
+
+.eventDay {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1c1e21;
+}
+
+.eventCardContent {
+  padding: 15px;
+}
+
+.eventCardTitle {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0 0 10px 0;
+}
+
+.eventCardMeta {
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: #65676b;
+}
+
+.eventTime,
+.eventLocation,
+.eventGroup {
+  margin-bottom: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.eventTime:before {
+  content: "🕒";
+  margin-right: 5px;
+}
+
+.eventLocation:before {
+  content: "📍";
+  margin-right: 5px;
+}
+
+.eventGroup:before {
+  content: "👥";
+  margin-right: 5px;
+}
+
+.eventGroup a {
+  color: #7c3aed;
+  text-decoration: none;
+}
+
+.eventGroup a:hover {
+  text-decoration: underline;
+}
+
+.eventCardDescription {
+  font-size: 14px;
+  color: #1c1e21;
+  margin-bottom: 15px;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.eventCardFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #f0f2f5;
+  padding-top: 15px;
+}
+
+.eventAttendees {
+  font-size: 14px;
+  color: #65676b;
+}
+
+.eventActions {
+  display: flex;
+  gap: 10px;
+}
+
+.goingButton,
+.notGoingButton {
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.goingButton {
+  background-color: #7c3aed;
+  color: white;
+  border: none;
+}
+
+.goingButton:hover {
+  background-color: #3d6293;
+}
+
+.notGoingButton {
+  background-color: #f0f2f5;
+  color: #050505;
+  border: none;
+}
+
+.notGoingButton:hover {
+  background-color: #e4e6eb;
+}
+
+@media (max-width: 768px) {
+  .eventsGrid {
+    grid-template-columns: 1fr;
+  }
+}
