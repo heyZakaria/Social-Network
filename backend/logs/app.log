@@ -11732,3 +11732,25 @@
 2025/05/22 18:02:23 [ERROR] 2025-05-22 18:02:23 - No Posts found in GetPostsScroll Handler: 
 2025/05/22 18:02:23 [LOG] 2025-05-22 18:02:23 - Get request made to GetPostsScroll Handler
 2025/05/22 18:02:23 [ERROR] 2025-05-22 18:02:23 - No Posts found in GetPostsScroll Handler: 
+2025/05/23 00:51:35 [INFO] 2025-05-23 00:51:35 - Starting HTTP server at http://localhost:8080 ...
+2025/05/23 00:51:35 [INFO] 2025-05-23 00:51:35 - Migrations applied successfully!
+2025/05/23 00:51:38 [INFO] 2025-05-23 00:51:38 - Received login request
+2025/05/23 00:51:38 [INFO] 2025-05-23 00:51:38 - Request body parsed successfully
+2025/05/23 00:51:38 [INFO] 2025-05-23 00:51:38 - Email and password fields validated
+2025/05/23 00:51:38 [INFO] 2025-05-23 00:51:38 - User data retrieved from DB for email: omar@gmail.com
+2025/05/23 00:51:38 [INFO] 2025-05-23 00:51:38 - Password validated successfully
+2025/05/23 00:51:38 [INFO] 2025-05-23 00:51:38 - Sending success with token for user: dd7e4c34-d42a-467c-9859-c11a84e23633
+2025/05/23 00:51:38 [INFO] 2025-05-23 00:51:38 - Save Token into Sessions
+2025/05/23 00:51:38 [INFO] 2025-05-23 00:51:38 - Login successful for user: dd7e4c34-d42a-467c-9859-c11a84e23633
+2025/05/23 00:51:47 [LOG] 2025-05-23 00:51:47 - Get request made to GetPostsScroll Handler
+2025/05/23 00:51:47 [ERROR] 2025-05-23 00:51:47 - No Posts found in GetPostsScroll Handler: 
+2025/05/23 00:51:47 [LOG] 2025-05-23 00:51:47 - Get request made to GetPostsScroll Handler
+2025/05/23 00:51:47 [ERROR] 2025-05-23 00:51:47 - No Posts found in GetPostsScroll Handler: 
+2025/05/23 00:52:20 [LOG] 2025-05-23 00:52:20 - Get request made to GetPostsScroll Handler
+2025/05/23 00:52:20 [ERROR] 2025-05-23 00:52:20 - No Posts found in GetPostsScroll Handler: 
+2025/05/23 00:52:20 [LOG] 2025-05-23 00:52:20 - Get request made to GetPostsScroll Handler
+2025/05/23 00:52:20 [ERROR] 2025-05-23 00:52:20 - No Posts found in GetPostsScroll Handler: 
+2025/05/23 00:54:39 [LOG] 2025-05-23 00:54:39 - Get request made to GetPostsScroll Handler
+2025/05/23 00:54:39 [INFO] 2025-05-23 00:54:39 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/23 00:54:39 [LOG] 2025-05-23 00:54:39 - Get request made to GetPostsScroll Handler
+2025/05/23 00:54:39 [INFO] 2025-05-23 00:54:39 - Posts fetched successfully in GetPostsScroll Handler
