@@ -16,6 +16,9 @@ export default function ProfilePage({ params }) {
   const [profileLoading, setProfileLoading] = useState(true);
   const [notFoundFlag, setNotFoundFlag] = useState(false);
 
+  console.log("current", currentUser);
+  
+
   
   // params.id = currentUser.id
   const paramsx = useParams();
@@ -24,30 +27,37 @@ export default function ProfilePage({ params }) {
   
   // params is a Record<string, string> | null
   // const id = params?.id;
-  useEffect(() => {
-    async function loadProfileUser() {
-      try {
-        const res = await fetch(`/api/users/get/profile?id=${ids}`);
-        if (!res.ok) {
-          setNotFoundFlag(true);
-          return;
-        }
-        const json = await res.json();
-        setProfileUser(json.data.Data);
-        
-      } catch (error) {
-        console.error('Error fetching profile:', error);
+useEffect(() => {
+  async function loadProfileUser() {
+    try {
+      const res = await fetch(`/api/users/get/profile?id=${ids}`);
+      if (!res.ok) {
         setNotFoundFlag(true);
-      } finally {
-        setProfileLoading(false);
+        return;
       }
-    }
+      const json = await res.json();
+      const user = json.data.Data;
 
-    loadProfileUser();
-  }, [ids]);
+      if (currentUser && user) {
+        user.IsOwnProfile = (user.id === currentUser.id);
+      }
+
+      setProfileUser(user);
+    } catch (error) {
+      console.error('Error fetching profile:', error);
+      setNotFoundFlag(true);
+    } finally {
+      setProfileLoading(false);
+    }
+  }
+
+  loadProfileUser();
+}, [ids, currentUser]);
+
   
-  
-  
+
+
+
   
   if (loading || profileLoading) return <div>Loading...</div>;
 
@@ -75,6 +85,9 @@ export default function ProfilePage({ params }) {
       //   FollowerCount: profileUser.FollowerCount || 0,
       //   FollowingCount: profileUser.FollowingCount || 0,
       // }}
+      currentUser={
+        currentUser
+      }
       canView={canView}
     />
   );

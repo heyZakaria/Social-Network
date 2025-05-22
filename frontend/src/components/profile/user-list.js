@@ -5,13 +5,17 @@ import Link from "next/link"
 import styles from "../../styles/profile.module.css"
 
 export default function UserList({ users, currentUser }) {
+  console.log(users,"=======================");
+  console.log(currentUser);
+  
   const [displayCount, setDisplayCount] = useState(5)
-  const [followStatus, setFollowStatus] = useState(
-    Object.fromEntries(users.map(user => [
-      user.ID,
-      user.Followers?.some(f => f.ID === currentUser.id) || false
-    ]))
-  );
+  // const [followStatus, setFollowStatus] = useState(
+    
+  //   Object.fromEntries(users.map(user => [
+  //     user.ID,
+  //     user.Followers?.some(f => f.ID === currentUser.id) || false
+  //   ]))
+  // );
   const [pendingFollows, setPendingFollows] = useState({})
   const USERS_PER_PAGE = 5
 
