@@ -9,7 +9,7 @@ import (
 	"strconv"
 )
 
-// Example URL : http://localhost:8080/rest/post?id=1
+// Example URL : http://localhost:8080/posts/getsinglepost?id=1
 // GetPost is a handler function that handles the GET request to fetch a single post
 // with the given post ID
 // It checks the privacy settings of the post and ensures that the user has access to it
@@ -82,7 +82,7 @@ func GetPost(w http.ResponseWriter, r *http.Request) {
 			})
 			return
 		}
-	} else if Post.Privacy == "followers" {
+	} else if Post.Privacy == "followers" && Post.UserID != UserId {
 		var follower_status string
 		// Check if the User Id Has access to this post,
 		stmnt, err := db.DB.Prepare("SELECT follower_status FROM followers WHERE followed_id = ? AND follower_id = ?")

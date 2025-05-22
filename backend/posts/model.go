@@ -1,8 +1,6 @@
 package post
 
-import (
-	"time"
-)
+import "time"
 
 type Post struct {
 	PostId        int
@@ -19,14 +17,9 @@ type Post struct {
 }
 
 type Comment struct {
-	ID        int
-	UserID    string
-	PostID    int
-	Content   string
-	CreatedAt time.Time
-}
-
-type CommentData struct {
-	Comment string `json:"content"`
-	PostId  string `json:"postId"`
+	CommentId   int
+	UserID      string
+	PostID      int
+	CommentText string
+	CreatedAt   *time.Time
 }

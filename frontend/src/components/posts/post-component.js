@@ -138,12 +138,6 @@ export default function PostComponent({
               </>
             )}
           </div>
-          <button
-            className={styles.commentsToggle}
-            onClick={() => setShowCommentsSection(!showCommentsSection)}
-          >
-            {post.comments?.length || 0} comments
-          </button>
         </div>
 
         <div className={styles.postInteractions}>
@@ -164,11 +158,7 @@ export default function PostComponent({
             <BiComment size={20} />
             Comment
           </button>
-
-          <button className={styles.interactionButton}>
-          <BiShare size={20} />
-            Share
-          </button>
+          
         </div>
       </div>
 

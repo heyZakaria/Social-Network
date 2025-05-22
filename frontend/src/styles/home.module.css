@@ -2,25 +2,6 @@
   width: 100%;
 }
 
-.postForm {
-  position: sticky;
-  left: 0;
-  top: 0;
-  background-color: rgb(255, 255, 255);
-  border-radius: 10px;
-  padding: 25px;
-  margin-bottom: 20px;
-  width: 100%;
-}
-
-.buttonContainer {
-  display: flex;
-  flex-wrap: nowrap;
-  justify-content: space-between;
-  width: 100%;
-  align-items: center;
-}
-
 /* Hero section for logged out users */
 .hero {
   display: flex;
@@ -234,76 +215,6 @@
   color: #7c3aed;
 }
 
-/* Create post */
-.createPost {
-  /* position: sticky;
-  left: 10;
-  top: 20; */
-  /* background-color: rgb(255, 255, 255);
-  border-radius: 10px;
-  box-shadow: 3 4px 6px rgba(0, 0, 0, 0.089);
-  padding: 25px;
-  margin-bottom: 20px; */
-  width: 100%;
-}
-
-.createPostHeader {
-  display: flex;
-  margin-bottom: 15px;
-}
-
-.createPostAvatar {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-right: 10px;
-}
-
-.createPostInput {
-  margin-left: 1%;
-  height: 80px;
-  width: 100%;
-  padding: 12px 16px;
-  border: 1px solid #ccc;
-  background-color: #ffffff;
-  border-radius: 10px;
-  font-size: 16px;
-  display: flex;
-  cursor: pointer;
-  transition: border-color 0.5s ease;
-}
-
-
-
-.createPostInput:focus {
-  outline: none;
-}
-
-.createPostActions {
-  display: flex;
-  justify-content: space-between;
-  /* border-top: 1px solid #040505; */
-  padding-top: 10px;
-}
-
-.createPostAction {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px;
-  border: none;
-  border-radius: 6px;
-  color: #000000;
-  font-size: 14px;
-  cursor: pointer;
-  transition: background-color 0.5s;
-}
-
-.createPostAction:hover {
-  background-color: #60667031;
-}
-
 /* Feed toggle */
 .feed {
   width: 100%;
@@ -385,12 +296,6 @@
   margin: 0 0 15px 0;
   font-size: 14px;
   line-height: 1.5;
-}
-
-.postImage {
-  width: 100%;
-  border-radius: 8px;
-  margin-bottom: 10px;
 }
 
 .postActions {
@@ -608,7 +513,6 @@
   width: 90%;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
   position: relative;
-  /* display: flex; */
   flex-direction: column;
 }
 
@@ -916,33 +820,4 @@
   display: flex; /* Flexbox for footer layout */
   justify-content: flex-end; /* Align buttons to the right */
   margin-top: 10px; /* Space above the footer */
-}
-
-.cancelButton {
-  background-color: #f44336; /* Red background for cancel button */
-  color: white; /* White text color */
-  border: none; /* No border */
-  border-radius: 5px; /* Rounded corners */
-  padding: 10px 15px; /* Padding for the button */
-  cursor: pointer; /* Pointer cursor on hover */
-  margin-right: 10px; /* Space between buttons */
-  transition: background-color 0.3s ease; /* Smooth transition */
-}
-
-.cancelButton:hover {
-  background-color: #d32f2fcc; /* Darker red on hover */
-}
-
-.saveButton {
-  background-color: #6f4caf67; /* Green background for save button */
-  color: white; /* White text color */
-  border: none; /* No border */
-  border-radius: 5px; /* Rounded corners */
-  padding: 10px 15px; /* Padding for the button */
-  cursor: pointer; /* Pointer cursor on hover */
-  transition: background-color 0.3s ease; /* Smooth transition */
-}
-
-.saveButton:hover {
-  background-color: #5928a7; /* Darker green on hover */
 }
