@@ -4,7 +4,7 @@ import { IoAddOutline } from "react-icons/io5";
 import styles from "@/styles/UpcomingEvents.module.css";
 
 export default function UpcomingEvents() {
-    const [events, setEvents] = useState([]); 
+    const [events, setEvents] = useState([]);
     const [error, setError] = useState(null);
     const currentUser = {
         id: 1,
@@ -28,7 +28,7 @@ export default function UpcomingEvents() {
                 return res.json();
             })
             .then((data) => {
-                setEvents(data); 
+                setEvents(data);
                 setError(null);
             })
             .catch((error) => {
@@ -36,6 +36,33 @@ export default function UpcomingEvents() {
                 setError(error.message);
             });
     };
+
+    const HandleEventPresence = (event) => {
+        
+        fetch(`http://localhost:8080/events/${event.id}/response`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body : JSON.stringify({
+                event_id: event.id,
+                presence: event.presence
+            })
+        })
+            .then((res) => {
+                if (!res.ok) {
+                    return res.json().then((errData) => {
+                        throw new Error(errData.error || "Event presence err");
+                    });
+                }
+                return res.json();
+            })
+          
+            .catch((error) => {
+                console.error("Error fetching events:", error.message);
+                setError(error.message);
+            });
+    }
 
     const formatDate = (dateString) => {
         const date = new Date(dateString);
@@ -82,8 +109,8 @@ export default function UpcomingEvents() {
                                         <span>{event.attendees?.going?.length || 0} going</span>
                                     </div>
                                     <div className={styles.eventActions}>
-                                        <button className={styles.goingButton}>Going</button>
-                                        <button className={styles.notGoingButton}>Not Going</button>
+                                        <button onClick={() =>HandleEventPresence({ id: event.id, presence: true })} className={styles.goingButton}> Going</button>
+                                        <button onClick={() =>HandleEventPresence({ id: event.id, presence: false })} className={styles.notGoingButton}>Not Going</button>
                                     </div>
                                 </div>
                             </div>

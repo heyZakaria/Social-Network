@@ -1,7 +1,7 @@
 package Events
 
 type Event struct {
-	ID            int
+	ID            int    `json:"id"`
 	Title         string `json:"title"`
 	Description   string `json:"description"`
 	DateOfEvent   string `json:"date"`
