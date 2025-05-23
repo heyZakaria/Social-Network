@@ -5,8 +5,11 @@ import Link from "next/link";
 import styles from "@/styles/posts.module.css";
 import EmojiPicker from "@/components/common/emoji-picker";
 import { IoPaperPlaneOutline } from 'react-icons/io5';
+import { useUser } from '@/app/(utils)/user_context';
 
-export default function CommentSection({ postId, currentUser }) {
+
+export default function CommentSection({ postId }) {
+   const { user: currentUser } = useUser();
   const [comments, setComments] = useState([]);
   const [displayedComments, setDisplayedComments] = useState([]);
   const [newComment, setNewComment] = useState("");

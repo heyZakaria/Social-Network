@@ -51,7 +51,6 @@ export default function ProfilePage({ params }) {
   }, [ids]);
   
   
-  console.log("profileUser=>", profileUser);
   
   
   if (loading || profileLoading) return <div>Loading...</div>;

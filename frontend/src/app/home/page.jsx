@@ -25,8 +25,12 @@ export default function Home() {
       async function x() {
         const data = await FetchData(`http://localhost:8080/posts/getposts?limit=${limit}&offset=${offset}`)
         if (data.data.posts.length < limit) setHasMore(false); // no more posts
-        setPosts((prev) => [...prev, ...data?.data?.posts]);//setPosts((prev) => [...prev, ...data?.data?.posts]);
-        setLoading(false);
+      setPosts((prev) => {
+      const existingIds = new Set(prev.map((p) => p.id));
+      const uniqueNewPosts = data.data.posts.filter((p) => !existingIds.has(p.id));
+      return [...prev, ...uniqueNewPosts];
+    });        
+    setLoading(false);
       }
         setLoading(true); // TODO WAiting before setting it true
         x()

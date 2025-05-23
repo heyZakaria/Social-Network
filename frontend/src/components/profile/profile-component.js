@@ -44,7 +44,11 @@ export default function ProfileComponent({
     async function x() {
       const data = await FetchData(`http://localhost:8080/posts/getposts?limit=${limit}&offset=${offset}&user_id=${ProfileData.id}`)
       if (data.data.posts.length < limit) setHasMore(false); // no more posts
-      setPosts((prev) => [...prev,  ...data?.data?.posts]);//setPosts((prev) => [...prev, ...data?.data?.posts]);
+      setPosts((prev) => {
+        const existingIds = new Set(prev.map((p) => p.id));
+        const uniqueNewPosts = data.data.posts.filter((p) => !existingIds.has(p.id));
+        return [...prev, ...uniqueNewPosts];
+      });
       setLoading(false);
     }
     if (activeTab === "posts") {
@@ -160,37 +164,6 @@ export default function ProfileComponent({
           </div>
 
           <div className={styles.tabContent}>
-            {activeTab === "posts" && (
-              <div className={styles.postsGrid}>
-                {loading && posts.length === 0 ? (
-                  <p>Loading...</p>
-                ) : posts.length > 0 ? (
-                  <>
-                    {posts.map((post) => (
-                      <PostComponent
-                        key={post.PostId}
-                        post={post}
-                        user={ProfileData} // or actual logged in user
-                        currentUser={ProfileData}
-                      />
-                    ))}
-                    {hasMore && (
-                      <button
-                        className={styles.loadMoreButton}
-                        onClick={loadMore}
-                        disabled={loading}
-                      >
-                        {loading ? "Loading..." : "Load More"}
-                      </button>
-                    )}
-                  </>
-                ) : (
-                  <div className={styles.emptyState}>
-                    <p>No posts yet</p>
-                  </div>
-                )}
-              </div>
-            )}
             {activeTab === "posts" && (
               <div className={styles.postsGrid}>
                 {loading && posts.length === 0 ? (
