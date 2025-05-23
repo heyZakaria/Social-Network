@@ -1,225 +1,312 @@
-// "use client";
-import styles from "@/styles/posts.module.css";
+"use client";
 
-import { useState } from "react";
-import { BsImage } from "react-icons/bs";
-import { MdOutlineMood } from "react-icons/md";
-import { HiOutlineLocationMarker } from "react-icons/hi";
-import PostComponent from "@/components/posts/post-component";
-import FloatingChat from "@/components/chat/floating-chat";
-import PopupPrivacy from "./popup-privacy";
-import PopupInput from "./popup-input";
-// import { useState } from "react";
-// import styles from "@/styles/posts.module.css";
-// import EmojiPicker from "@/components/common/emoji-picker";
-// import { BsImage, BsX } from 'react-icons/bs';
-// import { MdOutlineMood } from 'react-icons/md';
-// import { HiOutlineLocationMarker } from 'react-icons/hi';
-// import { IoGlobeOutline } from 'react-icons/io5';
-// import { HiUsers, HiLockClosed } from 'react-icons/hi2';
-
-
-// export default function CreatePost({ user, onPostCreated }) {
-//   const [content, setContent] = useState("");
-//   const [image, setImage] = useState(null);
-//   const [imagePreview, setImagePreview] = useState(null);
-//   const [privacy, setPrivacy] = useState("public");
-//   const [isExpanded, setIsExpanded] = useState(false);
-//   const [isSubmitting, setIsSubmitting] = useState(false);
-
-  // const handleImageChange = (e) => {
-  //   const file = e.target.files[0];
-  //   if (file) {
-  //     setImage(file);
-
-  //     // Create preview
-  //     const reader = new FileReader();
-  //     reader.onloadend = () => {
-  //       setImagePreview(reader.result);
-  //     };
-  //     reader.readAsDataURL(file);
-  //   }
-  // };
-
-
-//   const handleSubmit = async (e) => {
-//     e.preventDefault();
-
-//     if (!content.trim() && !image) return;
-
-//     setIsSubmitting(true);
-
-//     try {
-//       // In a real app, this would be an API call
-//       // For now, we'll simulate creating a post
-//       const newPost = {
-//         id: Date.now(),
-//         userId: user.id,
-//         content,
-//         image: image ? "/placeholder.svg?height=400&width=600" : null,
-//         privacy,
-//         likes: [],
-//         createdAt: new Date().toISOString(),
-//       };
-
-//       // Reset form
-//       setContent("");
-//       setImage(null);
-//       setImagePreview(null);
-//       setPrivacy("public");
-//       setIsExpanded(false);
-
-//       // Notify parent component
-//       if (onPostCreated) {
-//         onPostCreated(newPost);
-//       }
-//     } catch (error) {
-//       console.error("Error creating post:", error);
-//     } finally {
-//       setIsSubmitting(false);
-//     }
-//   };
-
-//   return (
-//     <div className={styles.createPost}>
-//       <div className={styles.createPostHeader}>
-//         <img
-//           // src={user.avatar || "https://i.pravatar.cc/150?u=10`"}
-//           // alt={user.firstName}
-//           // className={styles.createPostAvatar}
-//         />
-//         <div
-//           className={styles.createPostInput}
-//           onClick={() => setIsExpanded(true)}
-//         >
-//           {isExpanded ? (
-//             <textarea
-//               placeholder={`What's on your mind, ${user.firstName}?`}
-//               value={content}
-//               onChange={(e) => setContent(e.target.value)}
-//               autoFocus
-//             />
-//           ) : (
-//             <div
-//               className={styles.createPostPlaceholder}
-//             >{`What's on your mind, ${user.firstName}?`}</div>
-//           )}
-//         </div>
-//       </div>
-
-//       {isExpanded && (
-//         <>
-//           {imagePreview && (
-//             <div className={styles.imagePreview}>
-//               <img src={imagePreview || "/placeholder.svg"} alt="Preview" />
-//               <button
-//                 className={styles.removeImageButton}
-//                 onClick={handleRemoveImage}
-//               >
-//                 <BsX size={20} />
-//               </button>
-//             </div>
-//           )}
-
-//           <div className={styles.createPostOptions}>
-//             <div className={styles.privacySelector}>
-//               <label>Who can see this?</label>
-//               <select
-//                 value={privacy}
-//                 onChange={(e) => setPrivacy(e.target.value)}
-//               >
-//                 <option value="public">
-//                   <IoGlobeOutline size={16} /> Everyone
-//                 </option>
-//                 <option value="followers">
-//                   <HiUsers size={16} /> Followers only
-//                 </option>
-//                 <option value="private">
-//                   <HiLockClosed size={16} /> Selected followers
-//                 </option>
-//               </select>
-//             </div>
-
-//             <div className={styles.createPostActions}>
-//               <label className={styles.createPostAction}>
-//                 <input
-//                   type="file"
-//                   accept="image/*"
-//                   onChange={handleImageChange}
-//                   style={{ display: "none" }}
-//                 />
-//                 <BsImage size={20} />
-//                 Photo/GIF
-//               </label>
-
-//               <div className={styles.createPostAction}>
-//                 <MdOutlineMood size={20} />
-//                 <EmojiPicker onEmojiSelect={handleEmojiSelect} />
-//                 Emoji
-//               </div>
-
-//               <button className={styles.createPostAction} type="button">
-//               <HiOutlineLocationMarker size={20} />
-//                 Location
-//               </button>
-//             </div>
-//           </div>
-
-//           <div className={styles.createPostFooter}>
-//             <button
-//               className={styles.cancelButton}
-//               onClick={() => {
-//                 setIsExpanded(false);
-//                 setContent("");
-//                 setImage(null);
-//                 setImagePreview(null);
-//               }}
-//               disabled={isSubmitting}
-//             >
-//               Cancel
-//             </button>
-//             <button
-//               className={styles.postButton}
-//               onClick={handleSubmit}
-//               disabled={isSubmitting || (!content.trim() && !image)}
-//             >
-//               {isSubmitting ? "Posting..." : "Post"}
-//             </button>
-//           </div>
-//         </>
-//       )}
-//     </div>
-//   );
-// }
+import { useState, useRef } from 'react';
+import { BsImage } from 'react-icons/bs';
+import styles from '@/styles/posts.module.css';
+import PopupInput from './popup-input';
+import PopupPrivacy from './popup-privacy';
 
 const CreatePost = () => {
+  // State for form data
+  const [postContent, setPostContent] = useState('');
+  const [privacy, setPrivacy] = useState('public');
+  const [selectedImage, setSelectedImage] = useState(null);
+  const [allowedUsers, setAllowedUsers] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  
+  // State for errors
+  const [errors, setErrors] = useState({
+    content: '',
+    privacy: '',
+    image: ''
+  });
+
+  const fileInputRef = useRef(null);
+
+  // Clear all errors
+  const clearErrors = () => {
+    setErrors({
+      content: '',
+      privacy: '',
+      image: ''
+    });
+  };
+
+  // Validation function
+  const validateForm = () => {
+    
+    let isValid = true;
+    const newErrors = {
+      content: '',
+      privacy: '',
+      image: ''
+    };
+
+    // Clear existing errors first
+    clearErrors();
+
+    // Validate post content
+    if (postContent.length > 10000) {
+      newErrors.content = 'Maximum 10000 characters.';
+      isValid = false;
+    }
+    if (!postContent.trim()) {
+      newErrors.content = 'Post content is required.';
+      isValid = false;
+    }
+
+    // Validate privacy settings
+    const validPrivacyOptions = ['public', 'followers', 'custom_users'];
+    if (!validPrivacyOptions.includes(privacy)) {
+      newErrors.privacy = 'Please select a valid privacy option.';
+      isValid = false;
+    }
+
+    // Validate custom users selection
+    if (privacy === 'custom_users' && allowedUsers.length === 0) {
+      newErrors.privacy = 'Please select users for custom privacy.';
+      isValid = false;
+    }
+
+    // Validate image if selected
+    if (selectedImage) {
+      if (!selectedImage.type.startsWith('image/')) {
+        newErrors.image = 'Please select a valid image file.';
+        isValid = false;
+      }
+      if (selectedImage.size > 10 * 1024 * 1024) {
+        newErrors.image = 'Image size should be less than 10MB.';
+        isValid = false;
+      }
+    }
+
+    setErrors(newErrors);
+    return isValid;
+  };
+
+  // Handle errors from API response
+  const handleErrors = (status) => {
+    switch (status) {
+      case 400:
+        setErrors(prev => ({ ...prev, content: 'Bad request. Please check your input.' }));
+        break;
+      case 401:
+        setErrors(prev => ({ ...prev, content: 'Unauthorized. Please log in again.' }));
+        break;
+      case 500:
+        setErrors(prev => ({ ...prev, content: 'Server error. Please try again later.' }));
+        break;
+      default:
+        setErrors(prev => ({ ...prev, content: 'An error occurred. Please try again.' }));
+    }
+  };
+
+  // Reset form after successful submission
+  const resetForm = () => {
+    setPostContent('');
+    setSelectedImage(null);
+    setPrivacy('public');
+    setAllowedUsers([]);
+    if (fileInputRef.current) {
+      fileInputRef.current.value = '';
+    }
+    clearErrors();
+  };
+
+  const publishPost = async (event) => {
+    event.preventDefault();
+    
+    // Validation
+    const isValid = validateForm();
+    
+    if (isValid) {
+      setIsLoading(true);
+      
+      try {
+        // Create FormData for multipart form submission
+        const formData = new FormData();
+        formData.append('post_content', postContent.trim());
+        formData.append('post_privacy', privacy);
+        
+        // Add image if selected
+        if (selectedImage) {
+          formData.append('post_image', selectedImage);
+        }
+        
+        // Add allowed users for custom privacy
+        if (privacy === 'custom_users') {
+          allowedUsers.forEach(userId => {
+            formData.append('allowed_users', userId);
+          });
+        }
+
+        const response = await fetch('http://localhost:8080/rest/createpost', {
+          method: 'POST',
+          credentials: 'include', // This sends cookies with the request
+          body: formData,
+        });
+        console.log("response----------", response);
+        
+
+        if (!response.ok) {
+          handleErrors(response.status);
+          return;
+        }
+
+        const data = await response.json();
+        
+        if (data.success) {
+          console.log('Post =>', data);
+          
+          // Reset form on success
+          resetForm();
+          
+        } else {
+          setErrors(prev => ({ ...prev, content: data.message || 'Failed to create post' }));
+        }
+
+      } catch (error) {
+        console.error('Error:', error);
+        setErrors(prev => ({ ...prev, content: 'Network error. Please try again.' }));
+      } finally {
+        setIsLoading(false);
+      }
+    }
+  };
+
+  // Handle image selection
+  const handleImageSelect = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      setSelectedImage(file);
+      // Clear any previous image errors
+      setErrors(prev => ({ ...prev, image: '' }));
+    }
+  };
+
+  // Handle privacy change from PopupPrivacy
+  const handlePrivacyChange = (privacyValue, selectedFollowers = []) => {
+    // Map privacy values from PopupPrivacy to backend expected values
+    const privacyMap = {
+      'public': 'public',
+      'almostPrivate': 'followers',
+      'private': 'custom_users'
+    };
+    
+    const mappedPrivacy = privacyMap[privacyValue] || 'public';
+    setPrivacy(mappedPrivacy);
+    
+    if (mappedPrivacy === 'custom_users') {
+      setAllowedUsers(selectedFollowers.map(id => id.toString()));
+    } else {
+      setAllowedUsers([]);
+    }
+    
+    // Clear privacy errors
+    setErrors(prev => ({ ...prev, privacy: '' }));
+  };
+
+  // Handle content change from PopupInput
+  const handleContentChange = (content) => {
+    setPostContent(content);
+    // Clear content errors
+    setErrors(prev => ({ ...prev, content: '' }));
+  };
+
   return (
-    <div className={styles.postForm}>
+    <form onSubmit={publishPost} className={styles.postForm} id="postForm">
       <div className={styles.createPost}>
         <div className={styles.createPostHeader}>
           <img
             // src={currentUser.avatar || "https://i.pravatar.cc/150?u=10"}
             className={styles.createPostAvatar}
           />
-          <PopupInput />
+          <PopupInput 
+            postContent={postContent}
+            onContentChange={handleContentChange}
+            // disabled={isLoading}
+          />
         </div>
       </div>
+      
+      {/* Error Messages */}
+      {errors.content && (
+        <div id="content-error" className={styles.errorMessage}>
+          {errors.content}
+        </div>
+      )}
+      
+      {errors.privacy && (
+        <div id="privacy-error" className={styles.errorMessage}>
+          {errors.privacy}
+        </div>
+      )}
+      
+      {errors.image && (
+        <div id="image-error" className={styles.errorMessage}>
+          {errors.image}
+        </div>
+      )}
+      
+      {/* Selected Image Preview */}
+      {selectedImage && (
+        <div className={styles.imagePreview}>
+          <img 
+            src={URL.createObjectURL(selectedImage)} 
+            className={styles.previewImage}
+          />
+          <button 
+            onClick={() => {
+              setSelectedImage(null);
+              if (fileInputRef.current) fileInputRef.current.value = '';
+              setErrors(prev => ({ ...prev, image: '' }));
+            }}
+            className={styles.removeImageButton}
+            type="button"
+            disabled={isLoading}
+          >
+            ×
+          </button>
+        </div>
+      )}
+      
       <div className={styles.buttons}>
         <div className={styles.buttonContainer}>
-          <button className={styles.photoAction}>
+          <button 
+            className={styles.photoAction}
+            onClick={() => fileInputRef.current?.click()}
+            disabled={isLoading}
+            type="button"
+          >
             <BsImage size={20} />
             Photo/GIF
           </button>
-          <PopupPrivacy />
+          
+          {/* Hidden file input */}
+          <input
+            type="file"
+            ref={fileInputRef}
+            onChange={handleImageSelect}
+            accept="image/*"
+            style={{ display: 'none' }}
+          />
+          
+          <PopupPrivacy 
+            onPrivacyChange={handlePrivacyChange}
+            disabled={isLoading}
+          />
         </div>
 
         <button
-          className={styles.postButton}>
-          post
+          className={styles.postButton}
+          type="submit"
+          disabled={isLoading || !postContent.trim()}
+        >
+          {isLoading ? 'Posting...' : 'Post'}
         </button>
       </div>
-    </div>
-  )
-}
+    </form>
+  );
+};
 
-export default CreatePost
+export default CreatePost;

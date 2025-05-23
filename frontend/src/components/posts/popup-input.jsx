@@ -1,11 +1,9 @@
 "use client";
 
 import styles from "@/styles/posts.module.css";
-
 import { useState } from "react";
 
-const PopupInput = () => {
-
+const PopupInput = ({ postContent, onContentChange}) => {
   const currentUser = {
     id: 1,
     avatar: "",
@@ -14,21 +12,28 @@ const PopupInput = () => {
   };
 
   const [showPopup, setShowPopup] = useState(false);
-
-  const [postContent, setPostContent] = useState('')
+  const [localContent, setLocalContent] = useState(postContent || '');
 
   // manage popup input
   const handleInputClick = () => {
-    setShowPopup(true);
+    
+      setLocalContent(postContent || '');
+      setShowPopup(true);
   };
 
   const closePopup = () => {
     setShowPopup(false);
+    setLocalContent(postContent || ''); // Reset to original content
   };
 
   const saveContent = () => {
-    closePopup()
-  }
+    onContentChange?.(localContent); // Pass content back to parent
+    setShowPopup(false);
+  };
+
+  const handleTextareaChange = (e) => {
+    setLocalContent(e.target.value);
+  };
 
   return (
     <div>
@@ -37,6 +42,9 @@ const PopupInput = () => {
         placeholder={`What's on your mind, ${currentUser.firstName}?`}
         className={styles.createPostInput}
         onClick={handleInputClick}
+        value={postContent ? `${postContent.substring(0, 50)}${postContent.length > 50 ? '...' : ''}` : ''}
+        readOnly
+        // disabled={disabled}
       />
       {showPopup && (
         <div className={styles.popupOverlay}>
@@ -46,20 +54,32 @@ const PopupInput = () => {
             <textarea
               placeholder={`What's on your mind, ${currentUser.firstName}?`}
               className={styles.popupTextarea}
-              value={postContent}
-              onChange={(e) => setPostContent(e.target.value)}
+              value={localContent}
+              onChange={handleTextareaChange}
+              // disabled={disabled}
+              rows={6}
             />
-            <button
-              onClick={saveContent}
-              className={styles.postButton}
-            >
-              done
-            </button>
+            <div className={styles.popupActions}>
+              <button
+                onClick={closePopup}
+                className={styles.cancelButton}
+                // disabled={disabled}
+              >
+                Cancel
+              </button>
+              <button
+                onClick={saveContent}
+                className={styles.postButton}
+                // disabled={disabled}
+              >
+                Done
+              </button>
+            </div>
           </div>
         </div>
       )}
     </div>
-  )
-}
+  );
+};
 
-export default PopupInput
+export default PopupInput;
