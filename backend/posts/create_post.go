@@ -41,7 +41,7 @@ func CreatePost(w http.ResponseWriter, r *http.Request) {
 	r.ParseMultipartForm(10 << 20)
 
 	PostData.Post_Content = r.FormValue("post_content")
-	if PostData.Post_Content == "" {
+	if PostData.Post_Content == ""  {
 		utils.Log("ERROR", "Post Content is Empty")
 		utils.SendJSON(w, http.StatusBadRequest, utils.JSONResponse{
 			Success: false,
