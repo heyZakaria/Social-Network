@@ -16,7 +16,6 @@ const PopupInput = ({ postContent, onContentChange}) => {
 
   // manage popup input
   const handleInputClick = () => {
-    
       setLocalContent(postContent || '');
       setShowPopup(true);
   };
@@ -42,7 +41,7 @@ const PopupInput = ({ postContent, onContentChange}) => {
         placeholder={`What's on your mind, ${currentUser.firstName}?`}
         className={styles.createPostInput}
         onClick={handleInputClick}
-        value={postContent ? `${postContent.substring(0, 50)}${postContent.length > 50 ? '...' : ''}` : ''}
+        value={postContent ? `${postContent.substring(0, 20)}${postContent.length > 20 ? ' ...' : ''}` : ''}
         readOnly
         // disabled={disabled}
       />

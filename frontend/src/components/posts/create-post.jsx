@@ -13,7 +13,7 @@ const CreatePost = () => {
   const [selectedImage, setSelectedImage] = useState(null);
   const [allowedUsers, setAllowedUsers] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  
+
   // State for errors
   const [errors, setErrors] = useState({
     content: '',
@@ -34,7 +34,7 @@ const CreatePost = () => {
 
   // Validation function
   const validateForm = () => {
-    
+
     let isValid = true;
     const newErrors = {
       content: '',
@@ -46,13 +46,15 @@ const CreatePost = () => {
     clearErrors();
 
     // Validate post content
-    if (postContent.length > 10000) {
-      newErrors.content = 'Maximum 10000 characters.';
-      isValid = false;
-    }
-    if (!postContent.trim()) {
-      newErrors.content = 'Post content is required.';
-      isValid = false;
+    if (postContent) {
+      if (postContent.length > 10000) {
+        newErrors.content = 'Maximum 10000 characters.';
+        isValid = false;
+      }
+      if (!postContent.trim()) {
+        newErrors.content = 'Post content is required.';
+        isValid = false;
+      }
     }
 
     // Validate privacy settings
@@ -88,7 +90,7 @@ const CreatePost = () => {
   const handleErrors = (status) => {
     switch (status) {
       case 400:
-        setErrors(prev => ({ ...prev, content: 'Bad request. Please check your input.' }));
+        setErrors(prev => ({ ...prev, content: 'Bad request. Please enter text or upload an image !!' }));
         break;
       case 401:
         setErrors(prev => ({ ...prev, content: 'Unauthorized. Please log in again.' }));
@@ -115,24 +117,29 @@ const CreatePost = () => {
 
   const publishPost = async (event) => {
     event.preventDefault();
-    
+
     // Validation
     const isValid = validateForm();
-    
+
     if (isValid) {
       setIsLoading(true);
-      
+
       try {
         // Create FormData for multipart form submission
         const formData = new FormData();
-        formData.append('post_content', postContent.trim());
+        ;
         formData.append('post_privacy', privacy);
-        
+
         // Add image if selected
-        if (selectedImage) {
-          formData.append('post_image', selectedImage);
+        if ((selectedImage) && (postContent)) {
+          formData.append('post_image', selectedImage)
+          formData.append('post_content', postContent.trim())
+        } else if (selectedImage) {
+          formData.append('post_image', selectedImage)
+        } else {
+          formData.append('post_content', postContent.trim())
         }
-        
+
         // Add allowed users for custom privacy
         if (privacy === 'custom_users') {
           allowedUsers.forEach(userId => {
@@ -146,7 +153,7 @@ const CreatePost = () => {
           body: formData,
         });
         console.log("response----------", response);
-        
+
 
         if (!response.ok) {
           handleErrors(response.status);
@@ -154,13 +161,13 @@ const CreatePost = () => {
         }
 
         const data = await response.json();
-        
+
         if (data.success) {
           console.log('Post =>', data);
-          
+
           // Reset form on success
           resetForm();
-          
+
         } else {
           setErrors(prev => ({ ...prev, content: data.message || 'Failed to create post' }));
         }
@@ -192,16 +199,16 @@ const CreatePost = () => {
       'almostPrivate': 'followers',
       'private': 'custom_users'
     };
-    
+
     const mappedPrivacy = privacyMap[privacyValue] || 'public';
     setPrivacy(mappedPrivacy);
-    
+
     if (mappedPrivacy === 'custom_users') {
       setAllowedUsers(selectedFollowers.map(id => id.toString()));
     } else {
       setAllowedUsers([]);
     }
-    
+
     // Clear privacy errors
     setErrors(prev => ({ ...prev, privacy: '' }));
   };
@@ -221,41 +228,35 @@ const CreatePost = () => {
             // src={currentUser.avatar || "https://i.pravatar.cc/150?u=10"}
             className={styles.createPostAvatar}
           />
-          <PopupInput 
+          <PopupInput
             postContent={postContent}
             onContentChange={handleContentChange}
-            // disabled={isLoading}
+          // disabled={isLoading}
           />
         </div>
       </div>
-      
+
       {/* Error Messages */}
-      {errors.content && (
+      {(errors.content ) && (
         <div id="content-error" className={styles.errorMessage}>
           {errors.content}
         </div>
       )}
-      
+
       {errors.privacy && (
         <div id="privacy-error" className={styles.errorMessage}>
           {errors.privacy}
         </div>
       )}
-      
-      {errors.image && (
-        <div id="image-error" className={styles.errorMessage}>
-          {errors.image}
-        </div>
-      )}
-      
+
       {/* Selected Image Preview */}
       {selectedImage && (
         <div className={styles.imagePreview}>
-          <img 
-            src={URL.createObjectURL(selectedImage)} 
+          <img
+            src={URL.createObjectURL(selectedImage)}
             className={styles.previewImage}
           />
-          <button 
+          <button
             onClick={() => {
               setSelectedImage(null);
               if (fileInputRef.current) fileInputRef.current.value = '';
@@ -269,10 +270,10 @@ const CreatePost = () => {
           </button>
         </div>
       )}
-      
+
       <div className={styles.buttons}>
         <div className={styles.buttonContainer}>
-          <button 
+          <button
             className={styles.photoAction}
             onClick={() => fileInputRef.current?.click()}
             disabled={isLoading}
@@ -281,7 +282,7 @@ const CreatePost = () => {
             <BsImage size={20} />
             Photo/GIF
           </button>
-          
+
           {/* Hidden file input */}
           <input
             type="file"
@@ -290,8 +291,8 @@ const CreatePost = () => {
             accept="image/*"
             style={{ display: 'none' }}
           />
-          
-          <PopupPrivacy 
+
+          <PopupPrivacy
             onPrivacyChange={handlePrivacyChange}
             disabled={isLoading}
           />
@@ -300,7 +301,7 @@ const CreatePost = () => {
         <button
           className={styles.postButton}
           type="submit"
-          disabled={isLoading || !postContent.trim()}
+          // disabled={isLoading || !postContent.trim() }
         >
           {isLoading ? 'Posting...' : 'Post'}
         </button>
