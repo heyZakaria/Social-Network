@@ -37,9 +37,10 @@ func main() {
 
     // Profile routes
     router.HandleFunc("GET /api/users/profile", profile.GetUserProfile)
+	router.HandleFunc("PUT /api/users/privacy", profile.ProfileStatus)
     router.HandleFunc("GET /api/users/get/profile", profile.GetOtherUserProfile)
-    router.HandleFunc("POST /api/users/{id}/follow", profile.FollowUser)
-    router.HandleFunc("POST /api/users/{id}/unfollow", profile.UnfollowUser)
+    router.HandleFunc("POST /api/users/follow", profile.ToggleFollowUser)
+    // router.HandleFunc("POST /api/users/{id}/unfollow", profile.UnfollowUser)
 	// Handler for /api/post
 
 	// Testing serving images

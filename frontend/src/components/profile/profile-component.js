@@ -15,6 +15,7 @@ import { FetchData } from "@/app/(utils)/fetchJson";
 // }}
 export default function ProfileComponent({
   ProfileData,
+  currentUser,
   canView,
   // posts,
   // followers,
@@ -25,6 +26,13 @@ export default function ProfileComponent({
   // if (ProfileData.isOwnProfile) {
   //   currentUser = currentUser
   // }
+  console.log("profiledata=======>", ProfileData);
+  console.log("currentuser=======>", currentUser);
+  
+  if(!ProfileData) {
+    return <div>Loading...</div>
+  }
+  
 
   const [posts, setPosts] = useState([]);
   const [offset, setOffset] = useState(0);
@@ -52,6 +60,8 @@ export default function ProfileComponent({
       setOffset((prev) => prev + limit);
     }
   };
+  console.log("/////////////", ProfileData);
+  
 
   return (
     <div className={styles.profileContainer}>
@@ -83,7 +93,7 @@ export default function ProfileComponent({
                 )}
               </h1>
 
-              {ProfileData.isOwnProfile ? (
+              {ProfileData.IsOwnProfile ? (
                 <div className={styles.profileActions}>
                   <Link href="/settings" className={styles.editButton}>
                     Edit Profile
@@ -94,8 +104,8 @@ export default function ProfileComponent({
               ) : (
                 <div className={styles.profileActions}>
                   <FollowButton
-                    currentUser={ProfileData}
-                  // currentUser={currentUser}
+                    profileUser={ProfileData}
+                  currentUser={currentUser}
                   />
                   <button className={styles.messageButton}>Message</button>
                 </div>
@@ -181,14 +191,45 @@ export default function ProfileComponent({
                 )}
               </div>
             )}
+            {activeTab === "posts" && (
+              <div className={styles.postsGrid}>
+                {loading && posts.length === 0 ? (
+                  <p>Loading...</p>
+                ) : posts.length > 0 ? (
+                  <>
+                    {posts.map((post) => (
+                      <PostComponent
+                        key={post.PostId}
+                        post={post}
+                        user={ProfileData} // or actual logged in user
+                        currentUser={ProfileData}
+                      />
+                    ))}
+                    {hasMore && (
+                      <button
+                        className={styles.loadMoreButton}
+                        onClick={loadMore}
+                        disabled={loading}
+                      >
+                        {loading ? "Loading..." : "Load More"}
+                      </button>
+                    )}
+                  </>
+                ) : (
+                  <div className={styles.emptyState}>
+                    <p>No posts yet</p>
+                  </div>
+                )}
+              </div>
+            )}
 
 
             {activeTab === "followers" && (
-              <UserList users={followers} currentUser={currentUser} />
+              <UserList users={ProfileData.followers} currentUser={ProfileData} />
             )}
 
             {activeTab === "following" && (
-              <UserList users={following} currentUser={currentUser} />
+              <UserList users={ProfileData.following} currentUser={ProfileData} />
             )}
           </div>
         </div>

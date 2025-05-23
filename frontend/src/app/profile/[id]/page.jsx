@@ -16,6 +16,9 @@ export default function ProfilePage({ params }) {
   const [profileLoading, setProfileLoading] = useState(true);
   const [notFoundFlag, setNotFoundFlag] = useState(false);
 
+  console.log("current", currentUser);
+  
+
   
   // params.id = currentUser.id
   const paramsx = useParams();
@@ -77,6 +80,9 @@ export default function ProfilePage({ params }) {
       //   FollowerCount: profileUser.FollowerCount || 0,
       //   FollowingCount: profileUser.FollowingCount || 0,
       // }}
+      currentUser={
+        currentUser
+      }
       canView={canView}
     />
   );

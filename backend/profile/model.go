@@ -31,8 +31,9 @@ type UserProfile struct {
 	CreatedAt      string `json:"created_at"`
 	FollowerCount  int    `json:"followerCount"`
 	FollowingCount int    `json:"followingCount"`
-	Posts          int    `json:"posts"`
+	PostsCount     int    `json:"postsCount"`
 	Followers      []User `json:"followers"`
 	Following      []User `json:"following"`
 	IsOwnProfile   bool
+	CanView        bool
 }

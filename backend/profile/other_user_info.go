@@ -9,12 +9,9 @@ import (
 	"socialNetwork/utils"
 )
 
-type userInfo struct {
-	User_id string `json:"user_id"`
-}
-
 // GetOtherUserProfile gets another user's profile
 func GetOtherUserProfile(w http.ResponseWriter, r *http.Request) {
+	fmt.Println("===========GetOtherUserProfile===============")
 	// Get current user ID from token
 	token := auth.GetToken(w, r)
 	currentUserId, err := user.GetUserIDByToken(token)
@@ -26,11 +23,11 @@ func GetOtherUserProfile(w http.ResponseWriter, r *http.Request) {
 		})
 		return
 	}
-	targetUserId := userInfo{}
-	targetUserId.User_id = r.URL.Query().Get("id")
-	fmt.Println("targetUserId===========>", targetUserId.User_id)
+	profile := &UserProfile{}
+	profile.UserID = r.URL.Query().Get("id")
+	fmt.Println("profile===========>", profile.UserID)
 	// Get target user's profile
-	profile, err := getUserProfileData(targetUserId.User_id)
+	profile, err = getUserProfileData(profile.UserID)
 	if err != nil {
 		utils.SendJSON(w, http.StatusNotFound, utils.JSONResponse{
 			Success: false,
@@ -40,27 +37,22 @@ func GetOtherUserProfile(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+
 	// Check if current user can view this profile
-	canView := currentUserId == targetUserId.User_id || profile.ProfileStatus == "public"
-	if !canView {
+	profile.CanView = currentUserId == profile.UserID || profile.ProfileStatus == "public"
+	if !profile.CanView {
 		// Check if follower
 		for _, follower := range profile.Followers {
-			if follower.ID == currentUserId {
-				canView = true
+			if follower.ID == profile.UserID {
+				profile.CanView = true
 				break
 			}
 		}
 	}
 
-	if !canView {
-		utils.SendJSON(w, http.StatusForbidden, utils.JSONResponse{
-			Success: false,
-			Message: "This account is private",
-			Error:   "You must follow this user to view their profile",
-		})
-		return
-	}
-	profile.IsOwnProfile = currentUserId == targetUserId.User_id
+	fmt.Println("profile===========>", profile)
+	fmt.Println("")
+	profile.IsOwnProfile = currentUserId == profile.UserID
 
 	utils.SendJSON(w, http.StatusOK, utils.JSONResponse{
 		Success: true,
