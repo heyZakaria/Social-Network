@@ -33,6 +33,7 @@ export default function ProfilePage({ params }) {
           return;
         }
         const json = await res.json();
+        
         setProfileUser(json.data.Data);
         
       } catch (error) {
@@ -47,6 +48,7 @@ export default function ProfilePage({ params }) {
   }, [ids]);
   
   
+  console.log("profileUser=>", profileUser);
   
   
   if (loading || profileLoading) return <div>Loading...</div>;

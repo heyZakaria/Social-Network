@@ -7,6 +7,7 @@ import CommentSection from "./comment-section";
 import { IoHeartOutline, IoGlobeOutline } from 'react-icons/io5';
 import { BiShare, BiComment, BiDotsHorizontalRounded } from 'react-icons/bi';
 import { HiUsers, HiLockClosed } from 'react-icons/hi2';
+import { FetchData } from "@/app/(utils)/fetchJson";
 
 export default function PostComponent({
   post,
@@ -20,14 +21,27 @@ export default function PostComponent({
   const [isExpanded, setIsExpanded] = useState(false);
   const MAX_CONTENT_LENGTH = 250; // Maximum characters to show before "See more"
 
-  const handleLike = () => {
-    if (isLiked) {
-      setLikesCount(likesCount - 1);
-    } else {
-      setLikesCount(likesCount + 1);
+  const handleLike =  () => {
+    async function updateLikeStatus() {
+      const response = await FetchData(
+        `http://localhost:8080/likes/react?id=${post.PostId}`, "POST")
+      const LikeCounts = response.data.like_count
+      const Like = response.data.success
+      console.log("post.Liked", post.Liked);
+      console.log("response", response);
+      console.log("Like Status Before", Like);
+      console.log("Like LikeCounts Before", LikeCounts);
+  
+  
+      setIsLiked(!isLiked);
+      setLikesCount(LikeCounts);
+      console.log("Like Status After", Like);
+      console.log("Like LikeCounts After", LikeCounts);
+
     }
-    setIsLiked(!isLiked);
+    updateLikeStatus()
   };
+
 
   const formatDate = (dateString) => {
     const date = new Date(dateString);
@@ -80,19 +94,20 @@ export default function PostComponent({
       </p>
     );
   };
-
+  console.log(post);
+  
   return (
     <div className={styles.post}>
       <div className={styles.postHeader}>
-        <Link href={`/profile/${user.id}`} className={styles.postUser}>
+        <Link href={`/profile/${post.UserID}`} className={styles.postUser}>
           <img
-            src={user.avatar || "/uploads/profile.jpeg"}
-            alt={user.firstName}
+            src={post.User_avatar || "/uploads/profile.jpeg"}
+            alt={post.First_name}
             className={styles.postAvatar}
           />
           <div className={styles.postUserInfo}>
             <div className={styles.postUserName}>
-              {user.firstName} {user.lastName}
+              {post.First_name} {post.Last_name}
             </div>
             <div className={styles.postMeta}>
               <span className={styles.postTime}>
@@ -108,20 +123,20 @@ export default function PostComponent({
           </div>
         </Link>
 
-        {currentUser.id === user.id && (
+        {/* {currentUser.id === user.id && (
           <div className={styles.postActions}>
             <button className={styles.postAction}>
             <BiDotsHorizontalRounded size={16} />
             </button>
           </div>
-        )}
+        )} */}
       </div>
 
       <div className={styles.postContent}>
         {renderPostContent()}
         {post.Post_image && (
           <img
-            src={post.Post_image || "/placeholder.svg"}
+            src={post.Post_image}
             alt="Post"
             className={styles.postImage}
           />
@@ -131,7 +146,7 @@ export default function PostComponent({
       <div className={styles.postFooter}>
         <div className={styles.postStats}>
           <div className={styles.likesCount}>
-            {likesCount > 0 && (
+            {post.LikeCounts >= 0 && (
               <>
                 <IoHeartOutline size={15} />
                 <span>{likesCount}</span>
@@ -142,7 +157,7 @@ export default function PostComponent({
             className={styles.commentsToggle}
             onClick={() => setShowCommentsSection(!showCommentsSection)}
           >
-            {post.comments?.length || 0} comments
+            {post.Comments || 0} comments
           </button>
         </div>
 
@@ -165,10 +180,7 @@ export default function PostComponent({
             Comment
           </button>
 
-          <button className={styles.interactionButton}>
-          <BiShare size={20} />
-            Share
-          </button>
+          
         </div>
       </div>
 

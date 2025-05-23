@@ -9,6 +9,7 @@ import PrivacyToggle from "./privacy-toggle";
 import UserList from "./user-list";
 import FloatingChat from "@/components/chat/floating-chat";
 import { FaLock } from "react-icons/fa";
+import { FetchData } from "@/app/(utils)/fetchJson";
 // ProfileData={{
 //   profileUser
 // }}
@@ -32,36 +33,19 @@ export default function ProfileComponent({
   const [hasMore, setHasMore] = useState(true); // for pagination
 
   useEffect(() => {
+    async function x() {
+      const data = await FetchData(`http://localhost:8080/posts/getposts?limit=${limit}&offset=${offset}&user_id=${ProfileData.id}`)
+      if (data.data.posts.length < limit) setHasMore(false); // no more posts
+      setPosts((prev) => [...prev,  ...data?.data?.posts]);//setPosts((prev) => [...prev, ...data?.data?.posts]);
+      setLoading(false);
+    }
     if (activeTab === "posts") {
-      fetchPosts();
+      setLoading(true);
+      x()
     }
   }, [activeTab, offset]);
 
-  const fetchPosts = async () => {
-    try {
-      setLoading(true);
-      const res = await fetch(
-        `http://localhost:8080/posts/getposts?limit=${limit}&offset=${offset}&user_id=${ProfileData.id}`, {
-          credentials: "include",
-        }
-      );
 
-      if (!res.ok) {
-        throw new Error("Failed to fetch posts");
-      }
-
-      const data = await res.json();
-
-      
-      if (data.data.posts.length < limit) setHasMore(false); // no more posts
-
-      setPosts((prev) => [...data?.data?.posts]);//setPosts((prev) => [...prev, ...data?.data?.posts]);
-    } catch (error) {
-      console.error("Error loading posts:", error);
-    } finally {
-      setLoading(false);
-    }
-  };
 
   const loadMore = () => {
     if (!loading && hasMore) {
@@ -69,7 +53,7 @@ export default function ProfileComponent({
     }
   };
 
-return (
+  return (
     <div className={styles.profileContainer}>
       <div className={styles.profileHeader}>
         <div className={styles.profileCover}>
@@ -166,37 +150,37 @@ return (
           </div>
 
           <div className={styles.tabContent}>
-          {activeTab === "posts" && (
-  <div className={styles.postsGrid}>
-    {loading && posts.length === 0 ? (
-      <p>Loading...</p>
-    ) : posts.length > 0 ? (
-      <>
-        {posts.map((post) => (
-          <PostComponent
-            key={post.PostId}
-            post={post}
-            user={ProfileData} // or actual logged in user
-            currentUser={ProfileData}
-          />
-        ))}
-        {hasMore && (
-          <button
-            className={styles.loadMoreButton}
-            onClick={loadMore}
-            disabled={loading}
-          >
-            {loading ? "Loading..." : "Load More"}
-          </button>
-        )}
-      </>
-    ) : (
-      <div className={styles.emptyState}>
-        <p>No posts yet</p>
-      </div>
-    )}
-  </div>
-)}
+            {activeTab === "posts" && (
+              <div className={styles.postsGrid}>
+                {loading && posts.length === 0 ? (
+                  <p>Loading...</p>
+                ) : posts.length > 0 ? (
+                  <>
+                    {posts.map((post) => (
+                      <PostComponent
+                        key={post.PostId}
+                        post={post}
+                        user={ProfileData} // or actual logged in user
+                        currentUser={ProfileData}
+                      />
+                    ))}
+                    {hasMore && (
+                      <button
+                        className={styles.loadMoreButton}
+                        onClick={loadMore}
+                        disabled={loading}
+                      >
+                        {loading ? "Loading..." : "Load More"}
+                      </button>
+                    )}
+                  </>
+                ) : (
+                  <div className={styles.emptyState}>
+                    <p>No posts yet</p>
+                  </div>
+                )}
+              </div>
+            )}
 
 
             {activeTab === "followers" && (
