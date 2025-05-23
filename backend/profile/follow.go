@@ -1,7 +1,6 @@
 package profile
 
 import (
-	"fmt"
 	"net/http"
 
 	"socialNetwork/auth"
@@ -40,39 +39,9 @@ func ToggleFollowUser(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	// Check if already following
-	var exists int
-	err = db.DB.QueryRow(`
-		SELECT COUNT(*) FROM followers WHERE follower_id = ? AND followed_id = ?
-	`, followerId, targetUserId).Scan(&exists)
-	if err != nil {
-		utils.SendJSON(w, http.StatusInternalServerError, utils.JSONResponse{
-			Success: false,
-			Message: "Database error",
-			Error:   err.Error(),
-		})
-		return
-	}
-
-	// Check if a follow request already exists
-	var requestExists int
-	err = db.DB.QueryRow(`
-		SELECT COUNT(*) FROM follow_requests WHERE sender_id = ? AND receiver_id = ?
-	`, followerId, targetUserId).Scan(&requestExists)
-	if err != nil {
-		utils.SendJSON(w, http.StatusInternalServerError, utils.JSONResponse{
-			Success: false,
-			Message: "Database error",
-			Error:   err.Error(),
-		})
-		return
-	}
-
-	// Get profile status (public or private)
+	// Get profile status
 	var profileStatus string
-	err = db.DB.QueryRow(`
-		SELECT profile_status FROM users WHERE id = ?
-	`, targetUserId).Scan(&profileStatus)
+	err = db.DB.QueryRow(`SELECT profile_status FROM users WHERE id = ?`, targetUserId).Scan(&profileStatus)
 	if err != nil {
 		utils.SendJSON(w, http.StatusInternalServerError, utils.JSONResponse{
 			Success: false,
@@ -82,58 +51,55 @@ func ToggleFollowUser(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	if exists > 0 {
-		// Unfollow case: remove from followers table
+	// Check current follow status
+	var followerStatus string
+	err = db.DB.QueryRow(`
+		SELECT follower_status FROM followers WHERE follower_id = ? AND followed_id = ?
+	`, followerId, targetUserId).Scan(&followerStatus)
+
+	isFollowing := err == nil && followerStatus == "accepted"
+	requestPending := err == nil && followerStatus == "pending"
+
+	if r.Method == http.MethodGet {
+		utils.SendJSON(w, http.StatusOK, utils.JSONResponse{
+			Success: true,
+			Data: map[string]any{
+				"isFollowing":    isFollowing,
+				"requestPending": requestPending,
+			},
+		})
+		return
+	}
+
+	// Handle POST (toggle)
+	if isFollowing || requestPending {
 		_, err = db.DB.Exec(`
 			DELETE FROM followers WHERE follower_id = ? AND followed_id = ?
 		`, followerId, targetUserId)
 		if err != nil {
 			utils.SendJSON(w, http.StatusInternalServerError, utils.JSONResponse{
 				Success: false,
-				Message: "Error unfollowing user",
+				Message: "Error removing follow/follow request",
 				Error:   err.Error(),
 			})
 			return
 		}
 		utils.SendJSON(w, http.StatusOK, utils.JSONResponse{
 			Success: true,
-			Message: "Successfully unfollowed user",
-			Data: map[string]interface{}{
+			Message: "Unfollowed or request cancelled",
+			Data: map[string]any{
 				"isFollowing":    false,
 				"requestPending": false,
 			},
 		})
-		fmt.Println("Unfollow")
 		return
 	}
 
-	if requestExists > 0 {
-		_, err = db.DB.Exec(`
-			DELETE FROM follow_requests WHERE sender_id = ? AND receiver_id = ?
-		`, followerId, targetUserId)
-		if err != nil {
-			utils.SendJSON(w, http.StatusInternalServerError, utils.JSONResponse{
-				Success: false,
-				Message: "Error cancelling follow request",
-				Error:   err.Error(),
-			})
-			return
-		}
-		utils.SendJSON(w, http.StatusOK, utils.JSONResponse{
-			Success: true,
-			Message: "Follow request cancelled",
-			Data: map[string]interface{}{
-				"isFollowing":    false,
-				"requestPending": false,
-			},
-		})
-		fmt.Println("Cancelled follow request")
-		return
-	}
-
+	// Insert follow or request
 	if profileStatus == "private" {
 		_, err = db.DB.Exec(`
-			INSERT INTO follow_requests (sender_id, receiver_id) VALUES (?, ?)
+			INSERT INTO followers (follower_id, followed_id, follower_status)
+			VALUES (?, ?, 'pending')
 		`, followerId, targetUserId)
 		if err != nil {
 			utils.SendJSON(w, http.StatusInternalServerError, utils.JSONResponse{
@@ -143,21 +109,21 @@ func ToggleFollowUser(w http.ResponseWriter, r *http.Request) {
 			})
 			return
 		}
-
 		utils.SendJSON(w, http.StatusOK, utils.JSONResponse{
 			Success: true,
 			Message: "Follow request sent",
-			Data: map[string]interface{}{
+			Data: map[string]any{
 				"isFollowing":    false,
 				"requestPending": true,
 			},
 		})
-		fmt.Println("Follow request sent")
 		return
 	}
 
+	// Public profile -> follow directly
 	_, err = db.DB.Exec(`
-		INSERT INTO followers (follower_id, followed_id) VALUES (?, ?)
+		INSERT INTO followers (follower_id, followed_id, follower_status)
+		VALUES (?, ?, 'accepted')
 	`, followerId, targetUserId)
 	if err != nil {
 		utils.SendJSON(w, http.StatusInternalServerError, utils.JSONResponse{
@@ -167,14 +133,12 @@ func ToggleFollowUser(w http.ResponseWriter, r *http.Request) {
 		})
 		return
 	}
-
 	utils.SendJSON(w, http.StatusOK, utils.JSONResponse{
 		Success: true,
-		Message: "Successfully followed user",
-		Data: map[string]interface{}{
+		Message: "Followed user",
+		Data: map[string]any{
 			"isFollowing":    true,
 			"requestPending": false,
 		},
 	})
-	fmt.Println("Followed user directly")
 }

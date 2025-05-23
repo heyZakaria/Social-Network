@@ -36,6 +36,7 @@ func main() {
 	router.HandleFunc("GET /api/verify", middleware.CheckUserExeting)
 
     // Profile routes
+	router.HandleFunc("POST /api/uers", profile.UsersList)
     router.HandleFunc("GET /api/users/profile", profile.GetUserProfile)
 	router.HandleFunc("PUT /api/users/privacy", profile.ProfileStatus)
     router.HandleFunc("GET /api/users/get/profile", profile.GetOtherUserProfile)

@@ -9,30 +9,13 @@ import PrivacyToggle from "./privacy-toggle";
 import UserList from "./user-list";
 import FloatingChat from "@/components/chat/floating-chat";
 import { FaLock } from "react-icons/fa";
-// ProfileData={{
-//   profileUser
-// }}
-export default function ProfileComponent({
-  ProfileData,
-  currentUser,
-  canView,
-  // posts,
-  // followers,
-  // following,
-}) {
+
+export default function ProfileComponent({ProfileData, currentUser,}) {
   const [activeTab, setActiveTab] = useState("posts");
-  // const ProfileData.isOwnProfile = currentUser.id === currentUser.id;
-  // if (ProfileData.isOwnProfile) {
-  //   currentUser = currentUser
-  // }
-  console.log("profiledata=======>", ProfileData);
-  console.log("currentuser=======>", currentUser);
-  
   if(!ProfileData) {
     return <div>Loading...</div>
   }
   
-
   const [posts, setPosts] = useState([]);
   const [offset, setOffset] = useState(0);
   const limit = 10; // You can change this value if needed
@@ -54,13 +37,13 @@ export default function ProfileComponent({
       }
       );
 
+      console.log(res);
+      
+
       if (!res.ok) {
         throw new Error("Failed to fetch posts");
       }
-
       const data = await res.json();
-
-
       if (data.data.posts.length < limit) setHasMore(false); // no more posts
 
       setPosts((prev) => [...data?.data?.posts]);//setPosts((prev) => [...prev, ...data?.data?.posts]);
@@ -76,8 +59,6 @@ export default function ProfileComponent({
       setOffset((prev) => prev + limit);
     }
   };
-  console.log("/////////////", ProfileData);
-  
 
   return (
     <div className={styles.profileContainer}>
@@ -111,9 +92,9 @@ export default function ProfileComponent({
 
               {ProfileData.IsOwnProfile ? (
                 <div className={styles.profileActions}>
-                  <Link href="/settings" className={styles.editButton}>
+                  {/* <Link href="/settings" className={styles.editButton}>
                     Edit Profile
-                  </Link>
+                  </Link> */}
 
                   <PrivacyToggle user={ProfileData} />
                 </div>
@@ -130,7 +111,7 @@ export default function ProfileComponent({
 
             <div className={styles.profileStats}>
               <div className={styles.stat}>
-                <span className={styles.statNumber}>{ProfileData.posts}</span> posts
+                <span className={styles.statNumber}>{ProfileData.postsCount}</span> posts
               </div>
               <div className={styles.stat}>
                 <span className={styles.statNumber}>{ProfileData.followerCount}</span>{" "}
@@ -141,7 +122,6 @@ export default function ProfileComponent({
                 following
               </div>
             </div>
-
             {ProfileData.bio && ( // TODO Change the logic
               <div className={styles.profileBio}>{ProfileData.bio}</div>
             )}
@@ -149,7 +129,7 @@ export default function ProfileComponent({
         </div>
       </div>
 
-      {canView ? (
+      {ProfileData.CanView ? (
         <div className={styles.profileContent}>
           <div className={styles.profileTabs}>
             <button

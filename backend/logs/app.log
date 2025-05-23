@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 2025/05/04 16:25:31 [INFO] 2025-05-04 16:25:31 - Starting HTTP server at http://localhost:8080 ...
 2025/05/04 16:25:31 [INFO] 2025-05-04 16:25:31 - Working dir: /Users/twlmed212/Desktop/MySpace/zone01/socialNetwork/backend/cmd
 2025/05/04 16:25:31 [INFO] 2025-05-04 16:25:31 - Database file does not exist. It will be created.
@@ -970,101 +969,6 @@
 2025/05/11 12:37:40 [ERROR] 2025-05-11 12:37:40 - Unauthorized request made to this post:.sql: no rows in result set
 2025/05/11 12:38:55 [LOG] 2025-05-11 12:38:55 - Get request made to GetPost Handler
 2025/05/11 12:38:55 [INFO] 2025-05-11 12:38:55 - ====>Post is set to followers
-=======
-2025/05/07 13:53:30 [INFO] 2025-05-07 13:53:30 - Starting HTTP server at http://localhost:8080 ...
-2025/05/07 13:53:30 [INFO] 2025-05-07 13:53:30 - Migrations applied successfully!
-2025/05/11 13:04:31 [INFO] 2025-05-11 13:04:31 - Starting HTTP server at http://localhost:8080 ...
-2025/05/11 13:04:31 [INFO] 2025-05-11 13:04:31 - Migrations applied successfully!
-2025/05/11 16:41:46 [INFO] 2025-05-11 16:41:46 - Starting HTTP server at http://localhost:8080 ...
-2025/05/11 16:41:46 [INFO] 2025-05-11 16:41:46 - Migrations applied successfully!
-2025/05/11 16:44:35 [INFO] 2025-05-11 16:44:35 - Starting HTTP server at http://localhost:8080 ...
-2025/05/11 16:44:35 [INFO] 2025-05-11 16:44:35 - Migrations applied successfully!
-2025/05/11 16:49:24 [INFO] 2025-05-11 16:49:24 - Parsed multipart form
-2025/05/11 16:49:24 [INFO] 2025-05-11 16:49:24 - Form fields parsed successfully
-2025/05/11 16:49:24 [INFO] 2025-05-11 16:49:24 - Form fields parsed
-2025/05/11 16:49:24 [INFO] 2025-05-11 16:49:24 - Checking if email exists: hgj@sdg.gfh
-2025/05/11 16:49:24 [INFO] 2025-05-11 16:49:24 - Email is unique
-2025/05/11 16:49:24 [INFO] 2025-05-11 16:49:24 - Validating registration input
-2025/05/11 16:49:24 [INFO] 2025-05-11 16:49:24 - Registration input valid
-2025/05/11 16:49:24 [INFO] 2025-05-11 16:49:24 - User input validated
-2025/05/11 16:49:24 [INFO] 2025-05-11 16:49:24 - Hashing password
-2025/05/11 16:49:24 [INFO] 2025-05-11 16:49:24 - Password hashed successfully
-2025/05/11 16:49:24 [INFO] 2025-05-11 16:49:24 - Password hashed
-2025/05/11 16:49:24 [INFO] 2025-05-11 16:49:24 - Starting avatar upload
-2025/05/11 16:49:24 [INFO] 2025-05-11 16:49:24 - No avatar file uploaded
-2025/05/11 16:49:24 [INFO] 2025-05-11 16:49:24 - Avatar uploaded: 
-2025/05/11 16:49:24 [INFO] 2025-05-11 16:49:24 - Saving user to database with ID: 6d8db73f-8d8d-4196-8d31-1a17007313ed
-2025/05/11 16:49:24 [INFO] 2025-05-11 16:49:24 - User saved successfully
-2025/05/11 16:49:24 [INFO] 2025-05-11 16:49:24 - User registered with ID: 6d8db73f-8d8d-4196-8d31-1a17007313ed
-2025/05/11 16:49:24 [LOG] 2025-05-11 16:49:24 - No image uploaded
-2025/05/11 16:49:24 [INFO] 2025-05-11 16:49:24 - Login successful for user: 6d8db73f-8d8d-4196-8d31-1a17007313ed
-2025/05/11 16:49:24 [INFO] 2025-05-11 16:49:24 - Success Register
-2025/05/11 16:55:07 [INFO] 2025-05-11 16:55:07 - Starting HTTP server at http://localhost:8080 ...
-2025/05/11 16:55:07 [INFO] 2025-05-11 16:55:07 - Migrations applied successfully!
-2025/05/11 16:55:26 [INFO] 2025-05-11 16:55:26 - Parsed multipart form
-2025/05/11 16:55:26 [INFO] 2025-05-11 16:55:26 - Form fields parsed successfully
-2025/05/11 16:55:26 [INFO] 2025-05-11 16:55:26 - Form fields parsed
-2025/05/11 16:55:26 [INFO] 2025-05-11 16:55:26 - Checking if email exists: dfgdf@dfsdf.gdfg
-2025/05/11 16:55:26 [INFO] 2025-05-11 16:55:26 - Email is unique
-2025/05/11 16:55:26 [INFO] 2025-05-11 16:55:26 - Validating registration input
-2025/05/11 16:55:26 [INFO] 2025-05-11 16:55:26 - Registration input valid
-2025/05/11 16:55:26 [INFO] 2025-05-11 16:55:26 - User input validated
-2025/05/11 16:55:26 [INFO] 2025-05-11 16:55:26 - Hashing password
-2025/05/11 16:55:26 [INFO] 2025-05-11 16:55:26 - Password hashed successfully
-2025/05/11 16:55:26 [INFO] 2025-05-11 16:55:26 - Password hashed
-2025/05/11 16:55:26 [INFO] 2025-05-11 16:55:26 - Starting avatar upload
-2025/05/11 16:55:26 [INFO] 2025-05-11 16:55:26 - No avatar file uploaded
-2025/05/11 16:55:26 [INFO] 2025-05-11 16:55:26 - Avatar uploaded: 
-2025/05/11 16:55:26 [INFO] 2025-05-11 16:55:26 - Saving user to database with ID: 307d77b8-d80a-45c9-8e90-925291f0dc7b
-2025/05/11 16:55:26 [INFO] 2025-05-11 16:55:26 - User saved successfully
-2025/05/11 16:55:26 [INFO] 2025-05-11 16:55:26 - User registered with ID: 307d77b8-d80a-45c9-8e90-925291f0dc7b
-2025/05/11 16:55:26 [LOG] 2025-05-11 16:55:26 - No image uploaded
-2025/05/11 16:55:26 [INFO] 2025-05-11 16:55:26 - Login successful for user: 307d77b8-d80a-45c9-8e90-925291f0dc7b
-2025/05/11 16:55:26 [INFO] 2025-05-11 16:55:26 - Success Register
-2025/05/11 19:36:05 [INFO] 2025-05-11 19:36:05 - Starting HTTP server at http://localhost:8080 ...
-2025/05/11 19:36:05 [INFO] 2025-05-11 19:36:05 - Migrations applied successfully!
-2025/05/11 19:38:13 [INFO] 2025-05-11 19:38:13 - Parsed multipart form
-2025/05/11 19:38:13 [INFO] 2025-05-11 19:38:13 - Form fields parsed successfully
-2025/05/11 19:38:13 [INFO] 2025-05-11 19:38:13 - Form fields parsed
-2025/05/11 19:38:13 [INFO] 2025-05-11 19:38:13 - Checking if email exists: omar@gmail.com
-2025/05/11 19:38:13 [WARNING] 2025-05-11 19:38:13 - Tried to register with existing email: omar@gmail.com
-2025/05/11 19:38:22 [INFO] 2025-05-11 19:38:22 - Parsed multipart form
-2025/05/11 19:38:22 [INFO] 2025-05-11 19:38:22 - Form fields parsed successfully
-2025/05/11 19:38:22 [INFO] 2025-05-11 19:38:22 - Form fields parsed
-2025/05/11 19:38:22 [INFO] 2025-05-11 19:38:22 - Checking if email exists: omar@gmail.commm
-2025/05/11 19:38:22 [INFO] 2025-05-11 19:38:22 - Email is unique
-2025/05/11 19:38:22 [INFO] 2025-05-11 19:38:22 - Validating registration input
-2025/05/11 19:38:22 [INFO] 2025-05-11 19:38:22 - Registration input valid
-2025/05/11 19:38:22 [INFO] 2025-05-11 19:38:22 - User input validated
-2025/05/11 19:38:22 [INFO] 2025-05-11 19:38:22 - Hashing password
-2025/05/11 19:38:22 [INFO] 2025-05-11 19:38:22 - Password hashed successfully
-2025/05/11 19:38:22 [INFO] 2025-05-11 19:38:22 - Password hashed
-2025/05/11 19:38:22 [INFO] 2025-05-11 19:38:22 - Starting avatar upload
-2025/05/11 19:38:22 [INFO] 2025-05-11 19:38:22 - No avatar file uploaded
-2025/05/11 19:38:22 [INFO] 2025-05-11 19:38:22 - Avatar uploaded: 
-2025/05/11 19:38:22 [INFO] 2025-05-11 19:38:22 - Saving user to database with ID: c7419451-2c61-409c-a7e8-3f9fffcfdbec
-2025/05/11 19:38:22 [INFO] 2025-05-11 19:38:22 - User saved successfully
-2025/05/11 19:38:22 [INFO] 2025-05-11 19:38:22 - User registered with ID: c7419451-2c61-409c-a7e8-3f9fffcfdbec
-2025/05/11 19:38:22 [LOG] 2025-05-11 19:38:22 - No image uploaded
-2025/05/11 19:38:22 [INFO] 2025-05-11 19:38:22 - Login successful for user: c7419451-2c61-409c-a7e8-3f9fffcfdbec
-2025/05/11 19:38:22 [INFO] 2025-05-11 19:38:22 - Success Register
-2025/05/12 14:08:30 [INFO] 2025-05-12 14:08:30 - Starting HTTP server at http://localhost:8080 ...
-2025/05/12 14:08:30 [INFO] 2025-05-12 14:08:30 - Migrations applied successfully!
-2025/05/12 14:08:41 [INFO] 2025-05-12 14:08:41 - Received login request
-2025/05/12 14:08:41 [INFO] 2025-05-12 14:08:41 - Request body parsed successfully
-2025/05/12 14:08:41 [INFO] 2025-05-12 14:08:41 - Email and password fields validated
-2025/05/12 14:08:41 [INFO] 2025-05-12 14:08:41 - User data retrieved from DB for email: omar@gmail.com
-2025/05/12 14:08:41 [INFO] 2025-05-12 14:08:41 - Password validated successfully
-2025/05/12 14:08:41 [INFO] 2025-05-12 14:08:41 - Sending success with token for user: fe345a79-e686-44c3-9bdc-86c2f436a178
-2025/05/12 14:08:41 [INFO] 2025-05-12 14:08:41 - Login successful for user: fe345a79-e686-44c3-9bdc-86c2f436a178
-2025/05/12 16:31:15 [INFO] 2025-05-12 16:31:15 - Received login request
-2025/05/12 16:31:15 [INFO] 2025-05-12 16:31:15 - Request body parsed successfully
-2025/05/12 16:31:15 [INFO] 2025-05-12 16:31:15 - Email and password fields validated
-2025/05/12 16:31:15 [INFO] 2025-05-12 16:31:15 - User data retrieved from DB for email: omar@gmail.com
-2025/05/12 16:31:15 [INFO] 2025-05-12 16:31:15 - Password validated successfully
-2025/05/12 16:31:15 [INFO] 2025-05-12 16:31:15 - Sending success with token for user: fe345a79-e686-44c3-9bdc-86c2f436a178
-2025/05/12 16:31:15 [INFO] 2025-05-12 16:31:15 - Login successful for user: fe345a79-e686-44c3-9bdc-86c2f436a178
->>>>>>> Omar-Profile
 2025/05/12 18:59:01 [INFO] 2025-05-12 18:59:01 - Starting HTTP server at http://localhost:8080 ...
 2025/05/12 18:59:01 [INFO] 2025-05-12 18:59:01 - Migrations applied successfully!
 2025/05/12 20:47:03 [INFO] 2025-05-12 20:47:03 - Starting HTTP server at http://localhost:8080 ...

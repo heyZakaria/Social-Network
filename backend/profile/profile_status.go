@@ -43,6 +43,7 @@ func ProfileStatus(w http.ResponseWriter, r *http.Request) {
 		})
 		return
 	}
+	fmt.Println("status of user", payload.ProfileStatus )
 
 	_, err = db.DB.Exec(`UPDATE users SET profile_status = ? WHERE id = ?`, payload.ProfileStatus, userID)
 	if err != nil {
@@ -53,6 +54,7 @@ func ProfileStatus(w http.ResponseWriter, r *http.Request) {
 		})
 		return
 	}
+
 
 	utils.SendJSON(w, http.StatusOK, utils.JSONResponse{
 		Success: true,

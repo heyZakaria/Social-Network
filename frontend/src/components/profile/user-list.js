@@ -1,60 +1,57 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Link from "next/link"
 import styles from "../../styles/profile.module.css"
 
 export default function UserList({ users, currentUser }) {
-  console.log(users,"=======================");
-  console.log(currentUser);
-  
   const [displayCount, setDisplayCount] = useState(5)
-  // const [followStatus, setFollowStatus] = useState(
-    
-  //   Object.fromEntries(users.map(user => [
-  //     user.ID,
-  //     user.Followers?.some(f => f.ID === currentUser.id) || false
-  //   ]))
-  // );
+  const [followStatus, setFollowStatus] = useState({})
   const [pendingFollows, setPendingFollows] = useState({})
-  const USERS_PER_PAGE = 5
+
+  useEffect(() => {
+    const initialStatus = {}
+    users.forEach(user => {
+      if (user.ID !== currentUser.id) {
+        const isFollowing = user.Followers?.some(f => f.ID === currentUser.id)
+        const isPending = user.Followers?.some(f => f.ID === currentUser.id && f.follower_status === "pending")
+        initialStatus[user.ID] = isFollowing ? "following" : isPending ? "pending" : "none"
+      }
+    })
+    setFollowStatus(initialStatus)
+  }, [users, currentUser.id])
 
   const handleFollow = async (userId) => {
     setPendingFollows(prev => ({ ...prev, [userId]: true }))
-    
     try {
-      const isFollowing = followStatus[userId];
-      const response = await fetch(`http://localhost:8080/api/users/${userId}/${isFollowing ? 'unfollow' : 'follow'}`, {
-        method: 'POST',
-        headers: {
-          'Authorization': `Bearer ${document.cookie.split(';').find(c => c.trim().startsWith('token='))?.split('=')[1]}`,
-          'Content-Type': 'application/json'
-        }
-      });
+      const res = await fetch(`/api/users/follow?id=${userId}`, {
+        method: "POST", credentials: "include"
+      })
+      const data = await res.json()
 
-      if (!response.ok) {
-        throw new Error('Failed to update follow status');
-      }
+      const status = data.data?.isFollowing
+        ? "following"
+        : data.data?.requestPending
+        ? "pending"
+        : "none"
 
-      const data = await response.json();
-      setFollowStatus(prev => ({ ...prev, [userId]: data.isFollowing }))
-    } catch (error) {
-      console.error("Error updating follow status:", error)
+      setFollowStatus(prev => ({ ...prev, [userId]: status }))
+    } catch (err) {
+      console.error("Follow error:", err)
     } finally {
       setPendingFollows(prev => ({ ...prev, [userId]: false }))
     }
   }
+
+  const handleViewMore = () => setDisplayCount(prev => prev + 5)
+  const handleViewLess = () => setDisplayCount(5)
 
   return (
     <div className={styles.userList}>
       {users.slice(0, displayCount).map((user) => (
         <div key={user.ID} className={styles.userItem}>
           <Link href={`/profile/${user.ID}`} className={styles.userLink}>
-            <img
-              src={user.Avatar || "/default-avatar.png"}
-              alt={user.FirstName}
-              className={styles.userAvatar}
-            />
+            <img src={user.Avatar || "/default-avatar.png"} alt={user.FirstName} className={styles.userAvatar} />
             <div className={styles.userInfo}>
               <div className={styles.userName}>
                 {user.FirstName} {user.LastName}
@@ -64,33 +61,36 @@ export default function UserList({ users, currentUser }) {
           </Link>
 
           {user.ID !== currentUser.id && (
-            <button 
+            <button
               className={styles.followButton}
               onClick={() => handleFollow(user.ID)}
               disabled={pendingFollows[user.ID]}
             >
-              {pendingFollows[user.ID] 
-                ? "Processing..." 
-                : followStatus[user.ID]
-                  ? "Following" 
-                  : "Follow"}
+              {pendingFollows[user.ID]
+                ? "Processing..."
+                : followStatus[user.ID] === "following"
+                ? "Following"
+                : followStatus[user.ID] === "pending"
+                ? "Requested"
+                : "Follow"}
             </button>
           )}
         </div>
       ))}
 
-
-      {users.length > USERS_PER_PAGE && (
+      {users.length > displayCount && (
         <div className={styles.viewMoreContainer}>
-          {displayCount < users.length ? (
-            <button className={styles.viewMoreButton} onClick={handleViewMore}>
-              View more ({users.length - displayCount} remaining)
-            </button>
-          ) : (
-            <button className={styles.viewMoreButton} onClick={handleViewLess}>
-              View less
-            </button>
-          )}
+          <button className={styles.viewMoreButton} onClick={handleViewMore}>
+            View more ({users.length - displayCount} remaining)
+          </button>
+        </div>
+      )}
+
+      {displayCount > 5 && (
+        <div className={styles.viewMoreContainer}>
+          <button className={styles.viewMoreButton} onClick={handleViewLess}>
+            View less
+          </button>
         </div>
       )}
     </div>
