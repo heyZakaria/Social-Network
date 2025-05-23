@@ -1,6 +1,7 @@
 package post
 
 import (
+	"fmt"
 	"net/http"
 
 	"socialNetwork/auth"
@@ -23,7 +24,7 @@ import (
 func CreatePost(w http.ResponseWriter, r *http.Request) {
 	PostData := Post{}
 	token := auth.GetToken(w, r)
-	// fmt.Println("TOOOOKEN", token)
+	fmt.Println("TOOOOKEN", token)
 	UserId, err := user.GetUserIDByToken(token)
 	if err != nil {
 		utils.Log("Error", err.Error())

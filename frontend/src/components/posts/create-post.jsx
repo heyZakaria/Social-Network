@@ -7,7 +7,7 @@ import PopupInput from './popup-input';
 import PopupPrivacy from './popup-privacy';
 
 const CreatePost = () => {
-  // State for form data
+  // State for form data  
   const [postContent, setPostContent] = useState('');
   const [privacy, setPrivacy] = useState('public');
   const [selectedImage, setSelectedImage] = useState(null);

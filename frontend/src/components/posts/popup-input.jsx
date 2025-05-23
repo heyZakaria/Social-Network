@@ -63,12 +63,14 @@ const PopupInput = ({ postContent, onContentChange}) => {
                 onClick={closePopup}
                 className={styles.cancelButton}
                 // disabled={disabled}
+                type="button"
               >
                 Cancel
               </button>
               <button
                 onClick={saveContent}
                 className={styles.postButton}
+                type="button"
                 // disabled={disabled}
               >
                 Done

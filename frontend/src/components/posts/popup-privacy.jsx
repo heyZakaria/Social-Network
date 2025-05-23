@@ -11,9 +11,7 @@ const PopupPrivacy = ({ onPrivacyChange, disabled = false }) => {
 
     // manage popup select followers
     const handleInputClickPrivate = () => {
-        if (!disabled) {
-            setShowPopupFollowers(true);
-        }
+        setShowPopupFollowers(true);
     };
 
     const closePopupPrivate = () => {
@@ -26,8 +24,6 @@ const PopupPrivacy = ({ onPrivacyChange, disabled = false }) => {
     };
 
     const toggleFollower = (followerId) => {
-        if (disabled) return;
-        
         if (selectedFollowers.includes(followerId)) {
             setSelectedFollowers(selectedFollowers.filter(id => id !== followerId));
         } else {
@@ -43,9 +39,7 @@ const PopupPrivacy = ({ onPrivacyChange, disabled = false }) => {
 
     //  manage popup options who can see post
     const toggleOptions = () => {
-        if (!disabled) {
-            setShowOptions(!showOptions);
-        }
+        setShowOptions(!showOptions);
     };
 
     const closeOptions = () => {
@@ -53,8 +47,7 @@ const PopupPrivacy = ({ onPrivacyChange, disabled = false }) => {
     };
 
     const selectPrivacy = (privacy) => {
-        if (disabled) return;
-        
+
         setSelectedPrivacy(privacy);
         setShowOptions(false);
 
@@ -104,7 +97,7 @@ const PopupPrivacy = ({ onPrivacyChange, disabled = false }) => {
             <button
                 onClick={toggleOptions}
                 className={styles.privacyButton}
-                disabled={disabled}
+                type="button"
             >
                 <span>{getPrivacyIcon()}</span>
                 <span>{getDisplayText()}</span>
@@ -119,7 +112,7 @@ const PopupPrivacy = ({ onPrivacyChange, disabled = false }) => {
                         <button
                             onClick={() => selectPrivacy('public')}
                             className={styles.optionButton}
-                            disabled={disabled}
+                            type="button"
                         >
                             <span className={styles.optionIcon}>🌎</span>
                             <div>
@@ -131,7 +124,7 @@ const PopupPrivacy = ({ onPrivacyChange, disabled = false }) => {
                         <button
                             onClick={() => selectPrivacy('almostPrivate')}
                             className={styles.optionButton}
-                            disabled={disabled}
+                            type="button"
                         >
                             <span className={styles.optionIcon}>👥</span>
                             <div>
@@ -143,7 +136,7 @@ const PopupPrivacy = ({ onPrivacyChange, disabled = false }) => {
                         <button
                             onClick={() => selectPrivacy('private')}
                             className={styles.optionButton}
-                            disabled={disabled}
+                            type="button"
                         >
                             <span className={styles.optionIcon}>🔒</span>
                             <div>
@@ -172,7 +165,6 @@ const PopupPrivacy = ({ onPrivacyChange, disabled = false }) => {
                                         checked={selectedFollowers.includes(follower.id)}
                                         onChange={() => toggleFollower(follower.id)}
                                         className={styles.followerCheckbox}
-                                        disabled={disabled}
                                     />
                                     <img src={follower.avatar} alt={follower.name} className={styles.followerAvatar} />
                                     <label htmlFor={`follower-${follower.id}`} className={styles.followerName}>
@@ -186,13 +178,14 @@ const PopupPrivacy = ({ onPrivacyChange, disabled = false }) => {
                             <button
                                 onClick={cancelButton}
                                 className={styles.cancelButton}
-                                disabled={disabled}
+                                type="button"
                             >
                                 Cancel
                             </button>
                             <button
                                 onClick={saveSelectedFollowers}
                                 className={styles.saveButton}
+                                type="button"
                                 disabled={disabled || (selectedPrivacy === 'private' && selectedFollowers.length === 0)}
                             >
                                 Save

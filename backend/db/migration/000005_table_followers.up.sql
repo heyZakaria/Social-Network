@@ -7,7 +7,7 @@ CREATE TABLE IF NOT EXISTS followers (
     created_at  TEXT DEFAULT CURRENT_TIMESTAMP,
     CHECK (followed_id <> follower_id),
     PRIMARY KEY (followed_id, follower_id),
-    FOREIGN KEY (followed_id) REFERENCES users(id) ON DELETE CASCADE,
+    -- FOREIGN KEY (followed_id) REFERENCES users(id) ON DELETE CASCADE,
     FOREIGN KEY (follower_id) REFERENCES users(id) ON DELETE CASCADE
 ) WITHOUT ROWID;
 
