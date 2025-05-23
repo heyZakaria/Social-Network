@@ -5,6 +5,7 @@ import (
 	"socialNetwork/auth"
 	user "socialNetwork/user"
 	"socialNetwork/utils"
+	"strings"
 )
 
 // Example URL: http://localhost:8080/posts/createpost
@@ -49,8 +50,20 @@ func CreatePost(w http.ResponseWriter, r *http.Request) {
 	}
 	r.ParseMultipartForm(10 << 20)
 
+	ImageProvided, postImage, file, err := utils.PrepareImage(r, "post_image", "posts")
+	PostData.Post_image = postImage
+	if err != nil {
+		utils.Log("ERROR", "Error Trying to Prepare Image: "+postImage)
+		utils.SendJSON(w, http.StatusInternalServerError, utils.JSONResponse{
+			Success: false,
+			Message: "Error occured Please try again later.",
+		})
+		return
+	}
+
 	PostData.Post_Content = r.FormValue("post_content")
-	if PostData.Post_Content == "" {
+	PostData.Post_Content = strings.Trim(PostData.Post_Content , " ")
+	if (PostData.Post_Content == "" && postImage == "") {
 		utils.Log("ERROR", "Post Content is Empty")
 		utils.SendJSON(w, http.StatusBadRequest, utils.JSONResponse{
 			Success: false,
@@ -68,16 +81,7 @@ func CreatePost(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	ImageProvided, postImage, file, err := utils.PrepareImage(r, "post_image", "posts")
-	PostData.Post_image = postImage
-	if err != nil {
-		utils.Log("ERROR", "Error Trying to Prepare Image: "+postImage)
-		utils.SendJSON(w, http.StatusInternalServerError, utils.JSONResponse{
-			Success: false,
-			Message: "Error occured Please try again later.",
-		})
-		return
-	}
+	
 
 	last_id, err := PostData.InsertPost()
 	if err != nil {
