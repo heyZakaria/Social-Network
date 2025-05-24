@@ -18,6 +18,9 @@ export default function CommentSection({ postId }) {
   const [showAllComments, setShowAllComments] = useState(false);
   const COMMENTS_TO_SHOW = 2; // Initial number of comments to show
 
+  console.log("currentUser////////////", currentUser);
+  
+
   useEffect(() => {
     // In a real app, this would be an API call
     // For now, we'll use mock data
@@ -182,9 +185,8 @@ export default function CommentSection({ postId }) {
                   className={styles.commentAvatar}
                 >
                   <img
-                    src={
-                      comment.user.avatar ||
-                      "/placeholder.svg?height=32&width=32"
+                    src={ currentUser.avatar || // TODO add default avatar
+                      "/uploads/profile.jpeg"
                     }
                     alt={comment.user.firstName}
                   />
@@ -235,7 +237,7 @@ export default function CommentSection({ postId }) {
 
       <form className={styles.commentForm} onSubmit={handleSubmitComment}>
         <img
-          src={currentUser.avatar || "/placeholder.svg?height=32&width=32"}
+          src={currentUser.avatar || "/uploads/profile.jpeg"}
           alt={currentUser.firstName}
           className={styles.commentFormAvatar}
         />

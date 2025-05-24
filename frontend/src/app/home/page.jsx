@@ -24,7 +24,12 @@ export default function Home() {
     useEffect(() => {
       async function x() {
         const data = await FetchData(`http://localhost:8080/posts/getposts?limit=${limit}&offset=${offset}`)
-        if (data.data.posts.length < limit) setHasMore(false); // no more posts
+        if (data.data.posts.length < limit){
+          console.log("no more posts", data.data.posts.length);
+          console.log("no more posts", data.data.posts);
+          
+          setHasMore(false); // no more posts
+        }
       setPosts((prev) => {
         const existingIds = new Set(prev.map((p) => p.PostId));
         const uniqueNewPosts = data.data.posts.filter((p) => !existingIds.has(p.PostId));
@@ -36,7 +41,8 @@ export default function Home() {
         x()
     }, [offset]);
   
-  console.log("acinba",posts);
+  console.log("posts", posts);
+  console.log("hasMore", hasMore);
   
   
     const loadMore = () => {
@@ -105,6 +111,7 @@ export default function Home() {
                         currentUser={user}
                       />
                     ))}
+                   
                     {hasMore && (
                       <button
                         className={styles.loadMoreButton}

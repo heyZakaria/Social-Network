@@ -11994,3 +11994,378 @@
 2025/05/23 17:18:10 [INFO] 2025-05-23 17:18:10 - Posts fetched successfully in GetPostsScroll Handler
 2025/05/23 17:18:10 [LOG] 2025-05-23 17:18:10 - Get request made to GetPostsScroll Handler
 2025/05/23 17:18:10 [INFO] 2025-05-23 17:18:10 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/23 17:18:49 [INFO] 2025-05-23 17:18:49 - Starting HTTP server at http://localhost:8080 ...
+2025/05/23 17:18:49 [INFO] 2025-05-23 17:18:49 - Migrations applied successfully!
+2025/05/23 17:20:28 [LOG] 2025-05-23 17:20:28 - Get request made to GetPostsScroll Handler
+2025/05/23 17:20:28 [INFO] 2025-05-23 17:20:28 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/23 17:20:28 [LOG] 2025-05-23 17:20:28 - Get request made to GetPostsScroll Handler
+2025/05/23 17:20:28 [INFO] 2025-05-23 17:20:28 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/23 17:20:56 [LOG] 2025-05-23 17:20:56 - Get request made to GetPostsScroll Handler
+2025/05/23 17:20:56 [INFO] 2025-05-23 17:20:56 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/23 17:20:56 [LOG] 2025-05-23 17:20:56 - Get request made to GetPostsScroll Handler
+2025/05/23 17:20:56 [INFO] 2025-05-23 17:20:56 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/23 17:23:01 [LOG] 2025-05-23 17:23:01 - Get request made to GetPostsScroll Handler
+2025/05/23 17:23:01 [INFO] 2025-05-23 17:23:01 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/23 17:23:01 [LOG] 2025-05-23 17:23:01 - Get request made to GetPostsScroll Handler
+2025/05/23 17:23:01 [INFO] 2025-05-23 17:23:01 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/24 08:58:24 [INFO] 2025-05-24 08:58:24 - Starting HTTP server at http://localhost:8080 ...
+2025/05/24 08:58:24 [INFO] 2025-05-24 08:58:24 - Migrations applied successfully!
+2025/05/24 08:58:33 [LOG] 2025-05-24 08:58:33 - Get request made to GetPostsScroll Handler
+2025/05/24 08:58:33 [INFO] 2025-05-24 08:58:33 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/24 08:58:33 [LOG] 2025-05-24 08:58:33 - Get request made to GetPostsScroll Handler
+2025/05/24 08:58:33 [INFO] 2025-05-24 08:58:33 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/24 08:59:03 [LOG] 2025-05-24 08:59:03 - Get request made to GetPostsScroll Handler
+2025/05/24 08:59:03 [INFO] 2025-05-24 08:59:03 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/24 08:59:03 [LOG] 2025-05-24 08:59:03 - Get request made to GetPostsScroll Handler
+2025/05/24 08:59:03 [INFO] 2025-05-24 08:59:03 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/24 09:01:36 [INFO] 2025-05-24 09:01:36 - Parsed multipart form
+2025/05/24 09:01:36 [INFO] 2025-05-24 09:01:36 - Form fields parsed successfully
+2025/05/24 09:01:36 [INFO] 2025-05-24 09:01:36 - Form fields parsed
+2025/05/24 09:01:36 [INFO] 2025-05-24 09:01:36 - Checking if email exists: amazng@gai.csdx
+2025/05/24 09:01:36 [INFO] 2025-05-24 09:01:36 - Email is unique
+2025/05/24 09:01:36 [INFO] 2025-05-24 09:01:36 - Validating registration input
+2025/05/24 09:01:36 [INFO] 2025-05-24 09:01:36 - Registration input valid
+2025/05/24 09:01:36 [INFO] 2025-05-24 09:01:36 - User input validated
+2025/05/24 09:01:36 [INFO] 2025-05-24 09:01:36 - Hashing password
+2025/05/24 09:01:36 [INFO] 2025-05-24 09:01:36 - Password hashed successfully
+2025/05/24 09:01:36 [INFO] 2025-05-24 09:01:36 - Password hashed
+2025/05/24 09:01:36 [INFO] 2025-05-24 09:01:36 - Starting avatar upload
+2025/05/24 09:01:36 [INFO] 2025-05-24 09:01:36 - Avatar file retrieved: HakimiAchraf.jpg
+2025/05/24 09:01:36 [INFO] 2025-05-24 09:01:36 - Detected content type: image/jpeg
+2025/05/24 09:01:36 [INFO] 2025-05-24 09:01:36 - Generated avatar filename: 580f6fc0-de71-4c86-ac33-bf279c570852.jpg
+2025/05/24 09:01:36 [INFO] 2025-05-24 09:01:36 - Saving user to database with ID: f0ee8303-4894-4f6f-95bf-a491a52f4bc2
+2025/05/24 09:01:36 [INFO] 2025-05-24 09:01:36 - User saved successfully
+2025/05/24 09:01:36 [INFO] 2025-05-24 09:01:36 - User registered with ID: f0ee8303-4894-4f6f-95bf-a491a52f4bc2
+2025/05/24 09:01:36 [INFO] 2025-05-24 09:01:36 - Avatar uploaded: /uploads/profile_image/580f6fc0-de71-4c86-ac33-bf279c570852.jpg
+2025/05/24 09:01:36 [INFO] 2025-05-24 09:01:36 - Avatar saved successfully
+2025/05/24 09:01:36 [INFO] 2025-05-24 09:01:36 - Save Token into Sessions
+2025/05/24 09:01:36 [INFO] 2025-05-24 09:01:36 - Login successful for user: f0ee8303-4894-4f6f-95bf-a491a52f4bc2
+2025/05/24 09:01:36 [INFO] 2025-05-24 09:01:36 - Success Register
+2025/05/24 09:02:50 [LOG] 2025-05-24 09:02:50 - Start Creating the Post
+2025/05/24 09:02:50 [INFO] 2025-05-24 09:02:50 - Starting avatar upload
+2025/05/24 09:02:50 [INFO] 2025-05-24 09:02:50 - Avatar file retrieved: Vestiário_do_PSG_(1).jpg
+2025/05/24 09:02:50 [INFO] 2025-05-24 09:02:50 - Detected content type: image/jpeg
+2025/05/24 09:02:50 [INFO] 2025-05-24 09:02:50 - Generated avatar filename: 3f8b1259-3795-4385-b480-4f424a6eecb0.jpg
+2025/05/24 09:02:50 [INFO] 2025-05-24 09:02:50 - Avatar saved successfully
+2025/05/24 09:02:55 [LOG] 2025-05-24 09:02:55 - Get request made to GetPostsScroll Handler
+2025/05/24 09:02:55 [LOG] 2025-05-24 09:02:55 - Get request made to GetPostsScroll Handler
+2025/05/24 09:02:55 [INFO] 2025-05-24 09:02:55 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/24 09:02:55 [INFO] 2025-05-24 09:02:55 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/24 09:02:58 [LOG] 2025-05-24 09:02:58 - Get request made to GetPostsScroll Handler
+2025/05/24 09:02:58 [INFO] 2025-05-24 09:02:58 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/24 09:02:58 [LOG] 2025-05-24 09:02:58 - Get request made to GetPostsScroll Handler
+2025/05/24 09:02:58 [INFO] 2025-05-24 09:02:58 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/24 09:03:02 [INFO] 2025-05-24 09:03:02 - Like count for post ID 24 is 1
+2025/05/24 09:03:02 [INFO] 2025-05-24 09:03:02 - Success LikePost Handler
+2025/05/24 09:03:16 [LOG] 2025-05-24 09:03:16 - Get request made to GetPostsScroll Handler
+2025/05/24 09:03:16 [INFO] 2025-05-24 09:03:16 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/24 09:03:16 [LOG] 2025-05-24 09:03:16 - Get request made to GetPostsScroll Handler
+2025/05/24 09:03:16 [INFO] 2025-05-24 09:03:16 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/24 09:03:18 [LOG] 2025-05-24 09:03:18 - Get request made to GetPostsScroll Handler
+2025/05/24 09:03:18 [INFO] 2025-05-24 09:03:18 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/24 09:03:18 [LOG] 2025-05-24 09:03:18 - Get request made to GetPostsScroll Handler
+2025/05/24 09:03:18 [INFO] 2025-05-24 09:03:18 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/24 09:03:53 [LOG] 2025-05-24 09:03:53 - Get request made to GetPostsScroll Handler
+2025/05/24 09:03:53 [LOG] 2025-05-24 09:03:53 - Get request made to GetPostsScroll Handler
+2025/05/24 09:03:53 [INFO] 2025-05-24 09:03:53 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/24 09:03:53 [INFO] 2025-05-24 09:03:53 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/24 09:04:29 [LOG] 2025-05-24 09:04:29 - Get request made to GetPostsScroll Handler
+2025/05/24 09:04:29 [INFO] 2025-05-24 09:04:29 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/24 09:04:29 [LOG] 2025-05-24 09:04:29 - Get request made to GetPostsScroll Handler
+2025/05/24 09:04:29 [INFO] 2025-05-24 09:04:29 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/24 09:10:01 [LOG] 2025-05-24 09:10:01 - Get request made to GetPostsScroll Handler
+2025/05/24 09:10:01 [INFO] 2025-05-24 09:10:01 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/24 09:10:01 [LOG] 2025-05-24 09:10:01 - Get request made to GetPostsScroll Handler
+2025/05/24 09:10:01 [INFO] 2025-05-24 09:10:01 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/24 09:10:02 [LOG] 2025-05-24 09:10:02 - Get request made to GetPostsScroll Handler
+2025/05/24 09:10:02 [INFO] 2025-05-24 09:10:02 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/24 09:10:02 [LOG] 2025-05-24 09:10:02 - Get request made to GetPostsScroll Handler
+2025/05/24 09:10:02 [INFO] 2025-05-24 09:10:02 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/24 09:17:17 [LOG] 2025-05-24 09:17:17 - Get request made to GetPostsScroll Handler
+2025/05/24 09:17:17 [INFO] 2025-05-24 09:17:17 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/24 09:17:17 [LOG] 2025-05-24 09:17:17 - Get request made to GetPostsScroll Handler
+2025/05/24 09:17:17 [INFO] 2025-05-24 09:17:17 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/24 09:17:41 [LOG] 2025-05-24 09:17:41 - Get request made to GetPostsScroll Handler
+2025/05/24 09:17:41 [INFO] 2025-05-24 09:17:41 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/24 09:17:41 [LOG] 2025-05-24 09:17:41 - Get request made to GetPostsScroll Handler
+2025/05/24 09:17:41 [INFO] 2025-05-24 09:17:41 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/24 09:18:00 [LOG] 2025-05-24 09:18:00 - Get request made to GetPostsScroll Handler
+2025/05/24 09:18:00 [INFO] 2025-05-24 09:18:00 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/24 09:18:00 [LOG] 2025-05-24 09:18:00 - Get request made to GetPostsScroll Handler
+2025/05/24 09:18:00 [INFO] 2025-05-24 09:18:00 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/24 09:18:33 [LOG] 2025-05-24 09:18:33 - Get request made to GetPostsScroll Handler
+2025/05/24 09:18:33 [INFO] 2025-05-24 09:18:33 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/24 09:18:33 [LOG] 2025-05-24 09:18:33 - Get request made to GetPostsScroll Handler
+2025/05/24 09:18:33 [INFO] 2025-05-24 09:18:33 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/24 09:18:46 [LOG] 2025-05-24 09:18:46 - Start Creating the Post
+2025/05/24 09:18:46 [INFO] 2025-05-24 09:18:46 - Starting avatar upload
+2025/05/24 09:18:46 [INFO] 2025-05-24 09:18:46 - Avatar file retrieved: Vestiário_do_PSG_(1).jpg
+2025/05/24 09:18:46 [INFO] 2025-05-24 09:18:46 - Detected content type: image/jpeg
+2025/05/24 09:18:46 [INFO] 2025-05-24 09:18:46 - Generated avatar filename: 41916e7e-5eb7-4ee5-a411-c49714dfc032.jpg
+2025/05/24 09:18:46 [INFO] 2025-05-24 09:18:46 - Avatar saved successfully
+2025/05/24 09:18:46 [LOG] 2025-05-24 09:18:46 - Start Creating the Post
+2025/05/24 09:18:46 [INFO] 2025-05-24 09:18:46 - Starting avatar upload
+2025/05/24 09:18:46 [INFO] 2025-05-24 09:18:46 - Avatar file retrieved: Vestiário_do_PSG_(1).jpg
+2025/05/24 09:18:46 [INFO] 2025-05-24 09:18:46 - Detected content type: image/jpeg
+2025/05/24 09:18:46 [INFO] 2025-05-24 09:18:46 - Generated avatar filename: 7b23a3bd-2dcc-4511-8990-5d575f7d07b6.jpg
+2025/05/24 09:18:46 [INFO] 2025-05-24 09:18:46 - Avatar saved successfully
+2025/05/24 09:18:47 [LOG] 2025-05-24 09:18:47 - Start Creating the Post
+2025/05/24 09:18:47 [INFO] 2025-05-24 09:18:47 - Starting avatar upload
+2025/05/24 09:18:47 [INFO] 2025-05-24 09:18:47 - Avatar file retrieved: Vestiário_do_PSG_(1).jpg
+2025/05/24 09:18:47 [INFO] 2025-05-24 09:18:47 - Detected content type: image/jpeg
+2025/05/24 09:18:47 [INFO] 2025-05-24 09:18:47 - Generated avatar filename: e4384cc5-e385-4a42-b4bd-d4f17b0feaa7.jpg
+2025/05/24 09:18:47 [INFO] 2025-05-24 09:18:47 - Avatar saved successfully
+2025/05/24 09:18:47 [LOG] 2025-05-24 09:18:47 - Start Creating the Post
+2025/05/24 09:18:47 [INFO] 2025-05-24 09:18:47 - Starting avatar upload
+2025/05/24 09:18:47 [INFO] 2025-05-24 09:18:47 - Avatar file retrieved: Vestiário_do_PSG_(1).jpg
+2025/05/24 09:18:47 [INFO] 2025-05-24 09:18:47 - Detected content type: image/jpeg
+2025/05/24 09:18:47 [INFO] 2025-05-24 09:18:47 - Generated avatar filename: 47332287-d5ac-44e4-9cd0-3c2af3951027.jpg
+2025/05/24 09:18:47 [INFO] 2025-05-24 09:18:47 - Avatar saved successfully
+2025/05/24 09:18:47 [LOG] 2025-05-24 09:18:47 - Start Creating the Post
+2025/05/24 09:18:47 [INFO] 2025-05-24 09:18:47 - Starting avatar upload
+2025/05/24 09:18:47 [INFO] 2025-05-24 09:18:47 - Avatar file retrieved: Vestiário_do_PSG_(1).jpg
+2025/05/24 09:18:47 [INFO] 2025-05-24 09:18:47 - Detected content type: image/jpeg
+2025/05/24 09:18:47 [INFO] 2025-05-24 09:18:47 - Generated avatar filename: 333ef903-6bcc-467a-ad87-39453b49ef32.jpg
+2025/05/24 09:18:47 [INFO] 2025-05-24 09:18:47 - Avatar saved successfully
+2025/05/24 09:18:47 [LOG] 2025-05-24 09:18:47 - Start Creating the Post
+2025/05/24 09:18:47 [INFO] 2025-05-24 09:18:47 - Starting avatar upload
+2025/05/24 09:18:47 [INFO] 2025-05-24 09:18:47 - Avatar file retrieved: Vestiário_do_PSG_(1).jpg
+2025/05/24 09:18:47 [INFO] 2025-05-24 09:18:47 - Detected content type: image/jpeg
+2025/05/24 09:18:47 [INFO] 2025-05-24 09:18:47 - Generated avatar filename: dbbd9b9a-d021-4061-9bd9-aa98a7745624.jpg
+2025/05/24 09:18:47 [INFO] 2025-05-24 09:18:47 - Avatar saved successfully
+2025/05/24 09:18:48 [LOG] 2025-05-24 09:18:48 - Start Creating the Post
+2025/05/24 09:18:48 [INFO] 2025-05-24 09:18:48 - Starting avatar upload
+2025/05/24 09:18:48 [INFO] 2025-05-24 09:18:48 - Avatar file retrieved: Vestiário_do_PSG_(1).jpg
+2025/05/24 09:18:48 [INFO] 2025-05-24 09:18:48 - Detected content type: image/jpeg
+2025/05/24 09:18:48 [INFO] 2025-05-24 09:18:48 - Generated avatar filename: 77a49d24-3b58-43b2-8c4a-ea4909372354.jpg
+2025/05/24 09:18:48 [INFO] 2025-05-24 09:18:48 - Avatar saved successfully
+2025/05/24 09:18:48 [LOG] 2025-05-24 09:18:48 - Start Creating the Post
+2025/05/24 09:18:48 [INFO] 2025-05-24 09:18:48 - Starting avatar upload
+2025/05/24 09:18:48 [INFO] 2025-05-24 09:18:48 - Avatar file retrieved: Vestiário_do_PSG_(1).jpg
+2025/05/24 09:18:48 [INFO] 2025-05-24 09:18:48 - Detected content type: image/jpeg
+2025/05/24 09:18:48 [INFO] 2025-05-24 09:18:48 - Generated avatar filename: 4bbd9114-a982-4c99-8383-79cbc67ea161.jpg
+2025/05/24 09:18:48 [INFO] 2025-05-24 09:18:48 - Avatar saved successfully
+2025/05/24 09:18:48 [LOG] 2025-05-24 09:18:48 - Start Creating the Post
+2025/05/24 09:18:48 [INFO] 2025-05-24 09:18:48 - Starting avatar upload
+2025/05/24 09:18:48 [INFO] 2025-05-24 09:18:48 - Avatar file retrieved: Vestiário_do_PSG_(1).jpg
+2025/05/24 09:18:48 [INFO] 2025-05-24 09:18:48 - Detected content type: image/jpeg
+2025/05/24 09:18:48 [INFO] 2025-05-24 09:18:48 - Generated avatar filename: be0b1155-3853-4286-a16a-f8b4181323c6.jpg
+2025/05/24 09:18:48 [INFO] 2025-05-24 09:18:48 - Avatar saved successfully
+2025/05/24 09:18:48 [LOG] 2025-05-24 09:18:48 - Start Creating the Post
+2025/05/24 09:18:48 [INFO] 2025-05-24 09:18:48 - Starting avatar upload
+2025/05/24 09:18:48 [INFO] 2025-05-24 09:18:48 - Avatar file retrieved: Vestiário_do_PSG_(1).jpg
+2025/05/24 09:18:48 [INFO] 2025-05-24 09:18:48 - Detected content type: image/jpeg
+2025/05/24 09:18:48 [INFO] 2025-05-24 09:18:48 - Generated avatar filename: bd079a00-fceb-4800-aa8d-119fdf497053.jpg
+2025/05/24 09:18:48 [INFO] 2025-05-24 09:18:48 - Avatar saved successfully
+2025/05/24 09:18:48 [LOG] 2025-05-24 09:18:48 - Start Creating the Post
+2025/05/24 09:18:48 [INFO] 2025-05-24 09:18:48 - Starting avatar upload
+2025/05/24 09:18:48 [INFO] 2025-05-24 09:18:48 - Avatar file retrieved: Vestiário_do_PSG_(1).jpg
+2025/05/24 09:18:48 [INFO] 2025-05-24 09:18:48 - Detected content type: image/jpeg
+2025/05/24 09:18:48 [INFO] 2025-05-24 09:18:48 - Generated avatar filename: 339c14ba-764f-4cdf-80c2-2356e7655c4e.jpg
+2025/05/24 09:18:48 [INFO] 2025-05-24 09:18:48 - Avatar saved successfully
+2025/05/24 09:18:48 [LOG] 2025-05-24 09:18:48 - Start Creating the Post
+2025/05/24 09:18:48 [INFO] 2025-05-24 09:18:48 - Starting avatar upload
+2025/05/24 09:18:48 [INFO] 2025-05-24 09:18:48 - Avatar file retrieved: Vestiário_do_PSG_(1).jpg
+2025/05/24 09:18:48 [INFO] 2025-05-24 09:18:48 - Detected content type: image/jpeg
+2025/05/24 09:18:48 [INFO] 2025-05-24 09:18:48 - Generated avatar filename: d08b4972-7da7-4667-a397-1a3a20fd0e03.jpg
+2025/05/24 09:18:48 [INFO] 2025-05-24 09:18:48 - Avatar saved successfully
+2025/05/24 09:18:48 [LOG] 2025-05-24 09:18:48 - Start Creating the Post
+2025/05/24 09:18:48 [INFO] 2025-05-24 09:18:48 - Starting avatar upload
+2025/05/24 09:18:48 [INFO] 2025-05-24 09:18:48 - Avatar file retrieved: Vestiário_do_PSG_(1).jpg
+2025/05/24 09:18:48 [INFO] 2025-05-24 09:18:48 - Detected content type: image/jpeg
+2025/05/24 09:18:48 [INFO] 2025-05-24 09:18:48 - Generated avatar filename: 5425d04f-b3a7-4df7-b37e-45b4b20d4d00.jpg
+2025/05/24 09:18:48 [INFO] 2025-05-24 09:18:48 - Avatar saved successfully
+2025/05/24 09:18:48 [LOG] 2025-05-24 09:18:48 - Start Creating the Post
+2025/05/24 09:18:48 [INFO] 2025-05-24 09:18:48 - Starting avatar upload
+2025/05/24 09:18:48 [INFO] 2025-05-24 09:18:48 - Avatar file retrieved: Vestiário_do_PSG_(1).jpg
+2025/05/24 09:18:48 [INFO] 2025-05-24 09:18:48 - Detected content type: image/jpeg
+2025/05/24 09:18:48 [INFO] 2025-05-24 09:18:48 - Generated avatar filename: 508a4f93-7473-492c-a2f8-08d10bf8fc5b.jpg
+2025/05/24 09:18:48 [INFO] 2025-05-24 09:18:48 - Avatar saved successfully
+2025/05/24 09:18:49 [LOG] 2025-05-24 09:18:49 - Start Creating the Post
+2025/05/24 09:18:49 [INFO] 2025-05-24 09:18:49 - Starting avatar upload
+2025/05/24 09:18:49 [INFO] 2025-05-24 09:18:49 - Avatar file retrieved: Vestiário_do_PSG_(1).jpg
+2025/05/24 09:18:49 [INFO] 2025-05-24 09:18:49 - Detected content type: image/jpeg
+2025/05/24 09:18:49 [INFO] 2025-05-24 09:18:49 - Generated avatar filename: d6c7a291-721d-4ffd-9c8f-bb22a93d734c.jpg
+2025/05/24 09:18:49 [INFO] 2025-05-24 09:18:49 - Avatar saved successfully
+2025/05/24 09:18:49 [LOG] 2025-05-24 09:18:49 - Start Creating the Post
+2025/05/24 09:18:49 [INFO] 2025-05-24 09:18:49 - Starting avatar upload
+2025/05/24 09:18:49 [INFO] 2025-05-24 09:18:49 - Avatar file retrieved: Vestiário_do_PSG_(1).jpg
+2025/05/24 09:18:49 [INFO] 2025-05-24 09:18:49 - Detected content type: image/jpeg
+2025/05/24 09:18:49 [INFO] 2025-05-24 09:18:49 - Generated avatar filename: affe7ec6-9520-4b68-bf3c-ec0287418b37.jpg
+2025/05/24 09:18:49 [INFO] 2025-05-24 09:18:49 - Avatar saved successfully
+2025/05/24 09:18:49 [LOG] 2025-05-24 09:18:49 - Start Creating the Post
+2025/05/24 09:18:49 [INFO] 2025-05-24 09:18:49 - Starting avatar upload
+2025/05/24 09:18:49 [INFO] 2025-05-24 09:18:49 - Avatar file retrieved: Vestiário_do_PSG_(1).jpg
+2025/05/24 09:18:49 [INFO] 2025-05-24 09:18:49 - Detected content type: image/jpeg
+2025/05/24 09:18:49 [INFO] 2025-05-24 09:18:49 - Generated avatar filename: 84f5472a-18b9-4ac3-93de-92b2c08cfaae.jpg
+2025/05/24 09:18:49 [INFO] 2025-05-24 09:18:49 - Avatar saved successfully
+2025/05/24 09:18:49 [LOG] 2025-05-24 09:18:49 - Start Creating the Post
+2025/05/24 09:18:49 [INFO] 2025-05-24 09:18:49 - Starting avatar upload
+2025/05/24 09:18:49 [INFO] 2025-05-24 09:18:49 - Avatar file retrieved: Vestiário_do_PSG_(1).jpg
+2025/05/24 09:18:49 [INFO] 2025-05-24 09:18:49 - Detected content type: image/jpeg
+2025/05/24 09:18:49 [INFO] 2025-05-24 09:18:49 - Generated avatar filename: 9b327126-f699-4f90-95fe-4d5cb7c576c0.jpg
+2025/05/24 09:18:49 [INFO] 2025-05-24 09:18:49 - Avatar saved successfully
+2025/05/24 09:18:49 [LOG] 2025-05-24 09:18:49 - Start Creating the Post
+2025/05/24 09:18:49 [INFO] 2025-05-24 09:18:49 - Starting avatar upload
+2025/05/24 09:18:49 [INFO] 2025-05-24 09:18:49 - Avatar file retrieved: Vestiário_do_PSG_(1).jpg
+2025/05/24 09:18:49 [INFO] 2025-05-24 09:18:49 - Detected content type: image/jpeg
+2025/05/24 09:18:49 [INFO] 2025-05-24 09:18:49 - Generated avatar filename: ac6bef1b-5276-4f96-be8d-40ce9b014e6d.jpg
+2025/05/24 09:18:49 [INFO] 2025-05-24 09:18:49 - Avatar saved successfully
+2025/05/24 09:18:49 [LOG] 2025-05-24 09:18:49 - Start Creating the Post
+2025/05/24 09:18:49 [INFO] 2025-05-24 09:18:49 - Starting avatar upload
+2025/05/24 09:18:49 [INFO] 2025-05-24 09:18:49 - Avatar file retrieved: Vestiário_do_PSG_(1).jpg
+2025/05/24 09:18:49 [INFO] 2025-05-24 09:18:49 - Detected content type: image/jpeg
+2025/05/24 09:18:49 [INFO] 2025-05-24 09:18:49 - Generated avatar filename: f2e55b84-f9d0-43fd-a3ec-aba514b7b3ed.jpg
+2025/05/24 09:18:49 [INFO] 2025-05-24 09:18:49 - Avatar saved successfully
+2025/05/24 09:18:49 [LOG] 2025-05-24 09:18:49 - Start Creating the Post
+2025/05/24 09:18:49 [INFO] 2025-05-24 09:18:49 - Starting avatar upload
+2025/05/24 09:18:49 [INFO] 2025-05-24 09:18:49 - Avatar file retrieved: Vestiário_do_PSG_(1).jpg
+2025/05/24 09:18:49 [INFO] 2025-05-24 09:18:49 - Detected content type: image/jpeg
+2025/05/24 09:18:49 [INFO] 2025-05-24 09:18:49 - Generated avatar filename: 9e528c69-6d83-4ebe-b054-67e917536012.jpg
+2025/05/24 09:18:49 [INFO] 2025-05-24 09:18:49 - Avatar saved successfully
+2025/05/24 09:18:49 [LOG] 2025-05-24 09:18:49 - Start Creating the Post
+2025/05/24 09:18:49 [INFO] 2025-05-24 09:18:49 - Starting avatar upload
+2025/05/24 09:18:49 [INFO] 2025-05-24 09:18:49 - Avatar file retrieved: Vestiário_do_PSG_(1).jpg
+2025/05/24 09:18:49 [INFO] 2025-05-24 09:18:49 - Detected content type: image/jpeg
+2025/05/24 09:18:49 [INFO] 2025-05-24 09:18:49 - Generated avatar filename: 4767f6bf-22a3-4a33-9727-834febed8f32.jpg
+2025/05/24 09:18:49 [INFO] 2025-05-24 09:18:49 - Avatar saved successfully
+2025/05/24 09:18:50 [LOG] 2025-05-24 09:18:50 - Start Creating the Post
+2025/05/24 09:18:50 [INFO] 2025-05-24 09:18:50 - Starting avatar upload
+2025/05/24 09:18:50 [INFO] 2025-05-24 09:18:50 - Avatar file retrieved: Vestiário_do_PSG_(1).jpg
+2025/05/24 09:18:50 [INFO] 2025-05-24 09:18:50 - Detected content type: image/jpeg
+2025/05/24 09:18:50 [INFO] 2025-05-24 09:18:50 - Generated avatar filename: 95045b16-db19-404a-9318-d807f3b3ae48.jpg
+2025/05/24 09:18:50 [INFO] 2025-05-24 09:18:50 - Avatar saved successfully
+2025/05/24 09:18:50 [LOG] 2025-05-24 09:18:50 - Start Creating the Post
+2025/05/24 09:18:50 [INFO] 2025-05-24 09:18:50 - Starting avatar upload
+2025/05/24 09:18:50 [INFO] 2025-05-24 09:18:50 - Avatar file retrieved: Vestiário_do_PSG_(1).jpg
+2025/05/24 09:18:50 [INFO] 2025-05-24 09:18:50 - Detected content type: image/jpeg
+2025/05/24 09:18:50 [INFO] 2025-05-24 09:18:50 - Generated avatar filename: 60897cea-52b0-4ac5-8be0-501d62313b6b.jpg
+2025/05/24 09:18:50 [INFO] 2025-05-24 09:18:50 - Avatar saved successfully
+2025/05/24 09:18:50 [LOG] 2025-05-24 09:18:50 - Start Creating the Post
+2025/05/24 09:18:50 [INFO] 2025-05-24 09:18:50 - Starting avatar upload
+2025/05/24 09:18:50 [INFO] 2025-05-24 09:18:50 - Avatar file retrieved: Vestiário_do_PSG_(1).jpg
+2025/05/24 09:18:50 [INFO] 2025-05-24 09:18:50 - Detected content type: image/jpeg
+2025/05/24 09:18:50 [INFO] 2025-05-24 09:18:50 - Generated avatar filename: ecf048f1-1f2d-45c7-9130-6ac1b4a3a492.jpg
+2025/05/24 09:18:50 [INFO] 2025-05-24 09:18:50 - Avatar saved successfully
+2025/05/24 09:18:50 [LOG] 2025-05-24 09:18:50 - Start Creating the Post
+2025/05/24 09:18:50 [INFO] 2025-05-24 09:18:50 - Starting avatar upload
+2025/05/24 09:18:50 [INFO] 2025-05-24 09:18:50 - Avatar file retrieved: Vestiário_do_PSG_(1).jpg
+2025/05/24 09:18:50 [INFO] 2025-05-24 09:18:50 - Detected content type: image/jpeg
+2025/05/24 09:18:50 [INFO] 2025-05-24 09:18:50 - Generated avatar filename: 3a5d2a75-adde-4dd3-8db4-14f6cbe61f5e.jpg
+2025/05/24 09:18:50 [INFO] 2025-05-24 09:18:50 - Avatar saved successfully
+2025/05/24 09:18:50 [LOG] 2025-05-24 09:18:50 - Start Creating the Post
+2025/05/24 09:18:50 [INFO] 2025-05-24 09:18:50 - Starting avatar upload
+2025/05/24 09:18:50 [INFO] 2025-05-24 09:18:50 - Avatar file retrieved: Vestiário_do_PSG_(1).jpg
+2025/05/24 09:18:50 [INFO] 2025-05-24 09:18:50 - Detected content type: image/jpeg
+2025/05/24 09:18:50 [INFO] 2025-05-24 09:18:50 - Generated avatar filename: 4726c93e-b263-4d4d-bc68-02391d421cf4.jpg
+2025/05/24 09:18:50 [INFO] 2025-05-24 09:18:50 - Avatar saved successfully
+2025/05/24 09:18:50 [LOG] 2025-05-24 09:18:50 - Start Creating the Post
+2025/05/24 09:18:50 [INFO] 2025-05-24 09:18:50 - Starting avatar upload
+2025/05/24 09:18:50 [INFO] 2025-05-24 09:18:50 - Avatar file retrieved: Vestiário_do_PSG_(1).jpg
+2025/05/24 09:18:50 [INFO] 2025-05-24 09:18:50 - Detected content type: image/jpeg
+2025/05/24 09:18:50 [INFO] 2025-05-24 09:18:50 - Generated avatar filename: 022480a3-b590-4cd7-9ced-28cf5009f8d4.jpg
+2025/05/24 09:18:50 [INFO] 2025-05-24 09:18:50 - Avatar saved successfully
+2025/05/24 09:18:50 [LOG] 2025-05-24 09:18:50 - Start Creating the Post
+2025/05/24 09:18:50 [INFO] 2025-05-24 09:18:50 - Starting avatar upload
+2025/05/24 09:18:50 [INFO] 2025-05-24 09:18:50 - Avatar file retrieved: Vestiário_do_PSG_(1).jpg
+2025/05/24 09:18:50 [INFO] 2025-05-24 09:18:50 - Detected content type: image/jpeg
+2025/05/24 09:18:50 [INFO] 2025-05-24 09:18:50 - Generated avatar filename: 0918457e-9832-4b04-a6d8-7a469d115f9f.jpg
+2025/05/24 09:18:50 [INFO] 2025-05-24 09:18:50 - Avatar saved successfully
+2025/05/24 09:18:51 [LOG] 2025-05-24 09:18:51 - Start Creating the Post
+2025/05/24 09:18:51 [INFO] 2025-05-24 09:18:51 - Starting avatar upload
+2025/05/24 09:18:51 [INFO] 2025-05-24 09:18:51 - Avatar file retrieved: Vestiário_do_PSG_(1).jpg
+2025/05/24 09:18:51 [INFO] 2025-05-24 09:18:51 - Detected content type: image/jpeg
+2025/05/24 09:18:51 [INFO] 2025-05-24 09:18:51 - Generated avatar filename: 17a0ce63-1f8d-433a-924c-d1531b95e7ca.jpg
+2025/05/24 09:18:51 [INFO] 2025-05-24 09:18:51 - Avatar saved successfully
+2025/05/24 09:18:51 [LOG] 2025-05-24 09:18:51 - Start Creating the Post
+2025/05/24 09:18:51 [INFO] 2025-05-24 09:18:51 - Starting avatar upload
+2025/05/24 09:18:51 [INFO] 2025-05-24 09:18:51 - Avatar file retrieved: Vestiário_do_PSG_(1).jpg
+2025/05/24 09:18:51 [INFO] 2025-05-24 09:18:51 - Detected content type: image/jpeg
+2025/05/24 09:18:51 [INFO] 2025-05-24 09:18:51 - Generated avatar filename: bca3b3ef-4c68-42c5-83b7-d8d5af6c34aa.jpg
+2025/05/24 09:18:51 [INFO] 2025-05-24 09:18:51 - Avatar saved successfully
+2025/05/24 09:18:51 [LOG] 2025-05-24 09:18:51 - Start Creating the Post
+2025/05/24 09:18:51 [INFO] 2025-05-24 09:18:51 - Starting avatar upload
+2025/05/24 09:18:51 [INFO] 2025-05-24 09:18:51 - Avatar file retrieved: Vestiário_do_PSG_(1).jpg
+2025/05/24 09:18:51 [INFO] 2025-05-24 09:18:51 - Detected content type: image/jpeg
+2025/05/24 09:18:51 [INFO] 2025-05-24 09:18:51 - Generated avatar filename: 471b03d5-2006-42d2-a36c-24b26152335a.jpg
+2025/05/24 09:18:51 [INFO] 2025-05-24 09:18:51 - Avatar saved successfully
+2025/05/24 09:18:51 [LOG] 2025-05-24 09:18:51 - Start Creating the Post
+2025/05/24 09:18:51 [INFO] 2025-05-24 09:18:51 - Starting avatar upload
+2025/05/24 09:18:51 [INFO] 2025-05-24 09:18:51 - Avatar file retrieved: Vestiário_do_PSG_(1).jpg
+2025/05/24 09:18:51 [INFO] 2025-05-24 09:18:51 - Detected content type: image/jpeg
+2025/05/24 09:18:51 [INFO] 2025-05-24 09:18:51 - Generated avatar filename: 1bd04d63-3621-4f3e-9e46-9248c637af8a.jpg
+2025/05/24 09:18:51 [INFO] 2025-05-24 09:18:51 - Avatar saved successfully
+2025/05/24 09:18:51 [LOG] 2025-05-24 09:18:51 - Start Creating the Post
+2025/05/24 09:18:51 [INFO] 2025-05-24 09:18:51 - Starting avatar upload
+2025/05/24 09:18:51 [INFO] 2025-05-24 09:18:51 - Avatar file retrieved: Vestiário_do_PSG_(1).jpg
+2025/05/24 09:18:51 [INFO] 2025-05-24 09:18:51 - Detected content type: image/jpeg
+2025/05/24 09:18:51 [INFO] 2025-05-24 09:18:51 - Generated avatar filename: ea7f212d-ab5a-4329-bbe2-3ac205d00679.jpg
+2025/05/24 09:18:51 [INFO] 2025-05-24 09:18:51 - Avatar saved successfully
+2025/05/24 09:18:51 [LOG] 2025-05-24 09:18:51 - Start Creating the Post
+2025/05/24 09:18:51 [INFO] 2025-05-24 09:18:51 - Starting avatar upload
+2025/05/24 09:18:51 [INFO] 2025-05-24 09:18:51 - Avatar file retrieved: Vestiário_do_PSG_(1).jpg
+2025/05/24 09:18:51 [INFO] 2025-05-24 09:18:51 - Detected content type: image/jpeg
+2025/05/24 09:18:51 [INFO] 2025-05-24 09:18:51 - Generated avatar filename: 81a94097-abf3-4392-aae0-aeb46c127d91.jpg
+2025/05/24 09:18:51 [INFO] 2025-05-24 09:18:51 - Avatar saved successfully
+2025/05/24 09:18:51 [LOG] 2025-05-24 09:18:51 - Start Creating the Post
+2025/05/24 09:18:51 [INFO] 2025-05-24 09:18:51 - Starting avatar upload
+2025/05/24 09:18:51 [INFO] 2025-05-24 09:18:51 - Avatar file retrieved: Vestiário_do_PSG_(1).jpg
+2025/05/24 09:18:51 [INFO] 2025-05-24 09:18:51 - Detected content type: image/jpeg
+2025/05/24 09:18:51 [INFO] 2025-05-24 09:18:51 - Generated avatar filename: 5e74bff4-0c40-4181-8142-52ca653d0c83.jpg
+2025/05/24 09:18:51 [INFO] 2025-05-24 09:18:51 - Avatar saved successfully
+2025/05/24 09:18:53 [LOG] 2025-05-24 09:18:53 - Get request made to GetPostsScroll Handler
+2025/05/24 09:18:53 [INFO] 2025-05-24 09:18:53 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/24 09:18:53 [LOG] 2025-05-24 09:18:53 - Get request made to GetPostsScroll Handler
+2025/05/24 09:18:53 [INFO] 2025-05-24 09:18:53 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/24 09:19:05 [LOG] 2025-05-24 09:19:05 - Get request made to GetPostsScroll Handler
+2025/05/24 09:19:05 [INFO] 2025-05-24 09:19:05 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/24 09:19:10 [LOG] 2025-05-24 09:19:10 - Get request made to GetPostsScroll Handler
+2025/05/24 09:19:10 [INFO] 2025-05-24 09:19:10 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/24 09:19:14 [LOG] 2025-05-24 09:19:14 - Get request made to GetPostsScroll Handler
+2025/05/24 09:19:14 [INFO] 2025-05-24 09:19:14 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/24 09:23:42 [LOG] 2025-05-24 09:23:42 - Get request made to GetPostsScroll Handler
+2025/05/24 09:23:42 [INFO] 2025-05-24 09:23:42 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/24 09:23:42 [LOG] 2025-05-24 09:23:42 - Get request made to GetPostsScroll Handler
+2025/05/24 09:23:42 [INFO] 2025-05-24 09:23:42 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/24 09:23:55 [LOG] 2025-05-24 09:23:55 - Get request made to GetPostsScroll Handler
+2025/05/24 09:23:55 [ERROR] 2025-05-24 09:23:55 - No Posts found in GetPostsScroll Handler: 
+2025/05/24 09:23:55 [LOG] 2025-05-24 09:23:55 - Get request made to GetPostsScroll Handler
+2025/05/24 09:23:55 [ERROR] 2025-05-24 09:23:55 - No Posts found in GetPostsScroll Handler: 
+2025/05/24 09:23:59 [LOG] 2025-05-24 09:23:59 - Get request made to GetPostsScroll Handler
+2025/05/24 09:23:59 [INFO] 2025-05-24 09:23:59 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/24 09:23:59 [LOG] 2025-05-24 09:23:59 - Get request made to GetPostsScroll Handler
+2025/05/24 09:23:59 [INFO] 2025-05-24 09:23:59 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/24 09:29:29 [LOG] 2025-05-24 09:29:29 - Get request made to GetPostsScroll Handler
+2025/05/24 09:29:29 [INFO] 2025-05-24 09:29:29 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/24 09:29:29 [LOG] 2025-05-24 09:29:29 - Get request made to GetPostsScroll Handler
+2025/05/24 09:29:29 [INFO] 2025-05-24 09:29:29 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/24 09:30:16 [LOG] 2025-05-24 09:30:16 - Get request made to GetPostsScroll Handler
+2025/05/24 09:30:16 [INFO] 2025-05-24 09:30:16 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/24 09:30:18 [LOG] 2025-05-24 09:30:18 - Get request made to GetPostsScroll Handler
+2025/05/24 09:30:18 [ERROR] 2025-05-24 09:30:18 - No Posts found in GetPostsScroll Handler: 
+2025/05/24 09:30:18 [LOG] 2025-05-24 09:30:18 - Get request made to GetPostsScroll Handler
+2025/05/24 09:30:18 [ERROR] 2025-05-24 09:30:18 - No Posts found in GetPostsScroll Handler: 
+2025/05/24 09:30:20 [LOG] 2025-05-24 09:30:20 - Get request made to GetPostsScroll Handler
+2025/05/24 09:30:20 [INFO] 2025-05-24 09:30:20 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/24 09:30:20 [LOG] 2025-05-24 09:30:20 - Get request made to GetPostsScroll Handler
+2025/05/24 09:30:20 [INFO] 2025-05-24 09:30:20 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/24 09:30:21 [LOG] 2025-05-24 09:30:21 - Get request made to GetPostsScroll Handler
+2025/05/24 09:30:21 [INFO] 2025-05-24 09:30:21 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/24 09:30:21 [LOG] 2025-05-24 09:30:21 - Get request made to GetPostsScroll Handler
+2025/05/24 09:30:21 [INFO] 2025-05-24 09:30:21 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/24 09:30:35 [LOG] 2025-05-24 09:30:35 - Get request made to GetPostsScroll Handler
+2025/05/24 09:30:35 [INFO] 2025-05-24 09:30:35 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/24 09:30:35 [LOG] 2025-05-24 09:30:35 - Get request made to GetPostsScroll Handler
+2025/05/24 09:30:35 [INFO] 2025-05-24 09:30:35 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/24 09:30:48 [LOG] 2025-05-24 09:30:48 - Get request made to GetPostsScroll Handler
+2025/05/24 09:30:48 [ERROR] 2025-05-24 09:30:48 - No Posts found in GetPostsScroll Handler: 
+2025/05/24 09:30:48 [LOG] 2025-05-24 09:30:48 - Get request made to GetPostsScroll Handler
+2025/05/24 09:30:48 [ERROR] 2025-05-24 09:30:48 - No Posts found in GetPostsScroll Handler: 
+2025/05/24 09:30:50 [LOG] 2025-05-24 09:30:50 - Get request made to GetPostsScroll Handler
+2025/05/24 09:30:50 [INFO] 2025-05-24 09:30:50 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/24 09:30:50 [LOG] 2025-05-24 09:30:50 - Get request made to GetPostsScroll Handler
+2025/05/24 09:30:50 [INFO] 2025-05-24 09:30:50 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/24 09:30:51 [LOG] 2025-05-24 09:30:51 - Get request made to GetPostsScroll Handler
+2025/05/24 09:30:51 [INFO] 2025-05-24 09:30:51 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/24 09:30:51 [LOG] 2025-05-24 09:30:51 - Get request made to GetPostsScroll Handler
+2025/05/24 09:30:51 [INFO] 2025-05-24 09:30:51 - Posts fetched successfully in GetPostsScroll Handler
