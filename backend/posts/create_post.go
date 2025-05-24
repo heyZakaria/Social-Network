@@ -2,10 +2,11 @@ package post
 
 import (
 	"net/http"
+	"strings"
+
 	"socialNetwork/auth"
 	user "socialNetwork/user"
 	"socialNetwork/utils"
-	"strings"
 )
 
 // Example URL: http://localhost:8080/posts/createpost
@@ -20,6 +21,9 @@ import (
 //	This should be a list (array) of user IDs allowed to see the post.
 //
 // The function returns the post details in JSON format.
+
+var RateLimit = map[string]utils.LimitInfo{}
+
 func CreatePost(w http.ResponseWriter, r *http.Request) {
 	PostData := Post{}
 	token := auth.GetToken(w, r)
@@ -41,6 +45,7 @@ func CreatePost(w http.ResponseWriter, r *http.Request) {
 		})
 		return
 	}
+
 	PostData.UserID = UserId
 	utils.Log("", "Start Creating the Post")
 	Privacy := map[string]bool{
@@ -62,8 +67,8 @@ func CreatePost(w http.ResponseWriter, r *http.Request) {
 	}
 
 	PostData.Post_Content = r.FormValue("post_content")
-	PostData.Post_Content = strings.Trim(PostData.Post_Content , " ")
-	if (PostData.Post_Content == "" && postImage == "") {
+	PostData.Post_Content = strings.Trim(PostData.Post_Content, " ")
+	if PostData.Post_Content == "" && postImage == "" {
 		utils.Log("ERROR", "Post Content is Empty")
 		utils.SendJSON(w, http.StatusBadRequest, utils.JSONResponse{
 			Success: false,
@@ -81,7 +86,11 @@ func CreatePost(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	
+	// Check Rate Limit for the user
+	shouldReturn := utils.CheckRateLimit(RateLimit, UserId, w)
+	if shouldReturn {
+		return
+	}
 
 	last_id, err := PostData.InsertPost()
 	if err != nil {
@@ -104,6 +113,7 @@ func CreatePost(w http.ResponseWriter, r *http.Request) {
 	if ImageProvided {
 		utils.SaveImage(file, PostData.Post_image)
 	}
+
 	utils.SendJSON(w, http.StatusOK, utils.JSONResponse{
 		Success: last_id > 0,
 		Message: "Post Created Successfully",
