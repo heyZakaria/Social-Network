@@ -26,16 +26,17 @@ export default function Home() {
         const data = await FetchData(`http://localhost:8080/posts/getposts?limit=${limit}&offset=${offset}`)
         if (data.data.posts.length < limit) setHasMore(false); // no more posts
       setPosts((prev) => {
-      const existingIds = new Set(prev.map((p) => p.id));
-      const uniqueNewPosts = data.data.posts.filter((p) => !existingIds.has(p.id));
-      return [...prev, ...uniqueNewPosts];
-    });        
+        const existingIds = new Set(prev.map((p) => p.PostId));
+        const uniqueNewPosts = data.data.posts.filter((p) => !existingIds.has(p.PostId));
+        return [...prev, ...uniqueNewPosts];
+      });        
     setLoading(false);
       }
         setLoading(true); // TODO WAiting before setting it true
         x()
     }, [offset]);
   
+  console.log("acinba",posts);
   
   
     const loadMore = () => {
@@ -122,7 +123,10 @@ export default function Home() {
           </div>
         </div>
       </div>
+      {/* </div> */}
       <FloatingChat currentUser={currentUser} />
     </div>
   );
+
+
 }

@@ -13,6 +13,7 @@ export function UserProvider({ children }) {
   useEffect(() => {
     async function loadUser() {
       const res = await fetchWithAuth('/api/users/profile', { method: 'GET' }, router);
+      
       if (res?.ok) {
         const json = await res.json();
         setUser(json.data.Data);

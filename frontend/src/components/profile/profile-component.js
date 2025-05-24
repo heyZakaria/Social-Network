@@ -43,18 +43,22 @@ export default function ProfileComponent({
   useEffect(() => {
     async function x() {
       const data = await FetchData(`http://localhost:8080/posts/getposts?limit=${limit}&offset=${offset}&user_id=${ProfileData.id}`)
+    
       if (data.data.posts.length < limit) setHasMore(false); // no more posts
       setPosts((prev) => {
-        const existingIds = new Set(prev.map((p) => p.id));
-        const uniqueNewPosts = data.data.posts.filter((p) => !existingIds.has(p.id));
+        const existingIds = new Set(prev.map((p) => p.PostId));
+        const uniqueNewPosts = data.data.posts.filter((p) => !existingIds.has(p.PostId));
+        setLoading(false);
         return [...prev, ...uniqueNewPosts];
       });
-      setLoading(false);
     }
     if (activeTab === "posts") {
       setLoading(true);
       x()
+      if (hasMore) setLoading(false);
     }
+    
+
   }, [activeTab, offset]);
 
 
@@ -118,7 +122,7 @@ export default function ProfileComponent({
 
             <div className={styles.profileStats}>
               <div className={styles.stat}>
-                <span className={styles.statNumber}>{ProfileData.posts}</span> posts
+                <span className={styles.statNumber}>{ProfileData.postsCount}</span> posts
               </div>
               <div className={styles.stat}>
                 <span className={styles.statNumber}>{ProfileData.followerCount}</span>{" "}
@@ -167,7 +171,7 @@ export default function ProfileComponent({
             {activeTab === "posts" && (
               <div className={styles.postsGrid}>
                 {loading && posts.length === 0 ? (
-                  <p>Loading...</p>
+                  <p>{loading}Loading... {posts.length}</p>
                 ) : posts.length > 0 ? (
                   <>
                     {posts.map((post) => (
