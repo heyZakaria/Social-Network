@@ -54,6 +54,8 @@ export default function ProfileComponent({ProfileData, currentUser,}) {
     }
   };
 
+  console.log("ProfileData", ProfileData)
+
   const loadMore = () => {
     if (!loading && hasMore) {
       setOffset((prev) => prev + limit);
@@ -104,7 +106,9 @@ export default function ProfileComponent({ProfileData, currentUser,}) {
                     profileUser={ProfileData}
                   currentUser={currentUser}
                   />
-                  <button className={styles.messageButton}>Message</button>
+                            {ProfileData.profile_status === "public" || ProfileData.CanView ? (
+                            <button className={styles.messageButton}>Message</button>
+                            ) : null}
                 </div>
               )}
             </div>

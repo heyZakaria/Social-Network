@@ -1,84 +1,87 @@
 .friendsContainer {
-  margin-top: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
 }
 
 .friendsHeader {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 2rem;
 }
 
 .friendsHeader h1 {
-  font-size: 24px;
-  font-weight: 700;
+  font-size: 2rem;
+  color: #333;
   margin: 0;
 }
 
 .friendsTabs {
   display: flex;
-  background-color: white;
-  border-radius: 10px;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-  margin-bottom: 20px;
-  overflow: hidden;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 1rem;
 }
 
 .tabButton {
-  flex: 1;
-  padding: 12px;
+  padding: 0.5rem 1rem;
   border: none;
   background: none;
-  font-size: 14px;
-  font-weight: 500;
+  color: #6b7280;
+  font-size: 1rem;
   cursor: pointer;
-  transition: all 0.3s;
+  transition: all 0.2s;
+  border-radius: 0.5rem;
 }
 
-.tabButton.activeTab {
+.tabButton:hover {
   color: #7c3aed;
-  border-bottom: 2px solid #7c3aed;
+  background-color: #f3f4f6;
 }
 
-.tabButton:hover:not(.activeTab) {
-  background-color: #f0f2f5;
+.activeTab {
+  color: #7c3aed;
+  background-color: #eff6ff;
+  font-weight: 500;
 }
 
 .friendsContent {
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 3rem;
 }
 
 .friendsSection {
   background-color: white;
-  border-radius: 10px;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-  padding: 20px;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .sectionTitle {
-  font-size: 18px;
-  font-weight: 600;
-  margin: 0 0 20px 0;
+  font-size: 1.5rem;
+  color: #1f2937;
+  margin-bottom: 1.5rem;
 }
 
 .friendsGrid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 15px;
+  gap: 1.5rem;
 }
 
 .friendCard {
   display: flex;
   align-items: center;
-  padding: 15px;
-  border-radius: 8px;
-  transition: background-color 0.3s;
+  gap: 1rem;
+  padding: 1rem;
+  background-color: #f9fafb;
+  border-radius: 0.75rem;
+  transition: all 0.2s;
 }
 
 .friendCard:hover {
-  background-color: #f0f2f5;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .friendAvatar {
@@ -86,7 +89,6 @@
   height: 60px;
   border-radius: 50%;
   object-fit: cover;
-  margin-right: 15px;
 }
 
 .friendInfo {
@@ -94,9 +96,16 @@
 }
 
 .friendName {
-  font-size: 16px;
+  font-size: 1.1rem;
   font-weight: 500;
-  margin: 0 0 5px 0;
+  color: #1f2937;
+  margin: 0;
+}
+
+.friendNickname {
+  font-size: 0.9rem;
+  color: #6b7280;
+  margin: 0.25rem 0 0;
 }
 
 .friendStatus,
@@ -107,7 +116,21 @@
 }
 
 .onlineStatus {
-  color: #4caf50;
+  color: #10b981;
+  font-size: 0.9rem;
+  margin: 0.25rem 0 0;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.onlineStatus::before {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background-color: #10b981;
+  border-radius: 50%;
 }
 
 .offlineStatus {
@@ -116,64 +139,99 @@
 
 .friendActions {
   display: flex;
-  flex-direction: column;
-  gap: 8px;
+  gap: 0.5rem;
 }
 
 .messageButton,
 .followButton,
 .unfollowButton,
 .ignoreButton {
-  padding: 6px 12px;
-  border-radius: 4px;
-  font-size: 14px;
-  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 0.9rem;
   cursor: pointer;
-  transition: all 0.3s;
+  transition: all 0.2s;
 }
 
 .messageButton {
-  background-color: #f0f2f5;
-  color: #050505;
-  border: none;
+  background-color: #7c3aed;
+  color: white;
 }
 
 .messageButton:hover {
-  background-color: #e4e6eb;
+  background-color: #1d4ed8;
 }
 
 .followButton {
   background-color: #7c3aed;
   color: white;
-  border: none;
 }
 
 .followButton:hover {
-  background-color: #3d6293;
+  background-color: #1d4ed8;
 }
 
 .unfollowButton {
-  background-color: #e4e6eb;
-  color: #050505;
-  border: none;
+  background-color: #f3f4f6;
+  color: #4b5563;
 }
 
 .unfollowButton:hover {
-  background-color: #d8dadf;
+  background-color: #e5e7eb;
 }
 
 .ignoreButton {
-  background-color: #f0f2f5;
-  color: #65676b;
-  border: none;
+  background-color: #f3f4f6;
+  color: #4b5563;
 }
 
 .ignoreButton:hover {
-  background-color: #e4e6eb;
+  background-color: #e5e7eb;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+  font-size: 1.2rem;
+  color: #6b7280;
+}
+
+.noFriends {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 2rem;
+  background-color: #f9fafb;
+  border-radius: 0.75rem;
+  color: #6b7280;
+  font-size: 1.1rem;
 }
 
 @media (max-width: 768px) {
+  .friendsContainer {
+    padding: 1rem;
+  }
+
   .friendsGrid {
     grid-template-columns: 1fr;
+  }
+
+  .friendCard {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .friendActions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .messageButton,
+  .followButton,
+  .unfollowButton,
+  .ignoreButton {
+    width: 100%;
   }
 }

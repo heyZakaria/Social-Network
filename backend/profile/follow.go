@@ -1,6 +1,8 @@
 package profile
 
 import (
+	"database/sql"
+	"fmt"
 	"net/http"
 
 	"socialNetwork/auth"
@@ -57,10 +59,24 @@ func ToggleFollowUser(w http.ResponseWriter, r *http.Request) {
 		SELECT follower_status FROM followers WHERE follower_id = ? AND followed_id = ?
 	`, followerId, targetUserId).Scan(&followerStatus)
 
-	isFollowing := err == nil && followerStatus == "accepted"
-	requestPending := err == nil && followerStatus == "pending"
+	isFollowing := false
+	requestPending := false
+
+	if err == nil {
+		isFollowing = followerStatus == "accepted"
+		requestPending = followerStatus == "pending"
+	} else if err != sql.ErrNoRows {
+		utils.SendJSON(w, http.StatusInternalServerError, utils.JSONResponse{
+			Success: false,
+			Message: "Database error",
+			Error:   err.Error(),
+		})
+		return
+	}
 
 	if r.Method == http.MethodGet {
+		fmt.Printf("GET Follow Status - Follower: %s, Target: %s, Following: %v, Pending: %v\n",
+			followerId, targetUserId, isFollowing, requestPending)
 		utils.SendJSON(w, http.StatusOK, utils.JSONResponse{
 			Success: true,
 			Data: map[string]any{
@@ -97,6 +113,7 @@ func ToggleFollowUser(w http.ResponseWriter, r *http.Request) {
 
 	// Insert follow or request
 	if profileStatus == "private" {
+		// Create new pending request
 		_, err = db.DB.Exec(`
 			INSERT INTO followers (follower_id, followed_id, follower_status)
 			VALUES (?, ?, 'pending')

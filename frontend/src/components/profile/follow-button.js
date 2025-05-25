@@ -10,53 +10,47 @@ export default function FollowButton({ profileUser, currentUser }) {
   const [isPending, setIsPending] = useState(true)
   const [showConfirm, setShowConfirm] = useState(false)
 
-  useEffect(() => {
-    const fetchStatus = async () => {
-      try {
-        const res = await fetch(`/api/users/follow?id=${profileUser.id}`, {
-          method: "GET",
-          credentials: "include",
-        })
-        const data = await res.json()
-        setIsFollowing(data.data?.isFollowing || false)
-        setRequestPending(data.data?.requestPending || false)
-      } catch (err) {
-        console.error("Error fetching follow status:", err)
-      } finally {
-        setIsPending(false)
-      }
-    }
+  const handleFollow = async (isInitialCheck = false) => {
+    // Don't proceed if we're already pending and this is not an initial check
+    if (isPending && !isInitialCheck) return
 
-    if (currentUser?.id && profileUser?.id) fetchStatus()
-  }, [profileUser.id, currentUser.id])
-
-  const handleFollowAction = async () => {
-    if (isFollowing) {
-      setShowConfirm(true)
-      return
-    }
-
-    await updateFollow()
-  }
-
-  const updateFollow = async () => {
     setIsPending(true)
     try {
       const res = await fetch(`/api/users/follow?id=${profileUser.id}`, {
-        method: "POST",
+        method: "GET",
         credentials: "include",
       })
 
       if (!res.ok) throw new Error("Follow/unfollow failed")
 
       const data = await res.json()
-      setIsFollowing(data.data?.isFollowing || false)
-      setRequestPending(data.data?.requestPending || false)
+      console.log("+++++++button",data);
+      
+      
+      if (data.success) {
+        setIsFollowing(data.data?.isFollowing || false)
+        setRequestPending(data.data?.requestPending || false)
+      }
     } catch (err) {
-      console.error("Error following/unfollowing:", err)
+      console.error("Error in follow operation:", err)
     } finally {
       setIsPending(false)
       setShowConfirm(false)
+    }
+  }
+
+  // Initial status check
+  useEffect(() => {
+    if (currentUser?.id && profileUser?.id) {
+      handleFollow(true)
+    }
+  }, [profileUser?.id, currentUser?.id])
+
+  const handleClick = () => {
+    if (isFollowing) {
+      setShowConfirm(true)
+    } else {
+      handleFollow()
     }
   }
 
@@ -66,7 +60,7 @@ export default function FollowButton({ profileUser, currentUser }) {
         className={`${styles.followButton} ${
           isFollowing ? styles.following : requestPending ? styles.pending : ""
         }`}
-        onClick={handleFollowAction}
+        onClick={handleClick}
         disabled={isPending}
       >
         {isPending ? (
@@ -91,7 +85,7 @@ export default function FollowButton({ profileUser, currentUser }) {
           <div className={styles.popup}>
             <p>Are you sure you want to unfollow this user?</p>
             <div className={styles.popupButtons}>
-              <button onClick={updateFollow} className={styles.confirmBtn}>Yes</button>
+              <button onClick={() => handleFollow()} className={styles.confirmBtn}>Yes</button>
               <button onClick={() => setShowConfirm(false)} className={styles.cancelBtn}>Cancel</button>
             </div>
           </div>

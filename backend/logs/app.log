@@ -11658,3 +11658,614 @@
 2025/05/23 00:54:39 [INFO] 2025-05-23 00:54:39 - Posts fetched successfully in GetPostsScroll Handler
 2025/05/23 00:54:39 [LOG] 2025-05-23 00:54:39 - Get request made to GetPostsScroll Handler
 2025/05/23 00:54:39 [INFO] 2025-05-23 00:54:39 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/25 15:46:28 [INFO] 2025-05-25 15:46:28 - Starting HTTP server at http://localhost:8080 ...
+2025/05/25 15:46:28 [INFO] 2025-05-25 15:46:28 - Migrations applied successfully!
+2025/05/25 15:46:29 [INFO] 2025-05-25 15:46:29 - Received login request
+2025/05/25 15:46:29 [INFO] 2025-05-25 15:46:29 - Request body parsed successfully
+2025/05/25 15:46:29 [INFO] 2025-05-25 15:46:29 - Email and password fields validated
+2025/05/25 15:46:29 [INFO] 2025-05-25 15:46:29 - User data retrieved from DB for email: omar@gmail.com
+2025/05/25 15:46:29 [INFO] 2025-05-25 15:46:29 - Password validated successfully
+2025/05/25 15:46:29 [INFO] 2025-05-25 15:46:29 - Sending success with token for user: dd7e4c34-d42a-467c-9859-c11a84e23633
+2025/05/25 15:46:29 [INFO] 2025-05-25 15:46:29 - Save Token into Sessions
+2025/05/25 15:46:29 [INFO] 2025-05-25 15:46:29 - Login successful for user: dd7e4c34-d42a-467c-9859-c11a84e23633
+2025/05/25 15:46:59 [LOG] 2025-05-25 15:46:59 - Get request made to GetPostsScroll Handler
+2025/05/25 15:46:59 [INFO] 2025-05-25 15:46:59 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/25 15:46:59 [LOG] 2025-05-25 15:46:59 - Get request made to GetPostsScroll Handler
+2025/05/25 15:46:59 [INFO] 2025-05-25 15:46:59 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/25 15:47:33 [LOG] 2025-05-25 15:47:33 - Get request made to GetPostsScroll Handler
+2025/05/25 15:47:33 [INFO] 2025-05-25 15:47:33 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/25 15:47:33 [LOG] 2025-05-25 15:47:33 - Get request made to GetPostsScroll Handler
+2025/05/25 15:47:33 [INFO] 2025-05-25 15:47:33 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/25 15:53:48 [LOG] 2025-05-25 15:53:48 - Get request made to GetPostsScroll Handler
+2025/05/25 15:53:48 [ERROR] 2025-05-25 15:53:48 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 15:53:48 [LOG] 2025-05-25 15:53:48 - Get request made to GetPostsScroll Handler
+2025/05/25 15:53:48 [ERROR] 2025-05-25 15:53:48 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 15:56:34 [LOG] 2025-05-25 15:56:34 - Get request made to GetPostsScroll Handler
+2025/05/25 15:56:34 [ERROR] 2025-05-25 15:56:34 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 15:56:34 [LOG] 2025-05-25 15:56:34 - Get request made to GetPostsScroll Handler
+2025/05/25 15:56:34 [ERROR] 2025-05-25 15:56:34 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 16:00:50 [INFO] 2025-05-25 16:00:50 - Starting HTTP server at http://localhost:8080 ...
+2025/05/25 16:00:50 [INFO] 2025-05-25 16:00:50 - Migrations applied successfully!
+2025/05/25 16:01:41 [LOG] 2025-05-25 16:01:41 - Get request made to GetPostsScroll Handler
+2025/05/25 16:01:41 [ERROR] 2025-05-25 16:01:41 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 16:01:41 [LOG] 2025-05-25 16:01:41 - Get request made to GetPostsScroll Handler
+2025/05/25 16:01:41 [ERROR] 2025-05-25 16:01:41 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 16:03:22 [LOG] 2025-05-25 16:03:22 - Get request made to GetPostsScroll Handler
+2025/05/25 16:03:22 [ERROR] 2025-05-25 16:03:22 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 16:03:22 [LOG] 2025-05-25 16:03:22 - Get request made to GetPostsScroll Handler
+2025/05/25 16:03:22 [ERROR] 2025-05-25 16:03:22 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 16:06:45 [LOG] 2025-05-25 16:06:45 - Get request made to GetPostsScroll Handler
+2025/05/25 16:06:45 [ERROR] 2025-05-25 16:06:45 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 16:06:45 [LOG] 2025-05-25 16:06:45 - Get request made to GetPostsScroll Handler
+2025/05/25 16:06:45 [ERROR] 2025-05-25 16:06:45 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 16:10:06 [LOG] 2025-05-25 16:10:06 - Get request made to GetPostsScroll Handler
+2025/05/25 16:10:06 [ERROR] 2025-05-25 16:10:06 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 16:10:06 [LOG] 2025-05-25 16:10:06 - Get request made to GetPostsScroll Handler
+2025/05/25 16:10:06 [ERROR] 2025-05-25 16:10:06 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 16:12:27 [LOG] 2025-05-25 16:12:27 - Get request made to GetPostsScroll Handler
+2025/05/25 16:12:27 [ERROR] 2025-05-25 16:12:27 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 16:12:27 [LOG] 2025-05-25 16:12:27 - Get request made to GetPostsScroll Handler
+2025/05/25 16:12:27 [ERROR] 2025-05-25 16:12:27 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 16:12:54 [LOG] 2025-05-25 16:12:54 - Get request made to GetPostsScroll Handler
+2025/05/25 16:12:54 [ERROR] 2025-05-25 16:12:54 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 16:12:54 [LOG] 2025-05-25 16:12:54 - Get request made to GetPostsScroll Handler
+2025/05/25 16:12:54 [ERROR] 2025-05-25 16:12:54 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 16:13:11 [LOG] 2025-05-25 16:13:11 - Get request made to GetPostsScroll Handler
+2025/05/25 16:13:11 [ERROR] 2025-05-25 16:13:11 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 16:13:11 [LOG] 2025-05-25 16:13:11 - Get request made to GetPostsScroll Handler
+2025/05/25 16:13:11 [ERROR] 2025-05-25 16:13:11 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 16:13:29 [LOG] 2025-05-25 16:13:29 - Get request made to GetPostsScroll Handler
+2025/05/25 16:13:29 [ERROR] 2025-05-25 16:13:29 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 16:13:29 [LOG] 2025-05-25 16:13:29 - Get request made to GetPostsScroll Handler
+2025/05/25 16:13:29 [ERROR] 2025-05-25 16:13:29 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 16:15:43 [LOG] 2025-05-25 16:15:43 - Get request made to GetPostsScroll Handler
+2025/05/25 16:15:43 [ERROR] 2025-05-25 16:15:43 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 16:15:43 [LOG] 2025-05-25 16:15:43 - Get request made to GetPostsScroll Handler
+2025/05/25 16:15:43 [ERROR] 2025-05-25 16:15:43 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 16:15:57 [LOG] 2025-05-25 16:15:57 - Get request made to GetPostsScroll Handler
+2025/05/25 16:15:57 [ERROR] 2025-05-25 16:15:57 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 16:15:57 [LOG] 2025-05-25 16:15:57 - Get request made to GetPostsScroll Handler
+2025/05/25 16:15:57 [ERROR] 2025-05-25 16:15:57 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 16:16:27 [LOG] 2025-05-25 16:16:27 - Get request made to GetPostsScroll Handler
+2025/05/25 16:16:27 [ERROR] 2025-05-25 16:16:27 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 16:16:27 [LOG] 2025-05-25 16:16:27 - Get request made to GetPostsScroll Handler
+2025/05/25 16:16:27 [ERROR] 2025-05-25 16:16:27 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 16:17:08 [LOG] 2025-05-25 16:17:08 - Get request made to GetPostsScroll Handler
+2025/05/25 16:17:08 [INFO] 2025-05-25 16:17:08 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/25 16:17:08 [LOG] 2025-05-25 16:17:08 - Get request made to GetPostsScroll Handler
+2025/05/25 16:17:08 [INFO] 2025-05-25 16:17:08 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/25 16:19:42 [LOG] 2025-05-25 16:19:42 - Get request made to GetPostsScroll Handler
+2025/05/25 16:19:42 [INFO] 2025-05-25 16:19:42 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/25 16:19:42 [LOG] 2025-05-25 16:19:42 - Get request made to GetPostsScroll Handler
+2025/05/25 16:19:42 [INFO] 2025-05-25 16:19:42 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/25 16:24:58 [INFO] 2025-05-25 16:24:58 - Starting HTTP server at http://localhost:8080 ...
+2025/05/25 16:24:58 [INFO] 2025-05-25 16:24:58 - Migrations applied successfully!
+2025/05/25 16:26:08 [LOG] 2025-05-25 16:26:08 - Get request made to GetPostsScroll Handler
+2025/05/25 16:26:08 [INFO] 2025-05-25 16:26:08 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/25 16:26:08 [LOG] 2025-05-25 16:26:08 - Get request made to GetPostsScroll Handler
+2025/05/25 16:26:08 [INFO] 2025-05-25 16:26:08 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/25 16:26:21 [LOG] 2025-05-25 16:26:21 - Get request made to GetPostsScroll Handler
+2025/05/25 16:26:21 [ERROR] 2025-05-25 16:26:21 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 16:26:21 [LOG] 2025-05-25 16:26:21 - Get request made to GetPostsScroll Handler
+2025/05/25 16:26:21 [ERROR] 2025-05-25 16:26:21 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 16:26:32 [LOG] 2025-05-25 16:26:32 - Get request made to GetPostsScroll Handler
+2025/05/25 16:26:32 [ERROR] 2025-05-25 16:26:32 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 16:26:32 [LOG] 2025-05-25 16:26:32 - Get request made to GetPostsScroll Handler
+2025/05/25 16:26:32 [ERROR] 2025-05-25 16:26:32 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 16:26:50 [LOG] 2025-05-25 16:26:50 - Get request made to GetPostsScroll Handler
+2025/05/25 16:26:50 [ERROR] 2025-05-25 16:26:50 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 16:26:50 [LOG] 2025-05-25 16:26:50 - Get request made to GetPostsScroll Handler
+2025/05/25 16:26:50 [ERROR] 2025-05-25 16:26:50 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 16:28:40 [LOG] 2025-05-25 16:28:40 - Get request made to GetPostsScroll Handler
+2025/05/25 16:28:40 [ERROR] 2025-05-25 16:28:40 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 16:28:40 [LOG] 2025-05-25 16:28:40 - Get request made to GetPostsScroll Handler
+2025/05/25 16:28:40 [ERROR] 2025-05-25 16:28:40 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 16:28:50 [LOG] 2025-05-25 16:28:50 - Get request made to GetPostsScroll Handler
+2025/05/25 16:28:50 [ERROR] 2025-05-25 16:28:50 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 16:28:50 [LOG] 2025-05-25 16:28:50 - Get request made to GetPostsScroll Handler
+2025/05/25 16:28:50 [ERROR] 2025-05-25 16:28:50 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 16:30:16 [LOG] 2025-05-25 16:30:16 - Get request made to GetPostsScroll Handler
+2025/05/25 16:30:16 [ERROR] 2025-05-25 16:30:16 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 16:30:16 [LOG] 2025-05-25 16:30:16 - Get request made to GetPostsScroll Handler
+2025/05/25 16:30:16 [ERROR] 2025-05-25 16:30:16 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 16:30:30 [LOG] 2025-05-25 16:30:30 - Get request made to GetPostsScroll Handler
+2025/05/25 16:30:30 [ERROR] 2025-05-25 16:30:30 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 16:30:30 [LOG] 2025-05-25 16:30:30 - Get request made to GetPostsScroll Handler
+2025/05/25 16:30:30 [ERROR] 2025-05-25 16:30:30 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 16:31:31 [INFO] 2025-05-25 16:31:31 - Starting HTTP server at http://localhost:8080 ...
+2025/05/25 16:31:31 [INFO] 2025-05-25 16:31:31 - Migrations applied successfully!
+2025/05/25 16:31:45 [LOG] 2025-05-25 16:31:45 - Get request made to GetPostsScroll Handler
+2025/05/25 16:31:45 [ERROR] 2025-05-25 16:31:45 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 16:31:45 [LOG] 2025-05-25 16:31:45 - Get request made to GetPostsScroll Handler
+2025/05/25 16:31:45 [ERROR] 2025-05-25 16:31:45 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 16:32:01 [LOG] 2025-05-25 16:32:01 - Get request made to GetPostsScroll Handler
+2025/05/25 16:32:01 [ERROR] 2025-05-25 16:32:01 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 16:32:01 [LOG] 2025-05-25 16:32:01 - Get request made to GetPostsScroll Handler
+2025/05/25 16:32:01 [ERROR] 2025-05-25 16:32:01 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 16:32:23 [LOG] 2025-05-25 16:32:23 - Get request made to GetPostsScroll Handler
+2025/05/25 16:32:23 [ERROR] 2025-05-25 16:32:23 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 16:32:24 [LOG] 2025-05-25 16:32:24 - Get request made to GetPostsScroll Handler
+2025/05/25 16:32:24 [ERROR] 2025-05-25 16:32:24 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 16:33:27 [INFO] 2025-05-25 16:33:27 - Starting HTTP server at http://localhost:8080 ...
+2025/05/25 16:33:27 [INFO] 2025-05-25 16:33:27 - Migrations applied successfully!
+2025/05/25 16:33:40 [LOG] 2025-05-25 16:33:40 - Get request made to GetPostsScroll Handler
+2025/05/25 16:33:40 [ERROR] 2025-05-25 16:33:40 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 16:33:40 [LOG] 2025-05-25 16:33:40 - Get request made to GetPostsScroll Handler
+2025/05/25 16:33:40 [ERROR] 2025-05-25 16:33:40 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 16:33:56 [LOG] 2025-05-25 16:33:56 - Get request made to GetPostsScroll Handler
+2025/05/25 16:33:56 [ERROR] 2025-05-25 16:33:56 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 16:33:56 [LOG] 2025-05-25 16:33:56 - Get request made to GetPostsScroll Handler
+2025/05/25 16:33:56 [ERROR] 2025-05-25 16:33:56 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 16:34:58 [LOG] 2025-05-25 16:34:58 - Get request made to GetPostsScroll Handler
+2025/05/25 16:34:58 [ERROR] 2025-05-25 16:34:58 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 16:34:59 [LOG] 2025-05-25 16:34:59 - Get request made to GetPostsScroll Handler
+2025/05/25 16:34:59 [ERROR] 2025-05-25 16:34:59 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 16:35:34 [LOG] 2025-05-25 16:35:34 - Get request made to GetPostsScroll Handler
+2025/05/25 16:35:34 [ERROR] 2025-05-25 16:35:34 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 16:35:34 [LOG] 2025-05-25 16:35:34 - Get request made to GetPostsScroll Handler
+2025/05/25 16:35:34 [ERROR] 2025-05-25 16:35:34 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 16:37:10 [LOG] 2025-05-25 16:37:10 - Get request made to GetPostsScroll Handler
+2025/05/25 16:37:10 [ERROR] 2025-05-25 16:37:10 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 16:37:10 [LOG] 2025-05-25 16:37:10 - Get request made to GetPostsScroll Handler
+2025/05/25 16:37:10 [ERROR] 2025-05-25 16:37:10 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 16:38:00 [LOG] 2025-05-25 16:38:00 - Get request made to GetPostsScroll Handler
+2025/05/25 16:38:00 [ERROR] 2025-05-25 16:38:00 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 16:38:01 [LOG] 2025-05-25 16:38:01 - Get request made to GetPostsScroll Handler
+2025/05/25 16:38:01 [ERROR] 2025-05-25 16:38:01 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 16:41:31 [INFO] 2025-05-25 16:41:31 - Starting HTTP server at http://localhost:8080 ...
+2025/05/25 16:41:31 [INFO] 2025-05-25 16:41:31 - Migrations applied successfully!
+2025/05/25 16:41:42 [LOG] 2025-05-25 16:41:42 - Get request made to GetPostsScroll Handler
+2025/05/25 16:41:42 [ERROR] 2025-05-25 16:41:42 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 16:41:42 [LOG] 2025-05-25 16:41:42 - Get request made to GetPostsScroll Handler
+2025/05/25 16:41:42 [ERROR] 2025-05-25 16:41:42 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 16:41:57 [LOG] 2025-05-25 16:41:57 - Get request made to GetPostsScroll Handler
+2025/05/25 16:41:57 [ERROR] 2025-05-25 16:41:57 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 16:41:57 [LOG] 2025-05-25 16:41:57 - Get request made to GetPostsScroll Handler
+2025/05/25 16:41:57 [ERROR] 2025-05-25 16:41:57 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 17:10:50 [INFO] 2025-05-25 17:10:50 - Starting HTTP server at http://localhost:8080 ...
+2025/05/25 17:10:50 [INFO] 2025-05-25 17:10:50 - Migrations applied successfully!
+2025/05/25 17:10:59 [LOG] 2025-05-25 17:10:59 - Get request made to GetPostsScroll Handler
+2025/05/25 17:10:59 [ERROR] 2025-05-25 17:10:59 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 17:10:59 [LOG] 2025-05-25 17:10:59 - Get request made to GetPostsScroll Handler
+2025/05/25 17:10:59 [ERROR] 2025-05-25 17:10:59 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 17:11:11 [LOG] 2025-05-25 17:11:11 - Get request made to GetPostsScroll Handler
+2025/05/25 17:11:11 [ERROR] 2025-05-25 17:11:11 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 17:11:11 [LOG] 2025-05-25 17:11:11 - Get request made to GetPostsScroll Handler
+2025/05/25 17:11:11 [ERROR] 2025-05-25 17:11:11 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 17:11:18 [LOG] 2025-05-25 17:11:18 - Get request made to GetPostsScroll Handler
+2025/05/25 17:11:18 [ERROR] 2025-05-25 17:11:18 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 17:11:18 [LOG] 2025-05-25 17:11:18 - Get request made to GetPostsScroll Handler
+2025/05/25 17:11:18 [ERROR] 2025-05-25 17:11:18 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 17:11:23 [INFO] 2025-05-25 17:11:23 - Starting HTTP server at http://localhost:8080 ...
+2025/05/25 17:11:23 [INFO] 2025-05-25 17:11:23 - Migrations applied successfully!
+2025/05/25 17:12:53 [LOG] 2025-05-25 17:12:53 - Get request made to GetPostsScroll Handler
+2025/05/25 17:12:53 [ERROR] 2025-05-25 17:12:53 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 17:12:53 [LOG] 2025-05-25 17:12:53 - Get request made to GetPostsScroll Handler
+2025/05/25 17:12:53 [ERROR] 2025-05-25 17:12:53 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 17:12:57 [INFO] 2025-05-25 17:12:57 - Starting HTTP server at http://localhost:8080 ...
+2025/05/25 17:12:58 [INFO] 2025-05-25 17:12:58 - Migrations applied successfully!
+2025/05/25 17:13:07 [LOG] 2025-05-25 17:13:07 - Get request made to GetPostsScroll Handler
+2025/05/25 17:13:07 [ERROR] 2025-05-25 17:13:07 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 17:13:07 [LOG] 2025-05-25 17:13:07 - Get request made to GetPostsScroll Handler
+2025/05/25 17:13:07 [ERROR] 2025-05-25 17:13:07 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 17:14:18 [LOG] 2025-05-25 17:14:18 - Get request made to GetPostsScroll Handler
+2025/05/25 17:14:18 [ERROR] 2025-05-25 17:14:18 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 17:14:18 [LOG] 2025-05-25 17:14:18 - Get request made to GetPostsScroll Handler
+2025/05/25 17:14:18 [ERROR] 2025-05-25 17:14:18 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 17:14:30 [LOG] 2025-05-25 17:14:30 - Get request made to GetPostsScroll Handler
+2025/05/25 17:14:30 [ERROR] 2025-05-25 17:14:30 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 17:14:30 [LOG] 2025-05-25 17:14:30 - Get request made to GetPostsScroll Handler
+2025/05/25 17:14:30 [ERROR] 2025-05-25 17:14:30 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 17:14:53 [LOG] 2025-05-25 17:14:53 - Get request made to GetPostsScroll Handler
+2025/05/25 17:14:53 [ERROR] 2025-05-25 17:14:53 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 17:14:53 [LOG] 2025-05-25 17:14:53 - Get request made to GetPostsScroll Handler
+2025/05/25 17:14:53 [ERROR] 2025-05-25 17:14:53 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 17:15:02 [LOG] 2025-05-25 17:15:02 - Get request made to GetPostsScroll Handler
+2025/05/25 17:15:02 [ERROR] 2025-05-25 17:15:02 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 17:15:02 [LOG] 2025-05-25 17:15:02 - Get request made to GetPostsScroll Handler
+2025/05/25 17:15:02 [ERROR] 2025-05-25 17:15:02 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 17:15:37 [LOG] 2025-05-25 17:15:37 - Get request made to GetPostsScroll Handler
+2025/05/25 17:15:37 [ERROR] 2025-05-25 17:15:37 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 17:15:37 [LOG] 2025-05-25 17:15:37 - Get request made to GetPostsScroll Handler
+2025/05/25 17:15:37 [ERROR] 2025-05-25 17:15:37 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 17:17:21 [LOG] 2025-05-25 17:17:21 - Get request made to GetPostsScroll Handler
+2025/05/25 17:17:21 [ERROR] 2025-05-25 17:17:21 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 17:17:21 [LOG] 2025-05-25 17:17:21 - Get request made to GetPostsScroll Handler
+2025/05/25 17:17:21 [ERROR] 2025-05-25 17:17:21 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 17:17:29 [LOG] 2025-05-25 17:17:29 - Get request made to GetPostsScroll Handler
+2025/05/25 17:17:29 [ERROR] 2025-05-25 17:17:29 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 17:17:29 [LOG] 2025-05-25 17:17:29 - Get request made to GetPostsScroll Handler
+2025/05/25 17:17:29 [ERROR] 2025-05-25 17:17:29 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 17:58:16 [INFO] 2025-05-25 17:58:16 - Starting HTTP server at http://localhost:8080 ...
+2025/05/25 17:58:16 [ERROR] 2025-05-25 17:58:16 - Migration init error failed to open source, "file:///home/rootrwx/Desktop/Social-Network/backend/db/migration": duplicate migration file: 000002_table_posts.up.sql
+2025/05/25 17:58:53 [INFO] 2025-05-25 17:58:53 - Starting HTTP server at http://localhost:8080 ...
+2025/05/25 17:58:53 [ERROR] 2025-05-25 17:58:53 - Migration init error failed to open source, "file:///home/rootrwx/Desktop/Social-Network/backend/db/migration": duplicate migration file: 000008_table_posts.up.sql
+2025/05/25 17:59:14 [INFO] 2025-05-25 17:59:14 - Starting HTTP server at http://localhost:8080 ...
+2025/05/25 17:59:14 [ERROR] 2025-05-25 17:59:14 - Migration init error failed to open source, "file:///home/rootrwx/Desktop/Social-Network/backend/db/migration": duplicate migration file: 000008_table_posts.up.sql
+2025/05/25 17:59:57 [INFO] 2025-05-25 17:59:57 - Starting HTTP server at http://localhost:8080 ...
+2025/05/25 17:59:57 [INFO] 2025-05-25 17:59:57 - Migrations applied successfully!
+2025/05/25 18:03:41 [INFO] 2025-05-25 18:03:41 - Starting HTTP server at http://localhost:8080 ...
+2025/05/25 18:03:41 [INFO] 2025-05-25 18:03:41 - Migrations applied successfully!
+2025/05/25 18:05:40 [INFO] 2025-05-25 18:05:40 - Starting HTTP server at http://localhost:8080 ...
+2025/05/25 18:05:40 [INFO] 2025-05-25 18:05:40 - Migrations applied successfully!
+2025/05/25 18:09:46 [INFO] 2025-05-25 18:09:46 - Starting HTTP server at http://localhost:8080 ...
+2025/05/25 18:09:46 [INFO] 2025-05-25 18:09:46 - Migrations applied successfully!
+2025/05/25 18:10:15 [LOG] 2025-05-25 18:10:15 - Get request made to GetPostsScroll Handler
+2025/05/25 18:10:15 [INFO] 2025-05-25 18:10:15 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/25 18:10:15 [LOG] 2025-05-25 18:10:15 - Get request made to GetPostsScroll Handler
+2025/05/25 18:10:15 [INFO] 2025-05-25 18:10:15 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/25 18:11:04 [LOG] 2025-05-25 18:11:04 - Get request made to GetPostsScroll Handler
+2025/05/25 18:11:04 [ERROR] 2025-05-25 18:11:04 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 18:11:04 [LOG] 2025-05-25 18:11:04 - Get request made to GetPostsScroll Handler
+2025/05/25 18:11:04 [ERROR] 2025-05-25 18:11:04 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 18:11:31 [LOG] 2025-05-25 18:11:31 - Get request made to GetPostsScroll Handler
+2025/05/25 18:11:31 [ERROR] 2025-05-25 18:11:31 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 18:11:31 [LOG] 2025-05-25 18:11:31 - Get request made to GetPostsScroll Handler
+2025/05/25 18:11:31 [ERROR] 2025-05-25 18:11:31 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 18:12:02 [LOG] 2025-05-25 18:12:02 - Get request made to GetPostsScroll Handler
+2025/05/25 18:12:02 [ERROR] 2025-05-25 18:12:02 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 18:12:02 [LOG] 2025-05-25 18:12:02 - Get request made to GetPostsScroll Handler
+2025/05/25 18:12:02 [ERROR] 2025-05-25 18:12:02 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 20:37:01 [INFO] 2025-05-25 20:37:01 - Starting HTTP server at http://localhost:8080 ...
+2025/05/25 20:37:01 [INFO] 2025-05-25 20:37:01 - Migrations applied successfully!
+2025/05/25 20:43:28 [INFO] 2025-05-25 20:43:28 - Received login request
+2025/05/25 20:43:28 [INFO] 2025-05-25 20:43:28 - Request body parsed successfully
+2025/05/25 20:43:28 [INFO] 2025-05-25 20:43:28 - Email and password fields validated
+2025/05/25 20:43:28 [INFO] 2025-05-25 20:43:28 - User data retrieved from DB for email: omar@gmail.com
+2025/05/25 20:43:28 [INFO] 2025-05-25 20:43:28 - Password validated successfully
+2025/05/25 20:43:28 [INFO] 2025-05-25 20:43:28 - Sending success with token for user: dd7e4c34-d42a-467c-9859-c11a84e23633
+2025/05/25 20:43:28 [INFO] 2025-05-25 20:43:28 - Save Token into Sessions
+2025/05/25 20:43:28 [INFO] 2025-05-25 20:43:28 - Login successful for user: dd7e4c34-d42a-467c-9859-c11a84e23633
+2025/05/25 20:43:53 [LOG] 2025-05-25 20:43:53 - Get request made to GetPostsScroll Handler
+2025/05/25 20:43:53 [INFO] 2025-05-25 20:43:53 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/25 20:43:53 [LOG] 2025-05-25 20:43:53 - Get request made to GetPostsScroll Handler
+2025/05/25 20:43:53 [INFO] 2025-05-25 20:43:53 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/25 20:47:55 [LOG] 2025-05-25 20:47:55 - Get request made to GetPostsScroll Handler
+2025/05/25 20:47:55 [INFO] 2025-05-25 20:47:55 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/25 20:47:55 [LOG] 2025-05-25 20:47:55 - Get request made to GetPostsScroll Handler
+2025/05/25 20:47:55 [INFO] 2025-05-25 20:47:55 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/25 20:49:24 [LOG] 2025-05-25 20:49:24 - Get request made to GetPostsScroll Handler
+2025/05/25 20:49:24 [INFO] 2025-05-25 20:49:24 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/25 20:49:24 [LOG] 2025-05-25 20:49:24 - Get request made to GetPostsScroll Handler
+2025/05/25 20:49:24 [INFO] 2025-05-25 20:49:24 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/25 22:43:21 [LOG] 2025-05-25 22:43:21 - Get request made to GetPostsScroll Handler
+2025/05/25 22:43:21 [INFO] 2025-05-25 22:43:21 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/25 22:43:21 [LOG] 2025-05-25 22:43:21 - Get request made to GetPostsScroll Handler
+2025/05/25 22:43:21 [INFO] 2025-05-25 22:43:21 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/25 22:45:25 [INFO] 2025-05-25 22:45:25 - Parsed multipart form
+2025/05/25 22:45:25 [INFO] 2025-05-25 22:45:25 - Form fields parsed successfully
+2025/05/25 22:45:25 [INFO] 2025-05-25 22:45:25 - Form fields parsed
+2025/05/25 22:45:25 [INFO] 2025-05-25 22:45:25 - Checking if email exists: sir@gmail.com
+2025/05/25 22:45:25 [INFO] 2025-05-25 22:45:25 - Email is unique
+2025/05/25 22:45:25 [INFO] 2025-05-25 22:45:25 - Validating registration input
+2025/05/25 22:45:25 [INFO] 2025-05-25 22:45:25 - Registration input valid
+2025/05/25 22:45:25 [INFO] 2025-05-25 22:45:25 - User input validated
+2025/05/25 22:45:25 [INFO] 2025-05-25 22:45:25 - Hashing password
+2025/05/25 22:45:25 [INFO] 2025-05-25 22:45:25 - Password hashed successfully
+2025/05/25 22:45:25 [INFO] 2025-05-25 22:45:25 - Password hashed
+2025/05/25 22:45:25 [INFO] 2025-05-25 22:45:25 - Starting avatar upload
+2025/05/25 22:45:25 [INFO] 2025-05-25 22:45:25 - Avatar file retrieved: Screenshot at 2025-04-26 02-49-34.png
+2025/05/25 22:45:25 [INFO] 2025-05-25 22:45:25 - Detected content type: image/png
+2025/05/25 22:45:25 [INFO] 2025-05-25 22:45:25 - Generated avatar filename: b0a52536-8ba7-41be-8c47-ed5cf6f286c8.png
+2025/05/25 22:45:25 [INFO] 2025-05-25 22:45:25 - Saving user to database with ID: a10de91a-0478-4594-8ed2-6fb700fa3324
+2025/05/25 22:45:25 [INFO] 2025-05-25 22:45:25 - User saved successfully
+2025/05/25 22:45:25 [INFO] 2025-05-25 22:45:25 - User registered with ID: a10de91a-0478-4594-8ed2-6fb700fa3324
+2025/05/25 22:45:25 [INFO] 2025-05-25 22:45:25 - Avatar uploaded: /uploads/profile_image/b0a52536-8ba7-41be-8c47-ed5cf6f286c8.png
+2025/05/25 22:45:25 [INFO] 2025-05-25 22:45:25 - Avatar saved successfully
+2025/05/25 22:45:25 [INFO] 2025-05-25 22:45:25 - Save Token into Sessions
+2025/05/25 22:45:25 [INFO] 2025-05-25 22:45:25 - Login successful for user: a10de91a-0478-4594-8ed2-6fb700fa3324
+2025/05/25 22:45:25 [INFO] 2025-05-25 22:45:25 - Success Register
+2025/05/25 22:45:33 [LOG] 2025-05-25 22:45:33 - Get request made to GetPostsScroll Handler
+2025/05/25 22:45:33 [ERROR] 2025-05-25 22:45:33 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 22:45:33 [LOG] 2025-05-25 22:45:33 - Get request made to GetPostsScroll Handler
+2025/05/25 22:45:33 [ERROR] 2025-05-25 22:45:33 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 22:46:29 [LOG] 2025-05-25 22:46:29 - Get request made to GetPostsScroll Handler
+2025/05/25 22:46:29 [INFO] 2025-05-25 22:46:29 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/25 22:46:29 [LOG] 2025-05-25 22:46:29 - Get request made to GetPostsScroll Handler
+2025/05/25 22:46:29 [INFO] 2025-05-25 22:46:29 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/25 22:46:37 [LOG] 2025-05-25 22:46:37 - Get request made to GetPostsScroll Handler
+2025/05/25 22:46:37 [INFO] 2025-05-25 22:46:37 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/25 22:46:37 [LOG] 2025-05-25 22:46:37 - Get request made to GetPostsScroll Handler
+2025/05/25 22:46:37 [INFO] 2025-05-25 22:46:37 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/25 22:46:52 [LOG] 2025-05-25 22:46:52 - Get request made to GetPostsScroll Handler
+2025/05/25 22:46:52 [INFO] 2025-05-25 22:46:52 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/25 22:46:52 [LOG] 2025-05-25 22:46:52 - Get request made to GetPostsScroll Handler
+2025/05/25 22:46:52 [INFO] 2025-05-25 22:46:52 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/25 22:47:19 [LOG] 2025-05-25 22:47:19 - Get request made to GetPostsScroll Handler
+2025/05/25 22:47:19 [INFO] 2025-05-25 22:47:19 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/25 22:47:19 [LOG] 2025-05-25 22:47:19 - Get request made to GetPostsScroll Handler
+2025/05/25 22:47:19 [INFO] 2025-05-25 22:47:19 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/25 22:47:26 [LOG] 2025-05-25 22:47:26 - Get request made to GetPostsScroll Handler
+2025/05/25 22:47:26 [INFO] 2025-05-25 22:47:26 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/25 22:47:26 [LOG] 2025-05-25 22:47:26 - Get request made to GetPostsScroll Handler
+2025/05/25 22:47:26 [INFO] 2025-05-25 22:47:26 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/25 22:47:31 [LOG] 2025-05-25 22:47:31 - Get request made to GetPostsScroll Handler
+2025/05/25 22:47:31 [INFO] 2025-05-25 22:47:31 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/25 22:47:31 [LOG] 2025-05-25 22:47:31 - Get request made to GetPostsScroll Handler
+2025/05/25 22:47:31 [INFO] 2025-05-25 22:47:31 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/25 22:47:40 [LOG] 2025-05-25 22:47:40 - Get request made to GetPostsScroll Handler
+2025/05/25 22:47:40 [INFO] 2025-05-25 22:47:40 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/25 22:47:40 [LOG] 2025-05-25 22:47:40 - Get request made to GetPostsScroll Handler
+2025/05/25 22:47:40 [INFO] 2025-05-25 22:47:40 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/25 22:47:47 [LOG] 2025-05-25 22:47:47 - Get request made to GetPostsScroll Handler
+2025/05/25 22:47:47 [INFO] 2025-05-25 22:47:47 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/25 22:47:47 [LOG] 2025-05-25 22:47:47 - Get request made to GetPostsScroll Handler
+2025/05/25 22:47:47 [INFO] 2025-05-25 22:47:47 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/25 22:47:53 [LOG] 2025-05-25 22:47:53 - Get request made to GetPostsScroll Handler
+2025/05/25 22:47:53 [ERROR] 2025-05-25 22:47:53 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 22:47:53 [LOG] 2025-05-25 22:47:53 - Get request made to GetPostsScroll Handler
+2025/05/25 22:47:53 [ERROR] 2025-05-25 22:47:53 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 22:48:09 [INFO] 2025-05-25 22:48:09 - Received login request
+2025/05/25 22:48:09 [INFO] 2025-05-25 22:48:09 - Request body parsed successfully
+2025/05/25 22:48:09 [INFO] 2025-05-25 22:48:09 - Email and password fields validated
+2025/05/25 22:48:09 [INFO] 2025-05-25 22:48:09 - User data retrieved from DB for email: omar@gmail.com
+2025/05/25 22:48:10 [INFO] 2025-05-25 22:48:10 - Password validated successfully
+2025/05/25 22:48:10 [INFO] 2025-05-25 22:48:10 - Sending success with token for user: dd7e4c34-d42a-467c-9859-c11a84e23633
+2025/05/25 22:48:10 [INFO] 2025-05-25 22:48:10 - Save Token into Sessions
+2025/05/25 22:48:10 [INFO] 2025-05-25 22:48:10 - Login successful for user: dd7e4c34-d42a-467c-9859-c11a84e23633
+2025/05/25 22:48:34 [LOG] 2025-05-25 22:48:34 - Get request made to GetPostsScroll Handler
+2025/05/25 22:48:34 [INFO] 2025-05-25 22:48:34 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/25 22:48:34 [LOG] 2025-05-25 22:48:34 - Get request made to GetPostsScroll Handler
+2025/05/25 22:48:34 [INFO] 2025-05-25 22:48:34 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/25 22:48:42 [LOG] 2025-05-25 22:48:42 - Get request made to GetPostsScroll Handler
+2025/05/25 22:48:42 [ERROR] 2025-05-25 22:48:42 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 22:48:42 [LOG] 2025-05-25 22:48:42 - Get request made to GetPostsScroll Handler
+2025/05/25 22:48:42 [ERROR] 2025-05-25 22:48:42 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 22:48:57 [LOG] 2025-05-25 22:48:57 - Get request made to GetPostsScroll Handler
+2025/05/25 22:48:57 [ERROR] 2025-05-25 22:48:57 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 22:48:57 [LOG] 2025-05-25 22:48:57 - Get request made to GetPostsScroll Handler
+2025/05/25 22:48:57 [ERROR] 2025-05-25 22:48:57 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 22:49:38 [LOG] 2025-05-25 22:49:38 - Get request made to GetPostsScroll Handler
+2025/05/25 22:49:38 [ERROR] 2025-05-25 22:49:38 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 22:49:38 [LOG] 2025-05-25 22:49:38 - Get request made to GetPostsScroll Handler
+2025/05/25 22:49:38 [ERROR] 2025-05-25 22:49:38 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 22:50:15 [LOG] 2025-05-25 22:50:15 - Get request made to GetPostsScroll Handler
+2025/05/25 22:50:15 [ERROR] 2025-05-25 22:50:15 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 22:50:15 [LOG] 2025-05-25 22:50:15 - Get request made to GetPostsScroll Handler
+2025/05/25 22:50:15 [ERROR] 2025-05-25 22:50:15 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 22:50:23 [LOG] 2025-05-25 22:50:23 - Get request made to GetPostsScroll Handler
+2025/05/25 22:50:24 [ERROR] 2025-05-25 22:50:24 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 22:50:24 [LOG] 2025-05-25 22:50:24 - Get request made to GetPostsScroll Handler
+2025/05/25 22:50:24 [ERROR] 2025-05-25 22:50:24 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 22:57:06 [LOG] 2025-05-25 22:57:06 - Get request made to GetPostsScroll Handler
+2025/05/25 22:57:06 [ERROR] 2025-05-25 22:57:06 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 22:57:06 [LOG] 2025-05-25 22:57:06 - Get request made to GetPostsScroll Handler
+2025/05/25 22:57:06 [ERROR] 2025-05-25 22:57:06 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 22:57:13 [LOG] 2025-05-25 22:57:13 - Get request made to GetPostsScroll Handler
+2025/05/25 22:57:13 [ERROR] 2025-05-25 22:57:13 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 22:57:13 [LOG] 2025-05-25 22:57:13 - Get request made to GetPostsScroll Handler
+2025/05/25 22:57:13 [ERROR] 2025-05-25 22:57:13 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 22:57:29 [LOG] 2025-05-25 22:57:29 - Get request made to GetPostsScroll Handler
+2025/05/25 22:57:29 [ERROR] 2025-05-25 22:57:29 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 22:57:29 [LOG] 2025-05-25 22:57:29 - Get request made to GetPostsScroll Handler
+2025/05/25 22:57:29 [ERROR] 2025-05-25 22:57:29 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 23:00:58 [LOG] 2025-05-25 23:00:58 - Get request made to GetPostsScroll Handler
+2025/05/25 23:00:58 [ERROR] 2025-05-25 23:00:58 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 23:00:58 [LOG] 2025-05-25 23:00:58 - Get request made to GetPostsScroll Handler
+2025/05/25 23:00:58 [ERROR] 2025-05-25 23:00:58 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 23:01:06 [LOG] 2025-05-25 23:01:06 - Get request made to GetPostsScroll Handler
+2025/05/25 23:01:06 [ERROR] 2025-05-25 23:01:06 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 23:01:06 [LOG] 2025-05-25 23:01:06 - Get request made to GetPostsScroll Handler
+2025/05/25 23:01:06 [ERROR] 2025-05-25 23:01:06 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 23:07:37 [INFO] 2025-05-25 23:07:37 - Starting HTTP server at http://localhost:8080 ...
+2025/05/25 23:07:37 [INFO] 2025-05-25 23:07:37 - Migrations applied successfully!
+2025/05/25 23:07:43 [LOG] 2025-05-25 23:07:43 - Get request made to GetPostsScroll Handler
+2025/05/25 23:07:43 [ERROR] 2025-05-25 23:07:43 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 23:07:43 [LOG] 2025-05-25 23:07:43 - Get request made to GetPostsScroll Handler
+2025/05/25 23:07:43 [ERROR] 2025-05-25 23:07:43 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 23:23:41 [INFO] 2025-05-25 23:23:41 - Starting HTTP server at http://localhost:8080 ...
+2025/05/25 23:23:41 [INFO] 2025-05-25 23:23:41 - Migrations applied successfully!
+2025/05/25 23:23:44 [LOG] 2025-05-25 23:23:44 - Get request made to GetPostsScroll Handler
+2025/05/25 23:23:44 [ERROR] 2025-05-25 23:23:44 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 23:23:44 [LOG] 2025-05-25 23:23:44 - Get request made to GetPostsScroll Handler
+2025/05/25 23:23:44 [ERROR] 2025-05-25 23:23:44 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 23:23:55 [LOG] 2025-05-25 23:23:55 - Get request made to GetPostsScroll Handler
+2025/05/25 23:23:55 [ERROR] 2025-05-25 23:23:55 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 23:23:55 [LOG] 2025-05-25 23:23:55 - Get request made to GetPostsScroll Handler
+2025/05/25 23:23:55 [ERROR] 2025-05-25 23:23:55 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 23:24:01 [LOG] 2025-05-25 23:24:01 - Get request made to GetPostsScroll Handler
+2025/05/25 23:24:01 [ERROR] 2025-05-25 23:24:01 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 23:24:01 [LOG] 2025-05-25 23:24:01 - Get request made to GetPostsScroll Handler
+2025/05/25 23:24:01 [ERROR] 2025-05-25 23:24:01 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 23:24:19 [LOG] 2025-05-25 23:24:19 - Get request made to GetPostsScroll Handler
+2025/05/25 23:24:19 [ERROR] 2025-05-25 23:24:19 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 23:24:19 [LOG] 2025-05-25 23:24:19 - Get request made to GetPostsScroll Handler
+2025/05/25 23:24:19 [ERROR] 2025-05-25 23:24:19 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 23:24:25 [LOG] 2025-05-25 23:24:25 - Get request made to GetPostsScroll Handler
+2025/05/25 23:24:25 [ERROR] 2025-05-25 23:24:25 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 23:24:25 [LOG] 2025-05-25 23:24:25 - Get request made to GetPostsScroll Handler
+2025/05/25 23:24:25 [ERROR] 2025-05-25 23:24:25 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 23:24:29 [LOG] 2025-05-25 23:24:29 - Get request made to GetPostsScroll Handler
+2025/05/25 23:24:29 [ERROR] 2025-05-25 23:24:29 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 23:24:29 [LOG] 2025-05-25 23:24:29 - Get request made to GetPostsScroll Handler
+2025/05/25 23:24:29 [ERROR] 2025-05-25 23:24:29 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 23:24:33 [LOG] 2025-05-25 23:24:33 - Get request made to GetPostsScroll Handler
+2025/05/25 23:24:33 [ERROR] 2025-05-25 23:24:33 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 23:24:33 [LOG] 2025-05-25 23:24:33 - Get request made to GetPostsScroll Handler
+2025/05/25 23:24:33 [ERROR] 2025-05-25 23:24:33 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 23:24:40 [INFO] 2025-05-25 23:24:40 - Starting HTTP server at http://localhost:8080 ...
+2025/05/25 23:24:40 [INFO] 2025-05-25 23:24:40 - Migrations applied successfully!
+2025/05/25 23:24:45 [LOG] 2025-05-25 23:24:45 - Get request made to GetPostsScroll Handler
+2025/05/25 23:24:45 [ERROR] 2025-05-25 23:24:45 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 23:24:45 [LOG] 2025-05-25 23:24:45 - Get request made to GetPostsScroll Handler
+2025/05/25 23:24:45 [ERROR] 2025-05-25 23:24:45 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 23:25:34 [LOG] 2025-05-25 23:25:34 - Get request made to GetPostsScroll Handler
+2025/05/25 23:25:34 [ERROR] 2025-05-25 23:25:34 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 23:25:34 [LOG] 2025-05-25 23:25:34 - Get request made to GetPostsScroll Handler
+2025/05/25 23:25:34 [ERROR] 2025-05-25 23:25:34 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 23:25:38 [LOG] 2025-05-25 23:25:38 - Get request made to GetPostsScroll Handler
+2025/05/25 23:25:38 [ERROR] 2025-05-25 23:25:38 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 23:25:38 [LOG] 2025-05-25 23:25:38 - Get request made to GetPostsScroll Handler
+2025/05/25 23:25:38 [ERROR] 2025-05-25 23:25:38 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 23:25:46 [LOG] 2025-05-25 23:25:46 - Get request made to GetPostsScroll Handler
+2025/05/25 23:25:46 [ERROR] 2025-05-25 23:25:46 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 23:25:46 [LOG] 2025-05-25 23:25:46 - Get request made to GetPostsScroll Handler
+2025/05/25 23:25:46 [ERROR] 2025-05-25 23:25:46 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 23:26:45 [INFO] 2025-05-25 23:26:45 - Starting HTTP server at http://localhost:8080 ...
+2025/05/25 23:26:45 [INFO] 2025-05-25 23:26:45 - Migrations applied successfully!
+2025/05/25 23:26:51 [LOG] 2025-05-25 23:26:51 - Get request made to GetPostsScroll Handler
+2025/05/25 23:26:51 [ERROR] 2025-05-25 23:26:51 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 23:26:51 [LOG] 2025-05-25 23:26:51 - Get request made to GetPostsScroll Handler
+2025/05/25 23:26:51 [ERROR] 2025-05-25 23:26:51 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 23:27:04 [LOG] 2025-05-25 23:27:04 - Get request made to GetPostsScroll Handler
+2025/05/25 23:27:04 [ERROR] 2025-05-25 23:27:04 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 23:27:04 [LOG] 2025-05-25 23:27:04 - Get request made to GetPostsScroll Handler
+2025/05/25 23:27:04 [ERROR] 2025-05-25 23:27:04 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 23:27:26 [LOG] 2025-05-25 23:27:26 - Get request made to GetPostsScroll Handler
+2025/05/25 23:27:26 [ERROR] 2025-05-25 23:27:26 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 23:27:26 [LOG] 2025-05-25 23:27:26 - Get request made to GetPostsScroll Handler
+2025/05/25 23:27:26 [ERROR] 2025-05-25 23:27:26 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 23:27:40 [LOG] 2025-05-25 23:27:40 - Get request made to GetPostsScroll Handler
+2025/05/25 23:27:40 [ERROR] 2025-05-25 23:27:40 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 23:27:40 [LOG] 2025-05-25 23:27:40 - Get request made to GetPostsScroll Handler
+2025/05/25 23:27:40 [ERROR] 2025-05-25 23:27:40 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 23:28:07 [LOG] 2025-05-25 23:28:07 - Get request made to GetPostsScroll Handler
+2025/05/25 23:28:07 [ERROR] 2025-05-25 23:28:07 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 23:28:07 [LOG] 2025-05-25 23:28:07 - Get request made to GetPostsScroll Handler
+2025/05/25 23:28:07 [ERROR] 2025-05-25 23:28:07 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 23:28:12 [LOG] 2025-05-25 23:28:12 - Get request made to GetPostsScroll Handler
+2025/05/25 23:28:12 [ERROR] 2025-05-25 23:28:12 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 23:28:12 [LOG] 2025-05-25 23:28:12 - Get request made to GetPostsScroll Handler
+2025/05/25 23:28:12 [ERROR] 2025-05-25 23:28:12 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 23:28:32 [LOG] 2025-05-25 23:28:32 - Get request made to GetPostsScroll Handler
+2025/05/25 23:28:32 [ERROR] 2025-05-25 23:28:32 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 23:28:32 [LOG] 2025-05-25 23:28:32 - Get request made to GetPostsScroll Handler
+2025/05/25 23:28:32 [ERROR] 2025-05-25 23:28:32 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 23:29:10 [INFO] 2025-05-25 23:29:10 - Starting HTTP server at http://localhost:8080 ...
+2025/05/25 23:29:10 [INFO] 2025-05-25 23:29:10 - Migrations applied successfully!
+2025/05/25 23:29:23 [LOG] 2025-05-25 23:29:23 - Get request made to GetPostsScroll Handler
+2025/05/25 23:29:23 [ERROR] 2025-05-25 23:29:23 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 23:29:23 [LOG] 2025-05-25 23:29:23 - Get request made to GetPostsScroll Handler
+2025/05/25 23:29:23 [ERROR] 2025-05-25 23:29:23 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 23:29:33 [LOG] 2025-05-25 23:29:33 - Get request made to GetPostsScroll Handler
+2025/05/25 23:29:33 [ERROR] 2025-05-25 23:29:33 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 23:29:33 [LOG] 2025-05-25 23:29:33 - Get request made to GetPostsScroll Handler
+2025/05/25 23:29:33 [ERROR] 2025-05-25 23:29:33 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 23:29:51 [LOG] 2025-05-25 23:29:51 - Get request made to GetPostsScroll Handler
+2025/05/25 23:29:51 [ERROR] 2025-05-25 23:29:51 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 23:29:51 [LOG] 2025-05-25 23:29:51 - Get request made to GetPostsScroll Handler
+2025/05/25 23:29:51 [ERROR] 2025-05-25 23:29:51 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 23:29:55 [LOG] 2025-05-25 23:29:55 - Get request made to GetPostsScroll Handler
+2025/05/25 23:29:55 [ERROR] 2025-05-25 23:29:55 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 23:29:55 [LOG] 2025-05-25 23:29:55 - Get request made to GetPostsScroll Handler
+2025/05/25 23:29:55 [ERROR] 2025-05-25 23:29:55 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 23:30:07 [LOG] 2025-05-25 23:30:07 - Get request made to GetPostsScroll Handler
+2025/05/25 23:30:07 [ERROR] 2025-05-25 23:30:07 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 23:30:07 [LOG] 2025-05-25 23:30:07 - Get request made to GetPostsScroll Handler
+2025/05/25 23:30:07 [ERROR] 2025-05-25 23:30:07 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 23:32:35 [LOG] 2025-05-25 23:32:35 - Get request made to GetPostsScroll Handler
+2025/05/25 23:32:35 [ERROR] 2025-05-25 23:32:35 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 23:32:35 [LOG] 2025-05-25 23:32:35 - Get request made to GetPostsScroll Handler
+2025/05/25 23:32:35 [ERROR] 2025-05-25 23:32:35 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 23:32:45 [LOG] 2025-05-25 23:32:45 - Get request made to GetPostsScroll Handler
+2025/05/25 23:32:45 [ERROR] 2025-05-25 23:32:45 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 23:32:45 [LOG] 2025-05-25 23:32:45 - Get request made to GetPostsScroll Handler
+2025/05/25 23:32:45 [ERROR] 2025-05-25 23:32:45 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 23:32:57 [INFO] 2025-05-25 23:32:57 - Starting HTTP server at http://localhost:8080 ...
+2025/05/25 23:32:57 [INFO] 2025-05-25 23:32:57 - Migrations applied successfully!
+2025/05/25 23:33:03 [LOG] 2025-05-25 23:33:03 - Get request made to GetPostsScroll Handler
+2025/05/25 23:33:03 [ERROR] 2025-05-25 23:33:03 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 23:33:03 [LOG] 2025-05-25 23:33:03 - Get request made to GetPostsScroll Handler
+2025/05/25 23:33:03 [ERROR] 2025-05-25 23:33:03 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 23:35:15 [LOG] 2025-05-25 23:35:15 - Get request made to GetPostsScroll Handler
+2025/05/25 23:35:15 [ERROR] 2025-05-25 23:35:15 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 23:35:15 [LOG] 2025-05-25 23:35:15 - Get request made to GetPostsScroll Handler
+2025/05/25 23:35:15 [ERROR] 2025-05-25 23:35:15 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 23:35:42 [LOG] 2025-05-25 23:35:42 - Get request made to GetPostsScroll Handler
+2025/05/25 23:35:42 [ERROR] 2025-05-25 23:35:42 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 23:35:42 [LOG] 2025-05-25 23:35:42 - Get request made to GetPostsScroll Handler
+2025/05/25 23:35:42 [ERROR] 2025-05-25 23:35:42 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 23:36:11 [LOG] 2025-05-25 23:36:11 - Get request made to GetPostsScroll Handler
+2025/05/25 23:36:11 [ERROR] 2025-05-25 23:36:11 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 23:36:11 [LOG] 2025-05-25 23:36:11 - Get request made to GetPostsScroll Handler
+2025/05/25 23:36:11 [ERROR] 2025-05-25 23:36:11 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 23:36:16 [LOG] 2025-05-25 23:36:16 - Get request made to GetPostsScroll Handler
+2025/05/25 23:36:16 [ERROR] 2025-05-25 23:36:16 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 23:36:16 [LOG] 2025-05-25 23:36:16 - Get request made to GetPostsScroll Handler
+2025/05/25 23:36:16 [ERROR] 2025-05-25 23:36:16 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 23:36:26 [INFO] 2025-05-25 23:36:26 - Starting HTTP server at http://localhost:8080 ...
+2025/05/25 23:36:26 [INFO] 2025-05-25 23:36:26 - Migrations applied successfully!
+2025/05/25 23:36:37 [LOG] 2025-05-25 23:36:37 - Get request made to GetPostsScroll Handler
+2025/05/25 23:36:37 [ERROR] 2025-05-25 23:36:37 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 23:36:37 [LOG] 2025-05-25 23:36:37 - Get request made to GetPostsScroll Handler
+2025/05/25 23:36:37 [ERROR] 2025-05-25 23:36:37 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 23:36:52 [INFO] 2025-05-25 23:36:52 - Starting HTTP server at http://localhost:8080 ...
+2025/05/25 23:36:52 [INFO] 2025-05-25 23:36:52 - Migrations applied successfully!
+2025/05/25 23:37:05 [LOG] 2025-05-25 23:37:05 - Get request made to GetPostsScroll Handler
+2025/05/25 23:37:05 [ERROR] 2025-05-25 23:37:05 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 23:37:05 [LOG] 2025-05-25 23:37:05 - Get request made to GetPostsScroll Handler
+2025/05/25 23:37:05 [ERROR] 2025-05-25 23:37:05 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 23:38:15 [INFO] 2025-05-25 23:38:15 - Starting HTTP server at http://localhost:8080 ...
+2025/05/25 23:38:15 [INFO] 2025-05-25 23:38:15 - Migrations applied successfully!
+2025/05/25 23:38:18 [LOG] 2025-05-25 23:38:18 - Get request made to GetPostsScroll Handler
+2025/05/25 23:38:18 [ERROR] 2025-05-25 23:38:18 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 23:38:18 [LOG] 2025-05-25 23:38:18 - Get request made to GetPostsScroll Handler
+2025/05/25 23:38:18 [ERROR] 2025-05-25 23:38:18 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 23:38:31 [LOG] 2025-05-25 23:38:31 - Get request made to GetPostsScroll Handler
+2025/05/25 23:38:31 [ERROR] 2025-05-25 23:38:31 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 23:38:31 [LOG] 2025-05-25 23:38:31 - Get request made to GetPostsScroll Handler
+2025/05/25 23:38:31 [ERROR] 2025-05-25 23:38:31 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 23:39:04 [LOG] 2025-05-25 23:39:04 - Get request made to GetPostsScroll Handler
+2025/05/25 23:39:04 [ERROR] 2025-05-25 23:39:04 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 23:39:04 [LOG] 2025-05-25 23:39:04 - Get request made to GetPostsScroll Handler
+2025/05/25 23:39:04 [ERROR] 2025-05-25 23:39:04 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 23:39:47 [INFO] 2025-05-25 23:39:47 - Starting HTTP server at http://localhost:8080 ...
+2025/05/25 23:39:47 [INFO] 2025-05-25 23:39:47 - Migrations applied successfully!
+2025/05/25 23:39:52 [LOG] 2025-05-25 23:39:52 - Get request made to GetPostsScroll Handler
+2025/05/25 23:39:52 [ERROR] 2025-05-25 23:39:52 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 23:39:52 [LOG] 2025-05-25 23:39:52 - Get request made to GetPostsScroll Handler
+2025/05/25 23:39:52 [ERROR] 2025-05-25 23:39:52 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 23:40:00 [LOG] 2025-05-25 23:40:00 - Get request made to GetPostsScroll Handler
+2025/05/25 23:40:00 [ERROR] 2025-05-25 23:40:00 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 23:40:00 [LOG] 2025-05-25 23:40:00 - Get request made to GetPostsScroll Handler
+2025/05/25 23:40:00 [ERROR] 2025-05-25 23:40:00 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 23:41:05 [INFO] 2025-05-25 23:41:05 - Starting HTTP server at http://localhost:8080 ...
+2025/05/25 23:41:05 [INFO] 2025-05-25 23:41:05 - Migrations applied successfully!
+2025/05/25 23:41:08 [LOG] 2025-05-25 23:41:08 - Get request made to GetPostsScroll Handler
+2025/05/25 23:41:08 [ERROR] 2025-05-25 23:41:08 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 23:41:08 [LOG] 2025-05-25 23:41:08 - Get request made to GetPostsScroll Handler
+2025/05/25 23:41:08 [ERROR] 2025-05-25 23:41:08 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 23:41:28 [LOG] 2025-05-25 23:41:28 - Get request made to GetPostsScroll Handler
+2025/05/25 23:41:28 [ERROR] 2025-05-25 23:41:28 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 23:41:28 [LOG] 2025-05-25 23:41:28 - Get request made to GetPostsScroll Handler
+2025/05/25 23:41:28 [ERROR] 2025-05-25 23:41:28 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 23:42:18 [LOG] 2025-05-25 23:42:18 - Get request made to GetPostsScroll Handler
+2025/05/25 23:42:18 [ERROR] 2025-05-25 23:42:18 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 23:42:18 [LOG] 2025-05-25 23:42:18 - Get request made to GetPostsScroll Handler
+2025/05/25 23:42:18 [ERROR] 2025-05-25 23:42:18 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 23:43:55 [INFO] 2025-05-25 23:43:55 - Starting HTTP server at http://localhost:8080 ...
+2025/05/25 23:43:55 [INFO] 2025-05-25 23:43:55 - Migrations applied successfully!
+2025/05/25 23:44:01 [LOG] 2025-05-25 23:44:01 - Get request made to GetPostsScroll Handler
+2025/05/25 23:44:01 [ERROR] 2025-05-25 23:44:01 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 23:44:01 [LOG] 2025-05-25 23:44:01 - Get request made to GetPostsScroll Handler
+2025/05/25 23:44:01 [ERROR] 2025-05-25 23:44:01 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 23:44:12 [LOG] 2025-05-25 23:44:12 - Get request made to GetPostsScroll Handler
+2025/05/25 23:44:12 [ERROR] 2025-05-25 23:44:12 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 23:44:12 [LOG] 2025-05-25 23:44:12 - Get request made to GetPostsScroll Handler
+2025/05/25 23:44:12 [ERROR] 2025-05-25 23:44:12 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 23:44:23 [LOG] 2025-05-25 23:44:23 - Get request made to GetPostsScroll Handler
+2025/05/25 23:44:23 [ERROR] 2025-05-25 23:44:23 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 23:44:23 [LOG] 2025-05-25 23:44:23 - Get request made to GetPostsScroll Handler
+2025/05/25 23:44:23 [ERROR] 2025-05-25 23:44:23 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 23:44:46 [LOG] 2025-05-25 23:44:46 - Get request made to GetPostsScroll Handler
+2025/05/25 23:44:46 [ERROR] 2025-05-25 23:44:46 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 23:44:46 [LOG] 2025-05-25 23:44:46 - Get request made to GetPostsScroll Handler
+2025/05/25 23:44:46 [ERROR] 2025-05-25 23:44:46 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 23:46:19 [LOG] 2025-05-25 23:46:19 - Get request made to GetPostsScroll Handler
+2025/05/25 23:46:19 [ERROR] 2025-05-25 23:46:19 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 23:46:19 [LOG] 2025-05-25 23:46:19 - Get request made to GetPostsScroll Handler
+2025/05/25 23:46:19 [ERROR] 2025-05-25 23:46:19 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 23:46:48 [LOG] 2025-05-25 23:46:48 - Get request made to GetPostsScroll Handler
+2025/05/25 23:46:48 [ERROR] 2025-05-25 23:46:48 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 23:46:48 [LOG] 2025-05-25 23:46:48 - Get request made to GetPostsScroll Handler
+2025/05/25 23:46:48 [ERROR] 2025-05-25 23:46:48 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 23:47:48 [LOG] 2025-05-25 23:47:48 - Get request made to GetPostsScroll Handler
+2025/05/25 23:47:48 [ERROR] 2025-05-25 23:47:48 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 23:47:48 [LOG] 2025-05-25 23:47:48 - Get request made to GetPostsScroll Handler
+2025/05/25 23:47:48 [ERROR] 2025-05-25 23:47:48 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 23:48:03 [INFO] 2025-05-25 23:48:03 - Starting HTTP server at http://localhost:8080 ...
+2025/05/25 23:48:03 [INFO] 2025-05-25 23:48:03 - Migrations applied successfully!
+2025/05/25 23:48:11 [LOG] 2025-05-25 23:48:11 - Get request made to GetPostsScroll Handler
+2025/05/25 23:48:11 [ERROR] 2025-05-25 23:48:11 - No Posts found in GetPostsScroll Handler: 
+2025/05/25 23:48:11 [LOG] 2025-05-25 23:48:11 - Get request made to GetPostsScroll Handler
+2025/05/25 23:48:11 [ERROR] 2025-05-25 23:48:11 - No Posts found in GetPostsScroll Handler: 
