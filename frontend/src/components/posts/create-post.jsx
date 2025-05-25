@@ -130,14 +130,18 @@ const CreatePost = () => {
         ;
         formData.append('post_privacy', privacy);
 
-        // Add image if selected
         if ((selectedImage) && (postContent)) {
           formData.append('post_image', selectedImage)
           formData.append('post_content', postContent.trim())
+          console.log("both");
+          
         } else if (selectedImage) {
           formData.append('post_image', selectedImage)
+          console.log("only image");
+          
         } else {
           formData.append('post_content', postContent.trim())
+          console.log("only post content");
         }
 
         // Add allowed users for custom privacy
