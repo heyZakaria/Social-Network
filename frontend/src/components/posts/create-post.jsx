@@ -133,15 +133,15 @@ const CreatePost = () => {
         if ((selectedImage) && (postContent)) {
           formData.append('post_image', selectedImage)
           formData.append('post_content', postContent.trim())
-          console.log("both");
+          // console.log("both");
           
         } else if (selectedImage) {
           formData.append('post_image', selectedImage)
-          console.log("only image");
+          // console.log("only image");
           
         } else {
           formData.append('post_content', postContent.trim())
-          console.log("only post content");
+          // console.log("only post content");
         }
 
         // Add allowed users for custom privacy
@@ -150,6 +150,9 @@ const CreatePost = () => {
             formData.append('allowed_users', userId);
           });
         }
+
+        console.log("data", formData);
+        
 
         const response = await fetch('http://localhost:8080/rest/createpost', {
           method: 'POST',
