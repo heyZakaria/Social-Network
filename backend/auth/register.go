@@ -3,7 +3,8 @@ package auth
 import (
 	"fmt"
 	"net/http"
-	"socialNetwork/db/sqlite"
+
+	db "socialNetwork/db/sqlite"
 	"socialNetwork/utils"
 
 	_ "github.com/mattn/go-sqlite3"
@@ -41,8 +42,10 @@ func HandleRegister(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	utils.Log("INFO", "Email is unique")
-
-	avatarFilename, err := HandleUploadImage(r)
+	// Moving the HandleUploadImage to utils making it more modular to use
+	// Added : Parameters => FormfileName: the targer file name , Expected size , And Destination
+	// Goal of change : making it reusable
+	avatarFilename, err := utils.HandleUploadImage(r, "avatar", 1024*1024, "../uploads/profile_images")
 	if err != nil {
 		utils.Log("ERROR", "Avatar upload failed: "+err.Error())
 		SendJSON(w, http.StatusInternalServerError, JSONResponse{

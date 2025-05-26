@@ -1,5 +1,5 @@
 import { useState  , useEffect} from "react";
-import styles from './CreateGroup.module.css'; // Import CSS Module
+import styles from './CreateGroup.module.css';
 import InviteFriends from "@/components/Group/InviteFriends";
 import GroupsList from "@/components/Group/suggestedGroups";
 import { IoChevronBackCircleSharp , IoChevronForwardCircleSharp } from "react-icons/io5";

@@ -339,3 +339,42 @@
   color: #9ca3af;
   cursor: not-allowed;
 }
+
+
+/** file input  styling  **/
+
+
+/* File Upload Styled Button */
+.fileUploadWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.fileUploadLabel {
+  display: inline-block;
+  background-color: #7c3aed;
+  color: white;
+  padding: 12px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.fileUploadLabel:hover {
+  background-color: #5b21b6;
+}
+
+.fileInputHidden {
+  display: none;
+}
+
+.fileNameDisplay {
+  font-size: 13px;
+  color: #555;
+  padding-top: 4px;
+  font-style: italic;
+}

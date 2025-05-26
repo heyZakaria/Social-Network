@@ -3,6 +3,7 @@
 import { useState } from "react"
 import styles from './CreateGroup.module.css';
 import GroupCard from "./GroupCard";
+import { object } from "zod";
 
 export default function CreateGroupCard() {
     /* Testing the GroupCard WithDummyData
@@ -116,10 +117,45 @@ export default function CreateGroupCard() {
     // const[Title, SetTitle] = useState('')
     // const[Description, SetDescription] = useState('')
     // const[DescriptionErr, SetDescErr] = useState('')
-    const [FormData, SetFormData] = useState({ Description: '', Title: '' })
-    const [FormErr, SetFormErr] = useState({ DescriptionErr: null, TitleErr: null })
+
+    const [FormErr, SetFormErr] = useState({ DescriptionErr: null, TitleErr: null  , ImgErr : null})
     const [Err, SetErr] = useState(null)
     const [SuccessMsg, SetSuccesMsg] = useState(null)
+    const [file , SetFile] = useState(null)
+    const [formData, SetformData] = useState({ Description: '', Title: ''  , Image:file})
+  const handleFileChange = (e) => {
+    const Selectedfile = e.target.files[0]
+    console.log(Selectedfile);
+    if (!Selectedfile){
+    SetFormErr(prevData =>({...prevData , ImgErr:null}))
+    SetFile(null)
+    return
+
+      
+    }
+      const ImgExtension  = ['png', 'jpeg' ,'jpg']
+      if (!Selectedfile.name.includes('.') ||
+        Selectedfile.name.endsWith('.')    || 
+        Selectedfile.name.startsWith('.')  ||
+        Selectedfile.type.split('/')[0] !== 'image'){
+        SetFormErr(prev => { return {...prev , ImgErr:`${file.name} is Not Valid Image`}})
+        return 
+      }
+      if (!ImgExtension.includes(Selectedfile.name.slice(Selectedfile.name.lastIndexOf('.')+1))){
+ SetFormErr(prev => { return {...prev , ImgErr:`${Selectedfile.name} Incompatible File try Image with png, jpeg and jpg extension`}})
+        return 
+      }
+      if (Selectedfile.size > 1024*3000  ){
+         SetFormErr(prev => { return {...prev , ImgErr:"Image size is too Big"}})
+        return 
+      }
+   
+              SetFormErr(prevData =>({...prevData , ImgErr:null}))
+
+        SetFile(Selectedfile);
+  SetformData(prev => ({ ...prev, Image: Selectedfile })); 
+
+    };
 
     function HandleChange(e) {
         function validateDescription(Description) {
@@ -165,7 +201,7 @@ export default function CreateGroupCard() {
         } else if (name === 'Description') {
             validateDescription(value)
         }
-        SetFormData((prevData) => ({ ...prevData, [name]: value }))
+        SetformData((prevData) => ({ ...prevData, [name]: value }))
     }
 
     function HandleDisplay() {
@@ -174,20 +210,25 @@ export default function CreateGroupCard() {
     async function handleSubmit(e) {
         e.preventDefault()
     
-        if (FormData.Description === '' || FormData.Title === '' || FormErr.TitleErr !== null || FormErr.DescriptionErr !== null){
-            console.log(FormData , FormErr);
+        if (formData.Description === '' || formData.Title === '' || FormErr.TitleErr !== null || FormErr.DescriptionErr !== null || FormErr.ImgErr !== null){
+            console.log("here" , formData , FormErr);
             
-            console.log("yeeep heeere");
             
             return
         }
         try {
-            const Resp = await fetch("http://localhost:8080/api/groups/", {
+        const data = new FormData()
+  data.append('Description', formData.Description);
+  data.append('Title', formData.Title);
+
+  if (formData.Image) {
+    console.log(formData.Image);
+    data.append('Image', formData.Image); 
+  }         
+     const Resp = await fetch("http://localhost:8080/api/groups/", {
                 method: "POST",
-                headers: {
-                    'Content-type': 'application/json'
-                },
-                body: JSON.stringify(FormData)
+            
+                body: data
             }
 
             )
@@ -219,6 +260,7 @@ export default function CreateGroupCard() {
         <form onSubmit={handleSubmit} className={styles.createGroupForm}>
     
                 <InputComp
+                  type="input"
                     name="Title"
                     placeholder="Enter Title"
                     label="Title"
@@ -228,6 +270,7 @@ export default function CreateGroupCard() {
 
 
                 <InputComp
+                    type="input"
                     name="Description"
                     placeholder="Enter Description"
                     label="Description"
@@ -235,7 +278,15 @@ export default function CreateGroupCard() {
                 />
                 {FormErr.DescriptionErr && <ErrorComp Err={FormErr.DescriptionErr}></ErrorComp> }
 
-            <button type="submit" className={styles.submitBtn} disabled={Display}>
+           <UploadInput name="cover"
+           handleFileChange={handleFileChange}
+           fileName={file ? file.name : ""}
+           >
+
+           </UploadInput>
+                {FormErr.ImgErr && <ErrorComp Err={FormErr.ImgErr}></ErrorComp> }
+      
+            <button type="submit" className={styles.submitBtn} disabled={false}>
                 Create Group
             </button>
 
@@ -249,22 +300,47 @@ export default function CreateGroupCard() {
       
       
     )
+
 }
 
 
-function InputComp({ onChange, name, label }) {
+
+function InputComp({ onChange, name, label, type }) {
+
     return (
         <div className={styles.formGroup}>
             <label className={styles.label} htmlFor={name}>{label}</label>
             <input
+                type={type}
                 className={styles.inputText}
                 name={name}
                 placeholder={label}
                 onChange={onChange}
             />
         </div>
-    )
-}
+    );
+  }
 function ErrorComp({Err}){
     return  <p className={styles.serverError}>{Err}</p>
+}
+
+
+function UploadInput({name , handleFileChange , fileName}){
+  return (
+    <div className={styles.fileUploadWrapper}>
+      
+        <label htmlFor={name} className={styles.fileUploadLabel}>
+                    {fileName || "Upload A Cover"}
+                    <input
+                        id={name}
+                        type="file"
+                        name={name}
+                        onChange={handleFileChange}
+                        className={styles.fileInputHidden}
+                    />
+                </label>
+     {fileName && <span className={styles.fileNameDisplay}>{fileName}</span>}
+
+    </div>
+  )
 }

@@ -13,13 +13,12 @@ var originAllowlist = []string{
 	"http://localhost:3004",
 	"http://localhost:3005",
 	"http://localhost:3006",
-	
+	"http://localhost:8000",
 }
 
 var methodAllowlist = []string{"GET", "POST", "PUT", "DELETE", "OPTIONS"}
 
 func CheckCORS(next http.Handler) http.Handler {
-
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		origin := r.Header.Get("Origin")
 		method := r.Header.Get("Access-Control-Request-Method")

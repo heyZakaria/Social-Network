@@ -5,6 +5,8 @@ type Group struct {
 	Description string
 	Title       string
 	Members     []GroupMember
+	CoverName   string
+	AdminId     string
 }
 
 type GroupMember struct {
