@@ -1,12 +1,8 @@
 package post
 
 import (
-	"fmt"
 	"net/http"
-<<<<<<< HEAD
-=======
 	"strings"
->>>>>>> Tawil-Posts-BackEnd
 
 	"socialNetwork/auth"
 	user "socialNetwork/user"

@@ -40,14 +40,12 @@ func main() {
 	router.Handle("/posts/", http.StripPrefix("/posts", post.PostMux()))
 	router.Handle("/likes/", http.StripPrefix("/likes", likes.LikesMux()))
 
-	router.HandleFunc("GET /api/verify", middleware.CheckUserExeting)
-
-    // Profile routes
-    router.HandleFunc("GET /api/users/profile", profile.GetUserProfile)
+	// Profile routes
+	router.HandleFunc("GET /api/users/profile", profile.GetUserProfile)
 	router.HandleFunc("PUT /api/users/privacy", profile.ProfileStatus)
-    router.HandleFunc("GET /api/users/get/profile", profile.GetOtherUserProfile)
-    router.HandleFunc("POST /api/users/follow", profile.ToggleFollowUser)
-    // router.HandleFunc("POST /api/users/{id}/unfollow", profile.UnfollowUser)
+	router.HandleFunc("GET /api/users/get/profile", profile.GetOtherUserProfile)
+	router.HandleFunc("POST /api/users/follow", profile.ToggleFollowUser)
+	// router.HandleFunc("POST /api/users/{id}/unfollow", profile.UnfollowUser)
 	// Handler for /api/post
 
 	// Testing serving images

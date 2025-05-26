@@ -12369,3 +12369,105 @@
 2025/05/24 09:30:51 [INFO] 2025-05-24 09:30:51 - Posts fetched successfully in GetPostsScroll Handler
 2025/05/24 09:30:51 [LOG] 2025-05-24 09:30:51 - Get request made to GetPostsScroll Handler
 2025/05/24 09:30:51 [INFO] 2025-05-24 09:30:51 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/26 11:12:23 [INFO] 2025-05-26 11:12:23 - Starting HTTP server at http://localhost:8080 ...
+2025/05/26 11:12:23 [ERROR] 2025-05-26 11:12:23 - Migration init error failed to open source, "file:///home/hhouda/Documents/Social-Network/backend/db/migration": duplicate migration file: 000006_table_likes.up.sql
+2025/05/26 11:13:14 [INFO] 2025-05-26 11:13:14 - Starting HTTP server at http://localhost:8080 ...
+2025/05/26 11:13:14 [INFO] 2025-05-26 11:13:14 - Migrations applied successfully!
+2025/05/26 11:13:48 [INFO] 2025-05-26 11:13:48 - Starting HTTP server at http://localhost:8080 ...
+2025/05/26 11:13:48 [INFO] 2025-05-26 11:13:48 - Migrations applied successfully!
+2025/05/26 11:13:56 [ERROR] 2025-05-26 11:13:56 - Error executing query: sql: no rows in result set
+2025/05/26 11:14:31 [INFO] 2025-05-26 11:14:31 - Parsed multipart form
+2025/05/26 11:14:31 [INFO] 2025-05-26 11:14:31 - Form fields parsed successfully
+2025/05/26 11:14:31 [INFO] 2025-05-26 11:14:31 - Form fields parsed
+2025/05/26 11:14:31 [INFO] 2025-05-26 11:14:31 - Checking if email exists: hh03@gmail.com
+2025/05/26 11:14:31 [INFO] 2025-05-26 11:14:31 - Email is unique
+2025/05/26 11:14:31 [INFO] 2025-05-26 11:14:31 - Validating registration input
+2025/05/26 11:14:31 [INFO] 2025-05-26 11:14:31 - Registration input valid
+2025/05/26 11:14:31 [INFO] 2025-05-26 11:14:31 - User input validated
+2025/05/26 11:14:31 [INFO] 2025-05-26 11:14:31 - Hashing password
+2025/05/26 11:14:31 [INFO] 2025-05-26 11:14:31 - Password hashed successfully
+2025/05/26 11:14:31 [INFO] 2025-05-26 11:14:31 - Password hashed
+2025/05/26 11:14:31 [INFO] 2025-05-26 11:14:31 - Starting avatar upload
+2025/05/26 11:14:31 [INFO] 2025-05-26 11:14:31 - No image file provided
+2025/05/26 11:14:31 [INFO] 2025-05-26 11:14:31 - Saving user to database with ID: f8bfb3ad-fbb5-4008-94b7-5319f1febbe8
+2025/05/26 11:14:31 [INFO] 2025-05-26 11:14:31 - User saved successfully
+2025/05/26 11:14:31 [INFO] 2025-05-26 11:14:31 - User registered with ID: f8bfb3ad-fbb5-4008-94b7-5319f1febbe8
+2025/05/26 11:14:31 [INFO] 2025-05-26 11:14:31 - Save Token into Sessions
+2025/05/26 11:14:31 [INFO] 2025-05-26 11:14:31 - Login successful for user: f8bfb3ad-fbb5-4008-94b7-5319f1febbe8
+2025/05/26 11:14:31 [INFO] 2025-05-26 11:14:31 - Success Register
+2025/05/26 11:15:20 [LOG] 2025-05-26 11:15:20 - Get request made to GetPostsScroll Handler
+2025/05/26 11:15:20 [ERROR] 2025-05-26 11:15:20 - No Posts found in GetPostsScroll Handler: 
+2025/05/26 11:15:20 [LOG] 2025-05-26 11:15:20 - Get request made to GetPostsScroll Handler
+2025/05/26 11:15:20 [ERROR] 2025-05-26 11:15:20 - No Posts found in GetPostsScroll Handler: 
+2025/05/26 11:18:32 [LOG] 2025-05-26 11:18:32 - Get request made to GetPostsScroll Handler
+2025/05/26 11:18:32 [ERROR] 2025-05-26 11:18:32 - No Posts found in GetPostsScroll Handler: 
+2025/05/26 11:18:32 [LOG] 2025-05-26 11:18:32 - Get request made to GetPostsScroll Handler
+2025/05/26 11:18:32 [ERROR] 2025-05-26 11:18:32 - No Posts found in GetPostsScroll Handler: 
+2025/05/26 11:18:44 [LOG] 2025-05-26 11:18:44 - Start Creating the Post
+2025/05/26 11:18:44 [INFO] 2025-05-26 11:18:44 - Starting avatar upload
+2025/05/26 11:18:44 [INFO] 2025-05-26 11:18:44 - No image file provided
+2025/05/26 11:18:51 [LOG] 2025-05-26 11:18:51 - Get request made to GetPostsScroll Handler
+2025/05/26 11:18:51 [LOG] 2025-05-26 11:18:51 - Get request made to GetPostsScroll Handler
+2025/05/26 11:18:51 [INFO] 2025-05-26 11:18:51 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/26 11:18:51 [INFO] 2025-05-26 11:18:51 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/26 11:19:28 [LOG] 2025-05-26 11:19:28 - Start Creating the Post
+2025/05/26 11:19:28 [INFO] 2025-05-26 11:19:28 - Starting avatar upload
+2025/05/26 11:19:28 [INFO] 2025-05-26 11:19:28 - Avatar file retrieved: Avatar_TWOW_IMAX_FinalPoster_DC_v03HD.jpg
+2025/05/26 11:19:28 [INFO] 2025-05-26 11:19:28 - Detected content type: image/jpeg
+2025/05/26 11:19:28 [INFO] 2025-05-26 11:19:28 - Generated avatar filename: 71bbdcdb-0831-4cf4-94bd-70a03932546a.jpg
+2025/05/26 11:19:28 [INFO] 2025-05-26 11:19:28 - Avatar saved successfully
+2025/05/26 11:19:29 [LOG] 2025-05-26 11:19:29 - Get request made to GetPostsScroll Handler
+2025/05/26 11:19:29 [LOG] 2025-05-26 11:19:29 - Get request made to GetPostsScroll Handler
+2025/05/26 11:19:29 [INFO] 2025-05-26 11:19:29 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/26 11:19:29 [INFO] 2025-05-26 11:19:29 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/26 11:20:23 [LOG] 2025-05-26 11:20:23 - Start Creating the Post
+2025/05/26 11:20:23 [INFO] 2025-05-26 11:20:23 - Starting avatar upload
+2025/05/26 11:20:23 [INFO] 2025-05-26 11:20:23 - No image file provided
+2025/05/26 11:20:25 [LOG] 2025-05-26 11:20:25 - Get request made to GetPostsScroll Handler
+2025/05/26 11:20:25 [INFO] 2025-05-26 11:20:25 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/26 11:20:25 [LOG] 2025-05-26 11:20:25 - Get request made to GetPostsScroll Handler
+2025/05/26 11:20:25 [INFO] 2025-05-26 11:20:25 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/26 11:20:49 [ERROR] 2025-05-26 11:20:49 - Token cookie is missing in GetToken
+2025/05/26 11:20:49 [LOG] 2025-05-26 11:20:49 - Get request made to GetPostsScroll Handler
+2025/05/26 11:20:49 [ERROR] 2025-05-26 11:20:49 - Token cookie is missing in GetToken
+2025/05/26 11:20:49 [ERROR] 2025-05-26 11:20:49 - Token is empty
+2025/05/26 11:20:49 [ERROR] 2025-05-26 11:20:49 - Invalid Token in GetPostsScroll Handler: Token is empty
+2025/05/26 11:20:49 [LOG] 2025-05-26 11:20:49 - Get request made to GetPostsScroll Handler
+2025/05/26 11:20:49 [ERROR] 2025-05-26 11:20:49 - Token cookie is missing in GetToken
+2025/05/26 11:20:49 [ERROR] 2025-05-26 11:20:49 - Token is empty
+2025/05/26 11:20:49 [ERROR] 2025-05-26 11:20:49 - Invalid Token in GetPostsScroll Handler: Token is empty
+2025/05/26 11:21:06 [INFO] 2025-05-26 11:21:06 - Parsed multipart form
+2025/05/26 11:21:06 [INFO] 2025-05-26 11:21:06 - Form fields parsed successfully
+2025/05/26 11:21:06 [INFO] 2025-05-26 11:21:06 - Form fields parsed
+2025/05/26 11:21:06 [INFO] 2025-05-26 11:21:06 - Checking if email exists: sdaf@sdf.ds
+2025/05/26 11:21:06 [INFO] 2025-05-26 11:21:06 - Email is unique
+2025/05/26 11:21:06 [INFO] 2025-05-26 11:21:06 - Validating registration input
+2025/05/26 11:21:06 [INFO] 2025-05-26 11:21:06 - Registration input valid
+2025/05/26 11:21:06 [INFO] 2025-05-26 11:21:06 - User input validated
+2025/05/26 11:21:06 [INFO] 2025-05-26 11:21:06 - Hashing password
+2025/05/26 11:21:06 [INFO] 2025-05-26 11:21:06 - Password hashed successfully
+2025/05/26 11:21:06 [INFO] 2025-05-26 11:21:06 - Password hashed
+2025/05/26 11:21:06 [INFO] 2025-05-26 11:21:06 - Starting avatar upload
+2025/05/26 11:21:06 [INFO] 2025-05-26 11:21:06 - No image file provided
+2025/05/26 11:21:06 [INFO] 2025-05-26 11:21:06 - Saving user to database with ID: f16b7759-f01c-47b2-ba26-db534131e143
+2025/05/26 11:21:06 [INFO] 2025-05-26 11:21:06 - User saved successfully
+2025/05/26 11:21:06 [INFO] 2025-05-26 11:21:06 - User registered with ID: f16b7759-f01c-47b2-ba26-db534131e143
+2025/05/26 11:21:06 [INFO] 2025-05-26 11:21:06 - Save Token into Sessions
+2025/05/26 11:21:06 [INFO] 2025-05-26 11:21:06 - Login successful for user: f16b7759-f01c-47b2-ba26-db534131e143
+2025/05/26 11:21:06 [INFO] 2025-05-26 11:21:06 - Success Register
+2025/05/26 11:21:07 [LOG] 2025-05-26 11:21:07 - Get request made to GetPostsScroll Handler
+2025/05/26 11:21:07 [INFO] 2025-05-26 11:21:07 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/26 11:21:07 [LOG] 2025-05-26 11:21:07 - Get request made to GetPostsScroll Handler
+2025/05/26 11:21:07 [INFO] 2025-05-26 11:21:07 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/26 11:21:12 [LOG] 2025-05-26 11:21:12 - Get request made to GetPostsScroll Handler
+2025/05/26 11:21:12 [ERROR] 2025-05-26 11:21:12 - No Posts found in GetPostsScroll Handler: 
+2025/05/26 11:21:12 [LOG] 2025-05-26 11:21:12 - Get request made to GetPostsScroll Handler
+2025/05/26 11:21:12 [ERROR] 2025-05-26 11:21:12 - No Posts found in GetPostsScroll Handler: 
+2025/05/26 11:23:16 [LOG] 2025-05-26 11:23:16 - Get request made to GetPostsScroll Handler
+2025/05/26 11:23:16 [INFO] 2025-05-26 11:23:16 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/26 11:23:16 [LOG] 2025-05-26 11:23:16 - Get request made to GetPostsScroll Handler
+2025/05/26 11:23:16 [INFO] 2025-05-26 11:23:16 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/26 11:25:40 [LOG] 2025-05-26 11:25:40 - Get request made to GetPostsScroll Handler
+2025/05/26 11:25:40 [INFO] 2025-05-26 11:25:40 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/26 11:25:40 [LOG] 2025-05-26 11:25:40 - Get request made to GetPostsScroll Handler
+2025/05/26 11:25:40 [INFO] 2025-05-26 11:25:40 - Posts fetched successfully in GetPostsScroll Handler
