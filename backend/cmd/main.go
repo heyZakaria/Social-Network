@@ -36,11 +36,13 @@ func main() {
 	router.HandleFunc("GET /api/verify", middleware.CheckUserExeting)
 
 	// Profile routes
-	router.HandleFunc("POST /api/uers", profile.UsersList)
+	router.HandleFunc("GET /api/users/friends", profile.GetFriendsAndRequests)
 	router.HandleFunc("GET /api/users/profile", profile.GetUserProfile)
 	router.HandleFunc("PUT /api/users/privacy", profile.ProfileStatus)
 	router.HandleFunc("GET /api/users/get/profile", profile.GetOtherUserProfile)
 	router.HandleFunc("GET /api/users/follow", profile.ToggleFollowUser)
+	router.HandleFunc("POST /api/users/follow", profile.ToggleFollowUser)
+	 router.HandleFunc("GET /api/users/suggestions", profile.GetUserSuggestions)
 
 	// Testing serving images
 	//http://localhost:8080/uploads/posts/40809c81-b8b6-45aa-8311-4abe9de995f8.JPEG

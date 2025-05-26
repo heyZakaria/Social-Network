@@ -12,10 +12,10 @@ export default function UserList({ users, currentUser }) {
   useEffect(() => {
     const initialStatus = {}
     users.forEach(user => {
-      if (user.ID !== currentUser.id) {
-        const isFollowing = user.Followers?.some(f => f.ID === currentUser.id)
-        const isPending = user.Followers?.some(f => f.ID === currentUser.id && f.follower_status === "pending")
-        initialStatus[user.ID] = isFollowing ? "following" : isPending ? "pending" : "none"
+      if (user.id !== currentUser.id) {
+        const isFollowing = user.Followers?.some(f => f.id === currentUser.id)
+        const isPending = user.Followers?.some(f => f.id === currentUser.id && f.follower_status === "pending")
+        initialStatus[user.id] = isFollowing ? "following" : isPending ? "pending" : "none"
       }
     })
     setFollowStatus(initialStatus)
@@ -49,28 +49,28 @@ export default function UserList({ users, currentUser }) {
   return (
     <div className={styles.userList}>
       {users.slice(0, displayCount).map((user) => (
-        <div key={user.ID} className={styles.userItem}>
-          <Link href={`/profile/${user.ID}`} className={styles.userLink}>
-            <img src={user.Avatar || "/default-avatar.png"} alt={user.FirstName} className={styles.userAvatar} />
+        <div key={user.id} className={styles.userItem}>
+          <Link href={`/profile/${user.id}`} className={styles.userLink}>
+            <img src={user.avatar || "/uploads/profile.jpeg"} alt={user.firstName} className={styles.userAvatar} />
             <div className={styles.userInfo}>
               <div className={styles.userName}>
-                {user.FirstName} {user.LastName}
-                {user.NickName && <span className={styles.userNickname}>({user.NickName})</span>}
+                {user.firstName} {user.lastName}
+                {user.nickName && <span className={styles.userNickname}>({user.nickName})</span>}
               </div>
             </div>
           </Link>
 
-          {user.ID !== currentUser.id && (
+          {user.id !== currentUser.id && (
             <button
               className={styles.followButton}
-              onClick={() => handleFollow(user.ID)}
-              disabled={pendingFollows[user.ID]}
+              onClick={() => handleFollow(user.id)}
+              disabled={pendingFollows[user.id]}
             >
-              {pendingFollows[user.ID]
+              {pendingFollows[user.id]
                 ? "Processing..."
-                : followStatus[user.ID] === "following"
+                : followStatus[user.id] === "following"
                 ? "Following"
-                : followStatus[user.ID] === "pending"
+                : followStatus[user.id] === "pending"
                 ? "Requested"
                 : "Follow"}
             </button>

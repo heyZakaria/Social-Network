@@ -10,12 +10,12 @@ import UserList from "./user-list";
 import FloatingChat from "@/components/chat/floating-chat";
 import { FaLock } from "react-icons/fa";
 
-export default function ProfileComponent({ProfileData, currentUser,}) {
+export default function ProfileComponent({ ProfileData, currentUser }) {
   const [activeTab, setActiveTab] = useState("posts");
-  if(!ProfileData) {
-    return <div>Loading...</div>
+  if (!ProfileData) {
+    return <div>Loading...</div>;
   }
-  
+
   const [posts, setPosts] = useState([]);
   const [offset, setOffset] = useState(0);
   const limit = 10; // You can change this value if needed
@@ -32,13 +32,13 @@ export default function ProfileComponent({ProfileData, currentUser,}) {
     try {
       setLoading(true);
       const res = await fetch(
-        `http://localhost:8080/posts/getposts?limit=${limit}&offset=${offset}&user_id=${ProfileData.id}`, {
-        credentials: "include",
-      }
+        `http://localhost:8080/posts/getposts?limit=${limit}&offset=${offset}&user_id=${ProfileData.id}`,
+        {
+          credentials: "include",
+        }
       );
 
       console.log(res);
-      
 
       if (!res.ok) {
         throw new Error("Failed to fetch posts");
@@ -46,7 +46,7 @@ export default function ProfileComponent({ProfileData, currentUser,}) {
       const data = await res.json();
       if (data.data.posts.length < limit) setHasMore(false); // no more posts
 
-      setPosts((prev) => [...data?.data?.posts]);//setPosts((prev) => [...prev, ...data?.data?.posts]);
+      setPosts((prev) => [...data?.data?.posts]); //setPosts((prev) => [...prev, ...data?.data?.posts]);
     } catch (error) {
       console.error("Error loading posts:", error);
     } finally {
@@ -54,7 +54,7 @@ export default function ProfileComponent({ProfileData, currentUser,}) {
     }
   };
 
-  console.log("ProfileData", ProfileData)
+  console.log("ProfileData", ProfileData);
 
   const loadMore = () => {
     if (!loading && hasMore) {
@@ -67,7 +67,7 @@ export default function ProfileComponent({ProfileData, currentUser,}) {
       <div className={styles.profileHeader}>
         <div className={styles.profileCover}>
           <img
-            src={ProfileData.avatar || "/uploads/profile.jpeg"}// ./uploads/profile_image/b27c2604-404b-48e4-a20c-f4afa29a9c57.jpeg
+            src={ProfileData.avatar || "/uploads/profile.jpeg"} // ./uploads/profile_image/b27c2604-404b-48e4-a20c-f4afa29a9c57.jpeg
             alt="Cover"
             className={styles.coverImage}
           />
@@ -104,25 +104,33 @@ export default function ProfileComponent({ProfileData, currentUser,}) {
                 <div className={styles.profileActions}>
                   <FollowButton
                     profileUser={ProfileData}
-                  currentUser={currentUser}
+                    currentUser={currentUser}
                   />
-                            {ProfileData.profile_status === "public" || ProfileData.CanView ? (
-                            <button className={styles.messageButton}>Message</button>
-                            ) : null}
+                  {ProfileData.profile_status === "public" ||
+                  ProfileData.CanView ? (
+                    <button className={styles.messageButton}>Message</button>
+                  ) : null}
                 </div>
               )}
             </div>
 
             <div className={styles.profileStats}>
               <div className={styles.stat}>
-                <span className={styles.statNumber}>{ProfileData.postsCount}</span> posts
+                <span className={styles.statNumber}>
+                  {ProfileData.postsCount}
+                </span>{" "}
+                posts
               </div>
               <div className={styles.stat}>
-                <span className={styles.statNumber}>{ProfileData.followerCount}</span>{" "}
+                <span className={styles.statNumber}>
+                  {ProfileData.followerCount}
+                </span>{" "}
                 followers
               </div>
               <div className={styles.stat}>
-                <span className={styles.statNumber}>{ProfileData.followingCount}</span>{" "}
+                <span className={styles.statNumber}>
+                  {ProfileData.followingCount}
+                </span>{" "}
                 following
               </div>
             </div>
@@ -137,22 +145,25 @@ export default function ProfileComponent({ProfileData, currentUser,}) {
         <div className={styles.profileContent}>
           <div className={styles.profileTabs}>
             <button
-              className={`${styles.tabButton} ${activeTab === "posts" ? styles.activeTab : ""
-                }`}
+              className={`${styles.tabButton} ${
+                activeTab === "posts" ? styles.activeTab : ""
+              }`}
               onClick={() => setActiveTab("posts")}
             >
               Posts
             </button>
             <button
-              className={`${styles.tabButton} ${activeTab === "followers" ? styles.activeTab : ""
-                }`}
+              className={`${styles.tabButton} ${
+                activeTab === "followers" ? styles.activeTab : ""
+              }`}
               onClick={() => setActiveTab("followers")}
             >
               Followers
             </button>
             <button
-              className={`${styles.tabButton} ${activeTab === "following" ? styles.activeTab : ""
-                }`}
+              className={`${styles.tabButton} ${
+                activeTab === "following" ? styles.activeTab : ""
+              }`}
               onClick={() => setActiveTab("following")}
             >
               Following
@@ -192,13 +203,18 @@ export default function ProfileComponent({ProfileData, currentUser,}) {
               </div>
             )}
 
-
             {activeTab === "followers" && (
-              <UserList users={ProfileData.followers} currentUser={ProfileData} />
+              <UserList
+                users={ProfileData.followers}
+                currentUser={ProfileData}
+              />
             )}
 
             {activeTab === "following" && (
-              <UserList users={ProfileData.following} currentUser={ProfileData} />
+              <UserList
+                users={ProfileData.following}
+                currentUser={ProfileData}
+              />
             )}
           </div>
         </div>

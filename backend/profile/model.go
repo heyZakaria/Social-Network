@@ -36,4 +36,6 @@ type UserProfile struct {
 	Following      []User `json:"following"`
 	IsOwnProfile   bool
 	CanView        bool
+	IsFollowing    bool
+	RequestPending bool
 }

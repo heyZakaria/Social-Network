@@ -1,154 +1,94 @@
 'use client';
 
-// import { getCurrentUser } from "@/actions/auth";
-import styles from "@/styles/friends.module.css";
-import FloatingChat from "@/components/chat/floating-chat";
-import { useUser } from "@/app/(utils)/user_context";
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
+import Link from 'next/link';
+import styles from '@/styles/friends.module.css';
+import FloatingChat from '@/components/chat/floating-chat';
+import { useUser } from '@/app/(utils)/user_context';
 
 export default function FriendsPage() {
+  const { currentUser } = useUser();
   const [friends, setFriends] = useState([]);
   const [suggestions, setSuggestions] = useState([]);
-  const [loading, setLoading] = useState(true);
   const [activeTab, setActiveTab] = useState('all');
-  const { user: currentUser } = useUser();
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function fetchFriends() {
       try {
-        // Fetch current user's profile to get followers/following
-        const profileRes = await fetch('/api/users/profile', {
+        const res = await fetch('http://localhost:8080/api/users/friends', {
           credentials: 'include',
         });
-        const profileData = await profileRes.json();
-        
-        if (profileData.success) {
-          const userData = profileData.data.Data;
-          setFriends(userData.followers || []);
-          
-          // Fetch suggestions (users not in followers/following)
-          const suggestionsRes = await fetch('/api/users/suggestions', {
-            credentials: 'include',
-          });
-          const suggestionsData = await suggestionsRes.json();
-          
-          if (suggestionsData.success) {
-            setSuggestions(suggestionsData.data.users || []);
-          }
-        }
-      } catch (error) {
-        console.error('Error fetching friends:', error);
+        const data = await res.json();
+        // Always use arrays, never null
+        const friendsArr = Array.isArray(data?.data?.friends) ? data.data.friends : [];
+        const requestsArr = Array.isArray(data?.data?.requests) ? data.data.requests : [];
+
+        setFriends([
+          ...friendsArr.map((u) => ({
+            ID: u.id,
+            FirstName: u.firstName,
+            LastName: u.lastName,
+            NickName: u.nickname,
+            Avatar: u.avatar,
+            follower_status: 'accepted',
+            isOnline: u.isOnline || false,
+          })),
+          ...requestsArr.map((u) => ({
+            ID: u.id,
+            FirstName: u.firstName,
+            LastName: u.lastName,
+            NickName: u.nickname,
+            Avatar: u.avatar,
+            follower_status: 'pending',
+            isOnline: u.isOnline || false,
+          })),
+        ]);
+
+        const suggestionsRes = await fetch('/api/users/suggestions', {
+          credentials: 'include',
+        });
+        const suggestionsData = await suggestionsRes.json();
+        setSuggestions(
+          (suggestionsData.data?.users || []).map((u) => ({
+            ID: u.id,
+            FirstName: u.firstName,
+            LastName: u.lastName,
+            NickName: u.nickname,
+            Avatar: u.avatar,
+          }))
+        );
+      } catch (err) {
+        console.error('Failed to load friends:', err);
       } finally {
         setLoading(false);
       }
     }
 
-    if (currentUser) {
-      fetchFriends();
-    }
-  }, [currentUser]);
+    fetchFriends();
+  }, []);
 
-  const handleFollow = async (userId) => {
-    try {
-      const res = await fetch(`/api/users/follow?id=${userId}`, {
-        method: 'POST',
-        credentials: 'include',
-      });
-      const data = await res.json();
-      
-      if (data.success) {
-        // Refresh friends list
-        const profileRes = await fetch('/api/users/profile', {
-          credentials: 'include',
-        });
-        const profileData = await profileRes.json();
-        if (profileData.success) {
-          setFriends(profileData.data.Data.followers || []);
-        }
-      }
-    } catch (error) {
-      console.error('Error following user:', error);
-    }
+  const handleFollow = async (id) => {
+    // TODO: implement follow
   };
 
-  const handleUnfollow = async (userId) => {
-    try {
-      const res = await fetch(`/api/users/follow?id=${userId}`, {
-        method: 'POST',
-        credentials: 'include',
-      });
-      const data = await res.json();
-      
-      if (data.success) {
-        // Refresh friends list
-        const profileRes = await fetch('/api/users/profile', {
-          credentials: 'include',
-        });
-        const profileData = await profileRes.json();
-        if (profileData.success) {
-          setFriends(profileData.data.Data.followers || []);
-        }
-      }
-    } catch (error) {
-      console.error('Error unfollowing user:', error);
-    }
+  const handleUnfollow = async (id) => {
+    // TODO: implement unfollow
   };
 
-  const handleAcceptRequest = async (userId) => {
-    try {
-      const res = await fetch(`/api/users/follow/accept?id=${userId}`, {
-        method: 'POST',
-        credentials: 'include',
-      });
-      const data = await res.json();
-      
-      if (data.success) {
-        // Refresh friends list
-        const profileRes = await fetch('/api/users/profile', {
-          credentials: 'include',
-        });
-        const profileData = await profileRes.json();
-        if (profileData.success) {
-          setFriends(profileData.data.Data.followers || []);
-        }
-      }
-    } catch (error) {
-      console.error('Error accepting request:', error);
-    }
+  const handleAcceptRequest = async (id) => {
+    // TODO: implement accept
   };
 
-  const handleRejectRequest = async (userId) => {
-    try {
-      const res = await fetch(`/api/users/follow/reject?id=${userId}`, {
-        method: 'POST',
-        credentials: 'include',
-      });
-      const data = await res.json();
-      
-      if (data.success) {
-        // Refresh friends list
-        const profileRes = await fetch('/api/users/profile', {
-          credentials: 'include',
-        });
-        const profileData = await profileRes.json();
-        if (profileData.success) {
-          setFriends(profileData.data.Data.followers || []);
-        }
-      }
-    } catch (error) {
-      console.error('Error rejecting request:', error);
-    }
+  const handleRejectRequest = async (id) => {
+    // TODO: implement reject
   };
 
-  const filteredFriends = friends.filter(friend => {
-    switch (activeTab) {
-      case 'online':
-        return friend.isOnline;
-      case 'requests':
-        return friend.follower_status === 'pending';
-      default:
-        return true;
-    }
+  const filteredFriends = friends.filter((friend) => {
+    if (activeTab === 'all') return friend.follower_status === 'accepted';
+    if (activeTab === 'online') return friend.follower_status === 'accepted' && friend.isOnline;
+    if (activeTab === 'requests') return friend.follower_status === 'pending';
+    return false;
   });
 
   if (loading) {
@@ -162,24 +102,15 @@ export default function FriendsPage() {
       </div>
 
       <div className={styles.friendsTabs}>
-        <button 
-          className={`${styles.tabButton} ${activeTab === 'all' ? styles.activeTab : ''}`}
-          onClick={() => setActiveTab('all')}
-        >
-          All Friends
-        </button>
-        <button 
-          className={`${styles.tabButton} ${activeTab === 'online' ? styles.activeTab : ''}`}
-          onClick={() => setActiveTab('online')}
-        >
-          Online
-        </button>
-        <button 
-          className={`${styles.tabButton} ${activeTab === 'requests' ? styles.activeTab : ''}`}
-          onClick={() => setActiveTab('requests')}
-        >
-          Requests
-        </button>
+        {['all', 'online', 'requests'].map((tab) => (
+          <button
+            key={tab}
+            className={`${styles.tabButton} ${activeTab === tab ? styles.activeTab : ''}`}
+            onClick={() => setActiveTab(tab)}
+          >
+            {tab.charAt(0).toUpperCase() + tab.slice(1)}
+          </button>
+        ))}
       </div>
 
       <div className={styles.friendsContent}>
@@ -192,14 +123,18 @@ export default function FriendsPage() {
           <div className={styles.friendsGrid}>
             {filteredFriends.map((friend) => (
               <div key={friend.ID} className={styles.friendCard}>
-                <img
-                  src={friend.Avatar || "/placeholder.svg?height=80&width=80"}
-                  alt={`${friend.FirstName} ${friend.LastName}`}
-                  className={styles.friendAvatar}
-                />
+                <Link href={`/profile/${friend.ID}`}>
+                  <img
+                    src={friend.Avatar || "/uploads/profile.jpeg"}
+                    alt={`${friend.FirstName} ${friend.LastName}`}
+                    className={styles.friendAvatar}
+                  />
+                </Link>
                 <div className={styles.friendInfo}>
                   <h3 className={styles.friendName}>
-                    {friend.FirstName} {friend.LastName}
+                    <Link href={`/profile/${friend.ID}`}>
+                      {friend.FirstName} {friend.LastName}
+                    </Link>
                   </h3>
                   {friend.NickName && (
                     <p className={styles.friendNickname}>({friend.NickName})</p>
@@ -211,13 +146,13 @@ export default function FriendsPage() {
                 <div className={styles.friendActions}>
                   {activeTab === 'requests' ? (
                     <>
-                      <button 
+                      <button
                         className={styles.followButton}
                         onClick={() => handleAcceptRequest(friend.ID)}
                       >
                         Accept
                       </button>
-                      <button 
+                      <button
                         className={styles.ignoreButton}
                         onClick={() => handleRejectRequest(friend.ID)}
                       >
@@ -226,13 +161,15 @@ export default function FriendsPage() {
                     </>
                   ) : (
                     <>
-                      <button 
+                      <button
                         className={styles.messageButton}
-                        onClick={() => {/* TODO: Implement messaging */}}
+                        onClick={() => {
+                          /* TODO: Implement messaging */
+                        }}
                       >
                         Message
                       </button>
-                      <button 
+                      <button
                         className={styles.unfollowButton}
                         onClick={() => handleUnfollow(friend.ID)}
                       >
@@ -253,40 +190,45 @@ export default function FriendsPage() {
           </div>
         </div>
 
-        {activeTab === 'all' && (
-        <div className={styles.friendsSection}>
-          <h2 className={styles.sectionTitle}>People You May Know</h2>
-          <div className={styles.friendsGrid}>
+        {activeTab === 'all' && suggestions.length > 0 && (
+          <div className={styles.friendsSection}>
+            <h2 className={styles.sectionTitle}>People You May Know</h2>
+            <div className={styles.friendsGrid}>
               {suggestions.map((suggestion) => (
                 <div key={suggestion.ID} className={styles.friendCard}>
-                  <img
-                    src={suggestion.Avatar || "/placeholder.svg?height=80&width=80"}
-                    alt={`${suggestion.FirstName} ${suggestion.LastName}`}
-                  className={styles.friendAvatar}
-                />
-                <div className={styles.friendInfo}>
-                  <h3 className={styles.friendName}>
-                      {suggestion.FirstName} {suggestion.LastName}
-                  </h3>
+                  <Link href={`/profile/${suggestion.ID}`}>
+                    <img
+                      src={suggestion.Avatar || "/uploads/profile.jpeg"}
+                      alt={`${suggestion.FirstName} ${suggestion.LastName}`}
+                      className={styles.friendAvatar}
+                    />
+                  </Link>
+                  <div className={styles.friendInfo}>
+                    <h3 className={styles.friendName}>
+                      <Link href={`/profile/${suggestion.ID}`}>
+                        {suggestion.FirstName} {suggestion.LastName}
+                      </Link>
+                    </h3>
                     {suggestion.NickName && (
                       <p className={styles.friendNickname}>({suggestion.NickName})</p>
-                  )}
-                </div>
-                <div className={styles.friendActions}>
-                    <button 
+                    )}
+                  </div>
+                  <div className={styles.friendActions}>
+                    <button
                       className={styles.followButton}
                       onClick={() => handleFollow(suggestion.ID)}
                     >
                       Follow
                     </button>
-                  <button className={styles.ignoreButton}>Ignore</button>
+                    <button className={styles.ignoreButton}>Ignore</button>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
         )}
       </div>
+
       <FloatingChat currentUser={currentUser} />
     </div>
   );

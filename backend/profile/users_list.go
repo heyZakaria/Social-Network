@@ -1,6 +1,7 @@
 package profile
 
 import (
+	"fmt"
 	"net/http"
 
 	"socialNetwork/auth"
@@ -9,59 +10,106 @@ import (
 	"socialNetwork/utils"
 )
 
-// POST /api/users/follow?id=TARGET_USER_ID
-func UsersList(w http.ResponseWriter, r *http.Request) {
+func GetFriendsAndRequests(w http.ResponseWriter, r *http.Request) {
+	utils.Log("INFO", "GetFriendsAndRequests called")
+
 	token := auth.GetToken(w, r)
-	followerID, err := user.GetUserIDByToken(token)
+	userID, err := user.GetUserIDByToken(token)
 	if err != nil {
 		utils.SendJSON(w, http.StatusUnauthorized, utils.JSONResponse{
-			Success: false, Message: "Unauthorized", Error: err.Error(),
+			Success: false,
+			Message: "Unauthorized",
+			Error:   err.Error(),
 		})
 		return
 	}
-
-	targetID := r.URL.Query().Get("id")
-	if targetID == "" || targetID == followerID {
-		utils.SendJSON(w, http.StatusBadRequest, utils.JSONResponse{
-			Success: false, Message: "Invalid user ID",
-		})
-		return
-	}
-
-	var status string
-	err = db.DB.QueryRow(`SELECT profile_status FROM users WHERE id = ?`, targetID).Scan(&status)
+	friends, err := LoadUsers(userID, "accepted")
 	if err != nil {
 		utils.SendJSON(w, http.StatusInternalServerError, utils.JSONResponse{
-			Success: false, Message: "User not found", Error: err.Error(),
+			Success: false,
+			Message: "Failed to get friends",
+			Error:   err.Error(),
 		})
 		return
 	}
+	fmt.Println("friends", friends)
+	// friends = []User{
+	// 	{ID: "2", FirstName: "Test", LastName: "Friend", NickName: "tester", Avatar: ""},
+	// 	{ID: "3", FirstName: "Pending", LastName: "User", NickName: "", Avatar: ""},
+	// 	{ID: "3", FirstName: "Pending", LastName: "User", NickName: "", Avatar: ""},
+	// 	{ID: "3", FirstName: "Pending", LastName: "User", NickName: "", Avatar: ""},
+	// 	{ID: "3", FirstName: "Pending", LastName: "User", NickName: "", Avatar: ""},
+	// }
+	// fmt.Println("friends", friends)
 
-	var following bool
-	err = db.DB.QueryRow(`SELECT EXISTS(SELECT 1 FROM followers WHERE followed_id = ? AND follower_id = ?)`, targetID, followerID).Scan(&following)
-	if err != nil {
-		utils.SendJSON(w, http.StatusInternalServerError, utils.JSONResponse{Success: false, Error: err.Error()})
-		return
-	}
+	// Query pending requests
+	requests, err := LoadUsers(userID, "pending")
+	// requests = []User{
+	// 	{ID: "3", FirstName: "Pending", LastName: "User", NickName: "", Avatar: ""},
+	// 	{ID: "3", FirstName: "Pending", LastName: "User", NickName: "", Avatar: ""},
+	// 	{ID: "3", FirstName: "Pending", LastName: "User", NickName: "", Avatar: ""},
+	// 	{ID: "3", FirstName: "Pending", LastName: "User", NickName: "", Avatar: ""},
+	// }
+	// fmt.Println("requests", requests)
 
-	if following {
-		_, err = db.DB.Exec(`DELETE FROM followers WHERE followed_id = ? AND follower_id = ?`, targetID, followerID)
-		utils.SendJSON(w, http.StatusOK, utils.JSONResponse{
-			Success: true, Message: "Unfollowed", Data: map[string]any{"isFollowing": false, "requestPending": false},
-		})
-		return
-	}
-
-	if status == "private" {
-		_, err = db.DB.Exec(`INSERT OR REPLACE INTO followers (followed_id, follower_id, follower_status) VALUES (?, ?, 'pending')`, targetID, followerID)
-		utils.SendJSON(w, http.StatusOK, utils.JSONResponse{
-			Success: true, Message: "Follow request sent", Data: map[string]any{"isFollowing": false, "requestPending": true},
-		})
-		return
-	}
-
-	_, err = db.DB.Exec(`INSERT INTO followers (followed_id, follower_id, follower_status) VALUES (?, ?, 'accepted')`, targetID, followerID)
 	utils.SendJSON(w, http.StatusOK, utils.JSONResponse{
-		Success: true, Message: "Now following", Data: map[string]any{"isFollowing": true, "requestPending": false},
+		Success: true,
+		Message: "Friends and requests fetched",
+		Data: map[string]interface{}{
+			"friends":  friends,
+			"requests": requests,
+		},
+	})
+}
+
+func GetUserSuggestions(w http.ResponseWriter, r *http.Request) {
+	utils.Log("INFO", "GetUserSuggestions called")
+
+	token := auth.GetToken(w, r)
+	userID, err := user.GetUserIDByToken(token)
+	if err != nil {
+		utils.SendJSON(w, http.StatusUnauthorized, utils.JSONResponse{
+			Success: false,
+			Message: "Unauthorized",
+			Error:   err.Error(),
+		})
+		return
+	}
+
+	rows, err := db.DB.Query(`
+        SELECT id, first_name, last_name, avatar, nickname
+        FROM users
+        WHERE id != ? AND id NOT IN (
+            SELECT followed_id FROM followers WHERE follower_id = ?
+            UNION
+            SELECT follower_id FROM followers WHERE followed_id = ?
+        )
+        LIMIT 10
+    `, userID, userID, userID)
+	if err != nil {
+		utils.SendJSON(w, http.StatusInternalServerError, utils.JSONResponse{
+			Success: false,
+			Message: "Failed to get suggestions",
+			Error:   err.Error(),
+		})
+		return
+	}
+	defer rows.Close()
+
+	var users []User
+	for rows.Next() {
+		var u User
+		err := rows.Scan(&u.ID, &u.FirstName, &u.LastName, &u.Avatar, &u.NickName)
+		if err == nil {
+			users = append(users, u)
+		}
+	}
+
+	utils.SendJSON(w, http.StatusOK, utils.JSONResponse{
+		Success: true,
+		Message: "Suggestions fetched",
+		Data: map[string]interface{}{
+			"users": users,
+		},
 	})
 }
