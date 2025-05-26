@@ -2,11 +2,12 @@ package chat
 
 import (
 	"net/http"
+
 	"socialNetwork/auth"
-	db "socialNetwork/db/sqlite"
 	"socialNetwork/user"
 	"socialNetwork/utils"
 
+	"github.com/google/uuid"
 	"github.com/gorilla/websocket"
 )
 
@@ -36,8 +37,8 @@ var upgrader = websocket.Upgrader{
 	ReadBufferSize:  1024,
 	WriteBufferSize: 1024,
 }
-var UserConnection = make(map[string]UserConnections)
-var dbConn = db.DB
+
+var UserConnection = make(map[string][]UserConnections)
 
 func WebSocketHandler(w http.ResponseWriter, r *http.Request) {
 	// Write Full Logic of How to handle Chat Between users step by step
@@ -65,8 +66,6 @@ func WebSocketHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	defer conn.Close()
-	UserConnection
-	// 3. Listen for messages from the client
 
 	// 4. Save the message to the database
 	// 5. Send a response back to the client
@@ -85,25 +84,42 @@ func WebSocketHandler(w http.ResponseWriter, r *http.Request) {
 	// and then we can send messages to the clien
 
 	// Listen for messages from the client
-	UserConnection["user_id"] = conn
+
+	// Create a new user connection if it doesn't exist
+	uc := UserConnections{
+		Conn: conn,
+	}
+	UserConnection[UserID] = append(UserConnection[UserID], uc)
+	// Log the creation of a new user connection
+	utils.Log("INFO", "Creating new user connection for user: "+UserID)
+
 	for {
-		_, msg, err := conn.ReadMessage()
+		var msg Message
+		err := conn.ReadJSON(&msg)
 		if err != nil {
 			break
 		}
+		// if the user its first time to send a message we have to create a new chat session
+		if msg.ChatSessionID == "" {
+			// Create a new chat session ID
+			msg.ChatSessionID = uuid.New().String()
+		}
+		// Set the sender and receiver IDs
+		if msg.SenderID == "" {
+			msg.SenderID = UserID // Use the authenticated user's ID as the sender
+		}
+		if msg.ReceiverID == "" {
+			// TODO Handle the case where the receiver ID is not provided
+			http.Error(w, "Receiver ID is required", http.StatusBadRequest)
+			return
+		}
+		// Log the received message
+		utils.Log("INFO", "Received message from user: "+msg.SenderID+" to user: "+msg.ReceiverID)
+		// Prepare the SQL statement to insert the message
 		// Handle the message (e.g., save it to the database)
-		stmnt, err := db.DB.Prepare("INSERT INTO chats (sender_id, receiver_id, message_content) VALUES (?, ?, ?)")
-		if err != nil {
-			http.Error(w, "Failed to prepare statement", http.StatusInternalServerError)
-			return
-		}
-		defer stmnt.Close()
-		_, err = stmnt.Exec("sender_id", "receiver_id", string(msg))
-		if err != nil {
-			http.Error(w, "Failed to execute statement", http.StatusInternalServerError)
-			return
-		}
+		msg.InsertMessage()
 		// Send a response back to the client
+		msg.SendMessageToUser()
 		err = conn.WriteMessage(websocket.TextMessage, []byte("Message received"))
 		if err != nil {
 			break

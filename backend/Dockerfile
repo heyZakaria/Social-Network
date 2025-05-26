@@ -9,3 +9,4 @@ RUN apk add --no-cache gcc musl-dev sqlite-dev
 RUN go build -o main ./cmd
 
 CMD ["./main"]
+z
