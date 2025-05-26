@@ -5,6 +5,7 @@ import (
 	"socialNetwork/auth"
 	db "socialNetwork/db/sqlite"
 	"socialNetwork/user"
+	"socialNetwork/utils"
 
 	"github.com/gorilla/websocket"
 )
@@ -35,15 +36,20 @@ var upgrader = websocket.Upgrader{
 	ReadBufferSize:  1024,
 	WriteBufferSize: 1024,
 }
-var UserConnection = make(map[string]*websocket.Conn)
+var UserConnection = make(map[string]UserConnections)
 var dbConn = db.DB
 
 func WebSocketHandler(w http.ResponseWriter, r *http.Request) {
 	// Write Full Logic of How to handle Chat Between users step by step
 	// 1. Check if the user is authenticated
-	token, err := auth.GetToken(w, r)
-	if err != nil {
-		http.Error(w, "Unauthorized", http.StatusUnauthorized)
+	token := auth.GetToken(w, r)
+	if token == "" {
+		// TODO Handle The error
+		utils.Log("INFO", "User is not authenticated")
+		utils.SendJSON(w, http.StatusUnauthorized, utils.JSONResponse{
+			Success: false,
+			Message: "User is not authenticated",
+		})
 		return
 	}
 	// Check if the token is valid
@@ -59,6 +65,7 @@ func WebSocketHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	defer conn.Close()
+	UserConnection
 	// 3. Listen for messages from the client
 
 	// 4. Save the message to the database

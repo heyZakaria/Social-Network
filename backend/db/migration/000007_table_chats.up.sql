@@ -1,5 +1,5 @@
 CREATE TABLE IF NOT EXISTS chats(
-    chat_id INTEGER PRIMARY KEY, 
+    chat_session_id TEXT NOT NULL,
     sender_id TEXT NOT NULL, 
     receiver_id TEXT NOT NULL, 
     message_content TEXT NOT NULL, 
