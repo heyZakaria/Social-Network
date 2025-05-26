@@ -11,6 +11,8 @@ import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from 'next/navigation';
 import styles from "./register.module.css";
+import { FaTrash } from "react-icons/fa";
+
 // so we need to make this page exportable to use by next
 export default function RegisterPage() {
   const router = useRouter();
@@ -161,7 +163,7 @@ export default function RegisterPage() {
         const result = await res.json();
 
         if (result.success) {
-          console.log(result.success);
+          
           setServerError("");
           router.push('/home');
           alert("Registration successful!");
@@ -182,7 +184,8 @@ export default function RegisterPage() {
   };
 
   return (
-    <div className={styles.registerContainer}>
+    <div className={styles.authContainer}>
+  <div className={styles.authForm}>
       <h2 className={styles.heading3}>Create Account</h2>
       <p className={styles.subtitle}>
         Already have an account? <Link href="/login">Sign in</Link>
@@ -279,13 +282,33 @@ export default function RegisterPage() {
 
         <div className={styles.formGroup}>
           <label className={styles.label}>Avatar (Optional)</label>
-          <input
-            type="file"
-            name="avatar"
-            onChange={handleChange}
-            className={styles.inputFile}
-            accept="image/*"
-          />
+          <div className={styles.avatarContainer}>
+            {formData.avatar && (
+              <div className={styles.avatarPreview}>
+                <img 
+                  src={URL.createObjectURL(formData.avatar)} 
+                  alt="Avatar preview"
+                  className={styles.avatarImage}
+                />
+                <button
+                  type="button"
+                  onClick={() => {
+                    setFormData({...formData, avatar: null});
+                  }}
+                  className={styles.removeAvatar}
+                >
+                  <FaTrash className={styles.removeIcon} />
+                </button>
+              </div>
+            )}
+            <input
+              type="file"
+              name="avatar"
+              onChange={handleChange}
+              className={styles.inputFile}
+              accept="image/*"
+            />
+          </div>
           {errors.avatar && <p className={styles.error}>{errors.avatar}</p>}
         </div>
 
@@ -299,6 +322,7 @@ export default function RegisterPage() {
           Create Account
         </button>
       </form>
+    </div>
     </div>
   );
 }

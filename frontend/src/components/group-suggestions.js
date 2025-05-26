@@ -9,7 +9,7 @@ export default function GroupSuggestions({ suggestions = [] }) {
 
   const handleJoinRequest = (groupId) => {
     // In a real app, this would send an API request to join the group
-    console.log(`Requesting to join group ${groupId}`);
+    
 
     // Remove from suggestions after sending request
     setCurrentSuggestions(

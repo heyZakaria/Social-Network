@@ -118,10 +118,10 @@ const sampleEvents = [
 export default function Sidebar({ position }) {
   const path = usePathname();
 
-  const reg = /^\/profile\/\d+$/;
-  if (!path || !(reg.test(path) || path === '/home' || path === '/events' || path === '/groups' || path === '/friends' || path === '/notifications')) {
-    return null;
-  }
+  // const reg = /^\/profile\/\d+$/;
+  // if (!path || !(reg.test(path) || path === '/home' || path === '/events' || path === '/groups' || path === '/friends' || path === '/notifications')) {
+  //   return null;
+  // }
 
   return (
     <div className={styles.sidebar}>

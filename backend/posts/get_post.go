@@ -19,7 +19,15 @@ import (
 func GetPost(w http.ResponseWriter, r *http.Request) {
 	utils.Log("", "Get request made to GetPost Handler")
 	token := auth.GetToken(w, r)
-
+	if token == "" {
+		utils.Log("ERROR", "Error getting token in GetPost Handler")
+		utils.SendJSON(w, http.StatusUnauthorized, utils.JSONResponse{
+			Success: false,
+			Message: "Please login to continue",
+			Error:   "You are not Authorized.",
+		})
+		return
+	}
 	UserId, err := user.GetUserIDByToken(token)
 	if err != nil {
 		utils.Log("ERROR", "Invalid Token in GetPost Handler: "+err.Error())
@@ -74,7 +82,7 @@ func GetPost(w http.ResponseWriter, r *http.Request) {
 		// Check if the User Id Has access to this post,
 		err := db.DB.QueryRow("SELECT EXISTS(SELECT 1 FROM post_allowed WHERE post_id = ? AND user_id = ?)", PostId, UserId).Scan(&found)
 		if err != nil && Post.UserID != UserId || !found {
-			utils.Log("ERROR", "Error scanning Post in GetPost Handler: "+err.Error())
+			utils.Log("ERROR", "Error scanning Post in GetPost Handler")
 			utils.SendJSON(w, http.StatusUnauthorized, utils.JSONResponse{
 				Success: false,
 				Message: "You are not authorized to get this post",

@@ -7,6 +7,7 @@ import CommentSection from "./comment-section";
 import { IoHeartOutline, IoGlobeOutline } from 'react-icons/io5';
 import { BiShare, BiComment, BiDotsHorizontalRounded } from 'react-icons/bi';
 import { HiUsers, HiLockClosed } from 'react-icons/hi2';
+import { FetchData } from "@/app/(utils)/fetchJson";
 
 export default function PostComponent({
   post,
@@ -14,20 +15,33 @@ export default function PostComponent({
   currentUser,
   showComments = false,
 }) {
-  const [isLiked, setIsLiked] = useState(post.likes.includes(currentUser.id));
-  const [likesCount, setLikesCount] = useState(post.likes.length);
+  const [isLiked, setIsLiked] = useState(post.Liked);
+  const [likesCount, setLikesCount] = useState(post.LikeCounts);
   const [showCommentsSection, setShowCommentsSection] = useState(showComments);
   const [isExpanded, setIsExpanded] = useState(false);
   const MAX_CONTENT_LENGTH = 250; // Maximum characters to show before "See more"
 
-  const handleLike = () => {
-    if (isLiked) {
-      setLikesCount(likesCount - 1);
-    } else {
-      setLikesCount(likesCount + 1);
+  const handleLike =  () => {
+    async function updateLikeStatus() {
+      const response = await FetchData(
+        `http://localhost:8080/likes/react?id=${post.PostId}`, "POST")
+      const LikeCounts = response.data.like_count
+      const Like = response.data.success
+      console.log("post.Liked", post.Liked);
+      console.log("response", response);
+      console.log("Like Status Before", Like);
+      console.log("Like LikeCounts Before", LikeCounts);
+  
+  
+      setIsLiked(!isLiked);
+      setLikesCount(LikeCounts);
+      console.log("Like Status After", Like);
+      console.log("Like LikeCounts After", LikeCounts);
+
     }
-    setIsLiked(!isLiked);
+    updateLikeStatus()
   };
+
 
   const formatDate = (dateString) => {
     const date = new Date(dateString);
@@ -49,12 +63,12 @@ export default function PostComponent({
   };
 
   const getPrivacyIcon = () => {
-    switch (post.privacy) {
+    switch (post.Privacy) {
       case "public":
         return <IoGlobeOutline size={16} />;
       case "followers":
         return <HiUsers size={16} />;
-      case "private":
+      case "custom_users":
         return <HiLockClosed size={16} />;
       default:
         return null;
@@ -62,15 +76,15 @@ export default function PostComponent({
   };
   // Function to render post content with "See more" functionality
   const renderPostContent = () => {
-    if (!post.content) return null;
+    if (!post.Post_Content) return null;
 
-    if (post.content.length <= MAX_CONTENT_LENGTH || isExpanded) {
-      return <p>{post.content}</p>;
+    if (post.Post_Content.length <= MAX_CONTENT_LENGTH || isExpanded) {
+      return <p>{post.PostId} {post.Post_Content}</p>;
     }
 
     return (
       <p>
-        {post.content.substring(0, MAX_CONTENT_LENGTH)}...
+        {post.Post_Content.substring(0, MAX_CONTENT_LENGTH)}...
         <button
           className={styles.seeMoreButton}
           onClick={() => setIsExpanded(true)}
@@ -80,27 +94,28 @@ export default function PostComponent({
       </p>
     );
   };
-
+  console.log(post);
+  
   return (
     <div className={styles.post}>
       <div className={styles.postHeader}>
-        <Link href={`/profile/${user.id}`} className={styles.postUser}>
+        <Link href={`/profile/${post.UserID}`} className={styles.postUser}>
           <img
-            src={user.avatar || "https://i.pravatar.cc/150?u=10`"}
-            alt={user.firstName}
+            src={post.User_avatar || "/uploads/profile.jpeg"}
+            alt={post.First_name}
             className={styles.postAvatar}
           />
           <div className={styles.postUserInfo}>
             <div className={styles.postUserName}>
-              {user.firstName} {user.lastName}
+              {post.First_name} {post.Last_name}
             </div>
             <div className={styles.postMeta}>
               <span className={styles.postTime}>
-                {formatDate(post.createdAt)}
+                {formatDate(post.CreatedAt)}
               </span>
               <span
                 className={styles.postPrivacy}
-                title={`This post is ${post.privacy}`}
+                title={`This post is ${post.Privacy}`}
               >
                 {getPrivacyIcon()}
               </span>
@@ -108,20 +123,20 @@ export default function PostComponent({
           </div>
         </Link>
 
-        {currentUser.id === user.id && (
+        {/* {currentUser.id === user.id && (
           <div className={styles.postActions}>
             <button className={styles.postAction}>
             <BiDotsHorizontalRounded size={16} />
             </button>
           </div>
-        )}
+        )} */}
       </div>
 
       <div className={styles.postContent}>
         {renderPostContent()}
-        {post.image && (
+        {post.Post_image && (
           <img
-            src={post.image || "/placeholder.svg"}
+            src={post.Post_image}
             alt="Post"
             className={styles.postImage}
           />
@@ -131,13 +146,19 @@ export default function PostComponent({
       <div className={styles.postFooter}>
         <div className={styles.postStats}>
           <div className={styles.likesCount}>
-            {likesCount > 0 && (
+            {post.LikeCounts >= 0 && (
               <>
                 <IoHeartOutline size={15} />
                 <span>{likesCount}</span>
               </>
             )}
           </div>
+          <button
+            className={styles.commentsToggle}
+            onClick={() => setShowCommentsSection(!showCommentsSection)}
+          >
+            {post.Comments || 0} comments
+          </button>
         </div>
 
         <div className={styles.postInteractions}>

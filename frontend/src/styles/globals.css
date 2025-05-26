@@ -27,11 +27,9 @@ button {
 
 .container {
   margin: 0 auto;
-  padding: 20px;
   width: 100%;
   align-items: flex-start;
-  height: 100vh;
-  /* overflow: hidden; */
+  height: 100vh;     
 }
 
 .main-content {

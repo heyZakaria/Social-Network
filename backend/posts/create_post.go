@@ -3,6 +3,10 @@ package post
 import (
 	"fmt"
 	"net/http"
+<<<<<<< HEAD
+=======
+	"strings"
+>>>>>>> Tawil-Posts-BackEnd
 
 	"socialNetwork/auth"
 	user "socialNetwork/user"
@@ -21,10 +25,21 @@ import (
 //	This should be a list (array) of user IDs allowed to see the post.
 //
 // The function returns the post details in JSON format.
+
+var RateLimit = map[string]utils.LimitInfo{}
+
 func CreatePost(w http.ResponseWriter, r *http.Request) {
 	PostData := Post{}
 	token := auth.GetToken(w, r)
-	fmt.Println("TOOOOKEN", token)
+	if token == "" {
+		utils.Log("ERROR", "Error getting token in CreatePost Handler")
+		utils.SendJSON(w, http.StatusUnauthorized, utils.JSONResponse{
+			Success: false,
+			Message: "Please login to continue",
+			Error:   "You are not Authorized.",
+		})
+		return
+	}
 	UserId, err := user.GetUserIDByToken(token)
 	if err != nil {
 		utils.Log("Error", err.Error())
@@ -34,6 +49,7 @@ func CreatePost(w http.ResponseWriter, r *http.Request) {
 		})
 		return
 	}
+
 	PostData.UserID = UserId
 	utils.Log("", "Start Creating the Post")
 	Privacy := map[string]bool{
@@ -43,8 +59,20 @@ func CreatePost(w http.ResponseWriter, r *http.Request) {
 	}
 	r.ParseMultipartForm(10 << 20)
 
+	ImageProvided, postImage, file, err := utils.PrepareImage(r, "post_image", "posts")
+	PostData.Post_image = postImage
+	if err != nil {
+		utils.Log("ERROR", "Error Trying to Prepare Image: "+postImage)
+		utils.SendJSON(w, http.StatusInternalServerError, utils.JSONResponse{
+			Success: false,
+			Message: "Error occured Please try again later.",
+		})
+		return
+	}
+
 	PostData.Post_Content = r.FormValue("post_content")
-	if PostData.Post_Content == "" {
+	PostData.Post_Content = strings.Trim(PostData.Post_Content, " ")
+	if PostData.Post_Content == "" && postImage == "" {
 		utils.Log("ERROR", "Post Content is Empty")
 		utils.SendJSON(w, http.StatusBadRequest, utils.JSONResponse{
 			Success: false,
@@ -62,14 +90,9 @@ func CreatePost(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	ImageProvided, postImage, file, err := utils.PrepareImage(r, "post_image", "posts")
-	PostData.Post_image = postImage
-	if err != nil {
-		utils.Log("ERROR", "Error Trying to Prepare Image: "+postImage)
-		utils.SendJSON(w, http.StatusInternalServerError, utils.JSONResponse{
-			Success: false,
-			Message: "Error occured Please try again later.",
-		})
+	// Check Rate Limit for the user
+	shouldReturn := utils.CheckRateLimit(RateLimit, UserId, w)
+	if shouldReturn {
 		return
 	}
 
@@ -94,6 +117,7 @@ func CreatePost(w http.ResponseWriter, r *http.Request) {
 	if ImageProvided {
 		utils.SaveImage(file, PostData.Post_image)
 	}
+
 	utils.SendJSON(w, http.StatusOK, utils.JSONResponse{
 		Success: last_id > 0,
 		Message: "Post Created Successfully",

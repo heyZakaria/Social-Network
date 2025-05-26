@@ -4,19 +4,31 @@ import { useState } from "react"
 import styles from "@/styles/profile.module.css"
 
 export default function PrivacyToggle({ user }) {
-  const [isPublic, setIsPublic] = useState(user.isPublic)
+  const [isPublic, setIsPublic] = useState(user.profile_status === "public")
   const [isPending, setIsPending] = useState(false)
 
+  console.log("useeer", user);
+  
   const handlePrivacyToggle = async () => {
     setIsPending(true)
-
     try {
-      // In a real app, this would be an API call
-      // For now, we'll simulate the behavior
-      console.log(`Setting profile privacy to ${!isPublic ? "public" : "private"}`)
-      setIsPublic(!isPublic)
+      const newStatus = isPublic ? "private" : "public"
+
+      const response = await fetch(`/api/users/privacy`, {
+        method: 'PUT',
+        body: JSON.stringify({ profile_status: newStatus }),
+        headers: {
+          "Content-Type": "application/json"
+        }
+      })
+
+      if (!response.ok) throw new Error('Failed to update privacy')
+
+      const data = await response.json()
+
+      setIsPublic(data.data.profile_status === "public")
     } catch (error) {
-      console.error("Error toggling privacy:", error)
+      console.error("Error privacy:", error)
     } finally {
       setIsPending(false)
     }
@@ -24,9 +36,16 @@ export default function PrivacyToggle({ user }) {
 
   return (
     <div className={styles.privacyToggle}>
-      <span className={styles.privacyLabel}>{isPublic ? "Public Account" : "Private Account"}</span>
+      <span className={styles.privacyLabel}>
+        {isPublic ? "Public Account" : "Private Account"}
+      </span>
       <label className={styles.switch}>
-        <input type="checkbox" checked={isPublic} onChange={handlePrivacyToggle} disabled={isPending} />
+        <input
+          type="checkbox"
+          checked={isPublic}
+          onChange={handlePrivacyToggle}
+          disabled={isPending}
+        />
         <span className={styles.slider}></span>
       </label>
     </div>

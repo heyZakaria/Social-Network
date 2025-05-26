@@ -1,34 +1,37 @@
 "use client"
 
-import { useState } from "react"
-import styles from "../../styles/profile.module.css"
+import { useState, useEffect } from "react"
+import styles from "@/styles/profile.module.css"
+import { FaUserPlus, FaUserCheck, FaClock } from "react-icons/fa"
 
-export default function FollowButton({ currentUser, profileUser }) {
-  const [isFollowing, setIsFollowing] = useState(profileUser.followers.includes(currentUser.id))
+export default function FollowButton({ profileUser, currentUser }) {
+  const [isFollowing, setIsFollowing] = useState(false)
+  const [requestPending, setRequestPending] = useState(false)
   const [isPending, setIsPending] = useState(false)
+
+  useEffect(() => {
+    setIsFollowing(profileUser.followers?.some(f => f.ID === currentUser.id) || false)
+    setRequestPending(profileUser.followRequests?.some(req => req.senderID === currentUser.id) || false)
+  }, [profileUser.followers, profileUser.followRequests, currentUser.id])
 
   const handleFollowAction = async () => {
     setIsPending(true)
 
     try {
-      // In a real app, this would be an API call
-      // For now, we'll simulate the behavior
+      const response = await fetch(`/api/users/follow?id=${profileUser.id}`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        credentials: "include",
+      })
 
-      if (isFollowing) {
-        // Unfollow
-        console.log(`Unfollowing user ${profileUser.id}`)
-        setIsFollowing(false)
-      } else {
-        // Follow or send follow request
-        if (profileUser.isPublic) {
-          console.log(`Following user ${profileUser.id}`)
-          setIsFollowing(true)
-        } else {
-          console.log(`Sending follow request to user ${profileUser.id}`)
-          // In a real app, we would show a "Requested" state
-          // For simplicity, we'll just log it
-        }
-      }
+      if (!response.ok) throw new Error("Failed to update follow status")
+
+      const data = await response.json()
+
+      setIsFollowing(data.data?.isFollowing || false)
+      setRequestPending(data.data?.requestPending || false)
+
+      console.log("Follow API response:", data)
     } catch (error) {
       console.error("Error following/unfollowing user:", error)
     } finally {
@@ -38,11 +41,27 @@ export default function FollowButton({ currentUser, profileUser }) {
 
   return (
     <button
-      className={`${styles.followButton} ${isFollowing ? styles.following : ""}`}
+      className={`${styles.followButton} ${
+        isFollowing ? styles.following : requestPending ? styles.pending : ""
+      }`}
       onClick={handleFollowAction}
       disabled={isPending}
     >
-      {isPending ? "Processing..." : isFollowing ? "Following" : "Follow"}
+      {isPending ? (
+        "⏳ Processing..."
+      ) : isFollowing ? (
+        <>
+          <FaUserCheck /> Following
+        </>
+      ) : requestPending ? (
+        <>
+          <FaClock /> Requested
+        </>
+      ) : (
+        <>
+          <FaUserPlus /> Follow
+        </>
+      )}
     </button>
   )
 }

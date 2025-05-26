@@ -96,11 +96,6 @@ func GetToken(w http.ResponseWriter, r *http.Request) (token string) {
 	cookie, err := r.Cookie("token")
 	if err != nil {
 		utils.Log("ERROR", "Token cookie is missing in GetToken")
-		utils.SendJSON(w, http.StatusUnauthorized, utils.JSONResponse{
-			Success: false,
-			Message: "Token cookie is missing",
-			Error:   "You are not Authorized.",
-		})
 		return ""
 	}
 

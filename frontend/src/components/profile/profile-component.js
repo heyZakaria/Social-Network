@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import styles from "@/styles/profile.module.css";
 import PostComponent from "@/components/posts/post-component";
@@ -9,49 +9,83 @@ import PrivacyToggle from "./privacy-toggle";
 import UserList from "./user-list";
 import FloatingChat from "@/components/chat/floating-chat";
 import { FaLock } from "react-icons/fa";
-
+import { FetchData } from "@/app/(utils)/fetchJson";
+// ProfileData={{
+//   profileUser
+// }}
 export default function ProfileComponent({
+  ProfileData,
   currentUser,
-  profileUser,
   canView,
-  posts,
-  followers,
-  following,
+  // posts,
+  // followers,
+  // following,
 }) {
   const [activeTab, setActiveTab] = useState("posts");
-  currentUser = {
-    id: 1,
-    email: "john@example.com",
-    password: "password123",
-    firstName: "John",
-    lastName: "Doe",
-    dateOfBirth: "1990-05-15",
-    nickname: "JD",
-    aboutMe: "Software developer and hiking enthusiast",
-    avatar: "https://i.pravatar.cc/150?u=100",
-    isPublic: true,
-    followers: [2, 3],
-    following: [2],
-    createdAt: "2023-01-15T08:30:00Z",
+  // const ProfileData.isOwnProfile = currentUser.id === currentUser.id;
+  // if (ProfileData.isOwnProfile) {
+  //   currentUser = currentUser
+  // }
+  console.log("profiledata=======>", ProfileData);
+  console.log("currentuser=======>", currentUser);
+  
+  if(!ProfileData) {
+    return <div>Loading...</div>
+  }
+  
+
+  const [posts, setPosts] = useState([]);
+  const [offset, setOffset] = useState(0);
+  const limit = 10; // You can change this value if needed
+  const [loading, setLoading] = useState(false);
+  const [hasMore, setHasMore] = useState(true); // for pagination
+
+  useEffect(() => {
+    async function x() {
+      const data = await FetchData(`http://localhost:8080/posts/getposts?limit=${limit}&offset=${offset}&user_id=${ProfileData.id}`)
+    
+      if (data.data.posts.length < limit) setHasMore(false); // no more posts
+      setPosts((prev) => {
+        const existingIds = new Set(prev.map((p) => p.PostId));
+        const uniqueNewPosts = data.data.posts.filter((p) => !existingIds.has(p.PostId));
+        setLoading(false);
+        return [...prev, ...uniqueNewPosts];
+      });
+    }
+    if (activeTab === "posts") {
+      setLoading(true);
+      x()
+      if (hasMore) setLoading(false);
+    }
+    
+
+  }, [activeTab, offset]);
+
+
+
+  const loadMore = () => {
+    if (!loading && hasMore) {
+      setOffset((prev) => prev + limit);
+    }
   };
-  const isOwnProfile = currentUser.id === profileUser.id;
+  console.log("/////////////", ProfileData);
+  
 
   return (
     <div className={styles.profileContainer}>
       <div className={styles.profileHeader}>
         <div className={styles.profileCover}>
           <img
-            src="https://imgs.search.brave.com/jLfYC2vnVrdKM1pTa5AmFzHt4c7QNiv3c6zQe-UtXoA/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9wcm9t/by5jb20vdG9vbHMv/aW1hZ2UtcmVzaXpl/ci9zdGF0aWMvUGF0/dGVybl9pbWFnZS04/YzA1MDA1M2VhYjg4/NGU1MWI4NTk5NjA3/ODY1ZDExMi5qcGc"
+            src={ProfileData.avatar || "/uploads/profile.jpeg"}// ./uploads/profile_image/b27c2604-404b-48e4-a20c-f4afa29a9c57.jpeg
             alt="Cover"
             className={styles.coverImage}
           />
         </div>
-
         <div className={styles.profileInfo}>
           <div className={styles.profileAvatar}>
             <img
-              src="https://imgs.search.brave.com/jLfYC2vnVrdKM1pTa5AmFzHt4c7QNiv3c6zQe-UtXoA/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9wcm9t/by5jb20vdG9vbHMv/aW1hZ2UtcmVzaXpl/ci9zdGF0aWMvUGF0/dGVybl9pbWFnZS04/YzA1MDA1M2VhYjg4/NGU1MWI4NTk5NjA3/ODY1ZDExMi5qcGc"
-              alt={profileUser.firstName}
+              src={ProfileData.avatar || "/uploads/profile.jpeg"}
+              alt={ProfileData.FirstName}
               className={styles.avatarImage}
             />
           </div>
@@ -59,26 +93,27 @@ export default function ProfileComponent({
           <div className={styles.profileDetails}>
             <div className={styles.profileNameSection}>
               <h1 className={styles.profileName}>
-                {profileUser.firstName} {profileUser.lastName}
-                {profileUser.nickname && (
+                {ProfileData.firstName} {ProfileData.lastName}
+                {ProfileData.nickname && (
                   <span className={styles.nickname}>
-                    ({profileUser.nickname})
+                    ({ProfileData.nickname})
                   </span>
                 )}
               </h1>
 
-              {isOwnProfile ? (
+              {ProfileData.IsOwnProfile ? (
                 <div className={styles.profileActions}>
                   <Link href="/settings" className={styles.editButton}>
                     Edit Profile
                   </Link>
-                  <PrivacyToggle user={profileUser} />
+
+                  <PrivacyToggle user={ProfileData} />
                 </div>
               ) : (
                 <div className={styles.profileActions}>
                   <FollowButton
-                    currentUser={currentUser}
-                    profileUser={profileUser}
+                    profileUser={ProfileData}
+                  currentUser={currentUser}
                   />
                   <button className={styles.messageButton}>Message</button>
                 </div>
@@ -87,20 +122,20 @@ export default function ProfileComponent({
 
             <div className={styles.profileStats}>
               <div className={styles.stat}>
-                <span className={styles.statNumber}>{posts.length}</span> posts
+                <span className={styles.statNumber}>{ProfileData.postsCount}</span> posts
               </div>
               <div className={styles.stat}>
-                <span className={styles.statNumber}>{followers.length}</span>{" "}
+                <span className={styles.statNumber}>{ProfileData.followerCount}</span>{" "}
                 followers
               </div>
               <div className={styles.stat}>
-                <span className={styles.statNumber}>{following.length}</span>{" "}
+                <span className={styles.statNumber}>{ProfileData.followingCount}</span>{" "}
                 following
               </div>
             </div>
 
-            {profileUser.aboutMe && (
-              <div className={styles.profileBio}>{profileUser.aboutMe}</div>
+            {ProfileData.bio && ( // TODO Change the logic
+              <div className={styles.profileBio}>{ProfileData.bio}</div>
             )}
           </div>
         </div>
@@ -110,25 +145,22 @@ export default function ProfileComponent({
         <div className={styles.profileContent}>
           <div className={styles.profileTabs}>
             <button
-              className={`${styles.tabButton} ${
-                activeTab === "posts" ? styles.activeTab : ""
-              }`}
+              className={`${styles.tabButton} ${activeTab === "posts" ? styles.activeTab : ""
+                }`}
               onClick={() => setActiveTab("posts")}
             >
               Posts
             </button>
             <button
-              className={`${styles.tabButton} ${
-                activeTab === "followers" ? styles.activeTab : ""
-              }`}
+              className={`${styles.tabButton} ${activeTab === "followers" ? styles.activeTab : ""
+                }`}
               onClick={() => setActiveTab("followers")}
             >
               Followers
             </button>
             <button
-              className={`${styles.tabButton} ${
-                activeTab === "following" ? styles.activeTab : ""
-              }`}
+              className={`${styles.tabButton} ${activeTab === "following" ? styles.activeTab : ""
+                }`}
               onClick={() => setActiveTab("following")}
             >
               Following
@@ -138,15 +170,28 @@ export default function ProfileComponent({
           <div className={styles.tabContent}>
             {activeTab === "posts" && (
               <div className={styles.postsGrid}>
-                {posts.length > 0 ? (
-                  posts.map((post) => (
-                    <PostComponent
-                      key={post.id}
-                      post={post}
-                      user={profileUser}
-                      currentUser={currentUser}
-                    />
-                  ))
+                {loading && posts.length === 0 ? (
+                  <p>{loading}Loading... {posts.length}</p>
+                ) : posts.length > 0 ? (
+                  <>
+                    {posts.map((post) => (
+                      <PostComponent
+                        key={post.PostId}
+                        post={post}
+                        user={ProfileData} // or actual logged in user
+                        currentUser={ProfileData}
+                      />
+                    ))}
+                    {hasMore && (
+                      <button
+                        className={styles.loadMoreButton}
+                        onClick={loadMore}
+                        disabled={loading}
+                      >
+                        {loading ? "Loading..." : "Load More"}
+                      </button>
+                    )}
+                  </>
                 ) : (
                   <div className={styles.emptyState}>
                     <p>No posts yet</p>
@@ -155,12 +200,13 @@ export default function ProfileComponent({
               </div>
             )}
 
+
             {activeTab === "followers" && (
-              <UserList users={followers} currentUser={currentUser} />
+              <UserList users={ProfileData.followers} currentUser={ProfileData} />
             )}
 
             {activeTab === "following" && (
-              <UserList users={following} currentUser={currentUser} />
+              <UserList users={ProfileData.following} currentUser={ProfileData} />
             )}
           </div>
         </div>
@@ -175,7 +221,7 @@ export default function ProfileComponent({
       )}
 
       {/* Always visible floating chat */}
-      <FloatingChat currentUser={currentUser} />
+      <FloatingChat currentUser={ProfileData} />
     </div>
   );
 }

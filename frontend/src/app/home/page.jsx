@@ -1,35 +1,65 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "@/styles/home.module.css";
 import { BsImage } from "react-icons/bs";
 import { MdOutlineMood } from "react-icons/md";
 import { HiOutlineLocationMarker } from "react-icons/hi";
 import PostComponent from "@/components/posts/post-component";
 import FloatingChat from "@/components/chat/floating-chat";
-import CreatePost from "@/components/posts/create-post";
-export default function Home() {
-   const [posts] = useState([
-    {
-      id: 2,
-      content:
-        "Check out this amazing sunset I captured yesterday evening. #photography #sunset",
-      image:
-        "https://imgs.search.brave.com/jLfYC2vnVrdKM1pTa5AmFzHt4c7QNiv3c6zQe-UtXoA/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9wcm9t/by5jb20vdG9vbHMv/aW1hZ2UtcmVzaXpl/ci9zdGF0aWMvUGF0/dGVybl9pbWFnZS04/YzA1MDA1M2VhYjg4/NGU1MWI4NTk5NjA3/ODY1ZDExMi5qcGc",
-      createdAt: new Date(Date.now() - 86400000).toISOString(),
-      likes: [],
-      comments: [],
-      privacy: "public",
-      user: {
-        id: 3,
-        firstName: "Jane",
-        lastName: "Smith",
-        avatar: "https://i.pravatar.cc/150?u=11",
-      },
-    },
-  ]);
+import { FetchData } from "../(utils)/fetchJson";
+import { useUser } from "../(utils)/user_context";
+// import { getCurrentUser } from "@/app/(auth)/(utils)/api"
 
-     const currentUser = {
+
+export default function Home() {
+
+    const { user } = useUser;
+    const [posts, setPosts] = useState([]);
+    const [offset, setOffset] = useState(0);
+    const limit = 10; // You can change this value if needed
+    const [loading, setLoading] = useState(false);
+    const [hasMore, setHasMore] = useState(true); // for pagination
+  
+    useEffect(() => {
+      async function x() {
+        const data = await FetchData(`http://localhost:8080/posts/getposts?limit=${limit}&offset=${offset}`)
+        if (data.data.posts.length < limit){
+          console.log("no more posts", data.data.posts.length);
+          console.log("no more posts", data.data.posts);
+          
+          setHasMore(false); // no more posts
+        }
+      setPosts((prev) => {
+        const existingIds = new Set(prev.map((p) => p.PostId));
+        const uniqueNewPosts = data.data.posts.filter((p) => !existingIds.has(p.PostId));
+        return [...prev, ...uniqueNewPosts];
+      });        
+    setLoading(false);
+      }
+        setLoading(true); // TODO WAiting before setting it true
+        x()
+    }, [offset]);
+  
+  console.log("posts", posts);
+  console.log("hasMore", hasMore);
+  
+  
+    const loadMore = () => {
+      if (!loading && hasMore) {
+        setOffset((prev) => prev + limit);
+      }
+    };
+    // TODO JUST FOR TESTING MAKE IT DYNAMIC
+    
+    // const current = await getCurrentUser()
+  // 
+  
+  // if (!currentUser) {
+  //   // This should be handled by middleware, but just in case
+  //   return notFound()
+  // }
+  const currentUser = {
     id: 1,
     avatar: "",
     firstName: "test",
@@ -40,19 +70,67 @@ export default function Home() {
       <div className={styles.mainContent}>
         <CreatePost />
 
+        <div className={styles.contentArea}>
+          <div className={styles.createPost}>
+            <div className={styles.createPostHeader}>
+              <img
+                src={currentUser.avatar || "https://i.pravatar.cc/150?u=10"}
+                alt={currentUser.firstName}
+                className={styles.createPostAvatar}
+              />
+              <input
+                type="text"
+                placeholder={`What's on your mind, ${currentUser.firstName}?`}
+                className={styles.createPostInput}
+              />
+            </div>
+            <div className={styles.createPostActions}>
+              <button className={styles.createPostAction}>
+                <BsImage size={20} />
+                Photo/GIF
+              </button>
+              {/* <button className={styles.createPostAction}>
+                <MdOutlineMood size={20} />
+                Feeling/Activity
+              </button> */}
+              {/* <button className={styles.createPostAction}>
+                <HiOutlineLocationMarker size={20} />
+                Location
+              </button> */}
+            </div>
+          </div>
+          <div className={styles.feed}>
+                {loading && posts.length === 0 ? (
+                  <p>Loading...</p>
+                ) : posts.length > 0 ? (
+                  <>
+                    {posts.map((post) => (
+                      <PostComponent
+                        key={post.PostId}
+                        post={post}
+                        user={user} // or actual logged in user
+                        currentUser={user}
+                      />
+                    ))}
+                   
+                    {hasMore && (
+                      <button
+                        className={styles.loadMoreButton}
+                        onClick={loadMore}
+                        disabled={loading}
+                      >
+                        {loading ? "Loading..." : "Load More"}
+                      </button>
+                    )}
+                  </>
+                ) : (
+                  <div className={styles.emptyState}>
+                    <p>No posts yet</p>
+                  </div>
+                )}
+          </div>
+        </div>
       </div>
-
-      <div className={styles.feed}>
-        {posts.map((post) => (
-          <PostComponent
-            key={post.id}
-            post={post}
-            user={post.user}
-            currentUser={currentUser}
-          />
-        ))}
-      </div>
-
       {/* </div> */}
       <FloatingChat currentUser={currentUser} />
     </div>

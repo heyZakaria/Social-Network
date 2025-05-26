@@ -5,8 +5,11 @@ import Link from "next/link";
 import styles from "@/styles/posts.module.css";
 import EmojiPicker from "@/components/common/emoji-picker";
 import { IoPaperPlaneOutline } from 'react-icons/io5';
+import { useUser } from '@/app/(utils)/user_context';
 
-export default function CommentSection({ postId, currentUser }) {
+
+export default function CommentSection({ postId }) {
+   const { user: currentUser } = useUser();
   const [comments, setComments] = useState([]);
   const [displayedComments, setDisplayedComments] = useState([]);
   const [newComment, setNewComment] = useState("");
@@ -14,6 +17,9 @@ export default function CommentSection({ postId, currentUser }) {
   const [isLoading, setIsLoading] = useState(true);
   const [showAllComments, setShowAllComments] = useState(false);
   const COMMENTS_TO_SHOW = 2; // Initial number of comments to show
+
+  console.log("currentUser////////////", currentUser);
+  
 
   useEffect(() => {
     // In a real app, this would be an API call
@@ -179,9 +185,8 @@ export default function CommentSection({ postId, currentUser }) {
                   className={styles.commentAvatar}
                 >
                   <img
-                    src={
-                      comment.user.avatar ||
-                      "/placeholder.svg?height=32&width=32"
+                    src={ currentUser.avatar || // TODO add default avatar
+                      "/uploads/profile.jpeg"
                     }
                     alt={comment.user.firstName}
                   />
@@ -232,7 +237,7 @@ export default function CommentSection({ postId, currentUser }) {
 
       <form className={styles.commentForm} onSubmit={handleSubmitComment}>
         <img
-          src={currentUser.avatar || "/placeholder.svg?height=32&width=32"}
+          src={currentUser.avatar || "/uploads/profile.jpeg"}
           alt={currentUser.firstName}
           className={styles.commentFormAvatar}
         />
