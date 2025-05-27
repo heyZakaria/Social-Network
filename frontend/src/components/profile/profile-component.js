@@ -102,12 +102,9 @@ export default function ProfileComponent({ ProfileData, currentUser }) {
                 </div>
               ) : (
                 <div className={styles.profileActions}>
-                  <FollowButton
-                    profileUser={ProfileData}
-                    currentUser={currentUser}
-                  />
+                  <FollowButton targetUserId={ProfileData.id} />
                   {ProfileData.profile_status === "public" ||
-                  ProfileData.CanView ? (
+                    ProfileData.CanView ? (
                     <button className={styles.messageButton}>Message</button>
                   ) : null}
                 </div>
@@ -145,25 +142,22 @@ export default function ProfileComponent({ ProfileData, currentUser }) {
         <div className={styles.profileContent}>
           <div className={styles.profileTabs}>
             <button
-              className={`${styles.tabButton} ${
-                activeTab === "posts" ? styles.activeTab : ""
-              }`}
+              className={`${styles.tabButton} ${activeTab === "posts" ? styles.activeTab : ""
+                }`}
               onClick={() => setActiveTab("posts")}
             >
               Posts
             </button>
             <button
-              className={`${styles.tabButton} ${
-                activeTab === "followers" ? styles.activeTab : ""
-              }`}
+              className={`${styles.tabButton} ${activeTab === "followers" ? styles.activeTab : ""
+                }`}
               onClick={() => setActiveTab("followers")}
             >
               Followers
             </button>
             <button
-              className={`${styles.tabButton} ${
-                activeTab === "following" ? styles.activeTab : ""
-              }`}
+              className={`${styles.tabButton} ${activeTab === "following" ? styles.activeTab : ""
+                }`}
               onClick={() => setActiveTab("following")}
             >
               Following
