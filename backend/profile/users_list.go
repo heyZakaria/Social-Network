@@ -13,16 +13,28 @@ import (
 func GetFriendsAndRequests(w http.ResponseWriter, r *http.Request) {
 	utils.Log("INFO", "GetFriendsAndRequests called")
 
-	token := auth.GetToken(w, r)
-	userID, err := user.GetUserIDByToken(token)
-	if err != nil {
-		utils.SendJSON(w, http.StatusUnauthorized, utils.JSONResponse{
-			Success: false,
-			Message: "Unauthorized",
-			Error:   err.Error(),
-		})
-		return
+	var userID string
+	var err error
+	var isOwnProfile bool = false
+
+	queryID := r.URL.Query().Get("id")
+	if queryID != "" {
+		userID = queryID
+	} else {
+		token := auth.GetToken(w, r)
+		userID, err = user.GetUserIDByToken(token)
+		if err != nil {
+			utils.SendJSON(w, http.StatusUnauthorized, utils.JSONResponse{
+				Success: false,
+				Message: "Unauthorized",
+				Error:   err.Error(),
+			})
+			return
+		}
+		isOwnProfile = true
 	}
+	fmt.Printf("User ID: %s, Is Own Profile: %t\n", userID, isOwnProfile)
+
 	friends, err := LoadUsers(userID, "accepted")
 	if err != nil {
 		utils.SendJSON(w, http.StatusInternalServerError, utils.JSONResponse{
@@ -32,35 +44,31 @@ func GetFriendsAndRequests(w http.ResponseWriter, r *http.Request) {
 		})
 		return
 	}
-	fmt.Println("friends", friends)
-	// friends = []User{
-	// 	{ID: "2", FirstName: "Test", LastName: "Friend", NickName: "tester", Avatar: ""},
-	// 	{ID: "3", FirstName: "Pending", LastName: "User", NickName: "", Avatar: ""},
-	// 	{ID: "3", FirstName: "Pending", LastName: "User", NickName: "", Avatar: ""},
-	// 	{ID: "3", FirstName: "Pending", LastName: "User", NickName: "", Avatar: ""},
-	// 	{ID: "3", FirstName: "Pending", LastName: "User", NickName: "", Avatar: ""},
-	// }
-	// fmt.Println("friends", friends)
 
-	// Query pending requests
-	requests, err := LoadUsers(userID, "pending")
-	// requests = []User{
-	// 	{ID: "3", FirstName: "Pending", LastName: "User", NickName: "", Avatar: ""},
-	// 	{ID: "3", FirstName: "Pending", LastName: "User", NickName: "", Avatar: ""},
-	// 	{ID: "3", FirstName: "Pending", LastName: "User", NickName: "", Avatar: ""},
-	// 	{ID: "3", FirstName: "Pending", LastName: "User", NickName: "", Avatar: ""},
-	// }
-	// fmt.Println("requests", requests)
+	var requests []User
+	if isOwnProfile {
+		requests, err = LoadUsers(userID, "pending")
+		if err != nil {
+			utils.SendJSON(w, http.StatusInternalServerError, utils.JSONResponse{
+				Success: false,
+				Message: "Failed to get pending requests",
+				Error:   err.Error(),
+			})
+			return
+		}
+	}
+	fmt.Printf("Friends: %v, Requests: %v\n", friends, requests)
 
 	utils.SendJSON(w, http.StatusOK, utils.JSONResponse{
 		Success: true,
 		Message: "Friends and requests fetched",
 		Data: map[string]interface{}{
 			"friends":  friends,
-			"requests": requests,
+			"requests": requests, 
 		},
 	})
 }
+
 
 func GetUserSuggestions(w http.ResponseWriter, r *http.Request) {
 	utils.Log("INFO", "GetUserSuggestions called")

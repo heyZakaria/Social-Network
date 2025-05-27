@@ -1,75 +1,37 @@
 'use client'
+
 import { useUser } from "@/app/(utils)/user_context"
 import styles from "../../styles/profile.module.css"
-import { FaUserPlus, FaUserCheck, FaClock } from "react-icons/fa"
-import { useEffect, useState } from "react"
 import Link from "next/link"
+import { useEffect, useState } from "react"
+import FollowButton from "@/components/followButton"
+import { useParams } from 'next/navigation';
 
-export default function UserList() {
+export default function UserList(params) {
   const { user: currentUser } = useUser()
   const [friends, setFriends] = useState([])
   const [loading, setLoading] = useState(true)
-  const [followStates, setFollowStates] = useState({}) 
+
+    const paramsx = useParams();
+    const ids = paramsx.id
 
   useEffect(() => {
     const fetchFriends = async () => {
       try {
-        const res = await fetch("/api/users/friends", { credentials: "include" })
+        const res = await fetch(`/api/users/friends?id=${ids}`, { credentials: "include" })
         const data = await res.json()
+        console.log("Friends data:", data);
+        
         setFriends(data.data?.friends || [])
-        setLoading(false)
-
-        data.data?.friends.forEach(async (user) => {
-          const res = await fetch(`/api/users/follow?id=${user.id}`, {
-            method: "GET",
-            credentials: "include",
-          })
-          const followData = await res.json()
-          setFollowStates((prev) => ({
-            ...prev,
-            [user.id]: {
-              isFollowing: followData.data.Data?.IsFollowing || false,
-              requestPending: followData.data.Data?.RequestPending || false,
-              loading: false,
-            },
-          }))
-        })
       } catch (e) {
         console.error("Failed to load friends", e)
+      } finally {
+        setLoading(false)
       }
     }
 
     fetchFriends()
   }, [])
-
-  const handleFollow = async (userId) => {
-    setFollowStates((prev) => ({
-      ...prev,
-      [userId]: { ...prev[userId], loading: true },
-    }))
-
-    try {
-      const res = await fetch(`/api/users/follow?id=${userId}`, {
-        method: "POST",
-        credentials: "include",
-      })
-      const data = await res.json()
-      setFollowStates((prev) => ({
-        ...prev,
-        [userId]: {
-          isFollowing: data.data.Data?.IsFollowing || false,
-          requestPending: data.data.Data?.RequestPending || false,
-          loading: false,
-        },
-      }))
-    } catch (err) {
-      console.error("Follow failed", err)
-      setFollowStates((prev) => ({
-        ...prev,
-        [userId]: { ...prev[userId], loading: false },
-      }))
-    }
-  }
 
   if (loading) return <div>Loading...</div>
 
@@ -77,7 +39,6 @@ export default function UserList() {
     <div className={styles.userList}>
       {friends.map((user) => {
         if (user.id === currentUser.id) return null
-        const follow = followStates[user.id] || {}
         return (
           <div key={user.id} className={styles.userItem}>
             <Link href={`/profile/${user.id}`} className={styles.userLink}>

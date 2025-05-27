@@ -198,18 +198,14 @@ export default function ProfileComponent({ ProfileData, currentUser }) {
             )}
 
             {activeTab === "followers" && (
-              <UserList
-                users={ProfileData.followers}
-                currentUser={ProfileData}
-              />
+              <UserList type="followers" />
             )}
 
             {activeTab === "following" && (
-              <UserList
-                users={ProfileData.following}
-                currentUser={ProfileData}
-              />
+              <UserList type="following" />
             )}
+
+
           </div>
         </div>
       ) : (

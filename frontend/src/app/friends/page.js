@@ -5,6 +5,7 @@ import Link from 'next/link';
 import styles from '@/styles/friends.module.css';
 import FloatingChat from '@/components/chat/floating-chat';
 import { useUser } from '@/app/(utils)/user_context';
+import FollowButton from '@/components/followButton';
 
 export default function FriendsPage() {
   const { currentUser } = useUser();
@@ -49,6 +50,8 @@ export default function FriendsPage() {
           credentials: 'include',
         });
         const suggestionsData = await suggestionsRes.json();
+        console.log('Suggestions data:', suggestionsData);
+
         setSuggestions(
           (suggestionsData.data?.users || []).map((u) => ({
             ID: u.id,
@@ -169,12 +172,7 @@ export default function FriendsPage() {
                       >
                         Message
                       </button>
-                      <button
-                        className={styles.unfollowButton}
-                        onClick={() => handleUnfollow(friend.ID)}
-                      >
-                        Unfollow
-                      </button>
+                      <FollowButton targetUserId={friend.ID} />
                     </>
                   )}
                 </div>
@@ -214,12 +212,7 @@ export default function FriendsPage() {
                     )}
                   </div>
                   <div className={styles.friendActions}>
-                    <button
-                      className={styles.followButton}
-                      onClick={() => handleFollow(suggestion.ID)}
-                    >
-                      Follow
-                    </button>
+                    <FollowButton targetUserId={suggestion.ID} />
                     <button className={styles.ignoreButton}>Ignore</button>
                   </div>
                 </div>
