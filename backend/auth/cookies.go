@@ -2,8 +2,10 @@ package auth
 
 import (
 	"net/http"
-	"socialNetwork/utils"
 	"time"
+
+	"socialNetwork/user"
+	"socialNetwork/utils"
 )
 
 func SendSuccessWithToken(w http.ResponseWriter, userID string) {
@@ -43,6 +45,9 @@ func SendSuccessWithToken(w http.ResponseWriter, userID string) {
 		Expires:  time.Now().Add(time.Hour * 24),
 	})
 
+	utils.Log("INFO", "Save Token into Sessions")
+	user.SaveToken(userID, token)
+
 	SendJSON(w, http.StatusOK, JSONResponse{
 		Success: true,
 		Message: "Login successful",
@@ -50,5 +55,4 @@ func SendSuccessWithToken(w http.ResponseWriter, userID string) {
 	})
 	// Return success response with token
 	utils.Log("INFO", "Login successful for user: "+userID)
-
 }

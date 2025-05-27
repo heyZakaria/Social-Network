@@ -12,8 +12,6 @@ var originAllowlist = []string{
 	"http://localhost:3003",
 	"http://localhost:3004",
 	"http://localhost:3005",
-	"http://localhost:3006",
-	"http://localhost:8000",
 }
 
 var methodAllowlist = []string{"GET", "POST", "PUT", "DELETE", "OPTIONS"}

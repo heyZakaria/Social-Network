@@ -6,6 +6,7 @@ import (
 	"encoding/base64"
 	"encoding/json"
 	"errors"
+	"fmt"
 	"net/http"
 	"strings"
 	"time"
@@ -94,6 +95,7 @@ func VerifyJWT(token string) (JWTPayload, error) {
 
 func GetToken(w http.ResponseWriter, r *http.Request) (token string) {
 	cookie, err := r.Cookie("token")
+	fmt.Println(cookie)
 	if err != nil {
 		utils.Log("ERROR", "Token cookie is missing in GetToken")
 		utils.SendJSON(w, http.StatusUnauthorized, utils.JSONResponse{

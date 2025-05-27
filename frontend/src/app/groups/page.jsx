@@ -227,7 +227,7 @@ export default function CreateGroupCard() {
   }         
      const Resp = await fetch("http://localhost:8080/api/groups/", {
                 method: "POST",
-            
+                credentials: 'include',
                 body: data
             }
 

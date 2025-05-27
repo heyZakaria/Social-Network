@@ -90,6 +90,7 @@ func (g Group) InputValidation() error {
 	if len(g.Description) < 30 || len(g.Description) > 250 {
 		return fmt.Errorf("Description must be between 30 and 250 characters")
 	}
+	//TODO: more Validation should be done  
 	return nil
 }
 
@@ -110,5 +111,7 @@ func (g Group) InsertGroup(db *sql.DB) (int, error) {
 	if err != nil {
 		return -1, fmt.Errorf("Error Getting GroupId : %s", err)
 	}
+	
+	
 	return int(GroupId), nil
 }

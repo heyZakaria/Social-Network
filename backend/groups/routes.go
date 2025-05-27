@@ -1,6 +1,8 @@
 package Group
 
-import "net/http"
+import (
+	"net/http"
+)
 
 func GroupMux() http.Handler {
 	mux := http.NewServeMux()

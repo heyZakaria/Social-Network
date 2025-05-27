@@ -273,3 +273,496 @@
 2025/05/26 08:40:24 [ERROR] 2025-05-26 08:40:24 - Token cookie is missing in GetToken
 2025/05/26 08:40:46 [INFO] 2025-05-26 08:40:46 - Starting HTTP server at http://localhost:8080 ...
 2025/05/26 08:40:55 [ERROR] 2025-05-26 08:40:55 - Token cookie is missing in GetToken
+2025/05/26 23:08:47 [INFO] 2025-05-26 23:08:47 - Starting HTTP server at http://localhost:8080 ...
+2025/05/26 23:09:06 [ERROR] 2025-05-26 23:09:06 - Token cookie is missing in GetToken
+2025/05/26 23:13:18 [INFO] 2025-05-26 23:13:18 - Parsed multipart form
+2025/05/26 23:13:18 [INFO] 2025-05-26 23:13:18 - Form fields parsed successfully
+2025/05/26 23:13:18 [INFO] 2025-05-26 23:13:18 - Form fields parsed
+2025/05/26 23:13:18 [INFO] 2025-05-26 23:13:18 - Checking if email exists: test@test.com
+2025/05/26 23:13:18 [ERROR] 2025-05-26 23:13:18 - Database query failed: unable to open database file: no such file or directory
+2025/05/26 23:13:18 [INFO] 2025-05-26 23:13:18 - Email is unique
+2025/05/26 23:13:18 [INFO] 2025-05-26 23:13:18 - Handling file upload for form field 'avatar'
+2025/05/26 23:13:18 [INFO] 2025-05-26 23:13:18 - Received file: istockphoto-1419410282-612x612.jpg (58391 bytes)
+2025/05/26 23:13:18 [INFO] 2025-05-26 23:13:18 - Detected content type: image/jpeg
+2025/05/26 23:13:18 [INFO] 2025-05-26 23:13:18 - Successfully saved file as: 15f90149-4105-42da-a913-d4ab8c66ed0d.jpg
+2025/05/26 23:13:18 [INFO] 2025-05-26 23:13:18 - Avatar uploaded: 15f90149-4105-42da-a913-d4ab8c66ed0d.jpg
+2025/05/26 23:13:18 [INFO] 2025-05-26 23:13:18 - Validating registration input
+2025/05/26 23:13:18 [WARNING] 2025-05-26 23:13:18 - Nickname too long
+2025/05/26 23:13:18 [WARNING] 2025-05-26 23:13:18 - Validation failed for user input
+2025/05/26 23:13:32 [INFO] 2025-05-26 23:13:32 - Parsed multipart form
+2025/05/26 23:13:32 [INFO] 2025-05-26 23:13:32 - Form fields parsed successfully
+2025/05/26 23:13:32 [INFO] 2025-05-26 23:13:32 - Form fields parsed
+2025/05/26 23:13:32 [INFO] 2025-05-26 23:13:32 - Checking if email exists: test@test.com
+2025/05/26 23:13:32 [ERROR] 2025-05-26 23:13:32 - Database query failed: unable to open database file: no such file or directory
+2025/05/26 23:13:32 [INFO] 2025-05-26 23:13:32 - Email is unique
+2025/05/26 23:13:32 [INFO] 2025-05-26 23:13:32 - Handling file upload for form field 'avatar'
+2025/05/26 23:13:32 [INFO] 2025-05-26 23:13:32 - Received file: istockphoto-1419410282-612x612.jpg (58391 bytes)
+2025/05/26 23:13:32 [INFO] 2025-05-26 23:13:32 - Detected content type: image/jpeg
+2025/05/26 23:13:32 [INFO] 2025-05-26 23:13:32 - Successfully saved file as: 1390196a-34df-40aa-b773-26c3c9708b43.jpg
+2025/05/26 23:13:32 [INFO] 2025-05-26 23:13:32 - Avatar uploaded: 1390196a-34df-40aa-b773-26c3c9708b43.jpg
+2025/05/26 23:13:32 [INFO] 2025-05-26 23:13:32 - Validating registration input
+2025/05/26 23:13:32 [INFO] 2025-05-26 23:13:32 - Registration input valid
+2025/05/26 23:13:32 [INFO] 2025-05-26 23:13:32 - User input validated
+2025/05/26 23:13:32 [INFO] 2025-05-26 23:13:32 - Hashing password
+2025/05/26 23:13:32 [INFO] 2025-05-26 23:13:32 - Password hashed successfully
+2025/05/26 23:13:32 [INFO] 2025-05-26 23:13:32 - Password hashed
+2025/05/26 23:13:32 [INFO] 2025-05-26 23:13:32 - Saving user to database with ID: 743a2e73-1f8c-42a1-8bd3-0e69be1bdb44
+2025/05/26 23:13:32 [ERROR] 2025-05-26 23:13:32 - Prepare statement failed: unable to open database file: no such file or directory
+2025/05/26 23:13:32 [ERROR] 2025-05-26 23:13:32 - Failed to save user to DB: unable to open database file: no such file or directory
+2025/05/26 23:38:52 [INFO] 2025-05-26 23:38:52 - Starting HTTP server at http://localhost:8080 ...
+2025/05/26 23:40:50 [INFO] 2025-05-26 23:40:50 - Parsed multipart form
+2025/05/26 23:40:50 [INFO] 2025-05-26 23:40:50 - Form fields parsed successfully
+2025/05/26 23:40:50 [INFO] 2025-05-26 23:40:50 - Form fields parsed
+2025/05/26 23:40:50 [INFO] 2025-05-26 23:40:50 - Checking if email exists: test@test.com
+2025/05/26 23:40:50 [ERROR] 2025-05-26 23:40:50 - Database query failed: unable to open database file: no such file or directory
+2025/05/26 23:40:50 [INFO] 2025-05-26 23:40:50 - Email is unique
+2025/05/26 23:40:50 [INFO] 2025-05-26 23:40:50 - Handling file upload for form field 'avatar'
+2025/05/26 23:40:50 [INFO] 2025-05-26 23:40:50 - Received file: istockphoto-1419410282-612x612.jpg (58391 bytes)
+2025/05/26 23:40:50 [INFO] 2025-05-26 23:40:50 - Detected content type: image/jpeg
+2025/05/26 23:40:50 [INFO] 2025-05-26 23:40:50 - Successfully saved file as: e3422b88-120f-4933-9785-84e9747d6eae.jpg
+2025/05/26 23:40:50 [INFO] 2025-05-26 23:40:50 - Avatar uploaded: e3422b88-120f-4933-9785-84e9747d6eae.jpg
+2025/05/26 23:40:50 [INFO] 2025-05-26 23:40:50 - Validating registration input
+2025/05/26 23:40:50 [INFO] 2025-05-26 23:40:50 - Registration input valid
+2025/05/26 23:40:50 [INFO] 2025-05-26 23:40:50 - User input validated
+2025/05/26 23:40:50 [INFO] 2025-05-26 23:40:50 - Hashing password
+2025/05/26 23:40:50 [INFO] 2025-05-26 23:40:50 - Password hashed successfully
+2025/05/26 23:40:50 [INFO] 2025-05-26 23:40:50 - Password hashed
+2025/05/26 23:40:50 [INFO] 2025-05-26 23:40:50 - Saving user to database with ID: 240900e1-f891-4c49-acb8-a1d87e86624c
+2025/05/26 23:40:50 [ERROR] 2025-05-26 23:40:50 - Prepare statement failed: unable to open database file: no such file or directory
+2025/05/26 23:40:50 [ERROR] 2025-05-26 23:40:50 - Failed to save user to DB: unable to open database file: no such file or directory
+2025/05/26 23:47:16 [INFO] 2025-05-26 23:47:16 - Starting HTTP server at http://localhost:8080 ...
+2025/05/26 23:49:05 [INFO] 2025-05-26 23:49:05 - Parsed multipart form
+2025/05/26 23:49:05 [INFO] 2025-05-26 23:49:05 - Form fields parsed successfully
+2025/05/26 23:49:05 [INFO] 2025-05-26 23:49:05 - Form fields parsed
+2025/05/26 23:49:05 [INFO] 2025-05-26 23:49:05 - Checking if email exists: test@test.com
+2025/05/26 23:49:05 [ERROR] 2025-05-26 23:49:05 - Database query failed: unable to open database file: no such file or directory
+2025/05/26 23:49:05 [INFO] 2025-05-26 23:49:05 - Email is unique
+2025/05/26 23:49:05 [INFO] 2025-05-26 23:49:05 - Handling file upload for form field 'avatar'
+2025/05/26 23:49:05 [INFO] 2025-05-26 23:49:05 - Received file: istockphoto-1419410282-612x612.jpg (58391 bytes)
+2025/05/26 23:49:05 [INFO] 2025-05-26 23:49:05 - Detected content type: image/jpeg
+2025/05/26 23:49:05 [INFO] 2025-05-26 23:49:05 - Successfully saved file as: cd29e510-7666-4869-b1de-c760dd259c88.jpg
+2025/05/26 23:49:05 [INFO] 2025-05-26 23:49:05 - Avatar uploaded: cd29e510-7666-4869-b1de-c760dd259c88.jpg
+2025/05/26 23:49:05 [INFO] 2025-05-26 23:49:05 - Validating registration input
+2025/05/26 23:49:05 [INFO] 2025-05-26 23:49:05 - Registration input valid
+2025/05/26 23:49:05 [INFO] 2025-05-26 23:49:05 - User input validated
+2025/05/26 23:49:05 [INFO] 2025-05-26 23:49:05 - Hashing password
+2025/05/26 23:49:05 [INFO] 2025-05-26 23:49:05 - Password hashed successfully
+2025/05/26 23:49:05 [INFO] 2025-05-26 23:49:05 - Password hashed
+2025/05/26 23:49:05 [INFO] 2025-05-26 23:49:05 - Saving user to database with ID: 81fe3d01-b5bb-47d7-9146-6d02e5edbf0c
+2025/05/26 23:49:05 [ERROR] 2025-05-26 23:49:05 - Prepare statement failed: unable to open database file: no such file or directory
+2025/05/26 23:49:05 [ERROR] 2025-05-26 23:49:05 - Failed to save user to DB: unable to open database file: no such file or directory
+2025/05/26 23:49:05 [INFO] 2025-05-26 23:49:05 - Parsed multipart form
+2025/05/26 23:49:05 [INFO] 2025-05-26 23:49:05 - Form fields parsed successfully
+2025/05/26 23:49:05 [INFO] 2025-05-26 23:49:05 - Form fields parsed
+2025/05/26 23:49:05 [INFO] 2025-05-26 23:49:05 - Checking if email exists: test@test.com
+2025/05/26 23:49:05 [ERROR] 2025-05-26 23:49:05 - Database query failed: unable to open database file: no such file or directory
+2025/05/26 23:49:05 [INFO] 2025-05-26 23:49:05 - Email is unique
+2025/05/26 23:49:05 [INFO] 2025-05-26 23:49:05 - Handling file upload for form field 'avatar'
+2025/05/26 23:49:05 [INFO] 2025-05-26 23:49:05 - Received file: istockphoto-1419410282-612x612.jpg (58391 bytes)
+2025/05/26 23:49:05 [INFO] 2025-05-26 23:49:05 - Detected content type: image/jpeg
+2025/05/26 23:49:05 [INFO] 2025-05-26 23:49:05 - Successfully saved file as: b0764744-5035-44e7-9fbf-9c0777661a1e.jpg
+2025/05/26 23:49:05 [INFO] 2025-05-26 23:49:05 - Avatar uploaded: b0764744-5035-44e7-9fbf-9c0777661a1e.jpg
+2025/05/26 23:49:05 [INFO] 2025-05-26 23:49:05 - Validating registration input
+2025/05/26 23:49:05 [INFO] 2025-05-26 23:49:05 - Registration input valid
+2025/05/26 23:49:05 [INFO] 2025-05-26 23:49:05 - User input validated
+2025/05/26 23:49:05 [INFO] 2025-05-26 23:49:05 - Hashing password
+2025/05/26 23:49:05 [INFO] 2025-05-26 23:49:05 - Password hashed successfully
+2025/05/26 23:49:05 [INFO] 2025-05-26 23:49:05 - Password hashed
+2025/05/26 23:49:05 [INFO] 2025-05-26 23:49:05 - Saving user to database with ID: 4164df6c-73c2-4566-a2f5-8e173dccfce6
+2025/05/26 23:49:05 [ERROR] 2025-05-26 23:49:05 - Prepare statement failed: unable to open database file: no such file or directory
+2025/05/26 23:49:05 [ERROR] 2025-05-26 23:49:05 - Failed to save user to DB: unable to open database file: no such file or directory
+2025/05/26 23:50:04 [INFO] 2025-05-26 23:50:04 - Starting HTTP server at http://localhost:8080 ...
+2025/05/26 23:50:31 [INFO] 2025-05-26 23:50:31 - Parsed multipart form
+2025/05/26 23:50:31 [INFO] 2025-05-26 23:50:31 - Form fields parsed successfully
+2025/05/26 23:50:31 [INFO] 2025-05-26 23:50:31 - Form fields parsed
+2025/05/26 23:50:31 [INFO] 2025-05-26 23:50:31 - Checking if email exists: test@test.com
+2025/05/26 23:50:31 [ERROR] 2025-05-26 23:50:31 - Database query failed: unable to open database file: no such file or directory
+2025/05/26 23:50:31 [INFO] 2025-05-26 23:50:31 - Email is unique
+2025/05/26 23:50:31 [INFO] 2025-05-26 23:50:31 - Handling file upload for form field 'avatar'
+2025/05/26 23:50:31 [INFO] 2025-05-26 23:50:31 - Received file: istockphoto-1419410282-612x612.jpg (58391 bytes)
+2025/05/26 23:50:31 [INFO] 2025-05-26 23:50:31 - Detected content type: image/jpeg
+2025/05/26 23:50:31 [INFO] 2025-05-26 23:50:31 - Successfully saved file as: f18195e0-8545-4a73-991b-0accc3b0422b.jpg
+2025/05/26 23:50:31 [INFO] 2025-05-26 23:50:31 - Avatar uploaded: f18195e0-8545-4a73-991b-0accc3b0422b.jpg
+2025/05/26 23:50:31 [INFO] 2025-05-26 23:50:31 - Validating registration input
+2025/05/26 23:50:31 [INFO] 2025-05-26 23:50:31 - Registration input valid
+2025/05/26 23:50:31 [INFO] 2025-05-26 23:50:31 - User input validated
+2025/05/26 23:50:31 [INFO] 2025-05-26 23:50:31 - Hashing password
+2025/05/26 23:50:31 [INFO] 2025-05-26 23:50:31 - Password hashed successfully
+2025/05/26 23:50:31 [INFO] 2025-05-26 23:50:31 - Password hashed
+2025/05/26 23:50:31 [INFO] 2025-05-26 23:50:31 - Saving user to database with ID: 078eb327-404c-4bc4-a877-15fcd264d34b
+2025/05/26 23:50:31 [ERROR] 2025-05-26 23:50:31 - Prepare statement failed: unable to open database file: no such file or directory
+2025/05/26 23:50:31 [ERROR] 2025-05-26 23:50:31 - Failed to save user to DB: unable to open database file: no such file or directory
+2025/05/26 23:50:31 [INFO] 2025-05-26 23:50:31 - Parsed multipart form
+2025/05/26 23:50:31 [INFO] 2025-05-26 23:50:31 - Form fields parsed successfully
+2025/05/26 23:50:31 [INFO] 2025-05-26 23:50:31 - Form fields parsed
+2025/05/26 23:50:31 [INFO] 2025-05-26 23:50:31 - Checking if email exists: test@test.com
+2025/05/26 23:50:31 [ERROR] 2025-05-26 23:50:31 - Database query failed: unable to open database file: no such file or directory
+2025/05/26 23:50:31 [INFO] 2025-05-26 23:50:31 - Email is unique
+2025/05/26 23:50:31 [INFO] 2025-05-26 23:50:31 - Handling file upload for form field 'avatar'
+2025/05/26 23:50:31 [INFO] 2025-05-26 23:50:31 - Received file: istockphoto-1419410282-612x612.jpg (58391 bytes)
+2025/05/26 23:50:31 [INFO] 2025-05-26 23:50:31 - Detected content type: image/jpeg
+2025/05/26 23:50:31 [INFO] 2025-05-26 23:50:31 - Successfully saved file as: 30b792a1-c812-40e1-8371-dd9dbcd89b1a.jpg
+2025/05/26 23:50:31 [INFO] 2025-05-26 23:50:31 - Avatar uploaded: 30b792a1-c812-40e1-8371-dd9dbcd89b1a.jpg
+2025/05/26 23:50:31 [INFO] 2025-05-26 23:50:31 - Validating registration input
+2025/05/26 23:50:31 [INFO] 2025-05-26 23:50:31 - Registration input valid
+2025/05/26 23:50:31 [INFO] 2025-05-26 23:50:31 - User input validated
+2025/05/26 23:50:31 [INFO] 2025-05-26 23:50:31 - Hashing password
+2025/05/26 23:50:31 [INFO] 2025-05-26 23:50:31 - Password hashed successfully
+2025/05/26 23:50:31 [INFO] 2025-05-26 23:50:31 - Password hashed
+2025/05/26 23:50:31 [INFO] 2025-05-26 23:50:31 - Saving user to database with ID: 7c0ee3e5-cc82-4635-b525-cf20e253e99e
+2025/05/26 23:50:31 [ERROR] 2025-05-26 23:50:31 - Prepare statement failed: unable to open database file: no such file or directory
+2025/05/26 23:50:31 [ERROR] 2025-05-26 23:50:31 - Failed to save user to DB: unable to open database file: no such file or directory
+2025/05/26 23:50:31 [INFO] 2025-05-26 23:50:31 - Parsed multipart form
+2025/05/26 23:50:31 [INFO] 2025-05-26 23:50:31 - Form fields parsed successfully
+2025/05/26 23:50:31 [INFO] 2025-05-26 23:50:31 - Form fields parsed
+2025/05/26 23:50:31 [INFO] 2025-05-26 23:50:31 - Checking if email exists: test@test.com
+2025/05/26 23:50:31 [ERROR] 2025-05-26 23:50:31 - Database query failed: unable to open database file: no such file or directory
+2025/05/26 23:50:31 [INFO] 2025-05-26 23:50:31 - Email is unique
+2025/05/26 23:50:31 [INFO] 2025-05-26 23:50:31 - Handling file upload for form field 'avatar'
+2025/05/26 23:50:31 [INFO] 2025-05-26 23:50:31 - Received file: istockphoto-1419410282-612x612.jpg (58391 bytes)
+2025/05/26 23:50:31 [INFO] 2025-05-26 23:50:31 - Detected content type: image/jpeg
+2025/05/26 23:50:31 [INFO] 2025-05-26 23:50:31 - Successfully saved file as: 9a410f82-c188-422a-bdb3-926889880921.jpg
+2025/05/26 23:50:31 [INFO] 2025-05-26 23:50:31 - Avatar uploaded: 9a410f82-c188-422a-bdb3-926889880921.jpg
+2025/05/26 23:50:31 [INFO] 2025-05-26 23:50:31 - Validating registration input
+2025/05/26 23:50:31 [INFO] 2025-05-26 23:50:31 - Registration input valid
+2025/05/26 23:50:31 [INFO] 2025-05-26 23:50:31 - User input validated
+2025/05/26 23:50:31 [INFO] 2025-05-26 23:50:31 - Hashing password
+2025/05/26 23:50:31 [INFO] 2025-05-26 23:50:31 - Password hashed successfully
+2025/05/26 23:50:31 [INFO] 2025-05-26 23:50:31 - Password hashed
+2025/05/26 23:50:31 [INFO] 2025-05-26 23:50:31 - Saving user to database with ID: 7966e890-ac2b-4308-928c-22f5f200d760
+2025/05/26 23:50:31 [ERROR] 2025-05-26 23:50:31 - Prepare statement failed: unable to open database file: no such file or directory
+2025/05/26 23:50:31 [ERROR] 2025-05-26 23:50:31 - Failed to save user to DB: unable to open database file: no such file or directory
+2025/05/26 23:51:37 [INFO] 2025-05-26 23:51:37 - Parsed multipart form
+2025/05/26 23:51:37 [INFO] 2025-05-26 23:51:37 - Form fields parsed successfully
+2025/05/26 23:51:37 [INFO] 2025-05-26 23:51:37 - Form fields parsed
+2025/05/26 23:51:37 [INFO] 2025-05-26 23:51:37 - Checking if email exists: test@test.com
+2025/05/26 23:51:37 [ERROR] 2025-05-26 23:51:37 - Database query failed: unable to open database file: no such file or directory
+2025/05/26 23:51:37 [INFO] 2025-05-26 23:51:37 - Email is unique
+2025/05/26 23:51:37 [INFO] 2025-05-26 23:51:37 - Handling file upload for form field 'avatar'
+2025/05/26 23:51:37 [INFO] 2025-05-26 23:51:37 - Received file: istockphoto-1419410282-612x612.jpg (58391 bytes)
+2025/05/26 23:51:37 [INFO] 2025-05-26 23:51:37 - Detected content type: image/jpeg
+2025/05/26 23:51:37 [INFO] 2025-05-26 23:51:37 - Successfully saved file as: d8f00cf0-857b-4f8e-95e3-90921abf81da.jpg
+2025/05/26 23:51:37 [INFO] 2025-05-26 23:51:37 - Avatar uploaded: d8f00cf0-857b-4f8e-95e3-90921abf81da.jpg
+2025/05/26 23:51:37 [INFO] 2025-05-26 23:51:37 - Validating registration input
+2025/05/26 23:51:37 [INFO] 2025-05-26 23:51:37 - Registration input valid
+2025/05/26 23:51:37 [INFO] 2025-05-26 23:51:37 - User input validated
+2025/05/26 23:51:37 [INFO] 2025-05-26 23:51:37 - Hashing password
+2025/05/26 23:51:37 [INFO] 2025-05-26 23:51:37 - Password hashed successfully
+2025/05/26 23:51:37 [INFO] 2025-05-26 23:51:37 - Password hashed
+2025/05/26 23:51:37 [INFO] 2025-05-26 23:51:37 - Saving user to database with ID: e4e08193-ea8b-44f8-ab2f-8931fcac0ea8
+2025/05/26 23:51:37 [ERROR] 2025-05-26 23:51:37 - Prepare statement failed: unable to open database file: no such file or directory
+2025/05/26 23:51:37 [ERROR] 2025-05-26 23:51:37 - Failed to save user to DB: unable to open database file: no such file or directory
+2025/05/26 23:55:54 [INFO] 2025-05-26 23:55:54 - Starting HTTP server at http://localhost:8080 ...
+2025/05/26 23:55:54 [ERROR] 2025-05-26 23:55:54 - Migration init error failed to open source, "file:///home/ahssaini/Social-Network/backend/backend/db/migration": open .: no such file or directory
+2025/05/26 23:56:53 [INFO] 2025-05-26 23:56:53 - Starting HTTP server at http://localhost:8080 ...
+2025/05/26 23:56:53 [ERROR] 2025-05-26 23:56:53 - Migration init error failed to open source, "file:///home/ahssaini/Social-Network/backend/backend/db/migration": open .: no such file or directory
+2025/05/27 00:03:52 [INFO] 2025-05-27 00:03:52 - Starting HTTP server at http://localhost:8080 ...
+2025/05/27 00:03:53 [INFO] 2025-05-27 00:03:53 - Migrations applied successfully!
+2025/05/27 00:06:38 [INFO] 2025-05-27 00:06:38 - Parsed multipart form
+2025/05/27 00:06:38 [INFO] 2025-05-27 00:06:38 - Form fields parsed successfully
+2025/05/27 00:06:38 [INFO] 2025-05-27 00:06:38 - Form fields parsed
+2025/05/27 00:06:38 [INFO] 2025-05-27 00:06:38 - Checking if email exists: test@test.com
+2025/05/27 00:06:38 [INFO] 2025-05-27 00:06:38 - Email is unique
+2025/05/27 00:06:38 [INFO] 2025-05-27 00:06:38 - Handling file upload for form field 'avatar'
+2025/05/27 00:06:38 [INFO] 2025-05-27 00:06:38 - Received file: istockphoto-1419410282-612x612.jpg (58391 bytes)
+2025/05/27 00:06:38 [INFO] 2025-05-27 00:06:38 - Detected content type: image/jpeg
+2025/05/27 00:06:38 [INFO] 2025-05-27 00:06:38 - Successfully saved file as: 86f1dcd2-cfdd-4089-8e69-c1e61d6a675a.jpg
+2025/05/27 00:06:38 [INFO] 2025-05-27 00:06:38 - Avatar uploaded: 86f1dcd2-cfdd-4089-8e69-c1e61d6a675a.jpg
+2025/05/27 00:06:38 [INFO] 2025-05-27 00:06:38 - Validating registration input
+2025/05/27 00:06:38 [INFO] 2025-05-27 00:06:38 - Registration input valid
+2025/05/27 00:06:38 [INFO] 2025-05-27 00:06:38 - User input validated
+2025/05/27 00:06:38 [INFO] 2025-05-27 00:06:38 - Hashing password
+2025/05/27 00:06:38 [INFO] 2025-05-27 00:06:38 - Password hashed successfully
+2025/05/27 00:06:38 [INFO] 2025-05-27 00:06:38 - Password hashed
+2025/05/27 00:06:38 [INFO] 2025-05-27 00:06:38 - Saving user to database with ID: 939db1bd-cae9-4085-898b-5376a516f9df
+2025/05/27 00:06:38 [INFO] 2025-05-27 00:06:38 - User saved successfully
+2025/05/27 00:06:38 [INFO] 2025-05-27 00:06:38 - User registered with ID: 939db1bd-cae9-4085-898b-5376a516f9df
+2025/05/27 00:06:38 [INFO] 2025-05-27 00:06:38 - Login successful for user: 939db1bd-cae9-4085-898b-5376a516f9df
+2025/05/27 00:06:38 [INFO] 2025-05-27 00:06:38 - Success login
+2025/05/27 00:07:25 [ERROR] 2025-05-27 00:07:25 - Token cookie is missing in GetToken
+2025/05/27 00:07:35 [ERROR] 2025-05-27 00:07:35 - Token cookie is missing in GetToken
+2025/05/27 00:07:35 [ERROR] 2025-05-27 00:07:35 - Token cookie is missing in GetToken
+2025/05/27 00:07:36 [ERROR] 2025-05-27 00:07:36 - Token cookie is missing in GetToken
+2025/05/27 00:39:10 [INFO] 2025-05-27 00:39:10 - Parsed multipart form
+2025/05/27 00:39:10 [INFO] 2025-05-27 00:39:10 - Form fields parsed successfully
+2025/05/27 00:39:10 [INFO] 2025-05-27 00:39:10 - Form fields parsed
+2025/05/27 00:39:10 [INFO] 2025-05-27 00:39:10 - Checking if email exists: tesat@test.com
+2025/05/27 00:39:10 [INFO] 2025-05-27 00:39:10 - Email is unique
+2025/05/27 00:39:10 [INFO] 2025-05-27 00:39:10 - Handling file upload for form field 'avatar'
+2025/05/27 00:39:10 [INFO] 2025-05-27 00:39:10 - No file uploaded for field 'avatar'
+2025/05/27 00:39:10 [INFO] 2025-05-27 00:39:10 - Avatar uploaded: 
+2025/05/27 00:39:10 [INFO] 2025-05-27 00:39:10 - Validating registration input
+2025/05/27 00:39:10 [INFO] 2025-05-27 00:39:10 - Registration input valid
+2025/05/27 00:39:10 [INFO] 2025-05-27 00:39:10 - User input validated
+2025/05/27 00:39:10 [INFO] 2025-05-27 00:39:10 - Hashing password
+2025/05/27 00:39:10 [INFO] 2025-05-27 00:39:10 - Password hashed successfully
+2025/05/27 00:39:10 [INFO] 2025-05-27 00:39:10 - Password hashed
+2025/05/27 00:39:10 [INFO] 2025-05-27 00:39:10 - Saving user to database with ID: 52e345eb-2da7-4c27-b5b4-f1ef01b1c54a
+2025/05/27 00:39:10 [INFO] 2025-05-27 00:39:10 - User saved successfully
+2025/05/27 00:39:10 [INFO] 2025-05-27 00:39:10 - User registered with ID: 52e345eb-2da7-4c27-b5b4-f1ef01b1c54a
+2025/05/27 00:39:10 [INFO] 2025-05-27 00:39:10 - Login successful for user: 52e345eb-2da7-4c27-b5b4-f1ef01b1c54a
+2025/05/27 00:39:10 [INFO] 2025-05-27 00:39:10 - Success login
+2025/05/27 00:40:27 [ERROR] 2025-05-27 00:40:27 - Token cookie is missing in GetToken
+2025/05/27 00:40:36 [ERROR] 2025-05-27 00:40:36 - Token cookie is missing in GetToken
+2025/05/27 00:43:32 [ERROR] 2025-05-27 00:43:32 - Token cookie is missing in GetToken
+2025/05/27 00:54:43 [INFO] 2025-05-27 00:54:43 - Starting HTTP server at http://localhost:8080 ...
+2025/05/27 00:54:43 [INFO] 2025-05-27 00:54:43 - Migrations applied successfully!
+2025/05/27 00:54:57 [ERROR] 2025-05-27 00:54:57 - Token cookie is missing in GetToken
+2025/05/27 01:01:49 [ERROR] 2025-05-27 01:01:49 - Token cookie is missing in GetToken
+2025/05/27 01:01:51 [ERROR] 2025-05-27 01:01:51 - Token cookie is missing in GetToken
+2025/05/27 01:01:51 [ERROR] 2025-05-27 01:01:51 - Token cookie is missing in GetToken
+2025/05/27 03:16:07 [INFO] 2025-05-27 03:16:07 - Starting HTTP server at http://localhost:8080 ...
+2025/05/27 03:16:07 [INFO] 2025-05-27 03:16:07 - Migrations applied successfully!
+2025/05/27 03:16:15 [ERROR] 2025-05-27 03:16:15 - Token cookie is missing in GetToken
+2025/05/27 03:16:39 [ERROR] 2025-05-27 03:16:39 - Token cookie is missing in GetToken
+2025/05/27 03:18:35 [INFO] 2025-05-27 03:18:35 - Parsed multipart form
+2025/05/27 03:18:35 [INFO] 2025-05-27 03:18:35 - Form fields parsed successfully
+2025/05/27 03:18:35 [INFO] 2025-05-27 03:18:35 - Form fields parsed
+2025/05/27 03:18:35 [INFO] 2025-05-27 03:18:35 - Checking if email exists: tessat@test.com
+2025/05/27 03:18:35 [INFO] 2025-05-27 03:18:35 - Email is unique
+2025/05/27 03:18:35 [INFO] 2025-05-27 03:18:35 - Handling file upload for form field 'avatar'
+2025/05/27 03:18:35 [INFO] 2025-05-27 03:18:35 - No file uploaded for field 'avatar'
+2025/05/27 03:18:35 [INFO] 2025-05-27 03:18:35 - Avatar uploaded: 
+2025/05/27 03:18:35 [INFO] 2025-05-27 03:18:35 - Validating registration input
+2025/05/27 03:18:35 [INFO] 2025-05-27 03:18:35 - Registration input valid
+2025/05/27 03:18:35 [INFO] 2025-05-27 03:18:35 - User input validated
+2025/05/27 03:18:35 [INFO] 2025-05-27 03:18:35 - Hashing password
+2025/05/27 03:18:35 [INFO] 2025-05-27 03:18:35 - Password hashed successfully
+2025/05/27 03:18:35 [INFO] 2025-05-27 03:18:35 - Password hashed
+2025/05/27 03:18:35 [INFO] 2025-05-27 03:18:35 - Saving user to database with ID: 7c5304b3-b9e4-469e-8835-5445730a994b
+2025/05/27 03:18:35 [INFO] 2025-05-27 03:18:35 - User saved successfully
+2025/05/27 03:18:35 [INFO] 2025-05-27 03:18:35 - User registered with ID: 7c5304b3-b9e4-469e-8835-5445730a994b
+2025/05/27 03:18:35 [INFO] 2025-05-27 03:18:35 - Login successful for user: 7c5304b3-b9e4-469e-8835-5445730a994b
+2025/05/27 03:18:35 [INFO] 2025-05-27 03:18:35 - Success login
+2025/05/27 03:23:16 [ERROR] 2025-05-27 03:23:16 - Token cookie is missing in GetToken
+2025/05/27 03:33:49 [INFO] 2025-05-27 03:33:49 - Parsed multipart form
+2025/05/27 03:33:49 [INFO] 2025-05-27 03:33:49 - Form fields parsed successfully
+2025/05/27 03:33:49 [INFO] 2025-05-27 03:33:49 - Form fields parsed
+2025/05/27 03:33:49 [INFO] 2025-05-27 03:33:49 - Checking if email exists: tessat@test.com
+2025/05/27 03:33:49 [WARNING] 2025-05-27 03:33:49 - Tried to register with existing email: tessat@test.com
+2025/05/27 03:33:54 [INFO] 2025-05-27 03:33:54 - Parsed multipart form
+2025/05/27 03:33:54 [INFO] 2025-05-27 03:33:54 - Form fields parsed successfully
+2025/05/27 03:33:54 [INFO] 2025-05-27 03:33:54 - Form fields parsed
+2025/05/27 03:33:54 [INFO] 2025-05-27 03:33:54 - Checking if email exists: tesssat@test.com
+2025/05/27 03:33:54 [INFO] 2025-05-27 03:33:54 - Email is unique
+2025/05/27 03:33:54 [INFO] 2025-05-27 03:33:54 - Handling file upload for form field 'avatar'
+2025/05/27 03:33:54 [INFO] 2025-05-27 03:33:54 - No file uploaded for field 'avatar'
+2025/05/27 03:33:54 [INFO] 2025-05-27 03:33:54 - Avatar uploaded: 
+2025/05/27 03:33:54 [INFO] 2025-05-27 03:33:54 - Validating registration input
+2025/05/27 03:33:54 [INFO] 2025-05-27 03:33:54 - Registration input valid
+2025/05/27 03:33:54 [INFO] 2025-05-27 03:33:54 - User input validated
+2025/05/27 03:33:54 [INFO] 2025-05-27 03:33:54 - Hashing password
+2025/05/27 03:33:54 [INFO] 2025-05-27 03:33:54 - Password hashed successfully
+2025/05/27 03:33:54 [INFO] 2025-05-27 03:33:54 - Password hashed
+2025/05/27 03:33:54 [INFO] 2025-05-27 03:33:54 - Saving user to database with ID: 419fdeea-c3b6-4017-b428-6017e70ebf7d
+2025/05/27 03:33:54 [INFO] 2025-05-27 03:33:54 - User saved successfully
+2025/05/27 03:33:54 [INFO] 2025-05-27 03:33:54 - User registered with ID: 419fdeea-c3b6-4017-b428-6017e70ebf7d
+2025/05/27 03:33:54 [INFO] 2025-05-27 03:33:54 - Login successful for user: 419fdeea-c3b6-4017-b428-6017e70ebf7d
+2025/05/27 03:33:54 [INFO] 2025-05-27 03:33:54 - Success login
+2025/05/27 03:34:24 [ERROR] 2025-05-27 03:34:24 - Token cookie is missing in GetToken
+2025/05/27 03:35:00 [ERROR] 2025-05-27 03:35:00 - Token cookie is missing in GetToken
+2025/05/27 03:35:01 [ERROR] 2025-05-27 03:35:01 - Token cookie is missing in GetToken
+2025/05/27 03:35:02 [ERROR] 2025-05-27 03:35:02 - Token cookie is missing in GetToken
+2025/05/27 03:35:02 [ERROR] 2025-05-27 03:35:02 - Token cookie is missing in GetToken
+2025/05/27 03:35:53 [INFO] 2025-05-27 03:35:53 - Starting HTTP server at http://localhost:8080 ...
+2025/05/27 03:35:53 [INFO] 2025-05-27 03:35:53 - Migrations applied successfully!
+2025/05/27 03:36:05 [ERROR] 2025-05-27 03:36:05 - Token cookie is missing in GetToken
+2025/05/27 03:36:15 [ERROR] 2025-05-27 03:36:15 - Token cookie is missing in GetToken
+2025/05/27 03:44:56 [INFO] 2025-05-27 03:44:56 - Starting HTTP server at http://localhost:8080 ...
+2025/05/27 03:44:56 [INFO] 2025-05-27 03:44:56 - Migrations applied successfully!
+2025/05/27 03:45:34 [ERROR] 2025-05-27 03:45:34 - Token cookie is missing in GetToken
+2025/05/27 03:47:13 [INFO] 2025-05-27 03:47:13 - Parsed multipart form
+2025/05/27 03:47:13 [INFO] 2025-05-27 03:47:13 - Form fields parsed successfully
+2025/05/27 03:47:13 [INFO] 2025-05-27 03:47:13 - Form fields parsed
+2025/05/27 03:47:13 [INFO] 2025-05-27 03:47:13 - Checking if email exists: tessssat@test.com
+2025/05/27 03:47:13 [INFO] 2025-05-27 03:47:13 - Email is unique
+2025/05/27 03:47:13 [INFO] 2025-05-27 03:47:13 - Handling file upload for form field 'avatar'
+2025/05/27 03:47:13 [INFO] 2025-05-27 03:47:13 - No file uploaded for field 'avatar'
+2025/05/27 03:47:13 [INFO] 2025-05-27 03:47:13 - Avatar uploaded: 
+2025/05/27 03:47:13 [INFO] 2025-05-27 03:47:13 - Validating registration input
+2025/05/27 03:47:13 [INFO] 2025-05-27 03:47:13 - Registration input valid
+2025/05/27 03:47:13 [INFO] 2025-05-27 03:47:13 - User input validated
+2025/05/27 03:47:13 [INFO] 2025-05-27 03:47:13 - Hashing password
+2025/05/27 03:47:13 [INFO] 2025-05-27 03:47:13 - Password hashed successfully
+2025/05/27 03:47:13 [INFO] 2025-05-27 03:47:13 - Password hashed
+2025/05/27 03:47:13 [INFO] 2025-05-27 03:47:13 - Saving user to database with ID: 808f514a-3bfc-4c4e-928b-924826018d7c
+2025/05/27 03:47:13 [INFO] 2025-05-27 03:47:13 - User saved successfully
+2025/05/27 03:47:13 [INFO] 2025-05-27 03:47:13 - User registered with ID: 808f514a-3bfc-4c4e-928b-924826018d7c
+2025/05/27 03:47:13 [INFO] 2025-05-27 03:47:13 - Login successful for user: 808f514a-3bfc-4c4e-928b-924826018d7c
+2025/05/27 03:47:13 [INFO] 2025-05-27 03:47:13 - Success login
+2025/05/27 03:47:39 [ERROR] 2025-05-27 03:47:39 - Token cookie is missing in GetToken
+2025/05/27 03:57:06 [INFO] 2025-05-27 03:57:06 - Starting HTTP server at http://localhost:8080 ...
+2025/05/27 03:57:06 [INFO] 2025-05-27 03:57:06 - Migrations applied successfully!
+2025/05/27 03:58:40 [INFO] 2025-05-27 03:58:40 - Parsed multipart form
+2025/05/27 03:58:40 [INFO] 2025-05-27 03:58:40 - Form fields parsed successfully
+2025/05/27 03:58:40 [INFO] 2025-05-27 03:58:40 - Form fields parsed
+2025/05/27 03:58:40 [INFO] 2025-05-27 03:58:40 - Checking if email exists: tttessat@test.com
+2025/05/27 03:58:40 [INFO] 2025-05-27 03:58:40 - Email is unique
+2025/05/27 03:58:40 [INFO] 2025-05-27 03:58:40 - Handling file upload for form field 'avatar'
+2025/05/27 03:58:40 [INFO] 2025-05-27 03:58:40 - No file uploaded for field 'avatar'
+2025/05/27 03:58:40 [INFO] 2025-05-27 03:58:40 - Avatar uploaded: 
+2025/05/27 03:58:40 [INFO] 2025-05-27 03:58:40 - Validating registration input
+2025/05/27 03:58:40 [INFO] 2025-05-27 03:58:40 - Registration input valid
+2025/05/27 03:58:40 [INFO] 2025-05-27 03:58:40 - User input validated
+2025/05/27 03:58:40 [INFO] 2025-05-27 03:58:40 - Hashing password
+2025/05/27 03:58:40 [INFO] 2025-05-27 03:58:40 - Password hashed successfully
+2025/05/27 03:58:40 [INFO] 2025-05-27 03:58:40 - Password hashed
+2025/05/27 03:58:40 [INFO] 2025-05-27 03:58:40 - Saving user to database with ID: a6ccee64-cb12-431c-91d3-1639256238ec
+2025/05/27 03:58:40 [INFO] 2025-05-27 03:58:40 - User saved successfully
+2025/05/27 03:58:40 [INFO] 2025-05-27 03:58:40 - User registered with ID: a6ccee64-cb12-431c-91d3-1639256238ec
+2025/05/27 03:58:40 [INFO] 2025-05-27 03:58:40 - Login successful for user: a6ccee64-cb12-431c-91d3-1639256238ec
+2025/05/27 03:58:40 [INFO] 2025-05-27 03:58:40 - Success login
+2025/05/27 04:03:39 [INFO] 2025-05-27 04:03:39 - Starting HTTP server at http://localhost:8080 ...
+2025/05/27 04:03:39 [INFO] 2025-05-27 04:03:39 - Migrations applied successfully!
+2025/05/27 04:15:27 [ERROR] 2025-05-27 04:15:27 - Token cookie is missing in GetToken
+2025/05/27 04:17:02 [ERROR] 2025-05-27 04:17:02 - Token cookie is missing in GetToken
+2025/05/27 04:17:02 [ERROR] 2025-05-27 04:17:02 - Token cookie is missing in GetToken
+2025/05/27 04:17:03 [ERROR] 2025-05-27 04:17:03 - Token cookie is missing in GetToken
+2025/05/27 04:17:03 [ERROR] 2025-05-27 04:17:03 - Token cookie is missing in GetToken
+2025/05/27 06:52:17 [INFO] 2025-05-27 06:52:17 - Starting HTTP server at http://localhost:8080 ...
+2025/05/27 06:52:17 [INFO] 2025-05-27 06:52:17 - Migrations applied successfully!
+2025/05/27 06:52:50 [ERROR] 2025-05-27 06:52:50 - Token cookie is missing in GetToken
+2025/05/27 06:53:12 [ERROR] 2025-05-27 06:53:12 - Token cookie is missing in GetToken
+2025/05/27 07:01:08 [ERROR] 2025-05-27 07:01:08 - Token cookie is missing in GetToken
+2025/05/27 07:10:01 [INFO] 2025-05-27 07:10:01 - Starting HTTP server at http://localhost:8080 ...
+2025/05/27 07:10:01 [INFO] 2025-05-27 07:10:01 - Migrations applied successfully!
+2025/05/27 07:10:16 [ERROR] 2025-05-27 07:10:16 - Token cookie is missing in GetToken
+2025/05/27 07:11:48 [INFO] 2025-05-27 07:11:48 - Starting HTTP server at http://localhost:8080 ...
+2025/05/27 07:11:48 [INFO] 2025-05-27 07:11:48 - Migrations applied successfully!
+2025/05/27 07:12:11 [ERROR] 2025-05-27 07:12:11 - Error preparing statement: no such table: sessions
+2025/05/27 07:12:11 [LOG] 2025-05-27 07:12:11 - no such table: sessions
+2025/05/27 07:15:52 [INFO] 2025-05-27 07:15:52 - Starting HTTP server at http://localhost:8080 ...
+2025/05/27 07:15:52 [INFO] 2025-05-27 07:15:52 - Migrations applied successfully!
+2025/05/27 07:16:11 [ERROR] 2025-05-27 07:16:11 - Error executing query: sql: no rows in result set
+2025/05/27 07:16:11 [LOG] 2025-05-27 07:16:11 - Please login first.
+2025/05/27 07:17:22 [INFO] 2025-05-27 07:17:22 - Starting HTTP server at http://localhost:8080 ...
+2025/05/27 07:17:22 [INFO] 2025-05-27 07:17:22 - Migrations applied successfully!
+2025/05/27 07:18:36 [INFO] 2025-05-27 07:18:36 - Parsed multipart form
+2025/05/27 07:18:36 [INFO] 2025-05-27 07:18:36 - Form fields parsed successfully
+2025/05/27 07:18:36 [INFO] 2025-05-27 07:18:36 - Form fields parsed
+2025/05/27 07:18:36 [INFO] 2025-05-27 07:18:36 - Checking if email exists: test@gmail.com
+2025/05/27 07:18:36 [INFO] 2025-05-27 07:18:36 - Email is unique
+2025/05/27 07:18:36 [INFO] 2025-05-27 07:18:36 - Handling file upload for form field 'avatar'
+2025/05/27 07:18:36 [INFO] 2025-05-27 07:18:36 - No file uploaded for field 'avatar'
+2025/05/27 07:18:36 [INFO] 2025-05-27 07:18:36 - Avatar uploaded: 
+2025/05/27 07:18:36 [INFO] 2025-05-27 07:18:36 - Validating registration input
+2025/05/27 07:18:36 [INFO] 2025-05-27 07:18:36 - Registration input valid
+2025/05/27 07:18:36 [INFO] 2025-05-27 07:18:36 - User input validated
+2025/05/27 07:18:36 [INFO] 2025-05-27 07:18:36 - Hashing password
+2025/05/27 07:18:36 [INFO] 2025-05-27 07:18:36 - Password hashed successfully
+2025/05/27 07:18:36 [INFO] 2025-05-27 07:18:36 - Password hashed
+2025/05/27 07:18:36 [INFO] 2025-05-27 07:18:36 - Saving user to database with ID: 54ea59bf-419b-4288-a8d5-2eb016f6379c
+2025/05/27 07:18:36 [INFO] 2025-05-27 07:18:36 - User saved successfully
+2025/05/27 07:18:36 [INFO] 2025-05-27 07:18:36 - User registered with ID: 54ea59bf-419b-4288-a8d5-2eb016f6379c
+2025/05/27 07:18:36 [INFO] 2025-05-27 07:18:36 - Save Token into Sessions
+2025/05/27 07:18:36 [INFO] 2025-05-27 07:18:36 - Login successful for user: 54ea59bf-419b-4288-a8d5-2eb016f6379c
+2025/05/27 07:18:36 [INFO] 2025-05-27 07:18:36 - Success login
+2025/05/27 07:19:01 [INFO] 2025-05-27 07:19:01 - Received request for GroupCreation
+2025/05/27 07:19:01 [INFO] 2025-05-27 07:19:01 - Handling file upload for form field 'Image'
+2025/05/27 07:19:01 [INFO] 2025-05-27 07:19:01 - Received file: istockphoto-1419410282-612x612.jpg (58391 bytes)
+2025/05/27 07:19:01 [INFO] 2025-05-27 07:19:01 - Detected content type: image/jpeg
+2025/05/27 07:19:01 [INFO] 2025-05-27 07:19:01 - Created upload directory: ../uploads/groups_cover
+2025/05/27 07:19:01 [INFO] 2025-05-27 07:19:01 - Successfully saved file as: 6ada0608-0b98-44ae-bb6a-27ae761f89fe.jpg
+2025/05/27 07:19:01 [INFO] 2025-05-27 07:19:01 - Group Input Validated
+2025/05/27 07:19:01 [INFO] 2025-05-27 07:19:01 - Saving group into DB
+2025/05/27 07:19:01 [ERROR] 2025-05-27 07:19:01 - Failed to save group to DB: Failed to insert into Db : CHECK constraint failed: LENGTH(descriptio) > 150 AND LENGTH(descriptio) <300
+2025/05/27 07:20:42 [INFO] 2025-05-27 07:20:42 - Starting HTTP server at http://localhost:8080 ...
+2025/05/27 07:20:42 [INFO] 2025-05-27 07:20:42 - Migrations applied successfully!
+2025/05/27 07:20:52 [INFO] 2025-05-27 07:20:52 - Received request for GroupCreation
+2025/05/27 07:20:52 [INFO] 2025-05-27 07:20:52 - Handling file upload for form field 'Image'
+2025/05/27 07:20:52 [INFO] 2025-05-27 07:20:52 - Received file: istockphoto-1419410282-612x612.jpg (58391 bytes)
+2025/05/27 07:20:52 [INFO] 2025-05-27 07:20:52 - Detected content type: image/jpeg
+2025/05/27 07:20:52 [INFO] 2025-05-27 07:20:52 - Successfully saved file as: ae2128d4-a58e-4558-88da-a5cc1c3bcc8e.jpg
+2025/05/27 07:20:52 [INFO] 2025-05-27 07:20:52 - Group Input Validated
+2025/05/27 07:20:52 [INFO] 2025-05-27 07:20:52 - Saving group into DB
+2025/05/27 07:20:52 [ERROR] 2025-05-27 07:20:52 - Failed to save group to DB: Failed to insert into Db : CHECK constraint failed: LENGTH(descriptio) > 150 AND LENGTH(descriptio) <300
+2025/05/27 07:22:25 [INFO] 2025-05-27 07:22:25 - Starting HTTP server at http://localhost:8080 ...
+2025/05/27 07:22:25 [INFO] 2025-05-27 07:22:25 - Migrations applied successfully!
+2025/05/27 07:22:33 [ERROR] 2025-05-27 07:22:33 - Error executing query: sql: no rows in result set
+2025/05/27 07:22:33 [LOG] 2025-05-27 07:22:33 - Please login first.
+2025/05/27 07:23:58 [INFO] 2025-05-27 07:23:58 - Parsed multipart form
+2025/05/27 07:23:58 [INFO] 2025-05-27 07:23:58 - Form fields parsed successfully
+2025/05/27 07:23:58 [INFO] 2025-05-27 07:23:58 - Form fields parsed
+2025/05/27 07:23:58 [INFO] 2025-05-27 07:23:58 - Checking if email exists: test@gmail.com
+2025/05/27 07:23:58 [INFO] 2025-05-27 07:23:58 - Email is unique
+2025/05/27 07:23:58 [INFO] 2025-05-27 07:23:58 - Handling file upload for form field 'avatar'
+2025/05/27 07:23:58 [INFO] 2025-05-27 07:23:58 - Received file: istockphoto-1419410282-612x612.jpg (58391 bytes)
+2025/05/27 07:23:58 [INFO] 2025-05-27 07:23:58 - Detected content type: image/jpeg
+2025/05/27 07:23:58 [INFO] 2025-05-27 07:23:58 - Successfully saved file as: 9510ffc7-5676-428c-858a-1ebd195b2efc.jpg
+2025/05/27 07:23:58 [INFO] 2025-05-27 07:23:58 - Avatar uploaded: 9510ffc7-5676-428c-858a-1ebd195b2efc.jpg
+2025/05/27 07:23:58 [INFO] 2025-05-27 07:23:58 - Validating registration input
+2025/05/27 07:23:58 [INFO] 2025-05-27 07:23:58 - Registration input valid
+2025/05/27 07:23:58 [INFO] 2025-05-27 07:23:58 - User input validated
+2025/05/27 07:23:58 [INFO] 2025-05-27 07:23:58 - Hashing password
+2025/05/27 07:23:58 [INFO] 2025-05-27 07:23:58 - Password hashed successfully
+2025/05/27 07:23:58 [INFO] 2025-05-27 07:23:58 - Password hashed
+2025/05/27 07:23:58 [INFO] 2025-05-27 07:23:58 - Saving user to database with ID: 3776c470-8122-4286-ab67-76dc31f40324
+2025/05/27 07:23:58 [INFO] 2025-05-27 07:23:58 - User saved successfully
+2025/05/27 07:23:58 [INFO] 2025-05-27 07:23:58 - User registered with ID: 3776c470-8122-4286-ab67-76dc31f40324
+2025/05/27 07:23:58 [INFO] 2025-05-27 07:23:58 - Save Token into Sessions
+2025/05/27 07:23:58 [INFO] 2025-05-27 07:23:58 - Login successful for user: 3776c470-8122-4286-ab67-76dc31f40324
+2025/05/27 07:23:58 [INFO] 2025-05-27 07:23:58 - Success login
+2025/05/27 07:24:18 [INFO] 2025-05-27 07:24:18 - Received request for GroupCreation
+2025/05/27 07:24:18 [INFO] 2025-05-27 07:24:18 - Handling file upload for form field 'Image'
+2025/05/27 07:24:18 [INFO] 2025-05-27 07:24:18 - Received file: istockphoto-1419410282-612x612.jpg (58391 bytes)
+2025/05/27 07:24:18 [INFO] 2025-05-27 07:24:18 - Detected content type: image/jpeg
+2025/05/27 07:24:18 [INFO] 2025-05-27 07:24:18 - Successfully saved file as: 89b76040-8551-4438-9e2a-98511516be56.jpg
+2025/05/27 07:24:18 [INFO] 2025-05-27 07:24:18 - Group Input Validated
+2025/05/27 07:24:18 [INFO] 2025-05-27 07:24:18 - Saving group into DB
+2025/05/27 07:24:18 [INFO] 2025-05-27 07:24:18 - Group created successfully with ID: 1
+2025/05/27 07:24:45 [INFO] 2025-05-27 07:24:45 - Received request for GroupCreation
+2025/05/27 07:24:45 [INFO] 2025-05-27 07:24:45 - Handling file upload for form field 'Image'
+2025/05/27 07:24:45 [INFO] 2025-05-27 07:24:45 - Received file: istockphoto-1419410282-612x612.jpg (58391 bytes)
+2025/05/27 07:24:45 [INFO] 2025-05-27 07:24:45 - Detected content type: image/jpeg
+2025/05/27 07:24:45 [INFO] 2025-05-27 07:24:45 - Successfully saved file as: d8c6dc2e-73a7-4725-9ae6-0b2c153d8c2a.jpg
+2025/05/27 07:24:45 [INFO] 2025-05-27 07:24:45 - Group Input Validated
+2025/05/27 07:24:45 [INFO] 2025-05-27 07:24:45 - Saving group into DB
+2025/05/27 07:24:45 [INFO] 2025-05-27 07:24:45 - Group created successfully with ID: 2
+2025/05/27 07:24:45 [INFO] 2025-05-27 07:24:45 - Received request for GroupCreation
+2025/05/27 07:24:45 [INFO] 2025-05-27 07:24:45 - Handling file upload for form field 'Image'
+2025/05/27 07:24:45 [INFO] 2025-05-27 07:24:45 - Received file: istockphoto-1419410282-612x612.jpg (58391 bytes)
+2025/05/27 07:24:45 [INFO] 2025-05-27 07:24:45 - Detected content type: image/jpeg
+2025/05/27 07:24:45 [INFO] 2025-05-27 07:24:45 - Successfully saved file as: afebb0de-b972-4b3c-b079-6cc30cdf4ca2.jpg
+2025/05/27 07:24:45 [INFO] 2025-05-27 07:24:45 - Group Input Validated
+2025/05/27 07:24:45 [INFO] 2025-05-27 07:24:45 - Saving group into DB
+2025/05/27 07:24:45 [INFO] 2025-05-27 07:24:45 - Group created successfully with ID: 3
+2025/05/27 07:24:45 [INFO] 2025-05-27 07:24:45 - Received request for GroupCreation
+2025/05/27 07:24:45 [INFO] 2025-05-27 07:24:45 - Handling file upload for form field 'Image'
+2025/05/27 07:24:45 [INFO] 2025-05-27 07:24:45 - Received file: istockphoto-1419410282-612x612.jpg (58391 bytes)
+2025/05/27 07:24:45 [INFO] 2025-05-27 07:24:45 - Detected content type: image/jpeg
+2025/05/27 07:24:45 [INFO] 2025-05-27 07:24:45 - Successfully saved file as: 47ea7997-d48f-442a-933d-051471fa3dfe.jpg
+2025/05/27 07:24:45 [INFO] 2025-05-27 07:24:45 - Group Input Validated
+2025/05/27 07:24:45 [INFO] 2025-05-27 07:24:45 - Saving group into DB
+2025/05/27 07:24:45 [INFO] 2025-05-27 07:24:45 - Group created successfully with ID: 4
+2025/05/27 07:33:30 [INFO] 2025-05-27 07:33:30 - Received request for GroupCreation
+2025/05/27 07:33:30 [INFO] 2025-05-27 07:33:30 - Handling file upload for form field 'Image'
+2025/05/27 07:33:30 [INFO] 2025-05-27 07:33:30 - Received file: istockphoto-1419410282-612x612.jpg (58391 bytes)
+2025/05/27 07:33:30 [INFO] 2025-05-27 07:33:30 - Detected content type: image/jpeg
+2025/05/27 07:33:30 [INFO] 2025-05-27 07:33:30 - Successfully saved file as: 22eb02b1-d748-4cb8-bbe9-216a6b867caf.jpg
+2025/05/27 07:33:30 [INFO] 2025-05-27 07:33:30 - Group Input Validated
+2025/05/27 07:33:30 [INFO] 2025-05-27 07:33:30 - Saving group into DB
+2025/05/27 07:33:30 [INFO] 2025-05-27 07:33:30 - Group created successfully with ID: 5
+2025/05/27 07:33:32 [INFO] 2025-05-27 07:33:32 - Received request for GroupCreation
+2025/05/27 07:33:32 [INFO] 2025-05-27 07:33:32 - Handling file upload for form field 'Image'
+2025/05/27 07:33:32 [INFO] 2025-05-27 07:33:32 - Received file: istockphoto-1419410282-612x612.jpg (58391 bytes)
+2025/05/27 07:33:32 [INFO] 2025-05-27 07:33:32 - Detected content type: image/jpeg
+2025/05/27 07:33:32 [INFO] 2025-05-27 07:33:32 - Successfully saved file as: 364a7d53-02d4-48bd-89cf-b0fadbaeef72.jpg
+2025/05/27 07:33:32 [INFO] 2025-05-27 07:33:32 - Group Input Validated
+2025/05/27 07:33:32 [INFO] 2025-05-27 07:33:32 - Saving group into DB
+2025/05/27 07:33:32 [INFO] 2025-05-27 07:33:32 - Group created successfully with ID: 6
+2025/05/27 07:33:54 [INFO] 2025-05-27 07:33:54 - Received request for GroupCreation
+2025/05/27 07:33:54 [INFO] 2025-05-27 07:33:54 - Handling file upload for form field 'Image'
+2025/05/27 07:33:54 [INFO] 2025-05-27 07:33:54 - No file uploaded for field 'Image'
+2025/05/27 07:33:54 [INFO] 2025-05-27 07:33:54 - Group Input Validated
+2025/05/27 07:33:54 [INFO] 2025-05-27 07:33:54 - Saving group into DB
+2025/05/27 07:33:54 [INFO] 2025-05-27 07:33:54 - Group created successfully with ID: 7
+2025/05/27 09:24:08 [INFO] 2025-05-27 09:24:08 - Starting HTTP server at http://localhost:8080 ...
+2025/05/27 09:24:08 [INFO] 2025-05-27 09:24:08 - Migrations applied successfully!
+2025/05/27 09:26:14 [INFO] 2025-05-27 09:26:14 - Received request for GroupCreation
+2025/05/27 09:26:14 [INFO] 2025-05-27 09:26:14 - Handling file upload for form field 'Image'
+2025/05/27 09:26:14 [INFO] 2025-05-27 09:26:14 - Received file: istockphoto-1419410282-612x612.jpg (58391 bytes)
+2025/05/27 09:26:14 [INFO] 2025-05-27 09:26:14 - Detected content type: image/jpeg
+2025/05/27 09:26:14 [INFO] 2025-05-27 09:26:14 - Successfully saved file as: f0eaf3cf-50a5-457a-b2d6-18a8705955df.jpg
+2025/05/27 09:26:14 [INFO] 2025-05-27 09:26:14 - Group Input Validated
+2025/05/27 09:26:14 [INFO] 2025-05-27 09:26:14 - Saving group into DB
+2025/05/27 09:26:14 [INFO] 2025-05-27 09:26:14 - Group created successfully with ID: 8

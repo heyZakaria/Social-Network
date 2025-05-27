@@ -6,6 +6,7 @@ import (
 	"log"
 	"os"
 	"path/filepath"
+
 	"socialNetwork/utils"
 
 	_ "github.com/golang-migrate/migrate/v4/database/sqlite3"
@@ -38,16 +39,16 @@ func InitDB(dataSourceName string) (*sql.DB, error) {
 }
 
 func initMig() error {
-
 	dir, err := os.Getwd()
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	migrationsPath := filepath.Join(dir, "../backend/db/migration")
-	sourceURL := "file://" + migrationsPath
+	migrationsPath := filepath.Join(dir, "../db/migration")
+	DatabasePath := filepath.Join(dir, "../db/sqlite/database.db")
 
-	dbURL := "sqlite3://db/sqlite/database.db"
+	sourceURL := "file://" + migrationsPath
+	dbURL := "sqlite3://" + DatabasePath
 
 	m, err := migrate.New(sourceURL, dbURL)
 	if err != nil {
