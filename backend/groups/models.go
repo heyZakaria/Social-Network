@@ -1,14 +1,14 @@
 package Group
 
 type Group struct {
-	Id          int
-	Description string
-	Title       string
-	Members     []GroupMember
-	CoverName   string
 	AdminId     string
+	ID          int    `json:"id"`
+	Title       string `json:"title"`
+	Description string `json:"description"`
+	CoverName   string `json:"covername"`
+	MemberCount int    `json:"memberCount"`
+	MemberState string `json:"memberState"`
 }
-
 type GroupMember struct {
 	User_id  string
 	Group_id int

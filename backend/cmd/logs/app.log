@@ -766,3 +766,136 @@
 2025/05/27 09:26:14 [INFO] 2025-05-27 09:26:14 - Group Input Validated
 2025/05/27 09:26:14 [INFO] 2025-05-27 09:26:14 - Saving group into DB
 2025/05/27 09:26:14 [INFO] 2025-05-27 09:26:14 - Group created successfully with ID: 8
+2025/05/27 22:14:29 [INFO] 2025-05-27 22:14:29 - Starting HTTP server at http://localhost:8080 ...
+2025/05/27 22:15:02 [INFO] 2025-05-27 22:15:02 - Starting HTTP server at http://localhost:8080 ...
+2025/05/27 22:15:06 [INFO] 2025-05-27 22:15:06 - Starting HTTP server at http://localhost:8080 ...
+2025/05/27 22:15:28 [INFO] 2025-05-27 22:15:28 - Starting HTTP server at http://localhost:8080 ...
+2025/05/27 22:15:58 [INFO] 2025-05-27 22:15:58 - Starting HTTP server at http://localhost:8080 ...
+2025/05/27 22:16:52 [INFO] 2025-05-27 22:16:52 - Starting HTTP server at http://localhost:8080 ...
+2025/05/27 22:17:49 [INFO] 2025-05-27 22:17:49 - Starting HTTP server at http://localhost:8080 ...
+2025/05/27 22:18:14 [INFO] 2025-05-27 22:18:14 - Starting HTTP server at http://localhost:8080 ...
+2025/05/27 22:18:14 [INFO] 2025-05-27 22:18:14 - Migrations applied successfully!
+2025/05/27 22:18:37 [INFO] 2025-05-27 22:18:37 - Starting HTTP server at http://localhost:8080 ...
+2025/05/27 22:18:37 [INFO] 2025-05-27 22:18:37 - Migrations applied successfully!
+2025/05/27 22:22:44 [INFO] 2025-05-27 22:22:44 - Parsed multipart form
+2025/05/27 22:22:44 [INFO] 2025-05-27 22:22:44 - Form fields parsed successfully
+2025/05/27 22:22:44 [INFO] 2025-05-27 22:22:44 - Form fields parsed
+2025/05/27 22:22:44 [INFO] 2025-05-27 22:22:44 - Checking if email exists: test.test@gm.com
+2025/05/27 22:22:44 [INFO] 2025-05-27 22:22:44 - Email is unique
+2025/05/27 22:22:44 [INFO] 2025-05-27 22:22:44 - Handling file upload for form field 'avatar'
+2025/05/27 22:22:44 [INFO] 2025-05-27 22:22:44 - No file uploaded for field 'avatar'
+2025/05/27 22:22:44 [INFO] 2025-05-27 22:22:44 - Avatar uploaded: 
+2025/05/27 22:22:44 [INFO] 2025-05-27 22:22:44 - Validating registration input
+2025/05/27 22:22:44 [INFO] 2025-05-27 22:22:44 - Registration input valid
+2025/05/27 22:22:44 [INFO] 2025-05-27 22:22:44 - User input validated
+2025/05/27 22:22:44 [INFO] 2025-05-27 22:22:44 - Hashing password
+2025/05/27 22:22:44 [INFO] 2025-05-27 22:22:44 - Password hashed successfully
+2025/05/27 22:22:44 [INFO] 2025-05-27 22:22:44 - Password hashed
+2025/05/27 22:22:44 [INFO] 2025-05-27 22:22:44 - Saving user to database with ID: 0bbb46ea-7715-4349-b306-77505ea3c63d
+2025/05/27 22:22:44 [INFO] 2025-05-27 22:22:44 - User saved successfully
+2025/05/27 22:22:44 [INFO] 2025-05-27 22:22:44 - User registered with ID: 0bbb46ea-7715-4349-b306-77505ea3c63d
+2025/05/27 22:22:44 [INFO] 2025-05-27 22:22:44 - Save Token into Sessions
+2025/05/27 22:22:44 [INFO] 2025-05-27 22:22:44 - Login successful for user: 0bbb46ea-7715-4349-b306-77505ea3c63d
+2025/05/27 22:22:44 [INFO] 2025-05-27 22:22:44 - Success login
+2025/05/27 22:23:03 [INFO] 2025-05-27 22:23:03 - Received request for GroupCreation
+2025/05/27 22:23:03 [INFO] 2025-05-27 22:23:03 - Handling file upload for form field 'Image'
+2025/05/27 22:23:03 [INFO] 2025-05-27 22:23:03 - No file uploaded for field 'Image'
+2025/05/27 22:23:03 [INFO] 2025-05-27 22:23:03 - Group Input Validated
+2025/05/27 22:23:03 [INFO] 2025-05-27 22:23:03 - Saving group into DB
+2025/05/27 22:23:03 [INFO] 2025-05-27 22:23:03 - Saving GroupMember into DB
+2025/05/27 22:23:03 [INFO] 2025-05-27 22:23:03 - Group created successfully with ID: 1
+2025/05/27 22:23:44 [INFO] 2025-05-27 22:23:44 - Received request for GroupCreation
+2025/05/27 22:23:44 [INFO] 2025-05-27 22:23:44 - Handling file upload for form field 'Image'
+2025/05/27 22:23:44 [INFO] 2025-05-27 22:23:44 - No file uploaded for field 'Image'
+2025/05/27 22:23:44 [INFO] 2025-05-27 22:23:44 - Group Input Validated
+2025/05/27 22:23:44 [INFO] 2025-05-27 22:23:44 - Saving group into DB
+2025/05/27 22:23:44 [INFO] 2025-05-27 22:23:44 - Saving GroupMember into DB
+2025/05/27 22:23:44 [INFO] 2025-05-27 22:23:44 - Group created successfully with ID: 2
+2025/05/27 22:23:44 [INFO] 2025-05-27 22:23:44 - Received request for GroupCreation
+2025/05/27 22:23:44 [INFO] 2025-05-27 22:23:44 - Handling file upload for form field 'Image'
+2025/05/27 22:23:44 [INFO] 2025-05-27 22:23:44 - No file uploaded for field 'Image'
+2025/05/27 22:23:44 [INFO] 2025-05-27 22:23:44 - Group Input Validated
+2025/05/27 22:23:44 [INFO] 2025-05-27 22:23:44 - Saving group into DB
+2025/05/27 22:23:44 [INFO] 2025-05-27 22:23:44 - Saving GroupMember into DB
+2025/05/27 22:23:44 [INFO] 2025-05-27 22:23:44 - Group created successfully with ID: 3
+2025/05/27 22:24:02 [INFO] 2025-05-27 22:24:02 - Received request for GroupCreation
+2025/05/27 22:24:02 [INFO] 2025-05-27 22:24:02 - Handling file upload for form field 'Image'
+2025/05/27 22:24:02 [INFO] 2025-05-27 22:24:02 - No file uploaded for field 'Image'
+2025/05/27 22:24:02 [INFO] 2025-05-27 22:24:02 - Group Input Validated
+2025/05/27 22:24:02 [INFO] 2025-05-27 22:24:02 - Saving group into DB
+2025/05/27 22:24:02 [ERROR] 2025-05-27 22:24:02 - Failed to save group to DB: Failed to insert into Db : CHECK constraint failed: LENGTH(title) > 10 AND LENGTH(title) <120
+2025/05/27 22:24:19 [INFO] 2025-05-27 22:24:19 - Received request for GroupCreation
+2025/05/27 22:24:19 [INFO] 2025-05-27 22:24:19 - Handling file upload for form field 'Image'
+2025/05/27 22:24:19 [INFO] 2025-05-27 22:24:19 - No file uploaded for field 'Image'
+2025/05/27 22:24:19 [INFO] 2025-05-27 22:24:19 - Group Input Validated
+2025/05/27 22:24:19 [INFO] 2025-05-27 22:24:19 - Saving group into DB
+2025/05/27 22:24:19 [INFO] 2025-05-27 22:24:19 - Saving GroupMember into DB
+2025/05/27 22:24:19 [INFO] 2025-05-27 22:24:19 - Group created successfully with ID: 4
+2025/05/27 22:24:33 [INFO] 2025-05-27 22:24:33 - Received request for GroupCreation
+2025/05/27 22:24:33 [INFO] 2025-05-27 22:24:33 - Handling file upload for form field 'Image'
+2025/05/27 22:24:33 [INFO] 2025-05-27 22:24:33 - No file uploaded for field 'Image'
+2025/05/27 22:24:33 [INFO] 2025-05-27 22:24:33 - Group Input Validated
+2025/05/27 22:24:33 [INFO] 2025-05-27 22:24:33 - Saving group into DB
+2025/05/27 22:24:33 [INFO] 2025-05-27 22:24:33 - Saving GroupMember into DB
+2025/05/27 22:24:33 [INFO] 2025-05-27 22:24:33 - Group created successfully with ID: 5
+2025/05/27 22:24:33 [INFO] 2025-05-27 22:24:33 - Received request for GroupCreation
+2025/05/27 22:24:33 [INFO] 2025-05-27 22:24:33 - Handling file upload for form field 'Image'
+2025/05/27 22:24:33 [INFO] 2025-05-27 22:24:33 - No file uploaded for field 'Image'
+2025/05/27 22:24:33 [INFO] 2025-05-27 22:24:33 - Group Input Validated
+2025/05/27 22:24:33 [INFO] 2025-05-27 22:24:33 - Saving group into DB
+2025/05/27 22:24:33 [INFO] 2025-05-27 22:24:33 - Saving GroupMember into DB
+2025/05/27 22:24:33 [INFO] 2025-05-27 22:24:33 - Group created successfully with ID: 6
+2025/05/27 22:24:33 [INFO] 2025-05-27 22:24:33 - Received request for GroupCreation
+2025/05/27 22:24:33 [INFO] 2025-05-27 22:24:33 - Handling file upload for form field 'Image'
+2025/05/27 22:24:33 [INFO] 2025-05-27 22:24:33 - No file uploaded for field 'Image'
+2025/05/27 22:24:33 [INFO] 2025-05-27 22:24:33 - Group Input Validated
+2025/05/27 22:24:33 [INFO] 2025-05-27 22:24:33 - Saving group into DB
+2025/05/27 22:24:33 [INFO] 2025-05-27 22:24:33 - Saving GroupMember into DB
+2025/05/27 22:24:33 [INFO] 2025-05-27 22:24:33 - Group created successfully with ID: 7
+2025/05/28 07:09:38 [INFO] 2025-05-28 07:09:38 - Starting HTTP server at http://localhost:8080 ...
+2025/05/28 07:09:38 [INFO] 2025-05-28 07:09:38 - Migrations applied successfully!
+2025/05/28 07:16:00 [INFO] 2025-05-28 07:16:00 - Recieved Request for fetching groups
+2025/05/28 07:16:00 [ERROR] 2025-05-28 07:16:00 - Token cookie is missing in GetToken
+2025/05/28 07:16:02 [INFO] 2025-05-28 07:16:02 - Recieved Request for fetching groups
+2025/05/28 07:16:02 [ERROR] 2025-05-28 07:16:02 - Token cookie is missing in GetToken
+2025/05/28 07:17:23 [INFO] 2025-05-28 07:17:23 - Recieved Request for fetching groups
+2025/05/28 07:17:23 [ERROR] 2025-05-28 07:17:23 - Query failed: no such column: gmCurrent.member_id
+2025/05/28 07:17:23 [LOG] 2025-05-28 07:17:23 - no such column: gmCurrent.member_id
+2025/05/28 07:17:58 [INFO] 2025-05-28 07:17:58 - Starting HTTP server at http://localhost:8080 ...
+2025/05/28 07:17:58 [INFO] 2025-05-28 07:17:58 - Migrations applied successfully!
+2025/05/28 07:18:00 [INFO] 2025-05-28 07:18:00 - Recieved Request for fetching groups
+2025/05/28 07:18:00 [ERROR] 2025-05-28 07:18:00 - Query failed: no such column: g.description
+2025/05/28 07:18:00 [LOG] 2025-05-28 07:18:00 - no such column: g.description
+2025/05/28 07:18:11 [INFO] 2025-05-28 07:18:11 - Starting HTTP server at http://localhost:8080 ...
+2025/05/28 07:18:11 [INFO] 2025-05-28 07:18:11 - Migrations applied successfully!
+2025/05/28 07:18:13 [INFO] 2025-05-28 07:18:13 - Recieved Request for fetching groups
+2025/05/28 07:18:13 [ERROR] 2025-05-28 07:18:13 - Query failed: no such column: g.cover
+2025/05/28 07:18:13 [LOG] 2025-05-28 07:18:13 - no such column: g.cover
+2025/05/28 07:18:27 [INFO] 2025-05-28 07:18:27 - Starting HTTP server at http://localhost:8080 ...
+2025/05/28 07:18:27 [INFO] 2025-05-28 07:18:27 - Migrations applied successfully!
+2025/05/28 07:18:29 [INFO] 2025-05-28 07:18:29 - Recieved Request for fetching groups
+2025/05/28 07:18:29 [ERROR] 2025-05-28 07:18:29 - Scan failed: sql: Scan error on column index 5, name "memberState": converting NULL to string is unsupported
+2025/05/28 07:18:29 [LOG] 2025-05-28 07:18:29 - sql: Scan error on column index 5, name "memberState": converting NULL to string is unsupported
+2025/05/28 07:20:29 [INFO] 2025-05-28 07:20:29 - Starting HTTP server at http://localhost:8080 ...
+2025/05/28 07:20:29 [INFO] 2025-05-28 07:20:29 - Migrations applied successfully!
+2025/05/28 07:20:33 [INFO] 2025-05-28 07:20:33 - Recieved Request for fetching groups
+2025/05/28 07:20:33 [INFO] 2025-05-28 07:20:33 - Groups Fetched Successfuly
+2025/05/28 07:21:28 [INFO] 2025-05-28 07:21:28 - Starting HTTP server at http://localhost:8080 ...
+2025/05/28 07:21:28 [INFO] 2025-05-28 07:21:28 - Migrations applied successfully!
+2025/05/28 07:21:30 [INFO] 2025-05-28 07:21:30 - Recieved Request for fetching groups
+2025/05/28 07:21:30 [INFO] 2025-05-28 07:21:30 - Groups Fetched Successfuly
+2025/05/28 07:22:04 [INFO] 2025-05-28 07:22:04 - Received request for GroupCreation
+2025/05/28 07:22:04 [INFO] 2025-05-28 07:22:04 - Handling file upload for form field 'Image'
+2025/05/28 07:22:04 [INFO] 2025-05-28 07:22:04 - No file uploaded for field 'Image'
+2025/05/28 07:22:04 [INFO] 2025-05-28 07:22:04 - Group Input Validated
+2025/05/28 07:22:04 [INFO] 2025-05-28 07:22:04 - Saving group into DB
+2025/05/28 07:22:04 [INFO] 2025-05-28 07:22:04 - Saving GroupMember into DB
+2025/05/28 07:22:04 [INFO] 2025-05-28 07:22:04 - Group created successfully with ID: 8
+2025/05/28 07:22:08 [INFO] 2025-05-28 07:22:08 - Recieved Request for fetching groups
+2025/05/28 07:22:08 [INFO] 2025-05-28 07:22:08 - Groups Fetched Successfuly
+2025/05/28 07:24:05 [INFO] 2025-05-28 07:24:05 - Starting HTTP server at http://localhost:8080 ...
+2025/05/28 07:24:05 [INFO] 2025-05-28 07:24:05 - Migrations applied successfully!
+2025/05/28 07:24:08 [INFO] 2025-05-28 07:24:08 - Recieved Request for fetching groups
+2025/05/28 07:24:08 [INFO] 2025-05-28 07:24:08 - Groups Fetched Successfuly
+2025/05/28 07:25:14 [INFO] 2025-05-28 07:25:14 - Recieved Request for fetching groups
+2025/05/28 07:25:14 [INFO] 2025-05-28 07:25:14 - Groups Fetched Successfuly
