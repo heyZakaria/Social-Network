@@ -42,7 +42,7 @@ func main() {
 	router.HandleFunc("GET /api/users/get/profile", profile.GetOtherUserProfile)
 	router.HandleFunc("GET /api/users/follow", profile.ToggleFollowUser)
 	router.HandleFunc("POST /api/users/follow", profile.ToggleFollowUser)
-	 router.HandleFunc("GET /api/users/suggestions", profile.GetUserSuggestions)
+	//  router.HandleFunc("GET /api/users/suggestions", profile.GetUserSuggestions)
 
 	// Testing serving images
 	//http://localhost:8080/uploads/posts/40809c81-b8b6-45aa-8311-4abe9de995f8.JPEG

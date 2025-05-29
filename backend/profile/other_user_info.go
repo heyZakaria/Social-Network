@@ -1,7 +1,6 @@
 package profile
 
 import (
-	"fmt"
 	"net/http"
 
 	"socialNetwork/auth"
@@ -49,6 +48,7 @@ func GetOtherUserProfile(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	// Load followers
 	profile.Followers, err = LoadUsers(profile.UserID, "accepted")
 	if err != nil {
 		utils.SendJSON(w, http.StatusInternalServerError, utils.JSONResponse{
@@ -59,6 +59,18 @@ func GetOtherUserProfile(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	// Load following
+	profile.Following, err = GetFollowing(profile.UserID)
+	if err != nil {
+		utils.SendJSON(w, http.StatusInternalServerError, utils.JSONResponse{
+			Success: false,
+			Message: "Failed to load following",
+			Error:   err.Error(),
+		})
+		return
+	}
+
+	// Determine if user can view profile
 	profile.CanView = currentUserId == profile.UserID || profile.ProfileStatus == "public"
 	if !profile.CanView {
 		for _, follower := range profile.Followers {
@@ -70,12 +82,35 @@ func GetOtherUserProfile(w http.ResponseWriter, r *http.Request) {
 		}
 	}
 
+	// Determine if it's own profile
 	profile.IsOwnProfile = currentUserId == profile.UserID
 	if profile.IsOwnProfile {
 		utils.Log("INFO", "User is viewing their own profile")
 	}
 
+	// Check follow status between currentUser and targetUser
+	var status string
+	err = db.DB.QueryRow(`
+		SELECT follower_status FROM followers
+		WHERE follower_id = ? AND followed_id = ?
+	`, currentUserId, profile.UserID).Scan(&status)
+
+	if err == nil {
+		if status == "accepted" {
+			profile.IsFollowing = true
+		} else if status == "pending" {
+			profile.RequestPending = true
+		}
+	} else {
+		profile.IsFollowing = false
+		profile.RequestPending = false
+	}
+
 	utils.Log("INFO", "Profile returned successfully")
+	profile.FollowerCount = len(profile.Followers)
+	profile.FollowingCount = len(profile.Following)
+
+	
 
 	utils.SendJSON(w, http.StatusOK, utils.JSONResponse{
 		Success: true,
@@ -85,30 +120,3 @@ func GetOtherUserProfile(w http.ResponseWriter, r *http.Request) {
 		},
 	})
 }
-
-func LoadUsers(userID string, status string) ([]User, error) {
-	rows, err := db.DB.Query(`
-		SELECT users.id, users.first_name, users.last_name, users.avatar
-		FROM followers
-		JOIN users ON users.id = followers.follower_id
-		WHERE followers.followed_id = ? AND followers.follower_status = ?
-	`, userID, status)
-	if err != nil {
-		utils.Log("ERROR", "Failed to load followers: "+err.Error())
-		return nil, err
-	}
-	defer rows.Close()
-
-	var followers []User
-	for rows.Next() {
-		var follower User
-		if err := rows.Scan(&follower.ID, &follower.FirstName, &follower.LastName, &follower.Avatar); err != nil {
-			utils.Log("ERROR", "Error scanning follower: "+err.Error())
-			continue
-		}
-		followers = append(followers, follower)
-	}
-	utils.Log("INFO", fmt.Sprintf("Loaded %d followers with status '%s'", len(followers), status))
-	return followers, nil
-}
-

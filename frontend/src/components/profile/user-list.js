@@ -1,44 +1,16 @@
 'use client'
 
-import { useUser } from "@/app/(utils)/user_context"
 import styles from "../../styles/profile.module.css"
 import Link from "next/link"
-import { useEffect, useState } from "react"
 import FollowButton from "@/components/followButton"
-import { useParams } from 'next/navigation';
 
-export default function UserList(params) {
-  const { user: currentUser } = useUser()
-  const [friends, setFriends] = useState([])
-  const [loading, setLoading] = useState(true)
-
-    const paramsx = useParams();
-    const ids = paramsx.id
-
-  useEffect(() => {
-    const fetchFriends = async () => {
-      try {
-        const res = await fetch(`/api/users/friends?id=${ids}`, { credentials: "include" })
-        const data = await res.json()
-        console.log("Friends data:", data);
-        
-        setFriends(data.data?.friends || [])
-      } catch (e) {
-        console.error("Failed to load friends", e)
-      } finally {
-        setLoading(false)
-      }
-    }
-
-    fetchFriends()
-  }, [])
-
-  if (loading) return <div>Loading...</div>
-
+export default function UserList({ type, users }) {
+  if (!users || users.length === 0) {
+    return <div className={styles.emptyState}>No {type} yet</div>;
+  }
   return (
     <div className={styles.userList}>
-      {friends.map((user) => {
-        if (user.id === currentUser.id) return null
+      {users.map((user) => {
         return (
           <div key={user.id} className={styles.userItem}>
             <Link href={`/profile/${user.id}`} className={styles.userLink}>

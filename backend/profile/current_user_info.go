@@ -66,31 +66,7 @@ func getUserProfileData(userId string) (*UserProfile, error) {
 	if err != nil {
 		return nil, err
 	}
-
-	// // Get posts
-	// rows, err := db.DB.Query(`
-	//     SELECT id, user_id, content, image, created_at,
-	//            (SELECT COUNT(*) FROM post_likes WHERE post_id = posts.id) as likes_count
-	//     FROM posts
-	//     WHERE user_id = ?
-	//     ORDER BY created_at DESC`, userId)
-	// if err == nil {
-	// 	defer rows.Close()
-	// 	for rows.Next() {
-	// 		var post Post
-	// 		if err := rows.Scan(
-	// 			&post.ID, &post.UserID, &post.Content,
-	// 			&post.Image, &post.CreatedAt, &post.Likes,
-	// 		); err == nil {
-	// 			profile.Posts = append(profile.Posts, post)
-	// 		}
-	// 	}
-	// }
-
-	// Get followers and following counts
 	db.DB.QueryRow("SELECT COUNT(*) FROM posts WHERE user_id = ?", userId).Scan(&profile.PostsCount)
-	db.DB.QueryRow("SELECT COUNT(*) FROM followers WHERE followed_id = ?", userId).Scan(&profile.FollowerCount)
-	db.DB.QueryRow("SELECT COUNT(*) FROM followers WHERE follower_id = ?", userId).Scan(&profile.FollowingCount)
 
 	return profile, nil
 }

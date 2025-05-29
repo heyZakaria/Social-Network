@@ -1,6 +1,5 @@
-// app/(utils)/friends-context.jsx
 'use client';
-import { createContext, useContext, useState, useEffect } from "react";
+import { createContext, useContext, useState } from "react";
 
 const FriendsContext = createContext();
 
@@ -9,6 +8,7 @@ export function FriendsProvider({ children }) {
   const [followers, setFollowers] = useState([]);
   const [following, setFollowing] = useState([]);
   const [suggestions, setSuggestions] = useState([]);
+  const [requests, setRequests] = useState([]);
   const [loading, setLoading] = useState(true);
   const [statusCache, setStatusCache] = useState({}); // userId -> { isFollowing, requestPending }
 
@@ -17,22 +17,25 @@ export function FriendsProvider({ children }) {
     try {
       const res = await fetch("/api/users/friends", { credentials: "include" });
       const data = await res.json();
+      console.log("Friends response:::::::::::::::::::::::::", data);
+
       setFriends(data.data?.friends || []);
+      // setFollowers(data.data?. || []);
       setFollowers(data.data?.followers || []);
       setFollowing(data.data?.following || []);
-      const sugRes = await fetch("/api/users/suggestions", { credentials: "include" });
-      const sugData = await sugRes.json();
-      setSuggestions(sugData.data?.users || []);
+      setSuggestions(data.data?.suggestions || []);
+      setRequests(data.data?.requests || []);
+
+      console.log("Friends data:", data);
     } catch (e) {
+      console.error("Error fetching friends data:", e);
       setFriends([]);
       setFollowers([]);
       setFollowing([]);
       setSuggestions([]);
-    } finally {
-      setLoading(false);
     }
-  };
-
+    setLoading(false);
+  }
   const getFollowStatus = async (userId) => {
     const id = String(userId);
     if (statusCache[id]) return statusCache[id];
@@ -43,6 +46,8 @@ export function FriendsProvider({ children }) {
         credentials: "include",
       });
       const data = await res.json();
+      console.log("Follow status response:", data);
+      
       const status = {
         isFollowing: data.data.Data?.IsFollowing || false,
         requestPending: data.data.Data?.RequestPending || false,
@@ -84,6 +89,7 @@ export function FriendsProvider({ children }) {
         following,
         suggestions,
         loading,
+        requests,
         refetch: fetchAll,
         getFollowStatus,
         toggleFollow,

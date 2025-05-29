@@ -1,28 +1,34 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Link from "next/link"
 import styles from "@/styles/components.module.css"
+import { useFriends } from "@/app/(utils)/friends-context" // adjust path if needed
+import FollowButton from '@/components/followButton';
 
-export default function FriendSuggestions({ suggestions = [] }) {
-  const [currentSuggestions, setCurrentSuggestions] = useState(suggestions)
+
+export default function FriendSuggestions() {
+  const { suggestions = [], refetch } = useFriends()
+  const [currentSuggestions, setCurrentSuggestions] = useState([])
+
+  useEffect(() => {
+    refetch() // get latest suggestions
+  }, [])
+
+  useEffect(() => {
+    setCurrentSuggestions(suggestions)
+  }, [suggestions])
 
   const handleSendRequest = (userId) => {
-    // In a real app, this would send an API request to send a friend request
-    
-
-    // Remove from suggestions after sending request
-    setCurrentSuggestions(currentSuggestions.filter((user) => user.id !== userId))
+    // TODO: call backend
+    setCurrentSuggestions((prev) => prev.filter((user) => user.id !== userId))
   }
 
   const handleIgnore = (userId) => {
-    // Remove from suggestions
-    setCurrentSuggestions(currentSuggestions.filter((user) => user.id !== userId))
+    setCurrentSuggestions((prev) => prev.filter((user) => user.id !== userId))
   }
 
-  if (currentSuggestions.length === 0) {
-    return null
-  }
+  if (currentSuggestions.length === 0) return null
 
   return (
     <div className={styles.container}>
@@ -31,8 +37,8 @@ export default function FriendSuggestions({ suggestions = [] }) {
         {currentSuggestions.slice(0, 5).map((user) => (
           <div key={user.id} className={styles.item}>
             <img
-              src={user.avatar || "/placeholder.svg?height=40&width=40"}
-              alt={user.firstName}
+              src={user.avatar || "/uploads/profile.jpeg"}
+              alt={`${user.firstName} ${user.lastName}`}
               className={styles.avatar}
             />
             <div className={styles.info}>
@@ -46,18 +52,19 @@ export default function FriendSuggestions({ suggestions = [] }) {
               )}
             </div>
             <div className={styles.actions}>
-              <button className={`${styles.button} ${styles.primaryButton}`} onClick={() => handleSendRequest(user.id)}>
-                Follow
-              </button>
-              <button className={`${styles.button} ${styles.secondaryButton}`} onClick={() => handleIgnore(user.id)}>
+                    <FollowButton targetUserId={user.id} />
+              <button
+                className={`${styles.button} ${styles.secondaryButton}`}
+                onClick={() => handleIgnore(user.id)}
+              >
                 Ignore
               </button>
             </div>
           </div>
         ))}
       </div>
-      {suggestions.length > 5 && (
-        <Link href="/suggestions" className={styles.seeAll}>
+      {currentSuggestions.length > 5 && (
+        <Link href="/friends" className={styles.seeAll}>
           See All Suggestions
         </Link>
       )}

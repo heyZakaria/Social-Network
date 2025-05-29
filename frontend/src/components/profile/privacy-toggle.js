@@ -20,8 +20,6 @@ export default function PrivacyToggle({ user }) {
         }
       })
 
-      if (!response.ok) throw new Error('Failed to update privacy')
-
       const data = await response.json()
 
       setIsPublic(data.data.profile_status === "public")

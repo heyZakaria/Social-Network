@@ -37,13 +37,8 @@ export default function ProfileComponent({ ProfileData, currentUser }) {
           credentials: "include",
         }
       );
-
-      console.log(res);
-
-      if (!res.ok) {
-        throw new Error("Failed to fetch posts");
-      }
       const data = await res.json();
+      console.log("ProfileComponent: Response from /posts/getposts:", data);
       if (data.data.posts.length < limit) setHasMore(false); // no more posts
 
       setPosts((prev) => [...data?.data?.posts]); //setPosts((prev) => [...prev, ...data?.data?.posts]);
@@ -198,11 +193,11 @@ export default function ProfileComponent({ ProfileData, currentUser }) {
             )}
 
             {activeTab === "followers" && (
-              <UserList type="followers" />
+              <UserList type="followers" users={ProfileData.followers} />
             )}
 
             {activeTab === "following" && (
-              <UserList type="following" />
+              <UserList type="following" users={ProfileData.following} />
             )}
 
 

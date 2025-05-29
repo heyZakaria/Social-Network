@@ -1,6 +1,5 @@
 'use client';
 import { createContext, useContext, useState, useEffect } from 'react';
-import { fetchWithAuth } from './api';
 import { useRouter } from 'next/navigation';
 
 const UserContext = createContext(null);
@@ -12,7 +11,9 @@ export function UserProvider({ children }) {
 
   useEffect(() => {
     async function loadUser() {
-      const res = await fetchWithAuth('/api/users/profile', { method: 'GET' }, router);
+      const res = await fetch('/api/users/profile', { method: 'GET' }, router);
+      
+      
       if (res?.ok) {
         const json = await res.json();
         setUser(json.data.Data);

@@ -4,7 +4,6 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import ProfileComponent from '@/components/profile/profile-component';
 import { useUser } from '@/app/(utils)/user_context';
-import { fetchWithAuth } from '@/app/(utils)/api';
 import { useParams } from 'next/navigation';
 
 export default function ProfilePage({ params }) {
@@ -13,6 +12,7 @@ export default function ProfilePage({ params }) {
   const [profileUser, setProfileUser] = useState(null);
   const [profileLoading, setProfileLoading] = useState(true);
   const [notFoundFlag, setNotFoundFlag] = useState(false);
+
 
   const paramsx = useParams();
   const ids = paramsx.id
@@ -25,6 +25,7 @@ export default function ProfilePage({ params }) {
           credentials: "include",
         }
         );
+        
         if (!res.ok) {
           setNotFoundFlag(true);
           return;
@@ -32,6 +33,8 @@ export default function ProfilePage({ params }) {
 
         const json = await res.json();
         const user = json.data.Data;
+        console.log('ProfilePage: Response from /api/users/get/profile:', user);
+        
         setProfileUser(user);
         if (currentUser && user) {
           user.IsOwnProfile = (user.id === currentUser.id);
