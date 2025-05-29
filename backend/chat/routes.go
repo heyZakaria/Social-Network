@@ -31,9 +31,7 @@ func ChatMux() http.Handler {
 //
 // ) NO ROWID;
 var upgrader = websocket.Upgrader{
-	CheckOrigin: func(r *http.Request) bool {
-		return true
-	},
+	CheckOrigin:     func(r *http.Request) bool { return true },
 	ReadBufferSize:  1024,
 	WriteBufferSize: 1024,
 }
@@ -89,10 +87,15 @@ func WebSocketHandler(w http.ResponseWriter, r *http.Request) {
 	uc := UserConnections{
 		Conn: conn,
 	}
-	UserConnection[UserID] = append(UserConnection[UserID], uc)
+	if con, exist := UserConnection[UserID]; exist {
+		// If the user already has a connection, append the new connection
+		UserConnection[UserID] = append(con, uc)
+	} else {
+		// If the user doesn't have a connection, create a new slice
+		UserConnection[UserID] = []UserConnections{uc}
+	}
 	// Log the creation of a new user connection
 	utils.Log("INFO", "Creating new user connection for user: "+UserID)
-
 	for {
 		var msg Message
 		err := conn.ReadJSON(&msg)

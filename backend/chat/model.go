@@ -33,8 +33,8 @@ func (message Message) InsertMessage() (err error) {
 }
 
 func (message Message) SendMessageToUser() error {
-	for _, conn := range UserConnection[message.ReceiverID] {
-		err := conn.Conn.WriteJSON(message)
+	for _, user := range UserConnection[message.ReceiverID] {
+		err := user.Conn.WriteJSON(message)
 		if err != nil {
 			fmt.Println("Error sending message:", err)
 			return err
