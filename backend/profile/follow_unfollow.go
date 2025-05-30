@@ -5,24 +5,13 @@ import (
 	"fmt"
 	"net/http"
 
-	"socialNetwork/auth"
 	db "socialNetwork/db/sqlite"
-	"socialNetwork/user"
+	shared "socialNetwork/shared_packages"
 	"socialNetwork/utils"
 )
 
-
 func ToggleFollowUser(w http.ResponseWriter, r *http.Request) {
-	token := auth.GetToken(w, r)
-	followerId, err := user.GetUserIDByToken(token)
-	if err != nil {
-		utils.SendJSON(w, http.StatusUnauthorized, utils.JSONResponse{
-			Success: false,
-			Message: "Please login to continue",
-			Error:   "You are not authorized",
-		})
-		return
-	}
+	followerId := r.Context().Value(shared.UserIDKey).(string)
 
 	targetUserId := r.URL.Query().Get("id")
 	if targetUserId == "" {
@@ -46,7 +35,7 @@ func ToggleFollowUser(w http.ResponseWriter, r *http.Request) {
 
 	// Get target user's profile status
 	var profileStatus string
-	err = db.DB.QueryRow(`SELECT profile_status FROM users WHERE id = ?`, targetUserId).Scan(&profileStatus)
+	err := db.DB.QueryRow(`SELECT profile_status FROM users WHERE id = ?`, targetUserId).Scan(&profileStatus)
 	if err != nil {
 		utils.SendJSON(w, http.StatusInternalServerError, utils.JSONResponse{
 			Success: false,
@@ -157,5 +146,3 @@ func ToggleFollowUser(w http.ResponseWriter, r *http.Request) {
 		},
 	})
 }
-
-

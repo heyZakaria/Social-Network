@@ -2,8 +2,8 @@ package post
 
 import (
 	"net/http"
-	"socialNetwork/auth"
-	user "socialNetwork/user"
+
+	shared "socialNetwork/shared_packages"
 	"socialNetwork/utils"
 )
 
@@ -21,16 +21,8 @@ import (
 // The function returns the post details in JSON format.
 func CreatePost(w http.ResponseWriter, r *http.Request) {
 	PostData := Post{}
-	token := auth.GetToken(w, r)
-	UserId, err := user.GetUserIDByToken(token)
-	if err != nil {
-		utils.Log("Error", err.Error())
-		utils.SendJSON(w, http.StatusUnauthorized, utils.JSONResponse{
-			Success: false,
-			Message: err.Error(),
-		})
-		return
-	}
+	UserId := r.Context().Value(shared.UserIDKey).(string)
+
 	PostData.UserID = UserId
 	utils.Log("", "Start Creating the Post")
 	Privacy := map[string]bool{
@@ -41,7 +33,7 @@ func CreatePost(w http.ResponseWriter, r *http.Request) {
 	r.ParseMultipartForm(10 << 20)
 
 	PostData.Post_Content = r.FormValue("post_content")
-	if PostData.Post_Content == ""  {
+	if PostData.Post_Content == "" {
 		utils.Log("ERROR", "Post Content is Empty")
 		utils.SendJSON(w, http.StatusBadRequest, utils.JSONResponse{
 			Success: false,

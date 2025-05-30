@@ -4,9 +4,8 @@ import (
 	"fmt"
 	"net/http"
 
-	"socialNetwork/auth"
 	db "socialNetwork/db/sqlite"
-	"socialNetwork/user"
+	shared "socialNetwork/shared_packages"
 	"socialNetwork/utils"
 )
 
@@ -21,16 +20,8 @@ func GetFriendsAndRequests(w http.ResponseWriter, r *http.Request) {
 	if queryID != "" {
 		userID = queryID
 	} else {
-		token := auth.GetToken(w, r)
-		userID, err = user.GetUserIDByToken(token)
-		if err != nil {
-			utils.SendJSON(w, http.StatusUnauthorized, utils.JSONResponse{
-				Success: false,
-				Message: "Unauthorized",
-				Error:   err.Error(),
-			})
-			return
-		}
+		userID = r.Context().Value(shared.UserIDKey).(string)
+
 		isOwnProfile = true
 	}
 	fmt.Printf("User ID: %s, Is Own Profile: %t\n", userID, isOwnProfile)
@@ -58,7 +49,6 @@ func GetFriendsAndRequests(w http.ResponseWriter, r *http.Request) {
 		}
 	}
 	fmt.Printf("Friends: %v, Requests: %v\n", friends, requests)
-
 
 	/////////////////////////
 
@@ -98,13 +88,12 @@ func GetFriendsAndRequests(w http.ResponseWriter, r *http.Request) {
 		Success: true,
 		Message: "Friends and requests fetched",
 		Data: map[string]interface{}{
-			"friends":  friends,
-			"requests": requests, 
+			"friends":     friends,
+			"requests":    requests,
 			"suggestions": suggestions,
 		},
 	})
 }
-
 
 // func GetUserSuggestions(w http.ResponseWriter, r *http.Request) {
 // 	utils.Log("INFO", "GetUserSuggestions called")

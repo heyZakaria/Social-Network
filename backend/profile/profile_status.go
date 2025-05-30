@@ -5,37 +5,17 @@ import (
 	"fmt"
 	"net/http"
 
-	"socialNetwork/auth"
 	db "socialNetwork/db/sqlite"
-	"socialNetwork/user"
+	shared "socialNetwork/shared_packages"
 	"socialNetwork/utils"
 )
 
-
 func ProfileStatus(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("==== UpdateProfileStatus CALLED ====")
-	token := auth.GetToken(w, r)
-	if token == "" {
-		utils.SendJSON(w, http.StatusUnauthorized, utils.JSONResponse{
-			Success: false,
-			Message: "Please login to continue",
-			Error:   "You are not Authorized.",
-		})
-		return
-	}
-
-	userID, err := user.GetUserIDByToken(token)
-	if err != nil {
-		utils.SendJSON(w, http.StatusUnauthorized, utils.JSONResponse{
-			Success: false,
-			Message: "Please login to continue",
-			Error:   "You are not Authorized.",
-		})
-		return
-	}
+	userID := r.Context().Value(shared.UserIDKey).(string)
 
 	var payload UserProfile
-	err = json.NewDecoder(r.Body).Decode(&payload)
+	err := json.NewDecoder(r.Body).Decode(&payload)
 	if err != nil || (payload.ProfileStatus != "public" && payload.ProfileStatus != "private") {
 		utils.SendJSON(w, http.StatusBadRequest, utils.JSONResponse{
 			Success: false,
@@ -43,7 +23,7 @@ func ProfileStatus(w http.ResponseWriter, r *http.Request) {
 		})
 		return
 	}
-	fmt.Println("status of user", payload.ProfileStatus )
+	fmt.Println("status of user", payload.ProfileStatus)
 
 	_, err = db.DB.Exec(`UPDATE users SET profile_status = ? WHERE id = ?`, payload.ProfileStatus, userID)
 	if err != nil {
@@ -54,7 +34,6 @@ func ProfileStatus(w http.ResponseWriter, r *http.Request) {
 		})
 		return
 	}
-
 
 	utils.SendJSON(w, http.StatusOK, utils.JSONResponse{
 		Success: true,

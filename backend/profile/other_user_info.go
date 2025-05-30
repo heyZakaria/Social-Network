@@ -3,26 +3,15 @@ package profile
 import (
 	"net/http"
 
-	"socialNetwork/auth"
 	db "socialNetwork/db/sqlite"
-	"socialNetwork/user"
+	shared "socialNetwork/shared_packages"
 	"socialNetwork/utils"
 )
 
 func GetOtherUserProfile(w http.ResponseWriter, r *http.Request) {
 	utils.Log("INFO", "=========== GetOtherUserProfile called ===========")
+	currentUserId := r.Context().Value(shared.UserIDKey).(string)
 
-	token := auth.GetToken(w, r)
-	currentUserId, err := user.GetUserIDByToken(token)
-	if err != nil {
-		utils.Log("ERROR", "Unauthorized access attempt: "+err.Error())
-		utils.SendJSON(w, http.StatusUnauthorized, utils.JSONResponse{
-			Success: false,
-			Message: "Please login to continue",
-			Error:   "You are not Authorized.",
-		})
-		return
-	}
 	utils.Log("INFO", "Authenticated user ID: "+currentUserId)
 
 	targetUserID := r.URL.Query().Get("id")
@@ -109,8 +98,6 @@ func GetOtherUserProfile(w http.ResponseWriter, r *http.Request) {
 	utils.Log("INFO", "Profile returned successfully")
 	profile.FollowerCount = len(profile.Followers)
 	profile.FollowingCount = len(profile.Following)
-
-	
 
 	utils.SendJSON(w, http.StatusOK, utils.JSONResponse{
 		Success: true,

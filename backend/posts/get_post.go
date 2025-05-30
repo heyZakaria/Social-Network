@@ -2,11 +2,11 @@ package post
 
 import (
 	"net/http"
-	"socialNetwork/auth"
-	db "socialNetwork/db/sqlite"
-	"socialNetwork/user"
-	"socialNetwork/utils"
 	"strconv"
+
+	db "socialNetwork/db/sqlite"
+	shared "socialNetwork/shared_packages"
+	"socialNetwork/utils"
 )
 
 // Example URL : http://localhost:8080/posts/getsinglepost?id=1
@@ -18,18 +18,7 @@ import (
 
 func GetPost(w http.ResponseWriter, r *http.Request) {
 	utils.Log("", "Get request made to GetPost Handler")
-	token := auth.GetToken(w, r)
-
-	UserId, err := user.GetUserIDByToken(token)
-	if err != nil {
-		utils.Log("ERROR", "Invalid Token in GetPost Handler: "+err.Error())
-		utils.SendJSON(w, http.StatusUnauthorized, utils.JSONResponse{
-			Success: false,
-			Message: "Please login to continue",
-			Error:   "You are not Authorized.",
-		})
-		return
-	}
+	UserId := r.Context().Value(shared.UserIDKey).(string)
 
 	id := r.URL.Query().Get("id")
 	PostId, err := strconv.Atoi(id)
@@ -125,5 +114,4 @@ func GetPost(w http.ResponseWriter, r *http.Request) {
 			"Post": Post,
 		},
 	})
-
 }

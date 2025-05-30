@@ -1,37 +1,20 @@
 package profile
 
 import (
+	"fmt"
 	"net/http"
 
-	"socialNetwork/auth"
 	db "socialNetwork/db/sqlite"
-	"socialNetwork/user"
+	shared "socialNetwork/shared_packages"
 	"socialNetwork/utils"
 )
 
 // GetUserProfile gets the current user's profile
 func GetUserProfile(w http.ResponseWriter, r *http.Request) {
-	token := auth.GetToken(w, r)
-	if token == "" {
-		utils.SendJSON(w, http.StatusUnauthorized, utils.JSONResponse{
-			Success: false,
-			Message: "Please login to continue",
-			Error:   "You are not Authorized.",
-		})
-		return
-	}
-
-	UserId, err := user.GetUserIDByToken(token)
-	if err != nil {
-		utils.SendJSON(w, http.StatusUnauthorized, utils.JSONResponse{
-			Success: false,
-			Message: "Please login to continue",
-			Error:   "You are not Authorized.",
-		})
-		return
-	}
-
+	UserId := r.Context().Value(shared.UserIDKey).(string)
+	fmt.Println("Inside GetUserProfile, UserId:", UserId)
 	profile, err := getUserProfileData(UserId)
+	fmt.Println("Profile data retrieved:", profile)
 	if err != nil {
 		utils.SendJSON(w, http.StatusInternalServerError, utils.JSONResponse{
 			Success: false,
