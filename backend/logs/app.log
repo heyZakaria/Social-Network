@@ -12471,3 +12471,415 @@
 2025/05/26 11:25:40 [INFO] 2025-05-26 11:25:40 - Posts fetched successfully in GetPostsScroll Handler
 2025/05/26 11:25:40 [LOG] 2025-05-26 11:25:40 - Get request made to GetPostsScroll Handler
 2025/05/26 11:25:40 [INFO] 2025-05-26 11:25:40 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/30 14:04:55 [INFO] 2025-05-30 14:04:55 - Starting HTTP server at http://localhost:8080 ...
+2025/05/30 14:04:55 [INFO] 2025-05-30 14:04:55 - Migrations applied successfully!
+2025/05/30 14:05:00 [ERROR] 2025-05-30 14:05:00 - Token cookie is missing in GetToken
+2025/05/30 14:05:00 [LOG] 2025-05-30 14:05:00 - Get request made to GetPostsScroll Handler
+2025/05/30 14:05:00 [ERROR] 2025-05-30 14:05:00 - Token cookie is missing in GetToken
+2025/05/30 14:05:00 [ERROR] 2025-05-30 14:05:00 - Token is empty
+2025/05/30 14:05:00 [ERROR] 2025-05-30 14:05:00 - Invalid Token in GetPostsScroll Handler: Token is empty
+2025/05/30 14:05:00 [LOG] 2025-05-30 14:05:00 - Get request made to GetPostsScroll Handler
+2025/05/30 14:05:00 [ERROR] 2025-05-30 14:05:00 - Token cookie is missing in GetToken
+2025/05/30 14:05:00 [ERROR] 2025-05-30 14:05:00 - Token is empty
+2025/05/30 14:05:00 [ERROR] 2025-05-30 14:05:00 - Invalid Token in GetPostsScroll Handler: Token is empty
+2025/05/30 14:05:00 [ERROR] 2025-05-30 14:05:00 - Token cookie is missing in GetToken
+2025/05/30 14:05:00 [LOG] 2025-05-30 14:05:00 - Get request made to GetPostsScroll Handler
+2025/05/30 14:05:00 [ERROR] 2025-05-30 14:05:00 - Token cookie is missing in GetToken
+2025/05/30 14:05:00 [ERROR] 2025-05-30 14:05:00 - Token is empty
+2025/05/30 14:05:00 [ERROR] 2025-05-30 14:05:00 - Invalid Token in GetPostsScroll Handler: Token is empty
+2025/05/30 14:05:00 [LOG] 2025-05-30 14:05:00 - Get request made to GetPostsScroll Handler
+2025/05/30 14:05:00 [ERROR] 2025-05-30 14:05:00 - Token cookie is missing in GetToken
+2025/05/30 14:05:00 [ERROR] 2025-05-30 14:05:00 - Token is empty
+2025/05/30 14:05:00 [ERROR] 2025-05-30 14:05:00 - Invalid Token in GetPostsScroll Handler: Token is empty
+2025/05/30 14:05:05 [INFO] 2025-05-30 14:05:05 - Received login request
+2025/05/30 14:05:05 [INFO] 2025-05-30 14:05:05 - Request body parsed successfully
+2025/05/30 14:05:05 [INFO] 2025-05-30 14:05:05 - Email and password fields validated
+2025/05/30 14:05:05 [WARNING] 2025-05-30 14:05:05 - Login attempt with unknown email: omar@gmail.com
+2025/05/30 14:17:19 [INFO] 2025-05-30 14:17:19 - Received login request
+2025/05/30 14:17:19 [INFO] 2025-05-30 14:17:19 - Request body parsed successfully
+2025/05/30 14:17:19 [INFO] 2025-05-30 14:17:19 - Email and password fields validated
+2025/05/30 14:17:19 [INFO] 2025-05-30 14:17:19 - User data retrieved from DB for email: hH03@gmail.com
+2025/05/30 14:17:19 [INFO] 2025-05-30 14:17:19 - Password validated successfully
+2025/05/30 14:17:19 [INFO] 2025-05-30 14:17:19 - Sending success with token for user: f8bfb3ad-fbb5-4008-94b7-5319f1febbe8
+2025/05/30 14:17:19 [INFO] 2025-05-30 14:17:19 - Save Token into Sessions
+2025/05/30 14:17:19 [INFO] 2025-05-30 14:17:19 - Login successful for user: f8bfb3ad-fbb5-4008-94b7-5319f1febbe8
+2025/05/30 14:17:19 [LOG] 2025-05-30 14:17:19 - Get request made to GetPostsScroll Handler
+2025/05/30 14:17:19 [INFO] 2025-05-30 14:17:19 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/30 14:17:19 [LOG] 2025-05-30 14:17:19 - Get request made to GetPostsScroll Handler
+2025/05/30 14:17:19 [INFO] 2025-05-30 14:17:19 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/30 14:17:27 [LOG] 2025-05-30 14:17:27 - Get request made to GetPostsScroll Handler
+2025/05/30 14:17:27 [INFO] 2025-05-30 14:17:27 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/30 14:17:27 [LOG] 2025-05-30 14:17:27 - Get request made to GetPostsScroll Handler
+2025/05/30 14:17:27 [INFO] 2025-05-30 14:17:27 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/30 14:17:27 [LOG] 2025-05-30 14:17:27 - Get request made to GetPostsScroll Handler
+2025/05/30 14:17:27 [INFO] 2025-05-30 14:17:27 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/30 14:17:27 [LOG] 2025-05-30 14:17:27 - Get request made to GetPostsScroll Handler
+2025/05/30 14:17:27 [INFO] 2025-05-30 14:17:27 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/30 14:18:13 [INFO] 2025-05-30 14:18:13 - Like count for post ID 3 is 1
+2025/05/30 14:18:13 [INFO] 2025-05-30 14:18:13 - Success LikePost Handler
+2025/05/30 14:18:15 [INFO] 2025-05-30 14:18:15 - Like count for post ID 3 is 0
+2025/05/30 14:18:15 [INFO] 2025-05-30 14:18:15 - Success LikePost Handler
+2025/05/30 14:18:16 [INFO] 2025-05-30 14:18:16 - Like count for post ID 3 is 1
+2025/05/30 14:18:16 [INFO] 2025-05-30 14:18:16 - Success LikePost Handler
+2025/05/30 17:01:58 [INFO] 2025-05-30 17:01:58 - Starting HTTP server at http://localhost:8080 ...
+2025/05/30 17:01:58 [INFO] 2025-05-30 17:01:58 - Migrations applied successfully!
+2025/05/30 17:02:57 [INFO] 2025-05-30 17:02:57 - Starting HTTP server at http://localhost:8080 ...
+2025/05/30 17:02:57 [INFO] 2025-05-30 17:02:57 - Migrations applied successfully!
+2025/05/30 17:03:32 [INFO] 2025-05-30 17:03:32 - Received login request
+2025/05/30 17:03:32 [INFO] 2025-05-30 17:03:32 - Request body parsed successfully
+2025/05/30 17:03:32 [INFO] 2025-05-30 17:03:32 - Email and password fields validated
+2025/05/30 17:03:32 [INFO] 2025-05-30 17:03:32 - User data retrieved from DB for email: hH03@gmail.com
+2025/05/30 17:03:32 [INFO] 2025-05-30 17:03:32 - Password validated successfully
+2025/05/30 17:03:32 [INFO] 2025-05-30 17:03:32 - Sending success with token for user: f8bfb3ad-fbb5-4008-94b7-5319f1febbe8
+2025/05/30 17:03:32 [INFO] 2025-05-30 17:03:32 - Save Token into Sessions
+2025/05/30 17:03:32 [INFO] 2025-05-30 17:03:32 - Login successful for user: f8bfb3ad-fbb5-4008-94b7-5319f1febbe8
+2025/05/30 17:03:34 [LOG] 2025-05-30 17:03:34 - Get request made to GetPostsScroll Handler
+2025/05/30 17:03:34 [INFO] 2025-05-30 17:03:34 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/30 17:03:34 [LOG] 2025-05-30 17:03:34 - Get request made to GetPostsScroll Handler
+2025/05/30 17:03:34 [INFO] 2025-05-30 17:03:34 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/30 17:03:36 [LOG] 2025-05-30 17:03:36 - Get request made to GetPostsScroll Handler
+2025/05/30 17:03:36 [INFO] 2025-05-30 17:03:36 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/30 17:03:36 [LOG] 2025-05-30 17:03:36 - Get request made to GetPostsScroll Handler
+2025/05/30 17:03:36 [INFO] 2025-05-30 17:03:36 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/30 17:08:22 [LOG] 2025-05-30 17:08:22 - Get request made to GetPostsScroll Handler
+2025/05/30 17:08:22 [INFO] 2025-05-30 17:08:22 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/30 17:08:22 [LOG] 2025-05-30 17:08:22 - Get request made to GetPostsScroll Handler
+2025/05/30 17:08:22 [INFO] 2025-05-30 17:08:22 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/30 17:10:23 [LOG] 2025-05-30 17:10:23 - Get request made to GetPostsScroll Handler
+2025/05/30 17:10:23 [INFO] 2025-05-30 17:10:23 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/30 17:10:23 [LOG] 2025-05-30 17:10:23 - Get request made to GetPostsScroll Handler
+2025/05/30 17:10:23 [INFO] 2025-05-30 17:10:23 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/30 17:10:41 [LOG] 2025-05-30 17:10:41 - Get request made to GetPostsScroll Handler
+2025/05/30 17:10:41 [ERROR] 2025-05-30 17:10:41 - No Posts found in GetPostsScroll Handler: 
+2025/05/30 17:10:41 [LOG] 2025-05-30 17:10:41 - Get request made to GetPostsScroll Handler
+2025/05/30 17:10:41 [ERROR] 2025-05-30 17:10:41 - No Posts found in GetPostsScroll Handler: 
+2025/05/30 17:11:00 [LOG] 2025-05-30 17:11:00 - Get request made to GetPostsScroll Handler
+2025/05/30 17:11:00 [ERROR] 2025-05-30 17:11:00 - No Posts found in GetPostsScroll Handler: 
+2025/05/30 17:11:00 [LOG] 2025-05-30 17:11:00 - Get request made to GetPostsScroll Handler
+2025/05/30 17:11:00 [ERROR] 2025-05-30 17:11:00 - No Posts found in GetPostsScroll Handler: 
+2025/05/30 17:11:19 [LOG] 2025-05-30 17:11:19 - Get request made to GetPostsScroll Handler
+2025/05/30 17:11:19 [ERROR] 2025-05-30 17:11:19 - No Posts found in GetPostsScroll Handler: 
+2025/05/30 17:11:19 [LOG] 2025-05-30 17:11:19 - Get request made to GetPostsScroll Handler
+2025/05/30 17:11:19 [ERROR] 2025-05-30 17:11:19 - No Posts found in GetPostsScroll Handler: 
+2025/05/30 17:15:14 [INFO] 2025-05-30 17:15:14 - Starting HTTP server at http://localhost:8080 ...
+2025/05/30 17:15:14 [INFO] 2025-05-30 17:15:14 - Migrations applied successfully!
+2025/05/30 17:15:29 [INFO] 2025-05-30 17:15:29 - Received login request
+2025/05/30 17:15:29 [INFO] 2025-05-30 17:15:29 - Request body parsed successfully
+2025/05/30 17:15:29 [INFO] 2025-05-30 17:15:29 - Email and password fields validated
+2025/05/30 17:15:29 [INFO] 2025-05-30 17:15:29 - User data retrieved from DB for email: hH03@gmail.com
+2025/05/30 17:15:29 [INFO] 2025-05-30 17:15:29 - Password validated successfully
+2025/05/30 17:15:29 [INFO] 2025-05-30 17:15:29 - Sending success with token for user: f8bfb3ad-fbb5-4008-94b7-5319f1febbe8
+2025/05/30 17:15:29 [INFO] 2025-05-30 17:15:29 - Save Token into Sessions
+2025/05/30 17:15:29 [INFO] 2025-05-30 17:15:29 - Login successful for user: f8bfb3ad-fbb5-4008-94b7-5319f1febbe8
+2025/05/30 17:15:30 [LOG] 2025-05-30 17:15:30 - Get request made to GetPostsScroll Handler
+2025/05/30 17:15:30 [ERROR] 2025-05-30 17:15:30 - No Posts found in GetPostsScroll Handler: 
+2025/05/30 17:15:30 [LOG] 2025-05-30 17:15:30 - Get request made to GetPostsScroll Handler
+2025/05/30 17:15:30 [ERROR] 2025-05-30 17:15:30 - No Posts found in GetPostsScroll Handler: 
+2025/05/30 17:15:34 [LOG] 2025-05-30 17:15:34 - Get request made to GetPostsScroll Handler
+2025/05/30 17:15:34 [ERROR] 2025-05-30 17:15:34 - No Posts found in GetPostsScroll Handler: 
+2025/05/30 17:15:34 [LOG] 2025-05-30 17:15:34 - Get request made to GetPostsScroll Handler
+2025/05/30 17:15:34 [ERROR] 2025-05-30 17:15:34 - No Posts found in GetPostsScroll Handler: 
+2025/05/30 17:15:39 [LOG] 2025-05-30 17:15:39 - Start Creating the Post
+2025/05/30 17:15:39 [INFO] 2025-05-30 17:15:39 - Starting avatar upload
+2025/05/30 17:15:39 [INFO] 2025-05-30 17:15:39 - No image file provided
+2025/05/30 17:15:42 [LOG] 2025-05-30 17:15:42 - Get request made to GetPostsScroll Handler
+2025/05/30 17:15:42 [ERROR] 2025-05-30 17:15:42 - No Posts found in GetPostsScroll Handler: 
+2025/05/30 17:15:42 [LOG] 2025-05-30 17:15:42 - Get request made to GetPostsScroll Handler
+2025/05/30 17:15:42 [ERROR] 2025-05-30 17:15:42 - No Posts found in GetPostsScroll Handler: 
+2025/05/30 17:15:44 [LOG] 2025-05-30 17:15:44 - Get request made to GetPostsScroll Handler
+2025/05/30 17:15:44 [ERROR] 2025-05-30 17:15:44 - No Posts found in GetPostsScroll Handler: 
+2025/05/30 17:15:44 [LOG] 2025-05-30 17:15:44 - Get request made to GetPostsScroll Handler
+2025/05/30 17:15:44 [ERROR] 2025-05-30 17:15:44 - No Posts found in GetPostsScroll Handler: 
+2025/05/30 17:15:44 [LOG] 2025-05-30 17:15:44 - Get request made to GetPostsScroll Handler
+2025/05/30 17:15:44 [ERROR] 2025-05-30 17:15:44 - No Posts found in GetPostsScroll Handler: 
+2025/05/30 17:15:44 [LOG] 2025-05-30 17:15:44 - Get request made to GetPostsScroll Handler
+2025/05/30 17:15:44 [ERROR] 2025-05-30 17:15:44 - No Posts found in GetPostsScroll Handler: 
+2025/05/30 17:15:44 [LOG] 2025-05-30 17:15:44 - Get request made to GetPostsScroll Handler
+2025/05/30 17:15:44 [ERROR] 2025-05-30 17:15:44 - No Posts found in GetPostsScroll Handler: 
+2025/05/30 17:15:44 [LOG] 2025-05-30 17:15:44 - Get request made to GetPostsScroll Handler
+2025/05/30 17:15:44 [ERROR] 2025-05-30 17:15:44 - No Posts found in GetPostsScroll Handler: 
+2025/05/30 17:15:45 [LOG] 2025-05-30 17:15:45 - Get request made to GetPostsScroll Handler
+2025/05/30 17:15:45 [ERROR] 2025-05-30 17:15:45 - No Posts found in GetPostsScroll Handler: 
+2025/05/30 17:15:45 [LOG] 2025-05-30 17:15:45 - Get request made to GetPostsScroll Handler
+2025/05/30 17:15:45 [ERROR] 2025-05-30 17:15:45 - No Posts found in GetPostsScroll Handler: 
+2025/05/30 17:15:45 [LOG] 2025-05-30 17:15:45 - Get request made to GetPostsScroll Handler
+2025/05/30 17:15:45 [ERROR] 2025-05-30 17:15:45 - No Posts found in GetPostsScroll Handler: 
+2025/05/30 17:15:45 [LOG] 2025-05-30 17:15:45 - Get request made to GetPostsScroll Handler
+2025/05/30 17:15:45 [ERROR] 2025-05-30 17:15:45 - No Posts found in GetPostsScroll Handler: 
+2025/05/30 17:15:45 [LOG] 2025-05-30 17:15:45 - Get request made to GetPostsScroll Handler
+2025/05/30 17:15:45 [ERROR] 2025-05-30 17:15:45 - No Posts found in GetPostsScroll Handler: 
+2025/05/30 17:15:46 [LOG] 2025-05-30 17:15:46 - Get request made to GetPostsScroll Handler
+2025/05/30 17:15:46 [ERROR] 2025-05-30 17:15:46 - No Posts found in GetPostsScroll Handler: 
+2025/05/30 17:15:46 [LOG] 2025-05-30 17:15:46 - Get request made to GetPostsScroll Handler
+2025/05/30 17:15:46 [ERROR] 2025-05-30 17:15:46 - No Posts found in GetPostsScroll Handler: 
+2025/05/30 17:15:46 [LOG] 2025-05-30 17:15:46 - Get request made to GetPostsScroll Handler
+2025/05/30 17:15:46 [ERROR] 2025-05-30 17:15:46 - No Posts found in GetPostsScroll Handler: 
+2025/05/30 17:15:46 [LOG] 2025-05-30 17:15:46 - Get request made to GetPostsScroll Handler
+2025/05/30 17:15:46 [ERROR] 2025-05-30 17:15:46 - No Posts found in GetPostsScroll Handler: 
+2025/05/30 17:15:46 [LOG] 2025-05-30 17:15:46 - Get request made to GetPostsScroll Handler
+2025/05/30 17:15:46 [ERROR] 2025-05-30 17:15:46 - No Posts found in GetPostsScroll Handler: 
+2025/05/30 17:15:46 [LOG] 2025-05-30 17:15:46 - Get request made to GetPostsScroll Handler
+2025/05/30 17:15:46 [ERROR] 2025-05-30 17:15:46 - No Posts found in GetPostsScroll Handler: 
+2025/05/30 17:15:46 [LOG] 2025-05-30 17:15:46 - Get request made to GetPostsScroll Handler
+2025/05/30 17:15:46 [ERROR] 2025-05-30 17:15:46 - No Posts found in GetPostsScroll Handler: 
+2025/05/30 17:16:09 [INFO] 2025-05-30 17:16:09 - Starting HTTP server at http://localhost:8080 ...
+2025/05/30 17:16:09 [INFO] 2025-05-30 17:16:09 - Migrations applied successfully!
+2025/05/30 17:16:23 [INFO] 2025-05-30 17:16:23 - Received login request
+2025/05/30 17:16:23 [INFO] 2025-05-30 17:16:23 - Request body parsed successfully
+2025/05/30 17:16:23 [INFO] 2025-05-30 17:16:23 - Email and password fields validated
+2025/05/30 17:16:23 [INFO] 2025-05-30 17:16:23 - User data retrieved from DB for email: hH03@gmail.com
+2025/05/30 17:16:24 [INFO] 2025-05-30 17:16:24 - Password validated successfully
+2025/05/30 17:16:24 [INFO] 2025-05-30 17:16:24 - Sending success with token for user: f8bfb3ad-fbb5-4008-94b7-5319f1febbe8
+2025/05/30 17:16:24 [INFO] 2025-05-30 17:16:24 - Save Token into Sessions
+2025/05/30 17:16:24 [INFO] 2025-05-30 17:16:24 - Login successful for user: f8bfb3ad-fbb5-4008-94b7-5319f1febbe8
+2025/05/30 17:16:25 [LOG] 2025-05-30 17:16:25 - Get request made to GetPostsScroll Handler
+2025/05/30 17:16:25 [ERROR] 2025-05-30 17:16:25 - No Posts found in GetPostsScroll Handler: 
+2025/05/30 17:16:25 [LOG] 2025-05-30 17:16:25 - Get request made to GetPostsScroll Handler
+2025/05/30 17:16:25 [ERROR] 2025-05-30 17:16:25 - No Posts found in GetPostsScroll Handler: 
+2025/05/30 17:17:18 [LOG] 2025-05-30 17:17:18 - Get request made to GetPostsScroll Handler
+2025/05/30 17:17:18 [ERROR] 2025-05-30 17:17:18 - No Posts found in GetPostsScroll Handler: 
+2025/05/30 17:17:18 [LOG] 2025-05-30 17:17:18 - Get request made to GetPostsScroll Handler
+2025/05/30 17:17:18 [ERROR] 2025-05-30 17:17:18 - No Posts found in GetPostsScroll Handler: 
+2025/05/30 17:17:40 [INFO] 2025-05-30 17:17:40 - Starting HTTP server at http://localhost:8080 ...
+2025/05/30 17:17:40 [INFO] 2025-05-30 17:17:40 - Migrations applied successfully!
+2025/05/30 17:17:45 [ERROR] 2025-05-30 17:17:45 - Error executing query: sql: no rows in result set
+2025/05/30 17:28:16 [INFO] 2025-05-30 17:28:16 - Parsed multipart form
+2025/05/30 17:28:16 [INFO] 2025-05-30 17:28:16 - Form fields parsed successfully
+2025/05/30 17:28:16 [INFO] 2025-05-30 17:28:16 - Form fields parsed
+2025/05/30 17:28:16 [INFO] 2025-05-30 17:28:16 - Checking if email exists: hh03@gmail.com
+2025/05/30 17:28:16 [INFO] 2025-05-30 17:28:16 - Email is unique
+2025/05/30 17:28:16 [INFO] 2025-05-30 17:28:16 - Validating registration input
+2025/05/30 17:28:16 [INFO] 2025-05-30 17:28:16 - Registration input valid
+2025/05/30 17:28:16 [INFO] 2025-05-30 17:28:16 - User input validated
+2025/05/30 17:28:16 [INFO] 2025-05-30 17:28:16 - Hashing password
+2025/05/30 17:28:16 [INFO] 2025-05-30 17:28:16 - Password hashed successfully
+2025/05/30 17:28:16 [INFO] 2025-05-30 17:28:16 - Password hashed
+2025/05/30 17:28:16 [INFO] 2025-05-30 17:28:16 - Starting avatar upload
+2025/05/30 17:28:16 [INFO] 2025-05-30 17:28:16 - Avatar file retrieved: how-do-i-style-my-hair-like-killua-v0-8krggcxitzud1.webp
+2025/05/30 17:28:16 [INFO] 2025-05-30 17:28:16 - Detected content type: image/webp
+2025/05/30 17:28:16 [INFO] 2025-05-30 17:28:16 - Generated avatar filename: 95a07eda-fa98-4d55-b371-a0acd0225d90.webp
+2025/05/30 17:28:16 [INFO] 2025-05-30 17:28:16 - Saving user to database with ID: cea3d692-8b8f-4f31-ae45-3497ddf8c38b
+2025/05/30 17:28:16 [INFO] 2025-05-30 17:28:16 - User saved successfully
+2025/05/30 17:28:16 [INFO] 2025-05-30 17:28:16 - User registered with ID: cea3d692-8b8f-4f31-ae45-3497ddf8c38b
+2025/05/30 17:28:16 [INFO] 2025-05-30 17:28:16 - Avatar uploaded: /uploads/profile_image/95a07eda-fa98-4d55-b371-a0acd0225d90.webp
+2025/05/30 17:28:16 [INFO] 2025-05-30 17:28:16 - Avatar saved successfully
+2025/05/30 17:28:16 [INFO] 2025-05-30 17:28:16 - Save Token into Sessions
+2025/05/30 17:28:16 [INFO] 2025-05-30 17:28:16 - Login successful for user: cea3d692-8b8f-4f31-ae45-3497ddf8c38b
+2025/05/30 17:28:16 [INFO] 2025-05-30 17:28:16 - Success Register
+2025/05/30 17:28:18 [LOG] 2025-05-30 17:28:18 - Get request made to GetPostsScroll Handler
+2025/05/30 17:28:18 [ERROR] 2025-05-30 17:28:18 - No Posts found in GetPostsScroll Handler: 
+2025/05/30 17:28:18 [LOG] 2025-05-30 17:28:18 - Get request made to GetPostsScroll Handler
+2025/05/30 17:28:18 [ERROR] 2025-05-30 17:28:18 - No Posts found in GetPostsScroll Handler: 
+2025/05/30 17:28:21 [LOG] 2025-05-30 17:28:21 - Get request made to GetPostsScroll Handler
+2025/05/30 17:28:21 [ERROR] 2025-05-30 17:28:21 - No Posts found in GetPostsScroll Handler: 
+2025/05/30 17:28:21 [LOG] 2025-05-30 17:28:21 - Get request made to GetPostsScroll Handler
+2025/05/30 17:28:21 [ERROR] 2025-05-30 17:28:21 - No Posts found in GetPostsScroll Handler: 
+2025/05/30 17:28:25 [LOG] 2025-05-30 17:28:25 - Start Creating the Post
+2025/05/30 17:28:25 [INFO] 2025-05-30 17:28:25 - Starting avatar upload
+2025/05/30 17:28:25 [INFO] 2025-05-30 17:28:25 - No image file provided
+2025/05/30 17:29:13 [LOG] 2025-05-30 17:29:13 - Get request made to GetPostsScroll Handler
+2025/05/30 17:29:13 [INFO] 2025-05-30 17:29:13 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/30 17:29:13 [LOG] 2025-05-30 17:29:13 - Get request made to GetPostsScroll Handler
+2025/05/30 17:29:13 [INFO] 2025-05-30 17:29:13 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/30 17:29:23 [LOG] 2025-05-30 17:29:23 - Get request made to GetPostsScroll Handler
+2025/05/30 17:29:23 [INFO] 2025-05-30 17:29:23 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/30 17:29:23 [LOG] 2025-05-30 17:29:23 - Get request made to GetPostsScroll Handler
+2025/05/30 17:29:23 [INFO] 2025-05-30 17:29:23 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/30 17:29:43 [LOG] 2025-05-30 17:29:43 - Get request made to GetPostsScroll Handler
+2025/05/30 17:29:43 [INFO] 2025-05-30 17:29:43 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/30 17:29:43 [LOG] 2025-05-30 17:29:43 - Get request made to GetPostsScroll Handler
+2025/05/30 17:29:43 [INFO] 2025-05-30 17:29:43 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/30 17:29:45 [LOG] 2025-05-30 17:29:45 - Get request made to GetPostsScroll Handler
+2025/05/30 17:29:45 [INFO] 2025-05-30 17:29:45 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/30 17:29:45 [LOG] 2025-05-30 17:29:45 - Get request made to GetPostsScroll Handler
+2025/05/30 17:29:45 [INFO] 2025-05-30 17:29:45 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/30 17:29:46 [LOG] 2025-05-30 17:29:46 - Get request made to GetPostsScroll Handler
+2025/05/30 17:29:46 [INFO] 2025-05-30 17:29:46 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/30 17:29:46 [LOG] 2025-05-30 17:29:46 - Get request made to GetPostsScroll Handler
+2025/05/30 17:29:46 [INFO] 2025-05-30 17:29:46 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/30 17:29:48 [LOG] 2025-05-30 17:29:48 - Get request made to GetPostsScroll Handler
+2025/05/30 17:29:48 [INFO] 2025-05-30 17:29:48 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/30 17:29:48 [LOG] 2025-05-30 17:29:48 - Get request made to GetPostsScroll Handler
+2025/05/30 17:29:48 [INFO] 2025-05-30 17:29:48 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/30 17:29:52 [LOG] 2025-05-30 17:29:52 - Get request made to GetPostsScroll Handler
+2025/05/30 17:29:52 [INFO] 2025-05-30 17:29:52 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/30 17:29:52 [LOG] 2025-05-30 17:29:52 - Get request made to GetPostsScroll Handler
+2025/05/30 17:29:52 [INFO] 2025-05-30 17:29:52 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/30 17:47:19 [INFO] 2025-05-30 17:47:19 - Like count for post ID 1 is 1
+2025/05/30 17:47:19 [INFO] 2025-05-30 17:47:19 - Success LikePost Handler
+2025/05/30 17:47:20 [INFO] 2025-05-30 17:47:20 - Like count for post ID 1 is 0
+2025/05/30 17:47:20 [INFO] 2025-05-30 17:47:20 - Success LikePost Handler
+2025/05/30 17:47:21 [INFO] 2025-05-30 17:47:21 - Like count for post ID 1 is 1
+2025/05/30 17:47:21 [INFO] 2025-05-30 17:47:21 - Success LikePost Handler
+2025/05/30 17:47:22 [LOG] 2025-05-30 17:47:22 - Get request made to GetPostsScroll Handler
+2025/05/30 17:47:22 [INFO] 2025-05-30 17:47:22 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/30 17:47:22 [LOG] 2025-05-30 17:47:22 - Get request made to GetPostsScroll Handler
+2025/05/30 17:47:22 [INFO] 2025-05-30 17:47:22 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/30 17:47:30 [LOG] 2025-05-30 17:47:30 - Start Creating the Post
+2025/05/30 17:47:30 [INFO] 2025-05-30 17:47:30 - Starting avatar upload
+2025/05/30 17:47:30 [INFO] 2025-05-30 17:47:30 - No image file provided
+2025/05/30 17:47:31 [LOG] 2025-05-30 17:47:31 - Start Creating the Post
+2025/05/30 17:47:31 [INFO] 2025-05-30 17:47:31 - Starting avatar upload
+2025/05/30 17:47:31 [INFO] 2025-05-30 17:47:31 - No image file provided
+2025/05/30 17:47:31 [ERROR] 2025-05-30 17:47:31 - Post Content is Empty
+2025/05/30 17:47:31 [LOG] 2025-05-30 17:47:31 - Start Creating the Post
+2025/05/30 17:47:31 [INFO] 2025-05-30 17:47:31 - Starting avatar upload
+2025/05/30 17:47:31 [INFO] 2025-05-30 17:47:31 - No image file provided
+2025/05/30 17:47:31 [ERROR] 2025-05-30 17:47:31 - Post Content is Empty
+2025/05/30 17:47:34 [LOG] 2025-05-30 17:47:34 - Get request made to GetPostsScroll Handler
+2025/05/30 17:47:34 [INFO] 2025-05-30 17:47:34 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/30 17:47:34 [LOG] 2025-05-30 17:47:34 - Get request made to GetPostsScroll Handler
+2025/05/30 17:47:34 [INFO] 2025-05-30 17:47:34 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/30 17:47:42 [LOG] 2025-05-30 17:47:42 - Start Creating the Post
+2025/05/30 17:47:42 [INFO] 2025-05-30 17:47:42 - Starting avatar upload
+2025/05/30 17:47:42 [INFO] 2025-05-30 17:47:42 - Avatar file retrieved: how-do-i-style-my-hair-like-killua-v0-8krggcxitzud1.webp
+2025/05/30 17:47:42 [INFO] 2025-05-30 17:47:42 - Detected content type: image/webp
+2025/05/30 17:47:42 [INFO] 2025-05-30 17:47:42 - Generated avatar filename: ccdc8fb4-5c58-4af4-a4a4-1adcc7636be7.webp
+2025/05/30 17:47:42 [INFO] 2025-05-30 17:47:42 - Avatar saved successfully
+2025/05/30 17:47:44 [LOG] 2025-05-30 17:47:44 - Get request made to GetPostsScroll Handler
+2025/05/30 17:47:44 [INFO] 2025-05-30 17:47:44 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/30 17:47:44 [LOG] 2025-05-30 17:47:44 - Get request made to GetPostsScroll Handler
+2025/05/30 17:47:44 [INFO] 2025-05-30 17:47:44 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/30 17:48:07 [LOG] 2025-05-30 17:48:07 - Get request made to GetPostsScroll Handler
+2025/05/30 17:48:07 [INFO] 2025-05-30 17:48:07 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/30 17:48:07 [LOG] 2025-05-30 17:48:07 - Get request made to GetPostsScroll Handler
+2025/05/30 17:48:07 [INFO] 2025-05-30 17:48:07 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/30 17:48:54 [ERROR] 2025-05-30 17:48:54 - Token cookie is missing in GetToken
+2025/05/30 17:48:54 [LOG] 2025-05-30 17:48:54 - Get request made to GetPostsScroll Handler
+2025/05/30 17:48:54 [ERROR] 2025-05-30 17:48:54 - Token cookie is missing in GetToken
+2025/05/30 17:48:54 [ERROR] 2025-05-30 17:48:54 - Token is empty
+2025/05/30 17:48:54 [ERROR] 2025-05-30 17:48:54 - Invalid Token in GetPostsScroll Handler: Token is empty
+2025/05/30 17:48:54 [LOG] 2025-05-30 17:48:54 - Get request made to GetPostsScroll Handler
+2025/05/30 17:48:54 [ERROR] 2025-05-30 17:48:54 - Token cookie is missing in GetToken
+2025/05/30 17:48:54 [ERROR] 2025-05-30 17:48:54 - Token is empty
+2025/05/30 17:48:54 [ERROR] 2025-05-30 17:48:54 - Invalid Token in GetPostsScroll Handler: Token is empty
+2025/05/30 17:48:56 [INFO] 2025-05-30 17:48:56 - Received login request
+2025/05/30 17:48:56 [INFO] 2025-05-30 17:48:56 - Request body parsed successfully
+2025/05/30 17:48:56 [INFO] 2025-05-30 17:48:56 - Email and password fields validated
+2025/05/30 17:48:56 [WARNING] 2025-05-30 17:48:56 - Login attempt with unknown email: omar@gmail.com
+2025/05/30 17:49:54 [INFO] 2025-05-30 17:49:54 - Parsed multipart form
+2025/05/30 17:49:54 [INFO] 2025-05-30 17:49:54 - Form fields parsed successfully
+2025/05/30 17:49:54 [INFO] 2025-05-30 17:49:54 - Form fields parsed
+2025/05/30 17:49:54 [INFO] 2025-05-30 17:49:54 - Checking if email exists: hassouna01@gmail.com
+2025/05/30 17:49:54 [INFO] 2025-05-30 17:49:54 - Email is unique
+2025/05/30 17:49:54 [INFO] 2025-05-30 17:49:54 - Validating registration input
+2025/05/30 17:49:54 [INFO] 2025-05-30 17:49:54 - Registration input valid
+2025/05/30 17:49:54 [INFO] 2025-05-30 17:49:54 - User input validated
+2025/05/30 17:49:54 [INFO] 2025-05-30 17:49:54 - Hashing password
+2025/05/30 17:49:54 [INFO] 2025-05-30 17:49:54 - Password hashed successfully
+2025/05/30 17:49:54 [INFO] 2025-05-30 17:49:54 - Password hashed
+2025/05/30 17:49:54 [INFO] 2025-05-30 17:49:54 - Starting avatar upload
+2025/05/30 17:49:54 [INFO] 2025-05-30 17:49:54 - No image file provided
+2025/05/30 17:49:54 [INFO] 2025-05-30 17:49:54 - Saving user to database with ID: f89917de-26b2-44d1-bc8c-d2004c26651a
+2025/05/30 17:49:54 [INFO] 2025-05-30 17:49:54 - User saved successfully
+2025/05/30 17:49:54 [INFO] 2025-05-30 17:49:54 - User registered with ID: f89917de-26b2-44d1-bc8c-d2004c26651a
+2025/05/30 17:49:54 [INFO] 2025-05-30 17:49:54 - Save Token into Sessions
+2025/05/30 17:49:54 [INFO] 2025-05-30 17:49:54 - Login successful for user: f89917de-26b2-44d1-bc8c-d2004c26651a
+2025/05/30 17:49:54 [INFO] 2025-05-30 17:49:54 - Success Register
+2025/05/30 17:49:56 [LOG] 2025-05-30 17:49:56 - Get request made to GetPostsScroll Handler
+2025/05/30 17:49:56 [INFO] 2025-05-30 17:49:56 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/30 17:49:56 [LOG] 2025-05-30 17:49:56 - Get request made to GetPostsScroll Handler
+2025/05/30 17:49:56 [INFO] 2025-05-30 17:49:56 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/30 17:49:59 [LOG] 2025-05-30 17:49:59 - Get request made to GetPostsScroll Handler
+2025/05/30 17:49:59 [INFO] 2025-05-30 17:49:59 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/30 17:49:59 [LOG] 2025-05-30 17:49:59 - Get request made to GetPostsScroll Handler
+2025/05/30 17:49:59 [INFO] 2025-05-30 17:49:59 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/30 17:50:01 [LOG] 2025-05-30 17:50:01 - Get request made to GetPostsScroll Handler
+2025/05/30 17:50:01 [ERROR] 2025-05-30 17:50:01 - No Posts found in GetPostsScroll Handler: 
+2025/05/30 17:50:01 [LOG] 2025-05-30 17:50:01 - Get request made to GetPostsScroll Handler
+2025/05/30 17:50:01 [ERROR] 2025-05-30 17:50:01 - No Posts found in GetPostsScroll Handler: 
+2025/05/30 17:50:04 [LOG] 2025-05-30 17:50:04 - Get request made to GetPostsScroll Handler
+2025/05/30 17:50:04 [INFO] 2025-05-30 17:50:04 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/30 17:50:04 [LOG] 2025-05-30 17:50:04 - Get request made to GetPostsScroll Handler
+2025/05/30 17:50:04 [INFO] 2025-05-30 17:50:04 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/30 17:50:10 [LOG] 2025-05-30 17:50:10 - Start Creating the Post
+2025/05/30 17:50:10 [INFO] 2025-05-30 17:50:10 - Starting avatar upload
+2025/05/30 17:50:10 [INFO] 2025-05-30 17:50:10 - No image file provided
+2025/05/30 17:50:11 [LOG] 2025-05-30 17:50:11 - Get request made to GetPostsScroll Handler
+2025/05/30 17:50:11 [INFO] 2025-05-30 17:50:11 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/30 17:50:11 [LOG] 2025-05-30 17:50:11 - Get request made to GetPostsScroll Handler
+2025/05/30 17:50:11 [INFO] 2025-05-30 17:50:11 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/30 18:00:48 [LOG] 2025-05-30 18:00:48 - Get request made to GetPostsScroll Handler
+2025/05/30 18:00:48 [INFO] 2025-05-30 18:00:48 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/30 18:00:48 [LOG] 2025-05-30 18:00:48 - Get request made to GetPostsScroll Handler
+2025/05/30 18:00:48 [INFO] 2025-05-30 18:00:48 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/30 18:00:48 [LOG] 2025-05-30 18:00:48 - Get request made to GetPostsScroll Handler
+2025/05/30 18:00:48 [INFO] 2025-05-30 18:00:48 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/30 18:00:48 [LOG] 2025-05-30 18:00:48 - Get request made to GetPostsScroll Handler
+2025/05/30 18:00:48 [INFO] 2025-05-30 18:00:48 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/30 18:02:28 [LOG] 2025-05-30 18:02:28 - Get request made to GetPostsScroll Handler
+2025/05/30 18:02:28 [INFO] 2025-05-30 18:02:28 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/30 18:02:28 [LOG] 2025-05-30 18:02:28 - Get request made to GetPostsScroll Handler
+2025/05/30 18:02:28 [LOG] 2025-05-30 18:02:28 - Get request made to GetPostsScroll Handler
+2025/05/30 18:02:28 [INFO] 2025-05-30 18:02:28 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/30 18:02:28 [INFO] 2025-05-30 18:02:28 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/30 18:02:28 [LOG] 2025-05-30 18:02:28 - Get request made to GetPostsScroll Handler
+2025/05/30 18:02:28 [INFO] 2025-05-30 18:02:28 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/30 18:02:28 [LOG] 2025-05-30 18:02:28 - Get request made to GetPostsScroll Handler
+2025/05/30 18:02:28 [INFO] 2025-05-30 18:02:28 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/30 18:02:28 [LOG] 2025-05-30 18:02:28 - Get request made to GetPostsScroll Handler
+2025/05/30 18:02:28 [INFO] 2025-05-30 18:02:28 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/30 18:02:28 [LOG] 2025-05-30 18:02:28 - Get request made to GetPostsScroll Handler
+2025/05/30 18:02:28 [INFO] 2025-05-30 18:02:28 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/30 18:02:28 [LOG] 2025-05-30 18:02:28 - Get request made to GetPostsScroll Handler
+2025/05/30 18:02:28 [INFO] 2025-05-30 18:02:28 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/30 18:02:39 [LOG] 2025-05-30 18:02:39 - Get request made to GetPostsScroll Handler
+2025/05/30 18:02:39 [INFO] 2025-05-30 18:02:39 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/30 18:02:39 [LOG] 2025-05-30 18:02:39 - Get request made to GetPostsScroll Handler
+2025/05/30 18:02:39 [INFO] 2025-05-30 18:02:39 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/30 18:09:02 [LOG] 2025-05-30 18:09:02 - Get request made to GetPostsScroll Handler
+2025/05/30 18:09:02 [INFO] 2025-05-30 18:09:02 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/30 18:09:02 [LOG] 2025-05-30 18:09:02 - Get request made to GetPostsScroll Handler
+2025/05/30 18:09:02 [LOG] 2025-05-30 18:09:02 - Get request made to GetPostsScroll Handler
+2025/05/30 18:09:02 [INFO] 2025-05-30 18:09:02 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/30 18:09:02 [INFO] 2025-05-30 18:09:02 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/30 18:09:02 [LOG] 2025-05-30 18:09:02 - Get request made to GetPostsScroll Handler
+2025/05/30 18:09:02 [INFO] 2025-05-30 18:09:02 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/30 18:09:03 [LOG] 2025-05-30 18:09:03 - Get request made to GetPostsScroll Handler
+2025/05/30 18:09:03 [INFO] 2025-05-30 18:09:03 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/30 18:09:03 [LOG] 2025-05-30 18:09:03 - Get request made to GetPostsScroll Handler
+2025/05/30 18:09:03 [INFO] 2025-05-30 18:09:03 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/30 18:09:03 [LOG] 2025-05-30 18:09:03 - Get request made to GetPostsScroll Handler
+2025/05/30 18:09:03 [INFO] 2025-05-30 18:09:03 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/30 18:09:03 [LOG] 2025-05-30 18:09:03 - Get request made to GetPostsScroll Handler
+2025/05/30 18:09:03 [INFO] 2025-05-30 18:09:03 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/30 18:09:45 [LOG] 2025-05-30 18:09:45 - Get request made to GetPostsScroll Handler
+2025/05/30 18:09:45 [INFO] 2025-05-30 18:09:45 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/30 18:09:45 [LOG] 2025-05-30 18:09:45 - Get request made to GetPostsScroll Handler
+2025/05/30 18:09:45 [INFO] 2025-05-30 18:09:45 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/30 18:09:45 [LOG] 2025-05-30 18:09:45 - Get request made to GetPostsScroll Handler
+2025/05/30 18:09:45 [LOG] 2025-05-30 18:09:45 - Get request made to GetPostsScroll Handler
+2025/05/30 18:09:45 [INFO] 2025-05-30 18:09:45 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/30 18:09:45 [INFO] 2025-05-30 18:09:45 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/30 18:09:45 [LOG] 2025-05-30 18:09:45 - Get request made to GetPostsScroll Handler
+2025/05/30 18:09:45 [INFO] 2025-05-30 18:09:45 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/30 18:09:45 [LOG] 2025-05-30 18:09:45 - Get request made to GetPostsScroll Handler
+2025/05/30 18:09:45 [INFO] 2025-05-30 18:09:45 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/30 18:09:45 [LOG] 2025-05-30 18:09:45 - Get request made to GetPostsScroll Handler
+2025/05/30 18:09:45 [INFO] 2025-05-30 18:09:45 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/30 18:09:45 [LOG] 2025-05-30 18:09:45 - Get request made to GetPostsScroll Handler
+2025/05/30 18:09:45 [INFO] 2025-05-30 18:09:45 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/30 18:16:09 [LOG] 2025-05-30 18:16:09 - Get request made to GetPostsScroll Handler
+2025/05/30 18:16:09 [LOG] 2025-05-30 18:16:09 - Get request made to GetPostsScroll Handler
+2025/05/30 18:16:09 [INFO] 2025-05-30 18:16:09 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/30 18:16:09 [INFO] 2025-05-30 18:16:09 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/30 18:16:09 [LOG] 2025-05-30 18:16:09 - Get request made to GetPostsScroll Handler
+2025/05/30 18:16:09 [LOG] 2025-05-30 18:16:09 - Get request made to GetPostsScroll Handler
+2025/05/30 18:16:09 [INFO] 2025-05-30 18:16:09 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/30 18:16:09 [INFO] 2025-05-30 18:16:09 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/30 18:16:09 [LOG] 2025-05-30 18:16:09 - Get request made to GetPostsScroll Handler
+2025/05/30 18:16:09 [LOG] 2025-05-30 18:16:09 - Get request made to GetPostsScroll Handler
+2025/05/30 18:16:09 [INFO] 2025-05-30 18:16:09 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/30 18:16:09 [INFO] 2025-05-30 18:16:09 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/30 18:16:09 [LOG] 2025-05-30 18:16:09 - Get request made to GetPostsScroll Handler
+2025/05/30 18:16:09 [LOG] 2025-05-30 18:16:09 - Get request made to GetPostsScroll Handler
+2025/05/30 18:16:09 [INFO] 2025-05-30 18:16:09 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/30 18:16:09 [INFO] 2025-05-30 18:16:09 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/30 18:17:42 [LOG] 2025-05-30 18:17:42 - Get request made to GetPostsScroll Handler
+2025/05/30 18:17:42 [INFO] 2025-05-30 18:17:42 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/30 18:17:42 [LOG] 2025-05-30 18:17:42 - Get request made to GetPostsScroll Handler
+2025/05/30 18:17:42 [INFO] 2025-05-30 18:17:42 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/30 18:17:42 [LOG] 2025-05-30 18:17:42 - Get request made to GetPostsScroll Handler
+2025/05/30 18:17:42 [INFO] 2025-05-30 18:17:42 - Posts fetched successfully in GetPostsScroll Handler
+2025/05/30 18:17:42 [LOG] 2025-05-30 18:17:42 - Get request made to GetPostsScroll Handler
+2025/05/30 18:17:42 [INFO] 2025-05-30 18:17:42 - Posts fetched successfully in GetPostsScroll Handler

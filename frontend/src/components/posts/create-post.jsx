@@ -5,14 +5,20 @@ import { BsImage } from 'react-icons/bs';
 import styles from '@/styles/posts.module.css';
 import PopupInput from './popup-input';
 import PopupPrivacy from './popup-privacy';
+import { useUser } from "@/app/(utils)/user_context";
+
 
 const CreatePost = () => {
   // State for form data  
+  const {user : currentUser} = useUser()
   const [postContent, setPostContent] = useState('');
   const [privacy, setPrivacy] = useState('public');
   const [selectedImage, setSelectedImage] = useState(null);
   const [allowedUsers, setAllowedUsers] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+
+  console.log("ussssssssssssser", currentUser);
+  
 
   // State for errors
   const [errors, setErrors] = useState({
@@ -134,11 +140,11 @@ const CreatePost = () => {
           formData.append('post_image', selectedImage)
           formData.append('post_content', postContent.trim())
           // console.log("both");
-          
+
         } else if (selectedImage) {
           formData.append('post_image', selectedImage)
           // console.log("only image");
-          
+
         } else {
           formData.append('post_content', postContent.trim())
           // console.log("only post content");
@@ -152,7 +158,7 @@ const CreatePost = () => {
         }
 
         console.log("data", formData);
-        
+
 
         const response = await fetch('http://localhost:8080/rest/createpost', {
           method: 'POST',
@@ -232,7 +238,7 @@ const CreatePost = () => {
       <div className={styles.createPost}>
         <div className={styles.createPostHeader}>
           <img
-            // src={currentUser.avatar || "https://i.pravatar.cc/150?u=10"}
+            src={ currentUser.avatar || "/uploads/profile.jpeg"}
             className={styles.createPostAvatar}
           />
           <PopupInput
@@ -244,7 +250,7 @@ const CreatePost = () => {
       </div>
 
       {/* Error Messages */}
-      {(errors.content ) && (
+      {(errors.content) && (
         <div id="content-error" className={styles.errorMessage}>
           {errors.content}
         </div>
@@ -308,7 +314,7 @@ const CreatePost = () => {
         <button
           className={styles.postButton}
           type="submit"
-          // disabled={isLoading || !postContent.trim() }
+        // disabled={isLoading || !postContent.trim() }
         >
           {isLoading ? 'Posting...' : 'Post'}
         </button>
