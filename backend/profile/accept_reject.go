@@ -3,8 +3,9 @@ package profile
 import (
 	"net/http"
 
+	"socialNetwork/auth"
 	db "socialNetwork/db/sqlite"
-	shared "socialNetwork/shared_packages"
+	"socialNetwork/user"
 	"socialNetwork/utils"
 )
 
@@ -62,7 +63,7 @@ func AcceptFollowRequest(w http.ResponseWriter, r *http.Request) {
 		})
 		return
 	}
-	err := AcceptFriendRequest(userID, friendID)
+	err = AcceptFriendRequest(userID, friendID)
 	if err != nil {
 		utils.SendJSON(w, http.StatusInternalServerError, utils.JSONResponse{
 			Success: false,
