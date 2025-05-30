@@ -81,6 +81,39 @@ export function FriendsProvider({ children }) {
     }
   };
 
+  const handleAcceptRequest = async (userId) => {
+    const id = String(userId);
+    try {
+      const res = await fetch(`/api/users/accept?id=${id}`, {
+        method: "POST",
+        credentials: "include",
+      });
+      const data = await res.json();
+      console.log("Accept request response:", data);
+      // await fetchAll();
+      // return data.data.Data;
+    } catch (err) {
+      console.error("Error accepting friend request:", err);
+      return null;
+    }
+  }
+  const handleRejectRequest = async (userId) => {
+    const id = String(userId);
+    try {
+      const res = await fetch(`/api/users/reject?id=${id}`, {
+        method: "POST",
+        credentials: "include",
+      });
+      const data = await res.json();
+      console.log("Reject request response:", data);
+      // await fetchAll();
+      // return data.data.Data;
+    } catch (err) {
+      console.error("Error rejecting friend request:", err);
+      return null;
+    }
+  }
+
   return (
     <FriendsContext.Provider
       value={{
@@ -93,6 +126,8 @@ export function FriendsProvider({ children }) {
         refetch: fetchAll,
         getFollowStatus,
         toggleFollow,
+        handleAcceptRequest,
+        handleRejectRequest,
       }}
     >
       {children}

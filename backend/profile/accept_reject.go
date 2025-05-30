@@ -36,7 +36,7 @@ func RejectFriendRequest(userID, friendID string) error {
 	return nil
 }
 
-func Accept(w http.ResponseWriter, r *http.Request) {
+func AcceptFollowRequest(w http.ResponseWriter, r *http.Request) {
 	token := auth.GetToken(w, r)
 	userID, err := user.GetUserIDByToken(token)
 	if err != nil {
@@ -75,6 +75,49 @@ func Accept(w http.ResponseWriter, r *http.Request) {
 	utils.SendJSON(w, http.StatusOK, utils.JSONResponse{
 		Success: true,
 		Message: "Friend request accepted successfully",
+		Data:    nil,
+	})
+}
+
+func RejectFollowRequest(w http.ResponseWriter, r *http.Request) {
+	token := auth.GetToken(w, r)
+	userID, err := user.GetUserIDByToken(token)
+	if err != nil {
+		utils.SendJSON(w, http.StatusUnauthorized, utils.JSONResponse{
+			Success: false,
+			Message: "Please login to continue",
+			Error:   "You are not authorized",
+		})
+		return
+	}
+	friendID := r.URL.Query().Get("id")
+	if friendID == "" {
+		utils.SendJSON(w, http.StatusBadRequest, utils.JSONResponse{
+			Success: false,
+			Message: "Friend ID is required",
+			Error:   "Missing 'id' query parameter",
+		})
+		return
+	}
+	if friendID == userID {
+		utils.SendJSON(w, http.StatusBadRequest, utils.JSONResponse{
+			Success: false,
+			Message: "You cannot reject your own request",
+		})
+		return
+	}
+	err = RejectFriendRequest(userID, friendID)
+	if err != nil {
+		utils.SendJSON(w, http.StatusInternalServerError, utils.JSONResponse{
+			Success: false,
+			Message: "Failed to reject friend request",
+			Error:   err.Error(),
+		})
+		return
+	}
+	utils.SendJSON(w, http.StatusOK, utils.JSONResponse{
+		Success: true,
+		Message: "Friend request rejected successfully",
 		Data:    nil,
 	})
 }

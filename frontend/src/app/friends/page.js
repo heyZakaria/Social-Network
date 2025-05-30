@@ -12,6 +12,7 @@ export default function FriendsPage() {
   const { currentUser } = useUser();
   const [activeTab, setActiveTab] = useState('all');
   const { friends = [], suggestions = [], loading, refetch, requests = [] } = useFriends();
+  const { handleAcceptRequest, handleRejectRequest } = useFriends();
   console.log(friends, suggestions, loading, requests);
   console.log("suggestions", suggestions);
   console.log("friends", friends);
@@ -21,15 +22,6 @@ export default function FriendsPage() {
     refetch();
   }, []);
 
-  const handleAcceptRequest = async (id) => {
-    console.log('Accept friend request from:', id);
-    // TODO: Implement accept request logic
-  };
-
-  const handleRejectRequest = async (id) => {
-    console.log('Reject friend request from:', id);
-    // TODO: Implement reject request logic
-  };
 
   const filteredFriends = (() => {
     if (activeTab === 'all') return friends.filter(f => f.follower_status === 'accepted');
@@ -91,10 +83,10 @@ export default function FriendsPage() {
                   <div className={styles.friendActions}>
                     {activeTab === 'requests' ? (
                       <>
-                        <button className={styles.followButton} onClick={() => handleAcceptRequest(friend.ID)}>
+                        <button className={styles.followButton} onClick={() => handleAcceptRequest(friend.id)}>
                           Accept
                         </button>
-                        <button className={styles.ignoreButton} onClick={() => handleRejectRequest(friend.ID)}>
+                        <button className={styles.ignoreButton} onClick={() => handleRejectRequest(friend.id)}>
                           Reject
                         </button>
                       </>
