@@ -33,7 +33,7 @@ func main() {
 	router.Handle("/posts/", http.StripPrefix("/posts", post.PostMux()))
 	router.Handle("/likes/", http.StripPrefix("/likes", likes.LikesMux()))
 
-	router.HandleFunc("GET /api/verify", middleware.CheckUserExeting)
+	// router.HandleFunc("GET /api/verify", middleware.CheckUserExeting)
 
 	// Profile routes
 	router.HandleFunc("GET /api/users/friends", profile.GetFriendsAndRequests)
