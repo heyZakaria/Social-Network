@@ -2,7 +2,6 @@ package profile
 
 import (
 	"encoding/json"
-	"fmt"
 	"net/http"
 
 	db "socialNetwork/db/sqlite"
@@ -11,7 +10,6 @@ import (
 )
 
 func ProfileStatus(w http.ResponseWriter, r *http.Request) {
-	fmt.Println("==== UpdateProfileStatus CALLED ====")
 	userID := r.Context().Value(shared.UserIDKey).(string)
 
 	var payload UserProfile
@@ -23,7 +21,6 @@ func ProfileStatus(w http.ResponseWriter, r *http.Request) {
 		})
 		return
 	}
-	fmt.Println("status of user", payload.ProfileStatus)
 
 	_, err = db.DB.Exec(`UPDATE users SET profile_status = ? WHERE id = ?`, payload.ProfileStatus, userID)
 	if err != nil {

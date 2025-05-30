@@ -1,7 +1,6 @@
 package profile
 
 import (
-	"fmt"
 	"net/http"
 
 	db "socialNetwork/db/sqlite"
@@ -12,9 +11,7 @@ import (
 // GetUserProfile gets the current user's profile
 func GetUserProfile(w http.ResponseWriter, r *http.Request) {
 	UserId := r.Context().Value(shared.UserIDKey).(string)
-	fmt.Println("Inside GetUserProfile, UserId:", UserId)
 	profile, err := getUserProfileData(UserId)
-	fmt.Println("Profile data retrieved:", profile)
 	if err != nil {
 		utils.SendJSON(w, http.StatusInternalServerError, utils.JSONResponse{
 			Success: false,
@@ -36,8 +33,6 @@ func GetUserProfile(w http.ResponseWriter, r *http.Request) {
 // Helper function to get user profile data
 func getUserProfileData(userId string) (*UserProfile, error) {
 	profile := &UserProfile{UserID: userId}
-
-	// Get basic user info
 	err := db.DB.QueryRow(`
         SELECT first_name, last_name, email, nickname, bio, avatar, 
                profile_status, birthday, created_at 

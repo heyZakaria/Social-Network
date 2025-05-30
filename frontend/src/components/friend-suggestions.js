@@ -53,12 +53,12 @@ export default function FriendSuggestions() {
             </div>
             <div className={styles.actions}>
                     <FollowButton targetUserId={user.id} />
-              <button
+              {/* <button
                 className={`${styles.button} ${styles.secondaryButton}`}
                 onClick={() => handleIgnore(user.id)}
               >
                 Ignore
-              </button>
+              </button> */}
             </div>
           </div>
         ))}

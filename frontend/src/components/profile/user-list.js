@@ -8,6 +8,8 @@ export default function UserList({ type, users }) {
   if (!users || users.length === 0) {
     return <div className={styles.emptyState}>No {type} yet</div>;
   }
+  console.log("UserList: users", users);
+  
   return (
     <div className={styles.userList}>
       {users.map((user) => {
@@ -32,7 +34,7 @@ export default function UserList({ type, users }) {
             </Link>
             <div className={styles.userActions}>
               <FollowButton targetUserId={user.id} />
-              <button className={styles.messageButton}>Message</button>
+              {/* <button className={styles.messageButton}>Message</button> */}
             </div>
           </div>
         )

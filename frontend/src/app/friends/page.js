@@ -13,10 +13,8 @@ export default function FriendsPage() {
   const [activeTab, setActiveTab] = useState('all');
   const { friends = [], suggestions = [], loading, refetch, requests = [] } = useFriends();
   const { handleAcceptRequest, handleRejectRequest } = useFriends();
-  console.log(friends, suggestions, loading, requests);
-  console.log("suggestions", suggestions);
-  console.log("friends", friends);
-  console.log("requests", requests);
+  console.log('FriendsPage: friends', friends);
+  
 
   useEffect(() => {
     refetch();
@@ -134,7 +132,7 @@ export default function FriendsPage() {
                   </div>
                   <div className={styles.friendActions}>
                     <FollowButton targetUserId={suggestion.id} />
-                    <button className={styles.ignoreButton}>Ignore</button>
+                    {/* <button className={styles.ignoreButton}>Ignore</button> */}
                   </div>
                 </div>
               ))}

@@ -81,7 +81,7 @@ export default function RegisterPage() {
     }
 
     //valid nickname
-    if (formData.nickname && !/^[a-zA-Z0-9]+$/.test(formData.nickname))
+    if (formData.nickname && !/^[a-zA-Z0-9_]+$/.test(formData.nickname))
       errors.nickname = "Only letters, numbers, and underscore.";
 
     if (formData.avatar) {
