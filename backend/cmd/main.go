@@ -5,6 +5,8 @@ import (
 	"net/http"
 	"path/filepath"
 
+	comment "socialNetwork/comments"
+
 	"socialNetwork/auth"
 	db "socialNetwork/db/sqlite"
 	"socialNetwork/likes"
@@ -30,11 +32,16 @@ func main() {
 	_, err = db.InitDB("../db/sqlite/database.db")
 
 	router.Handle("/api/", http.StripPrefix("/api", auth.AuthMux()))
+	router.Handle("/rest/", http.StripPrefix("/rest", post.PostMux()))
+	router.Handle("/comment/", http.StripPrefix("/comment", comment.CommentMux()))
+
+	router.HandleFunc("GET /api/verify", middleware.CheckUserExeting)
+
 	router.Handle("/posts/", http.StripPrefix("/posts", post.PostMux()))
 	router.Handle("/likes/", http.StripPrefix("/likes", likes.LikesMux()))
 
-	// router.HandleFunc("GET /api/verify", middleware.CheckUserExeting)
-
+	// Profile routes
+	router.HandleFunc("GET /api/users/profile", profile.GetUserProfile)
 	// Profile routes
 	router.HandleFunc("GET /api/users/friends", profile.GetFriendsAndRequests)
 	router.HandleFunc("GET /api/users/profile", profile.GetUserProfile)
@@ -47,7 +54,7 @@ func main() {
 	//  router.HandleFunc("GET /api/users/suggestions", profile.GetUserSuggestions)
 
 	// Testing serving images
-	// http://localhost:8080/uploads/posts/40809c81-b8b6-45aa-8311-4abe9de995f8.JPEG
+	//  http://localhost:8080/uploads/posts/40809c81-b8b6-45aa-8311-4abe9de995f8.JPEG
 	router.HandleFunc("/uploads/", func(w http.ResponseWriter, r *http.Request) {
 		// get Path and file name
 		filename := filepath.Base(r.URL.Path)  // 40809c81-b8b6-45aa-8311-4abe9de995f8.JPEG

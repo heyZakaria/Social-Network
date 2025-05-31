@@ -14,6 +14,7 @@ import Sidebar from "@/components/sidebar";
 import { HiChatBubbleLeftRight, HiBell, HiCog6Tooth } from "react-icons/hi2";
 
 export default async function Home() {
+  
   return (
     <div className={styles.homePage}>
       <div className={styles.hero}>

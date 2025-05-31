@@ -179,7 +179,6 @@ export default function PostComponent({
             <BiComment size={20} />
             Comment
           </button>
-
           
         </div>
       </div>

@@ -9,7 +9,7 @@ body {
     "Helvetica Neue", sans-serif;
   background-color: #f0f2f5;
   color: #1c1e21;
-  line-height: 1.6;
+  /* line-height: 1.6; */
 }
 
 a {
@@ -33,16 +33,18 @@ button {
 }
 
 .main-content {
+  position: relative;
   display: flex;
-  gap: 20px; 
+  gap: 20px;
   margin-top: 20px 20px 60px;
   width: 100%;
   flex: 1;
   max-height: 100vh;
-  top: 0;
-  overflow-y: hidden;
+  /* top: 0; */
+  /* overflow-y: hidden; */
 
 }
+
 .left-sidebar {
   width: 20%;
   flex-shrink: 0;
@@ -53,19 +55,20 @@ button {
 }
 
 .content-area {
-  flex: 1;
-  min-width: 0;
-  margin: 0 20px;
-  overflow-y: auto;
+
+  width: 100%;
+  /* background-color: #1c1e21; */
+
 }
-  
+
 .right-sidebar {
   width: 20%;
-  flex-shrink: 0;
+  /* flex-shrink: 0;
   position: sticky;
   top: 0;
+  right: 0;
   background-color: #f0f0f0;
-  height: 100vh;
+  height: 100vh; */
 }
 
 @media (max-width: 1200px) {

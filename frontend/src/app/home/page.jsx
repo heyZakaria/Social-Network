@@ -7,8 +7,9 @@ import { MdOutlineMood } from "react-icons/md";
 import { HiOutlineLocationMarker } from "react-icons/hi";
 import PostComponent from "@/components/posts/post-component";
 import FloatingChat from "@/components/chat/floating-chat";
-import { FetchData } from "../(utils)/fetchJson";
-import { useUser } from "../(utils)/user_context";
+import { FetchData } from "@/app/(utils)/fetchJson";
+import { useUser } from "@/app/(utils)/user_context";
+import CreatePost from "@/components/posts/create-post";
 // import { getCurrentUser } from "@/app/(auth)/(utils)/api"
 
 
@@ -65,39 +66,11 @@ export default function Home() {
     firstName: "test",
     lastName: "test",
   };
-
   return (
     <div className={styles.homePage}>
       <div className={styles.mainContent}>
+        <CreatePost/>
         <div className={styles.contentArea}>
-          <div className={styles.createPost}>
-            <div className={styles.createPostHeader}>
-              <img
-                src={currentUser.avatar || "https://i.pravatar.cc/150?u=10"}
-                alt={currentUser.firstName}
-                className={styles.createPostAvatar}
-              />
-              <input
-                type="text"
-                placeholder={`What's on your mind, ${currentUser.firstName}?`}
-                className={styles.createPostInput}
-              />
-            </div>
-            <div className={styles.createPostActions}>
-              <button className={styles.createPostAction}>
-                <BsImage size={20} />
-                Photo/GIF
-              </button>
-              {/* <button className={styles.createPostAction}>
-                <MdOutlineMood size={20} />
-                Feeling/Activity
-              </button> */}
-              {/* <button className={styles.createPostAction}>
-                <HiOutlineLocationMarker size={20} />
-                Location
-              </button> */}
-            </div>
-          </div>
           <div className={styles.feed}>
                 {loading && posts.length === 0 ? (
                   <p>Loading...</p>
