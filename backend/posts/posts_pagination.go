@@ -6,9 +6,8 @@ import (
 	"net/http"
 	"strconv"
 
-	"socialNetwork/auth"
 	db "socialNetwork/db/sqlite"
-	user "socialNetwork/user"
+	shared "socialNetwork/shared_packages"
 	"socialNetwork/utils"
 )
 
@@ -17,18 +16,7 @@ import (
 
 func PostsPagination(w http.ResponseWriter, r *http.Request) {
 	utils.Log("", "Get request made to GetPostsScroll Handler")
-	token := auth.GetToken(w, r)
-
-	UserID, err := user.GetUserIDByToken(token)
-	if err != nil {
-		utils.Log("ERROR", "Invalid Token in GetPostsScroll Handler: "+err.Error())
-		utils.SendJSON(w, http.StatusUnauthorized, utils.JSONResponse{
-			Success: false,
-			Message: "Please login to continue",
-			Error:   "You are not Authorized.",
-		})
-		return
-	}
+	UserID := r.Context().Value(shared.UserIDKey).(string)
 
 	// we will have both, Limit of Posts, and Offset of Posts 10 in our case
 	offset := r.URL.Query().Get("offset")

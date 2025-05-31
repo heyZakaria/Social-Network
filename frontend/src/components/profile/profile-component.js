@@ -9,30 +9,12 @@ import PrivacyToggle from "./privacy-toggle";
 import UserList from "./user-list";
 import FloatingChat from "@/components/chat/floating-chat";
 import { FaLock } from "react-icons/fa";
-import { FetchData } from "@/app/(utils)/fetchJson";
-// ProfileData={{
-//   profileUser
-// }}
-export default function ProfileComponent({
-  ProfileData,
-  currentUser,
-  canView,
-  // posts,
-  // followers,
-  // following,
-}) {
+
+export default function ProfileComponent({ ProfileData, currentUser }) {
   const [activeTab, setActiveTab] = useState("posts");
-  // const ProfileData.isOwnProfile = currentUser.id === currentUser.id;
-  // if (ProfileData.isOwnProfile) {
-  //   currentUser = currentUser
-  // }
-  console.log("profiledata=======>", ProfileData);
-  console.log("currentuser=======>", currentUser);
-  
-  if(!ProfileData) {
-    return <div>Loading...</div>
+  if (!ProfileData) {
+    return <div>Loading...</div>;
   }
-  
 
   const [posts, setPosts] = useState([]);
   const [offset, setOffset] = useState(0);
@@ -61,22 +43,41 @@ export default function ProfileComponent({
 
   }, [activeTab, offset]);
 
+  const fetchPosts = async () => {
+    try {
+      setLoading(true);
+      const res = await fetch(
+        `http://localhost:8080/posts/getposts?limit=${limit}&offset=${offset}&user_id=${ProfileData.id}`,
+        {
+          credentials: "include",
+        }
+      );
+      const data = await res.json();
+      console.log("ProfileComponent: Response from /posts/getposts:", data);
+      if (data.data.posts.length < limit) setHasMore(false); // no more posts
 
+      setPosts((prev) => [...data?.data?.posts]); //setPosts((prev) => [...prev, ...data?.data?.posts]);
+    } catch (error) {
+      console.error("Error loading posts:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  console.log("ProfileData", ProfileData);
 
   const loadMore = () => {
     if (!loading && hasMore) {
       setOffset((prev) => prev + limit);
     }
   };
-  console.log("/////////////", ProfileData);
-  
 
   return (
     <div className={styles.profileContainer}>
       <div className={styles.profileHeader}>
         <div className={styles.profileCover}>
           <img
-            src={ProfileData.avatar || "/uploads/profile.jpeg"}// ./uploads/profile_image/b27c2604-404b-48e4-a20c-f4afa29a9c57.jpeg
+            src={ProfileData.avatar || "/uploads/profile.jpeg"} // ./uploads/profile_image/b27c2604-404b-48e4-a20c-f4afa29a9c57.jpeg
             alt="Cover"
             className={styles.coverImage}
           />
@@ -103,37 +104,43 @@ export default function ProfileComponent({
 
               {ProfileData.IsOwnProfile ? (
                 <div className={styles.profileActions}>
-                  <Link href="/settings" className={styles.editButton}>
+                  {/* <Link href="/settings" className={styles.editButton}>
                     Edit Profile
-                  </Link>
+                  </Link> */}
 
                   <PrivacyToggle user={ProfileData} />
                 </div>
               ) : (
                 <div className={styles.profileActions}>
-                  <FollowButton
-                    profileUser={ProfileData}
-                  currentUser={currentUser}
-                  />
-                  <button className={styles.messageButton}>Message</button>
+                  <FollowButton targetUserId={ProfileData.id} />
+                  {ProfileData.profile_status === "public" ||
+                    ProfileData.CanView ? (
+                    <button className={styles.messageButton}>Message</button>
+                  ) : null}
                 </div>
               )}
             </div>
 
             <div className={styles.profileStats}>
               <div className={styles.stat}>
-                <span className={styles.statNumber}>{ProfileData.postsCount}</span> posts
+                <span className={styles.statNumber}>
+                  {ProfileData.postsCount}
+                </span>{" "}
+                posts
               </div>
               <div className={styles.stat}>
-                <span className={styles.statNumber}>{ProfileData.followerCount}</span>{" "}
+                <span className={styles.statNumber}>
+                  {ProfileData.followerCount}
+                </span>{" "}
                 followers
               </div>
               <div className={styles.stat}>
-                <span className={styles.statNumber}>{ProfileData.followingCount}</span>{" "}
+                <span className={styles.statNumber}>
+                  {ProfileData.followingCount}
+                </span>{" "}
                 following
               </div>
             </div>
-
             {ProfileData.bio && ( // TODO Change the logic
               <div className={styles.profileBio}>{ProfileData.bio}</div>
             )}
@@ -141,7 +148,7 @@ export default function ProfileComponent({
         </div>
       </div>
 
-      {canView ? (
+      {ProfileData.CanView ? (
         <div className={styles.profileContent}>
           <div className={styles.profileTabs}>
             <button
@@ -200,14 +207,15 @@ export default function ProfileComponent({
               </div>
             )}
 
-
             {activeTab === "followers" && (
-              <UserList users={ProfileData.followers} currentUser={ProfileData} />
+              <UserList type="followers" users={ProfileData.followers} />
             )}
 
             {activeTab === "following" && (
-              <UserList users={ProfileData.following} currentUser={ProfileData} />
+              <UserList type="following" users={ProfileData.following} />
             )}
+
+
           </div>
         </div>
       ) : (

@@ -3,6 +3,7 @@ package auth
 import (
 	"fmt"
 	"net/http"
+
 	db "socialNetwork/db/sqlite"
 	"socialNetwork/utils"
 
@@ -88,7 +89,6 @@ func HandleRegister(w http.ResponseWriter, r *http.Request) {
 		utils.SaveImage(file, ImagePath)
 	}
 
-	SendSuccessWithToken(w, userID)
+	SendSuccessWithToken(w, r, userID)
 	utils.Log("INFO", "Success Register")
-
 }

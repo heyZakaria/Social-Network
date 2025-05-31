@@ -7,8 +7,6 @@ export default function PrivacyToggle({ user }) {
   const [isPublic, setIsPublic] = useState(user.profile_status === "public")
   const [isPending, setIsPending] = useState(false)
 
-  console.log("useeer", user);
-  
   const handlePrivacyToggle = async () => {
     setIsPending(true)
     try {
@@ -21,8 +19,6 @@ export default function PrivacyToggle({ user }) {
           "Content-Type": "application/json"
         }
       })
-
-      if (!response.ok) throw new Error('Failed to update privacy')
 
       const data = await response.json()
 
@@ -37,7 +33,7 @@ export default function PrivacyToggle({ user }) {
   return (
     <div className={styles.privacyToggle}>
       <span className={styles.privacyLabel}>
-        {isPublic ? "Public Account" : "Private Account"}
+        {isPublic ? `Public  Account` : "Private Account"}
       </span>
       <label className={styles.switch}>
         <input

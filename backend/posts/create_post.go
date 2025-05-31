@@ -2,10 +2,8 @@ package post
 
 import (
 	"net/http"
-	"strings"
 
-	"socialNetwork/auth"
-	user "socialNetwork/user"
+	shared "socialNetwork/shared_packages"
 	"socialNetwork/utils"
 )
 
@@ -26,25 +24,7 @@ var RateLimit = map[string]utils.LimitInfo{}
 
 func CreatePost(w http.ResponseWriter, r *http.Request) {
 	PostData := Post{}
-	token := auth.GetToken(w, r)
-	if token == "" {
-		utils.Log("ERROR", "Error getting token in CreatePost Handler")
-		utils.SendJSON(w, http.StatusUnauthorized, utils.JSONResponse{
-			Success: false,
-			Message: "Please login to continue",
-			Error:   "You are not Authorized.",
-		})
-		return
-	}
-	UserId, err := user.GetUserIDByToken(token)
-	if err != nil {
-		utils.Log("Error", err.Error())
-		utils.SendJSON(w, http.StatusUnauthorized, utils.JSONResponse{
-			Success: false,
-			Message: err.Error(),
-		})
-		return
-	}
+	UserId := r.Context().Value(shared.UserIDKey).(string)
 
 	PostData.UserID = UserId
 	utils.Log("", "Start Creating the Post")

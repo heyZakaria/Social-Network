@@ -49,9 +49,6 @@ export default function Login() {
       }
       if (res.ok && data.success) {
         // Store the token in localStorage
-        if (data.token) {
-          localStorage.setItem('authToken', data.token);
-        }
         router.push("/home");
       } else {
         setServerErrors(data.error || "Login failed");
