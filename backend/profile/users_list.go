@@ -25,7 +25,14 @@ func GetFriendsAndRequests(w http.ResponseWriter, r *http.Request) {
 	}
 	// fmt.Printf("User ID: %s, Is Own Profile: %t\n", userID, isOwnProfile)
 
-	friends, err := LoadUsers(userID, "accepted")
+	// Friends: users who both follow each other (mutual followers)
+	//////////////////////////////////////////
+	rows, err := db.DB.Query(`
+		SELECT u.id, u.first_name, u.last_name, u.avatar, u.nickname
+		FROM users u
+		INNER JOIN followers f1 ON f1.followed_id = u.id AND f1.follower_id = ?
+		INNER JOIN followers f2 ON f2.follower_id = u.id AND f2.followed_id = ?
+	`, userID, userID)
 	if err != nil {
 		utils.SendJSON(w, http.StatusInternalServerError, utils.JSONResponse{
 			Success: false,
@@ -34,6 +41,17 @@ func GetFriendsAndRequests(w http.ResponseWriter, r *http.Request) {
 		})
 		return
 	}
+	defer rows.Close()
+
+	var friends []User
+	for rows.Next() {
+		var u User
+		err := rows.Scan(&u.ID, &u.FirstName, &u.LastName, &u.Avatar, &u.NickName)
+		if err == nil {
+			friends = append(friends, u)
+		}
+	}
+	////////////////////////////////////////////////
 
 	var requests []User
 	if isOwnProfile {
@@ -51,7 +69,7 @@ func GetFriendsAndRequests(w http.ResponseWriter, r *http.Request) {
 
 	/////////////////////////
 
-	rows, err := db.DB.Query(`
+	rows, err = db.DB.Query(`
         SELECT id, first_name, last_name, avatar, nickname
         FROM users
         WHERE id != ? AND id NOT IN (

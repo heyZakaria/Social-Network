@@ -5,38 +5,52 @@ import Link from 'next/link';
 import styles from '@/styles/friends.module.css';
 import FloatingChat from '@/components/chat/floating-chat';
 import { useUser } from '@/context/user_context';
-import FollowButton from '@/components/profile/follow-button' // adjust path if needed;
+import FollowButton from '@/components/profile/follow-button';
 import { useFriends } from '@/context/friends_context';
 
 export default function FriendsPage() {
   const { currentUser } = useUser();
   const [activeTab, setActiveTab] = useState('all');
-  const { friends = [], suggestions = [], loading, refetch, requests = [] } = useFriends();
- const [handledRequests, setHandledRequests] = useState({}); // key = friend.id
- const { handleAcceptRequest, handleRejectRequest } = useFriends();
+  const {
+    friends = [],
+    followers = [],
+    following = [],
+    suggestions = [],
+    loading,
+    refetch,
+    requests = [],
+    handleAcceptRequest,
+    handleRejectRequest,
+  } = useFriends();
 
-  console.log('FriendsPage: friends', friends);
+  // If your context does NOT provide 'friends', compute mutuals here:
+  // const friends = followers.filter(f =>
+  //   following.some(fl => fl.id === f.id)
+  // );
 
+  const [handledRequests, setHandledRequests] = useState({}); // key = friend.id
 
   useEffect(() => {
     refetch();
   }, []);
 
-
+  // UI feedback for accept/reject
   const handleAccept = async (id) => {
-  await handleAcceptRequest(id);
-  setHandledRequests((prev) => ({ ...prev, [id]: 'accepted' }));
-};
+    setHandledRequests((prev) => ({ ...prev, [id]: 'accepted' }));
+    await handleAcceptRequest(id);
+    refetch();
+  };
 
-const handleReject = async (id) => {
-  await handleRejectRequest(id);
-  setHandledRequests((prev) => ({ ...prev, [id]: 'rejected' }));
-};
+  const handleReject = async (id) => {
+    setHandledRequests((prev) => ({ ...prev, [id]: 'rejected' }));
+    await handleRejectRequest(id);
+    refetch();
+  };
 
-
+  // Filtered lists for tabs
   const filteredFriends = (() => {
-    if (activeTab === 'all') return friends.filter(f => f.follower_status === 'accepted');
-    if (activeTab === 'online') return friends.filter(f => f.follower_status === 'accepted' && f.isOnline);
+    if (activeTab === 'all') return friends;
+    if (activeTab === 'online') return friends.filter(f => f.isOnline);
     if (activeTab === 'requests') return requests;
     return [];
   })();
@@ -109,17 +123,16 @@ const handleReject = async (id) => {
                             className={`${styles.ignoreButton} ${styles.rejectButton}`}
                             onClick={() => handleReject(friend.id)}
                           >
-                          Reject
+                            Reject
                           </button>
                         </>
                       )
                     ) : (
                       <>
-                        <button className={styles.messageButton}>Message</button>
+                        {/* <button className={styles.messageButton}>Message</button> */}
                         <FollowButton targetUserId={friend.id} />
                       </>
                     )}
-
                   </div>
                 </div>
               ))
@@ -158,7 +171,6 @@ const handleReject = async (id) => {
                   </div>
                   <div className={styles.friendActions}>
                     <FollowButton targetUserId={suggestion.id} />
-                    {/* <button className={styles.ignoreButton}>Ignore</button> */}
                   </div>
                 </div>
               ))}

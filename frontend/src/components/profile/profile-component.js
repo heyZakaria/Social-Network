@@ -49,7 +49,8 @@ export default function ProfileComponent({ ProfileData, currentUser }) {
     }
   };
 
-  console.log("ProfileData", ProfileData);
+console.log("Followers:", ProfileData.followers);
+console.log("Following:", ProfileData.following);
 
   const loadMore = () => {
     if (!loading && hasMore) {
