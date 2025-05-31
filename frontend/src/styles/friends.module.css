@@ -160,7 +160,7 @@
 }
 
 .messageButton:hover {
-  background-color: #1d4ed8;
+  background-color: #7c3aed;
 }
 
 .followButton {
@@ -169,7 +169,7 @@
 }
 
 .followButton:hover {
-  background-color: #1d4ed8;
+  background-color: #7c3aed;
 }
 
 .unfollowButton {
@@ -234,4 +234,15 @@
   .ignoreButton {
     width: 100%;
   }
+}
+
+
+.acceptedStatus {
+  color: #4caf50;
+  font-weight: bold;
+}
+
+.rejectedStatus {
+  color: #f44336;
+  font-weight: bold;
 }

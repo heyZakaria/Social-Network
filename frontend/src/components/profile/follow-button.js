@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import { useFriends } from "@/app/(utils)/friends-context";
+import { useFriends } from "@/context/friends_context";
 import { FaUserPlus, FaUserCheck, FaClock } from "react-icons/fa";
 import styles from "@/styles/profile.module.css";
 

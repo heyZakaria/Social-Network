@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import ProfileComponent from '@/components/profile/profile-component';
-import { useUser } from '@/app/(utils)/user_context';
+import { useUser } from '@/context/user_context';
 import { useParams } from 'next/navigation';
 
 export default function ProfilePage({ params }) {

@@ -5,17 +5,27 @@
 "use client";
 
 // for save what we have in every input
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 // we use this import for not reload page
 import Link from "next/link";
 import { useRouter } from 'next/navigation';
-import styles from "./register.module.css";
+import styles from "@/styles/register.module.css";
 import { FaTrash } from "react-icons/fa";
-
+import { useUser } from "@/context/user_context";
 // so we need to make this page exportable to use by next
 export default function RegisterPage() {
+
+  const { user: currentUser, fetchUser } = useUser();
   const router = useRouter();
+
+if (currentUser) {
+  useEffect(() => {
+    router.push("/");
+  }, [router]);
+  return  <div>Redirecting...</div>;
+}
+
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -59,8 +69,8 @@ export default function RegisterPage() {
     if (!/[0-9]/.test(formData.password)) errors.password = "Needs number.";
 
     //vald birthday
-     //vald birthday
-     if (!formData.birthday) {
+    //vald birthday
+    if (!formData.birthday) {
       errors.birthday = "Birthday required.";
     } else {
       const [year, month, day] = formData.birthday.split("-").map(Number);
@@ -163,166 +173,166 @@ export default function RegisterPage() {
         const result = await res.json();
 
         if (result.success) {
-          
           setServerError("");
-          router.push('/home');
-          alert("Registration successful!");
+          await fetchUser();
+          router.push("/");
         } else {
           setServerError(result.message || "Registration failed.");
         }
       } else {
         setServerError("Unexpected server response.");
       }
-      window.location.href = "/home";
+      await fetchUser();
+      router.push("/");
     } catch (error) {
       setServerError("Failed to connect to server.");
-      return NextResponse.json({ 
-        success: false, 
-        message: 'Server error' 
+      return NextResponse.json({
+        success: false,
+        message: 'Server error'
       }, { status: 500 })
     }
   };
 
   return (
     <div className={styles.authContainer}>
-  <div className={styles.authForm}>
-      <h2 className={styles.heading3}>Create Account</h2>
-      <p className={styles.subtitle}>
-        Already have an account? <Link href="/login">Sign in</Link>
-      </p>
-      <form onSubmit={handleSubmit} className={styles.registerForm}>
-        <div className={`${styles.formGroup} ${styles.formGroupDouble}`}>
-          <div className={styles.field}>
-            <label className={styles.label}>First Name</label>
+      <div className={styles.authForm}>
+        <h2 className={styles.heading3}>Create Account</h2>
+        <p className={styles.subtitle}>
+          Already have an account? <Link href="/login">Sign in</Link>
+        </p>
+        <form onSubmit={handleSubmit} className={styles.registerForm}>
+          <div className={`${styles.formGroup} ${styles.formGroupDouble}`}>
+            <div className={styles.field}>
+              <label className={styles.label}>First Name</label>
+              <input
+                type="text"
+                name="firstName"
+                value={formData.firstName}
+                onChange={handleChange}
+                className={styles.inputText}
+              />
+              {errors.firstName && (
+                <p className={styles.error}>{errors.firstName}</p>
+              )}
+            </div>
+            <div className={styles.field}>
+              <label className={styles.label}>Last Name</label>
+              <input
+                type="text"
+                name="lastName"
+                value={formData.lastName}
+                onChange={handleChange}
+                className={styles.inputText}
+              />
+              {errors.lastName && (
+                <p className={styles.error}>{errors.lastName}</p>
+              )}
+            </div>
+          </div>
+
+          <div className={styles.formGroup}>
+            <label className={styles.label}>Email</label>
+            <input
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              className={styles.inputEmail}
+            />
+            {errors.email && <p className={styles.error}>{errors.email}</p>}
+          </div>
+
+          <div className={styles.formGroup}>
+            <label className={styles.label}>Password</label>
+            <input
+              type="password"
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
+              className={styles.inputPassword}
+            />
+            {errors.password && <p className={styles.error}>{errors.password}</p>}
+          </div>
+
+          <div className={styles.formGroup}>
+            <label className={styles.label}>Date of Birth</label>
+            <input
+              type="date"
+              name="birthday"
+              value={formData.birthday}
+              onChange={handleChange}
+              className={styles.inputDate}
+            />
+            {errors.birthday && <p className={styles.error}>{errors.birthday}</p>}
+          </div>
+
+          <div className={styles.formGroup}>
+            <label className={styles.label}>Nickname (Optional)</label>
             <input
               type="text"
-              name="firstName"
-              value={formData.firstName}
+              name="nickname"
+              value={formData.nickname}
               onChange={handleChange}
               className={styles.inputText}
             />
-            {errors.firstName && (
-              <p className={styles.error}>{errors.firstName}</p>
-            )}
+            {errors.nickname && <p className={styles.error}>{errors.nickname}</p>}
           </div>
-          <div className={styles.field}>
-            <label className={styles.label}>Last Name</label>
-            <input
-              type="text"
-              name="lastName"
-              value={formData.lastName}
+
+          <div className={styles.formGroup}>
+            <label className={styles.label}>About Me (Optional)</label>
+            <textarea
+              name="bio"
+              value={formData.bio}
               onChange={handleChange}
-              className={styles.inputText}
+              rows="4"
+              className={styles.textarea}
             />
-            {errors.lastName && (
-              <p className={styles.error}>{errors.lastName}</p>
-            )}
+            {errors.bio && <p className={styles.error}>{errors.bio}</p>}
           </div>
-        </div>
 
-        <div className={styles.formGroup}>
-          <label className={styles.label}>Email</label>
-          <input
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            className={styles.inputEmail}
-          />
-          {errors.email && <p className={styles.error}>{errors.email}</p>}
-        </div>
-
-        <div className={styles.formGroup}>
-          <label className={styles.label}>Password</label>
-          <input
-            type="password"
-            name="password"
-            value={formData.password}
-            onChange={handleChange}
-            className={styles.inputPassword}
-          />
-          {errors.password && <p className={styles.error}>{errors.password}</p>}
-        </div>
-
-        <div className={styles.formGroup}>
-          <label className={styles.label}>Date of Birth</label>
-          <input
-            type="date"
-            name="birthday"
-            value={formData.birthday}
-            onChange={handleChange}
-            className={styles.inputDate}
-          />
-          {errors.birthday && <p className={styles.error}>{errors.birthday}</p>}
-        </div>
-
-        <div className={styles.formGroup}>
-          <label className={styles.label}>Nickname (Optional)</label>
-          <input
-            type="text"
-            name="nickname"
-            value={formData.nickname}
-            onChange={handleChange}
-            className={styles.inputText}
-          />
-          {errors.nickname && <p className={styles.error}>{errors.nickname}</p>}
-        </div>
-
-        <div className={styles.formGroup}>
-          <label className={styles.label}>About Me (Optional)</label>
-          <textarea
-            name="bio"
-            value={formData.bio}
-            onChange={handleChange}
-            rows="4"
-            className={styles.textarea}
-          />
-          {errors.bio && <p className={styles.error}>{errors.bio}</p>}
-        </div>
-
-        <div className={styles.formGroup}>
-          <label className={styles.label}>Avatar (Optional)</label>
-          <div className={styles.avatarContainer}>
-            {formData.avatar && (
-              <div className={styles.avatarPreview}>
-                <img 
-                  src={URL.createObjectURL(formData.avatar)} 
-                  alt="Avatar preview"
-                  className={styles.avatarImage}
-                />
-                <button
-                  type="button"
-                  onClick={() => {
-                    setFormData({...formData, avatar: null});
-                  }}
-                  className={styles.removeAvatar}
-                >
-                  <FaTrash className={styles.removeIcon} />
-                </button>
-              </div>
-            )}
-            <input
-              type="file"
-              name="avatar"
-              onChange={handleChange}
-              className={styles.inputFile}
-              accept="image/*"
-            />
+          <div className={styles.formGroup}>
+            <label className={styles.label}>Avatar (Optional)</label>
+            <div className={styles.avatarContainer}>
+              {formData.avatar && (
+                <div className={styles.avatarPreview}>
+                  <img
+                    src={URL.createObjectURL(formData.avatar)}
+                    alt="Avatar preview"
+                    className={styles.avatarImage}
+                  />
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setFormData({ ...formData, avatar: null });
+                    }}
+                    className={styles.removeAvatar}
+                  >
+                    <FaTrash className={styles.removeIcon} />
+                  </button>
+                </div>
+              )}
+              <input
+                type="file"
+                name="avatar"
+                onChange={handleChange}
+                className={styles.inputFile}
+                accept="image/*"
+              />
+            </div>
+            {errors.avatar && <p className={styles.error}>{errors.avatar}</p>}
           </div>
-          {errors.avatar && <p className={styles.error}>{errors.avatar}</p>}
-        </div>
 
-        {serverError && (
-          <p className={`${styles.error} ${styles.serverError}`}>
-            {serverError}
-          </p>
-        )}
+          {serverError && (
+            <p className={`${styles.error} ${styles.serverError}`}>
+              {serverError}
+            </p>
+          )}
 
-        <button type="submit" className={styles.submitBtn}>
-          Create Account
-        </button>
-      </form>
-    </div>
+          <button type="submit" className={styles.submitBtn}>
+            Create Account
+          </button>
+        </form>
+      </div>
     </div>
   );
 }
