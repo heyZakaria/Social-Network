@@ -36,7 +36,16 @@ func fetchGroups(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	utils.Log("INFO", "Groups Fetched Successfuly")
-	fmt.Println(Groups)
+	for _, grop := range Groups {
+		fmt.Print("____________________________")
+		fmt.Println("group title :", grop.Title)
+		fmt.Println("group desc :", grop.Description)
+		fmt.Println("group admin id  :", grop.AdminId)
+		fmt.Println("group cover :", grop.CoverName)
+		fmt.Println("member state :", grop.MemberState)
+		fmt.Println("____________________________")
+
+	}
 	utils.SendJSON(w, http.StatusOK, utils.JSONResponse{
 		Success: true,
 		Data:    Groups,
@@ -45,18 +54,10 @@ func fetchGroups(w http.ResponseWriter, r *http.Request) {
 
 func GetGroups(db *sql.DB, currentUserID string) ([]Group, error) {
 	query := `
-	SELECT 
-		g.id,
-		g.title,
-		g.descriptio,
-		g.covername,
-		COUNT(gmAll.id) AS memberCount,
-	COALESCE(gmCurrent.memberState, 'Not Member')	
-	FROM groups g
-	LEFT JOIN groupMember gmAll ON g.id = gmAll.group_id
-	LEFT JOIN groupMember gmCurrent 
-		ON g.id = gmCurrent.group_id AND gmCurrent.id = ?
-	GROUP BY g.id, g.title, g.descriptio, g.covername, gmCurrent.memberState
+SELECT  g.title , g.descriptio , g.covername, g.id , count(gm.id) AS member_count ,  coalesce(gmCurrent.memberState, 'Join') As mb FROM groups g 
+LEFT JOIN groupMember gm ON gm.group_id = g.id
+LEFT JOIN groupMember gmCurrent ON gm.group_id = gmCurrent.group_id AND gm.user_id = ?
+GROUP BY   g.title , g.descriptio , g.covername, g.id ;
 	`
 
 	rows, err := db.Query(query, currentUserID)
@@ -69,7 +70,7 @@ func GetGroups(db *sql.DB, currentUserID string) ([]Group, error) {
 	var results []Group
 	for rows.Next() {
 		var g Group
-		if err := rows.Scan(&g.ID, &g.Title, &g.Description, &g.CoverName, &g.MemberCount, &g.MemberState); err != nil {
+		if err := rows.Scan(&g.Title, &g.Description, &g.CoverName, &g.ID, &g.MemberCount, &g.MemberState); err != nil {
 			utils.Log("ERROR", "Scan failed: "+err.Error())
 			return nil, err
 		}

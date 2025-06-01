@@ -899,3 +899,263 @@
 2025/05/28 07:24:08 [INFO] 2025-05-28 07:24:08 - Groups Fetched Successfuly
 2025/05/28 07:25:14 [INFO] 2025-05-28 07:25:14 - Recieved Request for fetching groups
 2025/05/28 07:25:14 [INFO] 2025-05-28 07:25:14 - Groups Fetched Successfuly
+2025/05/28 22:58:32 [INFO] 2025-05-28 22:58:32 - Starting HTTP server at http://localhost:8080 ...
+2025/05/28 22:58:32 [INFO] 2025-05-28 22:58:32 - Migrations applied successfully!
+2025/05/28 22:59:35 [INFO] 2025-05-28 22:59:35 - Recieved Request for fetching groups
+2025/05/28 22:59:35 [ERROR] 2025-05-28 22:59:35 - Token cookie is missing in GetToken
+2025/05/28 23:01:04 [INFO] 2025-05-28 23:01:04 - Parsed multipart form
+2025/05/28 23:01:04 [INFO] 2025-05-28 23:01:04 - Form fields parsed successfully
+2025/05/28 23:01:04 [INFO] 2025-05-28 23:01:04 - Form fields parsed
+2025/05/28 23:01:04 [INFO] 2025-05-28 23:01:04 - Checking if email exists: email@gmail.com
+2025/05/28 23:01:04 [INFO] 2025-05-28 23:01:04 - Email is unique
+2025/05/28 23:01:04 [INFO] 2025-05-28 23:01:04 - Handling file upload for form field 'avatar'
+2025/05/28 23:01:04 [INFO] 2025-05-28 23:01:04 - No file uploaded for field 'avatar'
+2025/05/28 23:01:04 [INFO] 2025-05-28 23:01:04 - Avatar uploaded: 
+2025/05/28 23:01:04 [INFO] 2025-05-28 23:01:04 - Validating registration input
+2025/05/28 23:01:04 [INFO] 2025-05-28 23:01:04 - Registration input valid
+2025/05/28 23:01:04 [INFO] 2025-05-28 23:01:04 - User input validated
+2025/05/28 23:01:04 [INFO] 2025-05-28 23:01:04 - Hashing password
+2025/05/28 23:01:04 [INFO] 2025-05-28 23:01:04 - Password hashed successfully
+2025/05/28 23:01:04 [INFO] 2025-05-28 23:01:04 - Password hashed
+2025/05/28 23:01:04 [INFO] 2025-05-28 23:01:04 - Saving user to database with ID: d69b54e7-db7d-46fe-905e-544efb2d8125
+2025/05/28 23:01:04 [INFO] 2025-05-28 23:01:04 - User saved successfully
+2025/05/28 23:01:04 [INFO] 2025-05-28 23:01:04 - User registered with ID: d69b54e7-db7d-46fe-905e-544efb2d8125
+2025/05/28 23:01:04 [INFO] 2025-05-28 23:01:04 - Save Token into Sessions
+2025/05/28 23:01:04 [INFO] 2025-05-28 23:01:04 - Login successful for user: d69b54e7-db7d-46fe-905e-544efb2d8125
+2025/05/28 23:01:04 [INFO] 2025-05-28 23:01:04 - Success login
+2025/05/28 23:01:10 [INFO] 2025-05-28 23:01:10 - Recieved Request for fetching groups
+2025/05/28 23:01:10 [INFO] 2025-05-28 23:01:10 - Groups Fetched Successfuly
+2025/05/28 23:03:29 [INFO] 2025-05-28 23:03:29 - Recieved Request for fetching groups
+2025/05/28 23:03:29 [INFO] 2025-05-28 23:03:29 - Groups Fetched Successfuly
+2025/05/28 23:03:36 [INFO] 2025-05-28 23:03:36 - Starting HTTP server at http://localhost:8080 ...
+2025/05/28 23:03:36 [INFO] 2025-05-28 23:03:36 - Migrations applied successfully!
+2025/05/28 23:03:38 [INFO] 2025-05-28 23:03:38 - Recieved Request for fetching groups
+2025/05/28 23:03:38 [ERROR] 2025-05-28 23:03:38 - Query failed: no such column: gmCurrent.memberState
+2025/05/28 23:03:38 [LOG] 2025-05-28 23:03:38 - no such column: gmCurrent.memberState
+2025/05/28 23:04:28 [INFO] 2025-05-28 23:04:28 - Starting HTTP server at http://localhost:8080 ...
+2025/05/28 23:04:28 [INFO] 2025-05-28 23:04:28 - Migrations applied successfully!
+2025/05/28 23:04:38 [INFO] 2025-05-28 23:04:38 - Starting HTTP server at http://localhost:8080 ...
+2025/05/28 23:04:38 [INFO] 2025-05-28 23:04:38 - Migrations applied successfully!
+2025/05/28 23:04:39 [INFO] 2025-05-28 23:04:39 - Recieved Request for fetching groups
+2025/05/28 23:04:39 [INFO] 2025-05-28 23:04:39 - Groups Fetched Successfuly
+2025/05/28 23:13:47 [INFO] 2025-05-28 23:13:47 - Starting HTTP server at http://localhost:8080 ...
+2025/05/28 23:13:47 [INFO] 2025-05-28 23:13:47 - Migrations applied successfully!
+2025/05/28 23:13:53 [INFO] 2025-05-28 23:13:53 - Recieved Request for fetching groups
+2025/05/28 23:13:53 [INFO] 2025-05-28 23:13:53 - Groups Fetched Successfuly
+2025/05/28 23:15:24 [INFO] 2025-05-28 23:15:24 - Received request for GroupCreation
+2025/05/28 23:15:24 [INFO] 2025-05-28 23:15:24 - Handling file upload for form field 'Image'
+2025/05/28 23:15:24 [INFO] 2025-05-28 23:15:24 - Received file: Orientation-portrait-ou-paysage.jpg (132936 bytes)
+2025/05/28 23:15:24 [INFO] 2025-05-28 23:15:24 - Detected content type: image/jpeg
+2025/05/28 23:15:24 [INFO] 2025-05-28 23:15:24 - Created upload directory: ../uploads/groups_cover
+2025/05/28 23:15:24 [INFO] 2025-05-28 23:15:24 - Successfully saved file as: 7d31ab60-fcd7-4b5e-83e6-86892f3df230.jpg
+2025/05/28 23:15:24 [INFO] 2025-05-28 23:15:24 - Group Input Validated
+2025/05/28 23:15:24 [INFO] 2025-05-28 23:15:24 - Saving group into DB
+2025/05/28 23:15:24 [INFO] 2025-05-28 23:15:24 - Saving GroupMember into DB
+2025/05/28 23:15:24 [INFO] 2025-05-28 23:15:24 - Group created successfully with ID: 9
+2025/05/28 23:15:43 [INFO] 2025-05-28 23:15:43 - Starting HTTP server at http://localhost:8080 ...
+2025/05/28 23:15:43 [INFO] 2025-05-28 23:15:43 - Migrations applied successfully!
+2025/05/28 23:15:45 [INFO] 2025-05-28 23:15:45 - Recieved Request for fetching groups
+2025/05/28 23:15:45 [INFO] 2025-05-28 23:15:45 - Groups Fetched Successfuly
+2025/05/28 23:16:52 [INFO] 2025-05-28 23:16:52 - Recieved Request for fetching groups
+2025/05/28 23:16:52 [INFO] 2025-05-28 23:16:52 - Groups Fetched Successfuly
+2025/05/28 23:17:08 [INFO] 2025-05-28 23:17:08 - Recieved Request for fetching groups
+2025/05/28 23:17:08 [INFO] 2025-05-28 23:17:08 - Groups Fetched Successfuly
+2025/05/28 23:18:08 [INFO] 2025-05-28 23:18:08 - Starting HTTP server at http://localhost:8080 ...
+2025/05/28 23:18:08 [INFO] 2025-05-28 23:18:08 - Migrations applied successfully!
+2025/05/28 23:18:10 [INFO] 2025-05-28 23:18:10 - Recieved Request for fetching groups
+2025/05/28 23:18:10 [INFO] 2025-05-28 23:18:10 - Groups Fetched Successfuly
+2025/05/28 23:18:33 [INFO] 2025-05-28 23:18:33 - Recieved Request for fetching groups
+2025/05/28 23:18:33 [INFO] 2025-05-28 23:18:33 - Groups Fetched Successfuly
+2025/05/28 23:19:39 [INFO] 2025-05-28 23:19:39 - Starting HTTP server at http://localhost:8080 ...
+2025/05/28 23:19:39 [INFO] 2025-05-28 23:19:39 - Migrations applied successfully!
+2025/05/28 23:19:42 [INFO] 2025-05-28 23:19:42 - Recieved Request for fetching groups
+2025/05/28 23:19:42 [INFO] 2025-05-28 23:19:42 - Groups Fetched Successfuly
+2025/05/28 23:19:49 [INFO] 2025-05-28 23:19:49 - Recieved Request for fetching groups
+2025/05/28 23:19:49 [INFO] 2025-05-28 23:19:49 - Groups Fetched Successfuly
+2025/05/28 23:19:58 [INFO] 2025-05-28 23:19:58 - Recieved Request for fetching groups
+2025/05/28 23:19:58 [INFO] 2025-05-28 23:19:58 - Groups Fetched Successfuly
+2025/05/28 23:20:02 [INFO] 2025-05-28 23:20:02 - Recieved Request for fetching groups
+2025/05/28 23:20:02 [INFO] 2025-05-28 23:20:02 - Groups Fetched Successfuly
+2025/05/28 23:26:14 [INFO] 2025-05-28 23:26:14 - Received request for GroupCreation
+2025/05/28 23:26:14 [INFO] 2025-05-28 23:26:14 - Handling file upload for form field 'Image'
+2025/05/28 23:26:14 [INFO] 2025-05-28 23:26:14 - No file uploaded for field 'Image'
+2025/05/28 23:26:14 [INFO] 2025-05-28 23:26:14 - Group Input Validated
+2025/05/28 23:26:14 [INFO] 2025-05-28 23:26:14 - Saving group into DB
+2025/05/28 23:26:14 [INFO] 2025-05-28 23:26:14 - Saving GroupMember into DB
+2025/05/28 23:26:14 [INFO] 2025-05-28 23:26:14 - Group created successfully with ID: 10
+2025/05/28 23:26:18 [INFO] 2025-05-28 23:26:18 - Recieved Request for fetching groups
+2025/05/28 23:26:18 [INFO] 2025-05-28 23:26:18 - Groups Fetched Successfuly
+2025/05/28 23:27:59 [INFO] 2025-05-28 23:27:59 - Recieved Request for fetching groups
+2025/05/28 23:27:59 [INFO] 2025-05-28 23:27:59 - Groups Fetched Successfuly
+2025/05/28 23:29:47 [INFO] 2025-05-28 23:29:47 - Starting HTTP server at http://localhost:8080 ...
+2025/05/28 23:29:47 [INFO] 2025-05-28 23:29:47 - Migrations applied successfully!
+2025/05/28 23:29:49 [INFO] 2025-05-28 23:29:49 - Recieved Request for fetching groups
+2025/05/28 23:29:49 [INFO] 2025-05-28 23:29:49 - Groups Fetched Successfuly
+2025/05/28 23:31:02 [INFO] 2025-05-28 23:31:02 - Starting HTTP server at http://localhost:8080 ...
+2025/05/28 23:31:02 [INFO] 2025-05-28 23:31:02 - Migrations applied successfully!
+2025/05/28 23:31:06 [INFO] 2025-05-28 23:31:06 - Recieved Request for fetching groups
+2025/05/28 23:31:06 [ERROR] 2025-05-28 23:31:06 - Scan failed: sql: expected 6 destination arguments in Scan, not 7
+2025/05/28 23:31:06 [LOG] 2025-05-28 23:31:06 - sql: expected 6 destination arguments in Scan, not 7
+2025/05/28 23:31:12 [INFO] 2025-05-28 23:31:12 - Recieved Request for fetching groups
+2025/05/28 23:31:12 [ERROR] 2025-05-28 23:31:12 - Scan failed: sql: expected 6 destination arguments in Scan, not 7
+2025/05/28 23:31:12 [LOG] 2025-05-28 23:31:12 - sql: expected 6 destination arguments in Scan, not 7
+2025/05/28 23:31:13 [INFO] 2025-05-28 23:31:13 - Recieved Request for fetching groups
+2025/05/28 23:31:13 [ERROR] 2025-05-28 23:31:13 - Scan failed: sql: expected 6 destination arguments in Scan, not 7
+2025/05/28 23:31:13 [LOG] 2025-05-28 23:31:13 - sql: expected 6 destination arguments in Scan, not 7
+2025/05/28 23:31:13 [INFO] 2025-05-28 23:31:13 - Recieved Request for fetching groups
+2025/05/28 23:31:13 [ERROR] 2025-05-28 23:31:13 - Scan failed: sql: expected 6 destination arguments in Scan, not 7
+2025/05/28 23:31:13 [LOG] 2025-05-28 23:31:13 - sql: expected 6 destination arguments in Scan, not 7
+2025/05/28 23:31:20 [INFO] 2025-05-28 23:31:20 - Recieved Request for fetching groups
+2025/05/28 23:31:20 [ERROR] 2025-05-28 23:31:20 - Scan failed: sql: expected 6 destination arguments in Scan, not 7
+2025/05/28 23:31:20 [LOG] 2025-05-28 23:31:20 - sql: expected 6 destination arguments in Scan, not 7
+2025/05/28 23:31:21 [INFO] 2025-05-28 23:31:21 - Recieved Request for fetching groups
+2025/05/28 23:31:21 [ERROR] 2025-05-28 23:31:21 - Scan failed: sql: expected 6 destination arguments in Scan, not 7
+2025/05/28 23:31:21 [LOG] 2025-05-28 23:31:21 - sql: expected 6 destination arguments in Scan, not 7
+2025/05/28 23:31:54 [INFO] 2025-05-28 23:31:54 - Starting HTTP server at http://localhost:8080 ...
+2025/05/28 23:31:54 [INFO] 2025-05-28 23:31:54 - Migrations applied successfully!
+2025/05/28 23:31:56 [INFO] 2025-05-28 23:31:56 - Recieved Request for fetching groups
+2025/05/28 23:31:56 [INFO] 2025-05-28 23:31:56 - Groups Fetched Successfuly
+2025/05/28 23:33:28 [INFO] 2025-05-28 23:33:28 - Starting HTTP server at http://localhost:8080 ...
+2025/05/28 23:33:28 [INFO] 2025-05-28 23:33:28 - Migrations applied successfully!
+2025/05/28 23:33:29 [INFO] 2025-05-28 23:33:29 - Recieved Request for fetching groups
+2025/05/28 23:33:29 [ERROR] 2025-05-28 23:33:29 - Query failed: near ".": syntax error
+2025/05/28 23:33:29 [LOG] 2025-05-28 23:33:29 - near ".": syntax error
+2025/05/28 23:33:32 [INFO] 2025-05-28 23:33:32 - Recieved Request for fetching groups
+2025/05/28 23:33:32 [ERROR] 2025-05-28 23:33:32 - Query failed: near ".": syntax error
+2025/05/28 23:33:32 [LOG] 2025-05-28 23:33:32 - near ".": syntax error
+2025/05/28 23:33:32 [INFO] 2025-05-28 23:33:32 - Recieved Request for fetching groups
+2025/05/28 23:33:32 [ERROR] 2025-05-28 23:33:32 - Query failed: near ".": syntax error
+2025/05/28 23:33:32 [LOG] 2025-05-28 23:33:32 - near ".": syntax error
+2025/05/28 23:33:32 [INFO] 2025-05-28 23:33:32 - Recieved Request for fetching groups
+2025/05/28 23:33:32 [ERROR] 2025-05-28 23:33:32 - Query failed: near ".": syntax error
+2025/05/28 23:33:32 [LOG] 2025-05-28 23:33:32 - near ".": syntax error
+2025/05/28 23:33:33 [INFO] 2025-05-28 23:33:33 - Recieved Request for fetching groups
+2025/05/28 23:33:33 [ERROR] 2025-05-28 23:33:33 - Query failed: near ".": syntax error
+2025/05/28 23:33:33 [LOG] 2025-05-28 23:33:33 - near ".": syntax error
+2025/05/28 23:33:33 [INFO] 2025-05-28 23:33:33 - Recieved Request for fetching groups
+2025/05/28 23:33:33 [ERROR] 2025-05-28 23:33:33 - Query failed: near ".": syntax error
+2025/05/28 23:33:33 [LOG] 2025-05-28 23:33:33 - near ".": syntax error
+2025/05/28 23:33:33 [INFO] 2025-05-28 23:33:33 - Recieved Request for fetching groups
+2025/05/28 23:33:33 [ERROR] 2025-05-28 23:33:33 - Query failed: near ".": syntax error
+2025/05/28 23:33:33 [LOG] 2025-05-28 23:33:33 - near ".": syntax error
+2025/05/28 23:33:33 [INFO] 2025-05-28 23:33:33 - Recieved Request for fetching groups
+2025/05/28 23:33:33 [ERROR] 2025-05-28 23:33:33 - Query failed: near ".": syntax error
+2025/05/28 23:33:33 [LOG] 2025-05-28 23:33:33 - near ".": syntax error
+2025/05/28 23:33:33 [INFO] 2025-05-28 23:33:33 - Recieved Request for fetching groups
+2025/05/28 23:33:33 [ERROR] 2025-05-28 23:33:33 - Query failed: near ".": syntax error
+2025/05/28 23:33:33 [LOG] 2025-05-28 23:33:33 - near ".": syntax error
+2025/05/28 23:33:33 [INFO] 2025-05-28 23:33:33 - Recieved Request for fetching groups
+2025/05/28 23:33:33 [ERROR] 2025-05-28 23:33:33 - Query failed: near ".": syntax error
+2025/05/28 23:33:33 [LOG] 2025-05-28 23:33:33 - near ".": syntax error
+2025/05/28 23:33:52 [INFO] 2025-05-28 23:33:52 - Starting HTTP server at http://localhost:8080 ...
+2025/05/28 23:33:52 [INFO] 2025-05-28 23:33:52 - Migrations applied successfully!
+2025/05/28 23:33:53 [INFO] 2025-05-28 23:33:53 - Recieved Request for fetching groups
+2025/05/28 23:33:53 [ERROR] 2025-05-28 23:33:53 - Scan failed: sql: Scan error on column index 4, name "covername": converting driver.Value type string ("") to a int: invalid syntax
+2025/05/28 23:33:53 [LOG] 2025-05-28 23:33:53 - sql: Scan error on column index 4, name "covername": converting driver.Value type string ("") to a int: invalid syntax
+2025/05/28 23:33:53 [INFO] 2025-05-28 23:33:53 - Recieved Request for fetching groups
+2025/05/28 23:33:53 [ERROR] 2025-05-28 23:33:53 - Scan failed: sql: Scan error on column index 4, name "covername": converting driver.Value type string ("") to a int: invalid syntax
+2025/05/28 23:33:53 [LOG] 2025-05-28 23:33:53 - sql: Scan error on column index 4, name "covername": converting driver.Value type string ("") to a int: invalid syntax
+2025/05/28 23:33:54 [INFO] 2025-05-28 23:33:54 - Recieved Request for fetching groups
+2025/05/28 23:33:54 [ERROR] 2025-05-28 23:33:54 - Scan failed: sql: Scan error on column index 4, name "covername": converting driver.Value type string ("") to a int: invalid syntax
+2025/05/28 23:33:54 [LOG] 2025-05-28 23:33:54 - sql: Scan error on column index 4, name "covername": converting driver.Value type string ("") to a int: invalid syntax
+2025/05/28 23:33:54 [INFO] 2025-05-28 23:33:54 - Recieved Request for fetching groups
+2025/05/28 23:33:54 [ERROR] 2025-05-28 23:33:54 - Scan failed: sql: Scan error on column index 4, name "covername": converting driver.Value type string ("") to a int: invalid syntax
+2025/05/28 23:33:54 [LOG] 2025-05-28 23:33:54 - sql: Scan error on column index 4, name "covername": converting driver.Value type string ("") to a int: invalid syntax
+2025/05/28 23:34:20 [INFO] 2025-05-28 23:34:20 - Starting HTTP server at http://localhost:8080 ...
+2025/05/28 23:34:20 [INFO] 2025-05-28 23:34:20 - Migrations applied successfully!
+2025/05/28 23:34:21 [INFO] 2025-05-28 23:34:21 - Recieved Request for fetching groups
+2025/05/28 23:34:21 [INFO] 2025-05-28 23:34:21 - Groups Fetched Successfuly
+2025/05/29 05:58:00 [INFO] 2025-05-29 05:58:00 - Starting HTTP server at http://localhost:8080 ...
+2025/05/29 05:58:00 [INFO] 2025-05-29 05:58:00 - Migrations applied successfully!
+2025/05/29 05:58:38 [INFO] 2025-05-29 05:58:38 - Recieved Request for fetching groups
+2025/05/29 05:58:38 [ERROR] 2025-05-29 05:58:38 - Scan failed: sql: Scan error on column index 0, name "title": converting driver.Value type string ("dddddddddddddddddddddddddddddddddddd") to a int: invalid syntax
+2025/05/29 05:58:38 [LOG] 2025-05-29 05:58:38 - sql: Scan error on column index 0, name "title": converting driver.Value type string ("dddddddddddddddddddddddddddddddddddd") to a int: invalid syntax
+2025/05/29 06:00:12 [INFO] 2025-05-29 06:00:12 - Starting HTTP server at http://localhost:8080 ...
+2025/05/29 06:00:12 [INFO] 2025-05-29 06:00:12 - Migrations applied successfully!
+2025/05/29 06:00:14 [INFO] 2025-05-29 06:00:14 - Recieved Request for fetching groups
+2025/05/29 06:00:14 [INFO] 2025-05-29 06:00:14 - Groups Fetched Successfuly
+2025/05/29 06:01:57 [INFO] 2025-05-29 06:01:57 - Recieved Request for fetching groups
+2025/05/29 06:01:57 [INFO] 2025-05-29 06:01:57 - Groups Fetched Successfuly
+2025/06/01 08:01:01 [INFO] 2025-06-01 08:01:01 - Starting HTTP server at http://localhost:8080 ...
+2025/06/01 08:01:01 [INFO] 2025-06-01 08:01:01 - Migrations applied successfully!
+2025/06/01 08:01:11 [INFO] 2025-06-01 08:01:11 - Recieved Request for fetching groups
+2025/06/01 08:01:11 [ERROR] 2025-06-01 08:01:11 - Token cookie is missing in GetToken
+2025/06/01 08:01:11 [INFO] 2025-06-01 08:01:11 - Recieved Request for fetching groups
+2025/06/01 08:01:11 [ERROR] 2025-06-01 08:01:11 - Token cookie is missing in GetToken
+2025/06/01 08:02:20 [INFO] 2025-06-01 08:02:20 - Parsed multipart form
+2025/06/01 08:02:20 [INFO] 2025-06-01 08:02:20 - Form fields parsed successfully
+2025/06/01 08:02:20 [INFO] 2025-06-01 08:02:20 - Form fields parsed
+2025/06/01 08:02:20 [INFO] 2025-06-01 08:02:20 - Checking if email exists: email@gmail.comf
+2025/06/01 08:02:20 [INFO] 2025-06-01 08:02:20 - Email is unique
+2025/06/01 08:02:20 [INFO] 2025-06-01 08:02:20 - Handling file upload for form field 'avatar'
+2025/06/01 08:02:20 [INFO] 2025-06-01 08:02:20 - No file uploaded for field 'avatar'
+2025/06/01 08:02:20 [INFO] 2025-06-01 08:02:20 - Avatar uploaded: 
+2025/06/01 08:02:20 [INFO] 2025-06-01 08:02:20 - Validating registration input
+2025/06/01 08:02:20 [INFO] 2025-06-01 08:02:20 - Registration input valid
+2025/06/01 08:02:20 [INFO] 2025-06-01 08:02:20 - User input validated
+2025/06/01 08:02:20 [INFO] 2025-06-01 08:02:20 - Hashing password
+2025/06/01 08:02:20 [INFO] 2025-06-01 08:02:20 - Password hashed successfully
+2025/06/01 08:02:20 [INFO] 2025-06-01 08:02:20 - Password hashed
+2025/06/01 08:02:20 [INFO] 2025-06-01 08:02:20 - Saving user to database with ID: a9858691-83ca-428b-abcb-aebf66715741
+2025/06/01 08:02:20 [INFO] 2025-06-01 08:02:20 - User saved successfully
+2025/06/01 08:02:20 [INFO] 2025-06-01 08:02:20 - User registered with ID: a9858691-83ca-428b-abcb-aebf66715741
+2025/06/01 08:02:20 [INFO] 2025-06-01 08:02:20 - Save Token into Sessions
+2025/06/01 08:02:20 [INFO] 2025-06-01 08:02:20 - Login successful for user: a9858691-83ca-428b-abcb-aebf66715741
+2025/06/01 08:02:20 [INFO] 2025-06-01 08:02:20 - Success login
+2025/06/01 08:02:24 [INFO] 2025-06-01 08:02:24 - Recieved Request for fetching groups
+2025/06/01 08:02:24 [INFO] 2025-06-01 08:02:24 - Groups Fetched Successfuly
+2025/06/01 08:02:47 [INFO] 2025-06-01 08:02:47 - Recieved Request for fetching groups
+2025/06/01 08:02:47 [INFO] 2025-06-01 08:02:47 - Groups Fetched Successfuly
+2025/06/01 08:02:55 [INFO] 2025-06-01 08:02:55 - Starting HTTP server at http://localhost:8080 ...
+2025/06/01 08:02:55 [INFO] 2025-06-01 08:02:55 - Migrations applied successfully!
+2025/06/01 08:02:57 [INFO] 2025-06-01 08:02:57 - Recieved Request for fetching groups
+2025/06/01 08:02:57 [INFO] 2025-06-01 08:02:57 - Groups Fetched Successfuly
+2025/06/01 08:03:35 [INFO] 2025-06-01 08:03:35 - Starting HTTP server at http://localhost:8080 ...
+2025/06/01 08:03:35 [INFO] 2025-06-01 08:03:35 - Migrations applied successfully!
+2025/06/01 08:03:44 [INFO] 2025-06-01 08:03:44 - Recieved Request for fetching groups
+2025/06/01 08:03:44 [INFO] 2025-06-01 08:03:44 - Groups Fetched Successfuly
+2025/06/01 08:03:45 [INFO] 2025-06-01 08:03:45 - Starting HTTP server at http://localhost:8080 ...
+2025/06/01 08:03:45 [INFO] 2025-06-01 08:03:45 - Migrations applied successfully!
+2025/06/01 08:03:54 [INFO] 2025-06-01 08:03:54 - Recieved Request for fetching groups
+2025/06/01 08:03:54 [INFO] 2025-06-01 08:03:54 - Groups Fetched Successfuly
+2025/06/01 08:04:03 [INFO] 2025-06-01 08:04:03 - Recieved Request for fetching groups
+2025/06/01 08:04:03 [INFO] 2025-06-01 08:04:03 - Groups Fetched Successfuly
+2025/06/01 08:04:05 [INFO] 2025-06-01 08:04:05 - Recieved Request for fetching groups
+2025/06/01 08:04:05 [INFO] 2025-06-01 08:04:05 - Groups Fetched Successfuly
+2025/06/01 08:04:56 [INFO] 2025-06-01 08:04:56 - Recieved Request for fetching groups
+2025/06/01 08:04:56 [INFO] 2025-06-01 08:04:56 - Groups Fetched Successfuly
+2025/06/01 08:06:19 [INFO] 2025-06-01 08:06:19 - Recieved Request for fetching groups
+2025/06/01 08:06:19 [INFO] 2025-06-01 08:06:19 - Groups Fetched Successfuly
+2025/06/01 08:06:20 [INFO] 2025-06-01 08:06:20 - Recieved Request for fetching groups
+2025/06/01 08:06:20 [INFO] 2025-06-01 08:06:20 - Groups Fetched Successfuly
+2025/06/01 08:06:26 [INFO] 2025-06-01 08:06:26 - Recieved Request for fetching groups
+2025/06/01 08:06:26 [INFO] 2025-06-01 08:06:26 - Groups Fetched Successfuly
+2025/06/01 08:06:27 [INFO] 2025-06-01 08:06:27 - Recieved Request for fetching groups
+2025/06/01 08:06:27 [INFO] 2025-06-01 08:06:27 - Groups Fetched Successfuly
+2025/06/01 08:30:58 [INFO] 2025-06-01 08:30:58 - Recieved Request for fetching groups
+2025/06/01 08:30:58 [INFO] 2025-06-01 08:30:58 - Groups Fetched Successfuly
+2025/06/01 08:31:27 [INFO] 2025-06-01 08:31:27 - Received request for GroupCreation
+2025/06/01 08:31:27 [INFO] 2025-06-01 08:31:27 - Handling file upload for form field 'Image'
+2025/06/01 08:31:27 [INFO] 2025-06-01 08:31:27 - No file uploaded for field 'Image'
+2025/06/01 08:31:27 [INFO] 2025-06-01 08:31:27 - Group Input Validated
+2025/06/01 08:31:27 [INFO] 2025-06-01 08:31:27 - Saving group into DB
+2025/06/01 08:31:27 [INFO] 2025-06-01 08:31:27 - Saving GroupMember into DB
+2025/06/01 08:31:27 [INFO] 2025-06-01 08:31:27 - Group created successfully with ID: 11
+2025/06/01 08:31:31 [INFO] 2025-06-01 08:31:31 - Recieved Request for fetching groups
+2025/06/01 08:31:31 [INFO] 2025-06-01 08:31:31 - Groups Fetched Successfuly
+2025/06/01 08:31:42 [INFO] 2025-06-01 08:31:42 - Recieved Request for fetching groups
+2025/06/01 08:31:42 [INFO] 2025-06-01 08:31:42 - Groups Fetched Successfuly
+2025/06/01 08:31:45 [INFO] 2025-06-01 08:31:45 - Recieved Request for fetching groups
+2025/06/01 08:31:45 [INFO] 2025-06-01 08:31:45 - Groups Fetched Successfuly
+2025/06/01 08:33:57 [INFO] 2025-06-01 08:33:57 - Starting HTTP server at http://localhost:8080 ...
+2025/06/01 08:33:57 [INFO] 2025-06-01 08:33:57 - Migrations applied successfully!
+2025/06/01 08:34:06 [INFO] 2025-06-01 08:34:06 - Recieved Request for fetching groups
+2025/06/01 08:34:06 [INFO] 2025-06-01 08:34:06 - Groups Fetched Successfuly
+2025/06/01 08:34:06 [INFO] 2025-06-01 08:34:06 - Recieved Request for fetching groups
+2025/06/01 08:34:06 [INFO] 2025-06-01 08:34:06 - Groups Fetched Successfuly
+2025/06/01 08:34:14 [INFO] 2025-06-01 08:34:14 - Recieved Request for fetching groups
+2025/06/01 08:34:14 [INFO] 2025-06-01 08:34:14 - Groups Fetched Successfuly
+2025/06/01 08:34:16 [INFO] 2025-06-01 08:34:16 - Recieved Request for fetching groups
+2025/06/01 08:34:16 [INFO] 2025-06-01 08:34:16 - Groups Fetched Successfuly
+2025/06/01 08:35:50 [INFO] 2025-06-01 08:35:50 - Recieved Request for fetching groups
+2025/06/01 08:35:50 [INFO] 2025-06-01 08:35:50 - Groups Fetched Successfuly

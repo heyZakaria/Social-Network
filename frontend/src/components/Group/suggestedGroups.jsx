@@ -7,17 +7,17 @@ import useFetch from '../../hooks/useFetch';
 function SuggGroupCard({ Group, onSendJoinRequest }) {
   return (
     <div className="groupCard">
-      <img src={Group.cover} alt={Group.name} />
+      <img src={Group.covername || "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLlfA6Mh7quJkQ8QarreKuct5BEuFs45u8gQ&s"} alt={Group.title} />
       <div className="groupCardContent">
-        <p>{Group.name}</p>
+        <p>{Group.title}</p>
         <p>{Group.description}</p>
-        <button
+       { Group.JoiningState === "Pending" ||Group.JoiningState ===  "Join" && <button
           className={Group.JoiningState === "Pending" ? "Pending" : ""}
           onClick={() => onSendJoinRequest()}
         >
           {Group.JoiningState}
         </button>
-
+}
       </div>
       <GroupCardInfo
         MembersCount={Group.Members}
@@ -41,7 +41,9 @@ export default function GroupsList() {
 
   useEffect(() => {
     if (data) {
-      const mapped = data.map(group => ({
+      console.log(data);
+      
+      const mapped = data.data.map(group => ({
         Id: group.id,
         name: group.title,
         description: group.description,
@@ -69,7 +71,17 @@ export default function GroupsList() {
     }
   };
 
-  const SendorCancelJoinRequest = (groupId) => {
+  const SendorCancelJoinRequest = (groupId , CurrentUserState) => {
+    if (CurrentUserState === 'Join'){
+
+    }
+
+    try {
+      
+      fetch
+    } catch (error) {
+      
+    }
     const updatedGroups = Groups.map((group) =>
       group.Id === groupId
         ? {
@@ -87,6 +99,9 @@ export default function GroupsList() {
   return (
     <div className="groupListContainer">
       <div className="groupListHeader">
+            <button value="Admin" onClick={(e) => HandleGroupSection(e.target.value)}>
+         Your Groups
+        </button>
         <button value="Pending" onClick={(e) => HandleGroupSection(e.target.value)}>
           Pending Groups
         </button>
@@ -103,7 +118,7 @@ export default function GroupsList() {
           <SuggGroupCard
             key={group.Id}
             Group={group}
-            onSendJoinRequest={() => SendorCancelJoinRequest(group.Id)}
+            onSendJoinRequest={() => SendorCancelJoinRequest(group.Id , group.JoiningState)}
           />
         ))}
       </ul>
@@ -148,3 +163,4 @@ function Section({ Title, Content, Name }) {
     </div>
   );
 }
+

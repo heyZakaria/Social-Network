@@ -1,41 +1,48 @@
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 
-export default function useFetch(url, options = {credentials: 'include',}) {
+export default function useFetch(url, method = 'GET') {
+  const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
   const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
 
   useEffect(() => {
     let isMounted = true;
 
-    async function fetchData() {
+    const fetchData = async () => {
+      setError('');
+      setLoading(true);
+
       try {
-        setLoading(true);
-        const res = await fetch(url, options);
-        if (!res.ok) {
-          throw new Error(`HTTP error! Status: ${res.status}`);
+        const response = await fetch(url, {
+          credentials: 'include',
+          method
+        });
+
+        if (!response.ok) {
+          throw new Error("Error fetching data");
         }
-        const json = await res.json();
+
+        const result = await response.json();
         if (isMounted) {
-          setData(json?.data || []);
-          setError(null);
+          setData(result);
         }
       } catch (err) {
         if (isMounted) {
-          setError(err.message);
-          setData(null);
+          setError(err.message || "An error occurred");
         }
       } finally {
-        if (isMounted) setLoading(false);
+        if (isMounted) {
+          setLoading(false);
+        }
       }
-    }
+    };
 
     fetchData();
+
     return () => {
       isMounted = false;
     };
-  }, [url]);
-  console.log(data);
-  
-  return { data, loading, error };
+  }, [url, method]);
+
+  return { data, error, loading };
 }
