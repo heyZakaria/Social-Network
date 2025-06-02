@@ -12883,3 +12883,116 @@
 2025/05/30 18:17:42 [INFO] 2025-05-30 18:17:42 - Posts fetched successfully in GetPostsScroll Handler
 2025/05/30 18:17:42 [LOG] 2025-05-30 18:17:42 - Get request made to GetPostsScroll Handler
 2025/05/30 18:17:42 [INFO] 2025-05-30 18:17:42 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/02 15:58:53 [INFO] 2025-06-02 15:58:53 - Starting HTTP server at http://localhost:8080 ...
+2025/06/02 15:58:53 [INFO] 2025-06-02 15:58:53 - Migrations applied successfully!
+2025/06/02 15:58:55 [INFO] 2025-06-02 15:58:55 - Received login request
+2025/06/02 15:58:55 [INFO] 2025-06-02 15:58:55 - Request body parsed successfully
+2025/06/02 15:58:55 [INFO] 2025-06-02 15:58:55 - Email and password fields validated
+2025/06/02 15:58:55 [INFO] 2025-06-02 15:58:55 - User data retrieved from DB for email: Hh03@gmail.com
+2025/06/02 15:58:55 [WARNING] 2025-06-02 15:58:55 - Invalid password for user: Hh03@gmail.com
+2025/06/02 15:59:28 [INFO] 2025-06-02 15:59:28 - Parsed multipart form
+2025/06/02 15:59:28 [INFO] 2025-06-02 15:59:28 - Form fields parsed successfully
+2025/06/02 15:59:28 [INFO] 2025-06-02 15:59:28 - Form fields parsed
+2025/06/02 15:59:28 [INFO] 2025-06-02 15:59:28 - Checking if email exists: huda03@gmail.com
+2025/06/02 15:59:28 [INFO] 2025-06-02 15:59:28 - Email is unique
+2025/06/02 15:59:28 [INFO] 2025-06-02 15:59:28 - Validating registration input
+2025/06/02 15:59:28 [INFO] 2025-06-02 15:59:28 - Registration input valid
+2025/06/02 15:59:28 [INFO] 2025-06-02 15:59:28 - User input validated
+2025/06/02 15:59:28 [INFO] 2025-06-02 15:59:28 - Hashing password
+2025/06/02 15:59:28 [INFO] 2025-06-02 15:59:28 - Password hashed successfully
+2025/06/02 15:59:28 [INFO] 2025-06-02 15:59:28 - Password hashed
+2025/06/02 15:59:28 [INFO] 2025-06-02 15:59:28 - Starting avatar upload
+2025/06/02 15:59:28 [INFO] 2025-06-02 15:59:28 - No image file provided
+2025/06/02 15:59:28 [INFO] 2025-06-02 15:59:28 - Saving user to database with ID: 0016964d-7dba-4511-a6db-4dac5e959ba4
+2025/06/02 15:59:28 [INFO] 2025-06-02 15:59:28 - User saved successfully
+2025/06/02 15:59:28 [INFO] 2025-06-02 15:59:28 - User registered with ID: 0016964d-7dba-4511-a6db-4dac5e959ba4
+2025/06/02 15:59:28 [INFO] 2025-06-02 15:59:28 - Save Token into Sessions
+2025/06/02 15:59:28 [INFO] 2025-06-02 15:59:28 - Login successful for user: 0016964d-7dba-4511-a6db-4dac5e959ba4
+2025/06/02 15:59:28 [INFO] 2025-06-02 15:59:28 - Success Register
+2025/06/02 15:59:30 [LOG] 2025-06-02 15:59:30 - Get request made to GetPostsScroll Handler
+2025/06/02 15:59:30 [INFO] 2025-06-02 15:59:30 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/02 15:59:30 [LOG] 2025-06-02 15:59:30 - Get request made to GetPostsScroll Handler
+2025/06/02 15:59:30 [INFO] 2025-06-02 15:59:30 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/02 16:00:00 [LOG] 2025-06-02 16:00:00 - Start Creating the Post
+2025/06/02 16:00:00 [INFO] 2025-06-02 16:00:00 - Starting avatar upload
+2025/06/02 16:00:00 [INFO] 2025-06-02 16:00:00 - No image file provided
+2025/06/02 16:00:02 [LOG] 2025-06-02 16:00:02 - Get request made to GetPostsScroll Handler
+2025/06/02 16:00:02 [INFO] 2025-06-02 16:00:02 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/02 16:00:02 [LOG] 2025-06-02 16:00:02 - Get request made to GetPostsScroll Handler
+2025/06/02 16:00:02 [INFO] 2025-06-02 16:00:02 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/02 16:43:17 [INFO] 2025-06-02 16:43:17 - Starting HTTP server at http://localhost:8080 ...
+2025/06/02 16:43:17 [INFO] 2025-06-02 16:43:17 - Migrations applied successfully!
+2025/06/02 16:43:20 [LOG] 2025-06-02 16:43:20 - Get request made to GetPostsScroll Handler
+2025/06/02 16:43:20 [INFO] 2025-06-02 16:43:20 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/02 16:43:20 [LOG] 2025-06-02 16:43:20 - Get request made to GetPostsScroll Handler
+2025/06/02 16:43:20 [INFO] 2025-06-02 16:43:20 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/02 16:44:35 [INFO] 2025-06-02 16:44:35 - Like count for post ID 5 is 1
+2025/06/02 16:44:35 [INFO] 2025-06-02 16:44:35 - Success LikePost Handler
+2025/06/02 16:44:36 [INFO] 2025-06-02 16:44:36 - Like count for post ID 5 is 0
+2025/06/02 16:44:36 [INFO] 2025-06-02 16:44:36 - Success LikePost Handler
+2025/06/02 16:44:39 [INFO] 2025-06-02 16:44:39 - Like count for post ID 5 is 1
+2025/06/02 16:44:39 [INFO] 2025-06-02 16:44:39 - Success LikePost Handler
+2025/06/02 16:44:48 [INFO] 2025-06-02 16:44:48 - Like count for post ID 5 is 0
+2025/06/02 16:44:48 [INFO] 2025-06-02 16:44:48 - Success LikePost Handler
+2025/06/02 16:44:48 [INFO] 2025-06-02 16:44:48 - Like count for post ID 5 is 1
+2025/06/02 16:44:48 [INFO] 2025-06-02 16:44:48 - Success LikePost Handler
+2025/06/02 16:44:49 [INFO] 2025-06-02 16:44:49 - Like count for post ID 5 is 0
+2025/06/02 16:44:49 [INFO] 2025-06-02 16:44:49 - Success LikePost Handler
+2025/06/02 16:44:59 [INFO] 2025-06-02 16:44:59 - Like count for post ID 5 is 1
+2025/06/02 16:44:59 [INFO] 2025-06-02 16:44:59 - Success LikePost Handler
+2025/06/02 17:14:59 [LOG] 2025-06-02 17:14:59 - Get request made to GetPostsScroll Handler
+2025/06/02 17:14:59 [INFO] 2025-06-02 17:14:59 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/02 17:14:59 [LOG] 2025-06-02 17:14:59 - Get request made to GetPostsScroll Handler
+2025/06/02 17:14:59 [INFO] 2025-06-02 17:14:59 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/02 17:15:05 [LOG] 2025-06-02 17:15:05 - Get request made to GetPostsScroll Handler
+2025/06/02 17:15:05 [INFO] 2025-06-02 17:15:05 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/02 17:15:05 [LOG] 2025-06-02 17:15:05 - Get request made to GetPostsScroll Handler
+2025/06/02 17:15:05 [INFO] 2025-06-02 17:15:05 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/02 17:15:21 [LOG] 2025-06-02 17:15:21 - Get request made to GetPostsScroll Handler
+2025/06/02 17:15:21 [INFO] 2025-06-02 17:15:21 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/02 17:15:21 [LOG] 2025-06-02 17:15:21 - Get request made to GetPostsScroll Handler
+2025/06/02 17:15:21 [INFO] 2025-06-02 17:15:21 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/02 17:15:23 [LOG] 2025-06-02 17:15:23 - Get request made to GetPostsScroll Handler
+2025/06/02 17:15:23 [INFO] 2025-06-02 17:15:23 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/02 17:15:23 [LOG] 2025-06-02 17:15:23 - Get request made to GetPostsScroll Handler
+2025/06/02 17:15:23 [INFO] 2025-06-02 17:15:23 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/02 17:16:28 [LOG] 2025-06-02 17:16:28 - Get request made to GetPostsScroll Handler
+2025/06/02 17:16:28 [INFO] 2025-06-02 17:16:28 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/02 17:16:28 [LOG] 2025-06-02 17:16:28 - Get request made to GetPostsScroll Handler
+2025/06/02 17:16:28 [INFO] 2025-06-02 17:16:28 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/02 17:16:32 [LOG] 2025-06-02 17:16:32 - Get request made to GetPostsScroll Handler
+2025/06/02 17:16:32 [INFO] 2025-06-02 17:16:32 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/02 17:16:32 [LOG] 2025-06-02 17:16:32 - Get request made to GetPostsScroll Handler
+2025/06/02 17:16:32 [INFO] 2025-06-02 17:16:32 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/02 17:16:38 [LOG] 2025-06-02 17:16:38 - Get request made to GetPostsScroll Handler
+2025/06/02 17:16:38 [INFO] 2025-06-02 17:16:38 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/02 17:16:38 [LOG] 2025-06-02 17:16:38 - Get request made to GetPostsScroll Handler
+2025/06/02 17:16:38 [INFO] 2025-06-02 17:16:38 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/02 17:16:40 [LOG] 2025-06-02 17:16:40 - Get request made to GetPostsScroll Handler
+2025/06/02 17:16:40 [INFO] 2025-06-02 17:16:40 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/02 17:16:40 [LOG] 2025-06-02 17:16:40 - Get request made to GetPostsScroll Handler
+2025/06/02 17:16:40 [INFO] 2025-06-02 17:16:40 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/02 17:17:07 [LOG] 2025-06-02 17:17:07 - Get request made to GetPostsScroll Handler
+2025/06/02 17:17:07 [INFO] 2025-06-02 17:17:07 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/02 17:17:07 [LOG] 2025-06-02 17:17:07 - Get request made to GetPostsScroll Handler
+2025/06/02 17:17:07 [INFO] 2025-06-02 17:17:07 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/02 17:17:11 [LOG] 2025-06-02 17:17:11 - Get request made to GetPostsScroll Handler
+2025/06/02 17:17:11 [INFO] 2025-06-02 17:17:11 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/02 17:17:11 [LOG] 2025-06-02 17:17:11 - Get request made to GetPostsScroll Handler
+2025/06/02 17:17:11 [INFO] 2025-06-02 17:17:11 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/02 17:17:20 [LOG] 2025-06-02 17:17:20 - Get request made to GetPostsScroll Handler
+2025/06/02 17:17:20 [INFO] 2025-06-02 17:17:20 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/02 17:17:20 [LOG] 2025-06-02 17:17:20 - Get request made to GetPostsScroll Handler
+2025/06/02 17:17:20 [INFO] 2025-06-02 17:17:20 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/02 17:17:23 [LOG] 2025-06-02 17:17:23 - Get request made to GetPostsScroll Handler
+2025/06/02 17:17:23 [INFO] 2025-06-02 17:17:23 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/02 17:17:23 [LOG] 2025-06-02 17:17:23 - Get request made to GetPostsScroll Handler
+2025/06/02 17:17:23 [INFO] 2025-06-02 17:17:23 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/02 17:17:44 [LOG] 2025-06-02 17:17:44 - Get request made to GetPostsScroll Handler
+2025/06/02 17:17:44 [INFO] 2025-06-02 17:17:44 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/02 17:17:44 [LOG] 2025-06-02 17:17:44 - Get request made to GetPostsScroll Handler
+2025/06/02 17:17:44 [INFO] 2025-06-02 17:17:44 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/02 17:17:45 [LOG] 2025-06-02 17:17:45 - Get request made to GetPostsScroll Handler
+2025/06/02 17:17:45 [INFO] 2025-06-02 17:17:45 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/02 17:17:45 [LOG] 2025-06-02 17:17:45 - Get request made to GetPostsScroll Handler
+2025/06/02 17:17:45 [INFO] 2025-06-02 17:17:45 - Posts fetched successfully in GetPostsScroll Handler

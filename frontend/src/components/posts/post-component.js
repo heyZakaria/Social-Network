@@ -8,6 +8,7 @@ import { IoHeartOutline, IoGlobeOutline } from 'react-icons/io5';
 import { BiShare, BiComment, BiDotsHorizontalRounded } from 'react-icons/bi';
 import { HiUsers, HiLockClosed } from 'react-icons/hi2';
 import { FetchData } from "@/app/(utils)/fetchJson";
+import Image from "next/image";
 
 export default function PostComponent({
   post,
@@ -100,10 +101,12 @@ export default function PostComponent({
     <div className={styles.post}>
       <div className={styles.postHeader}>
         <Link href={`/profile/${post.UserID}`} className={styles.postUser}>
-          <img
+          <Image
             src={post.User_avatar || "/uploads/profile.jpeg"}
             alt={post.First_name}
             className={styles.postAvatar}
+            width={100}
+            height={100}
           />
           <div className={styles.postUserInfo}>
             <div className={styles.postUserName}>
