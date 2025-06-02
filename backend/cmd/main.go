@@ -9,6 +9,7 @@ import (
 	Events "socialNetwork/events"
 	Group "socialNetwork/groups"
 	"socialNetwork/middleware"
+	"socialNetwork/realTime"
 	"socialNetwork/utils"
 
 	_ "github.com/mattn/go-sqlite3"
@@ -27,8 +28,7 @@ func main() {
 
 	_, err = db.InitDB("../backend/db/sqlite/database.db")
 
-	router.HandleFunc("/ws", Group.GroupChat)
-
+	router.HandleFunc("/ws", realTime.WSHandler)
 
 	router.Handle("/api/", http.StripPrefix("/api", auth.AuthMux()))
 	router.Handle("/api/groups/", http.StripPrefix("/api/groups", Group.GroupMux()))

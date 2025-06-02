@@ -1,4 +1,4 @@
-package Group
+package realTime
 
 import (
 	"fmt"
@@ -9,47 +9,25 @@ import (
 	"github.com/gorilla/websocket"
 )
 
-type Client struct {
-	Conn     *websocket.Conn
-	Username string
-	Send     chan PrivateMessageStruct
-}
 
-type PrivateMessageStruct struct {
-	Sender   string `json:"sender"`
-	Receiver string `json:"receiver"`
-	Content  string `json:"content"`
-	Type     string `json:"type"`
-}
 
 var clients = make(map[*Client]bool)
 var broadcast = make(chan []byte)
 var mutex = &sync.Mutex{}
 
-// websocket upgrader
-var upgrader = websocket.Upgrader{
-	CheckOrigin: func(r *http.Request) bool { return true },
-}
 
-func GroupChat(w http.ResponseWriter, r *http.Request) {
-	conn, err := upgrader.Upgrade(w, r, nil)
-	if err != nil {
-		utils.Log("ERROR", "Failed to upgrade connection to websocket: "+err.Error())
 
-		return
-	}
-	utils.Log("INFO", "Connected to websocket")
-	// get token then get username from db
-
+func GroupChat(conn *websocket.Conn, r *http.Request) {
+	
 	client := &Client{
 		Conn:     conn,
 		Username: r.URL.Query().Get("username"),
-		Send:     make(chan PrivateMessageStruct),
+		Send:     make(chan MessageStruct),
 	}
 
 	mutex.Lock()
 	clients[client] = true
-	utils.Log("INFO", "Client added to map")
+	utils.Log("INFO", "New Client is Connected to GroupChat")
 	mutex.Unlock()
 
 	go ReadMessages(client)
