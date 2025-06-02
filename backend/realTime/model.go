@@ -23,11 +23,10 @@ type MessageStruct struct {
 }
  
 type JSONRequest struct {
-	SocketType RealTimeType `json:"type"`
-	// Data  string `json:"data"` // for ex: chat message but there is a question?
+
+	RealTimeType string `json:"type"`
+	NotificationType string `json:"notif_type"` // check this just if the RealTimeType == "Notification" 
+
 }
 
 
-type RealTimeType struct {
-	Type string `json:"type"`
-} 

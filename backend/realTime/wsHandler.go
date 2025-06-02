@@ -37,6 +37,16 @@ func WSHandler(w http.ResponseWriter, r *http.Request) {
 
 	switch JR.RealTimeType {
 	case "notification":
+		switch JR.NotificationType {
+		case "follow":
+			
+		case "invite":
+
+		case "private_message":
+		
+		case "group_message":
+
+		}
 
 	case "group_chat":
 		GroupChat(conn, r)

@@ -1,40 +1,21 @@
-import { useEffect, useState, useRef } from 'react';
-import styles from "@/styles/GroupChat.module.css";
+"use client"
 
+import {  useState, useContext } from 'react';
+import styles from "@/styles/GroupChat.module.css";
+import { wsContext } from '@/context/wsContext';
 
 let socket;
 
 export default function GroupChat() {
     const [input, setInput] = useState('');
-    const [messages, setMessages] = useState([]);
-    const ws = useRef(null);
+    const {messages, sendMessage} = useContext(wsContext);
 
-    useEffect(() => {
-        ws.current = new WebSocket('ws://localhost:8080/ws');
-
-        ws.current.onopen = () => console.log('Connected to WebSocket');
-        
-        ws.current.onmessage = event => {
-            console.log("Received message:", event.data);
-            setMessages(prev => [...prev, event.data]);
-        };
-
-        ws.current.onclose = () => console.log('Disconnected');
-
-        return () => {
-            ws.current.close();
-        };
-    }, []);
-
-    const sendMessage = () => {
+    const  sendIT =() => {
         if (input.trim()) {
-            console.log("Sending msg:", input);
-            
-            ws.current.send(input);
-           // setMessages(prev => [...prev, input]);
-            setInput('');
-        }
-    };
+            sendMessage(input)
+            setInput('')
+        }        
+    }
 
     return (
         <div className={styles.GroupChat}>
@@ -50,7 +31,7 @@ export default function GroupChat() {
                 placeholder="Type a message"
                 className={styles.GroupChatInput}
             />
-            <button className={styles.SendButton} onClick={sendMessage}>Send</button>
+            <button className={styles.SendButton} onClick={sendIT}>Send</button>
         </div>
     );
 }
