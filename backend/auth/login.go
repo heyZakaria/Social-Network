@@ -4,7 +4,9 @@ import (
 	"database/sql"
 	"encoding/json"
 	"net/http"
-	"socialNetwork/db/sqlite"
+
+	db "socialNetwork/db/sqlite"
+	shared "socialNetwork/shared_packages"
 	"socialNetwork/utils"
 
 	"golang.org/x/crypto/bcrypt"
@@ -68,7 +70,7 @@ func HandleLogin(w http.ResponseWriter, r *http.Request) {
 	if userID == "" {
 		utils.Log("ERROR", "UserID is empty. Cannot send token.")
 	} else {
+		r.WithContext(shared.SetContext(r, userID))
 		SendSuccessWithToken(w, userID)
 	}
-
 }

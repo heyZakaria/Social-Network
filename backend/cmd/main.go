@@ -29,5 +29,5 @@ func main() {
 	router.Handle("/api/", http.StripPrefix("/api", auth.AuthMux()))
 	router.Handle("/api/groups/", http.StripPrefix("/api/groups", Group.GroupMux()))
 
-	log.Fatal(http.ListenAndServe(":8080", middleware.CheckCORS(router)))
+	log.Fatal(http.ListenAndServe(":8080", middleware.CheckCORS(middleware.CheckUserExeting(router))))
 }

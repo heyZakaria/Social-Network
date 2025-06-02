@@ -5,19 +5,22 @@ import useFetch from '../../hooks/useFetch';
 
 
 function SuggGroupCard({ Group, onSendJoinRequest }) {
+const isJoinable = ["Pending", "Join"].includes(Group.JoiningState);
   return (
     <div className="groupCard">
       <img src={Group.covername || "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLlfA6Mh7quJkQ8QarreKuct5BEuFs45u8gQ&s"} alt={Group.title} />
       <div className="groupCardContent">
         <p>{Group.title}</p>
         <p>{Group.description}</p>
-       { Group.JoiningState === "Pending" ||Group.JoiningState ===  "Join" && <button
-          className={Group.JoiningState === "Pending" ? "Pending" : ""}
-          onClick={() => onSendJoinRequest()}
-        >
-          {Group.JoiningState}
-        </button>
-}
+{isJoinable && (
+  <button
+    className={Group.JoiningState === "Pending" ? "Pending" : ""}
+    onClick={() => onSendJoinRequest()}
+  >
+    {Group.JoiningState}
+  </button>
+)}
+
       </div>
       <GroupCardInfo
         MembersCount={Group.Members}
@@ -38,6 +41,7 @@ export default function GroupsList() {
   const [Groups, setGroups] = useState([]);
   const [FiltredGroups, setFiltredGroups] = useState([]);
   const [FilterState, setFilterState] = useState("Join");
+  const [err , setError] = useState(null)
 
   useEffect(() => {
     if (data) {
@@ -45,9 +49,9 @@ export default function GroupsList() {
       
       const mapped = data.data.map(group => ({
         Id: group.id,
-        name: group.title,
+        title: group.title,
         description: group.description,
-        cover: group.covername,
+        covername: group.covername,
         JoiningState: group.memberState || "Join",
         Members: group.memberCount,
         PostCount: group.postCount ?? 0,
@@ -56,10 +60,8 @@ export default function GroupsList() {
       setGroups(mapped);
       setFiltredGroups(mapped.filter(group => group.JoiningState === FilterState));
     }
-  }, [data, FilterState]);
+  }, [data]);
 
-  if (loading) return <p>Loading groups...</p>;
-  if (error) return <p>Error: {error}</p>;
 
   const HandleGroupSection = (Joinst) => {
     setFilterState(Joinst);
@@ -71,22 +73,26 @@ export default function GroupsList() {
     }
   };
 
-  const SendorCancelJoinRequest = (groupId , CurrentUserState) => {
-    if (CurrentUserState === 'Join'){
-
-    }
-
-    try {
+  const SendorCancelJoinRequest = async(groupId , CurrentUserState) => {
       
-      fetch
-    } catch (error) {
-      
-    }
-    const updatedGroups = Groups.map((group) =>
+  
+        try {
+        const respo = await fetch(`http://localhost:8080/api/groups/join?id=${groupId}&action=${CurrentUserState == "Join" ? "Joining" : "Canceling"}` , 
+          {
+            credentials: "include",
+            method:"POST"
+          }
+        )
+          if(!respo.ok){
+            throw new Error("Error Sending Join Request")
+          }
+           const Data = await respo.json()
+           console.log(Data);
+            const updatedGroups = Groups.map((group) =>
       group.Id === groupId
         ? {
           ...group,
-          JoiningState: group.JoiningState === "Pending" ? "Join" : "Pending",
+  JoiningState: CurrentUserState === "Join" ? "Pending" : "Join"
         }
         : group
     );
@@ -94,7 +100,19 @@ export default function GroupsList() {
     setGroups(updatedGroups);
     setFiltredGroups(FilterState !== 'All' ? updatedGroups.filter((group) => group.JoiningState === FilterState) : updatedGroups)
 
+          
+        } catch (error) {
+          setError(error)
+        }
+
+        
   };
+    
+  if (loading) return <p>Loading groups...</p>;
+if (error || err) return <p>Error: {(error?.toString() || err?.message || "Unknown error")}</p>;
+  
+   
+
 
   return (
     <div className="groupListContainer">

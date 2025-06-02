@@ -24,7 +24,7 @@ func createGroup(w http.ResponseWriter, r *http.Request) {
 		utils.Log("Error Getting User Token", err.Error())
 		utils.SendJSON(w, http.StatusUnauthorized, utils.JSONResponse{
 			Success: false,
-			Message: err.Error(),
+			Error:   err.Error(),
 		})
 		return
 	}
