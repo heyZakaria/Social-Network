@@ -22,6 +22,8 @@ func (c *Comment) CommentSaver(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	// fmt.Println("comment")
+
 	var commentData CommentData
 	var profile auth.Profile
 

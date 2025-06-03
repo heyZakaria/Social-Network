@@ -95,7 +95,6 @@ export default function PostComponent({
       </p>
     );
   };
-  console.log("postId : ===>", post.PostId);
   
   return (
     <div className={styles.post}>

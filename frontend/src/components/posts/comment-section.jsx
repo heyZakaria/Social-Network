@@ -11,6 +11,8 @@ import { useUser } from '@/app/(utils)/user_context';
 export default function CommentSection({ postId }) {
    const { user: currentUser } = useUser();
   const [comments, setComments] = useState([]);
+  const [selectedImage, setSelectedImage] = useState(null);
+
   const [displayedComments, setDisplayedComments] = useState([]);
   const [newComment, setNewComment] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -18,13 +20,13 @@ export default function CommentSection({ postId }) {
   const [showAllComments, setShowAllComments] = useState(false);
   const COMMENTS_TO_SHOW = 2; // Initial number of comments to show
 
-  console.log("currentUser////////////", postId);
+  console.log("currentUser////////////", postId, newComment, currentUser.id);
   
 
-  useEffect(() => {
-    const fetchComments = async () => {
-      try {
-        setIsLoading(true);
+  // useEffect(() => {
+  //   const fetchComments = async () => {
+  //     try {
+  //       setIsLoading(true);
         // Simulate API call
         // const mockComments = [
         //   {
@@ -71,43 +73,68 @@ export default function CommentSection({ postId }) {
 
         // setComments(mockComments);
         // updateDisplayedComments(mockComments, showAllComments);
-        setIsLoading(false);
-      } catch (error) {
-        console.error("Error fetching comments:", error);
-        setIsLoading(false);
-      }
-    };
+  //       setIsLoading(false);
+  //     } catch (error) {
+  //       console.error("Error fetching comments:", error);
+  //       setIsLoading(false);
+  //     }
+  //   };
 
-    fetchComments();
-  }, [postId, showAllComments]);
+  //   fetchComments();
+  // }, [postId, showAllComments]);
 
-  const updateDisplayedComments = (allComments, showAll) => {
-    if (showAll) {
-      setDisplayedComments(allComments);
-    } else {
-      setDisplayedComments(allComments.slice(0, COMMENTS_TO_SHOW));
-    }
-  };
+  // const updateDisplayedComments = (allComments, showAll) => {
+  //   if (showAll) {
+  //     setDisplayedComments(allComments);
+  //   } else {
+  //     setDisplayedComments(allComments.slice(0, COMMENTS_TO_SHOW));
+  //   }
+  // };
 
-  const handleViewMoreComments = () => {
-    setShowAllComments(true);
-  };
+  // const handleViewMoreComments = () => {
+  //   setShowAllComments(true);
+  // };
 
   const handleEmojiSelect = (emoji) => {
     setNewComment((prevComment) => prevComment + emoji);
   };
 
+
+  const validComment = () => {
+    let isValid = true;
+    if (newComment) {
+      if (newComment.length > 10) {
+        isValid = false;
+      }
+      if (!newComment.trim()) {
+        isValid = false;        
+      }
+    }
+    if (selectedImage) {
+      if (!selectedImage.type.startsWith('image/')) {
+        isValid = false;
+      }
+      if (selectedImage.size > 10 * 1024 * 1024) {
+        isValid = false;
+      }
+    }
+  }
+
+
   const handleSubmitComment = async (e) => {
     e.preventDefault();
 
-    if (!newComment.trim()) return;
-
     setIsSubmitting(true);
 
-    try {
+    const isValid = validComment()
 
+    if (isValid) {
+
+      try {
+        
       const formData = new FormData()
 
+     
 
 
 
@@ -137,6 +164,9 @@ export default function CommentSection({ postId }) {
     } finally {
       setIsSubmitting(false);
     }
+    }
+
+    
   };
 
   const formatDate = (dateString) => {
