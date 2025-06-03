@@ -95,7 +95,7 @@ export default function PostComponent({
       </p>
     );
   };
-  console.log(post);
+  console.log("postId : ===>", post.PostId);
   
   return (
     <div className={styles.post}>
@@ -187,7 +187,7 @@ export default function PostComponent({
       </div>
 
       {showCommentsSection && (
-        <CommentSection postId={post.id} currentUser={currentUser} />
+        <CommentSection postId={post.PostId} currentUser={currentUser} />
       )}
     </div>
   );

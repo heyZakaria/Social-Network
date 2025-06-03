@@ -18,75 +18,59 @@ export default function CommentSection({ postId }) {
   const [showAllComments, setShowAllComments] = useState(false);
   const COMMENTS_TO_SHOW = 2; // Initial number of comments to show
 
-  console.log("currentUser////////////", currentUser);
+  console.log("currentUser////////////", postId);
   
 
   useEffect(() => {
-    // In a real app, this would be an API call
-    // For now, we'll use mock data
     const fetchComments = async () => {
       try {
         setIsLoading(true);
         // Simulate API call
-        const mockComments = [
-          {
-            id: 1,
-            postId: postId,
-            userId: 2,
-            user: {
-              id: 2,
-              firstName: "Jane",
-              lastName: "Smith",
-              avatar: "https://i.pravatar.cc/150?u=10`",
-            },
-            content: "Wow, that looks amazing! Which trail was this? 😍",
-            createdAt: "2023-03-10T12:15:00Z",
-          },
-          {
-            id: 2,
-            postId: postId,
-            userId: 3,
-            user: {
-              id: 3,
-              firstName: "Mike",
-              lastName: "Johnson",
-              avatar: "https://i.pravatar.cc/150?u=10`",
-            },
-            content: "Incredible views! I need to go hiking more often. 🏔️",
-            createdAt: "2023-03-10T13:30:00Z",
-          },
-          {
-            id: 3,
-            postId: postId,
-            userId: 4,
-            user: {
-              id: 4,
-              firstName: "Sarah",
-              lastName: "Williams",
-              avatar: "https://i.pravatar.cc/150?u=10`",
-            },
-            content:
-              "I was there last month! Did you take the north trail or the south one? 🧭",
-            createdAt: "2023-03-11T09:45:00Z",
-          },
-          {
-            id: 4,
-            postId: postId,
-            userId: 5,
-            user: {
-              id: 5,
-              firstName: "Alex",
-              lastName: "Brown",
-              avatar: "https://i.pravatar.cc/150?u=10`",
-            },
-            content:
-              "The colors in this photo are stunning. What camera settings did you use? 📸",
-            createdAt: "2023-03-12T14:20:00Z",
-          },
-        ];
+        // const mockComments = [
+        //   {
+        //     id: 1,
+        //     postId: postId,
+        //     userId: 2,
+        //     user: {
+        //       id: 2,
+        //       firstName: "Jane",
+        //       lastName: "Smith",
+        //       avatar: "https://i.pravatar.cc/150?u=10`",
+        //     },
+        //     content: "Wow, that looks amazing! Which trail was this? 😍",
+        //     createdAt: "2023-03-10T12:15:00Z",
+        //   },
+        //   {
+        //     id: 2,
+        //     postId: postId,
+        //     userId: 3,
+        //     user: {
+        //       id: 3,
+        //       firstName: "Mike",
+        //       lastName: "Johnson",
+        //       avatar: "https://i.pravatar.cc/150?u=10`",
+        //     },
+        //     content: "Incredible views! I need to go hiking more often. 🏔️",
+        //     createdAt: "2023-03-10T13:30:00Z",
+        //   },
+        //   {
+        //     id: 3,
+        //     postId: postId,
+        //     userId: 4,
+        //     user: {
+        //       id: 4,
+        //       firstName: "Sarah",
+        //       lastName: "Williams",
+        //       avatar: "https://i.pravatar.cc/150?u=10`",
+        //     },
+        //     content:
+        //       "I was there last month! Did you take the north trail or the south one? 🧭",
+        //     createdAt: "2023-03-11T09:45:00Z",
+        //   },
+        // ];
 
-        setComments(mockComments);
-        updateDisplayedComments(mockComments, showAllComments);
+        // setComments(mockComments);
+        // updateDisplayedComments(mockComments, showAllComments);
         setIsLoading(false);
       } catch (error) {
         console.error("Error fetching comments:", error);
@@ -109,10 +93,6 @@ export default function CommentSection({ postId }) {
     setShowAllComments(true);
   };
 
-  const handleHideComments = () => {
-    setShowAllComments(false);
-  };
-
   const handleEmojiSelect = (emoji) => {
     setNewComment((prevComment) => prevComment + emoji);
   };
@@ -125,8 +105,15 @@ export default function CommentSection({ postId }) {
     setIsSubmitting(true);
 
     try {
-      // In a real app, this would be an API call
-      // For now, we'll simulate adding a comment
+
+      const formData = new FormData()
+
+
+
+
+
+
+
       const newCommentObj = {
         id: Date.now(),
         postId: postId,
@@ -213,7 +200,7 @@ export default function CommentSection({ postId }) {
             ))}
           </div>
 
-          {comments.length > COMMENTS_TO_SHOW && (
+          {/* {comments.length > COMMENTS_TO_SHOW && (
             <div className={styles.viewMoreContainer}>
               {!showAllComments ? (
                 <button
@@ -231,7 +218,7 @@ export default function CommentSection({ postId }) {
                 </button>
               )}
             </div>
-          )}
+          )} */}
         </>
       )}
 
