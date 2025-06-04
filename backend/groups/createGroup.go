@@ -41,7 +41,7 @@ func createGroup(w http.ResponseWriter, r *http.Request) {
 	}
 	title := r.FormValue("Title")
 	description := r.FormValue("Description")
-	GroupcoverFileName, err := utils.HandleUploadImage(r, "Image", 3*1024*1024, "../uploads/groups_cover")
+	GroupcoverFileName, err := utils.HandleUploadImage(r, "Image", 3*1024*1024, "../../frontend/public/uploads/groups_cover")
 	if err != nil {
 		utils.Log("ERROR", "Cover upload failed: "+err.Error())
 		utils.SendJSON(w, http.StatusInternalServerError, utils.JSONResponse{

@@ -1,6 +1,6 @@
 "use client"
 import { useState  , useEffect  } from "react";
-import styles from '../CreateGroup.module.css';
+import styles from './GroupCard.module.css';
 import InviteFriends from "@/components/Group/InviteFriends";
 import { IoChevronBackCircleSharp , IoChevronForwardCircleSharp } from "react-icons/io5";
 import { useParams } from "next/navigation";
@@ -52,6 +52,8 @@ function Members({ members }) {
   const [Current , setCurrent] = useState(0)
   const [PaginatedMembers , setPaginatedMembers] = useState(members.slice(Current , Current+3))
     useEffect(() => {
+    
+      
     setPaginatedMembers(members.slice(Current, Current + 3));
   }, [Current, members]);
 
@@ -129,7 +131,7 @@ function Description({ Text }) {
 
 
 
-export default function GroupCard({  imgSrc , groupName, description, children }) {
+export default function GroupCard({  children }) {
   const [group , setGroup] = useState([])
   const [err , SetErr] = useState(null)
 const [loading , setLoading] = useState(true)
@@ -197,15 +199,16 @@ console.log("groupId:", groupId);
     })
     setLoading(false)
   } , [groupId])
+console.log(`../../public/uploads/${group.covername}`);
 
   if (loading)return <p>Data is Loading</p>
   if (err !== null)return <p>{err }</p>
   return (
   
     <div id ={group.id} className={styles.GroupCardContainer}>
-      <img src={group.covername}
+      <img src={`/uploads/groups_cover/${group.covername}` }
       alt= {group.title}></img>
-      <h1 className={styles.groupTitle}>{groupName}</h1>
+      <h1 className={styles.groupTitle}>{group.title}</h1>
       <Description Text={group.description} />
       <GroupNav HandleShowInvite={HandleShowInvite}  OnMembers= {HandleMembersList}FriendsList={FriendsList1}></GroupNav>
       {ShowMembers && <Members members={members} />}

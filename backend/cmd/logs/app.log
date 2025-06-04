@@ -2442,3 +2442,1001 @@
 2025/06/04 10:25:03 [INFO] 2025-06-04 10:25:03 - Group With ID : 13 Fetched With Success
 2025/06/04 10:25:06 [INFO] 2025-06-04 10:25:06 - Recieved Request To fetch Group page
 2025/06/04 10:25:06 [LOG] 2025-06-04 10:25:06 - Not a Member 
+2025/06/04 11:49:56 [INFO] 2025-06-04 11:49:56 - Starting HTTP server at http://localhost:8080 ...
+2025/06/04 11:49:56 [INFO] 2025-06-04 11:49:56 - Migrations applied successfully!
+2025/06/04 11:49:57 [INFO] 2025-06-04 11:49:57 - Recieved Request To fetch Group page
+2025/06/04 11:49:57 [LOG] 2025-06-04 11:49:57 - Not a Member 
+2025/06/04 11:50:58 [INFO] 2025-06-04 11:50:58 - Recieved Request for fetching groups
+2025/06/04 11:50:58 [INFO] 2025-06-04 11:50:58 - Groups Fetched Successfuly
+2025/06/04 11:50:58 [INFO] 2025-06-04 11:50:58 - Recieved Request for fetching groups
+2025/06/04 11:50:58 [INFO] 2025-06-04 11:50:58 - Groups Fetched Successfuly
+2025/06/04 13:08:36 [INFO] 2025-06-04 13:08:36 - Starting HTTP server at http://localhost:8080 ...
+2025/06/04 13:08:36 [INFO] 2025-06-04 13:08:36 - Migrations applied successfully!
+2025/06/04 13:08:43 [INFO] 2025-06-04 13:08:43 - Recieved Request for fetching groups
+2025/06/04 13:08:43 [INFO] 2025-06-04 13:08:43 - Groups Fetched Successfuly
+2025/06/04 13:08:43 [INFO] 2025-06-04 13:08:43 - Recieved Request for fetching groups
+2025/06/04 13:08:43 [INFO] 2025-06-04 13:08:43 - Groups Fetched Successfuly
+2025/06/04 13:09:55 [INFO] 2025-06-04 13:09:55 - Recieved Request for fetching groups
+2025/06/04 13:09:55 [INFO] 2025-06-04 13:09:55 - Groups Fetched Successfuly
+2025/06/04 13:09:55 [INFO] 2025-06-04 13:09:55 - Recieved Request for fetching groups
+2025/06/04 13:09:55 [INFO] 2025-06-04 13:09:55 - Groups Fetched Successfuly
+2025/06/04 13:10:01 [INFO] 2025-06-04 13:10:01 - Recieved Request for fetching groups
+2025/06/04 13:10:01 [INFO] 2025-06-04 13:10:01 - Groups Fetched Successfuly
+2025/06/04 13:10:01 [INFO] 2025-06-04 13:10:01 - Recieved Request for fetching groups
+2025/06/04 13:10:01 [INFO] 2025-06-04 13:10:01 - Groups Fetched Successfuly
+2025/06/04 13:10:10 [INFO] 2025-06-04 13:10:10 - Recieved Request for fetching groups
+2025/06/04 13:10:10 [INFO] 2025-06-04 13:10:10 - Groups Fetched Successfuly
+2025/06/04 13:10:10 [INFO] 2025-06-04 13:10:10 - Recieved Request for fetching groups
+2025/06/04 13:10:10 [INFO] 2025-06-04 13:10:10 - Groups Fetched Successfuly
+2025/06/04 13:10:14 [INFO] 2025-06-04 13:10:14 - Recieved Request for fetching groups
+2025/06/04 13:10:14 [INFO] 2025-06-04 13:10:14 - Groups Fetched Successfuly
+2025/06/04 13:10:14 [INFO] 2025-06-04 13:10:14 - Recieved Request for fetching groups
+2025/06/04 13:10:14 [INFO] 2025-06-04 13:10:14 - Groups Fetched Successfuly
+2025/06/04 13:10:30 [INFO] 2025-06-04 13:10:30 - Recieved Request for fetching groups
+2025/06/04 13:10:30 [INFO] 2025-06-04 13:10:30 - Groups Fetched Successfuly
+2025/06/04 13:10:30 [INFO] 2025-06-04 13:10:30 - Recieved Request for fetching groups
+2025/06/04 13:10:30 [INFO] 2025-06-04 13:10:30 - Groups Fetched Successfuly
+2025/06/04 13:10:57 [INFO] 2025-06-04 13:10:57 - Starting HTTP server at http://localhost:8080 ...
+2025/06/04 13:10:57 [INFO] 2025-06-04 13:10:57 - Migrations applied successfully!
+2025/06/04 13:11:01 [INFO] 2025-06-04 13:11:01 - Recieved Request for fetching groups
+2025/06/04 13:11:01 [INFO] 2025-06-04 13:11:01 - Groups Fetched Successfuly
+2025/06/04 13:11:01 [INFO] 2025-06-04 13:11:01 - Recieved Request for fetching groups
+2025/06/04 13:11:01 [INFO] 2025-06-04 13:11:01 - Groups Fetched Successfuly
+2025/06/04 13:11:15 [INFO] 2025-06-04 13:11:15 - Recieved Request for fetching groups
+2025/06/04 13:11:15 [INFO] 2025-06-04 13:11:15 - Groups Fetched Successfuly
+2025/06/04 13:11:15 [INFO] 2025-06-04 13:11:15 - Recieved Request for fetching groups
+2025/06/04 13:11:15 [INFO] 2025-06-04 13:11:15 - Groups Fetched Successfuly
+2025/06/04 13:11:16 [INFO] 2025-06-04 13:11:16 - Recieved Request for fetching groups
+2025/06/04 13:11:16 [INFO] 2025-06-04 13:11:16 - Groups Fetched Successfuly
+2025/06/04 13:11:16 [INFO] 2025-06-04 13:11:16 - Recieved Request for fetching groups
+2025/06/04 13:11:16 [INFO] 2025-06-04 13:11:16 - Groups Fetched Successfuly
+2025/06/04 13:11:52 [INFO] 2025-06-04 13:11:52 - Recieved Request for fetching groups
+2025/06/04 13:11:52 [INFO] 2025-06-04 13:11:52 - Groups Fetched Successfuly
+2025/06/04 13:11:52 [INFO] 2025-06-04 13:11:52 - Recieved Request for fetching groups
+2025/06/04 13:11:52 [INFO] 2025-06-04 13:11:52 - Groups Fetched Successfuly
+2025/06/04 13:11:57 [INFO] 2025-06-04 13:11:57 - Recieved Request for fetching groups
+2025/06/04 13:11:57 [INFO] 2025-06-04 13:11:57 - Groups Fetched Successfuly
+2025/06/04 13:11:57 [INFO] 2025-06-04 13:11:57 - Recieved Request for fetching groups
+2025/06/04 13:11:57 [INFO] 2025-06-04 13:11:57 - Groups Fetched Successfuly
+2025/06/04 13:12:45 [INFO] 2025-06-04 13:12:45 - Recieved Request for fetching groups
+2025/06/04 13:12:45 [INFO] 2025-06-04 13:12:45 - Groups Fetched Successfuly
+2025/06/04 13:12:45 [INFO] 2025-06-04 13:12:45 - Recieved Request for fetching groups
+2025/06/04 13:12:45 [INFO] 2025-06-04 13:12:45 - Groups Fetched Successfuly
+2025/06/04 13:12:53 [INFO] 2025-06-04 13:12:53 - Recieved Request for fetching groups
+2025/06/04 13:12:53 [INFO] 2025-06-04 13:12:53 - Groups Fetched Successfuly
+2025/06/04 13:12:53 [INFO] 2025-06-04 13:12:53 - Recieved Request for fetching groups
+2025/06/04 13:12:53 [INFO] 2025-06-04 13:12:53 - Groups Fetched Successfuly
+2025/06/04 13:13:18 [INFO] 2025-06-04 13:13:18 - Recieved Request for fetching groups
+2025/06/04 13:13:18 [INFO] 2025-06-04 13:13:18 - Groups Fetched Successfuly
+2025/06/04 13:13:18 [INFO] 2025-06-04 13:13:18 - Recieved Request for fetching groups
+2025/06/04 13:13:18 [INFO] 2025-06-04 13:13:18 - Groups Fetched Successfuly
+2025/06/04 13:13:49 [INFO] 2025-06-04 13:13:49 - Recieved Request for fetching groups
+2025/06/04 13:13:49 [INFO] 2025-06-04 13:13:49 - Groups Fetched Successfuly
+2025/06/04 13:13:49 [INFO] 2025-06-04 13:13:49 - Recieved Request for fetching groups
+2025/06/04 13:13:49 [INFO] 2025-06-04 13:13:49 - Groups Fetched Successfuly
+2025/06/04 13:14:45 [INFO] 2025-06-04 13:14:45 - Recieved Request for fetching groups
+2025/06/04 13:14:45 [INFO] 2025-06-04 13:14:45 - Groups Fetched Successfuly
+2025/06/04 13:14:45 [INFO] 2025-06-04 13:14:45 - Recieved Request for fetching groups
+2025/06/04 13:14:45 [INFO] 2025-06-04 13:14:45 - Groups Fetched Successfuly
+2025/06/04 13:15:16 [INFO] 2025-06-04 13:15:16 - Recieved Request for fetching groups
+2025/06/04 13:15:16 [INFO] 2025-06-04 13:15:16 - Groups Fetched Successfuly
+2025/06/04 13:15:16 [INFO] 2025-06-04 13:15:16 - Recieved Request for fetching groups
+2025/06/04 13:15:16 [INFO] 2025-06-04 13:15:16 - Groups Fetched Successfuly
+2025/06/04 13:22:39 [INFO] 2025-06-04 13:22:39 - Recieved Request for fetching groups
+2025/06/04 13:22:39 [INFO] 2025-06-04 13:22:39 - Groups Fetched Successfuly
+2025/06/04 13:22:39 [INFO] 2025-06-04 13:22:39 - Recieved Request for fetching groups
+2025/06/04 13:22:39 [INFO] 2025-06-04 13:22:39 - Groups Fetched Successfuly
+2025/06/04 13:22:40 [INFO] 2025-06-04 13:22:40 - Recieved Request for fetching groups
+2025/06/04 13:22:40 [INFO] 2025-06-04 13:22:40 - Groups Fetched Successfuly
+2025/06/04 13:22:40 [INFO] 2025-06-04 13:22:40 - Recieved Request for fetching groups
+2025/06/04 13:22:40 [INFO] 2025-06-04 13:22:40 - Groups Fetched Successfuly
+2025/06/04 13:29:24 [INFO] 2025-06-04 13:29:24 - Recieved Request for fetching groups
+2025/06/04 13:29:24 [INFO] 2025-06-04 13:29:24 - Groups Fetched Successfuly
+2025/06/04 13:29:24 [INFO] 2025-06-04 13:29:24 - Recieved Request for fetching groups
+2025/06/04 13:29:24 [INFO] 2025-06-04 13:29:24 - Groups Fetched Successfuly
+2025/06/04 13:29:29 [INFO] 2025-06-04 13:29:29 - Recieved Request for fetching groups
+2025/06/04 13:29:29 [INFO] 2025-06-04 13:29:29 - Groups Fetched Successfuly
+2025/06/04 13:29:29 [INFO] 2025-06-04 13:29:29 - Recieved Request for fetching groups
+2025/06/04 13:29:29 [INFO] 2025-06-04 13:29:29 - Groups Fetched Successfuly
+2025/06/04 13:32:31 [INFO] 2025-06-04 13:32:31 - Recieved Request To fetch Group page
+2025/06/04 13:32:31 [LOG] 2025-06-04 13:32:31 - Not a Member 
+2025/06/04 13:32:32 [INFO] 2025-06-04 13:32:32 - Recieved Request for fetching groups
+2025/06/04 13:32:32 [INFO] 2025-06-04 13:32:32 - Groups Fetched Successfuly
+2025/06/04 13:32:32 [INFO] 2025-06-04 13:32:32 - Recieved Request for fetching groups
+2025/06/04 13:32:32 [INFO] 2025-06-04 13:32:32 - Groups Fetched Successfuly
+2025/06/04 13:32:40 [INFO] 2025-06-04 13:32:40 - Recieved Request for fetching groups
+2025/06/04 13:32:40 [INFO] 2025-06-04 13:32:40 - Groups Fetched Successfuly
+2025/06/04 13:32:40 [INFO] 2025-06-04 13:32:40 - Recieved Request for fetching groups
+2025/06/04 13:32:40 [INFO] 2025-06-04 13:32:40 - Groups Fetched Successfuly
+2025/06/04 13:32:42 [INFO] 2025-06-04 13:32:42 - Recieved Request To fetch Group page
+2025/06/04 13:32:42 [INFO] 2025-06-04 13:32:42 - Group With ID : 13 Fetched With Success
+2025/06/04 13:32:42 [INFO] 2025-06-04 13:32:42 - Recieved Request To fetch Group page
+2025/06/04 13:32:42 [INFO] 2025-06-04 13:32:42 - Group With ID : 13 Fetched With Success
+2025/06/04 13:32:59 [INFO] 2025-06-04 13:32:59 - Recieved Request for fetching groups
+2025/06/04 13:32:59 [INFO] 2025-06-04 13:32:59 - Groups Fetched Successfuly
+2025/06/04 13:32:59 [INFO] 2025-06-04 13:32:59 - Recieved Request for fetching groups
+2025/06/04 13:32:59 [INFO] 2025-06-04 13:32:59 - Groups Fetched Successfuly
+2025/06/04 13:33:04 [INFO] 2025-06-04 13:33:04 - Recieved Group Join Request
+2025/06/04 13:33:04 [INFO] 2025-06-04 13:33:04 - Recieved Request To fetch Group page
+2025/06/04 13:33:04 [INFO] 2025-06-04 13:33:04 - Group With ID : 13 Fetched With Success
+2025/06/04 13:33:04 [INFO] 2025-06-04 13:33:04 - Recieved Request To fetch Group page
+2025/06/04 13:33:04 [INFO] 2025-06-04 13:33:04 - Group With ID : 13 Fetched With Success
+2025/06/04 13:33:06 [INFO] 2025-06-04 13:33:06 - Recieved Request for fetching groups
+2025/06/04 13:33:06 [INFO] 2025-06-04 13:33:06 - Groups Fetched Successfuly
+2025/06/04 13:33:06 [INFO] 2025-06-04 13:33:06 - Recieved Request for fetching groups
+2025/06/04 13:33:06 [INFO] 2025-06-04 13:33:06 - Groups Fetched Successfuly
+2025/06/04 13:33:56 [INFO] 2025-06-04 13:33:56 - Recieved Request To fetch Group page
+2025/06/04 13:33:56 [INFO] 2025-06-04 13:33:56 - Group With ID : 13 Fetched With Success
+2025/06/04 13:33:56 [INFO] 2025-06-04 13:33:56 - Recieved Request To fetch Group page
+2025/06/04 13:33:56 [INFO] 2025-06-04 13:33:56 - Group With ID : 13 Fetched With Success
+2025/06/04 13:38:40 [INFO] 2025-06-04 13:38:40 - Recieved Request To fetch Group page
+2025/06/04 13:38:40 [INFO] 2025-06-04 13:38:40 - Group With ID : 13 Fetched With Success
+2025/06/04 13:38:41 [INFO] 2025-06-04 13:38:41 - Recieved Request To fetch Group page
+2025/06/04 13:38:41 [INFO] 2025-06-04 13:38:41 - Group With ID : 13 Fetched With Success
+2025/06/04 13:38:42 [INFO] 2025-06-04 13:38:42 - Recieved Request To fetch Group page
+2025/06/04 13:38:42 [INFO] 2025-06-04 13:38:42 - Group With ID : 13 Fetched With Success
+2025/06/04 13:38:43 [INFO] 2025-06-04 13:38:43 - Recieved Request To fetch Group page
+2025/06/04 13:38:43 [INFO] 2025-06-04 13:38:43 - Group With ID : 13 Fetched With Success
+2025/06/04 13:38:43 [INFO] 2025-06-04 13:38:43 - Recieved Request To fetch Group page
+2025/06/04 13:38:43 [INFO] 2025-06-04 13:38:43 - Group With ID : 13 Fetched With Success
+2025/06/04 13:39:45 [INFO] 2025-06-04 13:39:45 - Recieved Request To fetch Group page
+2025/06/04 13:39:45 [INFO] 2025-06-04 13:39:45 - Group With ID : 13 Fetched With Success
+2025/06/04 13:39:47 [INFO] 2025-06-04 13:39:47 - Recieved Request To fetch Group page
+2025/06/04 13:39:47 [INFO] 2025-06-04 13:39:47 - Group With ID : 13 Fetched With Success
+2025/06/04 13:39:47 [INFO] 2025-06-04 13:39:47 - Recieved Request To fetch Group page
+2025/06/04 13:39:47 [INFO] 2025-06-04 13:39:47 - Group With ID : 13 Fetched With Success
+2025/06/04 13:39:48 [INFO] 2025-06-04 13:39:48 - Recieved Request To fetch Group page
+2025/06/04 13:39:48 [INFO] 2025-06-04 13:39:48 - Group With ID : 13 Fetched With Success
+2025/06/04 13:39:48 [INFO] 2025-06-04 13:39:48 - Recieved Request To fetch Group page
+2025/06/04 13:39:48 [INFO] 2025-06-04 13:39:48 - Group With ID : 13 Fetched With Success
+2025/06/04 13:39:48 [INFO] 2025-06-04 13:39:48 - Recieved Request To fetch Group page
+2025/06/04 13:39:48 [INFO] 2025-06-04 13:39:48 - Group With ID : 13 Fetched With Success
+2025/06/04 13:39:48 [INFO] 2025-06-04 13:39:48 - Recieved Request To fetch Group page
+2025/06/04 13:39:48 [INFO] 2025-06-04 13:39:48 - Group With ID : 13 Fetched With Success
+2025/06/04 13:40:07 [INFO] 2025-06-04 13:40:07 - Recieved Request To fetch Group page
+2025/06/04 13:40:07 [INFO] 2025-06-04 13:40:07 - Group With ID : 13 Fetched With Success
+2025/06/04 13:40:08 [INFO] 2025-06-04 13:40:08 - Recieved Request To fetch Group page
+2025/06/04 13:40:08 [INFO] 2025-06-04 13:40:08 - Group With ID : 13 Fetched With Success
+2025/06/04 13:41:44 [INFO] 2025-06-04 13:41:44 - Recieved Request To fetch Group page
+2025/06/04 13:41:44 [INFO] 2025-06-04 13:41:44 - Group With ID : 13 Fetched With Success
+2025/06/04 13:42:11 [INFO] 2025-06-04 13:42:11 - Recieved Request To fetch Group page
+2025/06/04 13:42:11 [INFO] 2025-06-04 13:42:11 - Group With ID : 13 Fetched With Success
+2025/06/04 13:55:47 [INFO] 2025-06-04 13:55:47 - Starting HTTP server at http://localhost:8080 ...
+2025/06/04 13:55:47 [INFO] 2025-06-04 13:55:47 - Migrations applied successfully!
+2025/06/04 13:55:58 [INFO] 2025-06-04 13:55:58 - Recieved Request for fetching groups
+2025/06/04 13:55:58 [INFO] 2025-06-04 13:55:58 - Groups Fetched Successfuly
+2025/06/04 13:55:58 [INFO] 2025-06-04 13:55:58 - Recieved Request for fetching groups
+2025/06/04 13:55:58 [INFO] 2025-06-04 13:55:58 - Groups Fetched Successfuly
+2025/06/04 13:57:06 [INFO] 2025-06-04 13:57:06 - Received request for GroupCreation
+2025/06/04 13:57:06 [INFO] 2025-06-04 13:57:06 - Handling file upload for form field 'Image'
+2025/06/04 13:57:06 [INFO] 2025-06-04 13:57:06 - No file uploaded for field 'Image'
+2025/06/04 13:57:06 [INFO] 2025-06-04 13:57:06 - Group Input Validated
+2025/06/04 13:57:06 [INFO] 2025-06-04 13:57:06 - Saving group into DB
+2025/06/04 13:57:06 [INFO] 2025-06-04 13:57:06 - Saving GroupMember into DB
+2025/06/04 13:57:06 [INFO] 2025-06-04 13:57:06 - Group created successfully with ID: 14
+2025/06/04 13:57:12 [INFO] 2025-06-04 13:57:12 - Recieved Request for fetching groups
+2025/06/04 13:57:12 [INFO] 2025-06-04 13:57:12 - Groups Fetched Successfuly
+2025/06/04 13:57:12 [INFO] 2025-06-04 13:57:12 - Recieved Request for fetching groups
+2025/06/04 13:57:12 [INFO] 2025-06-04 13:57:12 - Groups Fetched Successfuly
+2025/06/04 13:57:14 [INFO] 2025-06-04 13:57:14 - Recieved Request for fetching groups
+2025/06/04 13:57:14 [INFO] 2025-06-04 13:57:14 - Recieved Request for fetching groups
+2025/06/04 13:57:14 [INFO] 2025-06-04 13:57:14 - Groups Fetched Successfuly
+2025/06/04 13:57:14 [INFO] 2025-06-04 13:57:14 - Groups Fetched Successfuly
+2025/06/04 13:57:14 [INFO] 2025-06-04 13:57:14 - Recieved Request for fetching groups
+2025/06/04 13:57:14 [INFO] 2025-06-04 13:57:14 - Groups Fetched Successfuly
+2025/06/04 13:57:14 [INFO] 2025-06-04 13:57:14 - Recieved Request for fetching groups
+2025/06/04 13:57:14 [INFO] 2025-06-04 13:57:14 - Groups Fetched Successfuly
+2025/06/04 13:57:32 [INFO] 2025-06-04 13:57:32 - Recieved Request To fetch Group page
+2025/06/04 13:57:32 [INFO] 2025-06-04 13:57:32 - Group With ID : 14 Fetched With Success
+2025/06/04 13:57:32 [INFO] 2025-06-04 13:57:32 - Recieved Request To fetch Group page
+2025/06/04 13:57:32 [INFO] 2025-06-04 13:57:32 - Group With ID : 14 Fetched With Success
+2025/06/04 13:58:42 [INFO] 2025-06-04 13:58:42 - Recieved Request for fetching groups
+2025/06/04 13:58:42 [INFO] 2025-06-04 13:58:42 - Groups Fetched Successfuly
+2025/06/04 13:58:42 [INFO] 2025-06-04 13:58:42 - Recieved Request for fetching groups
+2025/06/04 13:58:42 [INFO] 2025-06-04 13:58:42 - Groups Fetched Successfuly
+2025/06/04 14:00:37 [INFO] 2025-06-04 14:00:37 - Starting HTTP server at http://localhost:8080 ...
+2025/06/04 14:00:37 [INFO] 2025-06-04 14:00:37 - Migrations applied successfully!
+2025/06/04 14:00:39 [INFO] 2025-06-04 14:00:39 - Recieved Request for fetching groups
+2025/06/04 14:00:39 [INFO] 2025-06-04 14:00:39 - Groups Fetched Successfuly
+2025/06/04 14:00:39 [INFO] 2025-06-04 14:00:39 - Recieved Request for fetching groups
+2025/06/04 14:00:39 [INFO] 2025-06-04 14:00:39 - Groups Fetched Successfuly
+2025/06/04 14:02:22 [INFO] 2025-06-04 14:02:22 - Recieved Request To fetch Group page
+2025/06/04 14:02:22 [INFO] 2025-06-04 14:02:22 - Group With ID : 13 Fetched With Success
+2025/06/04 14:02:22 [INFO] 2025-06-04 14:02:22 - Recieved Request To fetch Group page
+2025/06/04 14:02:22 [INFO] 2025-06-04 14:02:22 - Group With ID : 13 Fetched With Success
+2025/06/04 14:02:23 [INFO] 2025-06-04 14:02:23 - Recieved Request for fetching groups
+2025/06/04 14:02:23 [INFO] 2025-06-04 14:02:23 - Groups Fetched Successfuly
+2025/06/04 14:02:23 [INFO] 2025-06-04 14:02:23 - Recieved Request for fetching groups
+2025/06/04 14:02:23 [INFO] 2025-06-04 14:02:23 - Groups Fetched Successfuly
+2025/06/04 14:04:36 [INFO] 2025-06-04 14:04:36 - Recieved Request for fetching groups
+2025/06/04 14:04:36 [INFO] 2025-06-04 14:04:36 - Groups Fetched Successfuly
+2025/06/04 14:04:36 [INFO] 2025-06-04 14:04:36 - Recieved Request for fetching groups
+2025/06/04 14:04:36 [INFO] 2025-06-04 14:04:36 - Groups Fetched Successfuly
+2025/06/04 14:04:53 [INFO] 2025-06-04 14:04:53 - Recieved Request To fetch Group page
+2025/06/04 14:04:53 [INFO] 2025-06-04 14:04:53 - Group With ID : 14 Fetched With Success
+2025/06/04 14:04:53 [INFO] 2025-06-04 14:04:53 - Recieved Request To fetch Group page
+2025/06/04 14:04:53 [INFO] 2025-06-04 14:04:53 - Group With ID : 14 Fetched With Success
+2025/06/04 14:04:55 [INFO] 2025-06-04 14:04:55 - Recieved Request for fetching groups
+2025/06/04 14:04:55 [INFO] 2025-06-04 14:04:55 - Groups Fetched Successfuly
+2025/06/04 14:04:55 [INFO] 2025-06-04 14:04:55 - Recieved Request for fetching groups
+2025/06/04 14:04:55 [INFO] 2025-06-04 14:04:55 - Groups Fetched Successfuly
+2025/06/04 14:05:05 [INFO] 2025-06-04 14:05:05 - Recieved Request To fetch Group page
+2025/06/04 14:05:05 [INFO] 2025-06-04 14:05:05 - Group With ID : 14 Fetched With Success
+2025/06/04 14:05:05 [INFO] 2025-06-04 14:05:05 - Recieved Request To fetch Group page
+2025/06/04 14:05:05 [INFO] 2025-06-04 14:05:05 - Group With ID : 14 Fetched With Success
+2025/06/04 14:05:10 [INFO] 2025-06-04 14:05:10 - Recieved Request for fetching groups
+2025/06/04 14:05:10 [INFO] 2025-06-04 14:05:10 - Groups Fetched Successfuly
+2025/06/04 14:05:10 [INFO] 2025-06-04 14:05:10 - Recieved Request for fetching groups
+2025/06/04 14:05:10 [INFO] 2025-06-04 14:05:10 - Groups Fetched Successfuly
+2025/06/04 14:05:14 [INFO] 2025-06-04 14:05:14 - Recieved Request To fetch Group page
+2025/06/04 14:05:14 [INFO] 2025-06-04 14:05:14 - Group With ID : 13 Fetched With Success
+2025/06/04 14:05:14 [INFO] 2025-06-04 14:05:14 - Recieved Request To fetch Group page
+2025/06/04 14:05:14 [INFO] 2025-06-04 14:05:14 - Group With ID : 13 Fetched With Success
+2025/06/04 14:05:16 [INFO] 2025-06-04 14:05:16 - Recieved Request for fetching groups
+2025/06/04 14:05:16 [INFO] 2025-06-04 14:05:16 - Groups Fetched Successfuly
+2025/06/04 14:05:16 [INFO] 2025-06-04 14:05:16 - Recieved Request for fetching groups
+2025/06/04 14:05:16 [INFO] 2025-06-04 14:05:16 - Groups Fetched Successfuly
+2025/06/04 14:06:31 [INFO] 2025-06-04 14:06:31 - Recieved Request To fetch Group page
+2025/06/04 14:06:31 [INFO] 2025-06-04 14:06:31 - Group With ID : 13 Fetched With Success
+2025/06/04 14:06:31 [INFO] 2025-06-04 14:06:31 - Recieved Request To fetch Group page
+2025/06/04 14:06:31 [INFO] 2025-06-04 14:06:31 - Group With ID : 13 Fetched With Success
+2025/06/04 14:06:45 [INFO] 2025-06-04 14:06:45 - Recieved Request for fetching groups
+2025/06/04 14:06:45 [INFO] 2025-06-04 14:06:45 - Groups Fetched Successfuly
+2025/06/04 14:06:45 [INFO] 2025-06-04 14:06:45 - Recieved Request for fetching groups
+2025/06/04 14:06:45 [INFO] 2025-06-04 14:06:45 - Groups Fetched Successfuly
+2025/06/04 14:08:42 [INFO] 2025-06-04 14:08:42 - Recieved Request for fetching groups
+2025/06/04 14:08:42 [INFO] 2025-06-04 14:08:42 - Groups Fetched Successfuly
+2025/06/04 14:08:42 [INFO] 2025-06-04 14:08:42 - Recieved Request for fetching groups
+2025/06/04 14:08:42 [INFO] 2025-06-04 14:08:42 - Groups Fetched Successfuly
+2025/06/04 14:08:45 [INFO] 2025-06-04 14:08:45 - Recieved Request To fetch Group page
+2025/06/04 14:08:45 [INFO] 2025-06-04 14:08:45 - Group With ID : 13 Fetched With Success
+2025/06/04 14:08:45 [INFO] 2025-06-04 14:08:45 - Recieved Request To fetch Group page
+2025/06/04 14:08:45 [INFO] 2025-06-04 14:08:45 - Group With ID : 13 Fetched With Success
+2025/06/04 14:09:00 [INFO] 2025-06-04 14:09:00 - Recieved Request To fetch Group page
+2025/06/04 14:09:00 [INFO] 2025-06-04 14:09:00 - Group With ID : 13 Fetched With Success
+2025/06/04 14:09:01 [INFO] 2025-06-04 14:09:01 - Recieved Request To fetch Group page
+2025/06/04 14:09:01 [INFO] 2025-06-04 14:09:01 - Group With ID : 13 Fetched With Success
+2025/06/04 14:09:02 [INFO] 2025-06-04 14:09:02 - Recieved Request To fetch Group page
+2025/06/04 14:09:02 [INFO] 2025-06-04 14:09:02 - Group With ID : 13 Fetched With Success
+2025/06/04 14:09:03 [INFO] 2025-06-04 14:09:03 - Recieved Request To fetch Group page
+2025/06/04 14:09:03 [INFO] 2025-06-04 14:09:03 - Group With ID : 13 Fetched With Success
+2025/06/04 14:09:03 [INFO] 2025-06-04 14:09:03 - Recieved Request To fetch Group page
+2025/06/04 14:09:03 [INFO] 2025-06-04 14:09:03 - Group With ID : 13 Fetched With Success
+2025/06/04 14:09:04 [INFO] 2025-06-04 14:09:04 - Recieved Request To fetch Group page
+2025/06/04 14:09:04 [INFO] 2025-06-04 14:09:04 - Group With ID : 13 Fetched With Success
+2025/06/04 14:09:06 [INFO] 2025-06-04 14:09:06 - Recieved Request To fetch Group page
+2025/06/04 14:09:06 [INFO] 2025-06-04 14:09:06 - Group With ID : 13 Fetched With Success
+2025/06/04 14:09:25 [INFO] 2025-06-04 14:09:25 - Recieved Request for fetching groups
+2025/06/04 14:09:25 [INFO] 2025-06-04 14:09:25 - Groups Fetched Successfuly
+2025/06/04 14:09:25 [INFO] 2025-06-04 14:09:25 - Recieved Request for fetching groups
+2025/06/04 14:09:25 [INFO] 2025-06-04 14:09:25 - Groups Fetched Successfuly
+2025/06/04 14:10:03 [INFO] 2025-06-04 14:10:03 - Received request for GroupCreation
+2025/06/04 14:10:03 [INFO] 2025-06-04 14:10:03 - Handling file upload for form field 'Image'
+2025/06/04 14:10:03 [INFO] 2025-06-04 14:10:03 - Received file: 1688018102545.png (50107 bytes)
+2025/06/04 14:10:03 [INFO] 2025-06-04 14:10:03 - Detected content type: image/png
+2025/06/04 14:10:03 [INFO] 2025-06-04 14:10:03 - Created upload directory: ../../frontend/public/uploads/groups_cover
+2025/06/04 14:10:03 [INFO] 2025-06-04 14:10:03 - Successfully saved file as: 175a6202-92c5-4baa-ab69-2a197b4924dd.png
+2025/06/04 14:10:03 [INFO] 2025-06-04 14:10:03 - Group Input Validated
+2025/06/04 14:10:03 [INFO] 2025-06-04 14:10:03 - Saving group into DB
+2025/06/04 14:10:03 [INFO] 2025-06-04 14:10:03 - Saving GroupMember into DB
+2025/06/04 14:10:03 [INFO] 2025-06-04 14:10:03 - Group created successfully with ID: 15
+2025/06/04 14:10:20 [INFO] 2025-06-04 14:10:20 - Recieved Request for fetching groups
+2025/06/04 14:10:20 [INFO] 2025-06-04 14:10:20 - Groups Fetched Successfuly
+2025/06/04 14:10:20 [INFO] 2025-06-04 14:10:20 - Recieved Request for fetching groups
+2025/06/04 14:10:20 [INFO] 2025-06-04 14:10:20 - Groups Fetched Successfuly
+2025/06/04 14:10:25 [INFO] 2025-06-04 14:10:25 - Recieved Request for fetching groups
+2025/06/04 14:10:25 [INFO] 2025-06-04 14:10:25 - Groups Fetched Successfuly
+2025/06/04 14:10:25 [INFO] 2025-06-04 14:10:25 - Recieved Request for fetching groups
+2025/06/04 14:10:25 [INFO] 2025-06-04 14:10:25 - Groups Fetched Successfuly
+2025/06/04 14:10:30 [INFO] 2025-06-04 14:10:30 - Recieved Request To fetch Group page
+2025/06/04 14:10:30 [INFO] 2025-06-04 14:10:30 - Group With ID : 15 Fetched With Success
+2025/06/04 14:10:30 [INFO] 2025-06-04 14:10:30 - Recieved Request To fetch Group page
+2025/06/04 14:10:30 [INFO] 2025-06-04 14:10:30 - Group With ID : 15 Fetched With Success
+2025/06/04 14:10:35 [INFO] 2025-06-04 14:10:35 - Recieved Request for fetching groups
+2025/06/04 14:10:35 [INFO] 2025-06-04 14:10:35 - Groups Fetched Successfuly
+2025/06/04 14:10:35 [INFO] 2025-06-04 14:10:35 - Recieved Request for fetching groups
+2025/06/04 14:10:35 [INFO] 2025-06-04 14:10:35 - Groups Fetched Successfuly
+2025/06/04 14:12:07 [INFO] 2025-06-04 14:12:07 - Starting HTTP server at http://localhost:8080 ...
+2025/06/04 14:12:07 [INFO] 2025-06-04 14:12:07 - Migrations applied successfully!
+2025/06/04 14:12:29 [INFO] 2025-06-04 14:12:29 - Recieved Request for fetching groups
+2025/06/04 14:12:29 [INFO] 2025-06-04 14:12:29 - Groups Fetched Successfuly
+2025/06/04 14:12:29 [INFO] 2025-06-04 14:12:29 - Recieved Request for fetching groups
+2025/06/04 14:12:29 [INFO] 2025-06-04 14:12:29 - Groups Fetched Successfuly
+2025/06/04 14:12:38 [INFO] 2025-06-04 14:12:38 - Recieved Request To fetch Group page
+2025/06/04 14:12:38 [INFO] 2025-06-04 14:12:38 - Group With ID : 13 Fetched With Success
+2025/06/04 14:12:38 [INFO] 2025-06-04 14:12:38 - Recieved Request To fetch Group page
+2025/06/04 14:12:38 [INFO] 2025-06-04 14:12:38 - Group With ID : 13 Fetched With Success
+2025/06/04 14:12:40 [INFO] 2025-06-04 14:12:40 - Recieved Request for fetching groups
+2025/06/04 14:12:40 [INFO] 2025-06-04 14:12:40 - Groups Fetched Successfuly
+2025/06/04 14:12:40 [INFO] 2025-06-04 14:12:40 - Recieved Request for fetching groups
+2025/06/04 14:12:40 [INFO] 2025-06-04 14:12:40 - Groups Fetched Successfuly
+2025/06/04 14:12:44 [INFO] 2025-06-04 14:12:44 - Recieved Request To fetch Group page
+2025/06/04 14:12:44 [INFO] 2025-06-04 14:12:44 - Group With ID : 15 Fetched With Success
+2025/06/04 14:12:44 [INFO] 2025-06-04 14:12:44 - Recieved Request To fetch Group page
+2025/06/04 14:12:44 [INFO] 2025-06-04 14:12:44 - Group With ID : 15 Fetched With Success
+2025/06/04 14:12:45 [INFO] 2025-06-04 14:12:45 - Recieved Request for fetching groups
+2025/06/04 14:12:45 [INFO] 2025-06-04 14:12:45 - Groups Fetched Successfuly
+2025/06/04 14:12:45 [INFO] 2025-06-04 14:12:45 - Recieved Request for fetching groups
+2025/06/04 14:12:45 [INFO] 2025-06-04 14:12:45 - Groups Fetched Successfuly
+2025/06/04 14:13:13 [INFO] 2025-06-04 14:13:13 - Recieved Request for fetching groups
+2025/06/04 14:13:13 [INFO] 2025-06-04 14:13:13 - Groups Fetched Successfuly
+2025/06/04 14:13:13 [INFO] 2025-06-04 14:13:13 - Recieved Request for fetching groups
+2025/06/04 14:13:13 [INFO] 2025-06-04 14:13:13 - Groups Fetched Successfuly
+2025/06/04 14:13:35 [INFO] 2025-06-04 14:13:35 - Recieved Request for fetching groups
+2025/06/04 14:13:35 [INFO] 2025-06-04 14:13:35 - Groups Fetched Successfuly
+2025/06/04 14:13:35 [INFO] 2025-06-04 14:13:35 - Recieved Request for fetching groups
+2025/06/04 14:13:35 [INFO] 2025-06-04 14:13:35 - Groups Fetched Successfuly
+2025/06/04 14:13:59 [INFO] 2025-06-04 14:13:59 - Recieved Request for fetching groups
+2025/06/04 14:13:59 [INFO] 2025-06-04 14:13:59 - Groups Fetched Successfuly
+2025/06/04 14:13:59 [INFO] 2025-06-04 14:13:59 - Recieved Request for fetching groups
+2025/06/04 14:13:59 [INFO] 2025-06-04 14:13:59 - Groups Fetched Successfuly
+2025/06/04 14:16:14 [INFO] 2025-06-04 14:16:14 - Recieved Request for fetching groups
+2025/06/04 14:16:14 [INFO] 2025-06-04 14:16:14 - Groups Fetched Successfuly
+2025/06/04 14:16:14 [INFO] 2025-06-04 14:16:14 - Recieved Request for fetching groups
+2025/06/04 14:16:14 [INFO] 2025-06-04 14:16:14 - Groups Fetched Successfuly
+2025/06/04 14:19:12 [INFO] 2025-06-04 14:19:12 - Recieved Request for fetching groups
+2025/06/04 14:19:12 [INFO] 2025-06-04 14:19:12 - Groups Fetched Successfuly
+2025/06/04 14:19:12 [INFO] 2025-06-04 14:19:12 - Recieved Request for fetching groups
+2025/06/04 14:19:12 [INFO] 2025-06-04 14:19:12 - Groups Fetched Successfuly
+2025/06/04 14:19:20 [INFO] 2025-06-04 14:19:20 - Recieved Request To fetch Group page
+2025/06/04 14:19:20 [INFO] 2025-06-04 14:19:20 - Group With ID : 15 Fetched With Success
+2025/06/04 14:19:20 [INFO] 2025-06-04 14:19:20 - Recieved Request To fetch Group page
+2025/06/04 14:19:20 [INFO] 2025-06-04 14:19:20 - Group With ID : 15 Fetched With Success
+2025/06/04 14:21:44 [INFO] 2025-06-04 14:21:44 - Recieved Request To fetch Group page
+2025/06/04 14:21:44 [INFO] 2025-06-04 14:21:44 - Group With ID : 15 Fetched With Success
+2025/06/04 14:21:50 [INFO] 2025-06-04 14:21:50 - Recieved Request To fetch Group page
+2025/06/04 14:21:50 [INFO] 2025-06-04 14:21:50 - Group With ID : 15 Fetched With Success
+2025/06/04 14:21:58 [INFO] 2025-06-04 14:21:58 - Recieved Request for fetching groups
+2025/06/04 14:21:58 [INFO] 2025-06-04 14:21:58 - Groups Fetched Successfuly
+2025/06/04 14:21:58 [INFO] 2025-06-04 14:21:58 - Recieved Request for fetching groups
+2025/06/04 14:21:58 [INFO] 2025-06-04 14:21:58 - Groups Fetched Successfuly
+2025/06/04 14:25:23 [INFO] 2025-06-04 14:25:23 - Recieved Request for fetching groups
+2025/06/04 14:25:23 [INFO] 2025-06-04 14:25:23 - Groups Fetched Successfuly
+2025/06/04 14:25:23 [INFO] 2025-06-04 14:25:23 - Recieved Request for fetching groups
+2025/06/04 14:25:23 [INFO] 2025-06-04 14:25:23 - Groups Fetched Successfuly
+2025/06/04 14:25:35 [INFO] 2025-06-04 14:25:35 - Recieved Request To fetch Group page
+2025/06/04 14:25:35 [INFO] 2025-06-04 14:25:35 - Group With ID : 15 Fetched With Success
+2025/06/04 14:25:35 [INFO] 2025-06-04 14:25:35 - Recieved Request To fetch Group page
+2025/06/04 14:25:35 [INFO] 2025-06-04 14:25:35 - Group With ID : 15 Fetched With Success
+2025/06/04 14:25:44 [INFO] 2025-06-04 14:25:44 - Recieved Request for fetching groups
+2025/06/04 14:25:44 [INFO] 2025-06-04 14:25:44 - Groups Fetched Successfuly
+2025/06/04 14:25:44 [INFO] 2025-06-04 14:25:44 - Recieved Request for fetching groups
+2025/06/04 14:25:44 [INFO] 2025-06-04 14:25:44 - Groups Fetched Successfuly
+2025/06/04 14:25:50 [INFO] 2025-06-04 14:25:50 - Recieved Request for fetching groups
+2025/06/04 14:25:50 [INFO] 2025-06-04 14:25:50 - Groups Fetched Successfuly
+2025/06/04 14:25:50 [INFO] 2025-06-04 14:25:50 - Recieved Request for fetching groups
+2025/06/04 14:25:50 [INFO] 2025-06-04 14:25:50 - Groups Fetched Successfuly
+2025/06/04 14:25:54 [INFO] 2025-06-04 14:25:54 - Recieved Request To fetch Group page
+2025/06/04 14:25:54 [INFO] 2025-06-04 14:25:54 - Group With ID : 15 Fetched With Success
+2025/06/04 14:25:54 [INFO] 2025-06-04 14:25:54 - Recieved Request To fetch Group page
+2025/06/04 14:25:54 [INFO] 2025-06-04 14:25:54 - Group With ID : 15 Fetched With Success
+2025/06/04 14:25:55 [INFO] 2025-06-04 14:25:55 - Recieved Request for fetching groups
+2025/06/04 14:25:55 [INFO] 2025-06-04 14:25:55 - Groups Fetched Successfuly
+2025/06/04 14:25:55 [INFO] 2025-06-04 14:25:55 - Recieved Request for fetching groups
+2025/06/04 14:25:55 [INFO] 2025-06-04 14:25:55 - Groups Fetched Successfuly
+2025/06/04 14:25:58 [INFO] 2025-06-04 14:25:58 - Recieved Request for fetching groups
+2025/06/04 14:25:58 [INFO] 2025-06-04 14:25:58 - Groups Fetched Successfuly
+2025/06/04 14:25:58 [INFO] 2025-06-04 14:25:58 - Recieved Request for fetching groups
+2025/06/04 14:25:58 [INFO] 2025-06-04 14:25:58 - Groups Fetched Successfuly
+2025/06/04 15:40:18 [INFO] 2025-06-04 15:40:18 - Starting HTTP server at http://localhost:8080 ...
+2025/06/04 15:40:18 [INFO] 2025-06-04 15:40:18 - Migrations applied successfully!
+2025/06/04 15:40:56 [INFO] 2025-06-04 15:40:56 - Recieved Request for fetching groups
+2025/06/04 15:40:56 [INFO] 2025-06-04 15:40:56 - Groups Fetched Successfuly
+2025/06/04 15:40:56 [INFO] 2025-06-04 15:40:56 - Recieved Request for fetching groups
+2025/06/04 15:40:56 [INFO] 2025-06-04 15:40:56 - Groups Fetched Successfuly
+2025/06/04 15:41:35 [INFO] 2025-06-04 15:41:35 - Recieved Request for fetching groups
+2025/06/04 15:41:35 [INFO] 2025-06-04 15:41:35 - Groups Fetched Successfuly
+2025/06/04 15:41:35 [INFO] 2025-06-04 15:41:35 - Recieved Request for fetching groups
+2025/06/04 15:41:35 [INFO] 2025-06-04 15:41:35 - Groups Fetched Successfuly
+2025/06/04 15:45:52 [INFO] 2025-06-04 15:45:52 - Recieved Request for fetching groups
+2025/06/04 15:45:52 [INFO] 2025-06-04 15:45:52 - Groups Fetched Successfuly
+2025/06/04 15:45:52 [INFO] 2025-06-04 15:45:52 - Recieved Request for fetching groups
+2025/06/04 15:45:52 [INFO] 2025-06-04 15:45:52 - Groups Fetched Successfuly
+2025/06/04 15:47:18 [INFO] 2025-06-04 15:47:18 - Recieved Request for fetching groups
+2025/06/04 15:47:18 [INFO] 2025-06-04 15:47:18 - Groups Fetched Successfuly
+2025/06/04 15:47:18 [INFO] 2025-06-04 15:47:18 - Recieved Request for fetching groups
+2025/06/04 15:47:18 [INFO] 2025-06-04 15:47:18 - Groups Fetched Successfuly
+2025/06/04 15:48:08 [INFO] 2025-06-04 15:48:08 - Recieved Request for fetching groups
+2025/06/04 15:48:08 [INFO] 2025-06-04 15:48:08 - Groups Fetched Successfuly
+2025/06/04 15:48:08 [INFO] 2025-06-04 15:48:08 - Recieved Request for fetching groups
+2025/06/04 15:48:08 [INFO] 2025-06-04 15:48:08 - Groups Fetched Successfuly
+2025/06/04 15:48:19 [INFO] 2025-06-04 15:48:19 - Recieved Request To fetch Group page
+2025/06/04 15:48:19 [INFO] 2025-06-04 15:48:19 - Group With ID : 15 Fetched With Success
+2025/06/04 15:48:19 [INFO] 2025-06-04 15:48:19 - Recieved Request To fetch Group page
+2025/06/04 15:48:19 [INFO] 2025-06-04 15:48:19 - Group With ID : 15 Fetched With Success
+2025/06/04 15:48:25 [INFO] 2025-06-04 15:48:25 - Recieved Request for fetching groups
+2025/06/04 15:48:25 [INFO] 2025-06-04 15:48:25 - Groups Fetched Successfuly
+2025/06/04 15:48:25 [INFO] 2025-06-04 15:48:25 - Recieved Request for fetching groups
+2025/06/04 15:48:25 [INFO] 2025-06-04 15:48:25 - Groups Fetched Successfuly
+2025/06/04 15:48:29 [INFO] 2025-06-04 15:48:29 - Recieved Group Join Request
+2025/06/04 15:48:29 [INFO] 2025-06-04 15:48:29 - Saving GroupMember into DB
+2025/06/04 15:48:37 [INFO] 2025-06-04 15:48:37 - Recieved Request To fetch Group page
+2025/06/04 15:48:37 [INFO] 2025-06-04 15:48:37 - Group With ID : 15 Fetched With Success
+2025/06/04 15:48:37 [INFO] 2025-06-04 15:48:37 - Recieved Request To fetch Group page
+2025/06/04 15:48:37 [INFO] 2025-06-04 15:48:37 - Group With ID : 15 Fetched With Success
+2025/06/04 15:49:56 [INFO] 2025-06-04 15:49:56 - Recieved Request To fetch Group page
+2025/06/04 15:49:56 [INFO] 2025-06-04 15:49:56 - Group With ID : 15 Fetched With Success
+2025/06/04 15:51:13 [INFO] 2025-06-04 15:51:13 - Recieved Request To fetch Group page
+2025/06/04 15:51:13 [INFO] 2025-06-04 15:51:13 - Group With ID : 15 Fetched With Success
+2025/06/04 15:53:58 [INFO] 2025-06-04 15:53:58 - Recieved Request To fetch Group page
+2025/06/04 15:53:58 [INFO] 2025-06-04 15:53:58 - Group With ID : 15 Fetched With Success
+2025/06/04 15:54:17 [INFO] 2025-06-04 15:54:17 - Recieved Request for fetching groups
+2025/06/04 15:54:17 [INFO] 2025-06-04 15:54:17 - Groups Fetched Successfuly
+2025/06/04 15:54:17 [INFO] 2025-06-04 15:54:17 - Recieved Request for fetching groups
+2025/06/04 15:54:17 [INFO] 2025-06-04 15:54:17 - Groups Fetched Successfuly
+2025/06/04 15:54:22 [INFO] 2025-06-04 15:54:22 - Recieved Request To fetch Group page
+2025/06/04 15:54:22 [INFO] 2025-06-04 15:54:22 - Group With ID : 15 Fetched With Success
+2025/06/04 15:54:22 [INFO] 2025-06-04 15:54:22 - Recieved Request To fetch Group page
+2025/06/04 15:54:22 [INFO] 2025-06-04 15:54:22 - Group With ID : 15 Fetched With Success
+2025/06/04 15:54:28 [INFO] 2025-06-04 15:54:28 - Recieved Request To fetch Group page
+2025/06/04 15:54:28 [INFO] 2025-06-04 15:54:28 - Group With ID : 15 Fetched With Success
+2025/06/04 15:54:49 [INFO] 2025-06-04 15:54:49 - Recieved Request for fetching groups
+2025/06/04 15:54:49 [INFO] 2025-06-04 15:54:49 - Groups Fetched Successfuly
+2025/06/04 15:54:49 [INFO] 2025-06-04 15:54:49 - Recieved Request for fetching groups
+2025/06/04 15:54:49 [INFO] 2025-06-04 15:54:49 - Groups Fetched Successfuly
+2025/06/04 16:01:40 [INFO] 2025-06-04 16:01:40 - Recieved Request for fetching groups
+2025/06/04 16:01:40 [INFO] 2025-06-04 16:01:40 - Groups Fetched Successfuly
+2025/06/04 16:01:40 [INFO] 2025-06-04 16:01:40 - Recieved Request for fetching groups
+2025/06/04 16:01:40 [INFO] 2025-06-04 16:01:40 - Groups Fetched Successfuly
+2025/06/04 16:01:40 [INFO] 2025-06-04 16:01:40 - Recieved Request for fetching groups
+2025/06/04 16:01:40 [INFO] 2025-06-04 16:01:40 - Groups Fetched Successfuly
+2025/06/04 16:01:40 [INFO] 2025-06-04 16:01:40 - Recieved Request for fetching groups
+2025/06/04 16:01:40 [INFO] 2025-06-04 16:01:40 - Groups Fetched Successfuly
+2025/06/04 16:03:23 [INFO] 2025-06-04 16:03:23 - Recieved Request for fetching groups
+2025/06/04 16:03:23 [INFO] 2025-06-04 16:03:23 - Groups Fetched Successfuly
+2025/06/04 16:03:23 [INFO] 2025-06-04 16:03:23 - Recieved Request for fetching groups
+2025/06/04 16:03:23 [INFO] 2025-06-04 16:03:23 - Groups Fetched Successfuly
+2025/06/04 16:03:24 [INFO] 2025-06-04 16:03:24 - Recieved Request for fetching groups
+2025/06/04 16:03:24 [INFO] 2025-06-04 16:03:24 - Groups Fetched Successfuly
+2025/06/04 16:03:24 [INFO] 2025-06-04 16:03:24 - Recieved Request for fetching groups
+2025/06/04 16:03:24 [INFO] 2025-06-04 16:03:24 - Groups Fetched Successfuly
+2025/06/04 16:03:24 [INFO] 2025-06-04 16:03:24 - Recieved Request for fetching groups
+2025/06/04 16:03:24 [INFO] 2025-06-04 16:03:24 - Groups Fetched Successfuly
+2025/06/04 16:03:24 [INFO] 2025-06-04 16:03:24 - Recieved Request for fetching groups
+2025/06/04 16:03:24 [INFO] 2025-06-04 16:03:24 - Groups Fetched Successfuly
+2025/06/04 16:03:26 [INFO] 2025-06-04 16:03:26 - Recieved Request for fetching groups
+2025/06/04 16:03:26 [INFO] 2025-06-04 16:03:26 - Groups Fetched Successfuly
+2025/06/04 16:03:26 [INFO] 2025-06-04 16:03:26 - Recieved Request for fetching groups
+2025/06/04 16:03:26 [INFO] 2025-06-04 16:03:26 - Groups Fetched Successfuly
+2025/06/04 16:05:53 [INFO] 2025-06-04 16:05:53 - Recieved Request for fetching groups
+2025/06/04 16:05:53 [INFO] 2025-06-04 16:05:53 - Groups Fetched Successfuly
+2025/06/04 16:05:53 [INFO] 2025-06-04 16:05:53 - Recieved Request for fetching groups
+2025/06/04 16:05:53 [INFO] 2025-06-04 16:05:53 - Groups Fetched Successfuly
+2025/06/04 16:05:59 [INFO] 2025-06-04 16:05:59 - Recieved Request for fetching groups
+2025/06/04 16:05:59 [INFO] 2025-06-04 16:05:59 - Groups Fetched Successfuly
+2025/06/04 16:05:59 [INFO] 2025-06-04 16:05:59 - Recieved Request for fetching groups
+2025/06/04 16:05:59 [INFO] 2025-06-04 16:05:59 - Groups Fetched Successfuly
+2025/06/04 16:07:20 [INFO] 2025-06-04 16:07:20 - Recieved Request To fetch Group page
+2025/06/04 16:07:20 [LOG] 2025-06-04 16:07:20 - Not a Member 
+2025/06/04 16:07:23 [INFO] 2025-06-04 16:07:23 - Recieved Request for fetching groups
+2025/06/04 16:07:23 [INFO] 2025-06-04 16:07:23 - Groups Fetched Successfuly
+2025/06/04 16:07:23 [INFO] 2025-06-04 16:07:23 - Recieved Request for fetching groups
+2025/06/04 16:07:23 [INFO] 2025-06-04 16:07:23 - Groups Fetched Successfuly
+2025/06/04 16:07:56 [INFO] 2025-06-04 16:07:56 - Recieved Request for fetching groups
+2025/06/04 16:07:56 [INFO] 2025-06-04 16:07:56 - Groups Fetched Successfuly
+2025/06/04 16:07:56 [INFO] 2025-06-04 16:07:56 - Recieved Request for fetching groups
+2025/06/04 16:07:56 [INFO] 2025-06-04 16:07:56 - Groups Fetched Successfuly
+2025/06/04 16:07:58 [INFO] 2025-06-04 16:07:58 - Recieved Request for fetching groups
+2025/06/04 16:07:58 [INFO] 2025-06-04 16:07:58 - Groups Fetched Successfuly
+2025/06/04 16:07:58 [INFO] 2025-06-04 16:07:58 - Recieved Request for fetching groups
+2025/06/04 16:07:58 [INFO] 2025-06-04 16:07:58 - Groups Fetched Successfuly
+2025/06/04 16:08:02 [INFO] 2025-06-04 16:08:02 - Recieved Request for fetching groups
+2025/06/04 16:08:02 [INFO] 2025-06-04 16:08:02 - Groups Fetched Successfuly
+2025/06/04 16:08:02 [INFO] 2025-06-04 16:08:02 - Recieved Request for fetching groups
+2025/06/04 16:08:02 [INFO] 2025-06-04 16:08:02 - Groups Fetched Successfuly
+2025/06/04 16:08:03 [INFO] 2025-06-04 16:08:03 - Recieved Request for fetching groups
+2025/06/04 16:08:03 [INFO] 2025-06-04 16:08:03 - Groups Fetched Successfuly
+2025/06/04 16:08:03 [INFO] 2025-06-04 16:08:03 - Recieved Request for fetching groups
+2025/06/04 16:08:03 [INFO] 2025-06-04 16:08:03 - Groups Fetched Successfuly
+2025/06/04 16:08:30 [INFO] 2025-06-04 16:08:30 - Recieved Request for fetching groups
+2025/06/04 16:08:30 [INFO] 2025-06-04 16:08:30 - Groups Fetched Successfuly
+2025/06/04 16:08:30 [INFO] 2025-06-04 16:08:30 - Recieved Request for fetching groups
+2025/06/04 16:08:30 [INFO] 2025-06-04 16:08:30 - Groups Fetched Successfuly
+2025/06/04 16:10:41 [INFO] 2025-06-04 16:10:41 - Recieved Group Join Request
+2025/06/04 16:10:41 [INFO] 2025-06-04 16:10:41 - Saving GroupMember into DB
+2025/06/04 16:10:44 [INFO] 2025-06-04 16:10:44 - Recieved Group Join Request
+2025/06/04 16:11:47 [INFO] 2025-06-04 16:11:47 - Recieved Request for fetching groups
+2025/06/04 16:11:47 [INFO] 2025-06-04 16:11:47 - Groups Fetched Successfuly
+2025/06/04 16:11:47 [INFO] 2025-06-04 16:11:47 - Recieved Request for fetching groups
+2025/06/04 16:11:47 [INFO] 2025-06-04 16:11:47 - Groups Fetched Successfuly
+2025/06/04 16:11:49 [INFO] 2025-06-04 16:11:49 - Recieved Request for fetching groups
+2025/06/04 16:11:49 [INFO] 2025-06-04 16:11:49 - Groups Fetched Successfuly
+2025/06/04 16:11:49 [INFO] 2025-06-04 16:11:49 - Recieved Request for fetching groups
+2025/06/04 16:11:49 [INFO] 2025-06-04 16:11:49 - Groups Fetched Successfuly
+2025/06/04 16:13:12 [INFO] 2025-06-04 16:13:12 - Recieved Request for fetching groups
+2025/06/04 16:13:12 [INFO] 2025-06-04 16:13:12 - Groups Fetched Successfuly
+2025/06/04 16:13:12 [INFO] 2025-06-04 16:13:12 - Recieved Request for fetching groups
+2025/06/04 16:13:12 [INFO] 2025-06-04 16:13:12 - Groups Fetched Successfuly
+2025/06/04 16:15:26 [INFO] 2025-06-04 16:15:26 - Recieved Request for fetching groups
+2025/06/04 16:15:26 [INFO] 2025-06-04 16:15:26 - Groups Fetched Successfuly
+2025/06/04 16:15:26 [INFO] 2025-06-04 16:15:26 - Recieved Request for fetching groups
+2025/06/04 16:15:26 [INFO] 2025-06-04 16:15:26 - Groups Fetched Successfuly
+2025/06/04 16:15:28 [INFO] 2025-06-04 16:15:28 - Recieved Request for fetching groups
+2025/06/04 16:15:28 [INFO] 2025-06-04 16:15:28 - Groups Fetched Successfuly
+2025/06/04 16:15:28 [INFO] 2025-06-04 16:15:28 - Recieved Request for fetching groups
+2025/06/04 16:15:28 [INFO] 2025-06-04 16:15:28 - Groups Fetched Successfuly
+2025/06/04 16:16:05 [INFO] 2025-06-04 16:16:05 - Recieved Request for fetching groups
+2025/06/04 16:16:05 [INFO] 2025-06-04 16:16:05 - Groups Fetched Successfuly
+2025/06/04 16:16:05 [INFO] 2025-06-04 16:16:05 - Recieved Request for fetching groups
+2025/06/04 16:16:05 [INFO] 2025-06-04 16:16:05 - Groups Fetched Successfuly
+2025/06/04 16:16:07 [INFO] 2025-06-04 16:16:07 - Recieved Request for fetching groups
+2025/06/04 16:16:07 [INFO] 2025-06-04 16:16:07 - Groups Fetched Successfuly
+2025/06/04 16:16:07 [INFO] 2025-06-04 16:16:07 - Recieved Request for fetching groups
+2025/06/04 16:16:07 [INFO] 2025-06-04 16:16:07 - Groups Fetched Successfuly
+2025/06/04 16:16:09 [INFO] 2025-06-04 16:16:09 - Recieved Request for fetching groups
+2025/06/04 16:16:09 [INFO] 2025-06-04 16:16:09 - Groups Fetched Successfuly
+2025/06/04 16:16:09 [INFO] 2025-06-04 16:16:09 - Recieved Request for fetching groups
+2025/06/04 16:16:09 [INFO] 2025-06-04 16:16:09 - Groups Fetched Successfuly
+2025/06/04 16:16:11 [INFO] 2025-06-04 16:16:11 - Recieved Request for fetching groups
+2025/06/04 16:16:11 [INFO] 2025-06-04 16:16:11 - Groups Fetched Successfuly
+2025/06/04 16:16:11 [INFO] 2025-06-04 16:16:11 - Recieved Request for fetching groups
+2025/06/04 16:16:11 [INFO] 2025-06-04 16:16:11 - Groups Fetched Successfuly
+2025/06/04 16:16:13 [INFO] 2025-06-04 16:16:13 - Recieved Request for fetching groups
+2025/06/04 16:16:13 [INFO] 2025-06-04 16:16:13 - Groups Fetched Successfuly
+2025/06/04 16:16:13 [INFO] 2025-06-04 16:16:13 - Recieved Request for fetching groups
+2025/06/04 16:16:13 [INFO] 2025-06-04 16:16:13 - Groups Fetched Successfuly
+2025/06/04 16:16:15 [INFO] 2025-06-04 16:16:15 - Recieved Request for fetching groups
+2025/06/04 16:16:15 [INFO] 2025-06-04 16:16:15 - Groups Fetched Successfuly
+2025/06/04 16:16:15 [INFO] 2025-06-04 16:16:15 - Recieved Request for fetching groups
+2025/06/04 16:16:15 [INFO] 2025-06-04 16:16:15 - Groups Fetched Successfuly
+2025/06/04 16:16:19 [INFO] 2025-06-04 16:16:19 - Recieved Request for fetching groups
+2025/06/04 16:16:19 [INFO] 2025-06-04 16:16:19 - Groups Fetched Successfuly
+2025/06/04 16:16:19 [INFO] 2025-06-04 16:16:19 - Recieved Request for fetching groups
+2025/06/04 16:16:19 [INFO] 2025-06-04 16:16:19 - Groups Fetched Successfuly
+2025/06/04 16:16:21 [INFO] 2025-06-04 16:16:21 - Recieved Request for fetching groups
+2025/06/04 16:16:21 [INFO] 2025-06-04 16:16:21 - Groups Fetched Successfuly
+2025/06/04 16:16:21 [INFO] 2025-06-04 16:16:21 - Recieved Request for fetching groups
+2025/06/04 16:16:21 [INFO] 2025-06-04 16:16:21 - Groups Fetched Successfuly
+2025/06/04 16:16:22 [INFO] 2025-06-04 16:16:22 - Recieved Request for fetching groups
+2025/06/04 16:16:22 [INFO] 2025-06-04 16:16:22 - Groups Fetched Successfuly
+2025/06/04 16:16:22 [INFO] 2025-06-04 16:16:22 - Recieved Request for fetching groups
+2025/06/04 16:16:22 [INFO] 2025-06-04 16:16:22 - Groups Fetched Successfuly
+2025/06/04 16:17:05 [INFO] 2025-06-04 16:17:05 - Recieved Request for fetching groups
+2025/06/04 16:17:05 [INFO] 2025-06-04 16:17:05 - Groups Fetched Successfuly
+2025/06/04 16:17:05 [INFO] 2025-06-04 16:17:05 - Recieved Request for fetching groups
+2025/06/04 16:17:05 [INFO] 2025-06-04 16:17:05 - Groups Fetched Successfuly
+2025/06/04 16:17:10 [INFO] 2025-06-04 16:17:10 - Recieved Request for fetching groups
+2025/06/04 16:17:10 [INFO] 2025-06-04 16:17:10 - Groups Fetched Successfuly
+2025/06/04 16:17:10 [INFO] 2025-06-04 16:17:10 - Recieved Request for fetching groups
+2025/06/04 16:17:10 [INFO] 2025-06-04 16:17:10 - Groups Fetched Successfuly
+2025/06/04 16:18:36 [INFO] 2025-06-04 16:18:36 - Recieved Request for fetching groups
+2025/06/04 16:18:36 [INFO] 2025-06-04 16:18:36 - Groups Fetched Successfuly
+2025/06/04 16:18:36 [INFO] 2025-06-04 16:18:36 - Recieved Request for fetching groups
+2025/06/04 16:18:36 [INFO] 2025-06-04 16:18:36 - Groups Fetched Successfuly
+2025/06/04 16:18:40 [INFO] 2025-06-04 16:18:40 - Recieved Request for fetching groups
+2025/06/04 16:18:40 [INFO] 2025-06-04 16:18:40 - Groups Fetched Successfuly
+2025/06/04 16:18:40 [INFO] 2025-06-04 16:18:40 - Recieved Request for fetching groups
+2025/06/04 16:18:40 [INFO] 2025-06-04 16:18:40 - Groups Fetched Successfuly
+2025/06/04 16:22:35 [INFO] 2025-06-04 16:22:35 - Recieved Request for fetching groups
+2025/06/04 16:22:35 [INFO] 2025-06-04 16:22:35 - Groups Fetched Successfuly
+2025/06/04 16:22:35 [INFO] 2025-06-04 16:22:35 - Recieved Request for fetching groups
+2025/06/04 16:22:35 [INFO] 2025-06-04 16:22:35 - Groups Fetched Successfuly
+2025/06/04 16:22:53 [INFO] 2025-06-04 16:22:53 - Recieved Request for fetching groups
+2025/06/04 16:22:53 [INFO] 2025-06-04 16:22:53 - Groups Fetched Successfuly
+2025/06/04 16:22:53 [INFO] 2025-06-04 16:22:53 - Recieved Request for fetching groups
+2025/06/04 16:22:53 [INFO] 2025-06-04 16:22:53 - Groups Fetched Successfuly
+2025/06/04 16:23:30 [INFO] 2025-06-04 16:23:30 - Recieved Request for fetching groups
+2025/06/04 16:23:30 [INFO] 2025-06-04 16:23:30 - Groups Fetched Successfuly
+2025/06/04 16:23:30 [INFO] 2025-06-04 16:23:30 - Recieved Request for fetching groups
+2025/06/04 16:23:30 [INFO] 2025-06-04 16:23:30 - Groups Fetched Successfuly
+2025/06/04 16:28:33 [INFO] 2025-06-04 16:28:33 - Recieved Request for fetching groups
+2025/06/04 16:28:33 [INFO] 2025-06-04 16:28:33 - Groups Fetched Successfuly
+2025/06/04 16:28:33 [INFO] 2025-06-04 16:28:33 - Recieved Request for fetching groups
+2025/06/04 16:28:33 [INFO] 2025-06-04 16:28:33 - Groups Fetched Successfuly
+2025/06/04 16:29:15 [INFO] 2025-06-04 16:29:15 - Recieved Request for fetching groups
+2025/06/04 16:29:15 [INFO] 2025-06-04 16:29:15 - Groups Fetched Successfuly
+2025/06/04 16:29:15 [INFO] 2025-06-04 16:29:15 - Recieved Request for fetching groups
+2025/06/04 16:29:15 [INFO] 2025-06-04 16:29:15 - Groups Fetched Successfuly
+2025/06/04 16:30:34 [INFO] 2025-06-04 16:30:34 - Recieved Request for fetching groups
+2025/06/04 16:30:34 [INFO] 2025-06-04 16:30:34 - Groups Fetched Successfuly
+2025/06/04 16:30:34 [INFO] 2025-06-04 16:30:34 - Recieved Request for fetching groups
+2025/06/04 16:30:34 [INFO] 2025-06-04 16:30:34 - Groups Fetched Successfuly
+2025/06/04 16:30:48 [INFO] 2025-06-04 16:30:48 - Recieved Request for fetching groups
+2025/06/04 16:30:48 [INFO] 2025-06-04 16:30:48 - Groups Fetched Successfuly
+2025/06/04 16:30:48 [INFO] 2025-06-04 16:30:48 - Recieved Request for fetching groups
+2025/06/04 16:30:48 [INFO] 2025-06-04 16:30:48 - Groups Fetched Successfuly
+2025/06/04 16:30:49 [INFO] 2025-06-04 16:30:49 - Recieved Request To fetch Group page
+2025/06/04 16:30:49 [INFO] 2025-06-04 16:30:49 - Group With ID : 15 Fetched With Success
+2025/06/04 16:30:49 [INFO] 2025-06-04 16:30:49 - Recieved Request To fetch Group page
+2025/06/04 16:30:49 [INFO] 2025-06-04 16:30:49 - Group With ID : 15 Fetched With Success
+2025/06/04 16:30:51 [INFO] 2025-06-04 16:30:51 - Recieved Request for fetching groups
+2025/06/04 16:30:51 [INFO] 2025-06-04 16:30:51 - Groups Fetched Successfuly
+2025/06/04 16:30:51 [INFO] 2025-06-04 16:30:51 - Recieved Request for fetching groups
+2025/06/04 16:30:51 [INFO] 2025-06-04 16:30:51 - Groups Fetched Successfuly
+2025/06/04 16:30:53 [INFO] 2025-06-04 16:30:53 - Recieved Request To fetch Group page
+2025/06/04 16:30:53 [INFO] 2025-06-04 16:30:53 - Group With ID : 14 Fetched With Success
+2025/06/04 16:30:53 [INFO] 2025-06-04 16:30:53 - Recieved Request To fetch Group page
+2025/06/04 16:30:53 [INFO] 2025-06-04 16:30:53 - Group With ID : 14 Fetched With Success
+2025/06/04 16:30:59 [INFO] 2025-06-04 16:30:59 - Recieved Request for fetching groups
+2025/06/04 16:30:59 [INFO] 2025-06-04 16:30:59 - Groups Fetched Successfuly
+2025/06/04 16:30:59 [INFO] 2025-06-04 16:30:59 - Recieved Request for fetching groups
+2025/06/04 16:30:59 [INFO] 2025-06-04 16:30:59 - Groups Fetched Successfuly
+2025/06/04 16:31:02 [INFO] 2025-06-04 16:31:02 - Recieved Request To fetch Group page
+2025/06/04 16:31:02 [INFO] 2025-06-04 16:31:02 - Group With ID : 15 Fetched With Success
+2025/06/04 16:31:02 [INFO] 2025-06-04 16:31:02 - Recieved Request To fetch Group page
+2025/06/04 16:31:02 [INFO] 2025-06-04 16:31:02 - Group With ID : 15 Fetched With Success
+2025/06/04 16:31:03 [INFO] 2025-06-04 16:31:03 - Recieved Request for fetching groups
+2025/06/04 16:31:03 [INFO] 2025-06-04 16:31:03 - Groups Fetched Successfuly
+2025/06/04 16:31:03 [INFO] 2025-06-04 16:31:03 - Recieved Request for fetching groups
+2025/06/04 16:31:03 [INFO] 2025-06-04 16:31:03 - Groups Fetched Successfuly
+2025/06/04 16:31:23 [INFO] 2025-06-04 16:31:23 - Recieved Request for fetching groups
+2025/06/04 16:31:23 [INFO] 2025-06-04 16:31:23 - Groups Fetched Successfuly
+2025/06/04 16:31:23 [INFO] 2025-06-04 16:31:23 - Recieved Request for fetching groups
+2025/06/04 16:31:23 [INFO] 2025-06-04 16:31:23 - Groups Fetched Successfuly
+2025/06/04 16:31:26 [INFO] 2025-06-04 16:31:26 - Recieved Group Join Request
+2025/06/04 16:31:28 [INFO] 2025-06-04 16:31:28 - Recieved Group Join Request
+2025/06/04 16:31:28 [INFO] 2025-06-04 16:31:28 - Saving GroupMember into DB
+2025/06/04 16:31:31 [INFO] 2025-06-04 16:31:31 - Recieved Group Join Request
+2025/06/04 16:31:31 [INFO] 2025-06-04 16:31:31 - Saving GroupMember into DB
+2025/06/04 16:31:33 [INFO] 2025-06-04 16:31:33 - Recieved Group Join Request
+2025/06/04 16:31:33 [INFO] 2025-06-04 16:31:33 - Saving GroupMember into DB
+2025/06/04 16:31:38 [INFO] 2025-06-04 16:31:38 - Recieved Group Join Request
+2025/06/04 16:31:38 [INFO] 2025-06-04 16:31:38 - Saving GroupMember into DB
+2025/06/04 16:31:40 [INFO] 2025-06-04 16:31:40 - Recieved Group Join Request
+2025/06/04 16:31:40 [INFO] 2025-06-04 16:31:40 - Saving GroupMember into DB
+2025/06/04 16:31:45 [INFO] 2025-06-04 16:31:45 - Recieved Group Join Request
+2025/06/04 16:31:45 [INFO] 2025-06-04 16:31:45 - Saving GroupMember into DB
+2025/06/04 16:32:43 [INFO] 2025-06-04 16:32:43 - Recieved Request for fetching groups
+2025/06/04 16:32:43 [INFO] 2025-06-04 16:32:43 - Groups Fetched Successfuly
+2025/06/04 16:32:43 [INFO] 2025-06-04 16:32:43 - Recieved Request for fetching groups
+2025/06/04 16:32:43 [INFO] 2025-06-04 16:32:43 - Groups Fetched Successfuly
+2025/06/04 16:33:31 [INFO] 2025-06-04 16:33:31 - Recieved Request for fetching groups
+2025/06/04 16:33:31 [INFO] 2025-06-04 16:33:31 - Groups Fetched Successfuly
+2025/06/04 16:33:31 [INFO] 2025-06-04 16:33:31 - Recieved Request for fetching groups
+2025/06/04 16:33:31 [INFO] 2025-06-04 16:33:31 - Groups Fetched Successfuly
+2025/06/04 16:33:34 [INFO] 2025-06-04 16:33:34 - Recieved Group Join Request
+2025/06/04 16:33:34 [INFO] 2025-06-04 16:33:34 - Saving GroupMember into DB
+2025/06/04 16:33:36 [INFO] 2025-06-04 16:33:36 - Recieved Group Join Request
+2025/06/04 16:33:36 [INFO] 2025-06-04 16:33:36 - Saving GroupMember into DB
+2025/06/04 16:33:37 [INFO] 2025-06-04 16:33:37 - Recieved Group Join Request
+2025/06/04 16:33:37 [INFO] 2025-06-04 16:33:37 - Saving GroupMember into DB
+2025/06/04 16:33:39 [INFO] 2025-06-04 16:33:39 - Recieved Group Join Request
+2025/06/04 16:33:41 [INFO] 2025-06-04 16:33:41 - Recieved Group Join Request
+2025/06/04 16:34:08 [INFO] 2025-06-04 16:34:08 - Recieved Request for fetching groups
+2025/06/04 16:34:08 [INFO] 2025-06-04 16:34:08 - Groups Fetched Successfuly
+2025/06/04 16:34:08 [INFO] 2025-06-04 16:34:08 - Recieved Request for fetching groups
+2025/06/04 16:34:08 [INFO] 2025-06-04 16:34:08 - Groups Fetched Successfuly
+2025/06/04 16:34:11 [INFO] 2025-06-04 16:34:11 - Recieved Request for fetching groups
+2025/06/04 16:34:11 [INFO] 2025-06-04 16:34:11 - Groups Fetched Successfuly
+2025/06/04 16:34:11 [INFO] 2025-06-04 16:34:11 - Recieved Request for fetching groups
+2025/06/04 16:34:11 [INFO] 2025-06-04 16:34:11 - Groups Fetched Successfuly
+2025/06/04 16:34:14 [INFO] 2025-06-04 16:34:14 - Recieved Group Join Request
+2025/06/04 16:34:15 [INFO] 2025-06-04 16:34:15 - Recieved Group Join Request
+2025/06/04 16:34:15 [INFO] 2025-06-04 16:34:15 - Saving GroupMember into DB
+2025/06/04 16:34:15 [INFO] 2025-06-04 16:34:15 - Recieved Group Join Request
+2025/06/04 16:34:15 [INFO] 2025-06-04 16:34:15 - Saving GroupMember into DB
+2025/06/04 16:34:16 [INFO] 2025-06-04 16:34:16 - Recieved Group Join Request
+2025/06/04 16:34:17 [INFO] 2025-06-04 16:34:17 - Recieved Group Join Request
+2025/06/04 16:34:17 [INFO] 2025-06-04 16:34:17 - Saving GroupMember into DB
+2025/06/04 16:34:18 [INFO] 2025-06-04 16:34:18 - Recieved Group Join Request
+2025/06/04 16:34:18 [INFO] 2025-06-04 16:34:18 - Saving GroupMember into DB
+2025/06/04 16:34:20 [INFO] 2025-06-04 16:34:20 - Recieved Group Join Request
+2025/06/04 16:34:20 [INFO] 2025-06-04 16:34:20 - Saving GroupMember into DB
+2025/06/04 16:34:22 [INFO] 2025-06-04 16:34:22 - Recieved Group Join Request
+2025/06/04 16:34:23 [INFO] 2025-06-04 16:34:23 - Recieved Group Join Request
+2025/06/04 16:34:23 [INFO] 2025-06-04 16:34:23 - Saving GroupMember into DB
+2025/06/04 16:34:23 [INFO] 2025-06-04 16:34:23 - Recieved Group Join Request
+2025/06/04 16:34:24 [INFO] 2025-06-04 16:34:24 - Recieved Group Join Request
+2025/06/04 16:37:09 [INFO] 2025-06-04 16:37:09 - Recieved Request for fetching groups
+2025/06/04 16:37:09 [INFO] 2025-06-04 16:37:09 - Groups Fetched Successfuly
+2025/06/04 16:37:09 [INFO] 2025-06-04 16:37:09 - Recieved Request for fetching groups
+2025/06/04 16:37:09 [INFO] 2025-06-04 16:37:09 - Groups Fetched Successfuly
+2025/06/04 16:37:38 [INFO] 2025-06-04 16:37:38 - Recieved Request for fetching groups
+2025/06/04 16:37:38 [INFO] 2025-06-04 16:37:38 - Groups Fetched Successfuly
+2025/06/04 16:37:38 [INFO] 2025-06-04 16:37:38 - Recieved Request for fetching groups
+2025/06/04 16:37:38 [INFO] 2025-06-04 16:37:38 - Groups Fetched Successfuly
+2025/06/04 16:38:02 [INFO] 2025-06-04 16:38:02 - Recieved Request for fetching groups
+2025/06/04 16:38:02 [INFO] 2025-06-04 16:38:02 - Recieved Request for fetching groups
+2025/06/04 16:38:02 [INFO] 2025-06-04 16:38:02 - Groups Fetched Successfuly
+2025/06/04 16:38:02 [INFO] 2025-06-04 16:38:02 - Groups Fetched Successfuly
+2025/06/04 16:39:05 [INFO] 2025-06-04 16:39:05 - Recieved Request for fetching groups
+2025/06/04 16:39:05 [INFO] 2025-06-04 16:39:05 - Groups Fetched Successfuly
+2025/06/04 16:39:05 [INFO] 2025-06-04 16:39:05 - Recieved Request for fetching groups
+2025/06/04 16:39:05 [INFO] 2025-06-04 16:39:05 - Groups Fetched Successfuly
+2025/06/04 16:39:34 [INFO] 2025-06-04 16:39:34 - Recieved Request for fetching groups
+2025/06/04 16:39:34 [INFO] 2025-06-04 16:39:34 - Groups Fetched Successfuly
+2025/06/04 16:39:34 [INFO] 2025-06-04 16:39:34 - Recieved Request for fetching groups
+2025/06/04 16:39:34 [INFO] 2025-06-04 16:39:34 - Groups Fetched Successfuly
+2025/06/04 16:39:36 [INFO] 2025-06-04 16:39:36 - Recieved Request for fetching groups
+2025/06/04 16:39:36 [INFO] 2025-06-04 16:39:36 - Groups Fetched Successfuly
+2025/06/04 16:39:36 [INFO] 2025-06-04 16:39:36 - Recieved Request for fetching groups
+2025/06/04 16:39:36 [INFO] 2025-06-04 16:39:36 - Groups Fetched Successfuly
+2025/06/04 16:39:40 [INFO] 2025-06-04 16:39:40 - Recieved Group Join Request
+2025/06/04 16:39:40 [INFO] 2025-06-04 16:39:40 - Recieved Group Join Request
+2025/06/04 16:39:40 [INFO] 2025-06-04 16:39:40 - Saving GroupMember into DB
+2025/06/04 16:39:45 [INFO] 2025-06-04 16:39:45 - Recieved Group Join Request
+2025/06/04 16:39:45 [INFO] 2025-06-04 16:39:45 - Saving GroupMember into DB
+2025/06/04 16:39:49 [INFO] 2025-06-04 16:39:49 - Recieved Group Join Request
+2025/06/04 16:39:49 [INFO] 2025-06-04 16:39:49 - Saving GroupMember into DB
+2025/06/04 16:39:49 [INFO] 2025-06-04 16:39:49 - Recieved Group Join Request
+2025/06/04 16:39:49 [INFO] 2025-06-04 16:39:49 - Saving GroupMember into DB
+2025/06/04 16:39:59 [INFO] 2025-06-04 16:39:59 - Recieved Group Join Request
+2025/06/04 16:40:00 [INFO] 2025-06-04 16:40:00 - Recieved Group Join Request
+2025/06/04 16:40:03 [INFO] 2025-06-04 16:40:03 - Recieved Request To fetch Group page
+2025/06/04 16:40:03 [INFO] 2025-06-04 16:40:03 - Group With ID : 15 Fetched With Success
+2025/06/04 16:40:03 [INFO] 2025-06-04 16:40:03 - Recieved Request To fetch Group page
+2025/06/04 16:40:03 [INFO] 2025-06-04 16:40:03 - Group With ID : 15 Fetched With Success
+2025/06/04 16:40:04 [INFO] 2025-06-04 16:40:04 - Recieved Request for fetching groups
+2025/06/04 16:40:04 [INFO] 2025-06-04 16:40:04 - Groups Fetched Successfuly
+2025/06/04 16:40:04 [INFO] 2025-06-04 16:40:04 - Recieved Request for fetching groups
+2025/06/04 16:40:04 [INFO] 2025-06-04 16:40:04 - Groups Fetched Successfuly
+2025/06/04 16:40:23 [INFO] 2025-06-04 16:40:23 - Recieved Request for fetching groups
+2025/06/04 16:40:23 [INFO] 2025-06-04 16:40:23 - Groups Fetched Successfuly
+2025/06/04 16:40:23 [INFO] 2025-06-04 16:40:23 - Recieved Request for fetching groups
+2025/06/04 16:40:23 [INFO] 2025-06-04 16:40:23 - Groups Fetched Successfuly
+2025/06/04 16:40:26 [INFO] 2025-06-04 16:40:26 - Recieved Request for fetching groups
+2025/06/04 16:40:26 [INFO] 2025-06-04 16:40:26 - Groups Fetched Successfuly
+2025/06/04 16:40:26 [INFO] 2025-06-04 16:40:26 - Recieved Request for fetching groups
+2025/06/04 16:40:26 [INFO] 2025-06-04 16:40:26 - Groups Fetched Successfuly
+2025/06/04 16:40:52 [INFO] 2025-06-04 16:40:52 - Recieved Request for fetching groups
+2025/06/04 16:40:52 [INFO] 2025-06-04 16:40:52 - Groups Fetched Successfuly
+2025/06/04 16:40:52 [INFO] 2025-06-04 16:40:52 - Recieved Request for fetching groups
+2025/06/04 16:40:52 [INFO] 2025-06-04 16:40:52 - Groups Fetched Successfuly
+2025/06/04 16:40:54 [INFO] 2025-06-04 16:40:54 - Recieved Request for fetching groups
+2025/06/04 16:40:54 [INFO] 2025-06-04 16:40:54 - Groups Fetched Successfuly
+2025/06/04 16:40:54 [INFO] 2025-06-04 16:40:54 - Recieved Request for fetching groups
+2025/06/04 16:40:54 [INFO] 2025-06-04 16:40:54 - Groups Fetched Successfuly
+2025/06/04 16:43:50 [INFO] 2025-06-04 16:43:50 - Starting HTTP server at http://localhost:8080 ...
+2025/06/04 16:43:50 [INFO] 2025-06-04 16:43:50 - Migrations applied successfully!
+2025/06/04 16:43:52 [INFO] 2025-06-04 16:43:52 - Recieved Request for fetching groups
+2025/06/04 16:43:52 [INFO] 2025-06-04 16:43:52 - Groups Fetched Successfuly
+2025/06/04 16:43:52 [INFO] 2025-06-04 16:43:52 - Recieved Request for fetching groups
+2025/06/04 16:43:52 [INFO] 2025-06-04 16:43:52 - Groups Fetched Successfuly
+2025/06/04 16:44:57 [INFO] 2025-06-04 16:44:57 - Recieved Request for fetching groups
+2025/06/04 16:44:57 [INFO] 2025-06-04 16:44:57 - Groups Fetched Successfuly
+2025/06/04 16:44:57 [INFO] 2025-06-04 16:44:57 - Recieved Request for fetching groups
+2025/06/04 16:44:57 [INFO] 2025-06-04 16:44:57 - Groups Fetched Successfuly
+2025/06/04 16:47:21 [INFO] 2025-06-04 16:47:21 - Recieved Request for fetching groups
+2025/06/04 16:47:21 [INFO] 2025-06-04 16:47:21 - Groups Fetched Successfuly
+2025/06/04 16:47:21 [INFO] 2025-06-04 16:47:21 - Recieved Request for fetching groups
+2025/06/04 16:47:21 [INFO] 2025-06-04 16:47:21 - Groups Fetched Successfuly
+2025/06/04 16:48:57 [INFO] 2025-06-04 16:48:57 - Recieved Request for fetching groups
+2025/06/04 16:48:57 [INFO] 2025-06-04 16:48:57 - Groups Fetched Successfuly
+2025/06/04 16:48:57 [INFO] 2025-06-04 16:48:57 - Recieved Request for fetching groups
+2025/06/04 16:48:57 [INFO] 2025-06-04 16:48:57 - Groups Fetched Successfuly
+2025/06/04 16:49:01 [INFO] 2025-06-04 16:49:01 - Recieved Group Join Request
+2025/06/04 16:49:01 [INFO] 2025-06-04 16:49:01 - Saving GroupMember into DB
+2025/06/04 16:49:10 [INFO] 2025-06-04 16:49:10 - Recieved Request for fetching groups
+2025/06/04 16:49:10 [INFO] 2025-06-04 16:49:10 - Groups Fetched Successfuly
+2025/06/04 16:49:10 [INFO] 2025-06-04 16:49:10 - Recieved Request for fetching groups
+2025/06/04 16:49:10 [INFO] 2025-06-04 16:49:10 - Groups Fetched Successfuly
+2025/06/04 16:49:12 [INFO] 2025-06-04 16:49:12 - Recieved Group Join Request
+2025/06/04 16:49:12 [INFO] 2025-06-04 16:49:12 - Recieved Group Join Request
+2025/06/04 16:49:12 [INFO] 2025-06-04 16:49:12 - Saving GroupMember into DB
+2025/06/04 16:49:45 [INFO] 2025-06-04 16:49:45 - Recieved Request for fetching groups
+2025/06/04 16:49:45 [INFO] 2025-06-04 16:49:45 - Groups Fetched Successfuly
+2025/06/04 16:49:45 [INFO] 2025-06-04 16:49:45 - Recieved Request for fetching groups
+2025/06/04 16:49:45 [INFO] 2025-06-04 16:49:45 - Groups Fetched Successfuly
+2025/06/04 16:49:47 [INFO] 2025-06-04 16:49:47 - Recieved Group Join Request
+2025/06/04 16:49:49 [INFO] 2025-06-04 16:49:49 - Recieved Group Join Request
+2025/06/04 16:49:49 [INFO] 2025-06-04 16:49:49 - Saving GroupMember into DB
+2025/06/04 16:49:52 [INFO] 2025-06-04 16:49:52 - Recieved Request for fetching groups
+2025/06/04 16:49:52 [INFO] 2025-06-04 16:49:52 - Groups Fetched Successfuly
+2025/06/04 16:49:53 [INFO] 2025-06-04 16:49:53 - Recieved Request for fetching groups
+2025/06/04 16:49:53 [INFO] 2025-06-04 16:49:53 - Groups Fetched Successfuly
+2025/06/04 16:49:54 [INFO] 2025-06-04 16:49:54 - Recieved Group Join Request
+2025/06/04 16:49:54 [INFO] 2025-06-04 16:49:54 - Recieved Group Join Request
+2025/06/04 16:49:54 [INFO] 2025-06-04 16:49:54 - Saving GroupMember into DB
+2025/06/04 16:49:55 [INFO] 2025-06-04 16:49:55 - Recieved Group Join Request
+2025/06/04 16:49:55 [INFO] 2025-06-04 16:49:55 - Saving GroupMember into DB
+2025/06/04 16:49:55 [INFO] 2025-06-04 16:49:55 - Recieved Group Join Request
+2025/06/04 16:49:56 [INFO] 2025-06-04 16:49:56 - Recieved Group Join Request
+2025/06/04 16:49:58 [INFO] 2025-06-04 16:49:58 - Recieved Group Join Request
+2025/06/04 16:49:58 [INFO] 2025-06-04 16:49:58 - Saving GroupMember into DB
+2025/06/04 16:49:59 [INFO] 2025-06-04 16:49:59 - Recieved Group Join Request
+2025/06/04 16:49:59 [INFO] 2025-06-04 16:49:59 - Saving GroupMember into DB
+2025/06/04 16:49:59 [INFO] 2025-06-04 16:49:59 - Recieved Group Join Request
+2025/06/04 16:49:59 [INFO] 2025-06-04 16:49:59 - Saving GroupMember into DB
+2025/06/04 16:50:02 [INFO] 2025-06-04 16:50:02 - Recieved Group Join Request
+2025/06/04 16:50:02 [INFO] 2025-06-04 16:50:02 - Recieved Group Join Request
+2025/06/04 16:50:02 [INFO] 2025-06-04 16:50:02 - Recieved Group Join Request
+2025/06/04 16:50:03 [INFO] 2025-06-04 16:50:03 - Recieved Group Join Request
+2025/06/04 16:50:03 [INFO] 2025-06-04 16:50:03 - Recieved Group Join Request
+2025/06/04 16:50:03 [INFO] 2025-06-04 16:50:03 - Recieved Group Join Request
+2025/06/04 16:50:03 [INFO] 2025-06-04 16:50:03 - Recieved Group Join Request
+2025/06/04 16:51:35 [INFO] 2025-06-04 16:51:35 - Recieved Request for fetching groups
+2025/06/04 16:51:35 [INFO] 2025-06-04 16:51:35 - Groups Fetched Successfuly
+2025/06/04 16:51:35 [INFO] 2025-06-04 16:51:35 - Recieved Request for fetching groups
+2025/06/04 16:51:35 [INFO] 2025-06-04 16:51:35 - Groups Fetched Successfuly
+2025/06/04 16:51:39 [INFO] 2025-06-04 16:51:39 - Recieved Request To fetch Group page
+2025/06/04 16:51:39 [INFO] 2025-06-04 16:51:39 - Group With ID : 14 Fetched With Success
+2025/06/04 16:51:39 [INFO] 2025-06-04 16:51:39 - Recieved Request To fetch Group page
+2025/06/04 16:51:39 [INFO] 2025-06-04 16:51:39 - Group With ID : 14 Fetched With Success
+2025/06/04 16:51:41 [INFO] 2025-06-04 16:51:41 - Recieved Request for fetching groups
+2025/06/04 16:51:41 [INFO] 2025-06-04 16:51:41 - Groups Fetched Successfuly
+2025/06/04 16:51:41 [INFO] 2025-06-04 16:51:41 - Recieved Request for fetching groups
+2025/06/04 16:51:41 [INFO] 2025-06-04 16:51:41 - Groups Fetched Successfuly
+2025/06/04 16:51:42 [INFO] 2025-06-04 16:51:42 - Recieved Request To fetch Group page
+2025/06/04 16:51:42 [INFO] 2025-06-04 16:51:42 - Group With ID : 15 Fetched With Success
+2025/06/04 16:51:42 [INFO] 2025-06-04 16:51:42 - Recieved Request To fetch Group page
+2025/06/04 16:51:42 [INFO] 2025-06-04 16:51:42 - Group With ID : 15 Fetched With Success
+2025/06/04 16:54:13 [INFO] 2025-06-04 16:54:13 - Recieved Request for fetching groups
+2025/06/04 16:54:13 [INFO] 2025-06-04 16:54:13 - Groups Fetched Successfuly
+2025/06/04 16:54:13 [INFO] 2025-06-04 16:54:13 - Recieved Request for fetching groups
+2025/06/04 16:54:13 [INFO] 2025-06-04 16:54:13 - Groups Fetched Successfuly
+2025/06/04 16:54:26 [INFO] 2025-06-04 16:54:26 - Recieved Request for fetching groups
+2025/06/04 16:54:26 [INFO] 2025-06-04 16:54:26 - Groups Fetched Successfuly
+2025/06/04 16:54:26 [INFO] 2025-06-04 16:54:26 - Recieved Request for fetching groups
+2025/06/04 16:54:26 [INFO] 2025-06-04 16:54:26 - Groups Fetched Successfuly
+2025/06/04 16:56:27 [INFO] 2025-06-04 16:56:27 - Recieved Request for fetching groups
+2025/06/04 16:56:27 [INFO] 2025-06-04 16:56:27 - Groups Fetched Successfuly
+2025/06/04 16:56:27 [INFO] 2025-06-04 16:56:27 - Recieved Request for fetching groups
+2025/06/04 16:56:27 [INFO] 2025-06-04 16:56:27 - Groups Fetched Successfuly
+2025/06/04 16:56:31 [INFO] 2025-06-04 16:56:31 - Recieved Request for fetching groups
+2025/06/04 16:56:31 [INFO] 2025-06-04 16:56:31 - Groups Fetched Successfuly
+2025/06/04 16:56:31 [INFO] 2025-06-04 16:56:31 - Recieved Request for fetching groups
+2025/06/04 16:56:31 [INFO] 2025-06-04 16:56:31 - Groups Fetched Successfuly
+2025/06/04 16:56:45 [INFO] 2025-06-04 16:56:45 - Recieved Request for fetching groups
+2025/06/04 16:56:45 [INFO] 2025-06-04 16:56:45 - Groups Fetched Successfuly
+2025/06/04 16:56:45 [INFO] 2025-06-04 16:56:45 - Recieved Request for fetching groups
+2025/06/04 16:56:45 [INFO] 2025-06-04 16:56:45 - Groups Fetched Successfuly
+2025/06/04 16:57:14 [INFO] 2025-06-04 16:57:14 - Recieved Request for fetching groups
+2025/06/04 16:57:14 [INFO] 2025-06-04 16:57:14 - Groups Fetched Successfuly
+2025/06/04 16:57:14 [INFO] 2025-06-04 16:57:14 - Recieved Request for fetching groups
+2025/06/04 16:57:14 [INFO] 2025-06-04 16:57:14 - Groups Fetched Successfuly
+2025/06/04 16:57:16 [INFO] 2025-06-04 16:57:16 - Recieved Request for fetching groups
+2025/06/04 16:57:16 [INFO] 2025-06-04 16:57:16 - Groups Fetched Successfuly
+2025/06/04 16:57:16 [INFO] 2025-06-04 16:57:16 - Recieved Request for fetching groups
+2025/06/04 16:57:16 [INFO] 2025-06-04 16:57:16 - Groups Fetched Successfuly
+2025/06/04 16:57:27 [INFO] 2025-06-04 16:57:27 - Recieved Request for fetching groups
+2025/06/04 16:57:27 [INFO] 2025-06-04 16:57:27 - Groups Fetched Successfuly
+2025/06/04 16:57:27 [INFO] 2025-06-04 16:57:27 - Recieved Request for fetching groups
+2025/06/04 16:57:27 [INFO] 2025-06-04 16:57:27 - Groups Fetched Successfuly
+2025/06/04 16:57:32 [INFO] 2025-06-04 16:57:32 - Recieved Group Join Request
+2025/06/04 16:57:32 [INFO] 2025-06-04 16:57:32 - Saving GroupMember into DB
+2025/06/04 16:57:45 [INFO] 2025-06-04 16:57:45 - Recieved Request for fetching groups
+2025/06/04 16:57:45 [INFO] 2025-06-04 16:57:45 - Groups Fetched Successfuly
+2025/06/04 16:57:45 [INFO] 2025-06-04 16:57:45 - Recieved Request for fetching groups
+2025/06/04 16:57:45 [INFO] 2025-06-04 16:57:45 - Groups Fetched Successfuly
+2025/06/04 16:59:36 [INFO] 2025-06-04 16:59:36 - Recieved Request for fetching groups
+2025/06/04 16:59:36 [INFO] 2025-06-04 16:59:36 - Groups Fetched Successfuly
+2025/06/04 16:59:36 [INFO] 2025-06-04 16:59:36 - Recieved Request for fetching groups
+2025/06/04 16:59:36 [INFO] 2025-06-04 16:59:36 - Groups Fetched Successfuly
+2025/06/04 17:00:08 [INFO] 2025-06-04 17:00:08 - Recieved Request for fetching groups
+2025/06/04 17:00:08 [INFO] 2025-06-04 17:00:08 - Groups Fetched Successfuly
+2025/06/04 17:00:08 [INFO] 2025-06-04 17:00:08 - Recieved Request for fetching groups
+2025/06/04 17:00:08 [INFO] 2025-06-04 17:00:08 - Groups Fetched Successfuly
+2025/06/04 17:00:09 [INFO] 2025-06-04 17:00:09 - Recieved Request for fetching groups
+2025/06/04 17:00:09 [INFO] 2025-06-04 17:00:09 - Groups Fetched Successfuly
+2025/06/04 17:00:09 [INFO] 2025-06-04 17:00:09 - Recieved Request for fetching groups
+2025/06/04 17:00:09 [INFO] 2025-06-04 17:00:09 - Groups Fetched Successfuly
+2025/06/04 17:00:13 [INFO] 2025-06-04 17:00:13 - Recieved Group Join Request
+2025/06/04 17:00:15 [INFO] 2025-06-04 17:00:15 - Recieved Group Join Request
+2025/06/04 17:00:15 [INFO] 2025-06-04 17:00:15 - Saving GroupMember into DB
+2025/06/04 17:00:33 [INFO] 2025-06-04 17:00:33 - Recieved Request To fetch Group page
+2025/06/04 17:00:33 [INFO] 2025-06-04 17:00:33 - Group With ID : 13 Fetched With Success
+2025/06/04 17:00:33 [INFO] 2025-06-04 17:00:33 - Recieved Request To fetch Group page
+2025/06/04 17:00:33 [INFO] 2025-06-04 17:00:33 - Group With ID : 13 Fetched With Success
+2025/06/04 17:00:34 [INFO] 2025-06-04 17:00:34 - Recieved Request for fetching groups
+2025/06/04 17:00:34 [INFO] 2025-06-04 17:00:34 - Groups Fetched Successfuly
+2025/06/04 17:00:34 [INFO] 2025-06-04 17:00:34 - Recieved Request for fetching groups
+2025/06/04 17:00:34 [INFO] 2025-06-04 17:00:34 - Groups Fetched Successfuly
+2025/06/04 17:00:37 [INFO] 2025-06-04 17:00:37 - Recieved Request To fetch Group page
+2025/06/04 17:00:37 [INFO] 2025-06-04 17:00:37 - Group With ID : 14 Fetched With Success
+2025/06/04 17:00:37 [INFO] 2025-06-04 17:00:37 - Recieved Request To fetch Group page
+2025/06/04 17:00:37 [INFO] 2025-06-04 17:00:37 - Group With ID : 14 Fetched With Success
+2025/06/04 17:00:38 [INFO] 2025-06-04 17:00:38 - Recieved Request for fetching groups
+2025/06/04 17:00:38 [INFO] 2025-06-04 17:00:38 - Groups Fetched Successfuly
+2025/06/04 17:00:38 [INFO] 2025-06-04 17:00:38 - Recieved Request for fetching groups
+2025/06/04 17:00:38 [INFO] 2025-06-04 17:00:38 - Groups Fetched Successfuly
+2025/06/04 17:07:54 [INFO] 2025-06-04 17:07:54 - Recieved Request for fetching groups
+2025/06/04 17:07:54 [INFO] 2025-06-04 17:07:54 - Groups Fetched Successfuly
+2025/06/04 17:07:54 [INFO] 2025-06-04 17:07:54 - Recieved Request for fetching groups
+2025/06/04 17:07:54 [INFO] 2025-06-04 17:07:54 - Groups Fetched Successfuly
+2025/06/04 17:07:56 [INFO] 2025-06-04 17:07:56 - Recieved Request for fetching groups
+2025/06/04 17:07:56 [INFO] 2025-06-04 17:07:56 - Groups Fetched Successfuly
+2025/06/04 17:10:08 [INFO] 2025-06-04 17:10:08 - Recieved Request for fetching groups
+2025/06/04 17:10:08 [INFO] 2025-06-04 17:10:08 - Groups Fetched Successfuly
+2025/06/04 17:10:11 [INFO] 2025-06-04 17:10:11 - Recieved Request for fetching groups
+2025/06/04 17:10:11 [INFO] 2025-06-04 17:10:11 - Groups Fetched Successfuly
+2025/06/04 17:11:07 [INFO] 2025-06-04 17:11:07 - Recieved Request for fetching groups
+2025/06/04 17:11:07 [INFO] 2025-06-04 17:11:07 - Groups Fetched Successfuly
+2025/06/04 17:11:07 [INFO] 2025-06-04 17:11:07 - Recieved Request for fetching groups
+2025/06/04 17:11:07 [INFO] 2025-06-04 17:11:07 - Groups Fetched Successfuly
+2025/06/04 17:12:20 [INFO] 2025-06-04 17:12:20 - Recieved Request for fetching groups
+2025/06/04 17:12:20 [INFO] 2025-06-04 17:12:20 - Groups Fetched Successfuly
+2025/06/04 17:12:20 [INFO] 2025-06-04 17:12:20 - Recieved Request for fetching groups
+2025/06/04 17:12:20 [INFO] 2025-06-04 17:12:20 - Groups Fetched Successfuly
+2025/06/04 17:12:20 [INFO] 2025-06-04 17:12:20 - Recieved Request for fetching groups
+2025/06/04 17:12:20 [INFO] 2025-06-04 17:12:20 - Groups Fetched Successfuly
+2025/06/04 17:12:20 [INFO] 2025-06-04 17:12:20 - Recieved Request for fetching groups
+2025/06/04 17:12:20 [INFO] 2025-06-04 17:12:20 - Groups Fetched Successfuly
+2025/06/04 17:12:32 [INFO] 2025-06-04 17:12:32 - Recieved Request for fetching groups
+2025/06/04 17:12:32 [INFO] 2025-06-04 17:12:32 - Groups Fetched Successfuly
+2025/06/04 17:12:32 [INFO] 2025-06-04 17:12:32 - Recieved Request for fetching groups
+2025/06/04 17:12:32 [INFO] 2025-06-04 17:12:32 - Groups Fetched Successfuly
+2025/06/04 17:13:13 [INFO] 2025-06-04 17:13:13 - Received request for GroupCreation
+2025/06/04 17:13:13 [INFO] 2025-06-04 17:13:13 - Handling file upload for form field 'Image'
+2025/06/04 17:13:13 [INFO] 2025-06-04 17:13:13 - Received file: 1688018102545.png (50107 bytes)
+2025/06/04 17:13:13 [INFO] 2025-06-04 17:13:13 - Detected content type: image/png
+2025/06/04 17:13:13 [INFO] 2025-06-04 17:13:13 - Successfully saved file as: c26de07b-2a04-4c74-b9de-4e712b4c0361.png
+2025/06/04 17:13:13 [INFO] 2025-06-04 17:13:13 - Group Input Validated
+2025/06/04 17:13:13 [INFO] 2025-06-04 17:13:13 - Saving group into DB
+2025/06/04 17:13:13 [INFO] 2025-06-04 17:13:13 - Saving GroupMember into DB
+2025/06/04 17:13:13 [INFO] 2025-06-04 17:13:13 - Group created successfully with ID: 16
+2025/06/04 17:15:36 [INFO] 2025-06-04 17:15:36 - Received request for GroupCreation
+2025/06/04 17:15:36 [INFO] 2025-06-04 17:15:36 - Handling file upload for form field 'Image'
+2025/06/04 17:15:36 [INFO] 2025-06-04 17:15:36 - No file uploaded for field 'Image'
+2025/06/04 17:15:36 [INFO] 2025-06-04 17:15:36 - Group Input Validated
+2025/06/04 17:15:36 [INFO] 2025-06-04 17:15:36 - Saving group into DB
+2025/06/04 17:15:36 [INFO] 2025-06-04 17:15:36 - Saving GroupMember into DB
+2025/06/04 17:15:36 [INFO] 2025-06-04 17:15:36 - Group created successfully with ID: 17
+2025/06/04 17:15:56 [INFO] 2025-06-04 17:15:56 - Received request for GroupCreation
+2025/06/04 17:15:56 [INFO] 2025-06-04 17:15:56 - Handling file upload for form field 'Image'
+2025/06/04 17:15:56 [INFO] 2025-06-04 17:15:56 - No file uploaded for field 'Image'
+2025/06/04 17:15:56 [INFO] 2025-06-04 17:15:56 - Group Input Validated
+2025/06/04 17:15:56 [INFO] 2025-06-04 17:15:56 - Saving group into DB
+2025/06/04 17:15:56 [INFO] 2025-06-04 17:15:56 - Saving GroupMember into DB
+2025/06/04 17:15:56 [INFO] 2025-06-04 17:15:56 - Group created successfully with ID: 18
+2025/06/04 17:16:45 [INFO] 2025-06-04 17:16:45 - Received request for GroupCreation
+2025/06/04 17:16:45 [INFO] 2025-06-04 17:16:45 - Handling file upload for form field 'Image'
+2025/06/04 17:16:45 [INFO] 2025-06-04 17:16:45 - No file uploaded for field 'Image'
+2025/06/04 17:16:45 [INFO] 2025-06-04 17:16:45 - Group Input Validated
+2025/06/04 17:16:45 [INFO] 2025-06-04 17:16:45 - Saving group into DB
+2025/06/04 17:16:45 [INFO] 2025-06-04 17:16:45 - Saving GroupMember into DB
+2025/06/04 17:16:45 [INFO] 2025-06-04 17:16:45 - Group created successfully with ID: 19
+2025/06/04 17:17:00 [INFO] 2025-06-04 17:17:00 - Received request for GroupCreation
+2025/06/04 17:17:00 [INFO] 2025-06-04 17:17:00 - Handling file upload for form field 'Image'
+2025/06/04 17:17:00 [INFO] 2025-06-04 17:17:00 - No file uploaded for field 'Image'
+2025/06/04 17:17:00 [INFO] 2025-06-04 17:17:00 - Group Input Validated
+2025/06/04 17:17:00 [INFO] 2025-06-04 17:17:00 - Saving group into DB
+2025/06/04 17:17:00 [INFO] 2025-06-04 17:17:00 - Saving GroupMember into DB
+2025/06/04 17:17:00 [INFO] 2025-06-04 17:17:00 - Group created successfully with ID: 20
+2025/06/04 17:17:19 [INFO] 2025-06-04 17:17:19 - Received request for GroupCreation
+2025/06/04 17:17:19 [INFO] 2025-06-04 17:17:19 - Handling file upload for form field 'Image'
+2025/06/04 17:17:19 [INFO] 2025-06-04 17:17:19 - No file uploaded for field 'Image'
+2025/06/04 17:17:19 [INFO] 2025-06-04 17:17:19 - Group Input Validated
+2025/06/04 17:17:19 [INFO] 2025-06-04 17:17:19 - Saving group into DB
+2025/06/04 17:17:19 [INFO] 2025-06-04 17:17:19 - Saving GroupMember into DB
+2025/06/04 17:17:19 [INFO] 2025-06-04 17:17:19 - Group created successfully with ID: 21
+2025/06/04 17:17:33 [INFO] 2025-06-04 17:17:33 - Received request for GroupCreation
+2025/06/04 17:17:33 [INFO] 2025-06-04 17:17:33 - Handling file upload for form field 'Image'
+2025/06/04 17:17:33 [INFO] 2025-06-04 17:17:33 - Received file: Orientation-portrait-ou-paysage.jpg (132936 bytes)
+2025/06/04 17:17:33 [INFO] 2025-06-04 17:17:33 - Detected content type: image/jpeg
+2025/06/04 17:17:33 [INFO] 2025-06-04 17:17:33 - Successfully saved file as: a922ced5-5d8a-4903-a3c9-6411bcab9eb0.jpg
+2025/06/04 17:17:33 [INFO] 2025-06-04 17:17:33 - Group Input Validated
+2025/06/04 17:17:33 [INFO] 2025-06-04 17:17:33 - Saving group into DB
+2025/06/04 17:17:33 [INFO] 2025-06-04 17:17:33 - Saving GroupMember into DB
+2025/06/04 17:17:33 [INFO] 2025-06-04 17:17:33 - Group created successfully with ID: 22
+2025/06/04 17:17:34 [INFO] 2025-06-04 17:17:34 - Recieved Request for fetching groups
+2025/06/04 17:17:34 [INFO] 2025-06-04 17:17:34 - Groups Fetched Successfuly
+2025/06/04 17:17:34 [INFO] 2025-06-04 17:17:34 - Recieved Request for fetching groups
+2025/06/04 17:17:34 [INFO] 2025-06-04 17:17:34 - Groups Fetched Successfuly
+2025/06/04 17:17:41 [INFO] 2025-06-04 17:17:41 - Recieved Request for fetching groups
+2025/06/04 17:17:41 [INFO] 2025-06-04 17:17:41 - Groups Fetched Successfuly
+2025/06/04 17:17:50 [INFO] 2025-06-04 17:17:50 - Recieved Request To fetch Group page
+2025/06/04 17:17:50 [INFO] 2025-06-04 17:17:50 - Group With ID : 22 Fetched With Success
+2025/06/04 17:17:50 [INFO] 2025-06-04 17:17:50 - Recieved Request To fetch Group page
+2025/06/04 17:17:50 [INFO] 2025-06-04 17:17:50 - Group With ID : 22 Fetched With Success
+2025/06/04 17:17:53 [INFO] 2025-06-04 17:17:53 - Recieved Request for fetching groups
+2025/06/04 17:17:53 [INFO] 2025-06-04 17:17:53 - Groups Fetched Successfuly
+2025/06/04 17:17:53 [INFO] 2025-06-04 17:17:53 - Recieved Request for fetching groups
+2025/06/04 17:17:53 [INFO] 2025-06-04 17:17:53 - Groups Fetched Successfuly
+2025/06/04 17:17:56 [INFO] 2025-06-04 17:17:56 - Recieved Group Join Request
+2025/06/04 17:17:56 [INFO] 2025-06-04 17:17:56 - Saving GroupMember into DB
+2025/06/04 17:18:39 [INFO] 2025-06-04 17:18:39 - Recieved Request for fetching groups
+2025/06/04 17:18:39 [INFO] 2025-06-04 17:18:39 - Groups Fetched Successfuly
+2025/06/04 17:18:47 [INFO] 2025-06-04 17:18:47 - Recieved Request To fetch Group page
+2025/06/04 17:18:47 [INFO] 2025-06-04 17:18:47 - Group With ID : 20 Fetched With Success
+2025/06/04 17:18:47 [INFO] 2025-06-04 17:18:47 - Recieved Request To fetch Group page
+2025/06/04 17:18:47 [INFO] 2025-06-04 17:18:47 - Group With ID : 20 Fetched With Success
+2025/06/04 17:18:50 [INFO] 2025-06-04 17:18:50 - Recieved Request for fetching groups
+2025/06/04 17:18:50 [INFO] 2025-06-04 17:18:50 - Groups Fetched Successfuly
+2025/06/04 17:18:50 [INFO] 2025-06-04 17:18:50 - Recieved Request for fetching groups
+2025/06/04 17:18:50 [INFO] 2025-06-04 17:18:50 - Groups Fetched Successfuly
+2025/06/04 17:34:25 [INFO] 2025-06-04 17:34:25 - Recieved Request for fetching groups
+2025/06/04 17:34:25 [INFO] 2025-06-04 17:34:25 - Groups Fetched Successfuly
+2025/06/04 17:34:29 [INFO] 2025-06-04 17:34:29 - Recieved Request To fetch Group page
+2025/06/04 17:34:29 [INFO] 2025-06-04 17:34:29 - Group With ID : 15 Fetched With Success
+2025/06/04 17:34:29 [INFO] 2025-06-04 17:34:29 - Recieved Request To fetch Group page
+2025/06/04 17:34:29 [INFO] 2025-06-04 17:34:29 - Group With ID : 15 Fetched With Success
+2025/06/04 17:42:40 [INFO] 2025-06-04 17:42:40 - Recieved Request for fetching groups
+2025/06/04 17:42:40 [INFO] 2025-06-04 17:42:40 - Groups Fetched Successfuly
+2025/06/04 17:42:55 [INFO] 2025-06-04 17:42:55 - Recieved Request To fetch Group page
+2025/06/04 17:42:55 [INFO] 2025-06-04 17:42:55 - Group With ID : 15 Fetched With Success
+2025/06/04 17:42:55 [INFO] 2025-06-04 17:42:55 - Recieved Request To fetch Group page
+2025/06/04 17:42:55 [INFO] 2025-06-04 17:42:55 - Group With ID : 15 Fetched With Success
+2025/06/04 17:43:47 [INFO] 2025-06-04 17:43:47 - Recieved Request To fetch Group page
+2025/06/04 17:43:47 [INFO] 2025-06-04 17:43:47 - Group With ID : 15 Fetched With Success
+2025/06/04 17:45:46 [INFO] 2025-06-04 17:45:46 - Starting HTTP server at http://localhost:8080 ...
+2025/06/04 17:45:46 [INFO] 2025-06-04 17:45:46 - Migrations applied successfully!
