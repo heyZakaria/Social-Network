@@ -1,0 +1,149 @@
+'use client';
+
+import { useEffect, useState } from 'react';
+import Link from 'next/link';
+import styles from '@/styles/friends.module.css';
+import FloatingChat from '@/components/chat/floating-chat';
+import { useUser } from '@/app/(utils)/user_context';
+import FollowButton from '@/components/followButton';
+import { useFriends } from '../(utils)/friends-context';
+
+export default function FriendsPage() {
+  const { currentUser } = useUser();
+  const [activeTab, setActiveTab] = useState('all');
+  const { friends = [], suggestions = [], loading, refetch, requests = [] } = useFriends();
+  const { handleAcceptRequest, handleRejectRequest } = useFriends();
+  console.log(friends, suggestions, loading, requests);
+  console.log("suggestions", suggestions);
+  console.log("friends", friends);
+  console.log("requests", requests);
+
+  useEffect(() => {
+    refetch();
+  }, []);
+
+
+  const filteredFriends = (() => {
+    if (activeTab === 'all') return friends.filter(f => f.follower_status === 'accepted');
+    if (activeTab === 'online') return friends.filter(f => f.follower_status === 'accepted' && f.isOnline);
+    if (activeTab === 'requests') return requests;
+    return [];
+  })();
+
+  if (loading) return <div className={styles.loading}>Loading...</div>;
+
+  return (
+    <div className={styles.friendsContainer}>
+      <div className={styles.friendsHeader}>
+        <h1>Friends</h1>
+      </div>
+
+      <div className={styles.friendsTabs}>
+        {['all', 'online', 'requests'].map((tab) => (
+          <button
+            key={tab}
+            className={`${styles.tabButton} ${activeTab === tab ? styles.activeTab : ''}`}
+            onClick={() => setActiveTab(tab)}
+          >
+            {tab.charAt(0).toUpperCase() + tab.slice(1)}
+          </button>
+        ))}
+      </div>
+
+      <div className={styles.friendsContent}>
+        <div className={styles.friendsSection}>
+          <h2 className={styles.sectionTitle}>
+            {activeTab === 'all' && 'Your Friends'}
+            {activeTab === 'online' && 'Online Friends'}
+            {activeTab === 'requests' && 'Friend Requests'}
+          </h2>
+
+          <div className={styles.friendsGrid}>
+            {filteredFriends.length > 0 ? (
+              filteredFriends.map((friend) => (
+                <div key={friend.id} className={styles.friendCard}>
+                  <Link href={`/profile/${friend.id}`}>
+                    <img
+                      src={friend.avatar || "/uploads/profile.jpeg"}
+                      alt={`${friend.firstName} ${friend.lastName}`}
+                      className={styles.friendAvatar}
+                    />
+                  </Link>
+                  <div className={styles.friendInfo}>
+                    <h3 className={styles.friendName}>
+                      <Link href={`/profile/${friend.id}`}>
+                        {friend.firstName} {friend.lastName}
+                      </Link>
+                    </h3>
+                    {friend.nickName && <p className={styles.friendNickname}>({friend.nickName})</p>}
+                    {activeTab === 'online' && friend.isOnline && (
+                      <p className={styles.onlineStatus}>Online</p>
+                    )}
+                  </div>
+                  <div className={styles.friendActions}>
+                    {activeTab === 'requests' ? (
+                      <>
+                        <button className={styles.followButton} onClick={() => handleAcceptRequest(friend.id)}>
+                          Accept
+                        </button>
+                        <button className={styles.ignoreButton} onClick={() => handleRejectRequest(friend.id)}>
+                          Reject
+                        </button>
+                      </>
+                    ) : (
+                      <>
+                        <button className={styles.messageButton}>Message</button>
+                        <FollowButton targetUserId={friend.id} />
+                      </>
+                    )}
+                  </div>
+                </div>
+              ))
+            ) : (
+              <div className={styles.noFriends}>
+                {activeTab === 'all' && 'No friends yet'}
+                {activeTab === 'online' && 'No friends online'}
+                {activeTab === 'requests' && 'No pending friend requests'}
+              </div>
+            )}
+          </div>
+        </div>
+
+        {activeTab === 'all' && suggestions.length > 0 && (
+          <div className={styles.friendsSection}>
+            <h2 className={styles.sectionTitle}>People You May Know</h2>
+            <div className={styles.friendsGrid}>
+              {suggestions.map((suggestion) => (
+                <div key={suggestion.id} className={styles.friendCard}>
+                  <Link href={`/profile/${suggestion.id}`}>
+                    <img
+                      src={suggestion.avatar || "/uploads/profile.jpeg"}
+                      alt={`${suggestion.firstName} ${suggestion.lastName}`}
+                      className={styles.friendAvatar}
+                    />
+                  </Link>
+                  <div className={styles.friendInfo}>
+                    <h3 className={styles.friendName}>
+                      <Link href={`/profile/${suggestion.id}`}>
+                        {suggestion.firstName} {suggestion.lastName}
+                      </Link>
+                    </h3>
+                    {suggestion.nickName && (
+                      <p className={styles.friendNickname}>({suggestion.nickName})</p>
+                    )}
+                  </div>
+                  <div className={styles.friendActions}>
+                    <FollowButton targetUserId={suggestion.id} />
+                    <button className={styles.ignoreButton}>Ignore</button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
+
+      <FloatingChat currentUser={currentUser} />
+    </div>
+  );
+}

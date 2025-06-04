@@ -4,11 +4,16 @@ import (
 	"log"
 	"net/http"
 
+	comment "socialNetwork/comments"
+
 	"socialNetwork/auth"
 	db "socialNetwork/db/sqlite"
 	Events "socialNetwork/events"
 	Group "socialNetwork/groups"
+	"socialNetwork/likes"
 	"socialNetwork/middleware"
+	post "socialNetwork/posts"
+	"socialNetwork/profile"
 	"socialNetwork/realTime"
 	"socialNetwork/utils"
 
@@ -34,5 +39,22 @@ func main() {
 	router.Handle("/api/groups/", http.StripPrefix("/api/groups", Group.GroupMux()))
 	router.Handle("/events/", http.StripPrefix("/events", Events.EventsMux())) // /groups/{id}/event
 
-	log.Fatal(http.ListenAndServe(":8080", middleware.CheckCORS(router)))
+	router.Handle("/posts/", http.StripPrefix("/posts", post.PostMux()))
+	router.Handle("/likes/", http.StripPrefix("/likes", likes.LikesMux()))
+	router.Handle("/comment/", http.StripPrefix("/comment", comment.CommentMux()))
+
+	// Profile routes
+	router.HandleFunc("GET /api/users/profile", profile.GetUserProfile)
+	// Profile routes
+	router.HandleFunc("GET /api/users/friends", profile.GetFriendsAndRequests)
+	router.HandleFunc("GET /api/users/profile", profile.GetUserProfile)
+	router.HandleFunc("PUT /api/users/privacy", profile.ProfileStatus)
+	router.HandleFunc("GET /api/users/get/profile", profile.GetOtherUserProfile)
+	router.HandleFunc("GET /api/users/follow", profile.ToggleFollowUser)
+	router.HandleFunc("POST /api/users/follow", profile.ToggleFollowUser)
+	router.HandleFunc("POST /api/users/accept", profile.AcceptFollowRequest)
+	router.HandleFunc("POST /api/users/reject", profile.RejectFollowRequest)
+	//  router.HandleFunc("GET /api/users/suggestions", profile.GetUserSuggestions)
+
+	log.Fatal(http.ListenAndServe(":8080", middleware.CheckCORS(middleware.CheckUserExeting(router))))
 }

@@ -1,0 +1,192 @@
+.authContainer {
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.authHeader {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.authTitle {
+  font-size: 24px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.authSubtitle {
+  font-size: 16px;
+  color: #666;
+}
+
+.formGroup {
+  margin-bottom: 20px;
+}
+
+.label {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 16px;
+  transition: border-color 0.3s;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #7c3aed;
+}
+
+.textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 16px;
+  min-height: 100px;
+  resize: vertical;
+  transition: border-color 0.3s;
+}
+
+.textarea:focus {
+  outline: none;
+  border-color: #7c3aed;
+}
+
+.fileInput {
+  display: none;
+}
+
+.fileInputLabel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  background-color: #f0f2f5;
+  border: 1px dashed #ccc;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.fileInputLabel:hover {
+  background-color: #e4e6eb;
+}
+
+.filePreview {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 10px auto;
+  display: block;
+}
+
+.optional {
+  font-size: 12px;
+  color: #888;
+  margin-left: 8px;
+  font-weight: normal;
+}
+
+.submitButton {
+  width: 100%;
+  padding: 12px;
+  background-color: #7c3aed;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.submitButton:hover {
+  background-color: #3d6293;
+}
+
+.submitButton:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.switchForm {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+  color: #666;
+}
+
+.switchFormLink {
+  color: #7c3aed;
+  text-decoration: none;
+  font-weight: 500;
+  margin-left: 5px;
+}
+
+.switchFormLink:hover {
+  text-decoration: underline;
+}
+
+.error {
+  color: #e74c3c;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.formError {
+  background-color: #fdecea;
+  color: #e74c3c;
+  padding: 10px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.formSuccess {
+  background-color: #d4edda;
+  color: #155724;
+  padding: 10px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.rememberMe {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.rememberMeLabel {
+  margin-left: 8px;
+  font-size: 14px;
+  color: #333;
+}
+
+.datePickerContainer {
+  display: flex;
+  gap: 10px;
+}
+
+.datePickerSelect {
+  flex: 1;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 16px;
+}

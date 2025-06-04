@@ -3,6 +3,3 @@
 uploads/
 *.md
 
-# To be removed later
-Dockerfile
-caddy

@@ -9,10 +9,13 @@ import { useState } from "react";
 
 // we use this import for not reload page
 import Link from "next/link";
-
+import { useRouter } from 'next/navigation';
 import styles from "./register.module.css";
+import { FaTrash } from "react-icons/fa";
+
 // so we need to make this page exportable to use by next
 export default function RegisterPage() {
+  const router = useRouter();
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -56,18 +59,27 @@ export default function RegisterPage() {
     if (!/[0-9]/.test(formData.password)) errors.password = "Needs number.";
 
     //vald birthday
-    if (!formData.birthday) {
+     //vald birthday
+     if (!formData.birthday) {
       errors.birthday = "Birthday required.";
     } else {
-      const birth = new Date(formData.birthday);
+      const [year, month, day] = formData.birthday.split("-").map(Number);
+      const birth = new Date(year, month - 1, day);
       const today = new Date();
-      const age = today.getFullYear() - birth.getFullYear();
+
+      let age = today.getFullYear() - birth.getFullYear();
       const m = today.getMonth() - birth.getMonth();
       const d = today.getDate() - birth.getDate();
-      const validAge = m > 0 || (m === 0 && d >= 0);
-      if (age < 15 || age > 120 || !validAge)
+
+      if (m < 0 || (m === 0 && d < 0)) {
+        age--;
+      }
+
+      if (age < 15 || age > 120) {
         errors.birthday = "Age must be between 15 and 120.";
+      }
     }
+
     //valid nickname
     if (formData.nickname && !/^[a-zA-Z0-9]+$/.test(formData.nickname))
       errors.nickname = "Only letters, numbers, and underscore.";
@@ -129,7 +141,7 @@ export default function RegisterPage() {
     if (formData.avatar) submitData.append("avatar", formData.avatar);
 
     try {
-      const res = await fetch("http://localhost:8080/api/register", {
+      const res = await fetch("api/register", {
         method: "POST",
         body: submitData,
       });
@@ -151,8 +163,9 @@ export default function RegisterPage() {
         const result = await res.json();
 
         if (result.success) {
-          console.log(result.success);
+          
           setServerError("");
+          router.push('/home');
           alert("Registration successful!");
         } else {
           setServerError(result.message || "Registration failed.");
@@ -163,11 +176,16 @@ export default function RegisterPage() {
       window.location.href = "/home";
     } catch (error) {
       setServerError("Failed to connect to server.");
+      return NextResponse.json({ 
+        success: false, 
+        message: 'Server error' 
+      }, { status: 500 })
     }
   };
 
   return (
-    <div className={styles.registerContainer}>
+    <div className={styles.authContainer}>
+  <div className={styles.authForm}>
       <h2 className={styles.heading3}>Create Account</h2>
       <p className={styles.subtitle}>
         Already have an account? <Link href="/login">Sign in</Link>
@@ -264,13 +282,33 @@ export default function RegisterPage() {
 
         <div className={styles.formGroup}>
           <label className={styles.label}>Avatar (Optional)</label>
-          <input
-            type="file"
-            name="avatar"
-            onChange={handleChange}
-            className={styles.inputFile}
-            accept="image/*"
-          />
+          <div className={styles.avatarContainer}>
+            {formData.avatar && (
+              <div className={styles.avatarPreview}>
+                <img 
+                  src={URL.createObjectURL(formData.avatar)} 
+                  alt="Avatar preview"
+                  className={styles.avatarImage}
+                />
+                <button
+                  type="button"
+                  onClick={() => {
+                    setFormData({...formData, avatar: null});
+                  }}
+                  className={styles.removeAvatar}
+                >
+                  <FaTrash className={styles.removeIcon} />
+                </button>
+              </div>
+            )}
+            <input
+              type="file"
+              name="avatar"
+              onChange={handleChange}
+              className={styles.inputFile}
+              accept="image/*"
+            />
+          </div>
           {errors.avatar && <p className={styles.error}>{errors.avatar}</p>}
         </div>
 
@@ -284,6 +322,7 @@ export default function RegisterPage() {
           Create Account
         </button>
       </form>
+    </div>
     </div>
   );
 }

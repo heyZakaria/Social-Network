@@ -6,6 +6,9 @@ import (
 	"encoding/base64"
 	"encoding/json"
 	"errors"
+	"net/http"
+	db "socialNetwork/db/sqlite"
+	"socialNetwork/utils"
 	"strings"
 	"time"
 )
@@ -87,4 +90,32 @@ func VerifyJWT(token string) (JWTPayload, error) {
 	}
 
 	return payload, nil
+}
+
+func GetToken(w http.ResponseWriter, r *http.Request) (token string) {
+	cookie, err := r.Cookie("token")
+	if err != nil {
+		utils.Log("ERROR", "Token cookie is missing in GetToken")
+		return ""
+	}
+
+	return cookie.Value
+}
+
+func SaveToken(userID string, token string) error {
+	// Check for old sessions and delete them
+	deleteQuery := "DELETE FROM sessions WHERE user_id = ?"
+	_, err := db.DB.Exec(deleteQuery, userID)
+	if err != nil {
+		return err // Handle the error appropriately
+	}
+
+	// Insert the new session
+	insertQuery := `
+		INSERT INTO sessions (user_id, token, expiration_time)
+		VALUES (?, ?, ?)
+	`
+	expirationTime := time.Now().Add(24 * time.Hour)
+	_, err = db.DB.Exec(insertQuery, userID, token, expirationTime)
+	return err
 }
