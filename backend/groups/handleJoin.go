@@ -105,17 +105,18 @@ func ValidateJoinRequest(UserId string, GroupId string, Action string, Db *sql.D
 
 func ValidateGroup(Db *sql.DB, GroupId string, UserId string) (bool, bool, error) {
 	var groupExist, memberExist bool
-	var Err error
-	CheckGroupQuery := "SELECT EXISTS(SELECT * FROM groups WHERE id = ?)"
+	fmt.Println(GroupId)
+	CheckGroupQuery := "SELECT EXISTS(SELECT 1 FROM groups WHERE id = ?)"
 	err := Db.QueryRow(CheckGroupQuery, GroupId).Scan(&groupExist)
 	if err != nil {
-		Err = fmt.Errorf("Error Checking in Group Db")
+		return false, false, fmt.Errorf("error checking group existence: %w", err)
 	}
+
 	CheckGroupMemberQuery := "SELECT EXISTS(SELECT 1 FROM groupMember WHERE user_id = ? AND group_id = ?)"
 	err = Db.QueryRow(CheckGroupMemberQuery, UserId, GroupId).Scan(&memberExist)
 	if err != nil {
-		Err = fmt.Errorf("Error Checking in Group Member in Db")
+		return groupExist, false, fmt.Errorf("error checking group membership: %w", err)
 	}
 
-	return groupExist, memberExist, Err
+	return groupExist, memberExist, nil
 }

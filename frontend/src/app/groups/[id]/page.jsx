@@ -1,8 +1,9 @@
 "use client"
-import { useState  , useEffect} from "react";
+import { useState  , useEffect  } from "react";
 import styles from '../CreateGroup.module.css';
 import InviteFriends from "@/components/Group/InviteFriends";
 import { IoChevronBackCircleSharp , IoChevronForwardCircleSharp } from "react-icons/io5";
+import { useParams } from "next/navigation";
 
 
 function isMember(DummyTest) {
@@ -129,6 +130,9 @@ function Description({ Text }) {
 
 
 export default function GroupCard({  imgSrc , groupName, description, children }) {
+  const [group , setGroup] = useState([])
+  const [err , SetErr] = useState(null)
+const [loading , setLoading] = useState(true)
   const [ShowInvite , setShowInvite] = useState(false);
       const [invitedFriends, setInvitedFriends] = useState(
           FriendsList1.map(friend => ({ ...friend, invited: false }))
@@ -151,7 +155,7 @@ export default function GroupCard({  imgSrc , groupName, description, children }
     }
   } 
 
-      const [ShowMembers , setShowMembers ] = useState(false)
+    const [ShowMembers , setShowMembers ] = useState(false)
 
       const HandleMembersList = ()=>{
         setShowMembers(!ShowMembers)
@@ -162,21 +166,54 @@ if (ShowInvite){
         console.log("toggled Members");
         
       }
-  
+
+  const p = useParams()
+  const groupId = p.id
+console.log("groupId:", groupId);
+
+  useEffect(()=>{
+
+    if(!groupId)return
+    fetch(`http://localhost:8080/api/groups/group/?id=${groupId}` , 
+      {credentials: "include",
+        method:"GET",
+      }
+    ).
+    then( async (res)=>{
+
+     const Data = await res.json()
+     console.log(Data.data,"dttdtd");
+          setGroup(Data.data)
+
+     console.log(group);
+     
+     
+      if (!res.ok){throw new Error(Data.message)}
+    }).
+    then(Data => {
+      console.log(Data)
+    }).catch(error=>{
+      SetErr(error.message)
+    })
+    setLoading(false)
+  } , [groupId])
+
+  if (loading)return <p>Data is Loading</p>
+  if (err !== null)return <p>{err }</p>
   return (
-    <div className={styles.GroupCardContainer}>
-      <img src={imgSrc}
-      alt= {groupName}></img>
+  
+    <div id ={group.id} className={styles.GroupCardContainer}>
+      <img src={group.covername}
+      alt= {group.title}></img>
       <h1 className={styles.groupTitle}>{groupName}</h1>
-      <Description Text={description} />
+      <Description Text={group.description} />
       <GroupNav HandleShowInvite={HandleShowInvite}  OnMembers= {HandleMembersList}FriendsList={FriendsList1}></GroupNav>
       {ShowMembers && <Members members={members} />}
       {children}
       {ShowInvite && <InviteFriends FriendsList={invitedFriends} onInvite = {handleInvite}></InviteFriends>}
-
-
     </div>
-  );
+  
+  )
 }
 const FriendsList1 = [
     {

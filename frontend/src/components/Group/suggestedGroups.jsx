@@ -102,7 +102,7 @@ export default function GroupsList() {
 
           
         } catch (error) {
-          setError(error)
+          setError(error.message)
         }
 
         

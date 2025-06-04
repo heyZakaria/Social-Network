@@ -1,6 +1,7 @@
 package Group
 
 import (
+	"fmt"
 	"net/http"
 
 	db "socialNetwork/db/sqlite"
@@ -10,6 +11,8 @@ import (
 )
 
 func getGroup(w http.ResponseWriter, r *http.Request) {
+	var g Group
+	utils.Log("INFO", "Recieved Request To fetch Group page")
 	GroupId := r.URL.Query().Get("id")
 	UserId := r.Context().Value(shared.UserIDKey).(string)
 	if UserId == "" {
@@ -22,7 +25,6 @@ func getGroup(w http.ResponseWriter, r *http.Request) {
 	}
 	GroupExist, MemberExist, Err := ValidateGroup(db.DB, GroupId, UserId)
 	if Err != nil {
-		utils.Log("Error", "Error in ValidateGroup : "+Err.Error())
 		utils.SendJSON(w, http.StatusInternalServerError, utils.JSONResponse{
 			Success: false,
 			Message: "Internal Error",
@@ -30,6 +32,7 @@ func getGroup(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	if !GroupExist {
+
 		utils.Log("Error", "Bad request : Group Does Not Exist")
 		utils.SendJSON(w, http.StatusNotFound, utils.JSONResponse{
 			Success: false,
@@ -45,9 +48,20 @@ func getGroup(w http.ResponseWriter, r *http.Request) {
 		})
 		return
 	}
-	GetGroupQuery := "SELECT * FROM groups g WHERE g.id = ?"
-	var g Group
-	err := db.DB.QueryRow(GetGroupQuery).Scan(&g)
+	GetGroupQuery := `SELECT 
+	g.id , 
+	g.title,
+	g.descriptio , 
+	g.creator_id  ,
+	g.covername, 
+		( SELECT COUNT(*) From groupMember gm WHERE gm.group_id = g.id AND
+		gm.memberState IN ('Admin' , 'Member'))
+	AS memberCount
+	FROM groups g 
+	WHERE g.id = ?
+	`
+
+	err := db.DB.QueryRow(GetGroupQuery, GroupId).Scan(&g.ID, &g.Title, &g.Description, &g.AdminId, &g.CoverName, &g.MemberCount)
 	if err != nil {
 		utils.Log("Error", "Error Getting Group from DB"+err.Error())
 		utils.SendJSON(w, http.StatusInternalServerError, utils.JSONResponse{
@@ -62,4 +76,5 @@ func getGroup(w http.ResponseWriter, r *http.Request) {
 		Message: "Group fetching Successed",
 		Data:    g,
 	})
+	utils.Log("INFO", fmt.Sprintf(`Group With ID : %s Fetched With Success`, GroupId))
 }

@@ -2123,3 +2123,322 @@
 2025/06/04 06:31:13 [INFO] 2025-06-04 06:31:13 - Groups Fetched Successfuly
 2025/06/04 06:31:13 [INFO] 2025-06-04 06:31:13 - Recieved Request for fetching groups
 2025/06/04 06:31:13 [INFO] 2025-06-04 06:31:13 - Groups Fetched Successfuly
+2025/06/04 08:44:07 [INFO] 2025-06-04 08:44:07 - Starting HTTP server at http://localhost:8080 ...
+2025/06/04 08:44:07 [INFO] 2025-06-04 08:44:07 - Migrations applied successfully!
+2025/06/04 08:44:17 [INFO] 2025-06-04 08:44:17 - Recieved Request for fetching groups
+2025/06/04 08:44:17 [INFO] 2025-06-04 08:44:17 - Groups Fetched Successfuly
+2025/06/04 08:44:17 [INFO] 2025-06-04 08:44:17 - Recieved Request for fetching groups
+2025/06/04 08:44:17 [INFO] 2025-06-04 08:44:17 - Groups Fetched Successfuly
+2025/06/04 08:47:19 [INFO] 2025-06-04 08:47:19 - Starting HTTP server at http://localhost:8080 ...
+2025/06/04 08:47:19 [INFO] 2025-06-04 08:47:19 - Migrations applied successfully!
+2025/06/04 08:59:42 [INFO] 2025-06-04 08:59:42 - Recieved Request for fetching groups
+2025/06/04 08:59:42 [INFO] 2025-06-04 08:59:42 - Groups Fetched Successfuly
+2025/06/04 08:59:42 [INFO] 2025-06-04 08:59:42 - Recieved Request for fetching groups
+2025/06/04 08:59:42 [INFO] 2025-06-04 08:59:42 - Groups Fetched Successfuly
+2025/06/04 09:08:47 [ERROR] 2025-06-04 09:08:47 - Token cookie is missing in GetToken
+2025/06/04 09:09:01 [ERROR] 2025-06-04 09:09:01 - Token cookie is missing in GetToken
+2025/06/04 09:09:55 [INFO] 2025-06-04 09:09:55 - Parsed multipart form
+2025/06/04 09:09:55 [INFO] 2025-06-04 09:09:55 - Form fields parsed successfully
+2025/06/04 09:09:55 [INFO] 2025-06-04 09:09:55 - Form fields parsed
+2025/06/04 09:09:55 [INFO] 2025-06-04 09:09:55 - Checking if email exists: fdgdfgdfg@gdfgdf.gdfgfd
+2025/06/04 09:09:55 [INFO] 2025-06-04 09:09:55 - Email is unique
+2025/06/04 09:09:55 [INFO] 2025-06-04 09:09:55 - Handling file upload for form field 'avatar'
+2025/06/04 09:09:55 [INFO] 2025-06-04 09:09:55 - No file uploaded for field 'avatar'
+2025/06/04 09:09:55 [INFO] 2025-06-04 09:09:55 - Avatar uploaded: 
+2025/06/04 09:09:55 [INFO] 2025-06-04 09:09:55 - Validating registration input
+2025/06/04 09:09:55 [INFO] 2025-06-04 09:09:55 - Registration input valid
+2025/06/04 09:09:55 [INFO] 2025-06-04 09:09:55 - User input validated
+2025/06/04 09:09:55 [INFO] 2025-06-04 09:09:55 - Hashing password
+2025/06/04 09:09:55 [INFO] 2025-06-04 09:09:55 - Password hashed successfully
+2025/06/04 09:09:55 [INFO] 2025-06-04 09:09:55 - Password hashed
+2025/06/04 09:09:55 [INFO] 2025-06-04 09:09:55 - Saving user to database with ID: 418018b0-4466-406c-a00d-229d0dbe9115
+2025/06/04 09:09:55 [INFO] 2025-06-04 09:09:55 - User saved successfully
+2025/06/04 09:09:55 [INFO] 2025-06-04 09:09:55 - User registered with ID: 418018b0-4466-406c-a00d-229d0dbe9115
+2025/06/04 09:09:55 [INFO] 2025-06-04 09:09:55 - Save Token into Sessions
+2025/06/04 09:09:55 [INFO] 2025-06-04 09:09:55 - Login successful for user: 418018b0-4466-406c-a00d-229d0dbe9115
+2025/06/04 09:09:55 [INFO] 2025-06-04 09:09:55 - Success login
+2025/06/04 09:09:59 [ERROR] 2025-06-04 09:09:59 - Token cookie is missing in GetToken
+2025/06/04 09:10:23 [ERROR] 2025-06-04 09:10:23 - Token cookie is missing in GetToken
+2025/06/04 09:10:40 [ERROR] 2025-06-04 09:10:40 - Token cookie is missing in GetToken
+2025/06/04 09:11:18 [INFO] 2025-06-04 09:11:18 - Starting HTTP server at http://localhost:8080 ...
+2025/06/04 09:11:18 [INFO] 2025-06-04 09:11:18 - Migrations applied successfully!
+2025/06/04 09:11:20 [ERROR] 2025-06-04 09:11:20 - Token cookie is missing in GetToken
+2025/06/04 09:11:27 [ERROR] 2025-06-04 09:11:27 - Token cookie is missing in GetToken
+2025/06/04 09:11:30 [INFO] 2025-06-04 09:11:30 - Recieved Request for fetching groups
+2025/06/04 09:11:30 [INFO] 2025-06-04 09:11:30 - Groups Fetched Successfuly
+2025/06/04 09:11:30 [INFO] 2025-06-04 09:11:30 - Recieved Request for fetching groups
+2025/06/04 09:11:30 [INFO] 2025-06-04 09:11:30 - Groups Fetched Successfuly
+2025/06/04 09:11:42 [INFO] 2025-06-04 09:11:42 - Starting HTTP server at http://localhost:8080 ...
+2025/06/04 09:11:42 [INFO] 2025-06-04 09:11:42 - Migrations applied successfully!
+2025/06/04 09:11:44 [INFO] 2025-06-04 09:11:44 - Recieved Request for fetching groups
+2025/06/04 09:11:44 [INFO] 2025-06-04 09:11:44 - Groups Fetched Successfuly
+2025/06/04 09:11:44 [INFO] 2025-06-04 09:11:44 - Recieved Request for fetching groups
+2025/06/04 09:11:44 [INFO] 2025-06-04 09:11:44 - Groups Fetched Successfuly
+2025/06/04 09:11:50 [ERROR] 2025-06-04 09:11:50 - Token cookie is missing in GetToken
+2025/06/04 09:13:10 [INFO] 2025-06-04 09:13:10 - Starting HTTP server at http://localhost:8080 ...
+2025/06/04 09:13:10 [INFO] 2025-06-04 09:13:10 - Migrations applied successfully!
+2025/06/04 09:13:12 [ERROR] 2025-06-04 09:13:12 - Token cookie is missing in GetToken
+2025/06/04 09:14:05 [ERROR] 2025-06-04 09:14:05 - Token cookie is missing in GetToken
+2025/06/04 09:14:06 [ERROR] 2025-06-04 09:14:06 - Token cookie is missing in GetToken
+2025/06/04 09:14:13 [INFO] 2025-06-04 09:14:13 - Starting HTTP server at http://localhost:8080 ...
+2025/06/04 09:14:13 [INFO] 2025-06-04 09:14:13 - Migrations applied successfully!
+2025/06/04 09:14:15 [ERROR] 2025-06-04 09:14:15 - Token cookie is missing in GetToken
+2025/06/04 09:17:55 [ERROR] 2025-06-04 09:17:55 - Token cookie is missing in GetToken
+2025/06/04 09:17:57 [ERROR] 2025-06-04 09:17:57 - Token cookie is missing in GetToken
+2025/06/04 09:17:57 [ERROR] 2025-06-04 09:17:57 - Token cookie is missing in GetToken
+2025/06/04 09:18:14 [ERROR] 2025-06-04 09:18:14 - Token cookie is missing in GetToken
+2025/06/04 09:18:17 [ERROR] 2025-06-04 09:18:17 - Token cookie is missing in GetToken
+2025/06/04 09:18:17 [ERROR] 2025-06-04 09:18:17 - Token cookie is missing in GetToken
+2025/06/04 09:19:21 [INFO] 2025-06-04 09:19:21 - Parsed multipart form
+2025/06/04 09:19:21 [INFO] 2025-06-04 09:19:21 - Form fields parsed successfully
+2025/06/04 09:19:21 [INFO] 2025-06-04 09:19:21 - Form fields parsed
+2025/06/04 09:19:21 [INFO] 2025-06-04 09:19:21 - Checking if email exists: fsdfsdfs@dfsdfsdf.s
+2025/06/04 09:19:21 [INFO] 2025-06-04 09:19:21 - Email is unique
+2025/06/04 09:19:21 [INFO] 2025-06-04 09:19:21 - Handling file upload for form field 'avatar'
+2025/06/04 09:19:21 [INFO] 2025-06-04 09:19:21 - No file uploaded for field 'avatar'
+2025/06/04 09:19:21 [INFO] 2025-06-04 09:19:21 - Avatar uploaded: 
+2025/06/04 09:19:21 [INFO] 2025-06-04 09:19:21 - Validating registration input
+2025/06/04 09:19:21 [INFO] 2025-06-04 09:19:21 - Registration input valid
+2025/06/04 09:19:21 [INFO] 2025-06-04 09:19:21 - User input validated
+2025/06/04 09:19:21 [INFO] 2025-06-04 09:19:21 - Hashing password
+2025/06/04 09:19:21 [INFO] 2025-06-04 09:19:21 - Password hashed successfully
+2025/06/04 09:19:21 [INFO] 2025-06-04 09:19:21 - Password hashed
+2025/06/04 09:19:21 [INFO] 2025-06-04 09:19:21 - Saving user to database with ID: ea9b9737-beb7-4753-b946-12e0803b373b
+2025/06/04 09:19:21 [INFO] 2025-06-04 09:19:21 - User saved successfully
+2025/06/04 09:19:21 [INFO] 2025-06-04 09:19:21 - User registered with ID: ea9b9737-beb7-4753-b946-12e0803b373b
+2025/06/04 09:19:21 [INFO] 2025-06-04 09:19:21 - Save Token into Sessions
+2025/06/04 09:19:21 [INFO] 2025-06-04 09:19:21 - Login successful for user: ea9b9737-beb7-4753-b946-12e0803b373b
+2025/06/04 09:19:21 [INFO] 2025-06-04 09:19:21 - Success login
+2025/06/04 09:19:25 [ERROR] 2025-06-04 09:19:25 - Token cookie is missing in GetToken
+2025/06/04 09:21:23 [INFO] 2025-06-04 09:21:23 - Starting HTTP server at http://localhost:8080 ...
+2025/06/04 09:21:23 [INFO] 2025-06-04 09:21:23 - Migrations applied successfully!
+2025/06/04 09:21:27 [LOG] 2025-06-04 09:21:27 - Bad request : Group Does Not Exist
+2025/06/04 09:21:34 [LOG] 2025-06-04 09:21:34 - Bad request : Group Does Not Exist
+2025/06/04 09:23:23 [INFO] 2025-06-04 09:23:23 - Starting HTTP server at http://localhost:8080 ...
+2025/06/04 09:23:23 [INFO] 2025-06-04 09:23:23 - Migrations applied successfully!
+2025/06/04 09:23:24 [LOG] 2025-06-04 09:23:24 - Bad request : Group Does Not Exist
+2025/06/04 09:23:39 [LOG] 2025-06-04 09:23:39 - Bad request : Group Does Not Exist
+2025/06/04 09:24:19 [INFO] 2025-06-04 09:24:19 - Starting HTTP server at http://localhost:8080 ...
+2025/06/04 09:24:19 [INFO] 2025-06-04 09:24:19 - Migrations applied successfully!
+2025/06/04 09:24:21 [LOG] 2025-06-04 09:24:21 - Bad request : Group Does Not Exist
+2025/06/04 09:25:32 [INFO] 2025-06-04 09:25:32 - Starting HTTP server at http://localhost:8080 ...
+2025/06/04 09:25:32 [INFO] 2025-06-04 09:25:32 - Migrations applied successfully!
+2025/06/04 09:25:35 [LOG] 2025-06-04 09:25:35 - Bad request : Group Does Not Exist
+2025/06/04 09:25:37 [LOG] 2025-06-04 09:25:37 - Bad request : Group Does Not Exist
+2025/06/04 09:25:37 [LOG] 2025-06-04 09:25:37 - Bad request : Group Does Not Exist
+2025/06/04 09:26:43 [INFO] 2025-06-04 09:26:43 - Starting HTTP server at http://localhost:8080 ...
+2025/06/04 09:26:43 [INFO] 2025-06-04 09:26:43 - Migrations applied successfully!
+2025/06/04 09:26:45 [LOG] 2025-06-04 09:26:45 - Bad request : Group Does Not Exist
+2025/06/04 09:26:46 [LOG] 2025-06-04 09:26:46 - Bad request : Group Does Not Exist
+2025/06/04 09:26:46 [LOG] 2025-06-04 09:26:46 - Bad request : Group Does Not Exist
+2025/06/04 09:27:11 [INFO] 2025-06-04 09:27:11 - Starting HTTP server at http://localhost:8080 ...
+2025/06/04 09:27:11 [INFO] 2025-06-04 09:27:11 - Migrations applied successfully!
+2025/06/04 09:27:12 [LOG] 2025-06-04 09:27:12 - Bad request : Group Does Not Exist
+2025/06/04 09:27:41 [INFO] 2025-06-04 09:27:41 - Starting HTTP server at http://localhost:8080 ...
+2025/06/04 09:27:41 [INFO] 2025-06-04 09:27:41 - Migrations applied successfully!
+2025/06/04 09:27:46 [INFO] 2025-06-04 09:27:46 - Recieved Request for fetching groups
+2025/06/04 09:27:46 [INFO] 2025-06-04 09:27:46 - Groups Fetched Successfuly
+2025/06/04 09:27:56 [INFO] 2025-06-04 09:27:56 - Recieved Request for fetching groups
+2025/06/04 09:27:56 [INFO] 2025-06-04 09:27:56 - Groups Fetched Successfuly
+2025/06/04 09:27:58 [INFO] 2025-06-04 09:27:58 - Recieved Request for fetching groups
+2025/06/04 09:27:58 [INFO] 2025-06-04 09:27:58 - Groups Fetched Successfuly
+2025/06/04 09:27:59 [INFO] 2025-06-04 09:27:59 - Recieved Request for fetching groups
+2025/06/04 09:27:59 [INFO] 2025-06-04 09:27:59 - Groups Fetched Successfuly
+2025/06/04 09:28:20 [INFO] 2025-06-04 09:28:20 - Recieved Request for fetching groups
+2025/06/04 09:28:20 [INFO] 2025-06-04 09:28:20 - Groups Fetched Successfuly
+2025/06/04 09:28:21 [INFO] 2025-06-04 09:28:21 - Recieved Request for fetching groups
+2025/06/04 09:28:21 [INFO] 2025-06-04 09:28:21 - Groups Fetched Successfuly
+2025/06/04 09:29:51 [INFO] 2025-06-04 09:29:51 - Starting HTTP server at http://localhost:8080 ...
+2025/06/04 09:29:51 [INFO] 2025-06-04 09:29:51 - Migrations applied successfully!
+2025/06/04 09:29:52 [INFO] 2025-06-04 09:29:52 - Recieved Request for fetching groups
+2025/06/04 09:29:52 [INFO] 2025-06-04 09:29:52 - Groups Fetched Successfuly
+2025/06/04 09:31:07 [INFO] 2025-06-04 09:31:07 - Starting HTTP server at http://localhost:8080 ...
+2025/06/04 09:31:07 [INFO] 2025-06-04 09:31:07 - Migrations applied successfully!
+2025/06/04 09:32:13 [INFO] 2025-06-04 09:32:13 - Recieved Request for fetching groups
+2025/06/04 09:32:13 [INFO] 2025-06-04 09:32:13 - Groups Fetched Successfuly
+2025/06/04 09:32:21 [INFO] 2025-06-04 09:32:21 - Recieved Request for fetching groups
+2025/06/04 09:32:21 [INFO] 2025-06-04 09:32:21 - Groups Fetched Successfuly
+2025/06/04 09:36:30 [INFO] 2025-06-04 09:36:30 - Recieved Request for fetching groups
+2025/06/04 09:36:30 [INFO] 2025-06-04 09:36:30 - Groups Fetched Successfuly
+2025/06/04 09:36:30 [INFO] 2025-06-04 09:36:30 - Recieved Request for fetching groups
+2025/06/04 09:36:30 [INFO] 2025-06-04 09:36:30 - Groups Fetched Successfuly
+2025/06/04 09:39:16 [INFO] 2025-06-04 09:39:16 - Recieved Request for fetching groups
+2025/06/04 09:39:16 [INFO] 2025-06-04 09:39:16 - Groups Fetched Successfuly
+2025/06/04 09:39:16 [INFO] 2025-06-04 09:39:16 - Recieved Request for fetching groups
+2025/06/04 09:39:16 [INFO] 2025-06-04 09:39:16 - Groups Fetched Successfuly
+2025/06/04 09:41:03 [INFO] 2025-06-04 09:41:03 - Recieved Request for fetching groups
+2025/06/04 09:41:03 [INFO] 2025-06-04 09:41:03 - Groups Fetched Successfuly
+2025/06/04 09:41:05 [INFO] 2025-06-04 09:41:05 - Recieved Request for fetching groups
+2025/06/04 09:41:05 [INFO] 2025-06-04 09:41:05 - Groups Fetched Successfuly
+2025/06/04 09:41:38 [INFO] 2025-06-04 09:41:38 - Recieved Request for fetching groups
+2025/06/04 09:41:38 [INFO] 2025-06-04 09:41:38 - Groups Fetched Successfuly
+2025/06/04 09:41:55 [INFO] 2025-06-04 09:41:55 - Recieved Request for fetching groups
+2025/06/04 09:41:55 [INFO] 2025-06-04 09:41:55 - Groups Fetched Successfuly
+2025/06/04 09:44:38 [INFO] 2025-06-04 09:44:38 - Starting HTTP server at http://localhost:8080 ...
+2025/06/04 09:44:38 [INFO] 2025-06-04 09:44:38 - Migrations applied successfully!
+2025/06/04 09:44:47 [INFO] 2025-06-04 09:44:47 - Recieved Request for fetching groups
+2025/06/04 09:44:47 [INFO] 2025-06-04 09:44:47 - Groups Fetched Successfuly
+2025/06/04 09:44:47 [INFO] 2025-06-04 09:44:47 - Recieved Request for fetching groups
+2025/06/04 09:44:47 [INFO] 2025-06-04 09:44:47 - Groups Fetched Successfuly
+2025/06/04 09:44:54 [INFO] 2025-06-04 09:44:54 - Recieved Request To fetch Group page
+2025/06/04 09:44:54 [LOG] 2025-06-04 09:44:54 - Bad request : Group Does Not Exist
+2025/06/04 09:46:45 [INFO] 2025-06-04 09:46:45 - Starting HTTP server at http://localhost:8080 ...
+2025/06/04 09:46:45 [INFO] 2025-06-04 09:46:45 - Migrations applied successfully!
+2025/06/04 09:46:47 [INFO] 2025-06-04 09:46:47 - Recieved Request for fetching groups
+2025/06/04 09:46:47 [INFO] 2025-06-04 09:46:47 - Groups Fetched Successfuly
+2025/06/04 09:47:06 [INFO] 2025-06-04 09:47:06 - Starting HTTP server at http://localhost:8080 ...
+2025/06/04 09:47:06 [INFO] 2025-06-04 09:47:06 - Migrations applied successfully!
+2025/06/04 09:47:08 [INFO] 2025-06-04 09:47:08 - Recieved Request To fetch Group page
+2025/06/04 09:47:08 [LOG] 2025-06-04 09:47:08 - Bad request : Group Does Not Exist
+2025/06/04 09:47:44 [INFO] 2025-06-04 09:47:44 - Recieved Request To fetch Group page
+2025/06/04 09:47:44 [LOG] 2025-06-04 09:47:44 - Not a Member 
+2025/06/04 09:47:51 [INFO] 2025-06-04 09:47:51 - Recieved Request To fetch Group page
+2025/06/04 09:47:51 [LOG] 2025-06-04 09:47:51 - Not a Member 
+2025/06/04 09:47:56 [INFO] 2025-06-04 09:47:56 - Recieved Request To fetch Group page
+2025/06/04 09:47:56 [LOG] 2025-06-04 09:47:56 - Not a Member 
+2025/06/04 09:47:58 [INFO] 2025-06-04 09:47:58 - Recieved Request for fetching groups
+2025/06/04 09:47:58 [INFO] 2025-06-04 09:47:58 - Groups Fetched Successfuly
+2025/06/04 09:47:58 [INFO] 2025-06-04 09:47:58 - Recieved Request for fetching groups
+2025/06/04 09:47:58 [INFO] 2025-06-04 09:47:58 - Groups Fetched Successfuly
+2025/06/04 09:48:03 [INFO] 2025-06-04 09:48:03 - Recieved Request To fetch Group page
+2025/06/04 09:48:03 [LOG] 2025-06-04 09:48:03 - Not a Member 
+2025/06/04 09:52:15 [INFO] 2025-06-04 09:52:15 - Recieved Request To fetch Group page
+2025/06/04 09:52:15 [LOG] 2025-06-04 09:52:15 - Not a Member 
+2025/06/04 09:52:15 [INFO] 2025-06-04 09:52:15 - Recieved Request To fetch Group page
+2025/06/04 09:52:15 [LOG] 2025-06-04 09:52:15 - Not a Member 
+2025/06/04 09:52:57 [INFO] 2025-06-04 09:52:57 - Starting HTTP server at http://localhost:8080 ...
+2025/06/04 09:52:57 [INFO] 2025-06-04 09:52:57 - Migrations applied successfully!
+2025/06/04 09:53:15 [INFO] 2025-06-04 09:53:15 - Recieved Request To fetch Group page
+2025/06/04 09:53:15 [LOG] 2025-06-04 09:53:15 - Not a Member 
+2025/06/04 09:53:35 [INFO] 2025-06-04 09:53:35 - Recieved Request To fetch Group page
+2025/06/04 09:53:35 [LOG] 2025-06-04 09:53:35 - Not a Member 
+2025/06/04 09:54:38 [INFO] 2025-06-04 09:54:38 - Recieved Request To fetch Group page
+2025/06/04 09:54:38 [LOG] 2025-06-04 09:54:38 - Not a Member 
+2025/06/04 09:55:41 [INFO] 2025-06-04 09:55:41 - Recieved Request To fetch Group page
+2025/06/04 09:55:41 [LOG] 2025-06-04 09:55:41 - Not a Member 
+2025/06/04 09:56:57 [INFO] 2025-06-04 09:56:57 - Recieved Request To fetch Group page
+2025/06/04 09:56:57 [LOG] 2025-06-04 09:56:57 - Not a Member 
+2025/06/04 09:56:57 [INFO] 2025-06-04 09:56:57 - Recieved Request To fetch Group page
+2025/06/04 09:56:57 [LOG] 2025-06-04 09:56:57 - Not a Member 
+2025/06/04 09:57:00 [INFO] 2025-06-04 09:57:00 - Recieved Request To fetch Group page
+2025/06/04 09:57:00 [LOG] 2025-06-04 09:57:00 - Not a Member 
+2025/06/04 09:57:02 [INFO] 2025-06-04 09:57:02 - Recieved Request To fetch Group page
+2025/06/04 09:57:02 [LOG] 2025-06-04 09:57:02 - Not a Member 
+2025/06/04 09:57:20 [INFO] 2025-06-04 09:57:20 - Recieved Request To fetch Group page
+2025/06/04 09:57:20 [LOG] 2025-06-04 09:57:20 - Not a Member 
+2025/06/04 09:57:38 [INFO] 2025-06-04 09:57:38 - Recieved Request To fetch Group page
+2025/06/04 09:57:38 [LOG] 2025-06-04 09:57:38 - Not a Member 
+2025/06/04 09:57:38 [INFO] 2025-06-04 09:57:38 - Recieved Request To fetch Group page
+2025/06/04 09:57:38 [LOG] 2025-06-04 09:57:38 - Not a Member 
+2025/06/04 09:57:38 [INFO] 2025-06-04 09:57:38 - Recieved Request To fetch Group page
+2025/06/04 09:57:38 [LOG] 2025-06-04 09:57:38 - Not a Member 
+2025/06/04 09:57:40 [INFO] 2025-06-04 09:57:40 - Recieved Request To fetch Group page
+2025/06/04 09:57:40 [LOG] 2025-06-04 09:57:40 - Not a Member 
+2025/06/04 09:58:48 [INFO] 2025-06-04 09:58:48 - Recieved Request To fetch Group page
+2025/06/04 09:58:48 [LOG] 2025-06-04 09:58:48 - Not a Member 
+2025/06/04 09:59:17 [INFO] 2025-06-04 09:59:17 - Recieved Request To fetch Group page
+2025/06/04 09:59:17 [LOG] 2025-06-04 09:59:17 - Not a Member 
+2025/06/04 09:59:17 [INFO] 2025-06-04 09:59:17 - Recieved Request To fetch Group page
+2025/06/04 09:59:17 [LOG] 2025-06-04 09:59:17 - Not a Member 
+2025/06/04 09:59:18 [INFO] 2025-06-04 09:59:18 - Recieved Request To fetch Group page
+2025/06/04 09:59:18 [LOG] 2025-06-04 09:59:18 - Not a Member 
+2025/06/04 09:59:19 [INFO] 2025-06-04 09:59:19 - Recieved Request To fetch Group page
+2025/06/04 09:59:19 [LOG] 2025-06-04 09:59:19 - Not a Member 
+2025/06/04 09:59:29 [INFO] 2025-06-04 09:59:29 - Recieved Request To fetch Group page
+2025/06/04 09:59:29 [LOG] 2025-06-04 09:59:29 - Not a Member 
+2025/06/04 09:59:47 [INFO] 2025-06-04 09:59:47 - Recieved Request To fetch Group page
+2025/06/04 09:59:47 [LOG] 2025-06-04 09:59:47 - Not a Member 
+2025/06/04 10:00:51 [INFO] 2025-06-04 10:00:51 - Recieved Request To fetch Group page
+2025/06/04 10:00:51 [LOG] 2025-06-04 10:00:51 - Not a Member 
+2025/06/04 10:00:58 [INFO] 2025-06-04 10:00:58 - Recieved Request To fetch Group page
+2025/06/04 10:00:58 [LOG] 2025-06-04 10:00:58 - Not a Member 
+2025/06/04 10:01:00 [INFO] 2025-06-04 10:01:00 - Recieved Request To fetch Group page
+2025/06/04 10:01:00 [LOG] 2025-06-04 10:01:00 - Not a Member 
+2025/06/04 10:01:01 [INFO] 2025-06-04 10:01:01 - Recieved Request To fetch Group page
+2025/06/04 10:01:01 [LOG] 2025-06-04 10:01:01 - Not a Member 
+2025/06/04 10:01:30 [INFO] 2025-06-04 10:01:30 - Recieved Request To fetch Group page
+2025/06/04 10:01:30 [LOG] 2025-06-04 10:01:30 - Not a Member 
+2025/06/04 10:01:30 [INFO] 2025-06-04 10:01:30 - Recieved Request To fetch Group page
+2025/06/04 10:01:30 [LOG] 2025-06-04 10:01:30 - Not a Member 
+2025/06/04 10:02:20 [INFO] 2025-06-04 10:02:20 - Recieved Request To fetch Group page
+2025/06/04 10:02:20 [LOG] 2025-06-04 10:02:20 - Not a Member 
+2025/06/04 10:02:33 [INFO] 2025-06-04 10:02:33 - Recieved Request To fetch Group page
+2025/06/04 10:02:33 [LOG] 2025-06-04 10:02:33 - Not a Member 
+2025/06/04 10:02:36 [INFO] 2025-06-04 10:02:36 - Recieved Request To fetch Group page
+2025/06/04 10:02:36 [LOG] 2025-06-04 10:02:36 - Not a Member 
+2025/06/04 10:02:42 [INFO] 2025-06-04 10:02:42 - Recieved Request To fetch Group page
+2025/06/04 10:02:42 [LOG] 2025-06-04 10:02:42 - Not a Member 
+2025/06/04 10:02:45 [INFO] 2025-06-04 10:02:45 - Recieved Request To fetch Group page
+2025/06/04 10:02:45 [LOG] 2025-06-04 10:02:45 - Not a Member 
+2025/06/04 10:02:48 [INFO] 2025-06-04 10:02:48 - Recieved Request To fetch Group page
+2025/06/04 10:02:48 [LOG] 2025-06-04 10:02:48 - Not a Member 
+2025/06/04 10:08:33 [INFO] 2025-06-04 10:08:33 - Recieved Request To fetch Group page
+2025/06/04 10:08:33 [LOG] 2025-06-04 10:08:33 - Not a Member 
+2025/06/04 10:08:35 [INFO] 2025-06-04 10:08:35 - Recieved Request for fetching groups
+2025/06/04 10:08:35 [INFO] 2025-06-04 10:08:35 - Groups Fetched Successfuly
+2025/06/04 10:08:35 [INFO] 2025-06-04 10:08:35 - Recieved Request for fetching groups
+2025/06/04 10:08:35 [INFO] 2025-06-04 10:08:35 - Groups Fetched Successfuly
+2025/06/04 10:10:49 [INFO] 2025-06-04 10:10:49 - Recieved Request for fetching groups
+2025/06/04 10:10:49 [INFO] 2025-06-04 10:10:49 - Groups Fetched Successfuly
+2025/06/04 10:10:49 [INFO] 2025-06-04 10:10:49 - Recieved Request for fetching groups
+2025/06/04 10:10:49 [INFO] 2025-06-04 10:10:49 - Groups Fetched Successfuly
+2025/06/04 10:10:50 [INFO] 2025-06-04 10:10:50 - Recieved Request To fetch Group page
+2025/06/04 10:10:50 [LOG] 2025-06-04 10:10:50 - Not a Member 
+2025/06/04 10:10:51 [INFO] 2025-06-04 10:10:51 - Recieved Request To fetch Group page
+2025/06/04 10:10:51 [LOG] 2025-06-04 10:10:51 - Bad request : Group Does Not Exist
+2025/06/04 10:11:03 [INFO] 2025-06-04 10:11:03 - Starting HTTP server at http://localhost:8080 ...
+2025/06/04 10:11:03 [INFO] 2025-06-04 10:11:03 - Migrations applied successfully!
+2025/06/04 10:11:06 [INFO] 2025-06-04 10:11:06 - Recieved Request To fetch Group page
+2025/06/04 10:11:06 [LOG] 2025-06-04 10:11:06 - Bad request : Group Does Not Exist
+2025/06/04 10:11:15 [INFO] 2025-06-04 10:11:15 - Recieved Request To fetch Group page
+2025/06/04 10:11:15 [LOG] 2025-06-04 10:11:15 - Not a Member 
+2025/06/04 10:12:29 [INFO] 2025-06-04 10:12:29 - Recieved Request for fetching groups
+2025/06/04 10:12:29 [INFO] 2025-06-04 10:12:29 - Groups Fetched Successfuly
+2025/06/04 10:12:29 [INFO] 2025-06-04 10:12:29 - Recieved Request for fetching groups
+2025/06/04 10:12:29 [INFO] 2025-06-04 10:12:29 - Groups Fetched Successfuly
+2025/06/04 10:13:20 [INFO] 2025-06-04 10:13:20 - Recieved Request To fetch Group page
+2025/06/04 10:13:20 [LOG] 2025-06-04 10:13:20 - Not a Member 
+2025/06/04 10:13:43 [INFO] 2025-06-04 10:13:43 - Recieved Request To fetch Group page
+2025/06/04 10:13:43 [LOG] 2025-06-04 10:13:43 - Not a Member 
+2025/06/04 10:13:49 [INFO] 2025-06-04 10:13:49 - Starting HTTP server at http://localhost:8080 ...
+2025/06/04 10:13:49 [INFO] 2025-06-04 10:13:49 - Migrations applied successfully!
+2025/06/04 10:13:50 [INFO] 2025-06-04 10:13:50 - Recieved Request To fetch Group page
+2025/06/04 10:13:50 [LOG] 2025-06-04 10:13:50 - Not a Member 
+2025/06/04 10:13:51 [INFO] 2025-06-04 10:13:51 - Recieved Request To fetch Group page
+2025/06/04 10:13:51 [LOG] 2025-06-04 10:13:51 - Not a Member 
+2025/06/04 10:13:51 [INFO] 2025-06-04 10:13:51 - Recieved Request To fetch Group page
+2025/06/04 10:13:51 [LOG] 2025-06-04 10:13:51 - Not a Member 
+2025/06/04 10:13:51 [INFO] 2025-06-04 10:13:51 - Recieved Request To fetch Group page
+2025/06/04 10:13:51 [LOG] 2025-06-04 10:13:51 - Not a Member 
+2025/06/04 10:13:51 [INFO] 2025-06-04 10:13:51 - Recieved Request To fetch Group page
+2025/06/04 10:13:51 [LOG] 2025-06-04 10:13:51 - Not a Member 
+2025/06/04 10:14:23 [INFO] 2025-06-04 10:14:23 - Recieved Request To fetch Group page
+2025/06/04 10:14:23 [LOG] 2025-06-04 10:14:23 - Error Getting Group from DBsql: Scan error on column index 4, name "covername": converting NULL to string is unsupported
+2025/06/04 10:15:34 [INFO] 2025-06-04 10:15:34 - Recieved Request To fetch Group page
+2025/06/04 10:15:34 [INFO] 2025-06-04 10:15:34 - Group With ID : 13 Fetched With Success
+2025/06/04 10:15:47 [INFO] 2025-06-04 10:15:47 - Recieved Request for fetching groups
+2025/06/04 10:15:47 [INFO] 2025-06-04 10:15:47 - Groups Fetched Successfuly
+2025/06/04 10:15:47 [INFO] 2025-06-04 10:15:47 - Recieved Request for fetching groups
+2025/06/04 10:15:47 [INFO] 2025-06-04 10:15:47 - Groups Fetched Successfuly
+2025/06/04 10:15:55 [INFO] 2025-06-04 10:15:55 - Recieved Request To fetch Group page
+2025/06/04 10:15:55 [INFO] 2025-06-04 10:15:55 - Group With ID : 13 Fetched With Success
+2025/06/04 10:19:06 [INFO] 2025-06-04 10:19:06 - Recieved Request To fetch Group page
+2025/06/04 10:19:06 [LOG] 2025-06-04 10:19:06 - Not a Member 
+2025/06/04 10:19:06 [INFO] 2025-06-04 10:19:06 - Recieved Request To fetch Group page
+2025/06/04 10:19:06 [INFO] 2025-06-04 10:19:06 - Group With ID : 13 Fetched With Success
+2025/06/04 10:21:44 [INFO] 2025-06-04 10:21:44 - Starting HTTP server at http://localhost:8080 ...
+2025/06/04 10:21:44 [INFO] 2025-06-04 10:21:44 - Migrations applied successfully!
+2025/06/04 10:22:10 [INFO] 2025-06-04 10:22:10 - Recieved Request To fetch Group page
+2025/06/04 10:22:10 [INFO] 2025-06-04 10:22:10 - Group With ID : 13 Fetched With Success
+2025/06/04 10:22:10 [INFO] 2025-06-04 10:22:10 - Recieved Request To fetch Group page
+2025/06/04 10:22:10 [INFO] 2025-06-04 10:22:10 - Group With ID : 13 Fetched With Success
+2025/06/04 10:23:42 [INFO] 2025-06-04 10:23:42 - Recieved Request To fetch Group page
+2025/06/04 10:23:42 [INFO] 2025-06-04 10:23:42 - Group With ID : 13 Fetched With Success
+2025/06/04 10:23:59 [INFO] 2025-06-04 10:23:59 - Recieved Request To fetch Group page
+2025/06/04 10:23:59 [LOG] 2025-06-04 10:23:59 - Not a Member 
+2025/06/04 10:23:59 [INFO] 2025-06-04 10:23:59 - Recieved Request To fetch Group page
+2025/06/04 10:23:59 [INFO] 2025-06-04 10:23:59 - Group With ID : 13 Fetched With Success
+2025/06/04 10:25:03 [INFO] 2025-06-04 10:25:03 - Recieved Request To fetch Group page
+2025/06/04 10:25:03 [INFO] 2025-06-04 10:25:03 - Group With ID : 13 Fetched With Success
+2025/06/04 10:25:06 [INFO] 2025-06-04 10:25:06 - Recieved Request To fetch Group page
+2025/06/04 10:25:06 [LOG] 2025-06-04 10:25:06 - Not a Member 
