@@ -24,6 +24,7 @@ func fetchGroups(w http.ResponseWriter, r *http.Request) {
 			Success: false,
 			Message: err.Error(),
 		})
+		fmt.Println("1")
 		return
 	}
 	Groups, err := GetGroups(db.DB, User_id)
@@ -33,6 +34,8 @@ func fetchGroups(w http.ResponseWriter, r *http.Request) {
 			Success: false,
 			Message: err.Error(),
 		})
+		fmt.Println("2")
+
 		return
 	}
 	utils.Log("INFO", "Groups Fetched Successfuly")
@@ -54,10 +57,17 @@ func fetchGroups(w http.ResponseWriter, r *http.Request) {
 
 func GetGroups(db *sql.DB, currentUserID string) ([]Group, error) {
 	query := `
-SELECT  g.title , g.descriptio , g.covername, g.id , count(gm.id) AS member_count ,  coalesce(gmCurrent.memberState, 'Join') As mb FROM groups g 
-LEFT JOIN groupMember gm ON gm.group_id = g.id
-LEFT JOIN groupMember gmCurrent ON gm.group_id = gmCurrent.group_id AND gm.user_id = ?
-GROUP BY   g.title , g.descriptio , g.covername, g.id ;
+SELECT  
+    g.title, 
+    g.descriptio, 
+    g.covername, 
+    g.id, 
+    (SELECT COUNT(*) FROM groupMember WHERE group_id = g.id AND (memberState = "Member" OR memberState = "Admin" )) AS member_count,  
+    COALESCE(gmCurrent.memberState, 'Join') AS mb 
+FROM groups g 
+LEFT JOIN groupMember gmCurrent 
+    ON gmCurrent.group_id = g.id AND gmCurrent.user_id = ?
+
 	`
 
 	rows, err := db.Query(query, currentUserID)

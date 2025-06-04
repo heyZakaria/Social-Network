@@ -9,6 +9,7 @@ func GroupMux() http.Handler {
 
 	mux.HandleFunc("POST /", createGroup)
 	mux.HandleFunc("GET /", fetchGroups)
+
 	mux.HandleFunc("POST /{id}/invite/{user_id}", handleInvite)
 	mux.HandleFunc("POST /join", handleJoin)
 

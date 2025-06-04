@@ -47,6 +47,7 @@ func HandleRegister(w http.ResponseWriter, r *http.Request) {
 	// Goal of change : making it reusable
 	avatarFilename, err := utils.HandleUploadImage(r, "avatar", 1024*1024, "../uploads/profile_images")
 	if err != nil {
+
 		utils.Log("ERROR", "Avatar upload failed: "+err.Error())
 		SendJSON(w, http.StatusInternalServerError, JSONResponse{
 			Success: false,

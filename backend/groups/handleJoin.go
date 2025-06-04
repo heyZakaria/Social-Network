@@ -4,7 +4,6 @@ import (
 	"database/sql"
 	"fmt"
 	"net/http"
-	"strconv"
 
 	"socialNetwork/auth"
 	db "socialNetwork/db/sqlite"
@@ -28,15 +27,15 @@ func handleJoin(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	utils.Log("INFO", "Recieved Group Join Request")
-	Group_id, err := strconv.Atoi(r.URL.Query().Get("id"))
-	if err != nil {
-		utils.Log("ERROR", "Error Converting Group_id"+err.Error())
-		utils.SendJSON(w, http.StatusBadRequest, utils.JSONResponse{
-			Success: false,
-			Error:   "INternal Error",
-		})
-		return
-	}
+	Group_id := r.URL.Query().Get("id")
+	// if err != nil {
+	// 	utils.Log("ERROR", "Error Converting Group_id"+err.Error())
+	// 	utils.SendJSON(w, http.StatusBadRequest, utils.JSONResponse{
+	// 		Success: false,
+	// 		Error:   "INternal Error",
+	// 	})
+	// 	return
+	// }
 	Action := r.URL.Query().Get("action")
 	UserId := r.Context().Value(shared.UserIDKey).(string)
 	err = ValidateJoinRequest(UserId, Group_id, Action, db.DB)
@@ -61,7 +60,7 @@ func handleJoin(w http.ResponseWriter, r *http.Request) {
 		}
 
 	case "Canceling":
-		_, err := db.DB.Exec("DELETE * FROM groupMember WHERE group_id = ? AND user_id = ? AND memberState = ?", Group_id, UserId, "Pending")
+		_, err := db.DB.Exec("DELETE FROM groupMember WHERE group_id = ? AND user_id = ? AND memberState = ?", Group_id, UserId, "Pending")
 		if err != nil {
 			utils.Log("ERROR", "Error : Deleting groupMember Pending Request "+err.Error())
 			utils.SendJSON(w, http.StatusInternalServerError, utils.JSONResponse{
@@ -80,13 +79,12 @@ func handleJoin(w http.ResponseWriter, r *http.Request) {
 
 // Validation Function
 
-func ValidateJoinRequest(UserId string, GroupId int, Action string, Db *sql.DB) error {
-	var groupExist bool
-	var IsMember bool
-	CheckGroupQuery := "SELECT EXISTS(SELECT 1 FROM groups WHERE id = ?)"
-	Db.QueryRow(CheckGroupQuery, GroupId).Scan(groupExist)
-	CheckGroupMemberQuery := "SELECT EXISTS(SELECT 1 FROM groupMember WHERE id = ? AND group_id = ?)"
-	Db.QueryRow(CheckGroupMemberQuery, UserId, GroupId).Scan(IsMember)
+func ValidateJoinRequest(UserId string, GroupId string, Action string, Db *sql.DB) error {
+	groupExist, IsMember, Err := ValidateGroup(db.DB, GroupId, UserId)
+	if Err != nil {
+		return Err
+	}
+
 	if !groupExist {
 		return fmt.Errorf("Group Does Not Exist")
 	}
@@ -103,4 +101,21 @@ func ValidateJoinRequest(UserId string, GroupId int, Action string, Db *sql.DB) 
 
 	}
 	return nil
+}
+
+func ValidateGroup(Db *sql.DB, GroupId string, UserId string) (bool, bool, error) {
+	var groupExist, memberExist bool
+	var Err error
+	CheckGroupQuery := "SELECT EXISTS(SELECT * FROM groups WHERE id = ?)"
+	err := Db.QueryRow(CheckGroupQuery, GroupId).Scan(&groupExist)
+	if err != nil {
+		Err = fmt.Errorf("Error Checking in Group Db")
+	}
+	CheckGroupMemberQuery := "SELECT EXISTS(SELECT 1 FROM groupMember WHERE user_id = ? AND group_id = ?)"
+	err = Db.QueryRow(CheckGroupMemberQuery, UserId, GroupId).Scan(&memberExist)
+	if err != nil {
+		Err = fmt.Errorf("Error Checking in Group Member in Db")
+	}
+
+	return groupExist, memberExist, Err
 }

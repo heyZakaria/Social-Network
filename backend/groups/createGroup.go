@@ -5,6 +5,7 @@ import (
 	"errors"
 	"fmt"
 	"net/http"
+	"strconv"
 	"strings"
 
 	db "socialNetwork/db/sqlite"
@@ -121,15 +122,18 @@ func (g Group) InsertGroup(db *sql.DB) (int, error) {
 	if err != nil {
 		return -1, fmt.Errorf("Error Getting GroupId : %s", err)
 	}
+	GroupIdToString := strconv.Itoa(int(GroupId))
+
 	defer stmt.Close()
-	_, err = InsertGroupMember(db, "Admin", int(GroupId), g.AdminId)
+
+	_, err = InsertGroupMember(db, "Admin", GroupIdToString, g.AdminId)
 	if err != nil {
 		return -1, fmt.Errorf("Error Inserting GroupMember : %s", err)
 	}
 	return int(GroupId), nil
 }
 
-func InsertGroupMember(db *sql.DB, state string, groupId int, userId string) (int, error) {
+func InsertGroupMember(db *sql.DB, state string, groupId string, userId string) (int, error) {
 	utils.Log("INFO", "Saving GroupMember into DB")
 	stmt, err := db.Prepare(`INSERT INTO groupMember (user_id, group_id,memberState ) VALUES (? , ? , ?) `)
 	if err != nil {

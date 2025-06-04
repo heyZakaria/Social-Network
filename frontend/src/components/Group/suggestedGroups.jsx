@@ -40,7 +40,7 @@ export default function GroupsList() {
 
   const [Groups, setGroups] = useState([]);
   const [FiltredGroups, setFiltredGroups] = useState([]);
-  const [FilterState, setFilterState] = useState("Join");
+  const [FilterState, setFilterState] = useState("All");
   const [err , setError] = useState(null)
 
   useEffect(() => {
