@@ -7,9 +7,6 @@ CREATE TABLE IF NOT EXISTS users (
     nickname TEXT CHECK(LENGTH(nickname) <= 20),
     bio TEXT CHECK(LENGTH(bio) < 200),
     avatar TEXT,
-    profile_status TEXT NOT NULL
-        DEFAULT 'public'
-        CHECK (profile_status IN ('public', 'private')),
     birthday DATETIME NOT NULL,
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP
 );
