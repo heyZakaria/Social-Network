@@ -17,7 +17,7 @@ var mutex = &sync.Mutex{}
 
 
 
-func GroupChat(conn *websofollowcket.Conn, r *http.Request) {
+func GroupChat(conn *websocket.Conn, r *http.Request) {
 	
 	client := &Client{
 		Conn:     conn,

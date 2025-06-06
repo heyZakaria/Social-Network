@@ -1,9 +1,11 @@
 "use client";
 
-import { useState } from "react";
-import styles from "./login.module.css";
+import { useState, useEffect } from "react";
+import styles from "@/styles/login.module.css";
+
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { useUser } from "@/context/user_context";
 
 export default function Login() {
   const router = useRouter();
@@ -12,6 +14,14 @@ export default function Login() {
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
   const [serverError, setServerErrors] = useState("");
+  const { user: currentUser, fetchUser } = useUser();
+
+if (currentUser) {
+  useEffect(() => {
+    router.push("/");
+  }, [router]);
+  return  <div>Redirecting...</div>;
+}
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -36,9 +46,8 @@ export default function Login() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({ email, password }),
-        credentials: "include",
       });
-      
+
 
       const data = await res.json();
 
@@ -48,8 +57,8 @@ export default function Login() {
         return;
       }
       if (res.ok && data.success) {
-        // Store the token in localStorage
-        router.push("/home");
+        await fetchUser();
+        router.push("/");
       } else {
         setServerErrors(data.error || "Login failed");
       }
@@ -58,6 +67,8 @@ export default function Login() {
       setLoading(false);
     }
   };
+  if (loading) return <div>Loading...</div>;
+
   return (
     <div className={styles.loginContainer}>
       <h2 className={styles.heading3}>Sign In</h2>

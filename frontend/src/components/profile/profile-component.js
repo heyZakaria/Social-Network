@@ -6,7 +6,7 @@ import styles from "@/styles/profile.module.css";
 import PostComponent from "@/components/posts/post-component";
 import FollowButton from "./follow-button";
 import PrivacyToggle from "./privacy-toggle";
-import UserList from "./user-list";
+import UserList from "../friends/user-list";
 import FloatingChat from "@/components/chat/floating-chat";
 import { FaLock } from "react-icons/fa";
 
@@ -64,7 +64,8 @@ export default function ProfileComponent({ ProfileData, currentUser }) {
     }
   };
 
-  console.log("ProfileData", ProfileData);
+console.log("Followers:", ProfileData.followers);
+console.log("Following:", ProfileData.following);
 
   const loadMore = () => {
     if (!loading && hasMore) {

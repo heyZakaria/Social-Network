@@ -2,7 +2,6 @@ package profile
 
 import (
 	"database/sql"
-	"fmt"
 	"net/http"
 
 	db "socialNetwork/db/sqlite"
@@ -12,7 +11,6 @@ import (
 
 func ToggleFollowUser(w http.ResponseWriter, r *http.Request) {
 	followerId := r.Context().Value(shared.UserIDKey).(string)
-
 	targetUserId := r.URL.Query().Get("id")
 	if targetUserId == "" {
 		utils.SendJSON(w, http.StatusBadRequest, utils.JSONResponse{
@@ -30,7 +28,6 @@ func ToggleFollowUser(w http.ResponseWriter, r *http.Request) {
 		})
 		return
 	}
-
 	profile := &UserProfile{}
 
 	// Get target user's profile status
@@ -68,8 +65,8 @@ func ToggleFollowUser(w http.ResponseWriter, r *http.Request) {
 	}
 
 	if r.Method == http.MethodGet {
-		fmt.Printf("GET Follow Status - Follower: %s, Target: %s, Following: %v, Pending: %v\n",
-			followerId, targetUserId, profile.IsFollowing, profile.RequestPending)
+		// fmt.Printf("GET Follow Status - Follower: %s, Target: %s, Following: %v, Pending: %v\n",
+		// followerId, targetUserId, profile.IsFollowing, profile.RequestPending)
 		utils.SendJSON(w, http.StatusOK, utils.JSONResponse{
 			Success: true,
 			Data: map[string]any{

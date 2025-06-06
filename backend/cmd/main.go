@@ -41,6 +41,7 @@ func main() {
 
 	router.Handle("/posts/", http.StripPrefix("/posts", post.PostMux()))
 	router.Handle("/likes/", http.StripPrefix("/likes", likes.LikesMux()))
+	router.Handle("/api/users/", http.StripPrefix("/api/users", profile.ProfileMux()))
 	router.Handle("/comment/", http.StripPrefix("/comment", comment.CommentMux()))
 
 	// Profile routes
