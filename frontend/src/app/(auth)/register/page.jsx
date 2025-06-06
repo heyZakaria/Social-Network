@@ -154,6 +154,7 @@ if (currentUser) {
       const res = await fetch("api/register", {
         method: "POST",
         body: submitData,
+         credentials: "include",
       });
 
       const contentType = res.headers.get("content-type");

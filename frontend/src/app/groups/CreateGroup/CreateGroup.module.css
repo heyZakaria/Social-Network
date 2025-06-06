@@ -1,0 +1,380 @@
+/* === Create Group Section === */
+
+.createGroupContainer {
+  background: #fff;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+}
+
+.heading3 {
+  text-align: center;
+  font-size: 24px;
+  color: #333;
+}
+
+.subtitle {
+  text-align: center;
+  font-size: 14px;
+  color: #666;
+}
+
+.createGroupForm {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #555;
+}
+
+.inputText {
+  padding: 12px;
+  height: 45px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  font-size: 15px;
+  transition: border 0.2s;
+}
+
+.inputText:focus {
+  outline: none;
+  border-color: #7c3aed;
+}
+
+.error {
+  color: #e63946;
+  font-size: 13px;
+}
+
+.successMessage {
+  color: #16a34a;
+  font-size: 14px;
+  text-align: center;
+}
+
+.serverError {
+  color: #e63946;
+  font-size: 14px;
+  text-align: center;
+}
+
+.submitBtn {
+  background: #7c3aed;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.submitBtn:hover {
+  background: #5b21b6;
+}
+
+@media (max-width: 500px) {
+  .createGroupContainer {
+    padding: 20px;
+  }
+}
+
+
+/* === Updated Group Card Section === */
+
+.GroupCardContainer {
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
+  width: 1000px;
+  min-width: 250px;
+  padding: 24px;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease;
+}
+
+.GroupCardContainer:hover {
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.1);
+}
+
+.GroupCardContainer img {
+  width: 100%;
+  margin-bottom: 15px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.groupTitle {
+  font-size: 26px;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.Description {
+  font-size: 16px;
+  color: #4b5563;
+  line-height: 1.6;
+  margin-bottom: 25px;
+}
+
+.GroupNav {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 25px;
+}
+
+.GroupNav a,
+.GroupNav button {
+  font-size: 15px;
+  padding: 10px 18px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.2s ease-in-out;
+  border: 1px solid #7c3aed;
+  color: #7c3aed;
+  background-color: #f3f4f6;
+  cursor: pointer;
+}
+
+.GroupNav a:hover,
+.GroupNav button:hover {
+  background-color: #7c3aed;
+  color: #ffffff;
+}
+
+.GroupNav button:disabled {
+  background-color: #e5e7eb;
+  color: #9ca3af;
+  border-color: #d1d5db;
+  cursor: not-allowed;
+}
+
+.membersList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 0;
+  list-style: none;
+  justify-content: center;
+}
+
+.memberItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+}
+
+.memberImage {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #ddd;
+}
+
+.memberItem p {
+  font-size: 14px;
+  color: #374151;
+  font-weight: 500;
+}
+
+.successMessage {
+  color: #16a34a;
+  font-size: 14px;
+  text-align: center;
+}
+
+.error,
+.serverError {
+  color: #e63946;
+  font-size: 14px;
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  .GroupCardContainer {
+    padding: 16px;
+  }
+
+  .GroupNav {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .groupTitle {
+    font-size: 22px;
+  }
+
+  .Description {
+    font-size: 15px;
+  }
+
+  .membersList {
+    gap: 12px;
+  }
+
+  .memberItem {
+    width: 80px;
+  }
+
+  .memberImage {
+    width: 50px;
+    height: 50px;
+  }
+}
+/*-------------- Pagination Button ----------------------*/
+.membersNavigationWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.paginationButton {
+  background-color: #7c3aed;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.paginationButton:hover {
+  background-color: #5b21b6;
+  transform: scale(1.1);
+}
+
+.paginationButton:disabled {
+  background-color: #e5e7eb;
+  color: #9ca3af;
+  cursor: not-allowed;
+}
+
+
+/* ________________ Members Css __________________ */
+
+
+
+.memberItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 16px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.memberItem:hover {
+  transform: translateY(-8px); /* Lift effect on hover */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Darker shadow for hover effect */
+}
+
+.memberImage {
+  width: 30px;
+  height: 30px;
+  border-radius: 80%;
+  object-fit: cover;
+  border: 2px solid #e5e7eb; /* Subtle border around the image */
+  margin-bottom: 12px;
+}
+
+.memberItem p {
+  font-size: 16px;
+  color: #374151;
+  font-weight: 600;
+  margin: 0;
+}
+
+.memberItem p:hover {
+  color: #7c3aed; /* Hover effect on member name */
+  cursor: pointer;
+}
+
+.paginationButton {
+  background-color: #7c3aed;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  padding: 12px;
+  font-size: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.paginationButton:hover {
+  background-color: #5b21b6;
+  transform: scale(1.1);
+}
+
+.paginationButton:disabled {
+  background-color: #e5e7eb;
+  color: #9ca3af;
+  cursor: not-allowed;
+}
+
+
+/** file input  styling  **/
+
+
+/* File Upload Styled Button */
+.fileUploadWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.fileUploadLabel {
+  display: inline-block;
+  background-color: #7c3aed;
+  color: white;
+  padding: 12px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.fileUploadLabel:hover {
+  background-color: #5b21b6;
+}
+
+.fileInputHidden {
+  display: none;
+}
+
+.fileNameDisplay {
+  font-size: 13px;
+  color: #555;
+  padding-top: 4px;
+  font-style: italic;
+}

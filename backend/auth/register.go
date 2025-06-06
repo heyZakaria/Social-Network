@@ -41,6 +41,21 @@ func HandleRegister(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	utils.Log("INFO", "Email is unique")
+	// Moving the HandleUploadImage to utils making it more modular to use
+	// Added : Parameters => FormfileName: the targer file name , Expected size , And Destination
+	// Goal of change : making it reusable
+	avatarFilename, err := utils.HandleUploadImage(r, "avatar", 1024*1024, "../../frontend/public/uploads/profile_images")
+	if err != nil {
+
+		utils.Log("ERROR", "Avatar upload failed: "+err.Error())
+		SendJSON(w, http.StatusInternalServerError, JSONResponse{
+			Success: false,
+			Error:   "Avatar upload failed",
+		})
+		return
+	}
+	p.Avatar = avatarFilename
+	utils.Log("INFO", "Avatar uploaded: "+avatarFilename)
 
 	if !ValidateRegistrationInput(p) {
 		utils.Log("WARNING", "Validation failed for user input")

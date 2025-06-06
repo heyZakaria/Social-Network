@@ -70,7 +70,7 @@ func PrepareImage(r *http.Request, ImageName, ImagePath string) (imageProvided b
 		Log("INFO", "Created directory: profile_images")
 	}
 
-	avatarFilename = uuid.New().String() + filepath.Ext(handler.Filename) //sdafsdafk2323.jpg
+	avatarFilename = uuid.New().String() + filepath.Ext(handler.Filename) // sdafsdafk2323.jpg
 	Log("INFO", "Generated avatar filename: "+avatarFilename)
 
 	return true, "/uploads/" + ImagePath + "/" + avatarFilename, file, nil

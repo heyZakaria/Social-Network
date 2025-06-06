@@ -57,5 +57,5 @@ func main() {
 	router.HandleFunc("POST /api/users/reject", profile.RejectFollowRequest)
 	//  router.HandleFunc("GET /api/users/suggestions", profile.GetUserSuggestions)
 
-	log.Fatal(http.ListenAndServe(":8080", middleware.CheckCORS(middleware.CheckUserExeting(router))))
+	log.Fatal(http.ListenAndServe(":8080", middleware.CheckCORS(middleware.CheckUserExeting(middleware.CheckUserExeting(router)))))
 }

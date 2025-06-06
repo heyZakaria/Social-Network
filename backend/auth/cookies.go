@@ -4,6 +4,8 @@ import (
 	"net/http"
 	"time"
 
+	"socialNetwork/user"
+
 	"socialNetwork/utils"
 )
 
@@ -42,6 +44,9 @@ func SendSuccessWithToken(w http.ResponseWriter, r *http.Request, userID string)
 		SameSite: http.SameSiteStrictMode,
 		Expires:  time.Now().Add(time.Hour * 24),
 	})
+
+	utils.Log("INFO", "Save Token into Sessions")
+	user.SaveToken(userID, token)
 	utils.SendJSON(w, http.StatusOK, utils.JSONResponse{
 		Success: true,
 		Message: "Login successful",
