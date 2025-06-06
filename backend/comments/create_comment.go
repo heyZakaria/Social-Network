@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"net/http"
 	"socialNetwork/auth"
-	shared "socialNetwork/shared_packages"
+	shared "socialNetwork/context"
 	"socialNetwork/utils"
 	"strings"
 )

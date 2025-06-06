@@ -4,7 +4,7 @@ import (
 	"net/http"
 	"strings"
 
-	shared "socialNetwork/shared_packages"
+	shared "socialNetwork/context"
 	"socialNetwork/utils"
 )
 

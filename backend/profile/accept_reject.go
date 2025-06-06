@@ -4,7 +4,7 @@ import (
 	"net/http"
 
 	db "socialNetwork/db/sqlite"
-	shared "socialNetwork/shared_packages"
+	shared "socialNetwork/context"
 	"socialNetwork/utils"
 )
 
@@ -45,8 +45,8 @@ func handleFriendRequest(w http.ResponseWriter, r *http.Request, query, successM
 	}
 	utils.SendJSON(w, http.StatusOK, utils.JSONResponse{
 		Success: true,
-		 Message: successMsg,
-		})
+		Message: successMsg,
+	})
 }
 
 func AcceptFollowRequest(w http.ResponseWriter, r *http.Request) {

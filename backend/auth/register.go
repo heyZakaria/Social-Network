@@ -48,7 +48,7 @@ func HandleRegister(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 
 		utils.Log("ERROR", "Avatar upload failed: "+err.Error())
-		SendJSON(w, http.StatusInternalServerError, JSONResponse{
+		utils.SendJSON(w, http.StatusInternalServerError, utils.JSONResponse{
 			Success: false,
 			Error:   "Avatar upload failed",
 		})

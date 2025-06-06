@@ -1,9 +1,0 @@
-CREATE TABLE IF NOT EXISTS likes (
-    post_id INTEGER NOT NULL,
-    user_id TEXT NOT NULL,
-    is_liked BOOLEAN DEFAULT true,
-    created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    PRIMARY KEY (post_id, user_id),
-    FOREIGN KEY (post_id) REFERENCES posts (id) ON DELETE CASCADE,
-    FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE
-) WITHOUT ROWID

@@ -7,7 +7,7 @@ import CommentSection from "./comment-section";
 import { IoHeartOutline, IoGlobeOutline } from 'react-icons/io5';
 import { BiShare, BiComment, BiDotsHorizontalRounded } from 'react-icons/bi';
 import { HiUsers, HiLockClosed } from 'react-icons/hi2';
-import { FetchData } from "@/app/(utils)/fetchJson";
+import { FetchData } from "@/utils/fetchJson";
 
 export default function PostComponent({
   post,

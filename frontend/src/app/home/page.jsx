@@ -7,7 +7,7 @@ import { MdOutlineMood } from "react-icons/md";
 import { HiOutlineLocationMarker } from "react-icons/hi";
 import PostComponent from "@/components/posts/post-component";
 import FloatingChat from "@/components/chat/floating-chat";
-import { FetchData } from "@/app/(utils)/fetchJson"; ///????????????? still using this because there is no (utils)
+import { FetchData } from "@/utils/fetchJson"; ///????????????? still using this because there is no (utils)
 import { useUser } from "@/context/user_context";
 import CreatePost from "@/components/posts/create-post";
 // import { getCurrentUser } from "@/app/(auth)/(utils)/api"

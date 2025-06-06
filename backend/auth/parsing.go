@@ -1,8 +1,6 @@
 package auth
 
 import (
-	"encoding/json"
-
 	"net/http"
 	"strings"
 	"time"
@@ -21,10 +19,4 @@ func ParseForm(r *http.Request) (Profile, error) {
 	p.Birthday, _ = time.Parse("2006-01-02", r.FormValue("birthday"))
 	utils.Log("INFO", "Form fields parsed successfully")
 	return p, nil
-}
-
-func SendJSON(w http.ResponseWriter, status int, payload JSONResponse) {
-	w.Header().Set("Content-Type", "application/json")
-	w.WriteHeader(status)
-	json.NewEncoder(w).Encode(payload)
 }

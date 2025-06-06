@@ -1,7 +1,6 @@
 package utils
 
 import (
-	"encoding/json"
 	"fmt"
 	"io"
 	"net/http"
@@ -79,18 +78,4 @@ func HandleUploadImage(r *http.Request, formFileName string, expectedSize int64,
 
 	Log("INFO", fmt.Sprintf("Successfully saved file as: %s", filename))
 	return filename, nil
-}
-
-func SendJSON(w http.ResponseWriter, status int, payload JSONResponse) {
-	w.Header().Set("Content-Type", "application/json")
-	w.WriteHeader(status)
-	json.NewEncoder(w).Encode(payload)
-}
-
-type JSONResponse struct {
-	Success bool   `json:"success"`
-	Message string `json:"message,omitempty"`
-	Error   string `json:"error,omitempty"`
-	Token   string `json:"token,omitempty"`
-	Data    any    `json:"data,omitempty"`
 }

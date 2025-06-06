@@ -5,7 +5,7 @@ import Link from "next/link";
 import styles from "@/styles/posts.module.css";
 import EmojiPicker from "@/components/common/emoji-picker";
 import { IoPaperPlaneOutline } from 'react-icons/io5';
-import { useUser } from '@/app/(utils)/user_context';
+import { useUser } from '@/context/user_context';
 
 
 export default function CommentSection({ postId }) {

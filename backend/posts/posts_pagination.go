@@ -9,7 +9,7 @@ import (
 
 	"socialNetwork/auth"
 	db "socialNetwork/db/sqlite"
-	shared "socialNetwork/shared_packages"
+	shared "socialNetwork/context"
 	"socialNetwork/utils"
 )
 

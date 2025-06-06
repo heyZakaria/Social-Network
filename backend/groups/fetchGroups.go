@@ -57,15 +57,15 @@ func fetchGroups(w http.ResponseWriter, r *http.Request) {
 
 func GetGroups(db *sql.DB, currentUserID string) ([]Group, error) {
 	query := `
-SELECT  
-    g.title, 
-    g.descriptio, 
-    g.covername, 
-    g.id, 
+	SELECT  
+    	g.title, 
+    	g.descriptio, 
+    	g.covername, 
+    	g.id, 
     (SELECT COUNT(*) FROM groupMember WHERE group_id = g.id AND (memberState = "Member" OR memberState = "Admin" )) AS member_count,  
-    COALESCE(gmCurrent.memberState, 'Join') AS mb 
-FROM groups g 
-LEFT JOIN groupMember gmCurrent 
+    	COALESCE(gmCurrent.memberState, 'Join') AS mb 
+	FROM groups g 
+	LEFT JOIN groupMember gmCurrent 
     ON gmCurrent.group_id = g.id AND gmCurrent.user_id = ?
 
 	`

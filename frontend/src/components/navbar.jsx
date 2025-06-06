@@ -1,4 +1,5 @@
-use client";
+'use client'
+
 import Link from "next/link";
 import { usePathname } from 'next/navigation';
 import { HiHome, HiChatBubbleLeft, HiMiniBellAlert, HiMiniUserGroup, HiMiniUser, HiArrowRightOnRectangle } from "react-icons/hi2";
