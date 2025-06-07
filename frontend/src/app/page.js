@@ -22,7 +22,7 @@ export default function Home() {
   useEffect(() => {
     async function x() {
       const data = await FetchData(
-        `http://localhost:8080/posts/getposts?limit=${limit}&offset=${offset}`
+        `/api/posts/getposts?limit=${limit}&offset=${offset}`
       );
       if (data.data.posts.length < limit) {
         console.log("no more posts", data.data.posts.length);

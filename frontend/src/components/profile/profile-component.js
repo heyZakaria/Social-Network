@@ -25,7 +25,7 @@ export default function ProfileComponent({ ProfileData, currentUser }) {
 
   useEffect(() => {
     async function x() {
-      const data = await FetchData(`http://localhost:8080/posts/getposts?limit=${limit}&offset=${offset}&user_id=${ProfileData.id}`)
+      const data = await FetchData(`/api/posts/getposts?limit=${limit}&offset=${offset}&user_id=${ProfileData.id}`)
     
       if (data.data.posts.length < limit) setHasMore(false); // no more posts
       setPosts((prev) => {

@@ -32,9 +32,9 @@ func main() {
 
 	router.Handle("/api/", http.StripPrefix("/api", auth.AuthMux()))
 
-	router.Handle("/posts/", http.StripPrefix("/posts", post.PostMux()))
-	router.Handle("/likes/", http.StripPrefix("/likes", likes.LikesMux()))
-	router.Handle("/comment/", http.StripPrefix("/comment", comment.CommentMux()))
+	router.Handle("/api/posts/", http.StripPrefix("/api/posts", post.PostMux()))
+	router.Handle("/api/likes/", http.StripPrefix("/api/likes", likes.LikesMux()))
+	router.Handle("/api/comment/", http.StripPrefix("/api/comment", comment.CommentMux()))
 
 	router.Handle("/api/users/", http.StripPrefix("/api/users", profile.ProfileMux()))
 

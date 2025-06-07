@@ -24,7 +24,7 @@ export default function PostComponent({
   const handleLike =  () => {
     async function updateLikeStatus() {
       const response = await FetchData(
-        `http://localhost:8080/likes/react?id=${post.PostId}`, "POST")
+        `/api/likes/react?id=${post.PostId}`, "POST")
       const LikeCounts = response.data.like_count
       const Like = response.data.success
       console.log("post.Liked", post.Liked);
