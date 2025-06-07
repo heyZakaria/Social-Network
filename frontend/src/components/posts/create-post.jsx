@@ -5,7 +5,7 @@ import { BsImage } from 'react-icons/bs';
 import styles from '@/styles/posts.module.css';
 import PopupInput from './popup-input';
 import PopupPrivacy from './popup-privacy';
-import { useUser } from "@/app/(utils)/user_context";
+import { useUser } from "@/context/user_context";
 
 
 const CreatePost = () => {
@@ -160,7 +160,7 @@ const CreatePost = () => {
         console.log("data", formData);
 
 
-        const response = await fetch('/api/posts/createpost', {
+        const response = await fetch('http://localhost:8080/posts/createpost', {
           method: 'POST',
           credentials: 'include', // This sends cookies with the request
           body: formData,

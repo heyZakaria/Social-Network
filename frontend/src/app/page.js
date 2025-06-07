@@ -6,7 +6,7 @@ import { BsImage } from "react-icons/bs";
 import FloatingChat from "@/components/chat/floating-chat";
 import { useUser } from "@/context/user_context";
 import { useRouter } from "next/navigation";
-
+import CreatePost from "@/components/posts/create-post";
 export default function Home() {
   const { user: currentUser } = useUser();
   // const router = useRouter();
@@ -22,28 +22,8 @@ export default function Home() {
       {currentUser ? (
         <>
           <div className={styles.mainContent}>
+            <CreatePost/>
             <div className={styles.contentArea}>
-              <div className={styles.createPost}>
-                <div className={styles.createPostHeader}>
-                  <img
-                    src={currentUser.avatar || "https://i.pravatar.cc/150?u=10"}
-                    alt={currentUser.firstName}
-                    className={styles.createPostAvatar}
-                  />
-                  <input
-                    type="text"
-                    placeholder={`What's on your mind, ${currentUser.firstName}?`}
-                    className={styles.createPostInput}
-                  />
-                </div>
-                <div className={styles.createPostActions}>
-                  <button className={styles.createPostAction}>
-                    <BsImage size={20} />
-                    Photo/GIF
-                  </button>
-                </div>
-              </div>
-
               <div className={styles.feed}>
 
               </div>
