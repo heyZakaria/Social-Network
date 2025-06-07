@@ -46,6 +46,7 @@ func main() {
 	router.HandleFunc("POST /api/users/accept", profile.AcceptFollowRequest)
 	router.HandleFunc("POST /api/users/reject", profile.RejectFollowRequest)
 	//  router.HandleFunc("GET /api/users/suggestions", profile.GetUserSuggestions)
+	router.Handle("/api/users/", http.StripPrefix("/api/users", profile.ProfileMux()))
 
 	log.Fatal(http.ListenAndServe(":8080", middleware.CheckCORS(middleware.CheckUserExeting(router))))
 }

@@ -2,7 +2,7 @@
   background-color: white;
   border-radius: 10px;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-  margin-bottom: 20px;
+  margin-top: 20px;
   overflow: hidden;
 }
 
@@ -494,7 +494,7 @@ input:checked + .slider:before {
 }
 
 .confirmBtn {
-  background: red;
+  background: #7c3aed;
   color: white;
   padding: 0.5rem 1rem;
   border: none;

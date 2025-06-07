@@ -4,28 +4,53 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import styles from '@/styles/friends.module.css';
 import FloatingChat from '@/components/chat/floating-chat';
-import { useUser } from '@/app/(utils)/user_context';
-import FollowButton from '@/components/followButton';
-import { useFriends } from '../(utils)/friends-context';
+import { useUser } from '@/context/user_context';
+import FollowButton from '@/components/profile/follow-button';
+import { useFriends } from '@/context/friends_context';
 
 export default function FriendsPage() {
   const { currentUser } = useUser();
   const [activeTab, setActiveTab] = useState('all');
-  const { friends = [], suggestions = [], loading, refetch, requests = [] } = useFriends();
-  const { handleAcceptRequest, handleRejectRequest } = useFriends();
-  console.log(friends, suggestions, loading, requests);
-  console.log("suggestions", suggestions);
-  console.log("friends", friends);
-  console.log("requests", requests);
+  const {
+    friends = [],
+    followers = [],
+    following = [],
+    suggestions = [],
+    loading,
+    refetch,
+    requests = [],
+    handleAcceptRequest,
+    handleRejectRequest,
+  } = useFriends();
+
+  // If your context does NOT provide 'friends', compute mutuals here:
+  // const friends = followers.filter(f =>
+  //   following.some(fl => fl.id === f.id)
+  // );
+
+  const [handledRequests, setHandledRequests] = useState({}); // key = friend.id
 
   useEffect(() => {
     refetch();
   }, []);
 
+  // UI feedback for accept/reject
+  const handleAccept = async (id) => {
+    setHandledRequests((prev) => ({ ...prev, [id]: 'accepted' }));
+    await handleAcceptRequest(id);
+    refetch();
+  };
 
+  const handleReject = async (id) => {
+    setHandledRequests((prev) => ({ ...prev, [id]: 'rejected' }));
+    await handleRejectRequest(id);
+    refetch();
+  };
+
+  // Filtered lists for tabs
   const filteredFriends = (() => {
-    if (activeTab === 'all') return friends.filter(f => f.follower_status === 'accepted');
-    if (activeTab === 'online') return friends.filter(f => f.follower_status === 'accepted' && f.isOnline);
+    if (activeTab === 'all') return friends;
+    if (activeTab === 'online') return friends.filter(f => f.isOnline);
     if (activeTab === 'requests') return requests;
     return [];
   })();
@@ -82,17 +107,29 @@ export default function FriendsPage() {
                   </div>
                   <div className={styles.friendActions}>
                     {activeTab === 'requests' ? (
-                      <>
-                        <button className={styles.followButton} onClick={() => handleAcceptRequest(friend.id)}>
-                          Accept
-                        </button>
-                        <button className={styles.ignoreButton} onClick={() => handleRejectRequest(friend.id)}>
-                          Reject
-                        </button>
-                      </>
+                      handledRequests[friend.id] === 'accepted' ? (
+                        <div className={styles.acceptedStatus}>Accepted</div>
+                      ) : handledRequests[friend.id] === 'rejected' ? (
+                        <div className={styles.rejectedStatus}>Rejected</div>
+                      ) : (
+                        <>
+                          <button
+                            className={`${styles.followButton} ${styles.acceptButton}`}
+                            onClick={() => handleAccept(friend.id)}
+                          >
+                            Accept
+                          </button>
+                          <button
+                            className={`${styles.ignoreButton} ${styles.rejectButton}`}
+                            onClick={() => handleReject(friend.id)}
+                          >
+                            Reject
+                          </button>
+                        </>
+                      )
                     ) : (
                       <>
-                        <button className={styles.messageButton}>Message</button>
+                        {/* <button className={styles.messageButton}>Message</button> */}
                         <FollowButton targetUserId={friend.id} />
                       </>
                     )}
@@ -134,7 +171,6 @@ export default function FriendsPage() {
                   </div>
                   <div className={styles.friendActions}>
                     <FollowButton targetUserId={suggestion.id} />
-                    <button className={styles.ignoreButton}>Ignore</button>
                   </div>
                 </div>
               ))}
