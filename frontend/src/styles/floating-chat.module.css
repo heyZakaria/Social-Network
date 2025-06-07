@@ -1,0 +1,285 @@
+.floatingChatContainer {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.chatButton {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #7c3aed;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  position: relative;
+  transition: transform 0.3s;
+}
+
+.chatButton:hover {
+  transform: scale(1.05);
+}
+
+.unreadBadge {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background-color: #e41e3f;
+  color: white;
+  font-size: 12px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+}
+
+.chatWindow {
+  position: absolute;
+  bottom: 70px;
+  right: 0;
+  width: 320px;
+  height: 400px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.chatHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px;
+  background-color: #7c3aed;
+  color: white;
+}
+
+.chatHeaderInfo {
+  display: flex;
+  align-items: center;
+}
+
+.chatHeaderAvatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 10px;
+}
+
+.chatHeaderName {
+  font-weight: 500;
+}
+
+.chatHeaderActions {
+  display: flex;
+}
+
+.chatHeaderAction {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.chatBody {
+  flex: 1;
+  overflow: hidden;
+}
+
+.chatList {
+  position: absolute;
+  bottom: 70px;
+  right: 0;
+  width: 320px;
+  height: 400px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.chatListHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  border-bottom: 1px solid #e4e6eb;
+}
+
+.chatListHeader h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.chatListClose {
+  background: none;
+  border: none;
+  color: #65676b;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.chatListContent {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.chatListItem {
+  display: flex;
+  align-items: center;
+  padding: 12px 15px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  border-bottom: 1px solid #f0f2f5;
+}
+
+.chatListItem:hover {
+  background-color: #f0f2f5;
+}
+
+.chatListItem.unread {
+  background-color: #e7f3ff;
+}
+
+.chatListItem.unread:hover {
+  background-color: #d9ecff;
+}
+
+.chatListItemAvatar {
+  position: relative;
+  margin-right: 12px;
+}
+
+.chatListItemAvatar img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.onlineIndicator {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 10px;
+  height: 10px;
+  background-color: #4caf50;
+  border-radius: 50%;
+  border: 2px solid white;
+}
+
+.chatListItemInfo {
+  flex: 1;
+  overflow: hidden;
+}
+
+.chatListItemName {
+  font-weight: 500;
+  margin-bottom: 3px;
+}
+
+.chatListItemMessage {
+  font-size: 13px;
+  color: #65676b;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.chatListItemMeta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-left: 10px;
+}
+
+.chatListItemTime {
+  font-size: 12px;
+  color: #65676b;
+  margin-bottom: 5px;
+}
+
+.chatListItemBadge {
+  background-color: #7c3aed;
+  color: white;
+  font-size: 12px;
+  min-width: 18px;
+  height: 18px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 5px;
+}
+
+.emptyState {
+  text-align: center;
+  padding: 40px 0;
+  color: #65676b;
+}
+
+.chatListFooter {
+  padding: 10px 15px;
+  border-top: 1px solid #e4e6eb;
+}
+
+.quickMessageForm {
+  display: flex;
+  align-items: center;
+}
+
+.quickMessageInputContainer {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.quickMessageInput {
+  flex: 1;
+  padding: 8px 12px;
+  padding-right: 40px;
+  border: none;
+  background-color: #f0f2f5;
+  border-radius: 20px;
+  font-size: 13px;
+}
+
+.quickMessageInput:focus {
+  outline: none;
+}
+
+.quickMessageActions {
+  position: absolute;
+  right: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.quickMessageSubmit {
+  background: none;
+  border: none;
+  color: #7c3aed;
+  cursor: pointer;
+  padding: 8px;
+  margin-left: 5px;
+}
+
+.quickMessageSubmit:disabled {
+  color: #bcc0c4;
+  cursor: not-allowed;
+}

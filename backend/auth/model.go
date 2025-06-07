@@ -7,21 +7,17 @@ import (
 var secretKey = []byte("Y&8vBx2!r4@LmP7qZpN1*Eg5Km%VcX0t")
 
 type Profile struct {
-	FirstName string    `json:"firstname"`
-	LastName  string    `json:"lastname"`
-	Email     string    `json:"email"`
-	Password  string    `json:"password"`
-	NickName  string    `json:"nickname"`
-	Bio       string    `json:"bio"`
-	Avatar    string    `json:"avatar"`
-	Birthday  time.Time `json:"birthday"`
-}
-
-type JSONResponse struct {
-	Success bool   `json:"success"`
-	Message string `json:"message,omitempty"`
-	Error   string `json:"error,omitempty"`
-	Token   string `json:"token,omitempty"`
+	UserID         string    `json:"id"`
+	FirstName      string    `json:"firstname"`
+	LastName       string    `json:"lastname"`
+	Email          string    `json:"email"`
+	Password       string    `json:"password"`
+	NickName       string    `json:"nickname"`
+	Bio            string    `json:"bio"`
+	Avatar         string    `json:"avatar"`
+	Profile_Status string    `json:"profile_status"`
+	Birthday       time.Time `json:"birthday"`
+	CreatedAt      time.Time
 }
 
 type JWTPayload struct {

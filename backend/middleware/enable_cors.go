@@ -8,12 +8,7 @@ import (
 var originAllowlist = []string{
 	"http://localhost:3000",
 	"http://localhost:3001",
-	"http://localhost:3002",
-	"http://localhost:3003",
-	"http://localhost:3004",
-	"http://localhost:3005",
-	"http://localhost:3006",
-	
+	"https://localhost:3443",
 }
 
 var methodAllowlist = []string{"GET", "POST", "PUT", "DELETE", "OPTIONS"}
@@ -32,6 +27,7 @@ func CheckCORS(next http.Handler) http.Handler {
 			if isPreflight(r) && slices.Contains(methodAllowlist, method) {
 				w.Header().Set("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS")
 				w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
+				w.Header().Set("Access-Control-Allow-Max-Age", "84000")
 				w.WriteHeader(http.StatusNoContent)
 				return
 			}

@@ -6,8 +6,11 @@ import (
 	"encoding/base64"
 	"encoding/json"
 	"errors"
+	"net/http"
 	"strings"
 	"time"
+
+	"socialNetwork/utils"
 )
 
 func CreateJWT(userID, role string) (string, error) {
@@ -39,7 +42,6 @@ func CreateJWT(userID, role string) (string, error) {
 	token := encodeHeader + "." + encodedPayload + "." + signature
 
 	return token, nil
-
 }
 
 func createSignature(header, payload, secretKey string) string {
@@ -85,6 +87,20 @@ func VerifyJWT(token string) (JWTPayload, error) {
 	if time.Now().Unix() > payload.Exp {
 		return JWTPayload{}, errors.New("token has expired")
 	}
-
 	return payload, nil
+}
+
+func GetToken(w http.ResponseWriter, r *http.Request) (token string) {
+	cookie, err := r.Cookie("token")
+	if err != nil {
+		utils.Log("ERROR", "Token cookie is missing in GetToken")
+		utils.SendJSON(w, http.StatusUnauthorized, utils.JSONResponse{
+			Success: false,
+			Message: "Token cookie is missing",
+			Error:   "You are not Authorized.",
+		})
+		return ""
+	}
+
+	return cookie.Value
 }

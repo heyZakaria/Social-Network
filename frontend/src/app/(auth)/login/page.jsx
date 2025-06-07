@@ -1,66 +1,79 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import styles from './login.module.css';
-import Link from 'next/link';
+import { useState, useEffect } from "react";
+import styles from "@/styles/login.module.css";
+
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useUser } from "@/context/user_context";
 
 export default function Login() {
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [errors, setErrors] = useState({})
-  const [loading, setLoading] = useState(false)
-  const [serverError, setServerErrors] = useState('')
+  const router = useRouter();
+  const [email, setEmail] = useState("omar@gmail.com");
+  const [password, setPassword] = useState("Abcd1234");
+  const [errors, setErrors] = useState({});
+  const [loading, setLoading] = useState(false);
+  const [serverError, setServerErrors] = useState("");
+  const { user: currentUser, fetchUser } = useUser();
+
+if (currentUser) {
+  useEffect(() => {
+    router.push("/");
+  }, [router]);
+  return  <div>Redirecting...</div>;
+}
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setErrors({})
-    setServerErrors('')
+    setErrors({});
+    setServerErrors("");
+    setLoading(true);
 
-    const newErrors = {}
-    if (!email) newErrors.email = 'Email is required'
-    if (!password) newErrors.password = 'Password is required'
+    const newErrors = {};
+    if (!email) newErrors.email = "Email is required";
+    if (!password) newErrors.password = "Password is required";
 
     if (Object.keys(newErrors).length > 0) {
-      setErrors(newErrors)
-      return
+      setErrors(newErrors);
+      return;
     }
-    setLoading(true)
+    setLoading(true);
 
     try {
-      const res = await fetch("http://localhost:8080/login", {
+      const res = await fetch("api/login", {
         method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({ email, password }),
-        credentials: 'include'
-      })
-      console.log("------", res);
+      });
 
 
-      const data = await res.json()
+      const data = await res.json();
 
       if (!res.ok) {
-        setServerErrors(data.error || 'Login failed')
-        setLoading(false)
-        return
+        setServerErrors(data.error || "Login failed");
+        setLoading(false);
+        return;
       }
-      // redirect
-      // router.push('/')
-      window.location.href = "/home";
-      setLoading(false)
-
+      if (res.ok && data.success) {
+        await fetchUser();
+        router.push("/");
+      } else {
+        setServerErrors(data.error || "Login failed");
+      }
     } catch (error) {
-      setServerErrors('Something went wrong')
-      setLoading(false)
+      setServerErrors("Something went wrong");
+      setLoading(false);
     }
+  };
+  if (loading) return <div>Loading...</div>;
 
-  }
   return (
     <div className={styles.loginContainer}>
       <h2 className={styles.heading3}>Sign In</h2>
       <p className={styles.subtitle}>
-        Don't have an account?{' '}
+        Don't have an account?{" "}
         <Link href="/register" className={styles.subtitleLink}>
           Register
         </Link>
@@ -86,9 +99,13 @@ export default function Login() {
           />
           {errors.password && <p className={styles.error}>{errors.password}</p>}
         </div>
-        {serverError && <p className={`${styles.error} ${styles.serverError}`}>{serverError}</p>}
+        {serverError && (
+          <p className={`${styles.error} ${styles.serverError}`}>
+            {serverError}
+          </p>
+        )}
         <button type="submit" className={styles.submitBtn} disabled={loading}>
-          {loading ? 'Signing In...' : 'Sign In'}
+          {loading ? "Signing In..." : "Sign In"}
         </button>
       </form>
     </div>

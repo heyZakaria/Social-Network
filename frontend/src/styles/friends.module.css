@@ -1,0 +1,248 @@
+.friendsContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.friendsHeader {
+  margin-bottom: 2rem;
+}
+
+.friendsHeader h1 {
+  font-size: 2rem;
+  color: #333;
+  margin: 0;
+}
+
+.friendsTabs {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 1rem;
+}
+
+.tabButton {
+  padding: 0.5rem 1rem;
+  border: none;
+  background: none;
+  color: #6b7280;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  border-radius: 0.5rem;
+}
+
+.tabButton:hover {
+  color: #7c3aed;
+  background-color: #f3f4f6;
+}
+
+.activeTab {
+  color: #7c3aed;
+  background-color: #eff6ff;
+  font-weight: 500;
+}
+
+.friendsContent {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.friendsSection {
+  background-color: white;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.sectionTitle {
+  font-size: 1.5rem;
+  color: #1f2937;
+  margin-bottom: 1.5rem;
+}
+
+.friendsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.friendCard {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background-color: #f9fafb;
+  border-radius: 0.75rem;
+  transition: all 0.2s;
+}
+
+.friendCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.friendAvatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.friendInfo {
+  flex: 1;
+}
+
+.friendName {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #1f2937;
+  margin: 0;
+}
+
+.friendNickname {
+  font-size: 0.9rem;
+  color: #6b7280;
+  margin: 0.25rem 0 0;
+}
+
+.friendStatus,
+.mutualFriends {
+  font-size: 14px;
+  color: #65676b;
+  margin: 0;
+}
+
+.onlineStatus {
+  color: #10b981;
+  font-size: 0.9rem;
+  margin: 0.25rem 0 0;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.onlineStatus::before {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background-color: #10b981;
+  border-radius: 50%;
+}
+
+.offlineStatus {
+  color: #65676b;
+}
+
+.friendActions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.messageButton,
+.followButton,
+.unfollowButton,
+.ignoreButton {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.messageButton {
+  background-color: #7c3aed;
+  color: white;
+}
+
+.messageButton:hover {
+  background-color: #7c3aed;
+}
+
+.followButton {
+  background-color: #7c3aed;
+  color: white;
+}
+
+.followButton:hover {
+  background-color: #7c3aed;
+}
+
+.unfollowButton {
+  background-color: #f3f4f6;
+  color: #4b5563;
+}
+
+.unfollowButton:hover {
+  background-color: #e5e7eb;
+}
+
+.ignoreButton {
+  background-color: #f3f4f6;
+  color: #4b5563;
+}
+
+.ignoreButton:hover {
+  background-color: #e5e7eb;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+  font-size: 1.2rem;
+  color: #6b7280;
+}
+
+.noFriends {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 2rem;
+  background-color: #f9fafb;
+  border-radius: 0.75rem;
+  color: #6b7280;
+  font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+  .friendsContainer {
+    padding: 1rem;
+  }
+
+  .friendsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .friendCard {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .friendActions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .messageButton,
+  .followButton,
+  .unfollowButton,
+  .ignoreButton {
+    width: 100%;
+  }
+}
+
+
+.acceptedStatus {
+  color: #4caf50;
+  font-weight: bold;
+}
+
+.rejectedStatus {
+  color: #f44336;
+  font-weight: bold;
+}

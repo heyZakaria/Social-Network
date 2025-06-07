@@ -1,34 +1,18 @@
-import { Geist, Geist_Mono } from "next/font/google";
-import "./styles/globals.css";
-import NavBar from "@/components/navbar";
+import '@/styles/globals.css';
+import { UserProvider } from '@/context/user_context';
+import { FriendsProvider } from '@/context/friends_context';
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-export const metadata = {
-  title: "Social",
-  description: "Social Network",
-};
+import LayoutWrapper from '@/components/layout/layout-wrapper';
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
-
-
-        <div className="content">
-        
-          <NavBar />
-          <main>{children}</main>
-        
-        </div>
+      <body>
+        <FriendsProvider>
+          <UserProvider>
+            <LayoutWrapper>{children}</LayoutWrapper>
+          </UserProvider>
+        </FriendsProvider>
       </body>
     </html>
   );
