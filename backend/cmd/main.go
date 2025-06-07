@@ -36,16 +36,6 @@ func main() {
 	router.Handle("/likes/", http.StripPrefix("/likes", likes.LikesMux()))
 	router.Handle("/comment/", http.StripPrefix("/comment", comment.CommentMux()))
 
-	// Profile routes
-	router.HandleFunc("GET /api/users/friends", profile.GetFriendsAndRequests)
-	router.HandleFunc("GET /api/users/profile", profile.GetUserProfile)
-	router.HandleFunc("PUT /api/users/privacy", profile.ProfileStatus)
-	router.HandleFunc("GET /api/users/get/profile", profile.GetOtherUserProfile)
-	router.HandleFunc("GET /api/users/follow", profile.ToggleFollowUser)
-	router.HandleFunc("POST /api/users/follow", profile.ToggleFollowUser)
-	router.HandleFunc("POST /api/users/accept", profile.AcceptFollowRequest)
-	router.HandleFunc("POST /api/users/reject", profile.RejectFollowRequest)
-	//  router.HandleFunc("GET /api/users/suggestions", profile.GetUserSuggestions)
 	router.Handle("/api/users/", http.StripPrefix("/api/users", profile.ProfileMux()))
 
 	log.Fatal(http.ListenAndServe(":8080", middleware.CheckCORS(middleware.CheckUserExeting(router))))
