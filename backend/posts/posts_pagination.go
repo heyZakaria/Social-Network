@@ -6,6 +6,7 @@ import (
 	"net/http"
 	"strconv"
 
+	"socialNetwork/auth"
 	db "socialNetwork/db/sqlite"
 	shared "socialNetwork/shared_packages"
 	"socialNetwork/utils"

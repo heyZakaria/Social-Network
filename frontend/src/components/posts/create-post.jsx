@@ -160,7 +160,7 @@ const CreatePost = () => {
         console.log("data", formData);
 
 
-        const response = await fetch('http://localhost:8080/rest/createpost', {
+        const response = await fetch('/api/posts/createpost', {
           method: 'POST',
           credentials: 'include', // This sends cookies with the request
           body: formData,

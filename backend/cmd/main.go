@@ -37,8 +37,6 @@ func main() {
 	router.Handle("/comment/", http.StripPrefix("/comment", comment.CommentMux()))
 
 	// Profile routes
-	router.HandleFunc("GET /api/users/profile", profile.GetUserProfile)
-	// Profile routes
 	router.HandleFunc("GET /api/users/friends", profile.GetFriendsAndRequests)
 	router.HandleFunc("GET /api/users/profile", profile.GetUserProfile)
 	router.HandleFunc("PUT /api/users/privacy", profile.ProfileStatus)

@@ -9,6 +9,7 @@ import PrivacyToggle from "./privacy-toggle";
 import UserList from "./user-list";
 import FloatingChat from "@/components/chat/floating-chat";
 import { FaLock } from "react-icons/fa";
+import { FetchData } from "@/app/(utils)/fetchJson";
 
 export default function ProfileComponent({ ProfileData, currentUser }) {
   const [activeTab, setActiveTab] = useState("posts");

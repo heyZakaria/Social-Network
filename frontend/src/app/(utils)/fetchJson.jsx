@@ -8,7 +8,7 @@ export async function FetchData(url, mthd = "GET") {
 
         if (!res.ok) {
             // TODO Handle Error of Unothorized
-            throw new Error("Failed to fetch posts");
+            throw new Error("Failed to fetch posts", res.status);
         }
 
         const data = await res.json();
