@@ -6,27 +6,18 @@ import (
 	"strings"
 
 	"socialNetwork/auth"
-	user "socialNetwork/user"
+	shared "socialNetwork/shared_packages"
 	"socialNetwork/utils"
 )
 
 func (c *Comment) CommentSaver(w http.ResponseWriter, r *http.Request) {
-	token := auth.GetToken(w, r)
-	UserId, err := user.GetUserIDByToken(token)
-	if err != nil {
-		utils.Log("Error", err.Error())
-		utils.SendJSON(w, http.StatusUnauthorized, utils.JSONResponse{
-			Success: false,
-			Message: err.Error(),
-		})
-		return
-	}
+	UserId := r.Context().Value(shared.UserIDKey).(string)
 
 	var commentData CommentData
 	var profile auth.Profile
 
 	decoder := json.NewDecoder(r.Body)
-	err = decoder.Decode(&commentData)
+	err := decoder.Decode(&commentData)
 
 	defer r.Body.Close()
 

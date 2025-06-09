@@ -16,16 +16,16 @@ func (c *Comment) GetCommentByPost(w http.ResponseWriter, r *http.Request) {
 	postID := r.URL.Query().Get("postId")
 	pagination := r.URL.Query().Get("page")
 	fmt.Println(pagination, postID)
-	nPagination, err := strconv.Atoi(pagination)
-	if err != nil {
-		fmt.Println(err)
-		utils.Log("Error", "have problem to convert to int for pagination")
-		utils.SendJSON(w, http.StatusBadRequest, utils.JSONResponse{
-			Success: false,
-			Message: "have problem to convert to int for pagination",
-		})
-		return
-	}
+		nPagination, err := strconv.Atoi(pagination)
+		if err != nil {
+			fmt.Println(err)
+			utils.Log("Error", "have problem to convert to int for pagination")
+			utils.SendJSON(w, http.StatusBadRequest, utils.JSONResponse{
+				Success: false,
+				Message: "have problem to convert to int for pagination",
+			})
+			return
+		}
 
 	postId, err := strconv.Atoi(postID)
 	if err != nil {

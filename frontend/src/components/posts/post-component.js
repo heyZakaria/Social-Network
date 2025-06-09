@@ -7,7 +7,7 @@ import CommentSection from "./comment-section";
 import { IoHeartOutline, IoGlobeOutline } from 'react-icons/io5';
 import { BiShare, BiComment, BiDotsHorizontalRounded } from 'react-icons/bi';
 import { HiUsers, HiLockClosed } from 'react-icons/hi2';
-import { FetchData } from "@/app/(utils)/fetchJson";
+import { FetchData } from "@/context/fetchJson";
 
 export default function PostComponent({
   post,
@@ -24,7 +24,7 @@ export default function PostComponent({
   const handleLike =  () => {
     async function updateLikeStatus() {
       const response = await FetchData(
-        `http://localhost:8080/likes/react?id=${post.PostId}`, "POST")
+        `/api/likes/react?id=${post.PostId}`, "POST")
       const LikeCounts = response.data.like_count
       const Like = response.data.success
       console.log("post.Liked", post.Liked);

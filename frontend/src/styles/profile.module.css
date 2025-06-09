@@ -15,6 +15,19 @@
   height: 26vh;
   overflow: hidden;
 }
+.loadMoreButton {
+    width: 100%;
+    height: 28px;
+    border: none;
+    background-color: #6c04bfcc;
+    color: white;
+    font-size: 16px;
+    border-radius: 5px;
+    margin-bottom: 50px;
+}
+.loadMoreButton:hover {
+    background-color: #b355ffcc;
+}
 
 .coverImage {
   width: 100%;

@@ -45,6 +45,8 @@ func getUserProfileData(userId string) (*UserProfile, error) {
 		return nil, err
 	}
 	db.DB.QueryRow("SELECT COUNT(*) FROM posts WHERE user_id = ?", userId).Scan(&profile.PostsCount)
+	db.DB.QueryRow("SELECT COUNT(*) FROM followers WHERE followed_id = ?", userId).Scan(&profile.FollowerCount)
+	db.DB.QueryRow("SELECT COUNT(*) FROM followers WHERE follower_id = ?", userId).Scan(&profile.FollowingCount)
 
 	return profile, nil
 }

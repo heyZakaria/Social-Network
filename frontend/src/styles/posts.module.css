@@ -1,3 +1,410 @@
+/* form to create post */
+.postForm {
+  position: sticky;
+  left: 0;
+  top: 0;
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+  padding: 25px;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+/* container for button pic and button select who see your post  */
+.buttonContainer {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+}
+
+/* Create post header*/
+.createPostHeader {
+  display: flex;
+  margin-bottom: 15px;
+}
+
+/* create post avatar */
+.createPostAvatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 10px;
+}
+
+/* create post input */
+.createPostInput {
+  /* margin-left: 1%; */
+  height: 45px;
+  width: 92%;
+  padding: 16px 16px;
+  border: 1px solid #999898;
+  background-color: #f3e5e5c2;
+  border-radius: 10px;
+  font-size: 15px;
+  display: flex;
+  cursor: pointer;
+  transition: border-color 0.5s ease;
+}
+
+/* create post action for 3 buttons */
+.buttons{
+  display: flex;
+}
+
+/* button for pic or gif */
+.photoAction {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px;
+  border: none;
+  border-radius: 6px;
+  color: #000000;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.5s;
+}
+.photoAction:hover {
+  background-color: #60667031;
+}
+
+/* here i end style at 13:07 */
+
+/* Posts */
+.post {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.postHeader {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+}
+
+.postAvatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 10px;
+}
+
+.postInfo {
+  flex: 1;
+}
+
+.postUser {
+  font-weight: 500;
+  margin-bottom: 3px;
+}
+
+.postTime {
+  font-size: 12px;
+  color: #65676b;
+}
+
+.postContent {
+  padding: 0 15px 15px;
+}
+
+.postContent p {
+  margin: 0 0 15px 0;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.postActions {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 15px;
+  border-top: 1px solid #e4e6eb;
+}
+
+/* .postAction {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px;
+  border: none;
+  background: none;
+  border-radius: 6px;
+  color: #65676b;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+} */
+/* 
+.postAction:hover {
+  background-color: #f7f4f4;
+} */
+
+/* This would go in your CSS module file */
+.popupOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.popupContent {
+  background: #fff;
+  border-radius: 12px;
+  padding: 24px;
+  max-width: 600px;
+  width: 90%;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  position: relative;
+  flex-direction: column;
+}
+
+.closeButton {
+  position: absolute;
+  top: 2px;
+  right: 12px;
+  font-size: 40px;
+  cursor: pointer;
+  color: #8a7da3;
+  transition: color 0.3s ease;
+}
+
+.closeButton:hover {
+  color: #000000;
+}
+
+.closeButtoOptions{
+  position: relative;
+  /* margin-bottom: 10%; */
+  margin-left: 91%;
+  margin-top: 0%;
+  /* margin-left: 12px; */
+  font-size: 40px;
+  cursor: pointer;
+  color: #8a7da3;
+  transition: color 0.3s ease;
+}
+
+.closeButtoOptions:hover {
+  color: #000000;
+}
+
+.popupTextarea {
+  width: 100%;
+  height: 250px;
+  margin: 15px 0;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  resize: none;
+  /* background-color: #971d1d; */
+}
+
+.postButton {
+  background-color: #7c3aed;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 16px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 15px;
+  transition: background-color 0.4s ease;
+  margin: 10px;
+}
+
+.postButton:hover {
+  color: #d8c8f5;
+  background-color: #1c1f24;
+}
+
+
+
+
+.privacyContainer {
+  position: relative;
+  display: inline-block;
+}
+
+.privacyButton {
+  /* margin-top: 10px;
+  margin-left: 650px; */
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+  border: 2px solid #080808;
+ height: 33px;
+  padding: 7px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.optionsDropdown {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.optionsWrapper {
+  background: #f3f1f1;
+  border-radius: 12px;
+  /* padding: 34px; */
+  max-width: 430px;
+  height: 340px;
+  width: 90%;
+  box-shadow: 0 6px 30px rgb(0, 0, 0);
+  /* position: relative; */
+  display: flex;
+  flex-direction: column;
+}
+
+.optionButton {
+  display: flex;
+  align-items: center;
+  background-color: #f8f9fa;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  padding: 12px 30px;
+  margin: 10px 35px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+  max-width: 360px;
+}
+
+.optionButton:hover {
+  background-color: #e7e1f1;
+  border-color: #7c3aed;
+}
+
+.optionIcon {
+  font-size: 24px;
+  margin-right: 12px;
+}
+
+.optionTitle {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.textStyle {
+  font-size: 14px;
+  color: #666;
+  margin: 0;
+}
+
+.popupContainer {
+  /* background-color: #a82a2a; */
+  /* display: grid; */
+  gap: 14px;
+  /* padding: 20px;  */
+  /* font-weight: 900; */
+  background: #f3f1f1;
+  border-radius: 12px;
+  /* border-color: #ec2525; */
+  padding: 22px;
+  max-width: 430px;
+  height: 340px;
+  width: 90%;
+  box-shadow: 0 6px 30px rgb(0, 0, 0);
+  /* position: relative; */
+  display: flex;
+  flex-direction: column;
+  font-family: 'Courier New', Courier, monospace;
+  /* font-size: 20px */
+}
+
+.popupTitle{
+  font-size: 23px;
+  text-align: center;
+}
+
+.followersList {
+  overflow-y: auto; /* Enable vertical scrolling */
+  padding: 5px; /* Padding around the list */
+  border: 1px solid #ccc; /* Light border around the list */
+  border-radius: 8px; /* Rounded corners */
+  background-color: #f8f9fa; /* Light background color */
+}
+
+.followerItem {
+  display: flex; /* Flexbox for layout */
+  align-items: center; /* Center items vertically */
+  padding: 10px; /* Padding for each item */
+}
+
+
+
+.followerCheckbox {
+  margin-right: 12px; /* Space between checkbox and avatar */
+  cursor: pointer; /* Pointer cursor for checkbox */
+}
+
+.followerAvatar {
+  width: 40px; /* Avatar size */
+  height: 40px; /* Avatar size */
+  border-radius: 50%; /* Circular avatar */
+  margin-right: 15px; /* Space between avatar and name */
+}
+
+
+.popupFooter {
+  display: flex; /* Flexbox for footer layout */
+  justify-content: flex-end; /* Align buttons to the right */
+  margin-top: 10px; /* Space above the footer */
+}
+
+.cancelButton {
+  background-color: #f44336; /* Red background for cancel button */
+  color: white; /* White text color */
+  border: none; /* No border */
+  border-radius: 5px; /* Rounded corners */
+  padding: 10px 15px; /* Padding for the button */
+  cursor: pointer; /* Pointer cursor on hover */
+  margin-right: 10px; /* Space between buttons */
+  transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+.cancelButton:hover {
+  background-color: #d32f2fcc; /* Darker red on hover */
+}
+
+.saveButton {
+  background-color: #6f4caf67; /* Green background for save button */
+  color: white; /* White text color */
+  border: none; /* No border */
+  border-radius: 5px; /* Rounded corners */
+  padding: 10px 15px; /* Padding for the button */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+.saveButton:hover {
+  background-color: #5928a7; /* Darker green on hover */
+}
+
+
+
+
+/* thiiiiiiiiiiiiiiiis for posts */
 .post {
   background-color: white;
   border-radius: 10px;
@@ -94,12 +501,11 @@
 .postImage {
   width: 100%;
   border-radius: 8px;
-  margin-bottom: 10px;
+  margin-bottom: 0px;
 }
 
 .postFooter {
   padding: 10px 15px;
-  border-top: 1px solid #e4e6eb;
 }
 
 .postStats {
@@ -114,14 +520,6 @@
   gap: 5px;
   font-size: 14px;
   color: #65676b;
-}
-
-.commentsToggle {
-  background: none;
-  border: none;
-  font-size: 14px;
-  color: #65676b;
-  cursor: pointer;
 }
 
 .postInteractions {
@@ -466,4 +864,11 @@
 .postButton:disabled {
   background-color: #bcc0c4;
   cursor: not-allowed;
+}
+
+.errorMessage {
+  color: red;
+  font-size: 12px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-weight: bold;
 }

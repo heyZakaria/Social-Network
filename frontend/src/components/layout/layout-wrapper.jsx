@@ -27,7 +27,7 @@ export default function LayoutWrapper({ children }) {
   ) : (
     <>
     <Nav/>
-    <div className="container">{children}</div>
+    <div className="container">{children}PPPPPp</div>
     </>
   );
 }

@@ -4,11 +4,12 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import styles from "@/styles/profile.module.css";
 import PostComponent from "@/components/posts/post-component";
-import FollowButton from "./follow-button";
+import FollowButton from "@/components/profile/follow-button";
 import PrivacyToggle from "./privacy-toggle";
 import UserList from "../friends/user-list";
 import FloatingChat from "@/components/chat/floating-chat";
 import { FaLock } from "react-icons/fa";
+import { FetchData } from "@/context/fetchJson";
 
 export default function ProfileComponent({ ProfileData, currentUser }) {
   const [activeTab, setActiveTab] = useState("posts");
@@ -23,9 +24,24 @@ export default function ProfileComponent({ ProfileData, currentUser }) {
   const [hasMore, setHasMore] = useState(true); // for pagination
 
   useEffect(() => {
-    if (activeTab === "posts") {
-      fetchPosts();
+    async function x() {
+      const data = await FetchData(`/api/posts/getposts?limit=${limit}&offset=${offset}&user_id=${ProfileData.id}`)
+    
+      if (data.data.posts.length < limit) setHasMore(false); // no more posts
+      setPosts((prev) => {
+        const existingIds = new Set(prev.map((p) => p.PostId));
+        const uniqueNewPosts = data.data.posts.filter((p) => !existingIds.has(p.PostId));
+        setLoading(false);
+        return [...prev, ...uniqueNewPosts];
+      });
     }
+    if (activeTab === "posts") {
+      setLoading(true);
+      x()
+      if (hasMore) setLoading(false);
+    }
+    
+
   }, [activeTab, offset]);
 
   const fetchPosts = async () => {
@@ -164,7 +180,7 @@ console.log("Following:", ProfileData.following);
             {activeTab === "posts" && (
               <div className={styles.postsGrid}>
                 {loading && posts.length === 0 ? (
-                  <p>Loading...</p>
+                  <p>{loading}Loading... {posts.length}</p>
                 ) : posts.length > 0 ? (
                   <>
                     {posts.map((post) => (
