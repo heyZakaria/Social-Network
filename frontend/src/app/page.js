@@ -18,7 +18,7 @@ export default function Home() {
   const limit = 10; // You can change this value if needed
   const [loading, setLoading] = useState(false);
   const [hasMore, setHasMore] = useState(true); // for pagination
-
+  const [refrech, setRefrech] = useState(0);
   useEffect(() => {
     async function x() {
       const data = await FetchData(
@@ -35,13 +35,19 @@ export default function Home() {
         const uniqueNewPosts = data.data.posts.filter(
           (p) => !existingIds.has(p.PostId)
         );
-        return [...prev, ...uniqueNewPosts];
+        const combinedPosts = [...prev, ...uniqueNewPosts];
+      
+        // Sort posts from highest PostId to lowest
+        combinedPosts.sort((a, b) => b.PostId - a.PostId);
+      
+        return combinedPosts;
       });
+      
       setLoading(false);
     }
     setLoading(true); // TODO WAiting before setting it true
     x();
-  }, [offset]);
+  }, [refrech ,offset]);
 
   console.log("posts", posts);
   console.log("hasMore", hasMore);
@@ -58,13 +64,16 @@ export default function Home() {
   //     router.push("/");
   //   }
   // }, [currentUser, router]);
-
+  function RefrechPosts() {
+    // TODO Fix adding posts without reloading the page
+    setRefrech((prev) => prev + 1);
+  }
   return (
     <div className={styles.homePage}>
       {currentUser ? (
         <>
           <div className={styles.mainContent}>
-            <CreatePost />
+            <CreatePost Refrech={RefrechPosts}/>
             <div className={styles.contentArea}>
               <div className={styles.feed}>
                 {loading && posts.length === 0 ? (
