@@ -60,9 +60,7 @@ export default function GroupsList() {
 
   useEffect(() => {
     if (data != null) {
-      console.log(data);
       if (data.data == null) {
-        console.log("waaaaaaaaaaaaaaa");
         return
       }
       const mapped = data.data.map(group => ({
