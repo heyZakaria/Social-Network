@@ -29,7 +29,7 @@ func fetchGroups(w http.ResponseWriter, r *http.Request) {
 
 	User_id := r.Context().Value(shared.UserIDKey).(string)
 	Groups, err := GetGroups(db.DB, User_id)
-	fmt.Println("GROOOOPS", User_id, "sss", Groups)
+	// fmt.Println("GROOOOPS", User_id, "sss", Groups)
 	if err != nil {
 		utils.Log("Error Fetching Groups", err.Error())
 		utils.SendJSON(w, http.StatusUnauthorized, utils.JSONResponse{
@@ -40,7 +40,7 @@ func fetchGroups(w http.ResponseWriter, r *http.Request) {
 
 		return
 	}
-	fmt.Println("ALL GROUPS", Groups)
+	// fmt.Println("ALL GROUPS", Groups)
 	utils.Log("INFO", "Groups Fetched Successfuly")
 	for _, grop := range Groups {
 		fmt.Print("____________________________")

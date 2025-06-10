@@ -90,7 +90,7 @@ func (g Group) InputValidation() error {
 	if len(g.Title) < 10 || len(g.Title) > 100 {
 		return fmt.Errorf("Title must be between 10 and 100 characters")
 	}
-	if len(g.Description) < 30 || len(g.Description) > 250 {
+	if strings.TrimSpace(g.Description) == "" || len(g.Description) < 30 || len(g.Description) > 250 {
 		return fmt.Errorf("Description must be between 30 and 250 characters")
 	}
 
