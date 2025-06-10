@@ -11,6 +11,8 @@ import { useUser } from '@/context/user_context';
 export default function CommentSection({ postId }) {
    const { user: currentUser } = useUser();
   const [comments, setComments] = useState([]);
+  const [selectedImage, setSelectedImage] = useState(null);
+
   const [displayedComments, setDisplayedComments] = useState([]);
   const [newComment, setNewComment] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -18,115 +20,127 @@ export default function CommentSection({ postId }) {
   const [showAllComments, setShowAllComments] = useState(false);
   const COMMENTS_TO_SHOW = 2; // Initial number of comments to show
 
-  console.log("currentUser////////////", currentUser);
+  console.log("currentUser////////////", postId, newComment, currentUser.id);
   
 
-  useEffect(() => {
-    // In a real app, this would be an API call
-    // For now, we'll use mock data
-    const fetchComments = async () => {
-      try {
-        setIsLoading(true);
+  // useEffect(() => {
+  //   const fetchComments = async () => {
+  //     try {
+  //       setIsLoading(true);
         // Simulate API call
-        const mockComments = [
-          {
-            id: 1,
-            postId: postId,
-            userId: 2,
-            user: {
-              id: 2,
-              firstName: "Jane",
-              lastName: "Smith",
-              avatar: "https://i.pravatar.cc/150?u=10`",
-            },
-            content: "Wow, that looks amazing! Which trail was this? 😍",
-            createdAt: "2023-03-10T12:15:00Z",
-          },
-          {
-            id: 2,
-            postId: postId,
-            userId: 3,
-            user: {
-              id: 3,
-              firstName: "Mike",
-              lastName: "Johnson",
-              avatar: "https://i.pravatar.cc/150?u=10`",
-            },
-            content: "Incredible views! I need to go hiking more often. 🏔️",
-            createdAt: "2023-03-10T13:30:00Z",
-          },
-          {
-            id: 3,
-            postId: postId,
-            userId: 4,
-            user: {
-              id: 4,
-              firstName: "Sarah",
-              lastName: "Williams",
-              avatar: "https://i.pravatar.cc/150?u=10`",
-            },
-            content:
-              "I was there last month! Did you take the north trail or the south one? 🧭",
-            createdAt: "2023-03-11T09:45:00Z",
-          },
-          {
-            id: 4,
-            postId: postId,
-            userId: 5,
-            user: {
-              id: 5,
-              firstName: "Alex",
-              lastName: "Brown",
-              avatar: "https://i.pravatar.cc/150?u=10`",
-            },
-            content:
-              "The colors in this photo are stunning. What camera settings did you use? 📸",
-            createdAt: "2023-03-12T14:20:00Z",
-          },
-        ];
+        // const mockComments = [
+        //   {
+        //     id: 1,
+        //     postId: postId,
+        //     userId: 2,
+        //     user: {
+        //       id: 2,
+        //       firstName: "Jane",
+        //       lastName: "Smith",
+        //       avatar: "https://i.pravatar.cc/150?u=10`",
+        //     },
+        //     content: "Wow, that looks amazing! Which trail was this? 😍",
+        //     createdAt: "2023-03-10T12:15:00Z",
+        //   },
+        //   {
+        //     id: 2,
+        //     postId: postId,
+        //     userId: 3,
+        //     user: {
+        //       id: 3,
+        //       firstName: "Mike",
+        //       lastName: "Johnson",
+        //       avatar: "https://i.pravatar.cc/150?u=10`",
+        //     },
+        //     content: "Incredible views! I need to go hiking more often. 🏔️",
+        //     createdAt: "2023-03-10T13:30:00Z",
+        //   },
+        //   {
+        //     id: 3,
+        //     postId: postId,
+        //     userId: 4,
+        //     user: {
+        //       id: 4,
+        //       firstName: "Sarah",
+        //       lastName: "Williams",
+        //       avatar: "https://i.pravatar.cc/150?u=10`",
+        //     },
+        //     content:
+        //       "I was there last month! Did you take the north trail or the south one? 🧭",
+        //     createdAt: "2023-03-11T09:45:00Z",
+        //   },
+        // ];
 
-        setComments(mockComments);
-        updateDisplayedComments(mockComments, showAllComments);
-        setIsLoading(false);
-      } catch (error) {
-        console.error("Error fetching comments:", error);
-        setIsLoading(false);
-      }
-    };
+        // setComments(mockComments);
+        // updateDisplayedComments(mockComments, showAllComments);
+  //       setIsLoading(false);
+  //     } catch (error) {
+  //       console.error("Error fetching comments:", error);
+  //       setIsLoading(false);
+  //     }
+  //   };
 
-    fetchComments();
-  }, [postId, showAllComments]);
+  //   fetchComments();
+  // }, [postId, showAllComments]);
 
-  const updateDisplayedComments = (allComments, showAll) => {
-    if (showAll) {
-      setDisplayedComments(allComments);
-    } else {
-      setDisplayedComments(allComments.slice(0, COMMENTS_TO_SHOW));
-    }
-  };
+  // const updateDisplayedComments = (allComments, showAll) => {
+  //   if (showAll) {
+  //     setDisplayedComments(allComments);
+  //   } else {
+  //     setDisplayedComments(allComments.slice(0, COMMENTS_TO_SHOW));
+  //   }
+  // };
 
-  const handleViewMoreComments = () => {
-    setShowAllComments(true);
-  };
-
-  const handleHideComments = () => {
-    setShowAllComments(false);
-  };
+  // const handleViewMoreComments = () => {
+  //   setShowAllComments(true);
+  // };
 
   const handleEmojiSelect = (emoji) => {
     setNewComment((prevComment) => prevComment + emoji);
   };
 
+
+  const validComment = () => {
+    let isValid = true;
+    if (newComment) {
+      if (newComment.length > 10) {
+        isValid = false;
+      }
+      if (!newComment.trim()) {
+        isValid = false;        
+      }
+    }
+    if (selectedImage) {
+      if (!selectedImage.type.startsWith('image/')) {
+        isValid = false;
+      }
+      if (selectedImage.size > 10 * 1024 * 1024) {
+        isValid = false;
+      }
+    }
+  }
+
+
   const handleSubmitComment = async (e) => {
     e.preventDefault();
 
-    if (!newComment.trim()) return;
-
     setIsSubmitting(true);
 
-    try {
-      // In a real app, this would be an API call
-      // For now, we'll simulate adding a comment
+    const isValid = validComment()
+
+    if (isValid) {
+
+      try {
+        
+      const formData = new FormData()
+
+     
+
+
+
+
+
+
       const newCommentObj = {
         id: Date.now(),
         postId: postId,
@@ -150,6 +164,9 @@ export default function CommentSection({ postId }) {
     } finally {
       setIsSubmitting(false);
     }
+    }
+
+    
   };
 
   const formatDate = (dateString) => {
@@ -213,7 +230,7 @@ export default function CommentSection({ postId }) {
             ))}
           </div>
 
-          {comments.length > COMMENTS_TO_SHOW && (
+          {/* {comments.length > COMMENTS_TO_SHOW && (
             <div className={styles.viewMoreContainer}>
               {!showAllComments ? (
                 <button
@@ -231,7 +248,7 @@ export default function CommentSection({ postId }) {
                 </button>
               )}
             </div>
-          )}
+          )} */}
         </>
       )}
 

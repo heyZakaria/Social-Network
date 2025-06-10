@@ -237,7 +237,7 @@ const CreatePost = ({
       <div className={styles.createPost}>
         <div className={styles.createPostHeader}>
           <img
-            src={ currentUser.avatar || "/uploads/profile.jpeg"}
+            // src={ currentUser.avatar || "/uploads/profile.jpeg"}
             className={styles.createPostAvatar}
           />
           <PopupInput

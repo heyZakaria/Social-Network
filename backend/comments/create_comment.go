@@ -13,6 +13,8 @@ import (
 func (c *Comment) CommentSaver(w http.ResponseWriter, r *http.Request) {
 	UserId := r.Context().Value(shared.UserIDKey).(string)
 
+	// fmt.Println("comment")
+
 	var commentData CommentData
 	var profile auth.Profile
 
