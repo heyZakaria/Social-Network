@@ -80,7 +80,7 @@ export default function PostComponent({
     if (!post.Post_Content) return null;
 
     if (post.Post_Content.length <= MAX_CONTENT_LENGTH || isExpanded) {
-      return <p>{post.PostId} {post.Post_Content}</p>;
+      return <p>{post.Post_Content}</p>;
     }
 
     return (

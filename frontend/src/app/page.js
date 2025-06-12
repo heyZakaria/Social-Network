@@ -46,7 +46,9 @@ export default function Home() {
       setLoading(false);
     }
     setLoading(true); // TODO WAiting before setting it true
-    x();
+    if (currentUser){
+      x();
+    }
   }, [refrech ,offset]);
 
   console.log("posts", posts);

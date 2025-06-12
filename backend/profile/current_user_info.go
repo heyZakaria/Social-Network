@@ -13,6 +13,7 @@ func GetUserProfile(w http.ResponseWriter, r *http.Request) {
 	UserId := r.Context().Value(shared.UserIDKey).(string)
 	profile, err := getUserProfileData(UserId)
 	if err != nil {
+		utils.Log("ERROR", "Error fetching profile: "+err.Error())
 		utils.SendJSON(w, http.StatusInternalServerError, utils.JSONResponse{
 			Success: false,
 			Message: "Error fetching profile",
@@ -20,6 +21,19 @@ func GetUserProfile(w http.ResponseWriter, r *http.Request) {
 		})
 		return
 	}
+
+	followers, err := LoadUsers(UserId, "accepted")
+	if err != nil {
+		utils.Log("ERROR", "Failed to load followers: "+err.Error())
+		utils.SendJSON(w, http.StatusInternalServerError, utils.JSONResponse{
+			Success: false,
+			Message: "Failed to load followers",
+			Error:   err.Error(),
+		})
+		return
+	}
+
+	profile.Followers = followers
 
 	utils.SendJSON(w, http.StatusOK, utils.JSONResponse{
 		Success: true,

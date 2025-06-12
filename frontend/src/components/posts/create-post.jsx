@@ -231,18 +231,20 @@ const CreatePost = ({
     // Clear content errors
     setErrors(prev => ({ ...prev, content: '' }));
   };
-
+  console.log("Aciba", currentUser);
+  
   return (
     <form onSubmit={publishPost} className={styles.postForm} id="postForm">
       <div className={styles.createPost}>
         <div className={styles.createPostHeader}>
           <img
-            // src={ currentUser.avatar || "/uploads/profile.jpeg"}
+            src={ currentUser.avatar || "/uploads/profile.jpeg"}
             className={styles.createPostAvatar}
           />
           <PopupInput
             postContent={postContent}
             onContentChange={handleContentChange}
+            currentUser={currentUser}
           // disabled={isLoading}
           />
         </div>
@@ -305,6 +307,7 @@ const CreatePost = ({
           />
 
           <PopupPrivacy
+            followers={currentUser.followers || []}
             onPrivacyChange={handlePrivacyChange}
             disabled={isLoading}
           />

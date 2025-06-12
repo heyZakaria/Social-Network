@@ -35,32 +35,34 @@ export default function FriendSuggestions() {
       <h3 className={styles.title}>People You May Know</h3>
       <div className={styles.list}>
         {currentSuggestions.slice(0, 5).map((user) => (
-          <div key={user.id} className={styles.item}>
-            <img
-              src={user.avatar || "/uploads/profile.jpeg"}
-              alt={`${user.firstName} ${user.lastName}`}
-              className={styles.avatar}
-            />
-            <div className={styles.info}>
-              <div className={styles.name}>
-                {user.firstName} {user.lastName}
-              </div>
-              {user.mutualFriends > 0 && (
-                <div className={styles.meta}>
-                  {user.mutualFriends} mutual {user.mutualFriends === 1 ? "friend" : "friends"}
+          <Link href={"/profile" + `/${user.id}`} className={styles.item} key={user.id}>
+            <div key={user.id} className={styles.item}>
+              <img
+                src={user.avatar || "/uploads/profile.jpeg"}
+                alt={`${user.firstName} ${user.lastName}`}
+                className={styles.avatar}
+              />
+              <div className={styles.info}>
+                <div className={styles.name}>
+                  {user.firstName} {user.lastName}
                 </div>
-              )}
+                {user.mutualFriends > 0 && (
+                  <div className={styles.meta}>
+                    {user.mutualFriends} mutual {user.mutualFriends === 1 ? "friend" : "friends"}
+                  </div>
+                )}
+              </div>
+              <div className={styles.actions}>
+                      <FollowButton targetUserId={user.id} />
+                {/* <button
+                  className={`${styles.button} ${styles.secondaryButton}`}
+                  onClick={() => handleIgnore(user.id)}
+                >
+                  Ignore
+                </button> */}
+              </div>
             </div>
-            <div className={styles.actions}>
-                    <FollowButton targetUserId={user.id} />
-              {/* <button
-                className={`${styles.button} ${styles.secondaryButton}`}
-                onClick={() => handleIgnore(user.id)}
-              >
-                Ignore
-              </button> */}
-            </div>
-          </div>
+            </Link>
         ))}
       </div>
       {currentSuggestions.length > 5 && (
