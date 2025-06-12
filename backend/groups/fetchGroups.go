@@ -54,7 +54,9 @@ func fetchGroups(w http.ResponseWriter, r *http.Request) {
 	}
 	utils.SendJSON(w, http.StatusOK, utils.JSONResponse{
 		Success: true,
-		Data:    Groups,
+		Data: map[string]any{
+			"Groups": Groups,
+		},
 	})
 }
 

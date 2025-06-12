@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import styles from "@/styles/profile.module.css";
 import PostComponent from "@/components/posts/post-component";
-import FollowButton from "@/components/profile/follow-button";
+import FollowButton from "./follow-button";
 import PrivacyToggle from "./privacy-toggle";
 import UserList from "../friends/user-list";
 import FloatingChat from "@/components/chat/floating-chat";

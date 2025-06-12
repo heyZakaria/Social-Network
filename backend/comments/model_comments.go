@@ -5,18 +5,13 @@ import (
 )
 
 type Comment struct {
-	ID        string
-	UserID    string
-	PostID    int
-	Username  string
-	Content   string
-	CreatedAt time.Time
-	FormattedDate      string
+	ID            string
+	UserID        string
+	PostID        int    `json:"postId"`
+	Content       string `json:"content"`
+	FirstName     string
+	LastName      string
+	Avatar        string
+	CreatedAt     time.Time
+	FormattedDate string
 }
-
-type CommentData struct {
-	Comment string `json:"content"`
-	PostID  int    `json:"postId"`
-}
-
-	

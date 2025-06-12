@@ -4,7 +4,9 @@ import { IoAddOutline } from "react-icons/io5";
 import styles from "@/styles/UpcomingEvents.module.css";
 
 export default function UpcomingEvents() {
-    const { data, loading, error } = useFetch("http://localhost:8080/events/events");
+    // TODO TAWIL : i have commented this cause i didnt fund the main function path
+    // const { data, loading, error } = useFetch("/api/events/events");
+    const error = ""
     const [events, setEvents] = useState([]);
     const [err, setError] = useState(null);
     const currentUser = {
@@ -16,7 +18,7 @@ export default function UpcomingEvents() {
 
 
     const fetchEvents = () => {
-        fetch("http://localhost:8080/events/events", {
+        fetch("/api/events/events", {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
@@ -48,7 +50,7 @@ export default function UpcomingEvents() {
 
     const HandleEventPresence = (event) => {
 
-        fetch(`http://localhost:8080/events/${event.id}/response`, {
+        fetch(`/api/events/${event.id}/response`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

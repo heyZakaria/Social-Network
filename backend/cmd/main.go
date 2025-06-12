@@ -8,9 +8,10 @@ import (
 	Events "socialNetwork/events"
 	"socialNetwork/realTime"
 
+	Group "socialNetwork/groups"
+
 	"socialNetwork/auth"
 	db "socialNetwork/db/sqlite"
-	Group "socialNetwork/groups"
 	"socialNetwork/likes"
 	"socialNetwork/middleware"
 	post "socialNetwork/posts"
@@ -31,7 +32,7 @@ func main() {
 
 	router := http.NewServeMux()
 
-	_, err = db.InitDB("../backend/db/sqlite/database.db")
+	_, err = db.InitDB("../db/sqlite/database.db")
 
 	router.Handle("/api/", http.StripPrefix("/api", auth.AuthMux()))
 
@@ -41,7 +42,7 @@ func main() {
 
 	router.Handle("/api/users/", http.StripPrefix("/api/users", profile.ProfileMux()))
 	router.Handle("/api/groups/", http.StripPrefix("/api/groups", Group.GroupMux()))
-	router.Handle("/events/", http.StripPrefix("/events", Events.EventsMux())) // /groups/{id}/event
+	router.Handle("/api/events/", http.StripPrefix("/api/events", Events.EventsMux())) // /groups/{id}/event
 
 	router.HandleFunc("/ws", realTime.WSHandler)
 

@@ -124,7 +124,7 @@ export default function ShowEventForm() {
 
 function SendEventForm(formData) {
     // Last version --> /groups/{id}/events
-    fetch("http://localhost:8080/events/newEvent", {
+    fetch("/api/events/newEvent", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",

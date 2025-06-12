@@ -9,7 +9,7 @@ export function UserProvider({ children }) {
 
   const fetchUser = async () => {
     try {
-      const res = await fetch('http://localhost:8080/api/users/profile', {
+      const res = await fetch('/api/users/profile', {
         method: 'GET',
         credentials: 'include', 
       });

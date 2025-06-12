@@ -2,6 +2,7 @@ package post
 
 import (
 	"database/sql"
+	"fmt"
 	"net/http"
 	"strconv"
 
@@ -22,6 +23,7 @@ func PostsPagination(w http.ResponseWriter, r *http.Request) {
 	offset := r.URL.Query().Get("offset")
 	limit := r.URL.Query().Get("limit")
 	specificUser := r.URL.Query().Get("user_id")
+	fmt.Println("specificUser", specificUser)
 	if offset == "" || limit == "" {
 		utils.Log("ERROR", "Offset or Limit is not valid in GetPostsScroll Handler: ")
 		utils.SendJSON(w, http.StatusBadRequest, utils.JSONResponse{

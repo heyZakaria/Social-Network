@@ -74,7 +74,9 @@ func getGroup(w http.ResponseWriter, r *http.Request) {
 	utils.SendJSON(w, http.StatusOK, utils.JSONResponse{
 		Success: true,
 		Message: "Group fetching Successed",
-		Data:    g,
+		Data: map[string]any{
+			"Group": g,
+		},
 	})
 	utils.Log("INFO", fmt.Sprintf(`Group With ID : %s Fetched With Success`, GroupId))
 }

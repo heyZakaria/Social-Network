@@ -45,8 +45,8 @@ func initMig() error {
 		log.Fatal(err)
 	}
 
-	migrationsPath := filepath.Join(dir, "../backend/db/migration")
-	DatabasePath := filepath.Join(dir, "../backend/db/sqlite/database.db")
+	migrationsPath := filepath.Join(dir, "../db/migration")
+	DatabasePath := filepath.Join(dir, "../db/sqlite/database.db")
 
 	sourceURL := "file://" + migrationsPath
 	dbURL := "sqlite3://" + DatabasePath
