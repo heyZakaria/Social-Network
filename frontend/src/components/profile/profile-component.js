@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Link from "next/link";
+// import Link from "next/link";
 import styles from "@/styles/profile.module.css";
 import PostComponent from "@/components/posts/post-component";
 import FollowButton from "./follow-button";
@@ -11,7 +11,7 @@ import FloatingChat from "@/components/chat/floating-chat";
 import { FaLock } from "react-icons/fa";
 import { FetchData } from "@/context/fetchJson";
 
-export default function ProfileComponent({ ProfileData, currentUser }) {
+export default function ProfileComponent({ ProfileData }) {
   const [activeTab, setActiveTab] = useState("posts");
   if (!ProfileData) {
     return <div>Loading...</div>;
@@ -24,25 +24,33 @@ export default function ProfileComponent({ ProfileData, currentUser }) {
   const [hasMore, setHasMore] = useState(true); // for pagination
 
   useEffect(() => {
-    async function x() {
-      const data = await FetchData(`/api/posts/getposts?limit=${limit}&offset=${offset}&user_id=${ProfileData.id}`)
-    
-      if (data.data.posts.length < limit) setHasMore(false); // no more posts
-      setPosts((prev) => {
-        const existingIds = new Set(prev.map((p) => p.PostId));
-        const uniqueNewPosts = data.data.posts.filter((p) => !existingIds.has(p.PostId));
-        setLoading(false);
-        return [...prev, ...uniqueNewPosts];
-      });
-    }
-    if (activeTab === "posts") {
+    async function fetchPosts() {
       setLoading(true);
-      x()
-      if (hasMore) setLoading(false);
+      try {
+        const data = await FetchData(`/api/posts/getposts?limit=${limit}&offset=${offset}&user_id=${ProfileData.id}`);
+        if (!data || !data.data || !Array.isArray(data.data.posts)) {
+          setHasMore(false);
+          setLoading(false);
+          return;
+        }
+        if (data.data.posts.length < limit) setHasMore(false); // no more posts
+        setPosts((prev) => {
+          const existingIds = new Set(prev.map((p) => p.PostId));
+          const uniqueNewPosts = data.data.posts.filter((p) => !existingIds.has(p.PostId));
+          return [...prev, ...uniqueNewPosts];
+        });
+      } finally {
+        setLoading(false);
+      }
     }
-    
+    if (activeTab === "posts" && hasMore) {
+      fetchPosts();
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [activeTab, offset, ProfileData.id]);
 
-  }, [activeTab, offset]);
+  console.log("Followers:", ProfileData.followers);
+console.log("Following:", ProfileData.following);
 
   const loadMore = () => {
     if (!loading && hasMore) {

@@ -3,10 +3,16 @@
 import styles from "@/styles/profile.module.css"
 import Link from "next/link"
 import FollowButton from "@/components/profile/follow-button"
+import { useUser } from '@/context/user_context';
+
 
 export default function UserList({ type, users }) {
+  const { user: currentUser } = useUser();
   if (!users || users.length === 0) {
     return <div className={styles.emptyState}>No {type} yet</div>;
+  }
+  if (!currentUser) {
+    return null;
   }
   console.log("UserList: users", users);
   
@@ -33,7 +39,9 @@ export default function UserList({ type, users }) {
               </div>
             </Link>
             <div className={styles.userActions}>
-              <FollowButton targetUserId={user.id} />
+              {currentUser && user.id !== currentUser.id && (
+                <FollowButton targetUserId={user.id} />
+              )}
               {/* <button className={styles.messageButton}>Message</button> */}
             </div>
           </div>

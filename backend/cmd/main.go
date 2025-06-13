@@ -5,6 +5,10 @@ import (
 	"net/http"
 
 	comment "socialNetwork/comments"
+	Events "socialNetwork/events"
+	"socialNetwork/realTime"
+
+	Group "socialNetwork/groups"
 
 	"socialNetwork/auth"
 	db "socialNetwork/db/sqlite"
@@ -37,6 +41,10 @@ func main() {
 	router.Handle("/api/comment/", http.StripPrefix("/api/comment", comment.CommentMux()))
 
 	router.Handle("/api/users/", http.StripPrefix("/api/users", profile.ProfileMux()))
+	router.Handle("/api/groups/", http.StripPrefix("/api/groups", Group.GroupMux()))
+	router.Handle("/api/events/", http.StripPrefix("/api/events", Events.EventsMux())) // /groups/{id}/event
+
+	router.HandleFunc("/ws", realTime.WSHandler)
 
 	log.Fatal(http.ListenAndServe(":8080", middleware.CheckCORS(middleware.CheckUserExeting(router))))
 }

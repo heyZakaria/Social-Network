@@ -3,6 +3,7 @@ import Link from "next/link";
 import styles from "@/styles/events.module.css";
 import { IoAddOutline } from "react-icons/io5";
 import FloatingChat from "@/components/chat/floating-chat";
+import ShowEventForm from "@/components/events/eventCard";
 
 // Sample events data
 const sampleEvents = [
@@ -105,65 +106,71 @@ export default async function EventsPage() {
   };
 
   return (
-    <div className={styles.eventsContainer}>
-      <div className={styles.eventsHeader}>
-        <h1>Events</h1>
-        <Link href="/events" className={styles.createEventButton}>
-          <IoAddOutline size={20} />
-          Create Event
-        </Link>
+    <>
+      <div>
+        <ShowEventForm />
+        <h1>EVENTS</h1>
       </div>
+      <div className={styles.eventsContainer}>
+        <div className={styles.eventsHeader}>
+          <h1>Events</h1>
+          <Link href="/events" className={styles.createEventButton}>
+            <IoAddOutline size={20} />
+            Create EventO
+          </Link>
+        </div>
 
-      <div className={styles.eventsTabs}>
-        <button className={`${styles.tabButton} ${styles.activeTab}`}>
-          Upcoming
-        </button>
-        <button className={styles.tabButton}>Past</button>
-        <button className={styles.tabButton}>My Events</button>
-      </div>
+        <div className={styles.eventsTabs}>
+          <button className={`${styles.tabButton} ${styles.activeTab}`}>
+            Upcoming
+          </button>
+          <button className={styles.tabButton}>Past</button>
+          <button className={styles.tabButton}>My Events</button>
+        </div>
 
-      <div className={styles.eventsGrid}>
-        {sampleEvents.map((event) => (
-          <div key={event.id} className={styles.eventCard}>
-            <div className={styles.eventCardImage}>
-              <img src={event.image || "/placeholder.svg"} alt={event.title} />
-              <div className={styles.eventDate}>
-                <div className={styles.eventMonth}>
-                  {new Date(event.date).toLocaleString("default", {
-                    month: "short",
-                  })}
+        <div className={styles.eventsGrid}>
+          {sampleEvents.map((event) => (
+            <div key={event.id} className={styles.eventCard}>
+              <div className={styles.eventCardImage}>
+                <img src={event.image || "/placeholder.svg"} alt={event.title} />
+                <div className={styles.eventDate}>
+                  <div className={styles.eventMonth}>
+                    {new Date(event.date).toLocaleString("default", {
+                      month: "short",
+                    })}
+                  </div>
+                  <div className={styles.eventDay}>
+                    {new Date(event.date).getDate()}
+                  </div>
                 </div>
-                <div className={styles.eventDay}>
-                  {new Date(event.date).getDate()}
+              </div>
+              <div className={styles.eventCardContent}>
+                <h3 className={styles.eventCardTitle}>{event.title}</h3>
+                <div className={styles.eventCardMeta}>
+                  <div className={styles.eventTime}>{formatDate(event.date)}</div>
+                  <div className={styles.eventLocation}>{event.location}</div>
+                  <div className={styles.eventGroup}>
+                    <Link href={`/groups/${event.groupId}`}>
+                      {event.groupName}
+                    </Link>
+                  </div>
+                </div>
+                <p className={styles.eventCardDescription}>{event.description}</p>
+                <div className={styles.eventCardFooter}>
+                  <div className={styles.eventAttendees}>
+                    <span>{event.attendees.going.length} going</span>
+                  </div>
+                  <div className={styles.eventActions}>
+                    <button className={styles.goingButton}>Going</button>
+                    <button className={styles.notGoingButton}>Not Going</button>
+                  </div>
                 </div>
               </div>
             </div>
-            <div className={styles.eventCardContent}>
-              <h3 className={styles.eventCardTitle}>{event.title}</h3>
-              <div className={styles.eventCardMeta}>
-                <div className={styles.eventTime}>{formatDate(event.date)}</div>
-                <div className={styles.eventLocation}>{event.location}</div>
-                <div className={styles.eventGroup}>
-                  <Link href={`/groups/${event.groupId}`}>
-                    {event.groupName}
-                  </Link>
-                </div>
-              </div>
-              <p className={styles.eventCardDescription}>{event.description}</p>
-              <div className={styles.eventCardFooter}>
-                <div className={styles.eventAttendees}>
-                  <span>{event.attendees.going.length} going</span>
-                </div>
-                <div className={styles.eventActions}>
-                  <button className={styles.goingButton}>Going</button>
-                  <button className={styles.notGoingButton}>Not Going</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        ))}
+          ))}
+        </div>
+        <FloatingChat currentUser={currentUser} />
       </div>
-      <FloatingChat currentUser={currentUser} />
-    </div>
+    </>
   );
 }

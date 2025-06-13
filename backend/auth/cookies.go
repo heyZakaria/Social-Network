@@ -6,13 +6,22 @@ import (
 
 	tkn "socialNetwork/token"
 	"socialNetwork/utils"
-
-	"github.com/google/uuid"
 )
 
 func SendSuccessWithToken(w http.ResponseWriter, r *http.Request, userID string) {
-
-	token := uuid.New().String() // TODO Looking for BEST Way to generate the Session ID :D
+	// second parm not necessary "user", just for respect format of JWT
+	// Sould be choose role of user
+	token, err := CreateJWT(userID, "user")
+	if err != nil {
+		utils.Log("ERROR", "Failed to create JWT: "+err.Error())
+		utils.SendJSON(w, http.StatusBadRequest, utils.JSONResponse{
+			Success: false,
+			Error:   "Internal server error",
+		})
+		return
+	}
+	// set cookies manual like we recieve it in graphql
+	// w.Header().Set("Authorization", "Bearer "+token)
 
 	http.SetCookie(w, &http.Cookie{
 		Name:     "token",

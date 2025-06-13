@@ -50,7 +50,7 @@ func CommentSaver(w http.ResponseWriter, r *http.Request) {
 		})
 		return
 	}
-	
+
 	utils.Log("Success", "Comment saved successfully")
 	utils.SendJSON(w, http.StatusOK, utils.JSONResponse{
 		Success: true,
