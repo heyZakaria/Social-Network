@@ -17,7 +17,10 @@
   width: 100%;
   align-items: center;
 }
-
+.postImageWrapper{
+  width: 100%;
+  text-align: center;
+}
 /* Create post header*/
 .createPostHeader {
   display: flex;
@@ -34,6 +37,9 @@
 }
 .textareaContainer{
   width: 100%;
+}
+.textareaContainer textarea{
+  resize: none;
 }
 /* create post input */
 .createPostInput {

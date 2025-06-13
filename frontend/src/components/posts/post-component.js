@@ -101,13 +101,16 @@ export default function PostComponent({
     <div className={styles.post}>
       <div className={styles.postHeader}>
         <Link href={`/profile/${post.UserID}`} className={styles.postUser}>
-          <Image
-            src={post.User_avatar || "/uploads/profile.jpeg"}
-            alt={post.First_name}
-            className={styles.postAvatar}
-            width={100}
-            height={100}
-          />
+          <div className={styles.avatarWrapper}>
+            <Image
+              src={post.User_avatar || "/uploads/profile.jpeg"}
+              alt={post.First_name}
+              className={styles.postAvatar}
+              width={48}
+              height={48}
+              style={{ objectFit: "cover", borderRadius: "50%" }}
+            />
+          </div>
           <div className={styles.postUserInfo}>
             <div className={styles.postUserName}>
               {post.First_name} {post.Last_name}
@@ -125,24 +128,21 @@ export default function PostComponent({
             </div>
           </div>
         </Link>
-
-        {/* {currentUser.id === user.id && (
-          <div className={styles.postActions}>
-            <button className={styles.postAction}>
-            <BiDotsHorizontalRounded size={16} />
-            </button>
-          </div>
-        )} */}
       </div>
 
       <div className={styles.postContent}>
         {renderPostContent()}
         {post.Post_image && (
-          <Image width={} height={}
-            src={post.Post_image}
-            alt="Post"
-            className={styles.postImage}
-          />
+          <div className={styles.postImageWrapper}>
+            <Image
+              src={post.Post_image}
+              alt="Post"
+              className={styles.postImage}
+              width={200}
+              height={100}
+              style={{ width: "auto", height: "auto", objectFit: "cover", borderRadius: "8px" }}
+            />
+          </div>
         )}
       </div>
 
@@ -182,7 +182,6 @@ export default function PostComponent({
             <BiComment size={20} />
             Comment
           </button>
-          
         </div>
       </div>
 
