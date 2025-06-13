@@ -10,6 +10,18 @@ type Group struct {
 	MemberState string `json:"memberState"`
 }
 type GroupMember struct {
-	User_id  string
-	Group_id int
+	User_id   string
+	Group_id  int
+	FirstName string
+	LastName  string
+	Avatar    string
 }
+
+type Invite struct {
+	Id          int
+	Sender_id   string
+	Reciever_id string
+	Group_id    string
+}
+
+

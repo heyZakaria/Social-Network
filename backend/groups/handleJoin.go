@@ -75,7 +75,7 @@ func handleJoin(w http.ResponseWriter, r *http.Request) {
 		Success: true,
 		Message: "Group join request successed",
 	})
-}
+} 
 
 // Validation Function
 
