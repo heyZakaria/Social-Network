@@ -85,7 +85,7 @@
 /* Main content for logged in users */
 .mainContent {
   display: flex;
-  gap: 20px;
+  gap: 10px;
   flex-direction: column;
 }
 

@@ -2,7 +2,7 @@
 .friendListContainer {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 10px;
   justify-content: center;
   padding: 20px;
   background-color: #fafafa;
@@ -19,7 +19,7 @@
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 10px;
   justify-content: center;
 }
 

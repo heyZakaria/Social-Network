@@ -4,13 +4,10 @@ import { createContext, useContext, useState } from "react";
 const FriendsContext = createContext();
 
 export function FriendsProvider({ children }) {
-  const [friends, setFriends] = useState([]);
-  const [followers, setFollowers] = useState([]);
-  const [following, setFollowing] = useState([]);
   const [suggestions, setSuggestions] = useState([]);
   const [requests, setRequests] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [statusCache, setStatusCache] = useState({}); // userId -> { isFollowing, requestPending }
+  const [statusCache, setStatusCache] = useState({});
 
   const fetchAll = async () => {
     setLoading(true);
@@ -18,20 +15,12 @@ export function FriendsProvider({ children }) {
       const res = await fetch("/api/users/friends", { credentials: "include" });
       const data = await res.json();
       console.log("Friends response:::::::::::::::::::::::::", data);
-
-      setFriends(data.data?.friends || []);
-      // setFollowers(data.data?. || []);
-      setFollowers(data.data?.followers || []);
-      setFollowing(data.data?.following || []);
       setSuggestions(data.data?.suggestions || []);
       setRequests(data.data?.requests || []);
 
       console.log("Friends data:", data);
     } catch (e) {
-      console.error("Error fetching friends data:", e);
-      setFriends([]);
-      setFollowers([]);
-      setFollowing([]);
+      setRequests([]);
       setSuggestions([]);
     }
     setLoading(false);
@@ -117,9 +106,6 @@ export function FriendsProvider({ children }) {
   return (
     <FriendsContext.Provider
       value={{
-        friends,
-        followers,
-        following,
         suggestions,
         loading,
         requests,
