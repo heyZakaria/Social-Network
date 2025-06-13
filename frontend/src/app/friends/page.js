@@ -67,7 +67,7 @@ export default function FriendsPage() {
                 requests.map((friend) => (
                   <div key={friend.id} className={styles.friendCard}>
                     <Link href={`/profile/${friend.id}`}>
-                      <img
+                      <Image width={} height={}
                         src={friend.avatar || "/uploads/profile.jpeg"}
                         alt={`${friend.firstName} ${friend.lastName}`}
                         className={styles.friendAvatar}
@@ -120,7 +120,7 @@ export default function FriendsPage() {
                 suggestions.map((suggestion) => (
                   <div key={suggestion.id} className={styles.friendCard}>
                     <Link href={`/profile/${suggestion.id}`}>
-                      <img
+                      <Image width={} height={}
                         src={suggestion.avatar || "/uploads/profile.jpeg"}
                         alt={`${suggestion.firstName} ${suggestion.lastName}`}
                         className={styles.friendAvatar}

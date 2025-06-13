@@ -23,7 +23,7 @@ export default function FriendsList({
           <Link href={`/profile/${friend.id}`} key={friend.id}>
             <div className={styles.item}>
               <div style={{ position: "relative" }}>
-                <img
+                <Image width={} height={}
                   src={friend.avatar || "https://i.pravatar.cc/150?u=10`"}
                   alt={friend.firstName}
                   className={styles.avatar}

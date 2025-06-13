@@ -138,7 +138,7 @@ export default function PostComponent({
       <div className={styles.postContent}>
         {renderPostContent()}
         {post.Post_image && (
-          <img
+          <Image width={} height={}
             src={post.Post_image}
             alt="Post"
             className={styles.postImage}

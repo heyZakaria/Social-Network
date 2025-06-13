@@ -83,7 +83,7 @@ export default function GroupsComponent({
                   className={styles.groupCard}
                 >
                   <div className={styles.groupCardImage}>
-                    <img
+                    <Image width={} height={}
                       src={
                         group.image || "/placeholder.svg?height=150&width=300"
                       }
@@ -125,7 +125,7 @@ export default function GroupsComponent({
               groupSuggestions.map((group) => (
                 <div key={group.id} className={styles.groupCard}>
                   <div className={styles.groupCardImage}>
-                    <img
+                    <Image width={} height={}
                       src={
                         group.image || "/placeholder.svg?height=150&width=300"
                       }

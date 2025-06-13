@@ -237,7 +237,7 @@ const CreatePost = ({
     <form onSubmit={publishPost} className={styles.postForm} id="postForm">
       <div className={styles.createPost}>
         <div className={styles.createPostHeader}>
-          <img
+          <Image width={} height={}
             src={ currentUser.avatar || "/uploads/profile.jpeg"}
             className={styles.createPostAvatar}
           />
@@ -266,7 +266,7 @@ const CreatePost = ({
       {/* Selected Image Preview */}
       {selectedImage && (
         <div className={styles.imagePreview}>
-          <img
+          <Image width={} height={}
             src={URL.createObjectURL(selectedImage)}
             className={styles.previewImage}
           />

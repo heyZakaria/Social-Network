@@ -22,7 +22,7 @@ export default function UserList({ type, users }) {
         return (
           <div key={user.id} className={styles.userItem}>
             <Link href={`/profile/${user.id}`} className={styles.userLink}>
-              <img
+              <Image width={} height={}
                 src={user.avatar || "/uploads/profile.jpeg"}
                 alt={user.firstName}
                 className={styles.userAvatar}

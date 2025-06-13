@@ -34,7 +34,7 @@ export default function GroupSuggestions({ suggestions = [] }) {
       <div className={styles.list}>
         {currentSuggestions.slice(0, 3).map((group) => (
           <div key={group.id} className={styles.item}>
-            <img
+            <Image width={} height={}
               src={group.image || "https://i.pravatar.cc/150?u=10`"}
               alt={group.title}
               className={styles.groupAvatar}

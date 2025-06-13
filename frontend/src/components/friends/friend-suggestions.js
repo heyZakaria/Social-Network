@@ -37,7 +37,7 @@ export default function FriendSuggestions() {
         {currentSuggestions.slice(0, 5).map((user) => (
           <div key={user.id} className={styles.item}>
               <Link href={"/profile" + `/${user.id}`} className={styles.item} key={user.id}>
-              <img
+              <Image width={} height={}
                 src={user.avatar || "/uploads/profile.jpeg"}
                 alt={`${user.firstName} ${user.lastName}`}
                 className={styles.avatar}

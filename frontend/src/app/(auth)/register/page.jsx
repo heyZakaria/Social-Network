@@ -295,7 +295,7 @@ if (currentUser) {
             <div className={styles.avatarContainer}>
               {formData.avatar && (
                 <div className={styles.avatarPreview}>
-                  <img
+                  <Image width={} height={}
                     src={URL.createObjectURL(formData.avatar)}
                     alt="Avatar preview"
                     className={styles.avatarImage}

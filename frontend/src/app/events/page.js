@@ -132,7 +132,7 @@ export default async function EventsPage() {
           {sampleEvents.map((event) => (
             <div key={event.id} className={styles.eventCard}>
               <div className={styles.eventCardImage}>
-                <img src={event.image || "/placeholder.svg"} alt={event.title} />
+                <Image width={} height={} src={event.image || "/placeholder.svg"} alt={event.title} />
                 <div className={styles.eventDate}>
                   <div className={styles.eventMonth}>
                     {new Date(event.date).toLocaleString("default", {

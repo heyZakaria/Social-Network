@@ -127,7 +127,7 @@ export default function CreateGroupModal({ currentUser, onClose, onGroupCreated 
             <div className={styles.imageUpload}>
               {imagePreview ? (
                 <div className={styles.imagePreviewContainer}>
-                  <img src={imagePreview || "/placeholder.svg"} alt="Group preview" className={styles.imagePreview} />
+                  <Image width={} height={} src={imagePreview || "/placeholder.svg"} alt="Group preview" className={styles.imagePreview} />
                   <button
                     type="button"
                     className={styles.removeImageButton}

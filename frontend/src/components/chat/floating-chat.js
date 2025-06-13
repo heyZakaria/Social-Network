@@ -118,7 +118,7 @@ export default function FloatingChat({ currentUser }) {
         <div className={styles.chatWindow}>
           <div className={styles.chatHeader}>
             <div className={styles.chatHeaderInfo}>
-              <img
+              <Image width={} height={}
                 src={
                   activeChat.user.avatar ||
                   "/placeholder.svg?height=32&width=32"
@@ -174,7 +174,7 @@ export default function FloatingChat({ currentUser }) {
                   onClick={() => handleChatSelect(chat)}
                 >
                   <div className={styles.chatListItemAvatar}>
-                    <img
+                    <Image width={} height={}
                       src={
                         chat.user.avatar || "https://i.pravatar.cc/150?u=10`"
                       }

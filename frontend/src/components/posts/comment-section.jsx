@@ -168,7 +168,7 @@ export default function CommentSection({setCommentsCount, postId }) {
                   href={`/profile/${comment.UserID}`}
                   className={styles.commentAvatar}
                 >
-                  <img
+                  <Image width={} height={}
                     src={comment.Avatar || // TODO add default avatar
                       "/uploads/profile.jpeg"
                     }
@@ -218,7 +218,7 @@ export default function CommentSection({setCommentsCount, postId }) {
       )}
 
       <form className={styles.commentForm} onSubmit={handleSubmitComment}>
-        <img
+        <Image width={} height={}
           src={currentUser.avatar || "/uploads/profile.jpeg"}
           alt={currentUser.firstName}
           className={styles.commentFormAvatar}

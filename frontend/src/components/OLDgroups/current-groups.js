@@ -21,7 +21,7 @@ export default function CurrentGroups({ groups = [] }) {
         {groups.slice(0, 5).map((group) => (
           <Link href={`/groups/${group.id}`} key={group.id}>
             <div className={styles.item}>
-              <img
+              <Image width={} height={}
                 src={group.image || "https://i.pravatar.cc/150?u=10`"}
                 alt={group.title}
                 className={styles.groupAvatar}

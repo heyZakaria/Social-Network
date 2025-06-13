@@ -106,7 +106,7 @@ export default function ChatComponent({ currentUser, otherUser }) {
   return (
     <div className={styles.chatContainer}>
       <div className={styles.chatHeader}>
-        <img
+        <Image width={} height={}
           src={otherUser.avatar || "https://i.pravatar.cc/150?u=10`"}
           alt={otherUser.firstName}
           className={styles.chatAvatar}

@@ -9,7 +9,7 @@ function SuggGroupCard({ Group, onSendJoinRequest }) {
   const isJoinable = ["Pending", "Join"].includes(Group.JoiningState);
   return (isJoinable ?
     <div className="groupCard">
-      <img src={Group.covername || "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLlfA6Mh7quJkQ8QarreKuct5BEuFs45u8gQ&s"} alt={Group.title} />
+      <Image width={} height={} src={Group.covername || "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLlfA6Mh7quJkQ8QarreKuct5BEuFs45u8gQ&s"} alt={Group.title} />
       <div className="groupCardContent">
         <p>{Group.title}</p>
         <p>{Group.description}</p>
@@ -30,7 +30,7 @@ function SuggGroupCard({ Group, onSendJoinRequest }) {
     </div>
     :
     <Link href={`groups/${Group.Id}`} className="groupCard">
-      <img src={`/uploads/groups_cover/${Group.covername}` || "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLlfA6Mh7quJkQ8QarreKuct5BEuFs45u8gQ&s"} alt={Group.title} />
+      <Image width={} height={} src={`/uploads/groups_cover/${Group.covername}` || "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLlfA6Mh7quJkQ8QarreKuct5BEuFs45u8gQ&s"} alt={Group.title} />
       <div className="groupCardContent">
         <p>{Group.title}</p>
         <p>{Group.description}</p>

@@ -265,7 +265,7 @@ export default function Navbar({ user }) {
                     </div>
                     <div className={styles.dropdownContent}>
                       <div className={`${styles.messageItem} ${styles.unread}`}>
-                        <img
+                        <Image width={} height={}
                           src="https://i.pravatar.cc/150?u=10"
                           alt="Jane Smith"
                           className={styles.messageAvatar}
@@ -282,7 +282,7 @@ export default function Navbar({ user }) {
                         </div>
                       </div>
                       <div className={styles.messageItem}>
-                        <img
+                        <Image width={} height={}
                           src="https://i.pravatar.cc/150?u=10"
                           alt="Mike Johnson"
                           className={styles.messageAvatar}
@@ -320,7 +320,7 @@ export default function Navbar({ user }) {
                 }}
               >
               
-                <img
+                <Image width={} height={}
                   src={user.avatar || "/uploads/profile.jpeg"}
                   alt={user.firstName}
                   className={styles.userAvatar}

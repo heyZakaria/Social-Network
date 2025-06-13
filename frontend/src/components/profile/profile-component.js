@@ -28,10 +28,10 @@ export default function ProfileComponent({ ProfileData }) {
       setLoading(true);
       try {
         const data = await FetchData(`/api/posts/getposts?limit=${limit}&offset=${offset}&user_id=${ProfileData.id}`);
-        if (!data || !data.data || !Array.isArray(data.data.posts)) {
+        if (data.success === false) {
           setHasMore(false);
           setLoading(false);
-          return;
+          return
         }
         if (data.data.posts.length < limit) setHasMore(false); // no more posts
         setPosts((prev) => {
@@ -62,7 +62,7 @@ console.log("Following:", ProfileData.following);
     <div className={styles.profileContainer}>
       <div className={styles.profileHeader}>
         <div className={styles.profileCover}>
-          <img
+          <Image width={} height={}
             src={ProfileData.avatar || "/uploads/profile.jpeg"} // ./uploads/profile_image/b27c2604-404b-48e4-a20c-f4afa29a9c57.jpeg
             alt="Cover"
             className={styles.coverImage}
@@ -70,7 +70,7 @@ console.log("Following:", ProfileData.following);
         </div>
         <div className={styles.profileInfo}>
           <div className={styles.profileAvatar}>
-            <img
+            <Image width={} height={}
               src={ProfileData.avatar || "/uploads/profile.jpeg"}
               alt={ProfileData.FirstName}
               className={styles.avatarImage}
