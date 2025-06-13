@@ -18,6 +18,7 @@ export default function PostComponent({
 }) {
   const [isLiked, setIsLiked] = useState(post.Liked);
   const [likesCount, setLikesCount] = useState(post.LikeCounts);
+  const [commentsCount, setCommentsCount] = useState(post.CommentCounts);
   const [showCommentsSection, setShowCommentsSection] = useState(showComments);
   const [isExpanded, setIsExpanded] = useState(false);
   const MAX_CONTENT_LENGTH = 250; // Maximum characters to show before "See more"
@@ -159,7 +160,7 @@ export default function PostComponent({
             className={styles.commentsToggle}
             onClick={() => setShowCommentsSection(!showCommentsSection)}
           >
-            {post.Comments || 0} comments
+            {commentsCount || 0} comments
           </button>
         </div>
 
@@ -186,8 +187,8 @@ export default function PostComponent({
       </div>
 
       {showCommentsSection && (
-        <CommentSection postId={post.PostId} currentUser={currentUser} />
+        <CommentSection setCommentsCount={setCommentsCount} postId={post.PostId} currentUser={currentUser} />
       )}
-    </div>
+    </div>  
   );
 }

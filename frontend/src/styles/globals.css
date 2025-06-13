@@ -27,9 +27,10 @@ button {
 
 .container {
   margin: 0 auto;
-  width: 100%;
+  width: calc(100% - 40px);
   align-items: flex-start;
   height: 100vh;     
+  margin: 20px;
 }
 
 .main-content {

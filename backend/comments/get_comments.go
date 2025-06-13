@@ -6,12 +6,22 @@ import (
 	"strconv"
 
 	db "socialNetwork/db/sqlite"
+	shared "socialNetwork/shared_packages"
 	"socialNetwork/utils"
 )
 
 func GetCommentByPost(w http.ResponseWriter, r *http.Request) {
+	UserID := r.Context().Value(shared.UserIDKey).(string)
+	if UserID == "" {
+		utils.Log("Error", "User ID is not provided in the context")
+		utils.SendJSON(w, http.StatusUnauthorized, utils.JSONResponse{
+			Success: false,
+			Message: "Unauthorized",
+			Error:   "Please Login to fetch comments",
+		})
+		return
+	}
 	PostIDString := r.URL.Query().Get("post_id")
-	offset_string := r.URL.Query().Get("offset")
 
 	PostID, err := strconv.Atoi(PostIDString)
 	if err != nil || PostID <= 0 {
@@ -23,15 +33,8 @@ func GetCommentByPost(w http.ResponseWriter, r *http.Request) {
 		})
 		return
 	}
-	offset, err := strconv.Atoi(offset_string)
-	if err != nil {
-		utils.Log("Error", "Invalid offset provided")
-	}
-	if offset < 0 || offset_string == "" {
-		offset = 0
-	}
-	utils.Log("Info", fmt.Sprintf("Fetching comments for post ID %d with offset %d", PostID, offset))
-	comments, err := Getcomments(PostID, offset)
+
+	comments, err := Getcomments(PostID)
 	if err != nil {
 		utils.Log("Error", fmt.Sprintf("Failed to get comments for post ID %d: %s", PostID, err.Error()))
 		utils.SendJSON(w, http.StatusInternalServerError, utils.JSONResponse{
@@ -61,7 +64,7 @@ func GetCommentByPost(w http.ResponseWriter, r *http.Request) {
 
 }
 
-func Getcomments(postID int, offset int) ([]Comment, error) {
+func Getcomments(postID int) ([]Comment, error) {
 	var comments []Comment
 
 	querySelect := `
@@ -80,11 +83,10 @@ func Getcomments(postID int, offset int) ([]Comment, error) {
 			WHERE
 				comments.post_id = ?
 			ORDER BY
-				comments.created_at DESC
-			LIMIT 2 OFFSET ?;
+				comments.created_at DESC;
 `
 
-	rows, err := db.DB.Query(querySelect, postID, offset)
+	rows, err := db.DB.Query(querySelect, postID)
 	if err != nil {
 		return nil, err
 	}

@@ -104,6 +104,7 @@ func PostsPagination(w http.ResponseWriter, r *http.Request) {
 		// TODO Each Post Must Check if the exist user Has Liked the post or not
 		// TODO get Likes count as well
 		err = db.DB.QueryRow("SELECT COUNT(*) FROM likes WHERE post_id = ?", Post.PostId).Scan(&Post.LikeCounts)
+		err = db.DB.QueryRow("SELECT COUNT(*) FROM comments WHERE post_id = ?", Post.PostId).Scan(&Post.CommentCounts)
 		// check the privacy of post,
 		stmnt, err := db.DB.Prepare("SELECT first_name, last_name, avatar, profile_status FROM users WHERE id = ?")
 		if err != nil {

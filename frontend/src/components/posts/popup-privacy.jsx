@@ -147,21 +147,23 @@ const PopupPrivacy = ({ followers, onPrivacyChange, disabled = false }) => {
                         </div>
 
                         <div className={styles.followersList}>
-                            {followers.map(follower => (
-                                <div key={follower.id} className={styles.followerItem}>
-                                    <input
-                                        type="checkbox"
-                                        id={`follower-${follower.id}`}
-                                        checked={selectedFollowers.includes(follower.id)}
-                                        onChange={() => toggleFollower(follower.id)}
-                                        className={styles.followerCheckbox}
-                                    />
-                                    <img src={follower.avatar || "/uploads/profile.jpeg"} alt={follower.firstName +" "+ follower.lastName} className={styles.followerAvatar} />
-                                    <label htmlFor={`follower-${follower.id}`} className={styles.followerName}>
-                                        {follower.firstName +" "+ follower.lastName}
-                                    </label>
-                                </div>
-                            ))}
+                            {followers.length == 0 ? "You don't have any followers..." : 
+                                followers.map(follower => (
+                                    <div key={follower.id} className={styles.followerItem}>
+                                        <input
+                                            type="checkbox"
+                                            id={`follower-${follower.id}`}
+                                            checked={selectedFollowers.includes(follower.id)}
+                                            onChange={() => toggleFollower(follower.id)}
+                                            className={styles.followerCheckbox}
+                                        />
+                                        <img src={follower.avatar || "/uploads/profile.jpeg"} alt={follower.firstName +" "+ follower.lastName} className={styles.followerAvatar} />
+                                        <label htmlFor={`follower-${follower.id}`} className={styles.followerName}>
+                                            {follower.firstName +" "+ follower.lastName}
+                                        </label>
+                                    </div>
+                                ))
+                            }
                         </div>
 
                         <div className={styles.popupFooter}>

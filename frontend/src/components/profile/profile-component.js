@@ -44,30 +44,6 @@ export default function ProfileComponent({ ProfileData, currentUser }) {
 
   }, [activeTab, offset]);
 
-  const fetchPosts = async () => {
-    try {
-      setLoading(true);
-      const res = await fetch(
-        `http://localhost:8080/posts/getposts?limit=${limit}&offset=${offset}&user_id=${ProfileData.id}`,
-        {
-          credentials: "include",
-        }
-      );
-      const data = await res.json();
-      console.log("ProfileComponent: Response from /posts/getposts:", data);
-      if (data.data.posts.length < limit) setHasMore(false); // no more posts
-
-      setPosts((prev) => [...data?.data?.posts]); //setPosts((prev) => [...prev, ...data?.data?.posts]);
-    } catch (error) {
-      console.error("Error loading posts:", error);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-console.log("Followers:", ProfileData.followers);
-console.log("Following:", ProfileData.following);
-
   const loadMore = () => {
     if (!loading && hasMore) {
       setOffset((prev) => prev + limit);

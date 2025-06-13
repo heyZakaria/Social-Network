@@ -23,7 +23,7 @@ func CommentSaver(w http.ResponseWriter, r *http.Request) {
 
 	if err != nil {
 		utils.Log("Error", "have problem to decode the comment data")
-		utils.SendJSON(w, http.StatusUnauthorized, utils.JSONResponse{
+		utils.SendJSON(w, http.StatusInternalServerError, utils.JSONResponse{
 			Success: false,
 			Message: "have problem to decode the comment data",
 			Error:   err.Error(),

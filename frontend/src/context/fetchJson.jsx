@@ -1,17 +1,18 @@
-export async function FetchData(url, mthd = "GET") {
+export async function FetchData(url, mthd = "GET", bodyObj = {}) {
     try {
-        const res = await fetch(url, {
+        const HeaderData =  {
             credentials: "include",
             method: mthd,
+        };
+        if (mthd !== "GET" && bodyObj && Object.keys(bodyObj).length > 0) {
+            HeaderData.body = JSON.stringify(bodyObj);
+            HeaderData.headers = {
+                "Content-Type": "application/json",
+            };
         }
-        );
-
-        if (!res.ok) {
-            // TODO Handle Error of Unothorized
-            throw new Error("Failed to fetch posts", res.status);
-        }
-
+        const res = await fetch(url, HeaderData);
         const data = await res.json();
+       
         return data
     } catch (error) {
         // TODO Handle Error
