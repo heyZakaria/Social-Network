@@ -5,6 +5,7 @@ import styles from "@/styles/floating-chat.module.css";
 import ChatComponent from "./chat-component";
 import EmojiPicker from "@/components/common/emoji-picker";
 import { IoClose, IoSendSharp, IoChatbubbleEllipses } from "react-icons/io5";
+import Image from "next/image";
 
 export default function FloatingChat({ currentUser }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -26,7 +27,7 @@ export default function FloatingChat({ currentUser }) {
               id: 2,
               firstName: "Jane",
               lastName: "Smith",
-              avatar: "https://i.pravatar.cc/150?u=10`",
+              avatar: "/uploads/profile.jpeg",
               isOnline: true,
             },
             lastMessage: {
@@ -43,7 +44,7 @@ export default function FloatingChat({ currentUser }) {
               id: 3,
               firstName: "Mike",
               lastName: "Johnson",
-              avatar: "https://i.pravatar.cc/150?u=10`",
+              avatar: "/uploads/profile.jpeg",
               isOnline: false,
             },
             lastMessage: {
@@ -118,7 +119,7 @@ export default function FloatingChat({ currentUser }) {
         <div className={styles.chatWindow}>
           <div className={styles.chatHeader}>
             <div className={styles.chatHeaderInfo}>
-              <Image width={} height={}
+              <Image width={20} height={20}
                 src={
                   activeChat.user.avatar ||
                   "/placeholder.svg?height=32&width=32"
@@ -174,9 +175,9 @@ export default function FloatingChat({ currentUser }) {
                   onClick={() => handleChatSelect(chat)}
                 >
                   <div className={styles.chatListItemAvatar}>
-                    <Image width={} height={}
+                    <Image width={200} height={100}
                       src={
-                        chat.user.avatar || "https://i.pravatar.cc/150?u=10`"
+                        chat.user.avatar || "/uploads/profile.jpeg"
                       }
                       alt={chat.user.firstName}
                     />

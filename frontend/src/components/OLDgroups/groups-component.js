@@ -4,8 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import styles from "@/styles/groups.module.css";
 import CreateGroupModal from "./create-group-modal";
-import { IoClose } from "react-icons/io5";
-import { BsImage } from "react-icons/bs";
+import Image from "next/image";
 import { HiPlus, HiUserGroup } from "react-icons/hi2";
 import FloatingChat from "@/components/chat/floating-chat";
 
@@ -26,7 +25,7 @@ export default function GroupsComponent({
     dateOfBirth: "1990-05-15",
     nickname: "JD",
     aboutMe: "Software developer and hiking enthusiast",
-    avatar: "https://i.pravatar.cc/150?u=100",
+    avatar: "/uploads/profile.jpeg0",
     isPublic: true,
     followers: [2, 3],
     following: [2],
@@ -83,7 +82,7 @@ export default function GroupsComponent({
                   className={styles.groupCard}
                 >
                   <div className={styles.groupCardImage}>
-                    <Image width={} height={}
+                    <Image width={200} height={100}
                       src={
                         group.image || "/placeholder.svg?height=150&width=300"
                       }
@@ -125,7 +124,7 @@ export default function GroupsComponent({
               groupSuggestions.map((group) => (
                 <div key={group.id} className={styles.groupCard}>
                   <div className={styles.groupCardImage}>
-                    <Image width={} height={}
+                    <Image width={200} height={100}
                       src={
                         group.image || "/placeholder.svg?height=150&width=300"
                       }

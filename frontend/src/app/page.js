@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 import styles from "@/styles/home.module.css";
-import { BsImage } from "react-icons/bs";
+import Image from "next/image";
 import FloatingChat from "@/components/chat/floating-chat";
 import { useUser } from "@/context/user_context";
 import { useRouter } from "next/navigation";
@@ -70,6 +70,8 @@ export default function Home() {
     // TODO Fix adding posts without reloading the page
     setRefrech((prev) => prev + 1);
   }
+  console.log("Image Component:", Image);
+
   return (
     <div className={styles.homePage}>
       {currentUser ? (
@@ -130,8 +132,8 @@ export default function Home() {
             </div>
           </div>
           <div className={styles.heroImage}>
-            <Image width={} height={}
-              src="https://imgs.search.brave.com/jLfYC2vnVrdKM1pTa5AmFzHt4c7QNiv3c6zQe-UtXoA/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9wcm9t/by5jb20vdG9vbHMv/aW1hZ2UtcmVzaXpl/ci9zdGF0aWMvUGF0/dGVybl9pbWFnZS04/YzA1MDA1M2VhYjg4/NGU1MWI4NTk5NjA3/ODY1ZDExMi5qcGc"
+            <Image width={600} height={100}
+              src="/uploads/background.webp"
               alt="ConnectHub"
             />
           </div>

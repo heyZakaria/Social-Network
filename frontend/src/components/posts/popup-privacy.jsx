@@ -157,7 +157,7 @@ const PopupPrivacy = ({ followers, onPrivacyChange, disabled = false }) => {
                                             onChange={() => toggleFollower(follower.id)}
                                             className={styles.followerCheckbox}
                                         />
-                                        <Image width={} height={} src={follower.avatar || "/uploads/profile.jpeg"} alt={follower.firstName +" "+ follower.lastName} className={styles.followerAvatar} />
+                                        <Image width={200} height={100} src={follower.avatar || "/uploads/profile.jpeg"} alt={follower.firstName +" "+ follower.lastName} className={styles.followerAvatar} />
                                         <label htmlFor={`follower-${follower.id}`} className={styles.followerName}>
                                             {follower.firstName +" "+ follower.lastName}
                                         </label>

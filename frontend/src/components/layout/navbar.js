@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useRouter, usePathname } from "next/navigation";
 import { logoutUser } from "@/app/(auth)/_logout/logout";
 import styles from "@/styles/navbar.module.css";
+import Image from "next/image";
 import {
   HiHome,
   HiMagnifyingGlass,
@@ -265,8 +266,8 @@ export default function Navbar({ user }) {
                     </div>
                     <div className={styles.dropdownContent}>
                       <div className={`${styles.messageItem} ${styles.unread}`}>
-                        <Image width={} height={}
-                          src="https://i.pravatar.cc/150?u=10"
+                        <Image width={200} height={100}
+                          src="/uploads/profile.jpeg"
                           alt="Jane Smith"
                           className={styles.messageAvatar}
                         />
@@ -282,8 +283,8 @@ export default function Navbar({ user }) {
                         </div>
                       </div>
                       <div className={styles.messageItem}>
-                        <Image width={} height={}
-                          src="https://i.pravatar.cc/150?u=10"
+                        <Image width={200} height={100}
+                          src="/uploads/profile.jpeg"
                           alt="Mike Johnson"
                           className={styles.messageAvatar}
                         />
@@ -320,7 +321,7 @@ export default function Navbar({ user }) {
                 }}
               >
               
-                <Image width={} height={}
+                <Image width={200} height={100}
                   src={user.avatar || "/uploads/profile.jpeg"}
                   alt={user.firstName}
                   className={styles.userAvatar}

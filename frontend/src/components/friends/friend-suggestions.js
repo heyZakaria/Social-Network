@@ -5,6 +5,7 @@ import Link from "next/link"
 import styles from "@/styles/components.module.css"
 import { useFriends } from "@/context/friends_context" 
 import FollowButton from '@/components/profile/follow-button'
+import Image from "next/image";
 
 
 export default function FriendSuggestions() {
@@ -37,7 +38,7 @@ export default function FriendSuggestions() {
         {currentSuggestions.slice(0, 5).map((user) => (
           <div key={user.id} className={styles.item}>
               <Link href={"/profile" + `/${user.id}`} className={styles.item} key={user.id}>
-              <Image width={} height={}
+              <Image width={200} height={100}
                 src={user.avatar || "/uploads/profile.jpeg"}
                 alt={`${user.firstName} ${user.lastName}`}
                 className={styles.avatar}

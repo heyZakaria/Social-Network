@@ -4,6 +4,7 @@ import InviteFriends from "@/components/group/InviteFriends";
 import GroupsList from "@/components/group/suggestedGroups";
 import { IoChevronBackCircleSharp, IoChevronForwardCircleSharp } from "react-icons/io5";
 import { useUser } from '@/context/user_context';
+import Image from "next/image";
 
 
 
@@ -69,7 +70,7 @@ function Members({ members }) {
 
         <li key={member.id} className={styles.memberItem}>
           <p>{member.name}</p>
-          <Image width={} height={}
+          <Image width={200} height={100}
             className={styles.memberImage}
             src={member.picture || "https://cdn1.iconfinder.com/data/icons/fillio-users-and-hand-gestures/48/person_-_man_2-512.png"}
             alt={member.name}
@@ -100,7 +101,7 @@ function Members({ members }) {
         {PaginatedMembers.map((member) => (
 
           <li key={member.id} className={styles.memberItem}>
-            <Image width={} height={}
+            <Image width={200} height={100}
               className={styles.memberImage}
               src={member.picture || "https://cdn1.iconfinder.com/data/icons/fillio-users-and-hand-gestures/48/person_-_man_2-512.png"}
               alt={member.name}
@@ -183,7 +184,7 @@ export default function GroupCard({ imgSrc, groupName, description, children, me
 
   return (
     <div className={styles.GroupCardContainer}>
-      <Image width={} height={} src={imgSrc}
+      <Image width={200} height={100} src={imgSrc}
         alt={groupName}></img>
       <h1 className={styles.groupTitle}>{groupName}</h1>
       <Description Text={description} />

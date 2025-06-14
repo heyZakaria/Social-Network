@@ -4,6 +4,7 @@ import { useState } from "react"
 import styles from "@/styles/groups.module.css"
 import { IoClose } from "react-icons/io5"
 import { BsImage } from "react-icons/bs"
+import Image from "next/image";
 
 export default function CreateGroupModal({ currentUser, onClose, onGroupCreated }) {
   const [groupData, setGroupData] = useState({
@@ -127,7 +128,7 @@ export default function CreateGroupModal({ currentUser, onClose, onGroupCreated 
             <div className={styles.imageUpload}>
               {imagePreview ? (
                 <div className={styles.imagePreviewContainer}>
-                  <Image width={} height={} src={imagePreview || "/placeholder.svg"} alt="Group preview" className={styles.imagePreview} />
+                  <Image width={200} height={100} src={imagePreview || "/placeholder.svg"} alt="Group preview" className={styles.imagePreview} />
                   <button
                     type="button"
                     className={styles.removeImageButton}

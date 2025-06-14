@@ -4,6 +4,7 @@ import styles from "@/styles/events.module.css";
 import { IoAddOutline } from "react-icons/io5";
 import FloatingChat from "@/components/chat/floating-chat";
 import ShowEventForm from "@/components/events/eventCard";
+import Image from "next/image";
 
 // Sample events data
 const sampleEvents = [
@@ -16,7 +17,7 @@ const sampleEvents = [
     organizer: {
       id: 2,
       name: "Jane Smith",
-      avatar: "https://i.pravatar.cc/150?u=10`",
+      avatar: "/uploads/profile.jpeg",
     },
     attendees: {
       going: [1, 3],
@@ -36,7 +37,7 @@ const sampleEvents = [
     organizer: {
       id: 1,
       name: "John Doe",
-      avatar: "https://i.pravatar.cc/150?u=10`",
+      avatar: "/uploads/profile.jpeg",
     },
     attendees: {
       going: [2],
@@ -57,7 +58,7 @@ const sampleEvents = [
     organizer: {
       id: 3,
       name: "Mike Johnson",
-      avatar: "https://i.pravatar.cc/150?u=10`",
+      avatar: "/uploads/profile.jpeg",
     },
     attendees: {
       going: [1, 2],
@@ -82,7 +83,7 @@ export default async function EventsPage() {
     dateOfBirth: "1990-05-15",
     nickname: "JD",
     aboutMe: "Software developer and hiking enthusiast",
-    avatar: "https://i.pravatar.cc/150?u=100",
+    avatar: "/uploads/profile.jpeg0",
     isPublic: true,
     followers: [2, 3],
     following: [2],
@@ -132,7 +133,7 @@ export default async function EventsPage() {
           {sampleEvents.map((event) => (
             <div key={event.id} className={styles.eventCard}>
               <div className={styles.eventCardImage}>
-                <Image width={} height={} src={event.image || "/placeholder.svg"} alt={event.title} />
+                <Image width={200} height={100} src={event.image || "/placeholder.svg"} alt={event.title} />
                 <div className={styles.eventDate}>
                   <div className={styles.eventMonth}>
                     {new Date(event.date).toLocaleString("default", {

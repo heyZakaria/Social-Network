@@ -4,6 +4,7 @@ import styles from "@/styles/profile.module.css"
 import Link from "next/link"
 import FollowButton from "@/components/profile/follow-button"
 import { useUser } from '@/context/user_context';
+import Image from "next/image";
 
 
 export default function UserList({ type, users }) {
@@ -22,7 +23,7 @@ export default function UserList({ type, users }) {
         return (
           <div key={user.id} className={styles.userItem}>
             <Link href={`/profile/${user.id}`} className={styles.userLink}>
-              <Image width={} height={}
+              <Image width={200} height={100}
                 src={user.avatar || "/uploads/profile.jpeg"}
                 alt={user.firstName}
                 className={styles.userAvatar}

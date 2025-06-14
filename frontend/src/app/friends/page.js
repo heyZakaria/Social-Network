@@ -7,6 +7,7 @@ import FloatingChat from '@/components/chat/floating-chat';
 import { useUser } from '@/context/user_context';
 import FollowButton from '@/components/profile/follow-button';
 import { useFriends } from '@/context/friends_context';
+import Image from "next/image";
 
 export default function FriendsPage() {
   const { currentUser } = useUser();
@@ -67,7 +68,7 @@ export default function FriendsPage() {
                 requests.map((friend) => (
                   <div key={friend.id} className={styles.friendCard}>
                     <Link href={`/profile/${friend.id}`}>
-                      <Image width={} height={}
+                      <Image width={200} height={100}
                         src={friend.avatar || "/uploads/profile.jpeg"}
                         alt={`${friend.firstName} ${friend.lastName}`}
                         className={styles.friendAvatar}
@@ -120,7 +121,7 @@ export default function FriendsPage() {
                 suggestions.map((suggestion) => (
                   <div key={suggestion.id} className={styles.friendCard}>
                     <Link href={`/profile/${suggestion.id}`}>
-                      <Image width={} height={}
+                      <Image width={200} height={100}
                         src={suggestion.avatar || "/uploads/profile.jpeg"}
                         alt={`${suggestion.firstName} ${suggestion.lastName}`}
                         className={styles.friendAvatar}

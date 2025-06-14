@@ -16,21 +16,21 @@ const sampleFriendSuggestions = [
     firstName: "John",
     lastName: "Doe",
     mutualFriends: 5,
-    avatar: "https://i.pravatar.cc/150?u=10`",
+    avatar: "/uploads/profile.jpeg",
   },
   {
     id: 2,
     firstName: "Jane",
     lastName: "Smith",
     mutualFriends: 2,
-    avatar: "https://i.pravatar.cc/150?u=10`",
+    avatar: "/uploads/profile.jpeg",
   },
   {
     id: 3,
     firstName: "Mike",
     lastName: "Johnson",
     mutualFriends: 0,
-    avatar: "https://i.pravatar.cc/150?u=10`",
+    avatar: "/uploads/profile.jpeg",
   },
 ];
 
@@ -40,21 +40,21 @@ const sampleGroupSuggestions = [
     title: "Photography Enthusiasts",
     memberCount: 1250,
     isPublic: true,
-    image: "https://i.pravatar.cc/150?u=10`",
+    image: "/uploads/profile.jpeg",
   },
   {
     id: 2,
     title: "Web Developers",
     memberCount: 3421,
     isPublic: true,
-    image: "https://i.pravatar.cc/150?u=10`",
+    image: "/uploads/profile.jpeg",
   },
   {
     id: 3,
     title: "Local Events",
     memberCount: 532,
     isPublic: false,
-    image: "https://i.pravatar.cc/150?u=10`",
+    image: "/uploads/profile.jpeg",
   },
 ];
 
@@ -63,13 +63,13 @@ const sampleCurrentGroups = [
     id: 1,
     title: "Book Club",
     unreadCount: 3,
-    image: "https://i.pravatar.cc/150?u=10`",
+    image: "/uploads/profile.jpeg",
   },
   {
     id: 2,
     title: "Hiking Adventures",
     unreadCount: 0,
-    image: "https://i.pravatar.cc/150?u=10`",
+    image: "/uploads/profile.jpeg",
   },
 ];
 
@@ -79,7 +79,7 @@ const sampleFriends = [
     firstName: "Sarah",
     lastName: "Williams",
     isOnline: true,
-    avatar: "https://i.pravatar.cc/150?u=10`",
+    avatar: "/uploads/profile.jpeg",
   },
   {
     id: 2,
@@ -87,14 +87,14 @@ const sampleFriends = [
     lastName: "Brown",
     isOnline: false,
     lastActive: "2 hours ago",
-    avatar: "https://i.pravatar.cc/150?u=10`",
+    avatar: "/uploads/profile.jpeg",
   },
   {
     id: 3,
     firstName: "Emily",
     lastName: "Davis",
     isOnline: true,
-    avatar: "https://i.pravatar.cc/150?u=10`",
+    avatar: "/uploads/profile.jpeg",
   },
 ];
 

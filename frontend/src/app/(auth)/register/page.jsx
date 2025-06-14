@@ -13,6 +13,8 @@ import { useRouter } from 'next/navigation';
 import styles from "@/styles/register.module.css";
 import { FaTrash } from "react-icons/fa";
 import { useUser } from "@/context/user_context";
+import Image from "next/image";
+
 // so we need to make this page exportable to use by next
 export default function RegisterPage() {
 
@@ -295,7 +297,7 @@ if (currentUser) {
             <div className={styles.avatarContainer}>
               {formData.avatar && (
                 <div className={styles.avatarPreview}>
-                  <Image width={} height={}
+                  <Image width={200} height={100}
                     src={URL.createObjectURL(formData.avatar)}
                     alt="Avatar preview"
                     className={styles.avatarImage}

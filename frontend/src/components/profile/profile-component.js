@@ -8,6 +8,7 @@ import FollowButton from "./follow-button";
 import PrivacyToggle from "./privacy-toggle";
 import UserList from "../friends/user-list";
 import FloatingChat from "@/components/chat/floating-chat";
+import Image from "next/image";
 import { FaLock } from "react-icons/fa";
 import { FetchData } from "@/context/fetchJson";
 
@@ -62,7 +63,7 @@ console.log("Following:", ProfileData.following);
     <div className={styles.profileContainer}>
       <div className={styles.profileHeader}>
         <div className={styles.profileCover}>
-          <Image width={} height={}
+          <Image width={200} height={100}
             src={ProfileData.avatar || "/uploads/profile.jpeg"} // ./uploads/profile_image/b27c2604-404b-48e4-a20c-f4afa29a9c57.jpeg
             alt="Cover"
             className={styles.coverImage}
@@ -70,9 +71,9 @@ console.log("Following:", ProfileData.following);
         </div>
         <div className={styles.profileInfo}>
           <div className={styles.profileAvatar}>
-            <Image width={} height={}
+            <Image width={200} height={100}
               src={ProfileData.avatar || "/uploads/profile.jpeg"}
-              alt={ProfileData.FirstName}
+              alt="Profile Avatar"
               className={styles.avatarImage}
             />
           </div>

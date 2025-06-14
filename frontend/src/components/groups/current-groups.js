@@ -1,5 +1,6 @@
 import Link from "next/link";
 import styles from "@/styles/components.module.css";
+import Image from "next/image";
 
 export default function CurrentGroups({ groups = [] }) {
   if (groups.length === 0) {
@@ -21,8 +22,8 @@ export default function CurrentGroups({ groups = [] }) {
         {groups.slice(0, 5).map((group) => (
           <Link href={`/groups/${group.id}`} key={group.id}>
             <div className={styles.item}>
-              <Image width={} height={}
-                src={group.image || "https://i.pravatar.cc/150?u=10`"}
+              <Image width={200} height={100}
+                src={group.image || "/uploads/profile.jpeg"}
                 alt={group.title}
                 className={styles.groupAvatar}
               />

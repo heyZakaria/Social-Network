@@ -4,8 +4,8 @@ import { useState, useEffect, useRef } from "react";
 import styles from "@/styles/chat.module.css";
 import EmojiPicker from "@/components/common/emoji-picker";
 import { IoSendSharp } from "react-icons/io5";
-import { IoClose } from "react-icons/io5";    
-import { IoChatbubbleEllipses } from "react-icons/io5";
+import Image from "next/image";
+
 
 
 export default function ChatComponent({ currentUser, otherUser }) {
@@ -106,8 +106,8 @@ export default function ChatComponent({ currentUser, otherUser }) {
   return (
     <div className={styles.chatContainer}>
       <div className={styles.chatHeader}>
-        <Image width={} height={}
-          src={otherUser.avatar || "https://i.pravatar.cc/150?u=10`"}
+        <Image width={200} height={100}
+          src={otherUser.avatar || "/uploads/profile.jpeg"}
           alt={otherUser.firstName}
           className={styles.chatAvatar}
         />

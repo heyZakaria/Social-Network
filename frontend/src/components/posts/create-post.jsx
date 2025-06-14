@@ -6,6 +6,7 @@ import styles from '@/styles/posts.module.css';
 import PopupInput from './popup-input';
 import PopupPrivacy from './popup-privacy';
 import { useUser } from "@/context/user_context";
+import Image from "next/image";
 
 
 const CreatePost = ({
@@ -237,8 +238,9 @@ const CreatePost = ({
     <form onSubmit={publishPost} className={styles.postForm} id="postForm">
       <div className={styles.createPost}>
         <div className={styles.createPostHeader}>
-          <Image width={} height={}
+          <Image width={200} height={100}
             src={ currentUser.avatar || "/uploads/profile.jpeg"}
+            alt="User Avatar"
             className={styles.createPostAvatar}
           />
           <PopupInput
@@ -266,7 +268,7 @@ const CreatePost = ({
       {/* Selected Image Preview */}
       {selectedImage && (
         <div className={styles.imagePreview}>
-          <Image width={} height={}
+          <Image width={200} height={100}
             src={URL.createObjectURL(selectedImage)}
             className={styles.previewImage}
           />

@@ -7,7 +7,7 @@ import EmojiPicker from "@/components/common/emoji-picker";
 import { IoPaperPlaneOutline } from 'react-icons/io5';
 import { FetchData } from "@/context/fetchJson";
 import { useUser } from '@/context/user_context';
-
+import Image from "next/image"
 
 export default function CommentSection({setCommentsCount, postId }) {
    const { user: currentUser } = useUser();
@@ -168,7 +168,7 @@ export default function CommentSection({setCommentsCount, postId }) {
                   href={`/profile/${comment.UserID}`}
                   className={styles.commentAvatar}
                 >
-                  <Image width={} height={}
+                  <Image width={200} height={100}
                     src={comment.Avatar || // TODO add default avatar
                       "/uploads/profile.jpeg"
                     }
@@ -218,9 +218,9 @@ export default function CommentSection({setCommentsCount, postId }) {
       )}
 
       <form className={styles.commentForm} onSubmit={handleSubmitComment}>
-        <Image width={} height={}
+        <Image width={200} height={100}
           src={currentUser.avatar || "/uploads/profile.jpeg"}
-          alt={currentUser.firstName}
+          alt="User avatar"
           className={styles.commentFormAvatar}
         />
         <div className={styles.commentInputContainer}>

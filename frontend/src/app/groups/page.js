@@ -14,7 +14,7 @@ export default async function GroupsPage() {
     dateOfBirth: "1990-05-15",
     nickname: "JD",
     aboutMe: "Software developer and hiking enthusiast",
-    avatar: "https://i.pravatar.cc/150?u=100",
+    avatar: "/uploads/profile.jpeg0",
     isPublic: true,
     followers: [2, 3],
     following: [2],

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import styles from "@/styles/components.module.css";
+import Image from "next/image";
 
 export default function GroupSuggestions({ suggestions = [] }) {
   const [currentSuggestions, setCurrentSuggestions] = useState(suggestions);
@@ -34,8 +35,8 @@ export default function GroupSuggestions({ suggestions = [] }) {
       <div className={styles.list}>
         {currentSuggestions.slice(0, 3).map((group) => (
           <div key={group.id} className={styles.item}>
-            <Image width={} height={}
-              src={group.image || "https://i.pravatar.cc/150?u=10`"}
+            <Image width={200} height={100}
+              src={group.image || "/uploads/profile.jpeg"}
               alt={group.title}
               className={styles.groupAvatar}
             />
