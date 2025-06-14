@@ -209,7 +209,7 @@ export default function GroupCard({ children }) {
 
     <div id={group.id} className={styles.GroupCardContainer}>
       <Image width={200} height={100} src={`/uploads/groups_cover/${group.covername}`}
-        alt={group.title}></img>
+        alt={group.title}/>
       <h1 className={styles.groupTitle}>{group.title}</h1>
       <Description Text={group.description} />
       <GroupNav HandleShowInvite={HandleShowInvite} OnMembers={HandleMembersList} FriendsList={FriendsList1}></GroupNav>

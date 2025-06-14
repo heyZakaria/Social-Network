@@ -2,9 +2,7 @@ package comments
 
 import (
 	"encoding/json"
-	"fmt"
 	"net/http"
-	"strconv"
 	"strings"
 
 	shared "socialNetwork/shared_packages"

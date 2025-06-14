@@ -15,7 +15,6 @@ export default function CommentSection({setCommentsCount, postId }) {
   const [selectedImage, setSelectedImage] = useState(null);
 
   const [displayedComments, setDisplayedComments] = useState([]);
-  const [likeCount, setLike] = useState(0);
   const [newComment, setNewComment] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
@@ -62,15 +61,12 @@ export default function CommentSection({setCommentsCount, postId }) {
 
   const validComment = () => {
     let isValid = true;
-    if (!newComment?.trim() && !selectedImage) {
-      isValid = false
-    }
     if (newComment) {
       if (newComment.length < 1) {
         isValid = false;
       }
       if (!newComment.trim()) {
-        isValid = false;
+        isValid = false;        
       }
     }
     if (selectedImage) {
@@ -88,7 +84,6 @@ export default function CommentSection({setCommentsCount, postId }) {
   };
 
   const handleSubmitComment = async (e) => {
-    console.log("%c Clicked On Submit ", "color:red");
     
     e.preventDefault();
 
@@ -99,29 +94,6 @@ export default function CommentSection({setCommentsCount, postId }) {
     
     if (isValid) {
       try {
-        setIsLoading(true);
-        const formData = new FormData()
-        formData.append('postId', postId);
-        if (newComment) {
-          formData.append('content', newComment)
-        }
-
-
-        const response = await fetch('http://localhost:8080/comment/sendcomment', {
-          method: 'POST',
-          credentials: 'include', // This sends cookies with the request
-          body: formData,
-        });
-        console.log("res ==> ", response);
-
-        if (!response.ok) {
-          console.log("error ====>", response.error);
-          return;
-        }
-
-        const newCommentFromServer = await response.json();
-
-        console.log("comment ==> ", newCommentFromServer[0]);
         
         const newCommentObj = {
           postId: postId,
@@ -129,7 +101,6 @@ export default function CommentSection({setCommentsCount, postId }) {
           }
 
         const respone = await FetchData("/api/comment/sendcomment", "POST", newCommentObj )
-        console.log("respone aciba", respone);
         
         newCommentObj.UserID = currentUser.id;
         newCommentObj.ID = respone.data.Comment.ID;
@@ -148,6 +119,9 @@ export default function CommentSection({setCommentsCount, postId }) {
     } finally {
       setIsSubmitting(false);
     }
+    }
+
+    
   };
 
   const formatDate = (dateString) => {
@@ -168,16 +142,7 @@ export default function CommentSection({setCommentsCount, postId }) {
       return `${days} ${days === 1 ? "day" : "days"} ago`;
     }
   };
-  // Avatar
-  // CreatedAt
-  // FirstName
-  // FormattedDate
-  // ID
-  // LastName
-  // UserID
-  // content
-  // postId
-  
+
   return (
     <div className={styles.commentSection}>
       {isLoading ? (
@@ -259,6 +224,27 @@ export default function CommentSection({setCommentsCount, postId }) {
             <EmojiPicker onEmojiSelect={handleEmojiSelect} />
           </div>
         </div>
+
+      {/* select image  */}
+        {selectedImage && (
+        <div className={styles.imagePreview}>
+          <Image width={200} height={100}
+            src={URL.createObjectURL(selectedImage)}
+            className={styles.previewImage}
+          />
+          <button
+            onClick={() => {
+              setSelectedImage(null);
+              if (fileInputRef.current) fileInputRef.current.value = '';
+            }}
+            className={styles.removeImageButton}
+            type="button"
+            disabled={isLoading}
+          >
+            ×
+          </button>
+        </div>
+      )}
         <button
           type="submit"
           className={styles.commentSubmit}
@@ -269,5 +255,4 @@ export default function CommentSection({setCommentsCount, postId }) {
       </form>
     </div>
   );
-}
 }
