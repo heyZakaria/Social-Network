@@ -4,8 +4,7 @@ import (
 	"net/http"
 	"strings"
 
-	"socialNetwork/auth"
-	user "socialNetwork/user"
+	shared "socialNetwork/shared_packages"
 	"socialNetwork/utils"
 )
 
@@ -26,25 +25,7 @@ var RateLimit = map[string]utils.LimitInfo{}
 
 func CreatePost(w http.ResponseWriter, r *http.Request) {
 	PostData := Post{}
-	token := auth.GetToken(w, r)
-	if token == "" {
-		utils.Log("ERROR", "Error getting token in CreatePost Handler")
-		utils.SendJSON(w, http.StatusUnauthorized, utils.JSONResponse{
-			Success: false,
-			Message: "Please login to continue",
-			Error:   "You are not Authorized.",
-		})
-		return
-	}
-	UserId, err := user.GetUserIDByToken(token)
-	if err != nil {
-		utils.Log("Error", err.Error())
-		utils.SendJSON(w, http.StatusUnauthorized, utils.JSONResponse{
-			Success: false,
-			Message: err.Error(),
-		})
-		return
-	}
+	UserId := r.Context().Value(shared.UserIDKey).(string)
 
 	PostData.UserID = UserId
 	utils.Log("", "Start Creating the Post")
@@ -61,7 +42,8 @@ func CreatePost(w http.ResponseWriter, r *http.Request) {
 		utils.Log("ERROR", "Error Trying to Prepare Image: "+postImage)
 		utils.SendJSON(w, http.StatusInternalServerError, utils.JSONResponse{
 			Success: false,
-			Message: "Error occured Please try again later.",
+			Error:   "Error While Preparing Image, Please try again later.",
+			Message: "Error occured Please try again later. " + err.Error(),
 		})
 		return
 	}
@@ -72,6 +54,7 @@ func CreatePost(w http.ResponseWriter, r *http.Request) {
 		utils.Log("ERROR", "Post Content is Empty")
 		utils.SendJSON(w, http.StatusBadRequest, utils.JSONResponse{
 			Success: false,
+			Error:   "Post content is required to create a post",
 			Message: "Post content is required to create a post",
 		})
 		return
@@ -81,6 +64,7 @@ func CreatePost(w http.ResponseWriter, r *http.Request) {
 		utils.Log("ERROR", "Error On the Privacy Mode user selected : "+PostData.Privacy)
 		utils.SendJSON(w, http.StatusBadRequest, utils.JSONResponse{
 			Success: false,
+			Error:   "Please Check the privacy of your Post.",
 			Message: "Please Check the privacy of your Post.",
 		})
 		return
@@ -98,6 +82,7 @@ func CreatePost(w http.ResponseWriter, r *http.Request) {
 		utils.SendJSON(w, http.StatusInternalServerError, utils.JSONResponse{
 			Success: false,
 			Message: "Error Inserting Post, Try again later.",
+			Error:   "Internal Server Error, Try again later.",
 		})
 		return
 	}

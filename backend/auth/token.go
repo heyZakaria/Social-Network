@@ -7,10 +7,10 @@ import (
 	"encoding/json"
 	"errors"
 	"net/http"
-	db "socialNetwork/db/sqlite"
-	"socialNetwork/utils"
 	"strings"
 	"time"
+
+	"socialNetwork/utils"
 )
 
 func CreateJWT(userID, role string) (string, error) {
@@ -42,7 +42,6 @@ func CreateJWT(userID, role string) (string, error) {
 	token := encodeHeader + "." + encodedPayload + "." + signature
 
 	return token, nil
-
 }
 
 func createSignature(header, payload, secretKey string) string {
@@ -88,7 +87,6 @@ func VerifyJWT(token string) (JWTPayload, error) {
 	if time.Now().Unix() > payload.Exp {
 		return JWTPayload{}, errors.New("token has expired")
 	}
-
 	return payload, nil
 }
 
@@ -100,22 +98,4 @@ func GetToken(w http.ResponseWriter, r *http.Request) (token string) {
 	}
 
 	return cookie.Value
-}
-
-func SaveToken(userID string, token string) error {
-	// Check for old sessions and delete them
-	deleteQuery := "DELETE FROM sessions WHERE user_id = ?"
-	_, err := db.DB.Exec(deleteQuery, userID)
-	if err != nil {
-		return err // Handle the error appropriately
-	}
-
-	// Insert the new session
-	insertQuery := `
-		INSERT INTO sessions (user_id, token, expiration_time)
-		VALUES (?, ?, ?)
-	`
-	expirationTime := time.Now().Add(24 * time.Hour)
-	_, err = db.DB.Exec(insertQuery, userID, token, expirationTime)
-	return err
 }

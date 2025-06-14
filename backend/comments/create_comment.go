@@ -7,90 +7,58 @@ import (
 	"strconv"
 	"strings"
 
-	"socialNetwork/auth"
-	user "socialNetwork/user"
+	shared "socialNetwork/shared_packages"
 	"socialNetwork/utils"
 )
 
-func (c *Comment) CommentSaver(w http.ResponseWriter, r *http.Request) {
-	token := auth.GetToken(w, r)
-	UserId, err := user.GetUserIDByToken(token)
+func CommentSaver(w http.ResponseWriter, r *http.Request) {
+	UserId := r.Context().Value(shared.UserIDKey).(string)
+
+	// fmt.Println("comment")
+
+	var Comment Comment
+
+	decoder := json.NewDecoder(r.Body)
+	err := decoder.Decode(&Comment)
+
+	defer r.Body.Close()
+
 	if err != nil {
-		fmt.Println("eroooooooooooooooooooooooor comment")
-		utils.Log("Error", err.Error())
-		utils.SendJSON(w, http.StatusUnauthorized, utils.JSONResponse{
+		utils.Log("Error", "have problem to decode the comment data")
+		utils.SendJSON(w, http.StatusInternalServerError, utils.JSONResponse{
 			Success: false,
-			Message: err.Error(),
+			Message: "have problem to decode the comment data",
+			Error:   err.Error(),
 		})
 		return
 	}
-
-	err = r.ParseMultipartForm(10 << 20)
-	if err != nil {
-		utils.Log("Error", "Failed to parse multipart form: "+err.Error())
-		utils.SendJSON(w, http.StatusBadRequest, utils.JSONResponse{
-			Success: false,
-			Message: "Failed to parse form data",
-		})
-		return
-	}
-
-	content := r.FormValue("content")
-	postID := r.FormValue("postId")
-
-	var profile auth.Profile
-	profile.UserID = UserId
-
-	content = strings.TrimSpace(content)
-	if content == "" || len(content) > 10000 {
-		utils.Log("Error", "comment is empty or length of comment is more then 10000 ")
+	Comment.Content = strings.TrimSpace(Comment.Content)
+	if Comment.Content == "" || len(Comment.Content) > 10000 {
+		utils.Log("Error", "comment is empty or length of comment is more then 10000!! ")
 		utils.SendJSON(w, http.StatusBadRequest, utils.JSONResponse{
 			Success: false,
 			Message: "comment is empty or length of comment is more then 10000!! ",
+			Error:   "Comment must be between 1 and 10000 characters",
 		})
 		return
 	}
-
-	postIDInt, err := strconv.Atoi(postID)
+	err = Comment.SaveComment(UserId)
 	if err != nil {
-		utils.Log("Error", "Invalid post ID format")
+		utils.Log("Error", "have problem to save the comment data")
 		utils.SendJSON(w, http.StatusBadRequest, utils.JSONResponse{
 			Success: false,
-			Message: "Invalid post ID format",
+			Message: "have problem to save the comment data",
+			Error:   err.Error(),
 		})
 		return
 	}
 
-	file, fileHeader, err := r.FormFile("image")
-	if err == nil {
-		defer file.Close()
-		fmt.Printf("Received image: %s, size: %d\n", fileHeader.Filename, fileHeader.Size)
-	}
-
-	c.PostID = postIDInt
-	c.Content = content
-	err = c.SaveComment(profile.UserID, c.PostID, c.Content)
-	if err != nil {
-		utils.Log("Error", "data it's given machi hiya hadik!!!")
-		utils.SendJSON(w, http.StatusBadRequest, utils.JSONResponse{
-			Success: false,
-			Message: "data it's given machi hiya hadik!!!",
-		})
-		return
-	}
-	comment, err := c.Getcomments(c.PostID, 0)
-
-	fmt.Println("comment  ===> ", comment)
-
-	if err != nil {
-		utils.Log("Error", "have problem ==> getting comments!!!!")
-		utils.SendJSON(w, http.StatusInternalServerError, utils.JSONResponse{
-			Success: false,
-			Message: "have problem ==> getting comments!!!!",
-		})
-		return
-	}
-
-	w.Header().Set("Content-Type", "application/json")
-	json.NewEncoder(w).Encode(comment)
+	utils.Log("Success", "Comment saved successfully")
+	utils.SendJSON(w, http.StatusOK, utils.JSONResponse{
+		Success: true,
+		Message: "Comment saved successfully",
+		Data: map[string]interface{}{
+			"Comment": Comment,
+		},
+	})
 }

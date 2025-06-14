@@ -2,36 +2,17 @@ package likes
 
 import (
 	"net/http"
-	"socialNetwork/auth"
-	db "socialNetwork/db/sqlite"
-	"socialNetwork/user"
-	"socialNetwork/utils"
 	"strconv"
+
+	db "socialNetwork/db/sqlite"
+	shared "socialNetwork/shared_packages"
+	"socialNetwork/utils"
 )
 
 // http://localhost:8080/likes/react?id=1
 func LikePost(w http.ResponseWriter, r *http.Request) {
-	token := auth.GetToken(w, r)
-	if token == "" {
-		utils.Log("ERROR", "Error getting token in LikePost Handler")
-		utils.SendJSON(w, http.StatusUnauthorized, utils.JSONResponse{
-			Success: false,
-			Message: "Please login to continue",
-			Error:   "You are not Authorized.",
-		})
-		return
-	}
+	UserId := r.Context().Value(shared.UserIDKey).(string)
 
-	UserId, err := user.GetUserIDByToken(token)
-	if err != nil {
-		utils.Log("ERROR", "Invalid Token in LikePost Handler: "+err.Error())
-		utils.SendJSON(w, http.StatusUnauthorized, utils.JSONResponse{
-			Success: false,
-			Message: "Please login to continue",
-			Error:   "You are not Authorized.",
-		})
-		return
-	}
 	// TODO Get Post ID
 	id := r.URL.Query().Get("id")
 	PostId, err := strconv.Atoi(id)

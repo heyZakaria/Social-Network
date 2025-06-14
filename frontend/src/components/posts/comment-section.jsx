@@ -5,40 +5,43 @@ import Link from "next/link";
 import styles from "@/styles/posts.module.css";
 import EmojiPicker from "@/components/common/emoji-picker";
 import { IoPaperPlaneOutline } from 'react-icons/io5';
-import { useUser } from '@/app/(utils)/user_context';
+import { FetchData } from "@/context/fetchJson";
+import { useUser } from '@/context/user_context';
+import Image from "next/image"
 
-
-export default function CommentSection({ postId }) {
-  const { user: currentUser } = useUser();
+export default function CommentSection({setCommentsCount, postId }) {
+   const { user: currentUser } = useUser();
   const [comments, setComments] = useState([]);
   const [selectedImage, setSelectedImage] = useState(null);
 
   const [displayedComments, setDisplayedComments] = useState([]);
+  const [likeCount, setLike] = useState(0);
   const [newComment, setNewComment] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [showAllComments, setShowAllComments] = useState(false);
   const COMMENTS_TO_SHOW = 2; // Initial number of comments to show
 
-  console.log("currentUser////////////", postId, newComment, currentUser.id);
+  useEffect(() => {
+    const fetchComments = async () => {
+      try {
+        setIsLoading(true);
+        const Data = await FetchData(`/api/comment/getcomment?post_id=${postId}`)
+        console.log("================aciba==============");
+        console.log(Data);
+        console.log("==============================");
+        
+        setComments(Data.data.Comments);
+        updateDisplayedComments(Data.data.Comments, showAllComments);
+        setIsLoading(false);
+      } catch (error) {
+        console.error("Error fetching comments:", error);
+        setIsLoading(false);
+      }
+    };
 
-
-  // useEffect(() => {
-  //   const fetchComments = async () => {
-  //     try {
-  //       setIsLoading(true);
-
-  //       setComments(mockComments);
-  //       updateDisplayedComments(mockComments, showAllComments);
-  //       setIsLoading(false);
-  //     } catch (error) {
-  //       console.error("Error fetching comments:", error);
-  //       setIsLoading(false);
-  //     }
-  //   };
-
-  //   fetchComments();
-  // }, [postId, showAllComments]);
+    fetchComments();
+  }, [postId, showAllComments]);
 
   const updateDisplayedComments = (allComments, showAll) => {
     if (showAll) {
@@ -63,7 +66,7 @@ export default function CommentSection({ postId }) {
       isValid = false
     }
     if (newComment) {
-      if (newComment.length > 1000) {
+      if (newComment.length < 1) {
         isValid = false;
       }
       if (!newComment.trim()) {
@@ -80,17 +83,21 @@ export default function CommentSection({ postId }) {
     }
     return isValid
   }
-
+  const handleHideComments = () => {
+    setShowAllComments(false);
+  };
 
   const handleSubmitComment = async (e) => {
+    console.log("%c Clicked On Submit ", "color:red");
+    
     e.preventDefault();
 
     setIsSubmitting(true);
 
     const isValid = validComment()
-
+    console.log("isValid", isValid);
+    
     if (isValid) {
-
       try {
         setIsLoading(true);
         const formData = new FormData()
@@ -116,17 +123,30 @@ export default function CommentSection({ postId }) {
 
         console.log("comment ==> ", newCommentFromServer[0]);
         
-        const updatedComments = [...comments, newCommentFromServer[0]];
+        const newCommentObj = {
+          postId: postId,
+          content: newComment,
+          }
+
+        const respone = await FetchData("/api/comment/sendcomment", "POST", newCommentObj )
+        console.log("respone aciba", respone);
+        
+        newCommentObj.UserID = currentUser.id;
+        newCommentObj.ID = respone.data.Comment.ID;
+        newCommentObj.FirstName = currentUser.firstName;
+        newCommentObj.LastName = currentUser.lastName;
+        newCommentObj.CreatedAt = Date.now()
+        newCommentObj.Avatar = currentUser.avatar || "/uploads/profile.jpeg"; // Default avatar if not set
+
+        const updatedComments = [newCommentObj, ...comments];
         setComments(updatedComments);
         updateDisplayedComments(updatedComments, showAllComments);
-        setIsLoading(false)
+        setCommentsCount(comments.length + 1)
         setNewComment("");
-      } catch (error) {
-        console.error("Error adding comment:", error);
-      } finally {
-        setIsLoading(false)
-        setIsSubmitting(false);
-      }
+    } catch (error) {
+      console.error("Error adding comment:", error);
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -148,7 +168,16 @@ export default function CommentSection({ postId }) {
       return `${days} ${days === 1 ? "day" : "days"} ago`;
     }
   };
-
+  // Avatar
+  // CreatedAt
+  // FirstName
+  // FormattedDate
+  // ID
+  // LastName
+  // UserID
+  // content
+  // postId
+  
   return (
     <div className={styles.commentSection}>
       {isLoading ? (
@@ -157,33 +186,31 @@ export default function CommentSection({ postId }) {
         <>
           <div className={styles.comments}>
             {displayedComments.map((comment) => (
-              <div key={comment.id} className={styles.comment}>
+              <div key={comment.ID} className={styles.comment}>
                 <Link
-                  href={`/profile/${comment.user.id}`}
+                  href={`/profile/${comment.UserID}`}
                   className={styles.commentAvatar}
                 >
-                  <img
-                    src={currentUser.avatar || // TODO add default avatar
+                  <Image width={200} height={100}
+                    src={comment.Avatar || // TODO add default avatar
                       "/uploads/profile.jpeg"
                     }
-                    alt={comment.user.firstName}
+                    alt={comment.FirstName}
                   />
                 </Link>
                 <div className={styles.commentContent}>
                   <div className={styles.commentBubble}>
                     <Link
-                      href={`/profile/${comment.user.id}`}
+                      href={`/profile/${comment.UserID}`}
                       className={styles.commentUser}
                     >
-                      {comment.user.firstName} {comment.user.lastName}
+                      {comment.FirstName} {comment.LastName}
                     </Link>
                     <p className={styles.commentText}>{comment.content}</p>
                   </div>
                   <div className={styles.commentActions}>
-                    <button className={styles.commentAction}>Like</button>
-                    <button className={styles.commentAction}>Reply</button>
                     <span className={styles.commentTime}>
-                      {formatDate(comment.createdAt)}
+                      {formatDate(comment.CreatedAt)}
                     </span>
                   </div>
                 </div>
@@ -191,7 +218,7 @@ export default function CommentSection({ postId }) {
             ))}
           </div>
 
-          {/* {comments.length > COMMENTS_TO_SHOW && (
+          {comments.length > COMMENTS_TO_SHOW && (
             <div className={styles.viewMoreContainer}>
               {!showAllComments ? (
                 <button
@@ -209,14 +236,14 @@ export default function CommentSection({ postId }) {
                 </button>
               )}
             </div>
-          )} */}
+          )}
         </>
       )}
 
       <form className={styles.commentForm} onSubmit={handleSubmitComment}>
-        <img
+        <Image width={200} height={100}
           src={currentUser.avatar || "/uploads/profile.jpeg"}
-          alt={currentUser.firstName}
+          alt="User avatar"
           className={styles.commentFormAvatar}
         />
         <div className={styles.commentInputContainer}>
@@ -242,4 +269,5 @@ export default function CommentSection({ postId }) {
       </form>
     </div>
   );
+}
 }

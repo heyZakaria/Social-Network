@@ -1,67 +1,85 @@
-"use client"
+"use client";
+import { useEffect, useState } from "react";
+import { useFriends } from "@/context/friends_context";
+import { FaUserPlus, FaUserCheck, FaClock } from "react-icons/fa";
+import styles from "@/styles/profile.module.css";
 
-import { useState, useEffect } from "react"
-import styles from "@/styles/profile.module.css"
-import { FaUserPlus, FaUserCheck, FaClock } from "react-icons/fa"
-
-export default function FollowButton({ profileUser, currentUser }) {
-  const [isFollowing, setIsFollowing] = useState(false)
-  const [requestPending, setRequestPending] = useState(false)
-  const [isPending, setIsPending] = useState(false)
+export default function FollowButton({ targetUserId }) {
+  const { getFollowStatus, toggleFollow } = useFriends();
+  const [status, setStatus] = useState({ isFollowing: false, requestPending: false });
+  const [loading, setLoading] = useState(true);
+  const [confirm, setConfirm] = useState(false);
 
   useEffect(() => {
-    setIsFollowing(profileUser.followers?.some(f => f.ID === currentUser.id) || false)
-    setRequestPending(profileUser.followRequests?.some(req => req.senderID === currentUser.id) || false)
-  }, [profileUser.followers, profileUser.followRequests, currentUser.id])
+    if (!targetUserId) return;
+    (async () => {
+      setLoading(true);
+      const res = await getFollowStatus(targetUserId);
+      setStatus(res);
+      setLoading(false);
+    })();
+  }, [targetUserId]);
 
-  const handleFollowAction = async () => {
-    setIsPending(true)
-
-    try {
-      const response = await fetch(`/api/users/follow?id=${profileUser.id}`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        credentials: "include",
-      })
-
-      if (!response.ok) throw new Error("Failed to update follow status")
-
-      const data = await response.json()
-
-      setIsFollowing(data.data?.isFollowing || false)
-      setRequestPending(data.data?.requestPending || false)
-
-      console.log("Follow API response:", data)
-    } catch (error) {
-      console.error("Error following/unfollowing user:", error)
-    } finally {
-      setIsPending(false)
+  const handleClick = async () => {
+    if (status.isFollowing) {
+      setConfirm(true);
+    } else {
+      setLoading(true);
+      const res = await toggleFollow(targetUserId);
+      setStatus(res);
+      setLoading(false);
     }
-  }
+  };
+
+  const confirmUnfollow = async () => {
+    setLoading(true);
+    const res = await toggleFollow(targetUserId);
+    setStatus(res);
+    setConfirm(false);
+    setLoading(false);
+  };
 
   return (
-    <button
-      className={`${styles.followButton} ${
-        isFollowing ? styles.following : requestPending ? styles.pending : ""
-      }`}
-      onClick={handleFollowAction}
-      disabled={isPending}
-    >
-      {isPending ? (
-        "⏳ Processing..."
-      ) : isFollowing ? (
-        <>
-          <FaUserCheck /> Following
-        </>
-      ) : requestPending ? (
-        <>
-          <FaClock /> Requested
-        </>
-      ) : (
-        <>
-          <FaUserPlus /> Follow
-        </>
+    <>
+      <button
+        className={`${styles.followButton} ${
+          status.isFollowing ? styles.following : status.requestPending ? styles.pending : ""
+        }`}
+        onClick={handleClick}
+        disabled={loading}
+      >
+        {loading ? (
+          "⏳ Processing..."
+        ) : status.isFollowing ? (
+          <>
+            <FaUserCheck /> Following
+          </>
+        ) : status.requestPending ? (
+          <>
+            <FaClock /> Requested
+          </>
+        ) : (
+          <>
+            <FaUserPlus /> Follow
+          </>
+        )}
+      </button>
+
+      {confirm && (
+        <div className={styles.popupOverlay}>
+          <div className={styles.popup}>
+            <p>Are you sure you want to unfollow this user?</p>
+            <div className={styles.popupButtons}>
+              <button onClick={confirmUnfollow} className={styles.confirmBtn}>
+                Yes
+              </button>
+              <button onClick={() => setConfirm(false)} className={styles.cancelBtn}>
+                Cancel
+              </button>
+            </div>
+          </div>
+        </div>
       )}
-    </button>
-  )
+    </>
+  );
 }

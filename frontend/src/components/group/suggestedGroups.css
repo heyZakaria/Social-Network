@@ -1,0 +1,208 @@
+/* Group List Container (like friendListContainer) */
+.groupListContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: #fafafa;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin: 20px 0;
+}
+
+/* Filter Button Group */
+.groupListHeader {
+  margin-bottom: 20px;
+}
+
+.groupListHeader button {
+  background: #7c3aed;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.groupListHeader button:hover {
+  background: #5b21b6;
+}
+
+/* Group List (ul) */
+.groupList {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+/* Group Card */
+.groupCard {
+  background-color: #fff;
+  border-radius: 12px;
+  width: 200px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  height: auto;
+  /* Set a fixed height for the group card */
+}
+
+/* Group Card Hover Effect */
+.groupCard:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+}
+
+/* Cover Image (taking up half of the card) */
+.groupCard img {
+  width: 100%;
+  height: 50%;
+  /* Cover the top half of the card */
+  object-fit: cover;
+  margin-bottom: 12px;
+  border-bottom: 2px solid #ddd;
+  /* Adds a border below the image */
+}
+
+/* Group Content Section (below the image) */
+.groupCardContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
+  padding: 10px 0;
+  width: 100%;
+}
+
+/* Group Name */
+.groupCardContent p:first-of-type {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 6px;
+  font-family: 'Arial', sans-serif;
+  text-transform: capitalize;
+}
+
+/* Group Description */
+.groupCardContent p:nth-of-type(2) {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 12px;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Join / Pending Button */
+.groupCardContent button {
+  background: #7c3aed;
+  color: white;
+  padding: 6px 14px;
+  border: none;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  width: 100%;
+}
+
+.groupCardContent button:hover {
+  background: #5b21b6;
+}
+
+/* Special styling for Pending state */
+.groupCardContent button.Pending {
+  background-color: #4caf50;
+}
+
+.groupCardContent button.Pending:hover {
+  background-color: #388e3c;
+}
+
+/* Member Count Styling */
+.groupCard p.memberCount {
+  font-size: 14px;
+  font-weight: 500;
+  color: #555;
+  margin-top: 10px;
+  text-align: center;
+  padding: 5px 10px;
+  background-color: #e0e0e0;
+  border-radius: 12px;
+  display: inline-block;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.groupCard p.memberCount span {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  padding: 3px;
+  border-radius: 8px;
+  background-color: #4caf50;
+  /* Green for members count */
+  color: white;
+}
+
+/* Info Container - Flex Row */
+.InfoCountainer {
+  display: flex;
+  padding: 7px;
+  flex-direction: row;
+  gap: 4px;  /* Spacing between sections */
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Section Styling - Flex Row */
+.Section {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 4px;  /* Space between icon and title/content */
+}
+
+/* Title and Content Layout - Flex Column */
+.TitleContent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Title (Name) Styling */
+.Section h2 {
+  font-size: 9px;
+  font-weight: 550;  /* Slightly bold */
+  color: #000000;
+  margin: 0;
+}
+
+/* Content Styling */
+.Section p {
+  font-size: 9px;
+  font-weight: normal;
+  color: #666;
+  margin: 0;
+  white-space: nowrap;
+}
+
+/* Icon Styling */
+.Section svg {
+  font-size: 22px;
+  color: #7c3aed;  /* Icon color */
+}

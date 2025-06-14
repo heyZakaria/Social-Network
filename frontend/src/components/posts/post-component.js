@@ -7,7 +7,7 @@ import CommentSection from "./comment-section";
 import { IoHeartOutline, IoGlobeOutline } from 'react-icons/io5';
 import { BiShare, BiComment, BiDotsHorizontalRounded } from 'react-icons/bi';
 import { HiUsers, HiLockClosed } from 'react-icons/hi2';
-import { FetchData } from "@/app/(utils)/fetchJson";
+import { FetchData } from "@/context/fetchJson";
 import Image from "next/image";
 
 export default function PostComponent({
@@ -18,6 +18,7 @@ export default function PostComponent({
 }) {
   const [isLiked, setIsLiked] = useState(post.Liked);
   const [likesCount, setLikesCount] = useState(post.LikeCounts);
+  const [commentsCount, setCommentsCount] = useState(post.CommentCounts);
   const [showCommentsSection, setShowCommentsSection] = useState(showComments);
   const [isExpanded, setIsExpanded] = useState(false);
   const MAX_CONTENT_LENGTH = 250; // Maximum characters to show before "See more"
@@ -25,7 +26,7 @@ export default function PostComponent({
   const handleLike =  () => {
     async function updateLikeStatus() {
       const response = await FetchData(
-        `http://localhost:8080/likes/react?id=${post.PostId}`, "POST")
+        `/api/likes/react?id=${post.PostId}`, "POST")
       const LikeCounts = response.data.like_count
       const Like = response.data.success
       console.log("post.Liked", post.Liked);
@@ -80,7 +81,7 @@ export default function PostComponent({
     if (!post.Post_Content) return null;
 
     if (post.Post_Content.length <= MAX_CONTENT_LENGTH || isExpanded) {
-      return <p>{post.PostId} {post.Post_Content}</p>;
+      return <p>{post.Post_Content}</p>;
     }
 
     return (
@@ -100,13 +101,16 @@ export default function PostComponent({
     <div className={styles.post}>
       <div className={styles.postHeader}>
         <Link href={`/profile/${post.UserID}`} className={styles.postUser}>
-          <Image
-            src={post.User_avatar || "/uploads/profile.jpeg"}
-            alt={post.First_name}
-            className={styles.postAvatar}
-            width={100}
-            height={100}
-          />
+          <div className={styles.avatarWrapper}>
+            <Image
+              src={post.User_avatar || "/uploads/profile.jpeg"}
+              alt={post.First_name}
+              className={styles.postAvatar}
+              width={48}
+              height={48}
+              style={{ objectFit: "cover", borderRadius: "50%" }}
+            />
+          </div>
           <div className={styles.postUserInfo}>
             <div className={styles.postUserName}>
               {post.First_name} {post.Last_name}
@@ -124,24 +128,21 @@ export default function PostComponent({
             </div>
           </div>
         </Link>
-
-        {/* {currentUser.id === user.id && (
-          <div className={styles.postActions}>
-            <button className={styles.postAction}>
-            <BiDotsHorizontalRounded size={16} />
-            </button>
-          </div>
-        )} */}
       </div>
 
       <div className={styles.postContent}>
         {renderPostContent()}
         {post.Post_image && (
-          <img
-            src={post.Post_image}
-            alt="Post"
-            className={styles.postImage}
-          />
+          <div className={styles.postImageWrapper}>
+            <Image
+              src={post.Post_image}
+              alt="Post"
+              className={styles.postImage}
+              width={200}
+              height={100}
+              style={{ width: "auto", height: "auto", objectFit: "cover", borderRadius: "8px" }}
+            />
+          </div>
         )}
       </div>
 
@@ -159,7 +160,7 @@ export default function PostComponent({
             className={styles.commentsToggle}
             onClick={() => setShowCommentsSection(!showCommentsSection)}
           >
-            {post.Comments || 0} comments
+            {commentsCount || 0} comments
           </button>
         </div>
 
@@ -181,13 +182,12 @@ export default function PostComponent({
             <BiComment size={20} />
             Comment
           </button>
-          
         </div>
       </div>
 
       {showCommentsSection && (
-        <CommentSection postId={post.PostId} currentUser={currentUser} />
+        <CommentSection setCommentsCount={setCommentsCount} postId={post.PostId} currentUser={currentUser} />
       )}
-    </div>
+    </div>  
   );
 }

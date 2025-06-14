@@ -1,7 +1,6 @@
 package auth
 
 import (
-	"fmt"
 	"net/http"
 	"socialNetwork/utils"
 	"strings"
@@ -17,7 +16,6 @@ func ParseForm(r *http.Request) (Profile, error) {
 	p.NickName = r.FormValue("nickname")
 	p.Bio = r.FormValue("bio")
 	p.Birthday, _ = time.Parse("2006-01-02", r.FormValue("birthday"))
-	fmt.Println(p.Email)
 	utils.Log("INFO", "Form fields parsed successfully")
 	return p, nil
 }

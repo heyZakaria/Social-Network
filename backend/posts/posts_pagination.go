@@ -8,7 +8,7 @@ import (
 
 	"socialNetwork/auth"
 	db "socialNetwork/db/sqlite"
-	user "socialNetwork/user"
+	shared "socialNetwork/shared_packages"
 	"socialNetwork/utils"
 )
 
@@ -17,18 +17,7 @@ import (
 
 func PostsPagination(w http.ResponseWriter, r *http.Request) {
 	utils.Log("", "Get request made to GetPostsScroll Handler")
-	token := auth.GetToken(w, r)
-
-	UserID, err := user.GetUserIDByToken(token)
-	if err != nil {
-		utils.Log("ERROR", "Invalid Token in GetPostsScroll Handler: "+err.Error())
-		utils.SendJSON(w, http.StatusUnauthorized, utils.JSONResponse{
-			Success: false,
-			Message: "Please login to continue",
-			Error:   "You are not Authorized.",
-		})
-		return
-	}
+	UserID := r.Context().Value(shared.UserIDKey).(string)
 
 	// we will have both, Limit of Posts, and Offset of Posts 10 in our case
 	offset := r.URL.Query().Get("offset")
@@ -115,6 +104,7 @@ func PostsPagination(w http.ResponseWriter, r *http.Request) {
 		// TODO Each Post Must Check if the exist user Has Liked the post or not
 		// TODO get Likes count as well
 		err = db.DB.QueryRow("SELECT COUNT(*) FROM likes WHERE post_id = ?", Post.PostId).Scan(&Post.LikeCounts)
+		err = db.DB.QueryRow("SELECT COUNT(*) FROM comments WHERE post_id = ?", Post.PostId).Scan(&Post.CommentCounts)
 		// check the privacy of post,
 		stmnt, err := db.DB.Prepare("SELECT first_name, last_name, avatar, profile_status FROM users WHERE id = ?")
 		if err != nil {

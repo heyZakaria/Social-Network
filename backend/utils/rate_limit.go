@@ -13,17 +13,22 @@ type LimitInfo struct {
 
 func CheckRateLimit(RateLimit map[string]LimitInfo, UserId string, w http.ResponseWriter) bool {
 	if limitInfo, exists := RateLimit[UserId]; exists {
-		if limitInfo.Count >= 5 && time.Since(limitInfo.LastInsert) < 1*time.Minute {
-			Log("ERROR", "Rate limit exceeded for user: "+UserId)
-			SendJSON(w, http.StatusTooManyRequests, JSONResponse{
-				Success: false,
-				Message: "You have exceeded the rate limit for creating posts. Please try again later.",
-			})
-			return true
+		// If more than one minute has passed since the last insert, reset the count
+		if time.Since(limitInfo.LastInsert) >= 1*time.Minute {
+			limitInfo.Count = 1
+			limitInfo.LastInsert = time.Now()
+		} else {
+			if limitInfo.Count >= 5 {
+				Log("ERROR", "Rate limit exceeded for user: "+UserId)
+				SendJSON(w, http.StatusTooManyRequests, JSONResponse{
+					Success: false,
+					Message: "You have exceeded the rate limit for creating posts. Please try again later.",
+				})
+				return true
+			}
+			limitInfo.Count++
+			limitInfo.LastInsert = time.Now()
 		}
-		// Update the count and last insert time
-		limitInfo.Count++
-		limitInfo.LastInsert = time.Now()
 		RateLimit[UserId] = limitInfo
 	} else {
 		// Initialize the rate limit for the user

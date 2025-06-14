@@ -8,29 +8,25 @@ import (
 	"github.com/gofrs/uuid/v5"
 )
 
-func (c *Comment) SaveComment(userID string, postID int, content string) error {
-	comment := &Comment{
-		ID:      uuid.Must(uuid.NewV4()).String(),
-		UserID:  userID,
-		PostID:  postID,
-		Content: content,
-	}
-	return c.InsertComment(comment)
+func (c *Comment) SaveComment(userID string) error {
+	c.ID = uuid.Must(uuid.NewV4()).String()
+	c.UserID = userID
+	return c.InsertComment()
 }
 
-func (c *Comment) InsertComment(comment *Comment) error {
+func (c *Comment) InsertComment() error {
 	query := "INSERT INTO comments (id, user_id, post_id, content) VALUES (?, ?, ?, ?)"
 	prp, prepareErr := db.DB.Prepare(query)
 	if prepareErr != nil {
 		return prepareErr
 	}
 	defer prp.Close()
-	comment.Content = html.EscapeString(comment.Content)
+	c.Content = html.EscapeString(c.Content)
 	_, execErr := prp.Exec(
-		comment.ID,
-		comment.UserID,
-		comment.PostID,
-		comment.Content,
+		&c.ID,
+		&c.UserID,
+		&c.PostID,
+		&c.Content,
 	)
 	if execErr != nil {
 		return execErr
