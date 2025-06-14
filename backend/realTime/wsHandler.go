@@ -14,6 +14,7 @@ var upgrader = websocket.Upgrader{
 
 func WSHandler(w http.ResponseWriter, r *http.Request) {
 	conn, err := upgrader.Upgrade(w, r, nil)
+	UserID := r.Context().Value("UserID").(string)
 	if err != nil {
 		utils.Log("ERROR", "Failed to upgrade connection to websocket: "+err.Error())
 
@@ -23,15 +24,10 @@ func WSHandler(w http.ResponseWriter, r *http.Request) {
 	// get token then get username from db
 
 	client := &Client{
-		Conn:     conn,
-		Username: r.URL.Query().Get("username"),
-		Send:     make(chan MessageStruct),
+		Conn:   conn,
+		UserID: UserID,
+		Send:   make(chan MessageStruct),
 	}
-
-	mutex.Lock()
-	clients[client] = true
-	utils.Log("INFO", "Client added to map")
-	mutex.Unlock()
 
 	var JR JSONRequest
 
@@ -49,7 +45,7 @@ func WSHandler(w http.ResponseWriter, r *http.Request) {
 		}
 
 	case "group_chat":
-		GroupChat(conn, r)
+		GroupChat(*client, conn, r)
 	case "private_message":
 
 	}

@@ -11,7 +11,7 @@ type GroupMessage struct {
 
 type Client struct {
 	Conn     *websocket.Conn
-	Username string
+	UserID string
 	Send     chan MessageStruct
 }
 

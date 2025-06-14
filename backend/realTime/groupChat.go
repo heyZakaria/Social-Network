@@ -9,42 +9,37 @@ import (
 	"github.com/gorilla/websocket"
 )
 
-var clients = make(map[*Client]bool)
-var broadcast = make(chan []byte)
+var clients = make(map[string]*Client)
+var broadcast = make(chan MessageStruct)
 var mutex = &sync.Mutex{}
 
-func GroupChat(conn *websocket.Conn, r *http.Request) {
-
-	client := &Client{
-		Conn:     conn,
-		Username: r.URL.Query().Get("username"),
-		Send:     make(chan MessageStruct),
-	}
+func GroupChat(client Client, conn *websocket.Conn, r *http.Request) {
 
 	mutex.Lock()
-	clients[client] = true
-	utils.Log("INFO", "New Client is Connected to GroupChat")
+	clients[client.UserID] = &client
+	utils.Log("INFO", "Client added to map")
 	mutex.Unlock()
 
-	go ReadMessages(client)
-	go Writemessages(client)
+	go ReadMessages(client.UserID)
+	go Writemessages(client.UserID)
 
 }
 
-func ReadMessages(client *Client) {
+func ReadMessages(UserID string) {
+	msgs := MessageStruct{}
 	for {
-		_, message, err := client.Conn.ReadMessage()
+		err := clients[UserID].Conn.ReadJSON(&msgs)
 		if err != nil {
 			mutex.Lock()
-			delete(clients, client)
+			delete(clients, UserID)
 			mutex.Unlock()
 			break
 		}
-		broadcast <- message
+		broadcast <- msgs
 	}
 }
 
-func Writemessages(c *Client) {
+func Writemessages(UserID string) {
 	for {
 		// Grab the next message from the broadcast channel
 		message := <-broadcast
@@ -52,16 +47,14 @@ func Writemessages(c *Client) {
 		// Send the message to all connected clients
 		mutex.Lock()
 
-		for client := range clients {
-			fmt.Println("Message sent: ", string(message))
+		fmt.Println("Message sent: ", message.Content)
 
-			err := client.Conn.WriteMessage(websocket.TextMessage, message)
-			if err != nil {
-				client.Conn.Close()
-				delete(clients, client)
-			}
-
+		err := clients[UserID].Conn.WriteJSON(message)
+		if err != nil {
+			clients[UserID].Conn.Close()
+			delete(clients, UserID)
 		}
+
 		mutex.Unlock()
 	}
 }
