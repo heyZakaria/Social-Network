@@ -8,6 +8,8 @@ import (
 	"socialNetwork/utils"
 )
 
+
+//
 func updateFriendRequest(userID, friendID, query string) error {
 	_, err := db.DB.Exec(query, userID, friendID)
 	if err != nil {
