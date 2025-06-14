@@ -9,7 +9,7 @@ import { useUser } from '@/app/(utils)/user_context';
 
 
 export default function CommentSection({ postId }) {
-   const { user: currentUser } = useUser();
+  const { user: currentUser } = useUser();
   const [comments, setComments] = useState([]);
   const [selectedImage, setSelectedImage] = useState(null);
 
@@ -21,58 +21,15 @@ export default function CommentSection({ postId }) {
   const COMMENTS_TO_SHOW = 2; // Initial number of comments to show
 
   console.log("currentUser////////////", postId, newComment, currentUser.id);
-  
+
 
   // useEffect(() => {
   //   const fetchComments = async () => {
   //     try {
   //       setIsLoading(true);
-        // Simulate API call
-        // const mockComments = [
-        //   {
-        //     id: 1,
-        //     postId: postId,
-        //     userId: 2,
-        //     user: {
-        //       id: 2,
-        //       firstName: "Jane",
-        //       lastName: "Smith",
-        //       avatar: "https://i.pravatar.cc/150?u=10`",
-        //     },
-        //     content: "Wow, that looks amazing! Which trail was this? 😍",
-        //     createdAt: "2023-03-10T12:15:00Z",
-        //   },
-        //   {
-        //     id: 2,
-        //     postId: postId,
-        //     userId: 3,
-        //     user: {
-        //       id: 3,
-        //       firstName: "Mike",
-        //       lastName: "Johnson",
-        //       avatar: "https://i.pravatar.cc/150?u=10`",
-        //     },
-        //     content: "Incredible views! I need to go hiking more often. 🏔️",
-        //     createdAt: "2023-03-10T13:30:00Z",
-        //   },
-        //   {
-        //     id: 3,
-        //     postId: postId,
-        //     userId: 4,
-        //     user: {
-        //       id: 4,
-        //       firstName: "Sarah",
-        //       lastName: "Williams",
-        //       avatar: "https://i.pravatar.cc/150?u=10`",
-        //     },
-        //     content:
-        //       "I was there last month! Did you take the north trail or the south one? 🧭",
-        //     createdAt: "2023-03-11T09:45:00Z",
-        //   },
-        // ];
 
-        // setComments(mockComments);
-        // updateDisplayedComments(mockComments, showAllComments);
+  //       setComments(mockComments);
+  //       updateDisplayedComments(mockComments, showAllComments);
   //       setIsLoading(false);
   //     } catch (error) {
   //       console.error("Error fetching comments:", error);
@@ -83,17 +40,17 @@ export default function CommentSection({ postId }) {
   //   fetchComments();
   // }, [postId, showAllComments]);
 
-  // const updateDisplayedComments = (allComments, showAll) => {
-  //   if (showAll) {
-  //     setDisplayedComments(allComments);
-  //   } else {
-  //     setDisplayedComments(allComments.slice(0, COMMENTS_TO_SHOW));
-  //   }
-  // };
+  const updateDisplayedComments = (allComments, showAll) => {
+    if (showAll) {
+      setDisplayedComments(allComments);
+    } else {
+      setDisplayedComments(allComments.slice(0, COMMENTS_TO_SHOW));
+    }
+  };
 
-  // const handleViewMoreComments = () => {
-  //   setShowAllComments(true);
-  // };
+  const handleViewMoreComments = () => {
+    setShowAllComments(true);
+  };
 
   const handleEmojiSelect = (emoji) => {
     setNewComment((prevComment) => prevComment + emoji);
@@ -102,12 +59,15 @@ export default function CommentSection({ postId }) {
 
   const validComment = () => {
     let isValid = true;
+    if (!newComment?.trim() && !selectedImage) {
+      isValid = false
+    }
     if (newComment) {
-      if (newComment.length > 10) {
+      if (newComment.length > 1000) {
         isValid = false;
       }
       if (!newComment.trim()) {
-        isValid = false;        
+        isValid = false;
       }
     }
     if (selectedImage) {
@@ -118,6 +78,7 @@ export default function CommentSection({ postId }) {
         isValid = false;
       }
     }
+    return isValid
   }
 
 
@@ -131,42 +92,42 @@ export default function CommentSection({ postId }) {
     if (isValid) {
 
       try {
+        setIsLoading(true);
+        const formData = new FormData()
+        formData.append('postId', postId);
+        if (newComment) {
+          formData.append('content', newComment)
+        }
+
+
+        const response = await fetch('http://localhost:8080/comment/sendcomment', {
+          method: 'POST',
+          credentials: 'include', // This sends cookies with the request
+          body: formData,
+        });
+        console.log("res ==> ", response);
+
+        if (!response.ok) {
+          console.log("error ====>", response.error);
+          return;
+        }
+
+        const newCommentFromServer = await response.json();
+
+        console.log("comment ==> ", newCommentFromServer[0]);
         
-      const formData = new FormData()
-
-     
-
-
-
-
-
-
-      const newCommentObj = {
-        id: Date.now(),
-        postId: postId,
-        userId: currentUser.id,
-        user: {
-          id: currentUser.id,
-          firstName: currentUser.firstName,
-          lastName: currentUser.lastName,
-          avatar: currentUser.avatar,
-        },
-        content: newComment,
-        createdAt: new Date().toISOString(),
-      };
-
-      const updatedComments = [...comments, newCommentObj];
-      setComments(updatedComments);
-      updateDisplayedComments(updatedComments, showAllComments);
-      setNewComment("");
-    } catch (error) {
-      console.error("Error adding comment:", error);
-    } finally {
-      setIsSubmitting(false);
+        const updatedComments = [...comments, newCommentFromServer[0]];
+        setComments(updatedComments);
+        updateDisplayedComments(updatedComments, showAllComments);
+        setIsLoading(false)
+        setNewComment("");
+      } catch (error) {
+        console.error("Error adding comment:", error);
+      } finally {
+        setIsLoading(false)
+        setIsSubmitting(false);
+      }
     }
-    }
-
-    
   };
 
   const formatDate = (dateString) => {
@@ -202,7 +163,7 @@ export default function CommentSection({ postId }) {
                   className={styles.commentAvatar}
                 >
                   <img
-                    src={ currentUser.avatar || // TODO add default avatar
+                    src={currentUser.avatar || // TODO add default avatar
                       "/uploads/profile.jpeg"
                     }
                     alt={comment.user.firstName}

@@ -13162,3 +13162,286 @@
 2025/06/03 17:19:13 [INFO] 2025-06-03 17:19:13 - Posts fetched successfully in GetPostsScroll Handler
 2025/06/03 17:19:13 [LOG] 2025-06-03 17:19:13 - Get request made to GetPostsScroll Handler
 2025/06/03 17:19:13 [INFO] 2025-06-03 17:19:13 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/14 10:20:27 [INFO] 2025-06-14 10:20:27 - Starting HTTP server at http://localhost:8080 ...
+2025/06/14 10:20:27 [INFO] 2025-06-14 10:20:27 - Migrations applied successfully!
+2025/06/14 10:21:28 [INFO] 2025-06-14 10:21:28 - Received login request
+2025/06/14 10:21:28 [INFO] 2025-06-14 10:21:28 - Request body parsed successfully
+2025/06/14 10:21:28 [INFO] 2025-06-14 10:21:28 - Email and password fields validated
+2025/06/14 10:21:28 [INFO] 2025-06-14 10:21:28 - User data retrieved from DB for email: Hh03@gmail.com
+2025/06/14 10:21:28 [WARNING] 2025-06-14 10:21:28 - Invalid password for user: Hh03@gmail.com
+2025/06/14 10:21:50 [INFO] 2025-06-14 10:21:50 - Received login request
+2025/06/14 10:21:50 [INFO] 2025-06-14 10:21:50 - Request body parsed successfully
+2025/06/14 10:21:50 [INFO] 2025-06-14 10:21:50 - Email and password fields validated
+2025/06/14 10:21:50 [INFO] 2025-06-14 10:21:50 - User data retrieved from DB for email: Houuuda01@gmail.com
+2025/06/14 10:21:50 [INFO] 2025-06-14 10:21:50 - Password validated successfully
+2025/06/14 10:21:50 [INFO] 2025-06-14 10:21:50 - Sending success with token for user: 96f0a3a0-a221-4ec7-bfa2-89910aa75893
+2025/06/14 10:21:50 [INFO] 2025-06-14 10:21:50 - Save Token into Sessions
+2025/06/14 10:21:50 [INFO] 2025-06-14 10:21:50 - Login successful for user: 96f0a3a0-a221-4ec7-bfa2-89910aa75893
+2025/06/14 10:21:52 [LOG] 2025-06-14 10:21:52 - Get request made to GetPostsScroll Handler
+2025/06/14 10:21:52 [INFO] 2025-06-14 10:21:52 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/14 10:21:52 [LOG] 2025-06-14 10:21:52 - Get request made to GetPostsScroll Handler
+2025/06/14 10:21:52 [INFO] 2025-06-14 10:21:52 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/14 10:21:58 [LOG] 2025-06-14 10:21:58 - Get request made to GetPostsScroll Handler
+2025/06/14 10:21:58 [INFO] 2025-06-14 10:21:58 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/14 10:21:58 [LOG] 2025-06-14 10:21:58 - Get request made to GetPostsScroll Handler
+2025/06/14 10:21:58 [INFO] 2025-06-14 10:21:58 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/14 10:28:30 [LOG] 2025-06-14 10:28:30 - Start Creating the Post
+2025/06/14 10:28:30 [INFO] 2025-06-14 10:28:30 - Starting avatar upload
+2025/06/14 10:28:30 [INFO] 2025-06-14 10:28:30 - No image file provided
+2025/06/14 10:28:33 [LOG] 2025-06-14 10:28:33 - Get request made to GetPostsScroll Handler
+2025/06/14 10:28:33 [INFO] 2025-06-14 10:28:33 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/14 10:28:33 [LOG] 2025-06-14 10:28:33 - Get request made to GetPostsScroll Handler
+2025/06/14 10:28:33 [INFO] 2025-06-14 10:28:33 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/14 10:30:01 [LOG] 2025-06-14 10:30:01 - Start Creating the Post
+2025/06/14 10:30:01 [INFO] 2025-06-14 10:30:01 - Starting avatar upload
+2025/06/14 10:30:01 [INFO] 2025-06-14 10:30:01 - Avatar file retrieved: fad5e79954583ad50ccb3f16ee64f66d.jpg
+2025/06/14 10:30:01 [INFO] 2025-06-14 10:30:01 - Detected content type: image/jpeg
+2025/06/14 10:30:01 [INFO] 2025-06-14 10:30:01 - Generated avatar filename: a96da152-5917-43c2-badf-719f4802d9ef.jpg
+2025/06/14 10:30:01 [INFO] 2025-06-14 10:30:01 - Avatar saved successfully
+2025/06/14 10:30:04 [LOG] 2025-06-14 10:30:04 - Get request made to GetPostsScroll Handler
+2025/06/14 10:30:04 [INFO] 2025-06-14 10:30:04 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/14 10:30:04 [LOG] 2025-06-14 10:30:04 - Get request made to GetPostsScroll Handler
+2025/06/14 10:30:04 [INFO] 2025-06-14 10:30:04 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/14 10:41:48 [LOG] 2025-06-14 10:41:48 - Get request made to GetPostsScroll Handler
+2025/06/14 10:41:48 [INFO] 2025-06-14 10:41:48 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/14 10:41:48 [LOG] 2025-06-14 10:41:48 - Get request made to GetPostsScroll Handler
+2025/06/14 10:41:48 [INFO] 2025-06-14 10:41:48 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/14 10:51:14 [LOG] 2025-06-14 10:51:14 - Get request made to GetPostsScroll Handler
+2025/06/14 10:51:14 [INFO] 2025-06-14 10:51:14 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/14 10:51:14 [LOG] 2025-06-14 10:51:14 - Get request made to GetPostsScroll Handler
+2025/06/14 10:51:14 [INFO] 2025-06-14 10:51:14 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/14 10:53:07 [LOG] 2025-06-14 10:53:07 - Get request made to GetPostsScroll Handler
+2025/06/14 10:53:07 [INFO] 2025-06-14 10:53:07 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/14 10:53:07 [LOG] 2025-06-14 10:53:07 - Get request made to GetPostsScroll Handler
+2025/06/14 10:53:07 [INFO] 2025-06-14 10:53:07 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/14 10:53:18 [LOG] 2025-06-14 10:53:18 - invalid character '-' in numeric literal
+2025/06/14 10:54:13 [LOG] 2025-06-14 10:54:13 - Get request made to GetPostsScroll Handler
+2025/06/14 10:54:13 [INFO] 2025-06-14 10:54:13 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/14 10:54:13 [LOG] 2025-06-14 10:54:13 - Get request made to GetPostsScroll Handler
+2025/06/14 10:54:13 [INFO] 2025-06-14 10:54:13 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/14 10:54:20 [LOG] 2025-06-14 10:54:20 - invalid character '-' in numeric literal
+2025/06/14 10:55:38 [LOG] 2025-06-14 10:55:38 - Get request made to GetPostsScroll Handler
+2025/06/14 10:55:38 [INFO] 2025-06-14 10:55:38 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/14 10:55:38 [LOG] 2025-06-14 10:55:38 - Get request made to GetPostsScroll Handler
+2025/06/14 10:55:38 [INFO] 2025-06-14 10:55:38 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/14 10:55:55 [LOG] 2025-06-14 10:55:55 - Start Creating the Post
+2025/06/14 10:55:55 [INFO] 2025-06-14 10:55:55 - Starting avatar upload
+2025/06/14 10:55:55 [INFO] 2025-06-14 10:55:55 - No image file provided
+2025/06/14 10:56:06 [LOG] 2025-06-14 10:56:06 - Start Creating the Post
+2025/06/14 10:56:06 [INFO] 2025-06-14 10:56:06 - Starting avatar upload
+2025/06/14 10:56:06 [INFO] 2025-06-14 10:56:06 - No image file provided
+2025/06/14 10:56:09 [LOG] 2025-06-14 10:56:09 - Get request made to GetPostsScroll Handler
+2025/06/14 10:56:09 [INFO] 2025-06-14 10:56:09 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/14 10:56:09 [LOG] 2025-06-14 10:56:09 - Get request made to GetPostsScroll Handler
+2025/06/14 10:56:09 [INFO] 2025-06-14 10:56:09 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/14 10:56:14 [LOG] 2025-06-14 10:56:14 - invalid character '-' in numeric literal
+2025/06/14 10:56:17 [LOG] 2025-06-14 10:56:17 - invalid character '-' in numeric literal
+2025/06/14 10:57:11 [LOG] 2025-06-14 10:57:11 - Get request made to GetPostsScroll Handler
+2025/06/14 10:57:11 [INFO] 2025-06-14 10:57:11 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/14 10:57:11 [LOG] 2025-06-14 10:57:11 - Get request made to GetPostsScroll Handler
+2025/06/14 10:57:11 [INFO] 2025-06-14 10:57:11 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/14 10:57:11 [LOG] 2025-06-14 10:57:11 - Get request made to GetPostsScroll Handler
+2025/06/14 10:57:11 [INFO] 2025-06-14 10:57:11 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/14 10:57:11 [LOG] 2025-06-14 10:57:11 - Get request made to GetPostsScroll Handler
+2025/06/14 10:57:11 [INFO] 2025-06-14 10:57:11 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/14 10:57:13 [LOG] 2025-06-14 10:57:13 - Get request made to GetPostsScroll Handler
+2025/06/14 10:57:13 [INFO] 2025-06-14 10:57:13 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/14 10:57:13 [LOG] 2025-06-14 10:57:13 - Get request made to GetPostsScroll Handler
+2025/06/14 10:57:13 [INFO] 2025-06-14 10:57:13 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/14 10:57:18 [LOG] 2025-06-14 10:57:18 - invalid character '-' in numeric literal
+2025/06/14 10:57:29 [LOG] 2025-06-14 10:57:29 - invalid character '-' in numeric literal
+2025/06/14 10:57:32 [LOG] 2025-06-14 10:57:32 - invalid character '-' in numeric literal
+2025/06/14 10:57:34 [LOG] 2025-06-14 10:57:34 - invalid character '-' in numeric literal
+2025/06/14 10:58:24 [LOG] 2025-06-14 10:58:24 - Get request made to GetPostsScroll Handler
+2025/06/14 10:58:24 [INFO] 2025-06-14 10:58:24 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/14 10:58:24 [LOG] 2025-06-14 10:58:24 - Get request made to GetPostsScroll Handler
+2025/06/14 10:58:24 [INFO] 2025-06-14 10:58:24 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/14 10:58:29 [LOG] 2025-06-14 10:58:29 - invalid character '-' in numeric literal
+2025/06/14 10:58:31 [LOG] 2025-06-14 10:58:31 - invalid character '-' in numeric literal
+2025/06/14 10:58:34 [LOG] 2025-06-14 10:58:34 - invalid character '-' in numeric literal
+2025/06/14 10:58:35 [LOG] 2025-06-14 10:58:35 - invalid character '-' in numeric literal
+2025/06/14 11:11:16 [LOG] 2025-06-14 11:11:16 - Get request made to GetPostsScroll Handler
+2025/06/14 11:11:16 [INFO] 2025-06-14 11:11:16 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/14 11:11:16 [LOG] 2025-06-14 11:11:16 - Get request made to GetPostsScroll Handler
+2025/06/14 11:11:16 [INFO] 2025-06-14 11:11:16 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/14 11:11:22 [LOG] 2025-06-14 11:11:22 - Start Creating the Post
+2025/06/14 11:11:22 [INFO] 2025-06-14 11:11:22 - Starting avatar upload
+2025/06/14 11:11:22 [INFO] 2025-06-14 11:11:22 - No image file provided
+2025/06/14 11:11:24 [LOG] 2025-06-14 11:11:24 - Get request made to GetPostsScroll Handler
+2025/06/14 11:11:24 [INFO] 2025-06-14 11:11:24 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/14 11:11:24 [LOG] 2025-06-14 11:11:24 - Get request made to GetPostsScroll Handler
+2025/06/14 11:11:24 [INFO] 2025-06-14 11:11:24 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/14 11:11:28 [LOG] 2025-06-14 11:11:28 - invalid character '-' in numeric literal
+2025/06/14 11:11:44 [INFO] 2025-06-14 11:11:44 - Starting HTTP server at http://localhost:8080 ...
+2025/06/14 11:11:44 [INFO] 2025-06-14 11:11:44 - Migrations applied successfully!
+2025/06/14 11:11:53 [INFO] 2025-06-14 11:11:53 - Received login request
+2025/06/14 11:11:53 [INFO] 2025-06-14 11:11:53 - Request body parsed successfully
+2025/06/14 11:11:53 [INFO] 2025-06-14 11:11:53 - Email and password fields validated
+2025/06/14 11:11:53 [WARNING] 2025-06-14 11:11:53 - Login attempt with unknown email: omar@gmail.com
+2025/06/14 11:11:56 [INFO] 2025-06-14 11:11:56 - Received login request
+2025/06/14 11:11:56 [INFO] 2025-06-14 11:11:56 - Request body parsed successfully
+2025/06/14 11:11:56 [INFO] 2025-06-14 11:11:56 - Email and password fields validated
+2025/06/14 11:11:56 [INFO] 2025-06-14 11:11:56 - User data retrieved from DB for email: Houuuda01@gmail.com
+2025/06/14 11:11:56 [INFO] 2025-06-14 11:11:56 - Password validated successfully
+2025/06/14 11:11:56 [INFO] 2025-06-14 11:11:56 - Sending success with token for user: 96f0a3a0-a221-4ec7-bfa2-89910aa75893
+2025/06/14 11:11:56 [INFO] 2025-06-14 11:11:56 - Save Token into Sessions
+2025/06/14 11:11:56 [INFO] 2025-06-14 11:11:56 - Login successful for user: 96f0a3a0-a221-4ec7-bfa2-89910aa75893
+2025/06/14 11:11:58 [LOG] 2025-06-14 11:11:58 - Get request made to GetPostsScroll Handler
+2025/06/14 11:11:58 [INFO] 2025-06-14 11:11:58 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/14 11:11:58 [LOG] 2025-06-14 11:11:58 - Get request made to GetPostsScroll Handler
+2025/06/14 11:11:58 [INFO] 2025-06-14 11:11:58 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/14 11:12:03 [LOG] 2025-06-14 11:12:03 - Get request made to GetPostsScroll Handler
+2025/06/14 11:12:03 [INFO] 2025-06-14 11:12:03 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/14 11:12:03 [LOG] 2025-06-14 11:12:03 - Get request made to GetPostsScroll Handler
+2025/06/14 11:12:03 [INFO] 2025-06-14 11:12:03 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/14 11:12:09 [LOG] 2025-06-14 11:12:09 - data it's given machi hiya hadik!!!
+2025/06/14 11:17:41 [INFO] 2025-06-14 11:17:41 - Starting HTTP server at http://localhost:8080 ...
+2025/06/14 11:17:41 [INFO] 2025-06-14 11:17:41 - Migrations applied successfully!
+2025/06/14 11:18:03 [INFO] 2025-06-14 11:18:03 - Received login request
+2025/06/14 11:18:03 [INFO] 2025-06-14 11:18:03 - Request body parsed successfully
+2025/06/14 11:18:03 [INFO] 2025-06-14 11:18:03 - Email and password fields validated
+2025/06/14 11:18:03 [INFO] 2025-06-14 11:18:03 - User data retrieved from DB for email: Houuuda01@gmail.com
+2025/06/14 11:18:03 [INFO] 2025-06-14 11:18:03 - Password validated successfully
+2025/06/14 11:18:03 [INFO] 2025-06-14 11:18:03 - Sending success with token for user: 96f0a3a0-a221-4ec7-bfa2-89910aa75893
+2025/06/14 11:18:03 [INFO] 2025-06-14 11:18:03 - Save Token into Sessions
+2025/06/14 11:18:03 [INFO] 2025-06-14 11:18:03 - Login successful for user: 96f0a3a0-a221-4ec7-bfa2-89910aa75893
+2025/06/14 11:18:04 [LOG] 2025-06-14 11:18:04 - Get request made to GetPostsScroll Handler
+2025/06/14 11:18:04 [INFO] 2025-06-14 11:18:04 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/14 11:18:04 [LOG] 2025-06-14 11:18:04 - Get request made to GetPostsScroll Handler
+2025/06/14 11:18:04 [INFO] 2025-06-14 11:18:04 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/14 11:18:06 [LOG] 2025-06-14 11:18:06 - Get request made to GetPostsScroll Handler
+2025/06/14 11:18:06 [INFO] 2025-06-14 11:18:06 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/14 11:18:06 [LOG] 2025-06-14 11:18:06 - Get request made to GetPostsScroll Handler
+2025/06/14 11:18:06 [INFO] 2025-06-14 11:18:06 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/14 11:18:17 [LOG] 2025-06-14 11:18:17 - data it's given machi hiya hadik!!!
+2025/06/14 11:23:25 [INFO] 2025-06-14 11:23:25 - Starting HTTP server at http://localhost:8080 ...
+2025/06/14 11:23:25 [INFO] 2025-06-14 11:23:25 - Migrations applied successfully!
+2025/06/14 11:23:39 [INFO] 2025-06-14 11:23:39 - Received login request
+2025/06/14 11:23:39 [INFO] 2025-06-14 11:23:39 - Request body parsed successfully
+2025/06/14 11:23:39 [INFO] 2025-06-14 11:23:39 - Email and password fields validated
+2025/06/14 11:23:39 [INFO] 2025-06-14 11:23:39 - User data retrieved from DB for email: Houuuda01@gmail.com
+2025/06/14 11:23:39 [INFO] 2025-06-14 11:23:39 - Password validated successfully
+2025/06/14 11:23:39 [INFO] 2025-06-14 11:23:39 - Sending success with token for user: 96f0a3a0-a221-4ec7-bfa2-89910aa75893
+2025/06/14 11:23:39 [INFO] 2025-06-14 11:23:39 - Save Token into Sessions
+2025/06/14 11:23:39 [INFO] 2025-06-14 11:23:39 - Login successful for user: 96f0a3a0-a221-4ec7-bfa2-89910aa75893
+2025/06/14 11:23:41 [LOG] 2025-06-14 11:23:41 - Get request made to GetPostsScroll Handler
+2025/06/14 11:23:41 [INFO] 2025-06-14 11:23:41 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/14 11:23:41 [LOG] 2025-06-14 11:23:41 - Get request made to GetPostsScroll Handler
+2025/06/14 11:23:41 [INFO] 2025-06-14 11:23:41 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/14 11:23:45 [LOG] 2025-06-14 11:23:45 - Get request made to GetPostsScroll Handler
+2025/06/14 11:23:45 [INFO] 2025-06-14 11:23:45 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/14 11:23:45 [LOG] 2025-06-14 11:23:45 - Get request made to GetPostsScroll Handler
+2025/06/14 11:23:45 [INFO] 2025-06-14 11:23:45 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/14 11:24:16 [LOG] 2025-06-14 11:24:16 - Get request made to GetPostsScroll Handler
+2025/06/14 11:24:16 [INFO] 2025-06-14 11:24:16 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/14 11:24:16 [LOG] 2025-06-14 11:24:16 - Get request made to GetPostsScroll Handler
+2025/06/14 11:24:16 [INFO] 2025-06-14 11:24:16 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/14 11:24:42 [INFO] 2025-06-14 11:24:42 - Starting HTTP server at http://localhost:8080 ...
+2025/06/14 11:24:42 [INFO] 2025-06-14 11:24:42 - Migrations applied successfully!
+2025/06/14 11:24:48 [LOG] 2025-06-14 11:24:48 - Get request made to GetPostsScroll Handler
+2025/06/14 11:24:48 [INFO] 2025-06-14 11:24:48 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/14 11:24:48 [LOG] 2025-06-14 11:24:48 - Get request made to GetPostsScroll Handler
+2025/06/14 11:24:48 [INFO] 2025-06-14 11:24:48 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/14 11:24:55 [LOG] 2025-06-14 11:24:55 - data it's given machi hiya hadik!!!
+2025/06/14 11:26:23 [INFO] 2025-06-14 11:26:23 - Starting HTTP server at http://localhost:8080 ...
+2025/06/14 11:26:23 [INFO] 2025-06-14 11:26:23 - Migrations applied successfully!
+2025/06/14 11:26:31 [LOG] 2025-06-14 11:26:31 - Get request made to GetPostsScroll Handler
+2025/06/14 11:26:31 [INFO] 2025-06-14 11:26:31 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/14 11:26:31 [LOG] 2025-06-14 11:26:31 - Get request made to GetPostsScroll Handler
+2025/06/14 11:26:31 [INFO] 2025-06-14 11:26:31 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/14 11:26:35 [LOG] 2025-06-14 11:26:35 - data it's given machi hiya hadik!!!
+2025/06/14 11:28:13 [INFO] 2025-06-14 11:28:13 - Starting HTTP server at http://localhost:8080 ...
+2025/06/14 11:28:13 [INFO] 2025-06-14 11:28:13 - Migrations applied successfully!
+2025/06/14 11:28:19 [LOG] 2025-06-14 11:28:19 - Get request made to GetPostsScroll Handler
+2025/06/14 11:28:19 [INFO] 2025-06-14 11:28:19 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/14 11:28:19 [LOG] 2025-06-14 11:28:19 - Get request made to GetPostsScroll Handler
+2025/06/14 11:28:19 [INFO] 2025-06-14 11:28:19 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/14 11:28:22 [LOG] 2025-06-14 11:28:22 - data it's given machi hiya hadik!!!
+2025/06/14 11:31:29 [INFO] 2025-06-14 11:31:29 - Starting HTTP server at http://localhost:8080 ...
+2025/06/14 11:31:29 [INFO] 2025-06-14 11:31:29 - Migrations applied successfully!
+2025/06/14 11:31:35 [LOG] 2025-06-14 11:31:35 - Get request made to GetPostsScroll Handler
+2025/06/14 11:31:35 [INFO] 2025-06-14 11:31:35 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/14 11:31:35 [LOG] 2025-06-14 11:31:35 - Get request made to GetPostsScroll Handler
+2025/06/14 11:31:35 [INFO] 2025-06-14 11:31:35 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/14 11:33:31 [INFO] 2025-06-14 11:33:31 - Starting HTTP server at http://localhost:8080 ...
+2025/06/14 11:33:31 [INFO] 2025-06-14 11:33:31 - Migrations applied successfully!
+2025/06/14 11:33:40 [INFO] 2025-06-14 11:33:40 - Received login request
+2025/06/14 11:33:40 [INFO] 2025-06-14 11:33:40 - Request body parsed successfully
+2025/06/14 11:33:40 [INFO] 2025-06-14 11:33:40 - Email and password fields validated
+2025/06/14 11:33:40 [INFO] 2025-06-14 11:33:40 - User data retrieved from DB for email: Houuuda01@gmail.com
+2025/06/14 11:33:40 [INFO] 2025-06-14 11:33:40 - Password validated successfully
+2025/06/14 11:33:40 [INFO] 2025-06-14 11:33:40 - Sending success with token for user: 96f0a3a0-a221-4ec7-bfa2-89910aa75893
+2025/06/14 11:33:40 [INFO] 2025-06-14 11:33:40 - Save Token into Sessions
+2025/06/14 11:33:40 [INFO] 2025-06-14 11:33:40 - Login successful for user: 96f0a3a0-a221-4ec7-bfa2-89910aa75893
+2025/06/14 11:33:42 [LOG] 2025-06-14 11:33:42 - Get request made to GetPostsScroll Handler
+2025/06/14 11:33:42 [INFO] 2025-06-14 11:33:42 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/14 11:33:42 [LOG] 2025-06-14 11:33:42 - Get request made to GetPostsScroll Handler
+2025/06/14 11:33:42 [INFO] 2025-06-14 11:33:42 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/14 11:35:14 [LOG] 2025-06-14 11:35:14 - Get request made to GetPostsScroll Handler
+2025/06/14 11:35:14 [INFO] 2025-06-14 11:35:14 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/14 11:35:14 [LOG] 2025-06-14 11:35:14 - Get request made to GetPostsScroll Handler
+2025/06/14 11:35:14 [INFO] 2025-06-14 11:35:14 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/14 11:36:28 [LOG] 2025-06-14 11:36:28 - Get request made to GetPostsScroll Handler
+2025/06/14 11:36:28 [INFO] 2025-06-14 11:36:28 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/14 11:36:28 [LOG] 2025-06-14 11:36:28 - Get request made to GetPostsScroll Handler
+2025/06/14 11:36:28 [INFO] 2025-06-14 11:36:28 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/14 11:36:47 [LOG] 2025-06-14 11:36:47 - Get request made to GetPostsScroll Handler
+2025/06/14 11:36:47 [LOG] 2025-06-14 11:36:47 - Get request made to GetPostsScroll Handler
+2025/06/14 11:36:47 [INFO] 2025-06-14 11:36:47 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/14 11:36:47 [INFO] 2025-06-14 11:36:47 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/14 11:38:16 [INFO] 2025-06-14 11:38:16 - Starting HTTP server at http://localhost:8080 ...
+2025/06/14 11:38:16 [INFO] 2025-06-14 11:38:16 - Migrations applied successfully!
+2025/06/14 11:40:00 [INFO] 2025-06-14 11:40:00 - Received login request
+2025/06/14 11:40:00 [INFO] 2025-06-14 11:40:00 - Request body parsed successfully
+2025/06/14 11:40:00 [INFO] 2025-06-14 11:40:00 - Email and password fields validated
+2025/06/14 11:40:00 [INFO] 2025-06-14 11:40:00 - User data retrieved from DB for email: Houuuda01@gmail.com
+2025/06/14 11:40:00 [INFO] 2025-06-14 11:40:00 - Password validated successfully
+2025/06/14 11:40:00 [INFO] 2025-06-14 11:40:00 - Sending success with token for user: 96f0a3a0-a221-4ec7-bfa2-89910aa75893
+2025/06/14 11:40:00 [INFO] 2025-06-14 11:40:00 - Save Token into Sessions
+2025/06/14 11:40:00 [INFO] 2025-06-14 11:40:00 - Login successful for user: 96f0a3a0-a221-4ec7-bfa2-89910aa75893
+2025/06/14 11:40:01 [LOG] 2025-06-14 11:40:01 - Get request made to GetPostsScroll Handler
+2025/06/14 11:40:01 [INFO] 2025-06-14 11:40:01 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/14 11:40:01 [LOG] 2025-06-14 11:40:01 - Get request made to GetPostsScroll Handler
+2025/06/14 11:40:01 [INFO] 2025-06-14 11:40:01 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/14 11:40:04 [LOG] 2025-06-14 11:40:04 - Get request made to GetPostsScroll Handler
+2025/06/14 11:40:04 [INFO] 2025-06-14 11:40:04 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/14 11:40:04 [LOG] 2025-06-14 11:40:04 - Get request made to GetPostsScroll Handler
+2025/06/14 11:40:04 [INFO] 2025-06-14 11:40:04 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/14 11:41:31 [INFO] 2025-06-14 11:41:31 - Starting HTTP server at http://localhost:8080 ...
+2025/06/14 11:41:31 [INFO] 2025-06-14 11:41:31 - Migrations applied successfully!
+2025/06/14 11:41:36 [LOG] 2025-06-14 11:41:36 - Get request made to GetPostsScroll Handler
+2025/06/14 11:41:36 [INFO] 2025-06-14 11:41:36 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/14 11:41:36 [LOG] 2025-06-14 11:41:36 - Get request made to GetPostsScroll Handler
+2025/06/14 11:41:36 [INFO] 2025-06-14 11:41:36 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/14 11:46:14 [LOG] 2025-06-14 11:46:14 - Get request made to GetPostsScroll Handler
+2025/06/14 11:46:14 [INFO] 2025-06-14 11:46:14 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/14 11:46:14 [LOG] 2025-06-14 11:46:14 - Get request made to GetPostsScroll Handler
+2025/06/14 11:46:14 [INFO] 2025-06-14 11:46:14 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/14 11:46:20 [LOG] 2025-06-14 11:46:20 - Get request made to GetPostsScroll Handler
+2025/06/14 11:46:20 [INFO] 2025-06-14 11:46:20 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/14 11:46:20 [LOG] 2025-06-14 11:46:20 - Get request made to GetPostsScroll Handler
+2025/06/14 11:46:20 [INFO] 2025-06-14 11:46:20 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/14 11:46:32 [LOG] 2025-06-14 11:46:32 - Get request made to GetPostsScroll Handler
+2025/06/14 11:46:32 [INFO] 2025-06-14 11:46:32 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/14 11:46:32 [LOG] 2025-06-14 11:46:32 - Get request made to GetPostsScroll Handler
+2025/06/14 11:46:32 [INFO] 2025-06-14 11:46:32 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/14 11:48:24 [LOG] 2025-06-14 11:48:24 - Get request made to GetPostsScroll Handler
+2025/06/14 11:48:24 [INFO] 2025-06-14 11:48:24 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/14 11:48:24 [LOG] 2025-06-14 11:48:24 - Get request made to GetPostsScroll Handler
+2025/06/14 11:48:24 [INFO] 2025-06-14 11:48:24 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/14 11:51:32 [LOG] 2025-06-14 11:51:32 - Get request made to GetPostsScroll Handler
+2025/06/14 11:51:32 [INFO] 2025-06-14 11:51:32 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/14 11:51:32 [LOG] 2025-06-14 11:51:32 - Get request made to GetPostsScroll Handler
+2025/06/14 11:51:32 [INFO] 2025-06-14 11:51:32 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/14 11:52:11 [LOG] 2025-06-14 11:52:11 - Get request made to GetPostsScroll Handler
+2025/06/14 11:52:11 [INFO] 2025-06-14 11:52:11 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/14 11:52:11 [LOG] 2025-06-14 11:52:11 - Get request made to GetPostsScroll Handler
+2025/06/14 11:52:11 [INFO] 2025-06-14 11:52:11 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/14 11:52:34 [LOG] 2025-06-14 11:52:34 - Get request made to GetPostsScroll Handler
+2025/06/14 11:52:34 [INFO] 2025-06-14 11:52:34 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/14 11:52:34 [LOG] 2025-06-14 11:52:34 - Get request made to GetPostsScroll Handler
+2025/06/14 11:52:34 [INFO] 2025-06-14 11:52:34 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/14 11:53:25 [LOG] 2025-06-14 11:53:25 - Get request made to GetPostsScroll Handler
+2025/06/14 11:53:25 [INFO] 2025-06-14 11:53:25 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/14 11:53:25 [LOG] 2025-06-14 11:53:25 - Get request made to GetPostsScroll Handler
+2025/06/14 11:53:25 [INFO] 2025-06-14 11:53:25 - Posts fetched successfully in GetPostsScroll Handler

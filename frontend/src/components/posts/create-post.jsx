@@ -165,8 +165,6 @@ const CreatePost = () => {
           credentials: 'include', // This sends cookies with the request
           body: formData,
         });
-        console.log("response----------", response);
-
 
         if (!response.ok) {
           handleErrors(response.status);

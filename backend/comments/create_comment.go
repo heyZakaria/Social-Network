@@ -2,7 +2,9 @@ package comments
 
 import (
 	"encoding/json"
+	"fmt"
 	"net/http"
+	"strconv"
 	"strings"
 
 	"socialNetwork/auth"
@@ -14,6 +16,7 @@ func (c *Comment) CommentSaver(w http.ResponseWriter, r *http.Request) {
 	token := auth.GetToken(w, r)
 	UserId, err := user.GetUserIDByToken(token)
 	if err != nil {
+		fmt.Println("eroooooooooooooooooooooooor comment")
 		utils.Log("Error", err.Error())
 		utils.SendJSON(w, http.StatusUnauthorized, utils.JSONResponse{
 			Success: false,
@@ -22,29 +25,24 @@ func (c *Comment) CommentSaver(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	// fmt.Println("comment")
-
-	var commentData CommentData
-	var profile auth.Profile
-
-	decoder := json.NewDecoder(r.Body)
-	err = decoder.Decode(&commentData)
-
-	defer r.Body.Close()
-
+	err = r.ParseMultipartForm(10 << 20)
 	if err != nil {
-		utils.Log("Error", err.Error())
-		utils.SendJSON(w, http.StatusUnauthorized, utils.JSONResponse{
+		utils.Log("Error", "Failed to parse multipart form: "+err.Error())
+		utils.SendJSON(w, http.StatusBadRequest, utils.JSONResponse{
 			Success: false,
-			Message: err.Error(),
+			Message: "Failed to parse form data",
 		})
 		return
 	}
-	c.Content = commentData.Comment
-	c.PostID = commentData.PostID
+
+	content := r.FormValue("content")
+	postID := r.FormValue("postId")
+
+	var profile auth.Profile
 	profile.UserID = UserId
-	c.Content = strings.TrimSpace(c.Content)
-	if c.Content == "" || len(c.Content) > 10000 {
+
+	content = strings.TrimSpace(content)
+	if content == "" || len(content) > 10000 {
 		utils.Log("Error", "comment is empty or length of comment is more then 10000 ")
 		utils.SendJSON(w, http.StatusBadRequest, utils.JSONResponse{
 			Success: false,
@@ -52,7 +50,26 @@ func (c *Comment) CommentSaver(w http.ResponseWriter, r *http.Request) {
 		})
 		return
 	}
-	err = c.SaveComment(UserId, c.PostID, c.Content)
+
+	postIDInt, err := strconv.Atoi(postID)
+	if err != nil {
+		utils.Log("Error", "Invalid post ID format")
+		utils.SendJSON(w, http.StatusBadRequest, utils.JSONResponse{
+			Success: false,
+			Message: "Invalid post ID format",
+		})
+		return
+	}
+
+	file, fileHeader, err := r.FormFile("image")
+	if err == nil {
+		defer file.Close()
+		fmt.Printf("Received image: %s, size: %d\n", fileHeader.Filename, fileHeader.Size)
+	}
+
+	c.PostID = postIDInt
+	c.Content = content
+	err = c.SaveComment(profile.UserID, c.PostID, c.Content)
 	if err != nil {
 		utils.Log("Error", "data it's given machi hiya hadik!!!")
 		utils.SendJSON(w, http.StatusBadRequest, utils.JSONResponse{
@@ -62,6 +79,9 @@ func (c *Comment) CommentSaver(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	comment, err := c.Getcomments(c.PostID, 0)
+
+	fmt.Println("comment  ===> ", comment)
+
 	if err != nil {
 		utils.Log("Error", "have problem ==> getting comments!!!!")
 		utils.SendJSON(w, http.StatusInternalServerError, utils.JSONResponse{
