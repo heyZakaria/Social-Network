@@ -1,16 +1,17 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import styles from "@/styles/posts.module.css";
+import { BsImage } from 'react-icons/bs';
 import EmojiPicker from "@/components/common/emoji-picker";
 import { IoPaperPlaneOutline } from 'react-icons/io5';
 import { FetchData } from "@/context/fetchJson";
 import { useUser } from '@/context/user_context';
 import Image from "next/image"
 
-export default function CommentSection({setCommentsCount, postId }) {
-   const { user: currentUser } = useUser();
+export default function CommentSection({ setCommentsCount, postId }) {
+  const { user: currentUser } = useUser();
   const [comments, setComments] = useState([]);
   const [selectedImage, setSelectedImage] = useState(null);
 
@@ -26,10 +27,7 @@ export default function CommentSection({setCommentsCount, postId }) {
       try {
         setIsLoading(true);
         const Data = await FetchData(`/api/comment/getcomment?post_id=${postId}`)
-        console.log("================aciba==============");
-        console.log(Data);
-        console.log("==============================");
-        
+
         setComments(Data.data.Comments);
         updateDisplayedComments(Data.data.Comments, showAllComments);
         setIsLoading(false);
@@ -56,6 +54,16 @@ export default function CommentSection({setCommentsCount, postId }) {
 
   const handleEmojiSelect = (emoji) => {
     setNewComment((prevComment) => prevComment + emoji);
+  }
+
+
+  const fileInputRef = useRef(null);
+  // Handle image selection
+  const handleImageSelect = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      setSelectedImage(file);
+    }
   };
 
 
@@ -66,7 +74,7 @@ export default function CommentSection({setCommentsCount, postId }) {
         isValid = false;
       }
       if (!newComment.trim()) {
-        isValid = false;        
+        isValid = false;
       }
     }
     if (selectedImage) {
@@ -84,24 +92,24 @@ export default function CommentSection({setCommentsCount, postId }) {
   };
 
   const handleSubmitComment = async (e) => {
-    
+
     e.preventDefault();
 
     setIsSubmitting(true);
 
     const isValid = validComment()
     console.log("isValid", isValid);
-    
+
     if (isValid) {
       try {
-        
+
         const newCommentObj = {
           postId: postId,
           content: newComment,
-          }
+        }
 
-        const respone = await FetchData("/api/comment/sendcomment", "POST", newCommentObj )
-        
+        const respone = await FetchData("/api/comment/sendcomment", "POST", newCommentObj)
+
         newCommentObj.UserID = currentUser.id;
         newCommentObj.ID = respone.data.Comment.ID;
         newCommentObj.FirstName = currentUser.firstName;
@@ -114,14 +122,14 @@ export default function CommentSection({setCommentsCount, postId }) {
         updateDisplayedComments(updatedComments, showAllComments);
         setCommentsCount(comments.length + 1)
         setNewComment("");
-    } catch (error) {
-      console.error("Error adding comment:", error);
-    } finally {
-      setIsSubmitting(false);
-    }
+      } catch (error) {
+        console.error("Error adding comment:", error);
+      } finally {
+        setIsSubmitting(false);
+      }
     }
 
-    
+
   };
 
   const formatDate = (dateString) => {
@@ -225,8 +233,8 @@ export default function CommentSection({setCommentsCount, postId }) {
           </div>
         </div>
 
-      {/* select image  */}
-        {selectedImage && (
+      {/* Selected Image Preview */}
+      {selectedImage && (
         <div className={styles.imagePreview}>
           <Image width={200} height={100}
             src={URL.createObjectURL(selectedImage)}
@@ -245,10 +253,32 @@ export default function CommentSection({setCommentsCount, postId }) {
           </button>
         </div>
       )}
+
+        <div className={styles.buImgCont}>
+          <button
+            className={styles.imgAction}
+            onClick={() => fileInputRef.current?.click()}
+            disabled={isLoading}
+            type="button"
+          >
+            <BsImage size={20} />
+            Photo/GIF
+          </button>
+
+          {/* Hidden file input */}
+          <input
+            type="file"
+            ref={fileInputRef}
+            onChange={handleImageSelect}
+            accept="image/*"
+            style={{ display: 'none' }}
+          />
+        </div>
+        {/* select image  */}
         <button
           type="submit"
           className={styles.commentSubmit}
-          disabled={isSubmitting || !newComment.trim()}
+          // disabled={isSubmitting || !newComment.trim()}
         >
           <IoPaperPlaneOutline size={16} />
         </button>

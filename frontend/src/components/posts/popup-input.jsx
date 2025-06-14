@@ -36,7 +36,6 @@ const PopupInput = ({ postContent, onContentChange, currentUser}) => {
         onClick={handleInputClick}
         value={postContent ? `${postContent.substring(0, 200)}${postContent.length > 200 ? ' ...' : ''}` : ''}
         readOnly
-        // disabled={disabled}
       />
       {showPopup && (
         <div className={styles.popupOverlay}>
@@ -48,14 +47,12 @@ const PopupInput = ({ postContent, onContentChange, currentUser}) => {
               className={styles.popupTextarea}
               value={localContent}
               onChange={handleTextareaChange}
-              // disabled={disabled}
               rows={6}
             />
             <div className={styles.popupActions}>
               <button
                 onClick={closePopup}
                 className={styles.cancelButton}
-                // disabled={disabled}
                 type="button"
               >
                 Cancel
@@ -64,7 +61,6 @@ const PopupInput = ({ postContent, onContentChange, currentUser}) => {
                 onClick={saveContent}
                 className={styles.postButton}
                 type="button"
-                // disabled={disabled}
               >
                 Done
               </button>

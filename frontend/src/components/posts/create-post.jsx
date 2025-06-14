@@ -318,7 +318,6 @@ const CreatePost = ({
         <button
           className={styles.postButton}
           type="submit"
-        // disabled={isLoading || !postContent.trim() }
         >
           {isLoading ? 'Posting...' : 'Post'}
         </button>
