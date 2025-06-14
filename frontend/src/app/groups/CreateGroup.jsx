@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState } from "reactt"
 
 export default function CreateGroupCard() {
 
@@ -52,21 +52,19 @@ export default function CreateGroupCard() {
         SetFormData((prevData) => ({ ...prevData, [name]: value }))
     }
 
-    function HandleDisplay() {
-        SetDisplay(!Display)
-    }
     async function handleSubmit(e) {
         e.preventDefault()
-    
-        if (!FormData.Description || !FormData.Title || FormErr.TitleErr || FormErr.DescriptionErr){
+
+        if (!FormData.Description || !FormData.Title || FormErr.TitleErr || FormErr.DescriptionErr) {
             return
         }
         try {
-            const Resp = fetch("/api/groups", {
+            const Resp = fetch("POST http://localhost:8080/api/groups", {
                 method: "POST",
                 headers: {
                     'Content-type': 'application/json'
                 },
+                credentials: 'include',
                 body: JSON.stringify(FormData)
             }
 
@@ -88,31 +86,25 @@ export default function CreateGroupCard() {
 
             <form onSubmit={handleSubmit}>
                 <InputComp
+                    type='input'
                     placeholder="Enter Title"
                     name="Title"
                     onChange={HandleChange}
                 ></InputComp>
                 {FormErr.TitleErr && <ErrorComponent Err={FormErr.TitleErr}></ErrorComponent>}
                 <InputComp
+                    type='input'
                     placeholder="Enter Description"
                     onChange={HandleChange}
                     name="Description">
-                {FormErr.DescriptionErr && <ErrorComponent Err={FormErr.deci}></ErrorComponent>}
+                    {FormErr.DescriptionErr && <ErrorComponent Err={FormErr.deci}></ErrorComponent>}
                 </InputComp>
 
-
-                                <InputComp
-                    
-                    onChange={HandleChange}
-                    name="Description">
-                {FormErr.DescriptionErr && <ErrorComponent Err={FormErr.deci}></ErrorComponent>}
-                </InputComp>
-                
-              
-                   
                 <button type="submit"
                     disabled={Display}></button>
-                
+
+
+
             </form>
             {SuccessMsg && <p>{SuccessMsg}</p>}
             {Err && <p>{Err}</p>}
@@ -120,15 +112,12 @@ export default function CreateGroupCard() {
     )
 }
 
-function InputComp({ onChange, name, label }) {
-    // const [value, SetValue] = useState('')
-    // // function HandleChange(e) {
-    // //     SetValue(e.target.value)
-    // // }
+function InputComp({ onChange, name, label, type }) {
+
     return (
         <>
             {label && <label>{label}</label>}
-            <input type="input" 
+            <input type={type}
                 name={name}
                 placeholder={name}
                 value={value}
@@ -138,6 +127,6 @@ function InputComp({ onChange, name, label }) {
     )
 }
 
-function ErrorComponent({Err}){
-    return  <p style={{ color: 'red' }}>{Err}</p>
+function ErrorComponent({ Err }) {
+    return <p style={{ color: 'red' }}>{Err}</p>
 }

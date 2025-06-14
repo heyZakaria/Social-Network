@@ -1,0 +1,148 @@
+/* === Updated Group Card Section === */
+
+.GroupCardContainer {
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
+  width: 1000px;
+  min-width: 250px;
+  padding: 24px;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease;
+}
+
+.GroupCardContainer:hover {
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.1);
+}
+
+.GroupCardContainer img {
+  width: 100%;
+  margin-bottom: 15px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.groupTitle {
+  font-size: 26px;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.Description {
+  font-size: 16px;
+  color: #4b5563;
+  line-height: 1.6;
+  margin-bottom: 25px;
+}
+
+.GroupNav {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+.GroupNav a,
+.GroupNav button {
+  font-size: 15px;
+  padding: 10px 18px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.2s ease-in-out;
+  border: 1px solid #7c3aed;
+  color: #7c3aed;
+  background-color: #f3f4f6;
+  cursor: pointer;
+}
+
+.GroupNav a:hover,
+.GroupNav button:hover {
+  background-color: #7c3aed;
+  color: #ffffff;
+}
+
+.GroupNav button:disabled {
+  background-color: #e5e7eb;
+  color: #9ca3af;
+  border-color: #d1d5db;
+  cursor: not-allowed;
+}
+
+.membersList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 0;
+  list-style: none;
+  justify-content: center;
+}
+
+.memberItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+}
+
+.memberImage {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #ddd;
+}
+
+.memberItem p {
+  font-size: 14px;
+  color: #374151;
+  font-weight: 500;
+}
+
+.successMessage {
+  color: #16a34a;
+  font-size: 14px;
+  text-align: center;
+}
+
+.error,
+.serverError {
+  color: #e63946;
+  font-size: 14px;
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  .GroupCardContainer {
+    padding: 16px;
+  }
+
+  .GroupNav {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .groupTitle {
+    font-size: 22px;
+  }
+
+  .Description {
+    font-size: 15px;
+  }
+
+  .membersList {
+    gap: 12px;
+  }
+
+  .memberItem {
+    width: 80px;
+  }
+
+  .memberImage {
+    width: 50px;
+    height: 50px;
+  }
+}

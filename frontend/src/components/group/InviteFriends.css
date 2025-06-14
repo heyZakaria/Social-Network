@@ -1,0 +1,94 @@
+/* Friend List Container */
+.friendListContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  padding: 20px;
+  background-color: #fafafa;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin: 20px 0;
+}
+
+/* Friend List */
+.friendList {
+  list-style-type: none; /* Removes bullet points from the list */
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+/* Friend Item Card */
+.friendItemCard {
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 12px;
+  width: 150px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.friendItemCard:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+}
+
+/* Friend's Profile Image */
+.friendItemCard img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 12px;
+  border: 2px solid #ddd;
+  padding: 3px; /* Adds a little padding around the image */
+}
+
+/* Friend's Name */
+.friendItemCard p {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 10px;
+  text-transform: capitalize;
+  font-family: 'Arial', sans-serif; /* Clear and modern font */
+}
+
+/* Invite Button */
+.inviteButton {
+  background: #7c3aed;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.inviteButton:hover {
+  background: #5b21b6;
+}
+
+/* Invited Button Styling */
+.inviteButton.invited {
+  background-color: #4caf50; /* Green for invited state */
+}
+
+.inviteButton.invited:hover {
+  background-color: #388e3c;
+}

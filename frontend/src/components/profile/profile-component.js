@@ -1,29 +1,22 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Link from "next/link";
+// import Link from "next/link";
 import styles from "@/styles/profile.module.css";
 import PostComponent from "@/components/posts/post-component";
 import FollowButton from "./follow-button";
 import PrivacyToggle from "./privacy-toggle";
-import UserList from "./user-list";
+import UserList from "../friends/user-list";
 import FloatingChat from "@/components/chat/floating-chat";
+import Image from "next/image";
 import { FaLock } from "react-icons/fa";
-// ProfileData={{
-//   profileUser
-// }}
-export default function ProfileComponent({
-  ProfileData,
-  canView,
-  // posts,
-  // followers,
-  // following,
-}) {
+import { FetchData } from "@/context/fetchJson";
+
+export default function ProfileComponent({ ProfileData }) {
   const [activeTab, setActiveTab] = useState("posts");
-  // const ProfileData.isOwnProfile = currentUser.id === currentUser.id;
-  // if (ProfileData.isOwnProfile) {
-  //   currentUser = currentUser
-  // }
+  if (!ProfileData) {
+    return <div>Loading...</div>;
+  }
 
   const [posts, setPosts] = useState([]);
   const [offset, setOffset] = useState(0);
@@ -32,36 +25,33 @@ export default function ProfileComponent({
   const [hasMore, setHasMore] = useState(true); // for pagination
 
   useEffect(() => {
-    if (activeTab === "posts") {
+    async function fetchPosts() {
+      setLoading(true);
+      try {
+        const data = await FetchData(`/api/posts/getposts?limit=${limit}&offset=${offset}&user_id=${ProfileData.id}`);
+        if (data.success === false) {
+          setHasMore(false);
+          setLoading(false);
+          return
+        }
+        if (data.data.posts.length < limit) setHasMore(false); // no more posts
+        setPosts((prev) => {
+          const existingIds = new Set(prev.map((p) => p.PostId));
+          const uniqueNewPosts = data.data.posts.filter((p) => !existingIds.has(p.PostId));
+          return [...prev, ...uniqueNewPosts];
+        });
+      } finally {
+        setLoading(false);
+      }
+    }
+    if (activeTab === "posts" && hasMore) {
       fetchPosts();
     }
-  }, [activeTab, offset]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [activeTab, offset, ProfileData.id]);
 
-  const fetchPosts = async () => {
-    try {
-      setLoading(true);
-      const res = await fetch(
-        `http://localhost:8080/posts/getposts?limit=${limit}&offset=${offset}&user_id=${ProfileData.id}`, {
-          credentials: "include",
-        }
-      );
-
-      if (!res.ok) {
-        throw new Error("Failed to fetch posts");
-      }
-
-      const data = await res.json();
-
-      
-      if (data.data.posts.length < limit) setHasMore(false); // no more posts
-
-      setPosts((prev) => [...data?.data?.posts]);//setPosts((prev) => [...prev, ...data?.data?.posts]);
-    } catch (error) {
-      console.error("Error loading posts:", error);
-    } finally {
-      setLoading(false);
-    }
-  };
+  console.log("Followers:", ProfileData.followers);
+console.log("Following:", ProfileData.following);
 
   const loadMore = () => {
     if (!loading && hasMore) {
@@ -69,21 +59,21 @@ export default function ProfileComponent({
     }
   };
 
-return (
+  return (
     <div className={styles.profileContainer}>
       <div className={styles.profileHeader}>
         <div className={styles.profileCover}>
-          <img
-            src={ProfileData.avatar || "/uploads/profile.jpeg"}// ./uploads/profile_image/b27c2604-404b-48e4-a20c-f4afa29a9c57.jpeg
+          <Image width={200} height={100}
+            src={ProfileData.avatar || "/uploads/profile.jpeg"} // ./uploads/profile_image/b27c2604-404b-48e4-a20c-f4afa29a9c57.jpeg
             alt="Cover"
             className={styles.coverImage}
           />
         </div>
         <div className={styles.profileInfo}>
           <div className={styles.profileAvatar}>
-            <img
+            <Image width={200} height={100}
               src={ProfileData.avatar || "/uploads/profile.jpeg"}
-              alt={ProfileData.FirstName}
+              alt="Profile Avatar"
               className={styles.avatarImage}
             />
           </div>
@@ -99,39 +89,45 @@ return (
                 )}
               </h1>
 
-              {ProfileData.isOwnProfile ? (
+              {ProfileData.IsOwnProfile ? (
                 <div className={styles.profileActions}>
-                  <Link href="/settings" className={styles.editButton}>
+                  {/* <Link href="/settings" className={styles.editButton}>
                     Edit Profile
-                  </Link>
+                  </Link> */}
 
                   <PrivacyToggle user={ProfileData} />
                 </div>
               ) : (
                 <div className={styles.profileActions}>
-                  <FollowButton
-                    currentUser={ProfileData}
-                  // currentUser={currentUser}
-                  />
-                  <button className={styles.messageButton}>Message</button>
+                  <FollowButton targetUserId={ProfileData.id} />
+                  {ProfileData.profile_status === "public" ||
+                    ProfileData.CanView ? (
+                    <button className={styles.messageButton}>Message</button>
+                  ) : null}
                 </div>
               )}
             </div>
 
             <div className={styles.profileStats}>
               <div className={styles.stat}>
-                <span className={styles.statNumber}>{ProfileData.posts}</span> posts
+                <span className={styles.statNumber}>
+                  {ProfileData.postsCount}
+                </span>{" "}
+                posts
               </div>
               <div className={styles.stat}>
-                <span className={styles.statNumber}>{ProfileData.followerCount}</span>{" "}
+                <span className={styles.statNumber}>
+                  {ProfileData.followerCount}
+                </span>{" "}
                 followers
               </div>
               <div className={styles.stat}>
-                <span className={styles.statNumber}>{ProfileData.followingCount}</span>{" "}
+                <span className={styles.statNumber}>
+                  {ProfileData.followingCount}
+                </span>{" "}
                 following
               </div>
             </div>
-
             {ProfileData.bio && ( // TODO Change the logic
               <div className={styles.profileBio}>{ProfileData.bio}</div>
             )}
@@ -139,7 +135,7 @@ return (
         </div>
       </div>
 
-      {canView ? (
+      {ProfileData.CanView ? (
         <div className={styles.profileContent}>
           <div className={styles.profileTabs}>
             <button
@@ -166,46 +162,47 @@ return (
           </div>
 
           <div className={styles.tabContent}>
-          {activeTab === "posts" && (
-  <div className={styles.postsGrid}>
-    {loading && posts.length === 0 ? (
-      <p>Loading...</p>
-    ) : posts.length > 0 ? (
-      <>
-        {posts.map((post) => (
-          <PostComponent
-            key={post.PostId}
-            post={post}
-            user={ProfileData} // or actual logged in user
-            currentUser={ProfileData}
-          />
-        ))}
-        {hasMore && (
-          <button
-            className={styles.loadMoreButton}
-            onClick={loadMore}
-            disabled={loading}
-          >
-            {loading ? "Loading..." : "Load More"}
-          </button>
-        )}
-      </>
-    ) : (
-      <div className={styles.emptyState}>
-        <p>No posts yet</p>
-      </div>
-    )}
-  </div>
-)}
-
+            {activeTab === "posts" && (
+              <div className={styles.postsGrid}>
+                {loading && posts.length === 0 ? (
+                  <p>{loading}Loading... {posts.length}</p>
+                ) : posts.length > 0 ? (
+                  <>
+                    {posts.map((post) => (
+                      <PostComponent
+                        key={post.PostId}
+                        post={post}
+                        user={ProfileData} // or actual logged in user
+                        currentUser={ProfileData}
+                      />
+                    ))}
+                    {hasMore && (
+                      <button
+                        className={styles.loadMoreButton}
+                        onClick={loadMore}
+                        disabled={loading}
+                      >
+                        {loading ? "Loading..." : "Load More"}
+                      </button>
+                    )}
+                  </>
+                ) : (
+                  <div className={styles.emptyState}>
+                    <p>No posts yet</p>
+                  </div>
+                )}
+              </div>
+            )}
 
             {activeTab === "followers" && (
-              <UserList users={followers} currentUser={currentUser} />
+              <UserList type="followers" users={ProfileData.followers} />
             )}
 
             {activeTab === "following" && (
-              <UserList users={following} currentUser={currentUser} />
+              <UserList type="following" users={ProfileData.following} />
             )}
+
+
           </div>
         </div>
       ) : (

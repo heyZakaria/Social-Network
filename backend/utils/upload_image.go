@@ -51,6 +51,7 @@ func PrepareImage(r *http.Request, ImageName, ImagePath string) (imageProvided b
 		"image/jpeg": true,
 		"image/png":  true,
 		"image/webp": true,
+		"image/gif": true,
 	}
 
 	if !allowedTypes[contentType] {

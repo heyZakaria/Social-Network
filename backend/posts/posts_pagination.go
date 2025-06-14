@@ -4,11 +4,12 @@ import (
 	"database/sql"
 	"fmt"
 	"net/http"
+	"strconv"
+
 	"socialNetwork/auth"
 	db "socialNetwork/db/sqlite"
-	user "socialNetwork/user"
+	shared "socialNetwork/shared_packages"
 	"socialNetwork/utils"
-	"strconv"
 )
 
 // Example URL : http://localhost:8080/posts/getposts?limit=10&offset=0
@@ -16,18 +17,7 @@ import (
 
 func PostsPagination(w http.ResponseWriter, r *http.Request) {
 	utils.Log("", "Get request made to GetPostsScroll Handler")
-	token := auth.GetToken(w, r)
-
-	UserID, err := user.GetUserIDByToken(token)
-	if err != nil {
-		utils.Log("ERROR", "Invalid Token in GetPostsScroll Handler: "+err.Error())
-		utils.SendJSON(w, http.StatusUnauthorized, utils.JSONResponse{
-			Success: false,
-			Message: "Please login to continue",
-			Error:   "You are not Authorized.",
-		})
-		return
-	}
+	UserID := r.Context().Value(shared.UserIDKey).(string)
 
 	// we will have both, Limit of Posts, and Offset of Posts 10 in our case
 	offset := r.URL.Query().Get("offset")
@@ -100,6 +90,7 @@ func PostsPagination(w http.ResponseWriter, r *http.Request) {
 	defer rows.Close()
 	for rows.Next() {
 		Post := Post{}
+		Profile := auth.Profile{}
 		err = rows.Scan(&Post.PostId, &Post.UserID, &Post.Post_Content, &Post.Post_image, &Post.Privacy, &Post.CreatedAt)
 		if err != nil {
 			utils.Log("ERROR", "Error scanning Post in GetPostsScroll Handler: "+err.Error())
@@ -112,7 +103,42 @@ func PostsPagination(w http.ResponseWriter, r *http.Request) {
 		}
 		// TODO Each Post Must Check if the exist user Has Liked the post or not
 		// TODO get Likes count as well
+		err = db.DB.QueryRow("SELECT COUNT(*) FROM likes WHERE post_id = ?", Post.PostId).Scan(&Post.LikeCounts)
+		err = db.DB.QueryRow("SELECT COUNT(*) FROM comments WHERE post_id = ?", Post.PostId).Scan(&Post.CommentCounts)
 		// check the privacy of post,
+		stmnt, err := db.DB.Prepare("SELECT first_name, last_name, avatar, profile_status FROM users WHERE id = ?")
+		if err != nil {
+			utils.Log("ERROR", "Error Preparing Statment When trying to get Profile info of the author in GetPostsScroll Handler"+err.Error())
+			// TODO Handler The error of Prepare Statment
+			continue
+		}
+		err = stmnt.QueryRow(Post.UserID).Scan(&Profile.FirstName, &Profile.LastName, &Profile.Avatar, &Profile.Profile_Status)
+		if err != nil {
+			// TODO Handler The error of Query Row
+			utils.Log("ERROR", "Error QueryRow When trying to Execute the row of Profile info of the author in GetPostsScroll Handler"+err.Error())
+
+			continue
+		}
+		if Profile.Profile_Status == "private" {
+			// Check if the User Id Has access to this post,
+			var HasAccess bool
+			// Check if the User Id Has access to this post,
+			err = db.DB.QueryRow("SELECT EXISTS(SELECT 1 FROM followers WHERE followed_id = ? AND follower_id = ?)", Post.UserID, UserID).Scan(&HasAccess)
+			if err != nil || !HasAccess {
+				continue
+			}
+		}
+		Post.First_name = Profile.FirstName
+		Post.Last_name = Profile.LastName
+		Post.User_avatar = Profile.Avatar
+		Post.Profile_status = Profile.Profile_Status
+		// Check if the user has liked the post
+		err = db.DB.QueryRow("SELECT EXISTS(SELECT 1 FROM likes WHERE post_id = ? AND user_id = ?)", Post.PostId, UserID).Scan(&Post.Liked)
+		if err != nil {
+			utils.Log("ERROR", "Error scanning Post in GetPostsScroll Handler: "+err.Error())
+			continue
+		}
+
 		if Post.Privacy == "custom_users" && Post.UserID != UserID {
 			var found bool
 			// Check if the User Id Has access to this post,

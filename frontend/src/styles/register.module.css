@@ -1,0 +1,174 @@
+.authContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f2f5;
+    padding: 30px;
+  }
+  
+  .authForm {
+    background-color: white;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+
+.heading3 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    text-align: center;
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 22px;
+
+}
+
+.subtitle a {
+    color: #7c3aed;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.registerForm {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.formGroup {
+    display: flex;
+    flex-direction: column;
+}
+
+.formGroupDouble {
+    flex-direction: row;
+    gap: 10px;
+}
+
+.field {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.label {
+    margin-bottom: 4px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #555;
+}
+
+.inputText,
+.inputEmail,
+.inputPassword,
+.inputDate,
+.inputFile,
+.textarea {
+    width: 100%;
+    padding: 12px;
+    height: 45px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-size: 15px;
+    resize: none;
+}
+
+.textarea {
+    height: auto;
+}
+
+.inputFocus,
+.textareaFocus {
+    outline: none;
+    border-color: #7c3aed;
+}
+
+.error {
+    color: #e63946;
+    font-size: 13px;
+    margin-top: 5px;
+}
+
+.serverError {
+    text-align: center;
+}
+
+.submitBtn {
+    background: #7c3aed;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.submitBtn:hover {
+    background: #5b21b6;
+}
+
+@media (max-width: 500px) {
+    .formGroupDouble {
+        flex-direction: column;
+    }
+}
+
+.inputText:hover,
+.inputEmail:hover,
+.inputPassword:hover,
+.inputDate:hover,
+.inputFile:hover,
+.textarea:hover {
+    border-color: #5b21b6;
+}
+
+.inputText:focus,
+.inputEmail:focus,
+.inputPassword:focus,
+.inputDate:focus,
+.inputFile:focus,
+.textarea:focus {
+    border-color: #5b21b6;
+    outline: none;
+    border: 2px solid #5b21b6;
+}
+
+.avatarContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.avatarPreview {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.avatarImage {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.removeAvatar {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+}
+
+.removeIcon {
+    color: #e63946;
+}

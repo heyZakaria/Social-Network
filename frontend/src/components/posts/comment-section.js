@@ -5,8 +5,12 @@ import Link from "next/link";
 import styles from "@/styles/posts.module.css";
 import EmojiPicker from "@/components/common/emoji-picker";
 import { IoPaperPlaneOutline } from 'react-icons/io5';
+import { useUser } from '@/context/user_context';
+import Image from "next/image";
 
-export default function CommentSection({ postId, currentUser }) {
+
+export default function CommentSection({ postId }) {
+   const { user: currentUser } = useUser();
   const [comments, setComments] = useState([]);
   const [displayedComments, setDisplayedComments] = useState([]);
   const [newComment, setNewComment] = useState("");
@@ -14,6 +18,9 @@ export default function CommentSection({ postId, currentUser }) {
   const [isLoading, setIsLoading] = useState(true);
   const [showAllComments, setShowAllComments] = useState(false);
   const COMMENTS_TO_SHOW = 2; // Initial number of comments to show
+
+  console.log("currentUser////////////", currentUser);
+  
 
   useEffect(() => {
     // In a real app, this would be an API call
@@ -31,7 +38,7 @@ export default function CommentSection({ postId, currentUser }) {
               id: 2,
               firstName: "Jane",
               lastName: "Smith",
-              avatar: "https://i.pravatar.cc/150?u=10`",
+              avatar: "/uploads/profile.jpeg",
             },
             content: "Wow, that looks amazing! Which trail was this? 😍",
             createdAt: "2023-03-10T12:15:00Z",
@@ -44,7 +51,7 @@ export default function CommentSection({ postId, currentUser }) {
               id: 3,
               firstName: "Mike",
               lastName: "Johnson",
-              avatar: "https://i.pravatar.cc/150?u=10`",
+              avatar: "/uploads/profile.jpeg",
             },
             content: "Incredible views! I need to go hiking more often. 🏔️",
             createdAt: "2023-03-10T13:30:00Z",
@@ -57,7 +64,7 @@ export default function CommentSection({ postId, currentUser }) {
               id: 4,
               firstName: "Sarah",
               lastName: "Williams",
-              avatar: "https://i.pravatar.cc/150?u=10`",
+              avatar: "/uploads/profile.jpeg",
             },
             content:
               "I was there last month! Did you take the north trail or the south one? 🧭",
@@ -71,7 +78,7 @@ export default function CommentSection({ postId, currentUser }) {
               id: 5,
               firstName: "Alex",
               lastName: "Brown",
-              avatar: "https://i.pravatar.cc/150?u=10`",
+              avatar: "/uploads/profile.jpeg",
             },
             content:
               "The colors in this photo are stunning. What camera settings did you use? 📸",
@@ -178,10 +185,9 @@ export default function CommentSection({ postId, currentUser }) {
                   href={`/profile/${comment.user.id}`}
                   className={styles.commentAvatar}
                 >
-                  <img
-                    src={
-                      comment.user.avatar ||
-                      "/placeholder.svg?height=32&width=32"
+                  <Image width={200} height={100}
+                    src={ currentUser.avatar || // TODO add default avatar
+                      "/uploads/profile.jpeg"
                     }
                     alt={comment.user.firstName}
                   />
@@ -231,8 +237,8 @@ export default function CommentSection({ postId, currentUser }) {
       )}
 
       <form className={styles.commentForm} onSubmit={handleSubmitComment}>
-        <img
-          src={currentUser.avatar || "/placeholder.svg?height=32&width=32"}
+        <Image width={200} height={100}
+          src={currentUser.avatar || "/uploads/profile.jpeg"}
           alt={currentUser.firstName}
           className={styles.commentFormAvatar}
         />
