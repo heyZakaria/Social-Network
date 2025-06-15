@@ -1,6 +1,7 @@
 package comments
 
 import (
+	"fmt"
 	"html"
 
 	db "socialNetwork/db/sqlite"
@@ -8,16 +9,20 @@ import (
 	"github.com/gofrs/uuid/v5"
 )
 
-func (c *Comment) SaveComment(userID string) error {
+func (c *Comment) SaveComment(userID string, postId int) error {
+	fmt.Println("===========", postId)
 	c.ID = uuid.Must(uuid.NewV4()).String()
+	c.PostID = postId
 	c.UserID = userID
 	return c.InsertComment()
 }
 
 func (c *Comment) InsertComment() error {
-	query := "INSERT INTO comments (id, user_id, post_id, content) VALUES (?, ?, ?, ?)"
+	fmt.Println("======hhhhhhhhhhh=====", c.Comment_img)
+	query := "INSERT INTO comments (id, user_id, post_id, comment_img, content) VALUES (?, ?, ?, ?, ?)"
 	prp, prepareErr := db.DB.Prepare(query)
 	if prepareErr != nil {
+		fmt.Println("khlaaaaaaaaaaaaaaaaaak", prepareErr)
 		return prepareErr
 	}
 	defer prp.Close()
@@ -26,6 +31,7 @@ func (c *Comment) InsertComment() error {
 		&c.ID,
 		&c.UserID,
 		&c.PostID,
+		&c.Comment_img,
 		&c.Content,
 	)
 	if execErr != nil {

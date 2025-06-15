@@ -9,6 +9,7 @@ type Comment struct {
 	UserID        string
 	PostID        int    `json:"postId"`
 	Content       string `json:"content"`
+	Comment_img   string
 	FirstName     string
 	LastName      string
 	Avatar        string

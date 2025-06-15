@@ -18,10 +18,7 @@ const CreatePost = ({
   const [privacy, setPrivacy] = useState('public');
   const [selectedImage, setSelectedImage] = useState(null);
   const [allowedUsers, setAllowedUsers] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-
-  console.log("ussssssssssssser", currentUser);
-  
+  const [isLoading, setIsLoading] = useState(false);  
 
   // State for errors
   const [errors, setErrors] = useState({
@@ -160,20 +157,15 @@ const CreatePost = ({
           });
         }
 
-        console.log("data", formData);
-
-
         const response = await fetch('/api/posts/createpost', {
           method: 'POST',
           credentials: 'include', // This sends cookies with the request
           body: formData,
         });
-        console.log("response----------", response);
 
         const data = await response.json();
 
         if (data.success) {
-          console.log('Post =>', data);
 
           // Reset form on success
           resetForm();
@@ -232,7 +224,6 @@ const CreatePost = ({
     // Clear content errors
     setErrors(prev => ({ ...prev, content: '' }));
   };
-  console.log("Aciba", currentUser);
   
   return (
     <form onSubmit={publishPost} className={styles.postForm} id="postForm">

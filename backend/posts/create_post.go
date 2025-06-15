@@ -37,6 +37,7 @@ func CreatePost(w http.ResponseWriter, r *http.Request) {
 	r.ParseMultipartForm(10 << 20)
 
 	ImageProvided, postImage, file, err := utils.PrepareImage(r, "post_image", "posts")
+
 	PostData.Post_image = postImage
 	if err != nil {
 		utils.Log("ERROR", "Error Trying to Prepare Image: "+postImage)

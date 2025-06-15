@@ -103,19 +103,44 @@ export default function CommentSection({ setCommentsCount, postId }) {
     if (isValid) {
       try {
 
+        const formData = new FormData()
+
+        if ((selectedImage) && (newComment)) {
+          formData.append("content", newComment)
+          formData.append("comment_image", selectedImage)
+        } else if (selectedImage) {
+          formData.append("comment_image", selectedImage)
+        } else {
+          formData.append("content", newComment)
+        }
+
+        // console.log("FormData contents:")
+        // for (let [key, value] of formData.entries()) {
+        //   console.log(key, value)
+        // }
+
+
+        formData.append("postId", postId)
         const newCommentObj = {
           postId: postId,
           content: newComment,
         }
 
-        const respone = await FetchData("/api/comment/sendcomment", "POST", newCommentObj)
+        const response = await fetch('/api/comment/sendcomment', {
+          method: 'POST',
+          credentials: 'include',
+          body: formData,
+        });
+
+        console.log('res ===> ', response);
+
 
         newCommentObj.UserID = currentUser.id;
-        newCommentObj.ID = respone.data.Comment.ID;
+        newCommentObj.ID = response.data.Comment.ID;
         newCommentObj.FirstName = currentUser.firstName;
         newCommentObj.LastName = currentUser.lastName;
         newCommentObj.CreatedAt = Date.now()
-        newCommentObj.Avatar = currentUser.avatar || "/uploads/profile.jpeg"; // Default avatar if not set
+        newCommentObj.Avatar = currentUser.avatar || "/uploads/profile.jpeg";
 
         const updatedComments = [newCommentObj, ...comments];
         setComments(updatedComments);
@@ -233,26 +258,26 @@ export default function CommentSection({ setCommentsCount, postId }) {
           </div>
         </div>
 
-      {/* Selected Image Preview */}
-      {selectedImage && (
-        <div className={styles.imagePreview}>
-          <Image width={200} height={100}
-            src={URL.createObjectURL(selectedImage)}
-            className={styles.previewImage}
-          />
-          <button
-            onClick={() => {
-              setSelectedImage(null);
-              if (fileInputRef.current) fileInputRef.current.value = '';
-            }}
-            className={styles.removeImageButton}
-            type="button"
-            disabled={isLoading}
-          >
-            ×
-          </button>
-        </div>
-      )}
+        {/* Selected Image Preview */}
+        {selectedImage && (
+          <div className={styles.imagePreview}>
+            <Image width={200} height={100}
+              src={URL.createObjectURL(selectedImage)}
+              className={styles.previewImage}
+            />
+            <button
+              onClick={() => {
+                setSelectedImage(null);
+                if (fileInputRef.current) fileInputRef.current.value = '';
+              }}
+              className={styles.removeImageButton}
+              type="button"
+              disabled={isLoading}
+            >
+              ×
+            </button>
+          </div>
+        )}
 
         <div className={styles.buImgCont}>
           <button
@@ -278,7 +303,7 @@ export default function CommentSection({ setCommentsCount, postId }) {
         <button
           type="submit"
           className={styles.commentSubmit}
-          // disabled={isSubmitting || !newComment.trim()}
+        // disabled={isSubmitting || !newComment.trim()}
         >
           <IoPaperPlaneOutline size={16} />
         </button>

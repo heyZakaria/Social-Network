@@ -2,6 +2,7 @@ CREATE TABLE IF NOT EXISTS comments (
     id TEXT PRIMARY KEY,
     user_id TEXT NOT NULL,
     post_id INTEGER,
+    comment_img TEXT NOT NULL,
     content TEXT NOT NULL,
     created_at TIMESTAMP DEFAULT (DATETIME ('now', 'localtime')),
     FOREIGN KEY (user_id) REFERENCES users (id) ON UPDATE CASCADE ON DELETE CASCADE,
