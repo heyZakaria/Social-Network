@@ -44,7 +44,6 @@ func CommentSaver(w http.ResponseWriter, r *http.Request) {
 
 	// this part to get content of comment and handle errors
 	Comment.Content = r.FormValue("content")
-	fmt.Println("GFDSGD", Comment.Content)
 	if (Comment.Content == "" || len(Comment.Content) > 10000) && commentImg == "" {
 		utils.Log("Error", "comment is empty or length of comment is more then 10000 or doesn't have image !! ")
 		utils.SendJSON(w, http.StatusBadRequest, utils.JSONResponse{
@@ -73,6 +72,7 @@ func CommentSaver(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	fmt.Println("gdhhdfgbgdngdndg",Comment)
 	// here to send response to frontend
 	utils.Log("Success", "Comment saved successfully")
 	utils.SendJSON(w, http.StatusOK, utils.JSONResponse{

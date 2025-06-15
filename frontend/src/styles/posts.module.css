@@ -917,3 +917,43 @@
 .imgAction:hover {
   background-color: #60667031;
 }
+
+/* Add these styles to your CSS module */
+
+.commentImage {
+  margin-top: 8px;
+  border-radius: 8px;
+  overflow: hidden;
+  max-width: 100%;
+}
+
+.commentImg {
+  width: 100%;
+  max-height: 150px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.commentImg:hover {
+  transform: scale(1.02);
+}
+
+/* If you want to make images clickable for full view */
+.commentImageContainer {
+  position: relative;
+  display: inline-block;
+}
+
+/* Optional: Add loading state */
+.commentImg[data-loading="true"] {
+  background: #f0f0f0;
+  min-height: 150px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .commentImg {
+    max-height: 200px;
+  }
+}

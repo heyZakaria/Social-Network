@@ -61,7 +61,6 @@ func GetCommentByPost(w http.ResponseWriter, r *http.Request) {
 			"Comments": comments,
 		},
 	})
-
 }
 
 func Getcomments(postID int) ([]Comment, error) {
@@ -71,6 +70,7 @@ func Getcomments(postID int) ([]Comment, error) {
 			SELECT
 				comments.id AS comment_id,
 				comments.content,
+				comments.comment_img,
 				comments.created_at,
 				users.id AS user_id,
 				users.first_name,
@@ -97,6 +97,7 @@ func Getcomments(postID int) ([]Comment, error) {
 		scanErr := rows.Scan(
 			&currentComment.ID,
 			&currentComment.Content,
+			&currentComment.Comment_img,
 			&currentComment.CreatedAt,
 			&currentComment.UserID,
 			&currentComment.FirstName,

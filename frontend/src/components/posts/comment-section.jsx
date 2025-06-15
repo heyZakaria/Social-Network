@@ -66,6 +66,14 @@ export default function CommentSection({ setCommentsCount, postId }) {
     }
   };
 
+  const resetForm = () => {
+    setNewComment('');
+    setSelectedImage(null);
+    if (fileInputRef.current) {
+      fileInputRef.current.value = '';
+    }
+  };
+
 
   const validComment = () => {
     let isValid = true;
@@ -114,17 +122,7 @@ export default function CommentSection({ setCommentsCount, postId }) {
           formData.append("content", newComment)
         }
 
-        // console.log("FormData contents:")
-        // for (let [key, value] of formData.entries()) {
-        //   console.log(key, value)
-        // }
-
-
         formData.append("postId", postId)
-        const newCommentObj = {
-          postId: postId,
-          content: newComment,
-        }
 
         const response = await fetch('/api/comment/sendcomment', {
           method: 'POST',
@@ -132,21 +130,34 @@ export default function CommentSection({ setCommentsCount, postId }) {
           body: formData,
         });
 
-        console.log('res ===> ', response);
 
+        const data = await response.json();
 
-        newCommentObj.UserID = currentUser.id;
-        newCommentObj.ID = response.data.Comment.ID;
-        newCommentObj.FirstName = currentUser.firstName;
-        newCommentObj.LastName = currentUser.lastName;
-        newCommentObj.CreatedAt = Date.now()
-        newCommentObj.Avatar = currentUser.avatar || "/uploads/profile.jpeg";
+        if (data.success) {
+          console.log("Comment data from backend:", data)
+          resetForm();
 
-        const updatedComments = [newCommentObj, ...comments];
-        setComments(updatedComments);
-        updateDisplayedComments(updatedComments, showAllComments);
-        setCommentsCount(comments.length + 1)
-        setNewComment("");
+          const newCommentObj = {
+            postId: postId,
+            content: newComment,
+            comment_img: data.Comment?.comment_img || null,
+            UserID: currentUser.id,
+            ID: data.Comment.ID,
+            FirstName: currentUser.firstName,
+            LastName: currentUser.lastName,
+            CreatedAt: currentUser.CreatedAt,
+            Avatar: currentUser.avatar || "/uploads/profile.jpeg"
+          };
+
+          const updatedComments = [newCommentObj, ...comments];
+          setComments(updatedComments);
+          updateDisplayedComments(updatedComments, showAllComments);
+          setCommentsCount(comments.length + 1);
+          setNewComment("");
+        } else {
+          console.log('Error :', data.error);
+        }
+
       } catch (error) {
         console.error("Error adding comment:", error);
       } finally {
@@ -183,16 +194,19 @@ export default function CommentSection({ setCommentsCount, postId }) {
       ) : (
         <>
           <div className={styles.comments}>
+            {console.log("All comments before render:", displayedComments)}
+
             {displayedComments.map((comment) => (
+
               <div key={comment.ID} className={styles.comment}>
                 <Link
                   href={`/profile/${comment.UserID}`}
                   className={styles.commentAvatar}
                 >
-                  <Image width={200} height={100}
-                    src={comment.Avatar || // TODO add default avatar
-                      "/uploads/profile.jpeg"
-                    }
+                  <Image
+                    width={200}
+                    height={100}
+                    src={comment.Avatar || "/uploads/profile.jpeg"}
                     alt={comment.FirstName}
                   />
                 </Link>
@@ -204,8 +218,29 @@ export default function CommentSection({ setCommentsCount, postId }) {
                     >
                       {comment.FirstName} {comment.LastName}
                     </Link>
-                    <p className={styles.commentText}>{comment.content}</p>
+
+                    {/* Comment text */}
+                    {comment.content && (
+                      <p className={styles.commentText}>{comment.content}</p>
+                    )}
+
+                    {/* Comment image */}
+                    {comment.Comment_img && (
+                      <div className={styles.commentImage}>
+                        {console.log("Comment image path:", comment.Comment_img)}
+                        <Image
+                          src={comment.Comment_img}
+                          alt="Comment attachment"
+                          width={300}
+                          height={200}
+                          className={styles.commentImg}
+                          style={{ objectFit: 'cover' }}
+                          // onClick={() => openImageModal(comment.Comment_img)}
+                        />
+                      </div>
+                    )}
                   </div>
+
                   <div className={styles.commentActions}>
                     <span className={styles.commentTime}>
                       {formatDate(comment.CreatedAt)}

@@ -9,9 +9,7 @@ import { useUser } from "@/context/user_context";
 import Image from "next/image";
 
 
-const CreatePost = ({
-  Refrech
-}) => {
+const CreatePost = ({ Refrech}) => {
   // State for form data  
   const {user : currentUser} = useUser()
   const [postContent, setPostContent] = useState('');
@@ -90,23 +88,6 @@ const CreatePost = ({
 
     setErrors(newErrors);
     return isValid;
-  };
-
-  // Handle errors from API response
-  const handleErrors = (status) => {
-    switch (status) {
-      case 400:
-        setErrors(prev => ({ ...prev, content: 'Bad request. Please enter text or upload an image !!' }));
-        break;
-      case 401:
-        setErrors(prev => ({ ...prev, content: 'Unauthorized. Please log in again.' }));
-        break;
-      case 500:
-        setErrors(prev => ({ ...prev, content: 'Server error. Please try again later.' }));
-        break;
-      default:
-        setErrors(prev => ({ ...prev, content: 'An error occurred. Please try again.' }));
-    }
   };
 
   // Reset form after successful submission
