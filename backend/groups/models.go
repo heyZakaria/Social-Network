@@ -22,6 +22,7 @@ type Invite struct {
 	Sender_id   string
 	Reciever_id string
 	Group_id    string
+	Joinstate string 
 }
 
 

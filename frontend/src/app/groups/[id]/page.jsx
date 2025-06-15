@@ -48,25 +48,20 @@ function GroupNav({OnMembers, HandleShowInvite}) {
   return Nav;
 }
 
-function Members({ members }) {
+function Members({ members , groupId}) {
   const [Current , setCurrent] = useState(0)
-  const [PaginatedMembers , setPaginatedMembers] = useState(members.slice(Current , Current+3))
-    useEffect(() => {
-    
-      
-    setPaginatedMembers(members.slice(Current, Current + 3));
-  }, [Current, members]);
+const PaginatedMembers = members.slice(Current , Current+3)
 
   const MembersList = (
-<ul className={styles.membersList}>
+<ul className={styles.membersList} id={groupId}>
       {PaginatedMembers.map((member) => (
 
-        <li key={member.id} className={styles.memberItem}>
-          <p>{member.name}</p>
+        <li key={member.User_id} className={styles.memberItem}>
+          <p>{`${member.FirstName} ${member.LastName}`}</p>
             <img
               className={styles.memberImage}
-              src={member.picture || "https://cdn1.iconfinder.com/data/icons/fillio-users-and-hand-gestures/48/person_-_man_2-512.png"}
-              alt={member.name}
+              src={member.Avatar || "https://cdn1.iconfinder.com/data/icons/fillio-users-and-hand-gestures/48/person_-_man_2-512.png"}
+              alt={`${member.FirstName} ${member.LastName}`}
             />
         
         </li>
@@ -76,6 +71,9 @@ function Members({ members }) {
     
   );
 
+  if (!members || members.length === 0) {
+    return <p>No members found.</p>;
+  }
   return (
   <div className={styles.membersNavigationWrapper}>
     <button
@@ -89,21 +87,7 @@ function Members({ members }) {
     >
       <IoChevronBackCircleSharp />
     </button>
-
-    <ul className={styles.membersList}>
-      {PaginatedMembers.map((member) => (
-    
-        <li key={member.id} className={styles.memberItem}>
-          <img
-            className={styles.memberImage}
-            src={member.picture || "https://cdn1.iconfinder.com/data/icons/fillio-users-and-hand-gestures/48/person_-_man_2-512.png"}
-            alt={member.name}
-          />
-          <p>{member.name}</p>
-        </li>
-      ))}
-    </ul>
-
+{MembersList}
     <button
       className={styles.paginationButton}
       onClick={() => {
@@ -135,10 +119,16 @@ export default function GroupCard({  children }) {
   const [group , setGroup] = useState([])
   const [err , SetErr] = useState(null)
 const [loading , setLoading] = useState(true)
+const [members ,setMembers] = useState([])
   const [ShowInvite , setShowInvite] = useState(false);
       const [invitedFriends, setInvitedFriends] = useState(
           FriendsList1.map(friend => ({ ...friend, invited: false }))
       );
+
+      
+  const p = useParams()
+  const groupId = p.id
+console.log("groupId:", groupId);
 
       const handleInvite = (id) => {
           setInvitedFriends(prevInvite =>
@@ -159,19 +149,26 @@ const [loading , setLoading] = useState(true)
 
     const [ShowMembers , setShowMembers ] = useState(false)
 
-      const HandleMembersList = ()=>{
-        setShowMembers(!ShowMembers)
-if (ShowInvite){
-              setShowInvite(prev=> !prev)
+      const HandleMembersList = async()=>{
+
+try {
+  const resp = await   fetch(`http://localhost:8080/api/groups/group/members?id=${groupId}` , 
+{credentials: "include"})
+if (!resp.ok){throw new Error("Something Happened , Try Again")}
+const Data = await resp.json()
+console.log(Data.Data)
+setMembers(Data.Data)
+setShowMembers(true)
+if (ShowInvite){setShowInvite(false)}
+console.log("toggled Members");
+} catch (error) {
+  SetErr(err.message)
 }
 
-        console.log("toggled Members");
+
         
       }
 
-  const p = useParams()
-  const groupId = p.id
-console.log("groupId:", groupId);
 
   useEffect(()=>{
 
@@ -187,10 +184,10 @@ console.log("groupId:", groupId);
      console.log(Data.data,"dttdtd");
           setGroup(Data.data)
 
+      if (!res.ok){throw new Error(Data.message)}
      console.log(group);
      
      
-      if (!res.ok){throw new Error(Data.message)}
     }).
     then(Data => {
       console.log(Data)
