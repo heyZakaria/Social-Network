@@ -39,7 +39,7 @@ func WSHandler(w http.ResponseWriter, r *http.Request) {
 	client := &Client{
 		Conn:      conn,
 		UserID:    UserID,
-		Broadcast: make(chan MessageStruct),
+		Broadcast: make(chan MessageResponse),
 	}
 
 	mutex.Lock()

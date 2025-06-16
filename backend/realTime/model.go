@@ -2,6 +2,7 @@ package realTime
 
 import (
 	"sync"
+	"time"
 
 	"github.com/gorilla/websocket"
 )
@@ -26,11 +27,11 @@ type MessageStruct struct {
 	Type      string `json:"type"`
 	FirstTime bool   `json:"first_time"`
 	SessionID string `json:"session_id"`
+	CreatedAt *time.Time
 }
 type MessageResponse struct {
-	SessionID string
-	Single    MessageStruct
-	Multiple  []MessageStruct
+	Single   MessageStruct
+	Multiple []MessageStruct
 }
 type JSONRequest struct {
 	RealTimeType     string `json:"type"`
