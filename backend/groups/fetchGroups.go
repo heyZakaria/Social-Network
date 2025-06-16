@@ -5,15 +5,14 @@ import (
 	"fmt"
 	"net/http"
 
-	"socialNetwork/auth"
 	db "socialNetwork/db/sqlite"
-	"socialNetwork/user"
+	shared "socialNetwork/shared_packages"
 	"socialNetwork/utils"
 )
 
 func fetchGroups(w http.ResponseWriter, r *http.Request) {
 	utils.Log("INFO", "Recieved Request for fetching groups")
-	token := auth.GetToken(w, r)
+	/* token := auth.GetToken(w, r)
 	if token == "" {
 		return
 	}
@@ -26,7 +25,8 @@ func fetchGroups(w http.ResponseWriter, r *http.Request) {
 		})
 		fmt.Println("1")
 		return
-	}
+	} */
+	User_id := r.Context().Value(shared.UserIDKey).(string)
 	Groups, err := GetGroups(db.DB, User_id)
 	if err != nil {
 		utils.Log("Error Fetching Groups", err.Error())
@@ -59,7 +59,7 @@ func GetGroups(db *sql.DB, currentUserID string) ([]Group, error) {
 	query := `
 SELECT  
     g.title, 
-    g.descriptio, 
+    g.description,
     g.covername, 
     g.id, 
     (SELECT COUNT(*) FROM groupMember WHERE group_id = g.id AND (memberState = "Member" OR memberState = "Admin" )) AS member_count,  

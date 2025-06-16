@@ -51,7 +51,7 @@ func getGroup(w http.ResponseWriter, r *http.Request) {
 	GetGroupQuery := `SELECT 
 	g.id , 
 	g.title,
-	g.descriptio , 
+	g.description, 
 	g.creator_id  ,
 	g.covername, 
 		( SELECT COUNT(*) From groupMember gm WHERE gm.group_id = g.id AND

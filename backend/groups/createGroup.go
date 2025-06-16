@@ -9,28 +9,29 @@ import (
 	"strings"
 
 	db "socialNetwork/db/sqlite"
+	shared "socialNetwork/shared_packages"
 
-	"socialNetwork/auth"
-	"socialNetwork/user"
 	"socialNetwork/utils"
 )
 
 func createGroup(w http.ResponseWriter, r *http.Request) {
-	token := auth.GetToken(w, r)
-	if token == "" {
-		return
-	}
-	user_id, err := user.GetUserIDByToken(token)
-	if err != nil {
-		utils.Log("Error Getting User Token", err.Error())
-		utils.SendJSON(w, http.StatusUnauthorized, utils.JSONResponse{
-			Success: false,
-			Error:   err.Error(),
-		})
-		return
-	}
-	utils.Log("INFO", "Received request for GroupCreation")
-	err = r.ParseMultipartForm(10 << 20)
+	/* 	token := auth.GetToken(w, r)
+	   	if token == "" {
+	   		return
+	   	}
+	   	user_id, err := user.GetUserIDByToken(token)
+	   	if err != nil {
+	   		utils.Log("Error Getting User Token", err.Error())
+	   		utils.SendJSON(w, http.StatusUnauthorized, utils.JSONResponse{
+	   			Success: false,
+	   			Error:   err.Error(),
+	   		})
+	   		return
+	   	}
+	   	utils.Log("INFO", "Received request for GroupCreation") */
+	user_id := r.Context().Value(shared.UserIDKey).(string)
+
+	err := r.ParseMultipartForm(10 << 20)
 	if err != nil {
 		utils.Log("ERROR", "Failed to parse multipart form: "+err.Error())
 		utils.SendJSON(w, http.StatusBadRequest, utils.JSONResponse{
@@ -108,7 +109,7 @@ func (g Group) InputValidation() error {
 func (g Group) InsertGroup(db *sql.DB) (int, error) {
 	utils.Log("INFO", "Saving group into DB")
 	stmt, err := db.Prepare(`
-	INSERT INTO groups (title, descriptio, creator_id, covername)
+	INSERT INTO groups (title, description, creator_id, covername)
 	VALUES (?, ?, ?, ?)
 `)
 	if err != nil {

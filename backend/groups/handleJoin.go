@@ -5,15 +5,13 @@ import (
 	"fmt"
 	"net/http"
 
-	"socialNetwork/auth"
 	db "socialNetwork/db/sqlite"
 	shared "socialNetwork/shared_packages"
-	"socialNetwork/user"
 	utils "socialNetwork/utils"
 )
 
 func handleJoin(w http.ResponseWriter, r *http.Request) {
-	token := auth.GetToken(w, r)
+	/* token := auth.GetToken(w, r)
 	if token == "" {
 		return
 	}
@@ -25,7 +23,8 @@ func handleJoin(w http.ResponseWriter, r *http.Request) {
 			Message: err.Error(),
 		})
 		return
-	}
+	} */
+
 	utils.Log("INFO", "Recieved Group Join Request")
 	Group_id := r.URL.Query().Get("id")
 	// if err != nil {
@@ -38,7 +37,7 @@ func handleJoin(w http.ResponseWriter, r *http.Request) {
 	// }
 	Action := r.URL.Query().Get("action")
 	UserId := r.Context().Value(shared.UserIDKey).(string)
-	err = ValidateJoinRequest(UserId, Group_id, Action, db.DB)
+	err := ValidateJoinRequest(UserId, Group_id, Action, db.DB)
 	if err != nil {
 		utils.Log("ERROR", "Error : Bad Request in ValidateJoinRequest"+err.Error())
 		utils.SendJSON(w, http.StatusBadRequest, utils.JSONResponse{
@@ -75,7 +74,7 @@ func handleJoin(w http.ResponseWriter, r *http.Request) {
 		Success: true,
 		Message: "Group join request successed",
 	})
-} 
+}
 
 // Validation Function
 

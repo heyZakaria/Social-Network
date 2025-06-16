@@ -1,13 +1,10 @@
 package auth
 
 import (
-	"encoding/json"
-	"fmt"
 	"net/http"
+	"socialNetwork/utils"
 	"strings"
 	"time"
-
-	"socialNetwork/utils"
 )
 
 func ParseForm(r *http.Request) (Profile, error) {
@@ -19,13 +16,10 @@ func ParseForm(r *http.Request) (Profile, error) {
 	p.NickName = r.FormValue("nickname")
 	p.Bio = r.FormValue("bio")
 	p.Birthday, _ = time.Parse("2006-01-02", r.FormValue("birthday"))
-	fmt.Println(p.Email)
 	utils.Log("INFO", "Form fields parsed successfully")
 	return p, nil
 }
 
-func SendJSON(w http.ResponseWriter, status int, payload JSONResponse) {
-	w.Header().Set("Content-Type", "application/json")
-	w.WriteHeader(status)
-	json.NewEncoder(w).Encode(payload)
-}
+// PrepareImage Function Has been Transfered to Utils Package
+// Import Cycle not allowed in golang
+// Shared Functions Must be in single Package

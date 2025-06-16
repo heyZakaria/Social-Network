@@ -16,7 +16,7 @@ func HandleLogout(w http.ResponseWriter, r *http.Request) {
 	})
 	utils.Log("INFO", "User logged out and token cookie cleared")
 
-	SendJSON(w, http.StatusOK, JSONResponse{
+	utils.SendJSON(w, http.StatusOK, utils.JSONResponse{
 		Success: true,
 		Message: "Logged out successfully",
 	})

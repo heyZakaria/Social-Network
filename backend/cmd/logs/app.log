@@ -3446,3 +3446,378 @@
 2025/06/13 23:35:55 [ERROR] 2025-06-13 23:35:55 - Migration init error failed to open source, "file://C:\\Users\\lenovo\\Social-Network\\backend\\db\\migration": parse "file://C:\\Users\\lenovo\\Social-Network\\backend\\db\\migration": invalid port ":\\Users\\lenovo\\Social-Network\\backend\\db\\migration" after host
 2025/06/14 23:55:25 [INFO] 2025-06-14 23:55:25 - Starting HTTP server at http://localhost:8080 ...
 2025/06/14 23:55:25 [ERROR] 2025-06-14 23:55:25 - Migration init error failed to open source, "file://C:\\Users\\lenovo\\Social-Network\\backend\\db\\migration": parse "file://C:\\Users\\lenovo\\Social-Network\\backend\\db\\migration": invalid port ":\\Users\\lenovo\\Social-Network\\backend\\db\\migration" after host
+2025/06/16 16:03:18 [INFO] 2025-06-16 16:03:18 - Starting HTTP server at http://localhost:8080 ...
+2025/06/16 16:03:18 [INFO] 2025-06-16 16:03:18 - Migrations applied successfully!
+2025/06/16 16:05:46 [INFO] 2025-06-16 16:05:46 - Parsed multipart form
+2025/06/16 16:05:46 [INFO] 2025-06-16 16:05:46 - Form fields parsed successfully
+2025/06/16 16:05:46 [INFO] 2025-06-16 16:05:46 - Form fields parsed
+2025/06/16 16:05:46 [INFO] 2025-06-16 16:05:46 - Checking if email exists: lihezafu@mailinator.com
+2025/06/16 16:05:46 [INFO] 2025-06-16 16:05:46 - Email is unique
+2025/06/16 16:05:46 [INFO] 2025-06-16 16:05:46 - Handling file upload for form field 'avatar'
+2025/06/16 16:05:46 [INFO] 2025-06-16 16:05:46 - Received file: Screenshot from 2025-02-18 21-21-32.png (170508 bytes)
+2025/06/16 16:05:46 [INFO] 2025-06-16 16:05:46 - Detected content type: image/png
+2025/06/16 16:05:46 [INFO] 2025-06-16 16:05:46 - Created upload directory: ../../frontend/public/uploads/profile_images
+2025/06/16 16:05:46 [INFO] 2025-06-16 16:05:46 - Successfully saved file as: 79274346-4a99-485c-a461-6e02de0c9507.png
+2025/06/16 16:05:46 [INFO] 2025-06-16 16:05:46 - Avatar uploaded: 79274346-4a99-485c-a461-6e02de0c9507.png
+2025/06/16 16:05:46 [INFO] 2025-06-16 16:05:46 - Validating registration input
+2025/06/16 16:05:46 [INFO] 2025-06-16 16:05:46 - Registration input valid
+2025/06/16 16:05:46 [INFO] 2025-06-16 16:05:46 - User input validated
+2025/06/16 16:05:46 [INFO] 2025-06-16 16:05:46 - Hashing password
+2025/06/16 16:05:46 [INFO] 2025-06-16 16:05:46 - Password hashed successfully
+2025/06/16 16:05:46 [INFO] 2025-06-16 16:05:46 - Password hashed
+2025/06/16 16:05:46 [INFO] 2025-06-16 16:05:46 - Saving user to database with ID: 06f8dea8-7aaf-4552-b5ab-44c8a7f1a061
+2025/06/16 16:05:46 [INFO] 2025-06-16 16:05:46 - User saved successfully
+2025/06/16 16:05:46 [INFO] 2025-06-16 16:05:46 - User registered with ID: 06f8dea8-7aaf-4552-b5ab-44c8a7f1a061
+2025/06/16 16:05:46 [INFO] 2025-06-16 16:05:46 - Save Token into Sessions
+2025/06/16 16:05:46 [INFO] 2025-06-16 16:05:46 - Login successful for user: 06f8dea8-7aaf-4552-b5ab-44c8a7f1a061
+2025/06/16 16:05:46 [INFO] 2025-06-16 16:05:46 - Success login
+2025/06/16 16:05:56 [INFO] 2025-06-16 16:05:56 - Recieved Request for fetching groups
+2025/06/16 16:05:56 [INFO] 2025-06-16 16:05:56 - Groups Fetched Successfuly
+2025/06/16 16:08:34 [INFO] 2025-06-16 16:08:34 - Received request for GroupCreation
+2025/06/16 16:08:34 [INFO] 2025-06-16 16:08:34 - Handling file upload for form field 'Image'
+2025/06/16 16:08:34 [INFO] 2025-06-16 16:08:34 - Received file: Screenshot from 2025-01-14 20-58-24.png (93130 bytes)
+2025/06/16 16:08:34 [INFO] 2025-06-16 16:08:34 - Detected content type: image/png
+2025/06/16 16:08:34 [INFO] 2025-06-16 16:08:34 - Successfully saved file as: d87ecd2a-79a3-4603-897b-7d1197d9235f.png
+2025/06/16 16:08:34 [INFO] 2025-06-16 16:08:34 - Group Input Validated
+2025/06/16 16:08:34 [INFO] 2025-06-16 16:08:34 - Saving group into DB
+2025/06/16 16:08:34 [INFO] 2025-06-16 16:08:34 - Saving GroupMember into DB
+2025/06/16 16:08:34 [INFO] 2025-06-16 16:08:34 - Group created successfully with ID: 23
+2025/06/16 16:08:49 [INFO] 2025-06-16 16:08:49 - Received request for GroupCreation
+2025/06/16 16:08:49 [INFO] 2025-06-16 16:08:49 - Handling file upload for form field 'Image'
+2025/06/16 16:08:49 [INFO] 2025-06-16 16:08:49 - Received file: Screenshot from 2025-01-14 20-58-24.png (93130 bytes)
+2025/06/16 16:08:49 [INFO] 2025-06-16 16:08:49 - Detected content type: image/png
+2025/06/16 16:08:49 [INFO] 2025-06-16 16:08:49 - Successfully saved file as: d53521a1-9ac0-486c-aeb2-3dc694da52d0.png
+2025/06/16 16:08:49 [INFO] 2025-06-16 16:08:49 - Group Input Validated
+2025/06/16 16:08:49 [INFO] 2025-06-16 16:08:49 - Saving group into DB
+2025/06/16 16:08:49 [INFO] 2025-06-16 16:08:49 - Saving GroupMember into DB
+2025/06/16 16:08:49 [INFO] 2025-06-16 16:08:49 - Group created successfully with ID: 24
+2025/06/16 16:08:49 [INFO] 2025-06-16 16:08:49 - Recieved Request for fetching groups
+2025/06/16 16:08:49 [INFO] 2025-06-16 16:08:49 - Groups Fetched Successfuly
+2025/06/16 16:08:49 [INFO] 2025-06-16 16:08:49 - Recieved Request for fetching groups
+2025/06/16 16:08:49 [INFO] 2025-06-16 16:08:49 - Groups Fetched Successfuly
+2025/06/16 16:10:10 [INFO] 2025-06-16 16:10:10 - Recieved Group Join Request
+2025/06/16 16:10:10 [INFO] 2025-06-16 16:10:10 - Saving GroupMember into DB
+2025/06/16 16:10:24 [INFO] 2025-06-16 16:10:24 - Recieved Request To fetch Group page
+2025/06/16 16:10:24 [INFO] 2025-06-16 16:10:24 - Group With ID : 23 Fetched With Success
+2025/06/16 16:10:24 [INFO] 2025-06-16 16:10:24 - Recieved Request To fetch Group page
+2025/06/16 16:10:24 [INFO] 2025-06-16 16:10:24 - Group With ID : 23 Fetched With Success
+2025/06/16 16:10:56 [INFO] 2025-06-16 16:10:56 - Recieved Request To fetch Group page
+2025/06/16 16:10:56 [INFO] 2025-06-16 16:10:56 - Group With ID : 24 Fetched With Success
+2025/06/16 16:11:03 [INFO] 2025-06-16 16:11:03 - Recieved Request To fetch Group page
+2025/06/16 16:11:03 [LOG] 2025-06-16 16:11:03 - Not a Member 
+2025/06/16 16:11:13 [INFO] 2025-06-16 16:11:13 - Recieved Request To fetch Group page
+2025/06/16 16:11:13 [INFO] 2025-06-16 16:11:13 - Group With ID : 23 Fetched With Success
+2025/06/16 16:11:55 [INFO] 2025-06-16 16:11:55 - Recieved Request To fetch Group page
+2025/06/16 16:11:55 [INFO] 2025-06-16 16:11:55 - Group With ID : 23 Fetched With Success
+2025/06/16 16:19:32 [INFO] 2025-06-16 16:19:32 - Recieved Request To fetch Group page
+2025/06/16 16:19:32 [INFO] 2025-06-16 16:19:32 - Group With ID : 23 Fetched With Success
+2025/06/16 17:22:31 [INFO] 2025-06-16 17:22:31 - Starting HTTP server at http://localhost:8080 ...
+2025/06/16 17:22:31 [INFO] 2025-06-16 17:22:31 - Migrations applied successfully!
+2025/06/16 17:24:42 [ERROR] 2025-06-16 17:24:42 - Error executing query: sql: no rows in result set
+2025/06/16 17:24:42 [LOG] 2025-06-16 17:24:42 - Please login first.
+2025/06/16 17:26:05 [INFO] 2025-06-16 17:26:05 - Parsed multipart form
+2025/06/16 17:26:05 [INFO] 2025-06-16 17:26:05 - Form fields parsed successfully
+2025/06/16 17:26:05 [INFO] 2025-06-16 17:26:05 - Form fields parsed
+2025/06/16 17:26:05 [INFO] 2025-06-16 17:26:05 - Checking if email exists: zabdelal@gmail.me
+2025/06/16 17:26:05 [INFO] 2025-06-16 17:26:05 - Email is unique
+2025/06/16 17:26:05 [INFO] 2025-06-16 17:26:05 - Handling file upload for form field 'avatar'
+2025/06/16 17:26:05 [INFO] 2025-06-16 17:26:05 - Received file: Screenshot from 2025-02-18 21-21-32.png (170508 bytes)
+2025/06/16 17:26:05 [INFO] 2025-06-16 17:26:05 - Detected content type: image/png
+2025/06/16 17:26:05 [INFO] 2025-06-16 17:26:05 - Successfully saved file as: ff44a80d-1427-4981-aabb-5c1439fd7fdf.png
+2025/06/16 17:26:05 [INFO] 2025-06-16 17:26:05 - Avatar uploaded: ff44a80d-1427-4981-aabb-5c1439fd7fdf.png
+2025/06/16 17:26:05 [INFO] 2025-06-16 17:26:05 - Validating registration input
+2025/06/16 17:26:05 [INFO] 2025-06-16 17:26:05 - Registration input valid
+2025/06/16 17:26:05 [INFO] 2025-06-16 17:26:05 - User input validated
+2025/06/16 17:26:05 [INFO] 2025-06-16 17:26:05 - Hashing password
+2025/06/16 17:26:05 [INFO] 2025-06-16 17:26:05 - Password hashed successfully
+2025/06/16 17:26:05 [INFO] 2025-06-16 17:26:05 - Password hashed
+2025/06/16 17:26:05 [INFO] 2025-06-16 17:26:05 - Saving user to database with ID: c06bd8e2-6017-4c35-9a2c-e7b00b6c1af3
+2025/06/16 17:26:05 [INFO] 2025-06-16 17:26:05 - User saved successfully
+2025/06/16 17:26:05 [INFO] 2025-06-16 17:26:05 - User registered with ID: c06bd8e2-6017-4c35-9a2c-e7b00b6c1af3
+2025/06/16 17:26:05 [INFO] 2025-06-16 17:26:05 - Save Token into Sessions
+2025/06/16 17:26:05 [INFO] 2025-06-16 17:26:05 - Login successful for user: c06bd8e2-6017-4c35-9a2c-e7b00b6c1af3
+2025/06/16 17:26:05 [INFO] 2025-06-16 17:26:05 - Success login
+2025/06/16 17:26:38 [INFO] 2025-06-16 17:26:38 - Received request for GroupCreation
+2025/06/16 17:26:38 [INFO] 2025-06-16 17:26:38 - Handling file upload for form field 'Image'
+2025/06/16 17:26:38 [INFO] 2025-06-16 17:26:38 - Received file: Screenshot from 2025-04-14 21-00-17.png (109740 bytes)
+2025/06/16 17:26:38 [INFO] 2025-06-16 17:26:38 - Detected content type: image/png
+2025/06/16 17:26:38 [INFO] 2025-06-16 17:26:38 - Successfully saved file as: 487c34d1-3665-44b8-ad15-108ae256d452.png
+2025/06/16 17:26:38 [INFO] 2025-06-16 17:26:38 - Group Input Validated
+2025/06/16 17:26:38 [INFO] 2025-06-16 17:26:38 - Saving group into DB
+2025/06/16 17:26:38 [ERROR] 2025-06-16 17:26:38 - Failed to save group to DB: Failed to insert into Db : CHECK constraint failed: LENGTH(title) > 10 AND LENGTH(title) <120
+2025/06/16 17:26:53 [INFO] 2025-06-16 17:26:53 - Received request for GroupCreation
+2025/06/16 17:26:53 [INFO] 2025-06-16 17:26:53 - Handling file upload for form field 'Image'
+2025/06/16 17:26:53 [INFO] 2025-06-16 17:26:53 - Received file: Screenshot from 2025-04-14 21-00-17.png (109740 bytes)
+2025/06/16 17:26:53 [INFO] 2025-06-16 17:26:53 - Detected content type: image/png
+2025/06/16 17:26:53 [INFO] 2025-06-16 17:26:53 - Successfully saved file as: 3e264cb6-859e-4632-a642-5f5205acd428.png
+2025/06/16 17:26:53 [INFO] 2025-06-16 17:26:53 - Group Input Validated
+2025/06/16 17:26:53 [INFO] 2025-06-16 17:26:53 - Saving group into DB
+2025/06/16 17:26:53 [INFO] 2025-06-16 17:26:53 - Saving GroupMember into DB
+2025/06/16 17:26:53 [INFO] 2025-06-16 17:26:53 - Group created successfully with ID: 25
+2025/06/16 17:27:15 [INFO] 2025-06-16 17:27:15 - Recieved Request for fetching groups
+2025/06/16 17:27:15 [INFO] 2025-06-16 17:27:15 - Groups Fetched Successfuly
+2025/06/16 17:29:16 [INFO] 2025-06-16 17:29:16 - Recieved Request To fetch Group page
+2025/06/16 17:29:16 [INFO] 2025-06-16 17:29:16 - Group With ID : 25 Fetched With Success
+2025/06/16 17:29:16 [INFO] 2025-06-16 17:29:16 - Recieved Request To fetch Group page
+2025/06/16 17:29:16 [INFO] 2025-06-16 17:29:16 - Group With ID : 25 Fetched With Success
+2025/06/16 17:31:45 [INFO] 2025-06-16 17:31:45 - Recieved Request To fetch Group page
+2025/06/16 17:31:45 [INFO] 2025-06-16 17:31:45 - Group With ID : 25 Fetched With Success
+2025/06/16 17:31:47 [INFO] 2025-06-16 17:31:47 - Recieved Request To fetch Group page
+2025/06/16 17:31:47 [INFO] 2025-06-16 17:31:47 - Group With ID : 25 Fetched With Success
+2025/06/16 17:33:24 [INFO] 2025-06-16 17:33:24 - Recieved Request To fetch Group page
+2025/06/16 17:33:24 [INFO] 2025-06-16 17:33:24 - Group With ID : 25 Fetched With Success
+2025/06/16 17:33:28 [INFO] 2025-06-16 17:33:28 - Recieved Request To fetch Group page
+2025/06/16 17:33:28 [INFO] 2025-06-16 17:33:28 - Group With ID : 25 Fetched With Success
+2025/06/16 17:33:33 [INFO] 2025-06-16 17:33:33 - Recieved Request To fetch Group page
+2025/06/16 17:33:33 [INFO] 2025-06-16 17:33:33 - Group With ID : 25 Fetched With Success
+2025/06/16 17:34:15 [INFO] 2025-06-16 17:34:15 - Recieved Request To fetch Group page
+2025/06/16 17:34:15 [INFO] 2025-06-16 17:34:15 - Group With ID : 25 Fetched With Success
+2025/06/16 17:34:17 [INFO] 2025-06-16 17:34:17 - Recieved Request To fetch Group page
+2025/06/16 17:34:17 [INFO] 2025-06-16 17:34:17 - Group With ID : 25 Fetched With Success
+2025/06/16 17:34:32 [INFO] 2025-06-16 17:34:32 - Recieved Request To fetch Group page
+2025/06/16 17:34:32 [INFO] 2025-06-16 17:34:32 - Group With ID : 25 Fetched With Success
+2025/06/16 17:34:43 [INFO] 2025-06-16 17:34:43 - Recieved Request To fetch Group page
+2025/06/16 17:34:43 [INFO] 2025-06-16 17:34:43 - Group With ID : 25 Fetched With Success
+2025/06/16 17:35:24 [INFO] 2025-06-16 17:35:24 - Recieved Request To fetch Group page
+2025/06/16 17:35:24 [INFO] 2025-06-16 17:35:24 - Group With ID : 25 Fetched With Success
+2025/06/16 17:36:54 [INFO] 2025-06-16 17:36:54 - Recieved Request To fetch Group page
+2025/06/16 17:36:54 [INFO] 2025-06-16 17:36:54 - Group With ID : 25 Fetched With Success
+2025/06/16 17:36:55 [INFO] 2025-06-16 17:36:55 - Recieved Request To fetch Group page
+2025/06/16 17:36:55 [INFO] 2025-06-16 17:36:55 - Group With ID : 25 Fetched With Success
+2025/06/16 17:37:27 [INFO] 2025-06-16 17:37:27 - Recieved Request To fetch Group page
+2025/06/16 17:37:27 [INFO] 2025-06-16 17:37:27 - Group With ID : 25 Fetched With Success
+2025/06/16 17:37:32 [INFO] 2025-06-16 17:37:32 - Recieved Request To fetch Group page
+2025/06/16 17:37:32 [INFO] 2025-06-16 17:37:32 - Group With ID : 25 Fetched With Success
+2025/06/16 17:38:21 [INFO] 2025-06-16 17:38:21 - Recieved Request To fetch Group page
+2025/06/16 17:38:21 [INFO] 2025-06-16 17:38:21 - Group With ID : 25 Fetched With Success
+2025/06/16 17:38:23 [INFO] 2025-06-16 17:38:23 - Recieved Request To fetch Group page
+2025/06/16 17:38:23 [INFO] 2025-06-16 17:38:23 - Group With ID : 25 Fetched With Success
+2025/06/16 17:38:31 [INFO] 2025-06-16 17:38:31 - Recieved Request To fetch Group page
+2025/06/16 17:38:31 [INFO] 2025-06-16 17:38:31 - Group With ID : 25 Fetched With Success
+2025/06/16 17:38:37 [INFO] 2025-06-16 17:38:37 - Recieved Request To fetch Group page
+2025/06/16 17:38:37 [INFO] 2025-06-16 17:38:37 - Group With ID : 25 Fetched With Success
+2025/06/16 17:38:41 [INFO] 2025-06-16 17:38:41 - Recieved Request To fetch Group page
+2025/06/16 17:38:41 [INFO] 2025-06-16 17:38:41 - Group With ID : 25 Fetched With Success
+2025/06/16 17:38:46 [INFO] 2025-06-16 17:38:46 - Recieved Request To fetch Group page
+2025/06/16 17:38:46 [INFO] 2025-06-16 17:38:46 - Group With ID : 25 Fetched With Success
+2025/06/16 17:39:15 [INFO] 2025-06-16 17:39:15 - Recieved Request To fetch Group page
+2025/06/16 17:39:15 [INFO] 2025-06-16 17:39:15 - Group With ID : 25 Fetched With Success
+2025/06/16 17:40:56 [INFO] 2025-06-16 17:40:56 - Recieved Request To fetch Group page
+2025/06/16 17:40:56 [INFO] 2025-06-16 17:40:56 - Group With ID : 25 Fetched With Success
+2025/06/16 17:41:06 [INFO] 2025-06-16 17:41:06 - Recieved Request To fetch Group page
+2025/06/16 17:41:06 [LOG] 2025-06-16 17:41:06 - Bad request : Group Does Not Exist
+2025/06/16 17:41:06 [INFO] 2025-06-16 17:41:06 - Recieved Request To fetch Group page
+2025/06/16 17:41:06 [LOG] 2025-06-16 17:41:06 - Bad request : Group Does Not Exist
+2025/06/16 17:41:20 [INFO] 2025-06-16 17:41:20 - Recieved Request To fetch Group page
+2025/06/16 17:41:20 [INFO] 2025-06-16 17:41:20 - Group With ID : 25 Fetched With Success
+2025/06/16 17:44:56 [INFO] 2025-06-16 17:44:56 - Recieved Request To fetch Group page
+2025/06/16 17:44:56 [INFO] 2025-06-16 17:44:56 - Group With ID : 25 Fetched With Success
+2025/06/16 17:48:29 [INFO] 2025-06-16 17:48:29 - Received request to fetch group members
+2025/06/16 17:48:29 [INFO] 2025-06-16 17:48:29 - Group members for group 25 fetched successfully
+2025/06/16 17:48:35 [INFO] 2025-06-16 17:48:35 - Recieved Request To fetch Group page
+2025/06/16 17:48:35 [INFO] 2025-06-16 17:48:35 - Group With ID : 25 Fetched With Success
+2025/06/16 17:52:04 [INFO] 2025-06-16 17:52:04 - Received request to fetch group members
+2025/06/16 17:52:04 [INFO] 2025-06-16 17:52:04 - Group members for group 25 fetched successfully
+2025/06/16 17:52:09 [INFO] 2025-06-16 17:52:09 - Recieved Request To fetch Group page
+2025/06/16 17:52:09 [INFO] 2025-06-16 17:52:09 - Group With ID : 25 Fetched With Success
+2025/06/16 17:52:12 [INFO] 2025-06-16 17:52:12 - Recieved Request To fetch Group page
+2025/06/16 17:52:12 [INFO] 2025-06-16 17:52:12 - Group With ID : 25 Fetched With Success
+2025/06/16 17:52:36 [INFO] 2025-06-16 17:52:36 - Recieved Request To fetch Group page
+2025/06/16 17:52:36 [INFO] 2025-06-16 17:52:36 - Group With ID : 25 Fetched With Success
+2025/06/16 17:55:18 [ERROR] 2025-06-16 17:55:18 - Token cookie is missing in GetToken
+2025/06/16 18:05:23 [ERROR] 2025-06-16 18:05:23 - Token cookie is missing in GetToken
+2025/06/16 18:09:50 [INFO] 2025-06-16 18:09:50 - Starting HTTP server at http://localhost:8080 ...
+2025/06/16 18:09:52 [INFO] 2025-06-16 18:09:52 - Migrations applied successfully!
+2025/06/16 18:10:30 [INFO] 2025-06-16 18:10:30 - Parsed multipart form
+2025/06/16 18:10:30 [INFO] 2025-06-16 18:10:30 - Form fields parsed successfully
+2025/06/16 18:10:30 [INFO] 2025-06-16 18:10:30 - Form fields parsed
+2025/06/16 18:10:30 [INFO] 2025-06-16 18:10:30 - Checking if email exists: salaquh@mailinator.com
+2025/06/16 18:10:30 [INFO] 2025-06-16 18:10:30 - Email is unique
+2025/06/16 18:10:30 [INFO] 2025-06-16 18:10:30 - Handling file upload for form field 'avatar'
+2025/06/16 18:10:30 [INFO] 2025-06-16 18:10:30 - Received file: SinglePostUi.png (846409 bytes)
+2025/06/16 18:10:30 [INFO] 2025-06-16 18:10:30 - Detected content type: image/png
+2025/06/16 18:10:30 [INFO] 2025-06-16 18:10:30 - Successfully saved file as: 8a2f0ef0-485c-46b5-9174-2712755685b4.png
+2025/06/16 18:10:30 [INFO] 2025-06-16 18:10:30 - Avatar uploaded: 8a2f0ef0-485c-46b5-9174-2712755685b4.png
+2025/06/16 18:10:30 [INFO] 2025-06-16 18:10:30 - Validating registration input
+2025/06/16 18:10:30 [INFO] 2025-06-16 18:10:30 - Registration input valid
+2025/06/16 18:10:30 [INFO] 2025-06-16 18:10:30 - User input validated
+2025/06/16 18:10:30 [INFO] 2025-06-16 18:10:30 - Hashing password
+2025/06/16 18:10:30 [INFO] 2025-06-16 18:10:30 - Password hashed successfully
+2025/06/16 18:10:30 [INFO] 2025-06-16 18:10:30 - Password hashed
+2025/06/16 18:10:30 [INFO] 2025-06-16 18:10:30 - Saving user to database with ID: 9ea43f55-7916-4c30-8e99-1cec8c0bb425
+2025/06/16 18:10:30 [INFO] 2025-06-16 18:10:30 - User saved successfully
+2025/06/16 18:10:30 [INFO] 2025-06-16 18:10:30 - User registered with ID: 9ea43f55-7916-4c30-8e99-1cec8c0bb425
+2025/06/16 18:10:30 [INFO] 2025-06-16 18:10:30 - Save Token into Sessions
+2025/06/16 18:10:30 [INFO] 2025-06-16 18:10:30 - Login successful for user: 9ea43f55-7916-4c30-8e99-1cec8c0bb425
+2025/06/16 18:10:30 [INFO] 2025-06-16 18:10:30 - Success login
+2025/06/16 18:10:44 [INFO] 2025-06-16 18:10:44 - Recieved Request for fetching groups
+2025/06/16 18:10:44 [ERROR] 2025-06-16 18:10:44 - Query failed: no such column: g.descriptio
+2025/06/16 18:10:44 [LOG] 2025-06-16 18:10:44 - no such column: g.descriptio
+2025/06/16 18:12:36 [INFO] 2025-06-16 18:12:36 - Starting HTTP server at http://localhost:8080 ...
+2025/06/16 18:12:36 [INFO] 2025-06-16 18:12:36 - Migrations applied successfully!
+2025/06/16 18:12:42 [INFO] 2025-06-16 18:12:42 - Recieved Request for fetching groups
+2025/06/16 18:12:42 [INFO] 2025-06-16 18:12:42 - Groups Fetched Successfuly
+2025/06/16 18:13:54 [INFO] 2025-06-16 18:13:54 - Recieved Request for fetching groups
+2025/06/16 18:13:54 [INFO] 2025-06-16 18:13:54 - Groups Fetched Successfuly
+2025/06/16 18:14:24 [INFO] 2025-06-16 18:14:24 - Recieved Request To fetch Group page
+2025/06/16 18:14:24 [LOG] 2025-06-16 18:14:24 - Bad request : Group Does Not Exist
+2025/06/16 18:19:05 [INFO] 2025-06-16 18:19:05 - Recieved Request for fetching groups
+2025/06/16 18:19:05 [INFO] 2025-06-16 18:19:05 - Groups Fetched Successfuly
+2025/06/16 18:19:32 [INFO] 2025-06-16 18:19:32 - Handling file upload for form field 'Image'
+2025/06/16 18:19:32 [INFO] 2025-06-16 18:19:32 - Received file: Screenshot from 2025-04-14 21-00-17.png (109740 bytes)
+2025/06/16 18:19:32 [INFO] 2025-06-16 18:19:32 - Detected content type: image/png
+2025/06/16 18:19:32 [INFO] 2025-06-16 18:19:32 - Successfully saved file as: e11733fe-06dd-4852-b6e6-eba977c1cab5.png
+2025/06/16 18:19:32 [INFO] 2025-06-16 18:19:32 - Group Input Validated
+2025/06/16 18:19:32 [INFO] 2025-06-16 18:19:32 - Saving group into DB
+2025/06/16 18:19:32 [ERROR] 2025-06-16 18:19:32 - Failed to save group to DB: Failed to insert into Db : table groups has no column named descriptio
+2025/06/16 18:20:05 [INFO] 2025-06-16 18:20:05 - Starting HTTP server at http://localhost:8080 ...
+2025/06/16 18:20:05 [INFO] 2025-06-16 18:20:05 - Migrations applied successfully!
+2025/06/16 18:20:11 [INFO] 2025-06-16 18:20:11 - Handling file upload for form field 'Image'
+2025/06/16 18:20:11 [INFO] 2025-06-16 18:20:11 - Received file: Screenshot from 2025-04-14 21-00-17.png (109740 bytes)
+2025/06/16 18:20:11 [INFO] 2025-06-16 18:20:11 - Detected content type: image/png
+2025/06/16 18:20:11 [INFO] 2025-06-16 18:20:11 - Successfully saved file as: f2b54823-e879-4819-852e-22dcdb394924.png
+2025/06/16 18:20:11 [INFO] 2025-06-16 18:20:11 - Group Input Validated
+2025/06/16 18:20:11 [INFO] 2025-06-16 18:20:11 - Saving group into DB
+2025/06/16 18:20:11 [ERROR] 2025-06-16 18:20:11 - Failed to save group to DB: Failed to insert into Db : table groups has no column named descriptio
+2025/06/16 18:20:39 [INFO] 2025-06-16 18:20:39 - Starting HTTP server at http://localhost:8080 ...
+2025/06/16 18:20:39 [INFO] 2025-06-16 18:20:39 - Migrations applied successfully!
+2025/06/16 18:20:41 [INFO] 2025-06-16 18:20:41 - Handling file upload for form field 'Image'
+2025/06/16 18:20:41 [INFO] 2025-06-16 18:20:41 - Received file: Screenshot from 2025-04-14 21-00-17.png (109740 bytes)
+2025/06/16 18:20:41 [INFO] 2025-06-16 18:20:41 - Detected content type: image/png
+2025/06/16 18:20:41 [INFO] 2025-06-16 18:20:41 - Successfully saved file as: 8f13c44c-5414-4b04-851e-a2b987347b77.png
+2025/06/16 18:20:41 [INFO] 2025-06-16 18:20:41 - Group Input Validated
+2025/06/16 18:20:41 [INFO] 2025-06-16 18:20:41 - Saving group into DB
+2025/06/16 18:20:41 [INFO] 2025-06-16 18:20:41 - Saving GroupMember into DB
+2025/06/16 18:20:41 [INFO] 2025-06-16 18:20:41 - Group created successfully with ID: 1
+2025/06/16 18:20:48 [INFO] 2025-06-16 18:20:48 - Recieved Request for fetching groups
+2025/06/16 18:20:48 [INFO] 2025-06-16 18:20:48 - Groups Fetched Successfuly
+2025/06/16 18:21:08 [INFO] 2025-06-16 18:21:08 - Recieved Request To fetch Group page
+2025/06/16 18:21:08 [INFO] 2025-06-16 18:21:08 - Group With ID : 1 Fetched With Success
+2025/06/16 18:21:08 [INFO] 2025-06-16 18:21:08 - Recieved Request To fetch Group page
+2025/06/16 18:21:08 [INFO] 2025-06-16 18:21:08 - Group With ID : 1 Fetched With Success
+2025/06/16 18:21:26 [ERROR] 2025-06-16 18:21:26 - Token cookie is missing in GetToken
+2025/06/16 19:43:59 [INFO] 2025-06-16 19:43:59 - Recieved Request To fetch Group page
+2025/06/16 19:43:59 [LOG] 2025-06-16 19:43:59 - Bad request : Group Does Not Exist
+2025/06/16 19:44:44 [INFO] 2025-06-16 19:44:44 - Recieved Request To fetch Group page
+2025/06/16 19:44:44 [LOG] 2025-06-16 19:44:44 - Bad request : Group Does Not Exist
+2025/06/16 19:45:03 [INFO] 2025-06-16 19:45:03 - Recieved Request To fetch Group page
+2025/06/16 19:45:03 [INFO] 2025-06-16 19:45:03 - Group With ID : 1 Fetched With Success
+2025/06/16 19:53:28 [ERROR] 2025-06-16 19:53:28 - Token cookie is missing in GetToken
+2025/06/16 19:55:57 [INFO] 2025-06-16 19:55:57 - Starting HTTP server at http://localhost:8080 ...
+2025/06/16 19:55:57 [INFO] 2025-06-16 19:55:57 - Migrations applied successfully!
+2025/06/16 19:59:23 [INFO] 2025-06-16 19:59:23 - Recieved Request To fetch Group page
+2025/06/16 19:59:37 [INFO] 2025-06-16 19:59:37 - Recieved Request for fetching groups
+2025/06/16 20:02:23 [INFO] 2025-06-16 20:02:23 - Starting HTTP server at http://localhost:8080 ...
+2025/06/16 20:02:23 [INFO] 2025-06-16 20:02:23 - Migrations applied successfully!
+2025/06/16 20:02:28 [INFO] 2025-06-16 20:02:28 - Recieved Request for fetching groups
+2025/06/16 20:02:28 [INFO] 2025-06-16 20:02:28 - Groups Fetched Successfuly
+2025/06/16 20:02:31 [INFO] 2025-06-16 20:02:31 - Recieved Request To fetch Group page
+2025/06/16 20:02:31 [INFO] 2025-06-16 20:02:31 - Group With ID : 1 Fetched With Success
+2025/06/16 20:02:31 [INFO] 2025-06-16 20:02:31 - Recieved Request To fetch Group page
+2025/06/16 20:02:31 [INFO] 2025-06-16 20:02:31 - Group With ID : 1 Fetched With Success
+2025/06/16 20:02:59 [ERROR] 2025-06-16 20:02:59 - Token cookie is missing in GetToken
+2025/06/16 20:04:26 [INFO] 2025-06-16 20:04:26 - Starting HTTP server at http://localhost:8080 ...
+2025/06/16 20:04:26 [INFO] 2025-06-16 20:04:26 - Migrations applied successfully!
+2025/06/16 20:04:28 [INFO] 2025-06-16 20:04:28 - Parsed multipart form
+2025/06/16 20:04:28 [INFO] 2025-06-16 20:04:28 - Form fields parsed successfully
+2025/06/16 20:04:28 [INFO] 2025-06-16 20:04:28 - Form fields parsed
+2025/06/16 20:04:28 [INFO] 2025-06-16 20:04:28 - Checking if email exists: kawyxuwu@mailinator.com
+2025/06/16 20:04:28 [INFO] 2025-06-16 20:04:28 - Email is unique
+2025/06/16 20:04:28 [INFO] 2025-06-16 20:04:28 - Handling file upload for form field 'avatar'
+2025/06/16 20:04:28 [INFO] 2025-06-16 20:04:28 - No file uploaded for field 'avatar'
+2025/06/16 20:04:28 [INFO] 2025-06-16 20:04:28 - Avatar uploaded: 
+2025/06/16 20:04:28 [INFO] 2025-06-16 20:04:28 - Validating registration input
+2025/06/16 20:04:28 [INFO] 2025-06-16 20:04:28 - Registration input valid
+2025/06/16 20:04:28 [INFO] 2025-06-16 20:04:28 - User input validated
+2025/06/16 20:04:28 [INFO] 2025-06-16 20:04:28 - Hashing password
+2025/06/16 20:04:28 [INFO] 2025-06-16 20:04:28 - Password hashed successfully
+2025/06/16 20:04:28 [INFO] 2025-06-16 20:04:28 - Password hashed
+2025/06/16 20:04:28 [INFO] 2025-06-16 20:04:28 - Saving user to database with ID: f3d68346-608c-4048-a51f-87c579630425
+2025/06/16 20:04:28 [INFO] 2025-06-16 20:04:28 - User saved successfully
+2025/06/16 20:04:28 [INFO] 2025-06-16 20:04:28 - User registered with ID: f3d68346-608c-4048-a51f-87c579630425
+2025/06/16 20:04:28 [INFO] 2025-06-16 20:04:28 - Save Token into Sessions
+2025/06/16 20:04:28 [INFO] 2025-06-16 20:04:28 - Login successful for user: f3d68346-608c-4048-a51f-87c579630425
+2025/06/16 20:04:28 [INFO] 2025-06-16 20:04:28 - Success login
+2025/06/16 20:05:26 [INFO] 2025-06-16 20:05:26 - Starting HTTP server at http://localhost:8080 ...
+2025/06/16 20:05:26 [INFO] 2025-06-16 20:05:26 - Migrations applied successfully!
+2025/06/16 20:06:05 [INFO] 2025-06-16 20:06:05 - Parsed multipart form
+2025/06/16 20:06:05 [INFO] 2025-06-16 20:06:05 - Form fields parsed successfully
+2025/06/16 20:06:05 [INFO] 2025-06-16 20:06:05 - Form fields parsed
+2025/06/16 20:06:05 [INFO] 2025-06-16 20:06:05 - Checking if email exists: gycig@mailinator.com
+2025/06/16 20:06:05 [INFO] 2025-06-16 20:06:05 - Email is unique
+2025/06/16 20:06:05 [INFO] 2025-06-16 20:06:05 - Validating registration input
+2025/06/16 20:06:05 [INFO] 2025-06-16 20:06:05 - Registration input valid
+2025/06/16 20:06:05 [INFO] 2025-06-16 20:06:05 - User input validated
+2025/06/16 20:06:05 [INFO] 2025-06-16 20:06:05 - Hashing password
+2025/06/16 20:06:05 [INFO] 2025-06-16 20:06:05 - Password hashed successfully
+2025/06/16 20:06:05 [INFO] 2025-06-16 20:06:05 - Password hashed
+2025/06/16 20:06:05 [INFO] 2025-06-16 20:06:05 - Starting avatar upload
+2025/06/16 20:06:05 [INFO] 2025-06-16 20:06:05 - No image file provided
+2025/06/16 20:06:05 [INFO] 2025-06-16 20:06:05 - Saving user to database with ID: 8fc8babf-bfec-4742-9a6f-6ec1395997e9
+2025/06/16 20:06:05 [INFO] 2025-06-16 20:06:05 - User saved successfully
+2025/06/16 20:06:05 [INFO] 2025-06-16 20:06:05 - User registered with ID: 8fc8babf-bfec-4742-9a6f-6ec1395997e9
+2025/06/16 20:06:05 [INFO] 2025-06-16 20:06:05 - Save Token into Sessions
+2025/06/16 20:06:05 [INFO] 2025-06-16 20:06:05 - Login successful for user: 8fc8babf-bfec-4742-9a6f-6ec1395997e9
+2025/06/16 20:06:05 [INFO] 2025-06-16 20:06:05 - Success Register
+2025/06/16 20:07:09 [INFO] 2025-06-16 20:07:09 - Recieved Request for fetching groups
+2025/06/16 20:07:09 [INFO] 2025-06-16 20:07:09 - Groups Fetched Successfuly
+2025/06/16 20:07:18 [INFO] 2025-06-16 20:07:18 - Recieved Group Join Request
+2025/06/16 20:07:18 [INFO] 2025-06-16 20:07:18 - Saving GroupMember into DB
+2025/06/16 20:07:50 [INFO] 2025-06-16 20:07:50 - Handling file upload for form field 'Image'
+2025/06/16 20:07:50 [INFO] 2025-06-16 20:07:50 - Received file: Screenshot from 2025-04-14 21-00-17.png (109740 bytes)
+2025/06/16 20:07:50 [INFO] 2025-06-16 20:07:50 - Detected content type: image/png
+2025/06/16 20:07:50 [INFO] 2025-06-16 20:07:50 - Successfully saved file as: a5622536-8028-4fb0-8b5d-f21f057e4dcf.png
+2025/06/16 20:07:50 [INFO] 2025-06-16 20:07:50 - Group Input Validated
+2025/06/16 20:07:50 [INFO] 2025-06-16 20:07:50 - Saving group into DB
+2025/06/16 20:07:50 [ERROR] 2025-06-16 20:07:50 - Failed to save group to DB: Failed to insert into Db : CHECK constraint failed: LENGTH(`description`) > 30 AND LENGTH(`description`) <250
+2025/06/16 20:08:10 [INFO] 2025-06-16 20:08:10 - Handling file upload for form field 'Image'
+2025/06/16 20:08:10 [INFO] 2025-06-16 20:08:10 - Received file: Screenshot from 2025-04-14 21-00-17.png (109740 bytes)
+2025/06/16 20:08:10 [INFO] 2025-06-16 20:08:10 - Detected content type: image/png
+2025/06/16 20:08:10 [INFO] 2025-06-16 20:08:10 - Successfully saved file as: 91254a19-6e17-48af-b216-af892613248d.png
+2025/06/16 20:08:10 [INFO] 2025-06-16 20:08:10 - Group Input Validated
+2025/06/16 20:08:10 [INFO] 2025-06-16 20:08:10 - Saving group into DB
+2025/06/16 20:08:10 [INFO] 2025-06-16 20:08:10 - Saving GroupMember into DB
+2025/06/16 20:08:10 [INFO] 2025-06-16 20:08:10 - Group created successfully with ID: 2
+2025/06/16 20:08:20 [INFO] 2025-06-16 20:08:20 - Recieved Request for fetching groups
+2025/06/16 20:08:20 [INFO] 2025-06-16 20:08:20 - Groups Fetched Successfuly
+2025/06/16 20:08:40 [INFO] 2025-06-16 20:08:40 - Recieved Request To fetch Group page
+2025/06/16 20:08:40 [INFO] 2025-06-16 20:08:40 - Group With ID : 2 Fetched With Success
+2025/06/16 20:08:40 [INFO] 2025-06-16 20:08:40 - Recieved Request To fetch Group page
+2025/06/16 20:08:40 [INFO] 2025-06-16 20:08:40 - Group With ID : 2 Fetched With Success
+2025/06/16 20:09:05 [ERROR] 2025-06-16 20:09:05 - Token cookie is missing in GetToken
+2025/06/16 20:11:26 [INFO] 2025-06-16 20:11:26 - Starting HTTP server at http://localhost:8080 ...
+2025/06/16 20:11:26 [INFO] 2025-06-16 20:11:26 - Migrations applied successfully!
+2025/06/16 20:11:41 [ERROR] 2025-06-16 20:11:41 - Token cookie is missing in GetToken
+2025/06/16 20:13:04 [INFO] 2025-06-16 20:13:04 - Starting HTTP server at http://localhost:8080 ...
+2025/06/16 20:13:04 [INFO] 2025-06-16 20:13:04 - Migrations applied successfully!
+2025/06/16 20:13:08 [INFO] 2025-06-16 20:13:08 - Recieved Request To fetch Group page
+2025/06/16 20:13:08 [INFO] 2025-06-16 20:13:08 - Group With ID : 2 Fetched With Success
+2025/06/16 20:13:28 [ERROR] 2025-06-16 20:13:28 - Token cookie is missing in GetToken
+2025/06/16 20:13:50 [INFO] 2025-06-16 20:13:50 - Starting HTTP server at http://localhost:8080 ...
+2025/06/16 20:13:50 [INFO] 2025-06-16 20:13:50 - Migrations applied successfully!
+2025/06/16 20:14:05 [ERROR] 2025-06-16 20:14:05 - Token cookie is missing in GetToken
+2025/06/16 20:14:05 [ERROR] 2025-06-16 20:14:05 - Token cookie is missing in GetToken
+2025/06/16 20:21:51 [INFO] 2025-06-16 20:21:51 - Starting HTTP server at http://localhost:8080 ...
+2025/06/16 20:21:51 [INFO] 2025-06-16 20:21:51 - Migrations applied successfully!
+2025/06/16 20:21:55 [INFO] 2025-06-16 20:21:55 - Recieved Request To fetch Group page
+2025/06/16 20:21:55 [INFO] 2025-06-16 20:21:55 - Group With ID : 2 Fetched With Success
+2025/06/16 20:43:01 [INFO] 2025-06-16 20:43:01 - Handling file upload for form field 'Image'
+2025/06/16 20:43:01 [INFO] 2025-06-16 20:43:01 - Received file: Screenshot from 2025-02-18 21-21-32.png (170508 bytes)
+2025/06/16 20:43:01 [INFO] 2025-06-16 20:43:01 - Detected content type: image/png
+2025/06/16 20:43:01 [INFO] 2025-06-16 20:43:01 - Successfully saved file as: 245d6ed3-7680-43ca-a582-fdc851675123.png
+2025/06/16 20:43:01 [INFO] 2025-06-16 20:43:01 - Group Input Validated
+2025/06/16 20:43:01 [INFO] 2025-06-16 20:43:01 - Saving group into DB
+2025/06/16 20:43:01 [INFO] 2025-06-16 20:43:01 - Saving GroupMember into DB
+2025/06/16 20:43:01 [INFO] 2025-06-16 20:43:01 - Group created successfully with ID: 3
+2025/06/16 20:43:08 [INFO] 2025-06-16 20:43:08 - Recieved Request for fetching groups
+2025/06/16 20:43:08 [INFO] 2025-06-16 20:43:08 - Groups Fetched Successfuly
+2025/06/16 20:43:12 [INFO] 2025-06-16 20:43:12 - Recieved Request To fetch Group page
+2025/06/16 20:43:12 [INFO] 2025-06-16 20:43:12 - Group With ID : 3 Fetched With Success
+2025/06/16 20:43:12 [INFO] 2025-06-16 20:43:12 - Recieved Request To fetch Group page
+2025/06/16 20:43:12 [INFO] 2025-06-16 20:43:12 - Group With ID : 3 Fetched With Success
+2025/06/16 20:43:19 [INFO] 2025-06-16 20:43:19 - Received request to fetch group members
+2025/06/16 20:43:19 [INFO] 2025-06-16 20:43:19 - Group members for group 3 fetched successfully
+2025/06/16 20:43:32 [INFO] 2025-06-16 20:43:32 - Recieved Request To fetch Group page
+2025/06/16 20:43:32 [INFO] 2025-06-16 20:43:32 - Group With ID : 3 Fetched With Success
+2025/06/16 20:43:47 [INFO] 2025-06-16 20:43:47 - Recieved Request To fetch Group page
+2025/06/16 20:43:47 [INFO] 2025-06-16 20:43:47 - Group With ID : 3 Fetched With Success

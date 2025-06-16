@@ -6,12 +6,10 @@ import (
 	"encoding/base64"
 	"encoding/json"
 	"errors"
-	"fmt"
 	"net/http"
 	"strings"
 	"time"
 
-	db "socialNetwork/db/sqlite"
 	"socialNetwork/utils"
 )
 
@@ -89,40 +87,15 @@ func VerifyJWT(token string) (JWTPayload, error) {
 	if time.Now().Unix() > payload.Exp {
 		return JWTPayload{}, errors.New("token has expired")
 	}
-
 	return payload, nil
 }
 
 func GetToken(w http.ResponseWriter, r *http.Request) (token string) {
 	cookie, err := r.Cookie("token")
-	fmt.Println(cookie)
 	if err != nil {
 		utils.Log("ERROR", "Token cookie is missing in GetToken")
-		utils.SendJSON(w, http.StatusUnauthorized, utils.JSONResponse{
-			Success: false,
-			Message: "Token cookie is missing",
-			Error:   "You are not Authorized.",
-		})
 		return ""
 	}
 
 	return cookie.Value
-}
-
-func SaveToken(userID string, token string) error {
-	// Check for old sessions and delete them
-	deleteQuery := "DELETE FROM sessions WHERE user_id = ?"
-	_, err := db.DB.Exec(deleteQuery, userID)
-	if err != nil {
-		return err // Handle the error appropriately
-	}
-
-	// Insert the new session
-	insertQuery := `
-		INSERT INTO sessions (user_id, token, expiration_time)
-		VALUES (?, ?, ?)
-	`
-	expirationTime := time.Now().Add(24 * time.Hour)
-	_, err = db.DB.Exec(insertQuery, userID, token, expirationTime)
-	return err
 }
