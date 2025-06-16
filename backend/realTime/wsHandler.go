@@ -1,56 +1,163 @@
 package realTime
 
 import (
+	"encoding/json"
+	"fmt"
 	"net/http"
+	"sync"
+
+	"socialNetwork/auth"
+	db "socialNetwork/db/sqlite"
 	"socialNetwork/utils"
 
 	"github.com/gorilla/websocket"
 )
 
-// websocket upgrader
-var upgrader = websocket.Upgrader{
-	CheckOrigin: func(r *http.Request) bool { return true },
-}
+var (
+	upgrader = websocket.Upgrader{
+		CheckOrigin: func(r *http.Request) bool { return true },
+	}
+	clients = make(map[string]*Client) // userID -> *Client
+	mutex   sync.Mutex
+)
 
 func WSHandler(w http.ResponseWriter, r *http.Request) {
 	conn, err := upgrader.Upgrade(w, r, nil)
 	if err != nil {
-		utils.Log("ERROR", "Failed to upgrade connection to websocket: "+err.Error())
-
+		utils.Log("ERROR", "Failed to upgrade: "+err.Error())
 		return
 	}
-	utils.Log("INFO", "Connected to websocket")
-	// get token then get username from db
 
+	// === 1. Read token from query ===
+	token := r.URL.Query().Get("token")
+	if token == "" {
+		utils.Log("ERROR", "Missing token in query")
+		conn.Close()
+		return
+	}
+	fmt.Println("Token from query:", token)
+
+	// === 2. Validate token and get userID ===
+	userID, err := auth.VerifyJWT(token)
+	if err != nil {
+		utils.Log("ERROR", "Invalid token: "+err.Error())
+		conn.Close()
+		return
+	}
+	fmt.Println("User ID from token:", userID)
+
+	// === 3. Create client and register ===
 	client := &Client{
-		Conn:     conn,
-		Username: r.URL.Query().Get("username"),
-		Send:     make(chan MessageStruct),
+		Conn:   conn,
+		UserID: userID,
+		Send:   make(chan MessageStruct),
 	}
 
 	mutex.Lock()
-	clients[client] = true
-	utils.Log("INFO", "Client added to map")
+	clients[userID] = client
 	mutex.Unlock()
 
-	var JR JSONRequest
+	// === 4. Start goroutines ===
+	go handleWrite(client)
+	go handleRead(client)
 
-	switch JR.RealTimeType {
-	case "notification":
-		switch JR.NotificationType {
-		case "follow":
+	// === 5. Load and send stored notifications ===
+	go sendStoredNotifications(userID, client)
+}
 
-		case "invite":
+func handleWrite(client *Client) {
+	for msg := range client.Send {
+		client.Conn.WriteJSON(msg)
+	}
+}
 
-		case "private_message":
+func handleRead(client *Client) {
+	defer func() {
+		client.Conn.Close()
+		mutex.Lock()
+		delete(clients, client.UserID)
+		mutex.Unlock()
+	}()
 
-		case "group_message":
-
+	for {
+		_, msg, err := client.Conn.ReadMessage()
+		if err != nil {
+			return
 		}
 
-	case "group_chat":
-		GroupChat(conn, r)
-	case "private_message":
+		var incoming MessageStruct
+		if err := json.Unmarshal(msg, &incoming); err != nil {
+			continue
+		}
 
+		// Handle private messages
+		if incoming.Type == "private_message" {
+			if toID, ok := incoming.Data["to"].(string); ok {
+				SendNotification(toID, MessageStruct{
+					Type: "private_message",
+					Data: map[string]interface{}{
+						"from":    client.UserID,
+						"message": incoming.Data["message"],
+					},
+				})
+			}
+		}
+		// You can add more handlers for other message types here if needed
+	}
+}
+
+func SendNotification(toUserID string, notif MessageStruct) {
+	// 🟢 Save to DB ALWAYS
+	saveNotificationToDB(toUserID, notif)
+
+	// 🔵 If connected, also send via WebSocket
+	mutex.Lock()
+	client, ok := clients[toUserID]
+	mutex.Unlock()
+
+	if ok {
+		utils.Log("INFO", "Sent notification via WS to "+toUserID)
+		client.Send <- notif
+	} else {
+		utils.Log("INFO", "User "+toUserID+" not connected, notification saved to DB")
+	}
+}
+
+func saveNotificationToDB(userID string, notif MessageStruct) {
+	jsonData, err := json.Marshal(notif)
+	if err != nil {
+		utils.Log("ERROR", "Failed to marshal notification: "+err.Error())
+		return
+	}
+
+	_, err = db.DB.Exec(`
+		INSERT INTO notifications (user_id, payload, is_read)
+		VALUES (?, ?, 0)
+	`, userID, string(jsonData))
+	if err != nil {
+		utils.Log("ERROR", "Failed to insert notification into DB: "+err.Error())
+	}
+}
+
+func sendStoredNotifications(userID string, client *Client) {
+	rows, err := db.DB.Query(`
+		SELECT id, payload FROM notifications
+		WHERE user_id = ? AND is_read = 0
+	`, userID)
+	if err != nil {
+		utils.Log("ERROR", "Failed to query stored notifications: "+err.Error())
+		return
+	}
+	defer rows.Close()
+
+	for rows.Next() {
+		var id int
+		var payload string
+		if err := rows.Scan(&id, &payload); err == nil {
+			var msg MessageStruct
+			if err := json.Unmarshal([]byte(payload), &msg); err == nil {
+				client.Send <- msg
+			}
+		}
 	}
 }

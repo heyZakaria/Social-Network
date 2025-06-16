@@ -2,9 +2,11 @@ package profile
 
 import (
 	"database/sql"
+	"fmt"
 	"net/http"
 
 	db "socialNetwork/db/sqlite"
+	"socialNetwork/realTime"
 	shared "socialNetwork/shared_packages"
 	"socialNetwork/utils"
 )
@@ -142,4 +144,34 @@ func ToggleFollowUser(w http.ResponseWriter, r *http.Request) {
 			"Data": profile,
 		},
 	})
+
+	// Send notification to target user when followed (not for unfollow/cancel)
+	var p UserProfile
+	if (profile.IsFollowing || profile.RequestPending) && targetUserId != "" && targetUserId != followerId {
+		err := db.DB.QueryRow("SELECT id, first_name, last_name, avatar FROM users WHERE id = ?", followerId).Scan(&p.UserID, &p.FirstName, &p.LastName, &p.Avatar)
+		if err != nil {
+			utils.Log("ERROR", "Failed to fetch user name for notification: "+err.Error())
+			p.FirstName, p.LastName = "Someone", ""
+		}
+		notificationType := "follow_request"
+		title := "New Follow Request"
+		content := "Sent you a follow request"
+		if profile.IsFollowing {
+			notificationType = "follow"
+			title = "New Follower"
+			content = fmt.Sprintf("%s %s started following you", p.FirstName, p.LastName)
+		}
+		realTime.SendNotification(targetUserId, realTime.MessageStruct{
+			Type: "notification",
+			Data: map[string]interface{}{
+				"id":      p.UserID,
+				"type":    notificationType,
+				"title":   title,
+				"content": content,
+				"avatar":  p.Avatar,
+				"from":    p.FirstName + " " + p.LastName,
+				"read":    false,
+			},
+		})
+	}
 }

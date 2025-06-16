@@ -1,10 +1,11 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { useRouter, usePathname } from "next/navigation";
 import { logoutUser } from "@/app/(auth)/_logout/logout";
 import styles from "@/styles/navbar.module.css";
+import notifStyles from "@/styles/notifications.module.css";
 import Image from "next/image";
 import {
   HiHome,
@@ -21,6 +22,8 @@ import {
   HiCog,
 } from "react-icons/hi2";
 
+
+
 export default function Navbar({ user }) {
   const router = useRouter();
   const pathname = usePathname();
@@ -32,41 +35,90 @@ export default function Navbar({ user }) {
   const [unreadNotifications, setUnreadNotifications] = useState(0);
   const [unreadMessages, setUnreadMessages] = useState(0);
 
+  const ws = useRef(null);
 
   useEffect(() => {
-    // In a real app, you would fetch these from an API
-    if (user) {
-      // Simulate fetching notifications
-      setNotifications([
-        {
-          id: 1,
-          type: "follow_request",
-          content: "Sarah Williams sent you a follow request",
-          createdAt: "2023-03-22T10:15:00Z",
-          read: false,
-        },
-        {
-          id: 2,
-          type: "group_invitation",
-          content: "Jane Smith invited you to join Photography Enthusiasts",
-          createdAt: "2023-03-24T09:45:00Z",
-          read: false,
-        },
-        {
-          id: 3,
-          type: "like",
-          content: "Mike Johnson liked your post",
-          createdAt: "2023-03-25T14:30:00Z",
-          read: true,
-        },
-      ]);
+    if (!user) return;
 
-      setUnreadNotifications(2);
-      setUnreadMessages(1);
-    }
+    let socket;
+
+    // Fetch the token for authentication
+    fetch("/api/get-token", {
+      credentials: "include",
+    })
+      .then(res => res.json())
+      .then(data => {
+        if (!data.data || !data.data.token) {
+          console.error("Token not found in response:", data);
+          return;
+        }
+        const token = data.data.token;
+        console.log("WebSocket token:", token);
+
+
+        // Use wss if your backend supports SSL, otherwise ws
+        socket = new WebSocket(`ws://localhost:8080/ws?token=${token}`);
+        ws.current = socket;
+
+        socket.onopen = () => {
+          // Optionally, you can send a handshake or log connection
+          console.log("WebSocket connected");
+        };
+
+        socket.onmessage = (event) => {
+          try {
+            const msg = JSON.parse(event.data);
+            console.log("WebSocket message received:", msg.Data.type);
+
+            if (msg.Type === "notification") {
+              setNotifications(prev => [
+                {
+                  id: msg.Data.id,
+                  type: msg.Data.type,
+                  content: msg.Data.content,
+                  from: msg.Data.from,
+                  read: false,
+                  createdAt: new Date().toISOString(),
+                },
+                ...prev,
+              ]);
+              setUnreadNotifications(prev => prev + 1);
+            } else if (msg.Type === "private_message") {
+              setUnreadMessages(prev => prev + 1);
+              // Optionally, add to a messages array
+            }
+          } catch (err) {
+            console.error("Error parsing WebSocket message:", err);
+          }
+        };
+
+        socket.onerror = (err) => {
+          console.error("WebSocket error", err);
+        };
+
+        socket.onclose = () => {
+          console.log("WebSocket closed");
+        };
+      })
+      .catch(err => {
+        console.error("Failed to fetch token:", err);
+      });
+
+    return () => {
+      if (ws.current) {
+        ws.current.close();
+      }
+    };
   }, [user]);
 
-  
+
+  const handleMarkAllAsRead = () => {
+    setNotifications((prev) =>
+      prev.map((notif) => ({ ...notif, read: true }))
+    );
+    setUnreadNotifications(0);
+  };
+
   const handleLogout = async () => {
     await logoutUser();
     window.location.href = "/login";
@@ -133,36 +185,32 @@ export default function Navbar({ user }) {
           <div className={styles.navbarCenter}>
             <Link
               href="/"
-              className={`${styles.navLink} ${
-                isActive("/") ? styles.active : ""
-              }`}
+              className={`${styles.navLink} ${isActive("/") ? styles.active : ""
+                }`}
               onClick={closeAllMenus}
             >
               <HiHome size={24} />
             </Link>
             <Link
               href="/friends"
-              className={`${styles.navLink} ${
-                isActive("/friends") ? styles.active : ""
-              }`}
+              className={`${styles.navLink} ${isActive("/friends") ? styles.active : ""
+                }`}
               onClick={closeAllMenus}
             >
               <HiUserGroup size={24} />
             </Link>
             <Link
               href="/groups"
-              className={`${styles.navLink} ${
-                isActive("/groups") ? styles.active : ""
-              }`}
+              className={`${styles.navLink} ${isActive("/groups") ? styles.active : ""
+                }`}
               onClick={closeAllMenus}
             >
               <HiUsers size={24} />
             </Link>
             <Link
               href="/events"
-              className={`${styles.navLink} ${
-                isActive("/events") ? styles.active : ""
-              }`}
+              className={`${styles.navLink} ${isActive("/events") ? styles.active : ""
+                }`}
               onClick={closeAllMenus}
             >
               <HiCalendar size={24} />
@@ -189,65 +237,129 @@ export default function Navbar({ user }) {
                     setIsNotificationsOpen(!isNotificationsOpen);
                     setIsMessagesOpen(false);
                     setIsMenuOpen(false);
-                  }}
-                >
-                  <HiBell size={20} />
-                  {unreadNotifications > 0 && (
-                    <span className={styles.badge}>{unreadNotifications}</span>
-                  )}
-                </button>
-
-                {isNotificationsOpen && (
-                  <div className={styles.dropdown}>
-                    <div className={styles.dropdownHeader}>
+                    }}
+                    >
+                    <HiBell size={20} />
+                    {unreadNotifications > 0 && (
+                      <span className={styles.badge}>{unreadNotifications}</span>
+                    )}
+                    </button>
+                    {isNotificationsOpen && (
+                    <div className={`${styles.dropdown} ${notifStyles.notificationsContainer}`}>
+                      <div className={styles.dropdownHeader}>
                       <h3>Notifications</h3>
-                      <button className={styles.markAllRead}>
-                        Mark all as read
-                      </button>
-                    </div>
-                    <div className={styles.dropdownContent}>
-                      {notifications.length > 0 ? (
-                        notifications.map((notification) => (
-                          <div
-                            key={notification.id}
-                            className={`${styles.notificationItem} ${
-                              !notification.read ? styles.unread : ""
-                            }`}
-                            onClick={() =>
-                              handleNotificationClick(notification.id)
-                            }
-                          >
-                            <div className={styles.notificationContent}>
-                              <p>{notification.content}</p>
-                              <span className={styles.notificationTime}>
-                                {formatDate(notification.createdAt)}
-                              </span>
-                            </div>
-                          </div>
-                        ))
-                      ) : (
-                        <div className={styles.emptyState}>
-                          <p>No notifications yet</p>
-                        </div>
-                      )}
-                    </div>
-                    <div className={styles.dropdownFooter}>
-                      {/* <Link
-                        href="/notifications"
-                        className={styles.viewAll}
-                        onClick={closeAllMenus}
+                      <button
+                      className={styles.markAllRead}
+                      onClick={handleMarkAllAsRead}
                       >
-                        View all notifications
-                      </Link> */}
+                      Mark all as read
+                      </button>
+                      </div>
+                      <div className={styles.dropdownContent}>
+                      {notifications.length > 0 ? (
+                      <ul className={notifStyles.notificationsContainer}>
+                      {notifications.map((notification, idx) => {
+                        // Choose icon based on notification type
+                        let TypeIcon = null;
+                        switch (notification.type) {
+                        case "follow_request":
+                          TypeIcon = HiUser;
+                          break;
+                        case "invite":
+                          TypeIcon = HiUserGroup;
+                          break;
+                        case "group":
+                          TypeIcon = HiUsers;
+                          break;
+                        case "accept":
+                          TypeIcon = HiCheckCircle;
+                          break;
+                        case "message":
+                          TypeIcon = HiChatBubbleOvalLeftEllipsis;
+                          break;
+                        default:
+                          TypeIcon = HiBell;
+                        }
+                        return (
+                        <li
+                        key={`${notification.id}-${idx}`}
+                        className={notification.read ? notifStyles.read : notifStyles.unread}
+                        style={{
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "10px",
+                        padding: "8px 12px",
+                        borderBottom: "1px solid #f0f0f0",
+                        cursor: "pointer",
+                        background: notification.read ? "#fafafa" : "#e6f7ff"
+                        }}
+                        >
+                        <Link
+                        href={`/profile/${notification.id || ""}`}
+                        onClick={() => handleNotificationClick(notification.id)}
+                        className={styles.notificationAvatarLink}
+                        style={{ display: "flex", alignItems: "center", position: "relative" }}
+                        >
+                        <Image
+                        width={45}
+                        height={45}
+                        src={notification.avatar || "/uploads/profile.jpeg"}
+                        alt={notification.from || "User"}
+                        className={styles.notificationAvatar}
+                        style={{
+                          borderRadius: "50%",
+                          objectFit: "cover",
+                          border: notification.read ? "1px solid #ccc" : "2px solid #1677ff"
+                        }}
+                        />
+                        {/* Notification type icon overlay */}
+                        <span style={{
+                          position: "absolute",
+                          bottom: 0,
+                          right: 0,
+                          background: "#fff",
+                          borderRadius: "50%",
+                          boxShadow: "0 0 2px #aaa",
+                          padding: "2px"
+                        }}>
+                          <TypeIcon size={18} color="#1677ff" />
+                        </span>
+                        </Link>
+                        <div>
+                        <p className={styles.notificationName}>
+                        <Link
+                          href={`/profile/${notification.id || ""}`}
+                          onClick={() => handleNotificationClick(notification.id)}
+                          className={styles.notificationNameLink}
+                        >
+                          {notification.from || "User"}
+                        </Link>
+                        </p>
+                        <p className={styles.notificationText}>
+                        {notification.content || "You have a new notification"}
+                        </p>
+                        <span className={styles.notificationTime}>
+                        {formatDate(notification.createdAt)}
+                        </span>
+                        </div>
+                        </li>
+                      )})}
+                      </ul>
+                      ) : (
+                      <div className={styles.emptyState}>
+                      <p>No notifications yet</p>
+                      </div>
+                      )}
+                      </div>
+                      <div className={styles.dropdownFooter}></div>
                     </div>
-                  </div>
-                )}
-              </div>
+                    )}
+                    </div>
 
-              <div className={styles.iconContainer}>
-                <button
-                  className={styles.iconButton}
-                  onClick={() => {
+                    <div className={styles.iconContainer}>
+                    <button
+                    className={styles.iconButton}
+                    onClick={() => {
                     setIsMessagesOpen(!isMessagesOpen);
                     setIsNotificationsOpen(false);
                     setIsMenuOpen(false);
@@ -320,7 +432,7 @@ export default function Navbar({ user }) {
                   setIsMessagesOpen(false);
                 }}
               >
-              
+
                 <Image width={200} height={100}
                   src={user.avatar || "/uploads/profile.jpeg"}
                   alt={user.firstName}
