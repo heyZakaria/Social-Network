@@ -32,9 +32,6 @@ func CommentSaver(w http.ResponseWriter, r *http.Request) {
 		})
 		return
 	}
-	if ImageProvided {
-		utils.SaveImage(file, Comment.Comment_img)
-	}
 
 	// this part to get post id
 	postId, err := strconv.Atoi(r.FormValue("postId"))
@@ -72,7 +69,11 @@ func CommentSaver(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	fmt.Println("gdhhdfgbgdngdndg",Comment)
+	// here to save comment in front
+	if ImageProvided {
+		utils.SaveImage(file, Comment.Comment_img)
+	}
+
 	// here to send response to frontend
 	utils.Log("Success", "Comment saved successfully")
 	utils.SendJSON(w, http.StatusOK, utils.JSONResponse{
