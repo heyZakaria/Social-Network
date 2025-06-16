@@ -1,6 +1,10 @@
 package realTime
 
-import "github.com/gorilla/websocket"
+import (
+	"sync"
+
+	"github.com/gorilla/websocket"
+)
 
 type GroupMessage struct {
 	Group_id  int    `json:"group_id"`
@@ -10,23 +14,26 @@ type GroupMessage struct {
 }
 
 type Client struct {
-	Conn     *websocket.Conn
-	UserID string
-	Send     chan MessageStruct
+	Conn      *websocket.Conn
+	UserID    string
+	Broadcast chan MessageResponse
+	Mutex     *sync.Mutex
 }
-
 type MessageStruct struct {
-	Sender   string `json:"sender"`
-	Receiver string `json:"receiver"`
-	Content  string `json:"content"`
-	Type     string `json:"type"`
+	Sender    string `json:"sender"`
+	Receiver  string `json:"receiver"`
+	Content   string `json:"content"`
+	Type      string `json:"type"`
+	FirstTime bool   `json:"first_time"`
+	SessionID string `json:"session_id"`
 }
- 
+type MessageResponse struct {
+	SessionID string
+	Single    MessageStruct
+	Multiple  []MessageStruct
+}
 type JSONRequest struct {
-
-	RealTimeType string `json:"type"`
-	NotificationType string `json:"notif_type"` // check this just if the RealTimeType == "Notification" 
+	RealTimeType     string `json:"type"`
+	NotificationType string `json:"notif_type"` // check this just if the RealTimeType == "Notification"
 
 }
-
-

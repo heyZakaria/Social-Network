@@ -1,6 +1,7 @@
 package realTime
 
 import (
+	"fmt"
 	"net/http"
 	"socialNetwork/utils"
 
@@ -13,40 +14,40 @@ var upgrader = websocket.Upgrader{
 }
 
 func WSHandler(w http.ResponseWriter, r *http.Request) {
+	UserID := r.Header.Get("UserID")
+	fmt.Println("UserID from context aciba:", UserID)
 	conn, err := upgrader.Upgrade(w, r, nil)
-	UserID := r.Context().Value("UserID").(string)
 	if err != nil {
 		utils.Log("ERROR", "Failed to upgrade connection to websocket: "+err.Error())
-
+		utils.SendJSON(w, http.StatusInternalServerError, utils.JSONResponse{
+			Success: false,
+			Message: "Failed to upgrade connection to websocket",
+		})
+		return
+	}
+	if UserID == "" {
+		utils.Log("ERROR", "UserID not found in request context")
+		utils.SendJSON(w, http.StatusUnauthorized, utils.JSONResponse{
+			Success: false,
+			Message: "Please login to continue",
+			Error:   "Login required",
+		})
 		return
 	}
 	utils.Log("INFO", "Connected to websocket")
-	// get token then get username from db
 
 	client := &Client{
-		Conn:   conn,
-		UserID: UserID,
-		Send:   make(chan MessageStruct),
+		Conn:      conn,
+		UserID:    UserID,
+		Broadcast: make(chan MessageStruct),
 	}
 
-	var JR JSONRequest
+	mutex.Lock()
+	clients[UserID] = client
+	utils.Log("INFO", "Client added to map")
+	mutex.Unlock()
 
-	switch JR.RealTimeType {
-	case "notification":
-		switch JR.NotificationType {
-		case "follow":
-			
-		case "invite":
+	go ReadMessages(UserID)
+	go WriteMessages(UserID)
 
-		case "private_message":
-		
-		case "group_message":
-
-		}
-
-	case "group_chat":
-		GroupChat(*client, conn, r)
-	case "private_message":
-
-	}
 }

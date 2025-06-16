@@ -6,7 +6,7 @@ import ChatComponent from "./chat-component";
 import EmojiPicker from "@/components/common/emoji-picker";
 import { IoClose, IoSendSharp, IoChatbubbleEllipses } from "react-icons/io5";
 import Image from "next/image";
-
+import { websocket } from "@/lib/websocket/websocket";
 export default function FloatingChat({ currentUser }) {
   const [isOpen, setIsOpen] = useState(false);
   const [activeChat, setActiveChat] = useState(null);
@@ -24,9 +24,9 @@ export default function FloatingChat({ currentUser }) {
           {
             id: 1,
             user: {
-              id: 2,
-              firstName: "Jane",
-              lastName: "Smith",
+              id: "1def295f-6cb0-4257-b8f1-a7e7a7205e03",
+              firstName: "سعيد",
+              lastName: "طويل",
               avatar: "/uploads/profile.jpeg",
               isOnline: true,
             },
@@ -37,22 +37,6 @@ export default function FloatingChat({ currentUser }) {
               isRead: true,
             },
             unreadCount: 0,
-          },
-          {
-            id: 2,
-            user: {
-              id: 3,
-              firstName: "Mike",
-              lastName: "Johnson",
-              avatar: "/uploads/profile.jpeg",
-              isOnline: false,
-            },
-            lastMessage: {
-              content: "Could you give me feedback on my latest track? 🎵",
-              timestamp: "2023-03-26T15:20:00Z",
-              isRead: false,
-            },
-            unreadCount: 1,
           },
         ];
 
@@ -88,8 +72,34 @@ export default function FloatingChat({ currentUser }) {
     if (!newMessage.trim() || !activeChat) return;
 
     // In a real app, this would send the message through WebSocket
+    // this is simple of the data that backend expects
+    // type MessageStruct struct {
+    //   Sender    string `json:"sender"`
+    //   Receiver  string `json:"receiver"`
+    //   Content   string `json:"content"`
+    //   Type      string `json:"type"`
+    //   FirstTime bool   `json:"first_time"`
+    //   SessionID string `json:"session_id"`
+    // }
+    console.log("handleSendMessage Function called with message:", newMessage);
     
-
+    websocket.send({
+      sender: currentUser.id,
+      receiver: activeChat.user.id,
+      content: newMessage,
+      type: "private_message",
+      first_time: false,//
+      session_id: "", // Assuming session_id is the chat ID
+    });
+    console.log("Message sent:", {
+      sender: currentUser.id,
+      receiver: activeChat.user.id,
+      content: newMessage,
+      type: "private_message",
+      first_time: false,
+      session_id: "",
+    });
+    
     // Reset input
     setNewMessage("");
   };
@@ -190,7 +200,7 @@ export default function FloatingChat({ currentUser }) {
                       {chat.user.firstName} {chat.user.lastName}
                     </div>
                     <div className={styles.chatListItemMessage}>
-                      {chat.lastMessage.content}
+                      {chat.lastMessage.content}x
                     </div>
                   </div>
                   <div className={styles.chatListItemMeta}>
@@ -209,7 +219,7 @@ export default function FloatingChat({ currentUser }) {
               <div className={styles.emptyState}>No recent messages</div>
             )}
           </div>
-          <div className={styles.chatListFooter}>
+          {/* <div className={styles.chatListFooter}>
             <form
               className={styles.quickMessageForm}
               onSubmit={handleSendMessage}
@@ -234,7 +244,7 @@ export default function FloatingChat({ currentUser }) {
                  <IoSendSharp size={16} />
               </button>
             </form>
-          </div>
+          </div> */}
         </div>
       )}
     </div>

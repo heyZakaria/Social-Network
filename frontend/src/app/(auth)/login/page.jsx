@@ -70,6 +70,7 @@ if (currentUser) {
   if (loading) return <div>Loading...</div>;
 
   return (
+
     <div className={styles.loginContainer}>
       <h2 className={styles.heading3}>Sign In</h2>
       <p className={styles.subtitle}>

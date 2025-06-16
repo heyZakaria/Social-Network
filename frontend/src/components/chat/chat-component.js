@@ -5,8 +5,10 @@ import styles from "@/styles/chat.module.css";
 import EmojiPicker from "@/components/common/emoji-picker";
 import { IoSendSharp } from "react-icons/io5";
 import Image from "next/image";
+import { websocket } from "@/lib/websocket/websocket";
 
 
+export let Messages = [];
 
 export default function ChatComponent({ currentUser, otherUser }) {
   const [messages, setMessages] = useState([]);
@@ -20,37 +22,18 @@ export default function ChatComponent({ currentUser, otherUser }) {
     const fetchMessages = async () => {
       try {
         // Simulate API call
+        // Fetch messages from the server or WebSocket
+        // Send websocket message to fetch initial messages
+        setIsLoading(true);
         setTimeout(() => {
-          const mockMessages = [
-            {
-              id: 1,
-              fromUserId: currentUser.id,
-              toUserId: otherUser.id,
-              content: "Hey, how's your photography project coming along? 📸",
-              read: true,
-              createdAt: "2023-03-26T10:30:00Z",
-            },
-            {
-              id: 2,
-              fromUserId: otherUser.id,
-              toUserId: currentUser.id,
-              content:
-                "It's going great! I'll share some previews with you soon. 😊",
-              read: true,
-              createdAt: "2023-03-26T10:35:00Z",
-            },
-            {
-              id: 3,
-              fromUserId: currentUser.id,
-              toUserId: otherUser.id,
-              content:
-                "That would be awesome! I'm looking forward to seeing them. 🙌",
-              read: true,
-              createdAt: "2023-03-26T10:40:00Z",
-            },
-          ];
+           websocket.send({
+            sender: currentUser.id,
+            receiver: otherUser.id,
+            type: "fetch_messages",
+            session_id: "", // Assuming session_id is the chat ID
+          });
 
-          setMessages(mockMessages);
+          setMessages(Messages);
           setIsLoading(false);
         }, 1000);
       } catch (error) {
@@ -90,6 +73,23 @@ export default function ChatComponent({ currentUser, otherUser }) {
       createdAt: new Date().toISOString(),
     };
 
+     console.log("handleSendMessage Function called with message:", newMessage);
+        websocket.send({
+          sender: currentUser.id,
+          receiver: otherUser.id,
+          content: newMessage,
+          type: "private_message",
+          first_time: false,//
+          session_id: "", // Assuming session_id is the chat ID
+        });
+        console.log("Message sent:", {
+          sender: currentUser.id,
+          receiver: otherUser.id,
+          content: newMessage,
+          type: "private_message",
+          first_time: false,
+          session_id: "",
+        });
     setMessages([...messages, newMsg]);
     setNewMessage("");
   };

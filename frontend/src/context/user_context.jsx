@@ -1,6 +1,6 @@
 'use client';
 import { createContext, useContext, useState, useEffect } from 'react';
-
+import { OpenWebSocket } from '@/lib/websocket/websocket.js'; // Adjust the import path as needed
 const UserContext = createContext(null);
 
 export function UserProvider({ children }) {
@@ -17,6 +17,7 @@ export function UserProvider({ children }) {
       if (res.ok) {
         const json = await res.json();
         setUser(json.data.Data);
+        OpenWebSocket();
         console.log("//////////////////////////////////",json.data.Data);
         
       } else {
@@ -31,6 +32,7 @@ export function UserProvider({ children }) {
 
   useEffect(() => {
     fetchUser();
+
   }, []);
 
   return (
