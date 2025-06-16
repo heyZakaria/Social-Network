@@ -16,10 +16,10 @@ func GroupMux() http.Handler {
 	mux.HandleFunc("POST /invite/approve", handleAdminApproveInvite)
 	mux.HandleFunc("GET /group/members", getGroupMembers)
 	mux.HandleFunc("GET /group/pending", handlePendingInvites)
-	mux.HandleFunc("POST /group/inviteResponse", handleInviteResponse) 
+	mux.HandleFunc("POST /group/inviteResponse", handleInviteResponse)
 
-	mux.HandleFunc("POST /newEvent", Event.CreateEvent)               // 	/groups/{id}/newEvent
-	mux.HandleFunc("GET /events", Event.GetGroupEvents)               // 	/groups/{id}/events
+	mux.HandleFunc("POST /newEvent", Event.CreateEvent)                   // 	/groups/{id}/newEvent
+	mux.HandleFunc("GET /events", Event.GetGroupEvents)                   // 	/groups/{id}/events
 	mux.HandleFunc("POST /{event_id}/response", Event.GroupEventResponse) //  	/groups/{id}/event/{event_id}/response
 
 	return mux

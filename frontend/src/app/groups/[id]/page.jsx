@@ -210,7 +210,6 @@ export default function GroupCard({ children }) {
       })
     setLoading(false)
   }, [groupId])
-  // console.log(`../../public/uploads/${group.covername}`);
 
   if (loading) return <p>Data is Loading</p>
   if (err !== null) return <p>{err}</p>

@@ -23,7 +23,7 @@ func getGroup(w http.ResponseWriter, r *http.Request) {
 		})
 		return
 	}
-	GroupExist, MemberExist, Err := ValidateGroup(db.DB, GroupId, UserId)
+	GroupExist, MemberExist, Err := shared.ValidateGroup(db.DB, GroupId, UserId)
 	if Err != nil {
 		utils.SendJSON(w, http.StatusInternalServerError, utils.JSONResponse{
 			Success: false,

@@ -3821,3 +3821,18 @@
 2025/06/16 20:43:32 [INFO] 2025-06-16 20:43:32 - Group With ID : 3 Fetched With Success
 2025/06/16 20:43:47 [INFO] 2025-06-16 20:43:47 - Recieved Request To fetch Group page
 2025/06/16 20:43:47 [INFO] 2025-06-16 20:43:47 - Group With ID : 3 Fetched With Success
+2025/06/16 21:16:00 [INFO] 2025-06-16 21:16:00 - Starting HTTP server at http://localhost:8080 ...
+2025/06/16 21:16:00 [INFO] 2025-06-16 21:16:00 - Migrations applied successfully!
+2025/06/16 21:16:07 [INFO] 2025-06-16 21:16:07 - Recieved Request for fetching groups
+2025/06/16 21:16:07 [INFO] 2025-06-16 21:16:07 - Groups Fetched Successfuly
+2025/06/16 21:16:12 [INFO] 2025-06-16 21:16:12 - Recieved Request To fetch Group page
+2025/06/16 21:16:12 [INFO] 2025-06-16 21:16:12 - Group With ID : 2 Fetched With Success
+2025/06/16 21:16:12 [INFO] 2025-06-16 21:16:12 - Recieved Request To fetch Group page
+2025/06/16 21:16:12 [INFO] 2025-06-16 21:16:12 - Group With ID : 2 Fetched With Success
+2025/06/16 21:22:38 [INFO] 2025-06-16 21:22:38 - Starting HTTP server at http://localhost:8080 ...
+2025/06/16 21:22:38 [INFO] 2025-06-16 21:22:38 - Migrations applied successfully!
+2025/06/16 21:23:03 [ERROR] 2025-06-16 21:23:03 - Token cookie is missing in GetToken
+2025/06/16 21:24:52 [ERROR] 2025-06-16 21:24:52 - Token cookie is missing in GetToken
+2025/06/16 21:26:30 [INFO] 2025-06-16 21:26:30 - Recieved Request To fetch Group page
+2025/06/16 21:26:30 [INFO] 2025-06-16 21:26:30 - Group With ID : 2 Fetched With Success
+2025/06/16 21:34:45 [ERROR] 2025-06-16 21:34:45 - Failed to parse multipart form: request Content-Type isn't multipart/form-data
