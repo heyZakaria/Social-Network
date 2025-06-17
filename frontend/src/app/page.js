@@ -1,19 +1,17 @@
 "use client";
 
 import { useEffect } from "react";
-import styles from "@/styles/home.module.css";
 import Image from "next/image";
 import FloatingChat from "@/components/chat/floating-chat";
 import { useUser } from "@/context/user_context";
-import { useRouter } from "next/navigation";
-import CreatePost from "@/components/posts/create-post";
-import PostComponent from "@/components/posts/post-component";
-import { useState } from "react";
-import { FetchData } from "@/context/fetchJson";
+
+import PostFeeds from "@/components/posts/posts-feed";
+import styles from "@/styles/home.module.css";
 import usePosts from "@/hooks/usePosts";
+import CreatePost from "@/components/posts/create-post";
 export default function Home() {
   const {posts , loading , hasMore , loadMore , RefrechPosts} = usePosts()
-  //   const { user: currentUser } = useUser();
+    const { user: currentUser } = useUser();
   //   const [posts, setPosts] = useState([]);
   //   const [offset, setOffset] = useState(0);
   //   const limit = 10; // You can change this value if needed
@@ -77,41 +75,16 @@ export default function Home() {
     <div className={styles.homePage}>
       {currentUser ? (
         <>
-          <div className={styles.mainContent}>
-            <CreatePost Refrech={RefrechPosts}/>
-            <div className={styles.contentArea}>
-              <div className={styles.feed}>
-                {loading && posts.length === 0 ? (
-                  <p>Loading...</p>
-                ) : posts.length > 0 ? (
-                  <>
-                    {posts.map((post) => (
-                      <PostComponent
-                        key={post.PostId}
-                        post={post}
-                        user={currentUser} // or actual logged in user
-                        currentUser={currentUser}
-                      />
-                    ))}
-
-                    {hasMore && (
-                      <button
-                        className={styles.loadMoreButton}
-                        onClick={loadMore}
-                        disabled={loading}
-                      >
-                        {loading ? "Loading..." : "Load More"}
-                      </button>
-                    )}
-                  </>
-                ) : (
-                  <div className={styles.emptyState}>
-                    <p>No posts yet</p>
-                  </div>
-                )}
-              </div>
-            </div>
-          </div>
+                <CreatePost Refrech={RefrechPosts}
+           />
+          <PostFeeds
+          posts={posts}
+          loading={loading}
+          loadMore={loadMore}
+          hasMore={hasMore}
+          RefrechPosts={RefrechPosts}
+          currentUser={currentUser}
+          ></PostFeeds>
           <FloatingChat currentUser={currentUser} />
         </>
       ) : (

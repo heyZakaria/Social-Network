@@ -56,9 +56,9 @@ func PostsPagination(w http.ResponseWriter, r *http.Request) {
 	// we will get the posts from the database
 	Posts := []Post{}
 	// Prepare the statement
-	query := "SELECT * FROM posts ORDER BY created_at DESC LIMIT ? OFFSET ?"
+	query := "SELECT * FROM posts  WHERE  group_id IS NULL ORDER BY created_at DESC LIMIT ? OFFSET ?"
 	if specificUser != "" {
-		query = "SELECT * FROM posts WHERE user_id = ? ORDER BY created_at DESC LIMIT ? OFFSET ?"
+		query = "SELECT * FROM posts WHERE user_id = ? AND group_id IS NULL  ORDER BY created_at DESC LIMIT ? OFFSET ?"
 	} else if GroupId != "" {
 		query = "SELECT * FROM posts WHERE  group_id = ? ORDER BY created_at DESC LIMIT ? OFFSET ?"
 	}

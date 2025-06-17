@@ -8,6 +8,10 @@ import { useRouter } from "next/navigation";
 import ShowEventForm from "@/components/events/newEvent";
 import CreatePost from "@/components/posts/create-post";
 import Link from "next/link";
+import PostFeeds from "@/components/posts/posts-feed";
+import { useUser } from "@/context/user_context";
+import usePosts from "@/hooks/usePosts";
+
 
 
 function isMember(DummyTest) {
@@ -138,7 +142,6 @@ function Description({ Text }) {
   return <p className={styles.Description}>{Text}</p>;
 }
 export default function GroupCard({ children }) {
-  const [refrech, setRefrech] = useState(0);
   const [group, setGroup] = useState([])
   const [err, SetErr] = useState(null)
   const [loading, setLoading] = useState(true)
@@ -147,10 +150,10 @@ export default function GroupCard({ children }) {
   const [invitedFriends, setInvitedFriends] = useState(
     FriendsList1.map(friend => ({ ...friend, invited: false }))
   );
-
-
+  const { user: currentUser } = useUser();
   const p = useParams()
   const groupId = p.id
+  const {posts , loadingPosts , hasMore , loadMore , RefrechPosts} = usePosts({groupId:groupId , limit:10})
   console.log("groupId:", groupId);
 
   const handleInvite = (id) => {
@@ -239,7 +242,18 @@ export default function GroupCard({ children }) {
       
       {ShowInvite && <InviteFriends FriendsList={invitedFriends} onInvite={handleInvite}></InviteFriends>}
       {ShowInvite && <ShowEventForm ></ShowEventForm>}
-      <CreatePost Refrech={HandleRefrech} GroupId={groupId}/>
+        <CreatePost Refrech={RefrechPosts}
+            GroupId={groupId}/>
+      <PostFeeds
+            posts={posts}
+          loading={loadingPosts}
+          loadMore={loadMore}
+          hasMore={hasMore}
+          RefrechPosts={RefrechPosts}
+          currentUser={currentUser}
+          groupId={groupId}
+      ></PostFeeds>
+      
     </div>
 
   )

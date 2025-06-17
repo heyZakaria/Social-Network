@@ -1,5 +1,7 @@
 import { useState , useEffect } from "react";
-export default function usePosts({groupId = null , limit = 10}){
+import { FetchData } from "@/context/fetchJson";
+
+export default function usePosts({groupId , limit}={groupId : null , limit : 10}){
  const [posts, setPosts] = useState([]);
     const [offset, setOffset] = useState(0);
     const [loading, setLoading] = useState(false);
