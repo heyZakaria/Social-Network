@@ -1,5 +1,3 @@
-import { Messages } from "@/components/chat/chat-component";
-
 let socket = null;
 
 export const websocket = {
@@ -27,7 +25,7 @@ export const closeWebSocket = () => {
 
 export const OpenWebSocket = () => {
  if (!socket || (socket.readyState !== WebSocket.OPEN && socket.readyState !== WebSocket.CONNECTING)) {
-    socket = new WebSocket(`ws://localhost:8080/ws`);
+    socket = new WebSocket(`ws://localhost:8080/api/websocket/ws`);
 
     socket.onopen = () => {
         console.log("🟢  WebSocket connection established");
@@ -35,7 +33,6 @@ export const OpenWebSocket = () => {
 
     socket.onmessage = (event) => {
         const data = JSON.parse(event.data);
-        Messages.push(data);
         console.log("➡️ Message received:", data);
     };
 

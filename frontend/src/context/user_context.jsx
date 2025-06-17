@@ -1,6 +1,7 @@
 'use client';
 import { createContext, useContext, useState, useEffect } from 'react';
 import { OpenWebSocket } from '@/lib/websocket/websocket.js'; // Adjust the import path as needed
+import FloatingChat from '@/components/chat/floating-chat';
 const UserContext = createContext(null);
 
 export function UserProvider({ children }) {
@@ -37,6 +38,8 @@ export function UserProvider({ children }) {
 
   return (
     <UserContext.Provider value={{ user, loading, setUser, fetchUser }}>
+       {/* Always visible floating chat */}
+     
       {children}
     </UserContext.Provider>
   );

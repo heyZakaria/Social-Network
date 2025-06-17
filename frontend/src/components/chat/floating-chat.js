@@ -38,6 +38,23 @@ export default function FloatingChat({ currentUser }) {
             },
             unreadCount: 0,
           },
+          {
+            id: 2,
+            user: {
+              id: "2ae22a0b-a316-475e-a8a4-6ccf86bb1aa1",
+              firstName: "med",
+              lastName: "as",
+              avatar: "/uploads/profile.jpeg",
+              isOnline: true,
+            },
+            lastMessage: {
+              content:
+                "It's going great! I'll share some previews with you soon. 😊",
+              timestamp: "2023-03-26T10:35:00Z",
+              isRead: true,
+            },
+            unreadCount: 0,
+          },
         ];
 
         setRecentChats(mockChats);

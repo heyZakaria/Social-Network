@@ -6,9 +6,9 @@ import EmojiPicker from "@/components/common/emoji-picker";
 import { IoSendSharp } from "react-icons/io5";
 import Image from "next/image";
 import { websocket } from "@/lib/websocket/websocket";
+import { FetchData } from "@/context/fetchJson";
 
 
-export let Messages = [];
 
 export default function ChatComponent({ currentUser, otherUser }) {
   const [messages, setMessages] = useState([]);
@@ -25,15 +25,17 @@ export default function ChatComponent({ currentUser, otherUser }) {
         // Fetch messages from the server or WebSocket
         // Send websocket message to fetch initial messages
         setIsLoading(true);
-        setTimeout(() => {
-           websocket.send({
-            sender: currentUser.id,
-            receiver: otherUser.id,
-            type: "fetch_messages",
-            session_id: "", // Assuming session_id is the chat ID
-          });
-
-          setMessages(Messages);
+        // Generate Session id 
+        let sessionId = ""
+        if (currentUser.id < otherUser.id){
+          sessionId = currentUser.id + "_" + otherUser.id
+        }else{
+          sessionId = otherUser.id + "_" + currentUser.id
+        }
+        setTimeout(async () => {
+          const response = await FetchData(`/api/websocket/Get_Chat_History?session_id=${sessionId}`)
+          console.log("Response Chat History", response);
+          setMessages(response.data.Messages);
           setIsLoading(false);
         }, 1000);
       } catch (error) {
@@ -66,10 +68,13 @@ export default function ChatComponent({ currentUser, otherUser }) {
     // For now, we'll just add it to the local state
     const newMsg = {
       id: Date.now(),
-      fromUserId: currentUser.id,
-      toUserId: otherUser.id,
-      content: newMessage,
       read: false,
+      sender: currentUser.id,
+      receiver: otherUser.id,
+      content: newMessage,
+      type: "private_message",
+      first_time: false,//
+      session_id: "", // Assuming session_id is the chat ID
       createdAt: new Date().toISOString(),
     };
 
@@ -87,7 +92,7 @@ export default function ChatComponent({ currentUser, otherUser }) {
           receiver: otherUser.id,
           content: newMessage,
           type: "private_message",
-          first_time: false,
+          first_time: false,  
           session_id: "",
         });
     setMessages([...messages, newMsg]);
@@ -124,7 +129,10 @@ export default function ChatComponent({ currentUser, otherUser }) {
           <div className={styles.loading}>Loading messages...</div>
         ) : messages.length > 0 ? (
           messages.map((message) => {
-            const isOwnMessage = message.fromUserId === currentUser.id;
+            console.log("currentUser.id", message, );
+            console.log("message.Sender.id", message.Sender, );
+            
+            const isOwnMessage = message.sender === currentUser.id;
 
             return (
               <div
