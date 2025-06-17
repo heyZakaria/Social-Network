@@ -8,6 +8,7 @@ import { useUser } from '@/context/user_context';
 import FollowButton from '@/components/profile/follow-button';
 import { useFriends } from '@/context/friends_context';
 import Image from "next/image";
+import {useAcceptReject} from '@/hooks/use_accept_reject';
 
 export default function FriendsPage() {
   const { currentUser } = useUser();
@@ -21,23 +22,14 @@ export default function FriendsPage() {
     refetch,
   } = useFriends();
 
-  const [handledRequests, setHandledRequests] = useState({});
+  // const [handledRequests, setHandledRequests] = useState({});
+
+  const { handledRequests, accept, reject } = useAcceptReject(handleAcceptRequest, handleRejectRequest, refetch);
 
   useEffect(() => {
     refetch();
   }, []);
 
-  const handleAccept = async (id) => {
-    setHandledRequests((prev) => ({ ...prev, [id]: 'accepted' }));
-    await handleAcceptRequest(id);
-    refetch();
-  };
-
-  const handleReject = async (id) => {
-    setHandledRequests((prev) => ({ ...prev, [id]: 'rejected' }));
-    await handleRejectRequest(id);
-    refetch();
-  };
 
   if (loading) return <div className={styles.loading}>Loading...</div>;
 
@@ -83,21 +75,21 @@ export default function FriendsPage() {
                       {friend.nickName && <p className={styles.friendNickname}>({friend.nickName})</p>}
                     </div>
                     <div className={styles.friendActions}>
-                      {handledRequests[friend.id] === 'accepted' ? (
+                      {handledRequests[friend.id] === "accepted" ? (
                         <div className={styles.acceptedStatus}>Accepted</div>
-                      ) : handledRequests[friend.id] === 'rejected' ? (
+                      ) : handledRequests[friend.id] === "rejected" ? (
                         <div className={styles.rejectedStatus}>Rejected</div>
                       ) : (
                         <>
                           <button
                             className={`${styles.followButton} ${styles.acceptButton}`}
-                            onClick={() => handleAccept(friend.id)}
+                            onClick={() => accept(friend.id)}
                           >
                             Accept
                           </button>
                           <button
                             className={`${styles.ignoreButton} ${styles.rejectButton}`}
-                            onClick={() => handleReject(friend.id)}
+                            onClick={() => reject(friend.id)}
                           >
                             Reject
                           </button>

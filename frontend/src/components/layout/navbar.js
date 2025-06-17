@@ -31,13 +31,11 @@ import NotificationItem from "@/components/notifications/notification-item";
 
 
 export default function Navbar({ user }) {
-  const router = useRouter();
   const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isNotificationsOpen, setIsNotificationsOpen] = useState(false);
   const [isMessagesOpen, setIsMessagesOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [unreadMessages, setUnreadMessages] = useState(0);
 
 
   const { notifications, unreadCount, markAsRead } = useNotifications();
@@ -141,12 +139,6 @@ export default function Navbar({ user }) {
                   <div className={`${styles.dropdown} ${notifStyles.notificationsContainer}`}>
                     <div className={styles.dropdownHeader}>
                       <h3>Notifications</h3>
-                      {/* <button
-                      className={styles.markAllRead}
-                      onClick={handleMarkAllAsRead}
-                      >
-                      Mark all as read
-                      </button> */}
                     </div>
                     <div className={styles.dropdownContent}>
                       {notifications.length > 0 ? (
@@ -176,72 +168,6 @@ export default function Navbar({ user }) {
                     </div>
 
                     <div className={styles.dropdownFooter}></div>
-                  </div>
-                )}
-              </div>
-
-              <div className={styles.iconContainer}>
-                <button
-                  className={styles.iconButton}
-                  onClick={() => {
-                    setIsMessagesOpen(!isMessagesOpen);
-                    setIsNotificationsOpen(false);
-                    setIsMenuOpen(false);
-                  }}
-                >
-                  <HiChatBubbleOvalLeftEllipsis size={20} />
-                  {unreadMessages > 0 && (
-                    <span className={styles.badge}>{unreadMessages}</span>
-                  )}
-                </button>
-
-                {isMessagesOpen && (
-                  <div className={styles.dropdown}>
-                    <div className={styles.dropdownHeader}>
-                      <h3>Messages</h3>
-                    </div>
-                    <div className={styles.dropdownContent}>
-                      <div className={`${styles.messageItem} ${styles.unread}`}>
-                        <Image width={200} height={100}
-                          src="/uploads/profile.jpeg"
-                          alt="Jane Smith"
-                          className={styles.messageAvatar}
-                        />
-                        <div className={styles.messageContent}>
-                          <p className={styles.messageName}>Jane Smith</p>
-                          <p className={styles.messageText}>
-                            It's going great! I'll share some previews with you
-                            soon.
-                          </p>
-                          <span className={styles.messageTime}>
-                            2 hours ago
-                          </span>
-                        </div>
-                      </div>
-                      <div className={styles.messageItem}>
-                        <Image width={200} height={100}
-                          src="/uploads/profile.jpeg"
-                          alt="Mike Johnson"
-                          className={styles.messageAvatar}
-                        />
-                        <div className={styles.messageContent}>
-                          <p className={styles.messageName}>Mike Johnson</p>
-                          <p className={styles.messageText}>
-                            Thanks for the feedback on my track!
-                          </p>
-                          <span className={styles.messageTime}>Yesterday</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div className={styles.dropdownFooter}>
-                      {/* <Link
-                        href="/messages"
-                        className={styles.viewAll}
-                        onClick={closeAllMenus}
-                      >
-                        View all messages
-                      </Link> */}
-                    </div>
                   </div>
                 )}
               </div>
