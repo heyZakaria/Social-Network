@@ -26,21 +26,18 @@ func fetchGroups(w http.ResponseWriter, r *http.Request) {
 		fmt.Println("1")
 		return
 	} */
-
 	User_id := r.Context().Value(shared.UserIDKey).(string)
 	Groups, err := GetGroups(db.DB, User_id)
-	// fmt.Println("GROOOOPS", User_id, "sss", Groups)
 	if err != nil {
 		utils.Log("Error Fetching Groups", err.Error())
 		utils.SendJSON(w, http.StatusUnauthorized, utils.JSONResponse{
 			Success: false,
-			Message: "err.Error()",
+			Message: err.Error(),
 		})
-		fmt.Println("2", err)
+		fmt.Println("2")
 
 		return
 	}
-	// fmt.Println("ALL GROUPS", Groups)
 	utils.Log("INFO", "Groups Fetched Successfuly")
 	for _, grop := range Groups {
 		fmt.Print("____________________________")
@@ -54,9 +51,7 @@ func fetchGroups(w http.ResponseWriter, r *http.Request) {
 	}
 	utils.SendJSON(w, http.StatusOK, utils.JSONResponse{
 		Success: true,
-		Data: map[string]any{
-			"Groups": Groups,
-		},
+		Data:    Groups,
 	})
 }
 
@@ -64,7 +59,7 @@ func GetGroups(db *sql.DB, currentUserID string) ([]Group, error) {
 	query := `
 SELECT  
     g.title, 
-    g.description, 
+    g.description,
     g.covername, 
     g.id, 
     (SELECT COUNT(*) FROM groupMember WHERE group_id = g.id AND (memberState = "Member" OR memberState = "Admin" )) AS member_count,  
@@ -72,6 +67,7 @@ SELECT
 FROM groups g 
 LEFT JOIN groupMember gmCurrent 
     ON gmCurrent.group_id = g.id AND gmCurrent.user_id = ?
+
 	`
 
 	rows, err := db.Query(query, currentUserID)

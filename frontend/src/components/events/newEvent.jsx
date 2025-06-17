@@ -1,7 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import styles from "@/styles/newEvent.module.css";
+import styles from "@/components/events/newEvent.module.css";
+import { useParams } from "next/navigation";
 
 export default function ShowEventForm() {
     const [showForm, setShowForm] = useState(false);
@@ -15,6 +16,10 @@ export default function ShowEventForm() {
     });
     const [errors, setErrors] = useState({});
     const [serverError, setServerError] = useState('')
+
+    const p = useParams()
+    const groupId = p.id
+    console.log("===================groupId:", groupId);
 
     const handleClick = () => {
         setShowForm(!showForm);
@@ -73,7 +78,9 @@ export default function ShowEventForm() {
             return; // Don't submit the form if there are errors
         }
 
-        SendEventForm(formData)
+
+
+        SendEventForm(formData, groupId)
 
         setFormData({ title: "", description: "", day: "", time: "", date: "", location: "" });
     };
@@ -151,14 +158,18 @@ export default function ShowEventForm() {
 }
 
 
-function SendEventForm(formData) {
+function SendEventForm(formData, groupId) {
     // Last version --> /groups/{id}/newEvent
-    fetch("/api/events/newEvent", {
+
+
+    fetch(`http://localhost:8080/api/groups/${groupId}/newEvent`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
         },
         body: JSON.stringify(formData),
+        credentials: 'include'
+
     })
         .then((res) => {
             if (!res.ok) {

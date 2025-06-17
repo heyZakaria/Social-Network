@@ -15,21 +15,22 @@ import (
 )
 
 func createGroup(w http.ResponseWriter, r *http.Request) {
-	/* token := auth.GetToken(w, r)
-	if token == "" {
-		return
-	}
-	user_id, err := user.GetUserIDByToken(token)
-	if err != nil {
-		utils.Log("Error Getting User Token", err.Error())
-		utils.SendJSON(w, http.StatusUnauthorized, utils.JSONResponse{
-			Success: false,
-			Error:   err.Error(),
-		})
-		return
-	} */
+	/* 	token := auth.GetToken(w, r)
+	   	if token == "" {
+	   		return
+	   	}
+	   	user_id, err := user.GetUserIDByToken(token)
+	   	if err != nil {
+	   		utils.Log("Error Getting User Token", err.Error())
+	   		utils.SendJSON(w, http.StatusUnauthorized, utils.JSONResponse{
+	   			Success: false,
+	   			Error:   err.Error(),
+	   		})
+	   		return
+	   	}
+	   	utils.Log("INFO", "Received request for GroupCreation") */
 	user_id := r.Context().Value(shared.UserIDKey).(string)
-	utils.Log("INFO", "Received request for GroupCreation")
+
 	err := r.ParseMultipartForm(10 << 20)
 	if err != nil {
 		utils.Log("ERROR", "Failed to parse multipart form: "+err.Error())
@@ -73,6 +74,7 @@ func createGroup(w http.ResponseWriter, r *http.Request) {
 	utils.SendJSON(w, http.StatusOK, utils.JSONResponse{
 		Success: true,
 		Message: fmt.Sprintf("Group created successfully with ID %d", GroupId),
+		Data:    Group,
 	})
 	utils.Log("INFO", fmt.Sprintf("Group created successfully with ID: %d", GroupId))
 }
@@ -90,7 +92,7 @@ func (g Group) InputValidation() error {
 	if len(g.Title) < 10 || len(g.Title) > 100 {
 		return fmt.Errorf("Title must be between 10 and 100 characters")
 	}
-	if strings.TrimSpace(g.Description) == "" || len(g.Description) < 30 || len(g.Description) > 250 {
+	if len(g.Description) < 30 || len(g.Description) > 250 {
 		return fmt.Errorf("Description must be between 30 and 250 characters")
 	}
 
@@ -108,7 +110,7 @@ func (g Group) InputValidation() error {
 func (g Group) InsertGroup(db *sql.DB) (int, error) {
 	utils.Log("INFO", "Saving group into DB")
 	stmt, err := db.Prepare(`
-	INSERT INTO groups (title, descriptio, creator_id, covername)
+	INSERT INTO groups (title, description, creator_id, covername)
 	VALUES (?, ?, ?, ?)
 `)
 	if err != nil {
@@ -135,7 +137,7 @@ func (g Group) InsertGroup(db *sql.DB) (int, error) {
 
 func InsertGroupMember(db *sql.DB, state string, groupId string, userId string) (int, error) {
 	utils.Log("INFO", "Saving GroupMember into DB")
-	stmt, err := db.Prepare(`INSERT INTO groupMember (user_id, group_id,memberState ) VALUES (? , ? , ?) `)
+	stmt, err := db.Prepare(`INSERT OR REPLACE INTO groupMember (user_id, group_id,memberState ) VALUES (? , ? , ?) `)
 	if err != nil {
 		return -1, err
 	}

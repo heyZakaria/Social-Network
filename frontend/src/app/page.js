@@ -10,66 +10,67 @@ import CreatePost from "@/components/posts/create-post";
 import PostComponent from "@/components/posts/post-component";
 import { useState } from "react";
 import { FetchData } from "@/context/fetchJson";
-
+import usePosts from "@/hooks/usePosts";
 export default function Home() {
-  const { user: currentUser } = useUser();
-  const [posts, setPosts] = useState([]);
-  const [offset, setOffset] = useState(0);
-  const limit = 10; // You can change this value if needed
-  const [loading, setLoading] = useState(false);
-  const [hasMore, setHasMore] = useState(true); // for pagination
-  const [refrech, setRefrech] = useState(0);
-  useEffect(() => {
-    async function x() {
-      const data = await FetchData(
-        `/api/posts/getposts?limit=${limit}&offset=${offset}`
-      );
-      if (data.data.posts.length < limit) {
-        console.log("no more posts", data.data.posts.length);
-        console.log("no more posts", data.data.posts);
+  const {posts , loading , hasMore , loadMore , RefrechPosts} = usePosts()
+  //   const { user: currentUser } = useUser();
+  //   const [posts, setPosts] = useState([]);
+  //   const [offset, setOffset] = useState(0);
+  //   const limit = 10; // You can change this value if needed
+  //   const [loading, setLoading] = useState(false);
+  //   const [hasMore, setHasMore] = useState(true); // for pagination
+  //   const [refrech, setRefrech] = useState(0);
+  //   useEffect(() => {
+  //     async function x() {
+  //       const data = await FetchData(
+  //       `/api/posts/getposts?limit=${limit}&offset=${offset}`
+  //     );
+  //     if (data.data.posts.length < limit) {
+  //       console.log("no more posts", data.data.posts.length);
+  //       console.log("no more posts", data.data.posts);
 
-        setHasMore(false); // no more posts
-      }
-      setPosts((prev) => {
-        const existingIds = new Set(prev.map((p) => p.PostId));
-        const uniqueNewPosts = data.data.posts.filter(
-          (p) => !existingIds.has(p.PostId)
-        );
-        const combinedPosts = [...prev, ...uniqueNewPosts];
+  //       setHasMore(false); // no more posts
+  //     }
+  //     setPosts((prev) => {
+  //       const existingIds = new Set(prev.map((p) => p.PostId));
+  //       const uniqueNewPosts = data.data.posts.filter(
+  //         (p) => !existingIds.has(p.PostId)
+  //       );
+  //       const combinedPosts = [...prev, ...uniqueNewPosts];
       
-        // Sort posts from highest PostId to lowest
-        combinedPosts.sort((a, b) => b.PostId - a.PostId);
+  //       // Sort posts from highest PostId to lowest
+  //       combinedPosts.sort((a, b) => b.PostId - a.PostId);
       
-        return combinedPosts;
-      });
+  //       return combinedPosts;
+  //     });
       
-      setLoading(false);
-    }
-    setLoading(true); // TODO WAiting before setting it true
-    if (currentUser){
-      x();
-    }
-  }, [refrech ,offset]);
-
-  console.log("posts", posts);
-  console.log("hasMore", hasMore);
-
-  const loadMore = () => {
-    if (!loading && hasMore) {
-      setOffset((prev) => prev + limit);
-    }
-  };
-  // const router = useRouter();
-
-  // useEffect(() => {
-  //   if (!currentUser) {
-  //     router.push("/");
+  //     setLoading(false);
   //   }
-  // }, [currentUser, router]);
-  function RefrechPosts() {
-    // TODO Fix adding posts without reloading the page
-    setRefrech((prev) => prev + 1);
-  }
+  //   setLoading(true); // TODO WAiting before setting it true
+  //   if (currentUser){
+  //     x();
+  //   }
+  // }, [refrech ,offset]);
+
+  // console.log("posts", posts);
+  // console.log("hasMore", hasMore);
+
+  // const loadMore = () => {
+  //   if (!loading && hasMore) {
+  //     setOffset((prev) => prev + limit);
+  //   }
+  // };
+  // // const router = useRouter();
+
+  // // useEffect(() => {
+  // //   if (!currentUser) {
+  // //     router.push("/");
+  // //   }
+  // // }, [currentUser, router]);
+  // function RefrechPosts() {
+  //   // TODO Fix adding posts without reloading the page
+  //   setRefrech((prev) => prev + 1);
+  // }
   console.log("Image Component:", Image);
 
   return (

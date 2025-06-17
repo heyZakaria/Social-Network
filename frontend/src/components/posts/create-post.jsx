@@ -10,7 +10,7 @@ import Image from "next/image";
 
 
 const CreatePost = ({
-  Refrech
+  Refrech , GroupId
 }) => {
   // State for form data  
   const {user : currentUser} = useUser()
@@ -163,7 +163,7 @@ const CreatePost = ({
         console.log("data", formData);
 
 
-        const response = await fetch('/api/posts/createpost', {
+        const response = await fetch(GroupId ? `/api/posts/createpost?group_id=${GroupId}` : `/api/posts/createpost`, {
           method: 'POST',
           credentials: 'include', // This sends cookies with the request
           body: formData,
@@ -238,7 +238,7 @@ const CreatePost = ({
     <form onSubmit={publishPost} className={styles.postForm} id="postForm">
       <div className={styles.createPost}>
         <div className={styles.createPostHeader}>
-          <Image width={200} height={100}
+          <Image width={100} height={100}
             src={ currentUser.avatar || "/uploads/profile.jpeg"}
             alt="User Avatar"
             className={styles.createPostAvatar}
@@ -308,11 +308,15 @@ const CreatePost = ({
             style={{ display: 'none' }}
           />
 
-          <PopupPrivacy
+        {
+          // Conditional Rendrering : GroupId deos not exist => do not render popup
+          !GroupId && 
+         <PopupPrivacy
             followers={currentUser.followers || []}
             onPrivacyChange={handlePrivacyChange}
             disabled={isLoading}
           />
+           }
         </div>
 
         <button

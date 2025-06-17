@@ -22,7 +22,7 @@
 .createGroupForm {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 20px;
 }
 
 .formGroup {
@@ -131,7 +131,7 @@
 .GroupNav {
   display: flex;
   justify-content: center;
-  gap: 10px;
+  gap: 20px;
   margin-bottom: 25px;
 }
 
