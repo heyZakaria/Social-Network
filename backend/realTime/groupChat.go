@@ -22,6 +22,14 @@ func ReadMessages(UserID string) {
 	var err error
 
 	for {
+		mutex.Lock()
+		client, ok := clients[UserID]
+		mutex.Unlock()
+		if !ok || client == nil || client.Conn == nil {
+			utils.Log("ERROR", "Client not found or connection is nil for UserID: "+UserID)
+			break
+		}
+
 		err = client.Conn.ReadJSON(&msgs)
 		if err != nil {
 			utils.Log("ERROR", "Error reading JSON: "+err.Error())

@@ -25,9 +25,9 @@ export default function FloatingChat({ currentUser, profileData }) {
     // For now, we'll use mock data
     const fetchRecentChats = async () => {
       try {
-          const response = await FetchData(`/api/websocket/Get_Chat_History?chat_list=fetch`)
-        console.log("Response List Of users Chat History ", response.data.ChatList);
-        setRecentChats(response.data.ChatList);
+        const response = await FetchData(`/api/websocket/Get_Chat_History?chat_list=fetch`)
+        console.log("Response List Of users Chat History ", response?.data?.ChatList);
+        setRecentChats(response?.data?.ChatList || []);
         setUnreadCount(
           // response.data.ChatList.reduce((acc, chat) => acc + chat.unreadCount, 0)
         );
@@ -39,10 +39,13 @@ export default function FloatingChat({ currentUser, profileData }) {
     fetchRecentChats();
   }, [refresh]);
 
-  socket.onmessage = (event) => {
-      refreshChatList()
-      console.log("List Refreched From Floating chat comp");
+  if (socket && websocket) {
+    socket.onmessage = (event) => {
+          refreshChatList()
+          console.log("List Refreched From Floating chat comp");
+    }
   }
+ 
 //   {
 //     "id": 81,
 //     "sender": "1def295f-6cb0-4257-b8f1-a7e7a7205e03",
@@ -84,7 +87,6 @@ const GenerateChat = () => {
     setActiveChat(chat);
     console.log("Chat Example", chat);
     console.log("Active Chat", activeChat);
-    
     setIsOpen(true);
   };
 
