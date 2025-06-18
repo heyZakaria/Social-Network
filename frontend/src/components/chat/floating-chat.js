@@ -4,12 +4,18 @@ import { useState, useEffect } from "react";
 import styles from "@/styles/floating-chat.module.css";
 import ChatComponent from "./chat-component";
 import EmojiPicker from "@/components/common/emoji-picker";
-import { IoClose, IoSendSharp, IoChatbubbleEllipses } from "react-icons/io5";
+import { IoClose, IoChatbubbleEllipses, IoCloseSharp } from "react-icons/io5";
+import { IoIosArrowBack } from "react-icons/io";
+
 import Image from "next/image";
-import { websocket } from "@/lib/websocket/websocket";
-export default function FloatingChat({ currentUser }) {
+import {socket, websocket } from "@/lib/websocket/websocket";
+import { FetchData } from "@/context/fetchJson";
+import { date } from "zod";
+export default function FloatingChat({ currentUser, profileData }) {
+  
   const [isOpen, setIsOpen] = useState(false);
   const [activeChat, setActiveChat] = useState(null);
+  const [refresh, setRefresh] = useState(0);
   const [recentChats, setRecentChats] = useState([]);
   const [unreadCount, setUnreadCount] = useState(0);
   const [newMessage, setNewMessage] = useState("");
@@ -19,47 +25,11 @@ export default function FloatingChat({ currentUser }) {
     // For now, we'll use mock data
     const fetchRecentChats = async () => {
       try {
-        // Simulate API call
-        const mockChats = [
-          {
-            id: 1,
-            user: {
-              id: "1def295f-6cb0-4257-b8f1-a7e7a7205e03",
-              firstName: "سعيد",
-              lastName: "طويل",
-              avatar: "/uploads/profile.jpeg",
-              isOnline: true,
-            },
-            lastMessage: {
-              content:
-                "It's going great! I'll share some previews with you soon. 😊",
-              timestamp: "2023-03-26T10:35:00Z",
-              isRead: true,
-            },
-            unreadCount: 0,
-          },
-          {
-            id: 2,
-            user: {
-              id: "2ae22a0b-a316-475e-a8a4-6ccf86bb1aa1",
-              firstName: "med",
-              lastName: "as",
-              avatar: "/uploads/profile.jpeg",
-              isOnline: true,
-            },
-            lastMessage: {
-              content:
-                "It's going great! I'll share some previews with you soon. 😊",
-              timestamp: "2023-03-26T10:35:00Z",
-              isRead: true,
-            },
-            unreadCount: 0,
-          },
-        ];
-
-        setRecentChats(mockChats);
+          const response = await FetchData(`/api/websocket/Get_Chat_History?chat_list=fetch`)
+        console.log("Response List Of users Chat History ", response.data.ChatList);
+        setRecentChats(response.data.ChatList);
         setUnreadCount(
-          mockChats.reduce((acc, chat) => acc + chat.unreadCount, 0)
+          // response.data.ChatList.reduce((acc, chat) => acc + chat.unreadCount, 0)
         );
       } catch (error) {
         console.error("Error fetching recent chats:", error);
@@ -67,10 +37,54 @@ export default function FloatingChat({ currentUser }) {
     };
 
     fetchRecentChats();
-  }, []);
+  }, [refresh]);
 
+  socket.onmessage = (event) => {
+      refreshChatList()
+      console.log("List Refreched From Floating chat comp");
+  }
+//   {
+//     "id": 81,
+//     "sender": "1def295f-6cb0-4257-b8f1-a7e7a7205e03",
+//     "receiver": "6f336313-eb72-47c7-b727-c9fd1732e5a0",
+//     "content": "t4w5tt5t54trtw5wyw5yy5e6u6u65u6u565y63",
+//     "type": "private_message",
+//     "first_time": false,
+//     "session_id": "1def295f-6cb0-4257-b8f1-a7e7a7205e03_6f336313-eb72-47c7-b727-c9fd1732e5a0",
+//     "createdAt": "2025-06-18T02:38:59Z",
+//     "other_user_id": "6f336313-eb72-47c7-b727-c9fd1732e5a0",
+//     "other_first_name": "Omar",
+//     "other_last_name": "Elhacouch",
+//     "other_avatar": ""
+// }
+
+function generateChatSessionID(userID, receiverID) {
+  if (userID < receiverID) {
+    return `${userID}_${receiverID}`;
+  }
+  return `${receiverID}_${userID}`;
+}
+
+
+const GenerateChat = () => {
+  console.log("Profile Data", profileData);
+  
+  const chat = {
+    id: Date.now(),
+    session_id: generateChatSessionID(currentUser.id, profileData.id),
+    other_user_id: profileData.id,
+    other_first_name: profileData.firstName,
+    other_last_name: profileData.lastName,
+    other_avatar: profileData.avatar || "/uploads/profile.jpeg",
+  }
+  return chat
+}
   const handleChatSelect = (chat) => {
+    
     setActiveChat(chat);
+    console.log("Chat Example", chat);
+    console.log("Active Chat", activeChat);
+    
     setIsOpen(true);
   };
 
@@ -79,48 +93,18 @@ export default function FloatingChat({ currentUser }) {
     setActiveChat(null);
   };
 
+  const handleListChat = () => {
+    setIsOpen(true);
+    setActiveChat(null);
+  };
+
   const handleEmojiSelect = (emoji) => {
     setNewMessage((prevMessage) => prevMessage + emoji);
   };
 
-  const handleSendMessage = (e) => {
-    e.preventDefault();
-
-    if (!newMessage.trim() || !activeChat) return;
-
-    // In a real app, this would send the message through WebSocket
-    // this is simple of the data that backend expects
-    // type MessageStruct struct {
-    //   Sender    string `json:"sender"`
-    //   Receiver  string `json:"receiver"`
-    //   Content   string `json:"content"`
-    //   Type      string `json:"type"`
-    //   FirstTime bool   `json:"first_time"`
-    //   SessionID string `json:"session_id"`
-    // }
-    console.log("handleSendMessage Function called with message:", newMessage);
-    
-    websocket.send({
-      sender: currentUser.id,
-      receiver: activeChat.user.id,
-      content: newMessage,
-      type: "private_message",
-      first_time: false,//
-      session_id: "", // Assuming session_id is the chat ID
-    });
-    console.log("Message sent:", {
-      sender: currentUser.id,
-      receiver: activeChat.user.id,
-      content: newMessage,
-      type: "private_message",
-      first_time: false,
-      session_id: "",
-    });
-    
-    // Reset input
-    setNewMessage("");
+  const refreshChatList = () => {
+    setRefresh((prev) => prev + 1);
   };
-
   const formatTime = (dateString) => {
     const date = new Date(dateString);
     const now = new Date();
@@ -140,34 +124,40 @@ export default function FloatingChat({ currentUser }) {
     }
   };
 
+
   return (
+    <div>
+      <button className={styles.messageButton} onClick={() => handleChatSelect(GenerateChat())}>Message</button>
     <div className={styles.floatingChatContainer}>
       {isOpen && activeChat ? (
         <div className={styles.chatWindow}>
           <div className={styles.chatHeader}>
             <div className={styles.chatHeaderInfo}>
+              <div className={styles.backArrow}>
+                <IoIosArrowBack size={24} onClick={handleListChat} />
+              </div>
               <Image width={20} height={20}
                 src={
-                  activeChat.user.avatar ||
-                  "/placeholder.svg?height=32&width=32"
+                  activeChat.avatar|| "/uploads/profile.jpeg"
                 }
-                alt={activeChat.user.firstName}
+                alt={activeChat.other_first_name}
                 className={styles.chatHeaderAvatar}
               />
               <div className={styles.chatHeaderName}>
-                {activeChat.user.firstName} {activeChat.user.lastName}
+                {activeChat.other_first_name} {activeChat.other_last_name}
               </div>
             </div>
             <div className={styles.chatHeaderActions}>
               <button className={styles.chatHeaderAction} onClick={handleClose}>
-              <IoChatbubbleEllipses size={24} />
+              <IoCloseSharp size={24} />
               </button>
             </div>
           </div>
           <div className={styles.chatBody}>
             <ChatComponent
               currentUser={currentUser}
-              otherUser={activeChat.user}
+              otherUser={activeChat}
+              refresh={refreshChatList}
             />
           </div>
         </div>
@@ -192,7 +182,7 @@ export default function FloatingChat({ currentUser }) {
             </button>
           </div>
           <div className={styles.chatListContent}>
-            {recentChats.length > 0 ? (
+            {recentChats?.length > 0 ? (
               recentChats.map((chat) => (
                 <div
                   key={chat.id}
@@ -204,25 +194,26 @@ export default function FloatingChat({ currentUser }) {
                   <div className={styles.chatListItemAvatar}>
                     <Image width={200} height={100}
                       src={
-                        chat.user.avatar || "/uploads/profile.jpeg"
+                        chat.avatar || "/uploads/profile.jpeg"
                       }
-                      alt={chat.user.firstName}
+                      alt={chat.other_first_name}
                     />
-                    {chat.user.isOnline && (
+                    {/* {chat.user.isOnline && (
                       <div className={styles.onlineIndicator}></div>
-                    )}
+                    )} */}
                   </div>
                   <div className={styles.chatListItemInfo}>
                     <div className={styles.chatListItemName}>
-                      {chat.user.firstName} {chat.user.lastName}
+                      {chat.other_first_name} {chat.other_last_name}
                     </div>
                     <div className={styles.chatListItemMessage}>
-                      {chat.lastMessage.content}x
+                      {chat.content}
                     </div>
                   </div>
                   <div className={styles.chatListItemMeta}>
                     <div className={styles.chatListItemTime}>
-                      {formatTime(chat.lastMessage.timestamp)}
+                     
+                      {formatTime(chat.createdAt)}
                     </div>
                     {chat.unreadCount > 0 && (
                       <div className={styles.chatListItemBadge}>
@@ -265,5 +256,7 @@ export default function FloatingChat({ currentUser }) {
         </div>
       )}
     </div>
+    </div>
+
   );
 }

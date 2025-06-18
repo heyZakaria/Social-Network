@@ -150,7 +150,6 @@ export default function FriendsPage() {
         )}
       </div>
 
-      <FloatingChat currentUser={currentUser} />
     </div>
   );
 }

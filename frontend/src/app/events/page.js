@@ -170,7 +170,7 @@ export default async function EventsPage() {
             </div>
           ))}
         </div>
-        <FloatingChat currentUser={currentUser} />
+          <FloatingChat currentUser={currentUser} />
       </div>
     </>
   );

@@ -13,6 +13,67 @@ func Get_Chat_History(w http.ResponseWriter, r *http.Request) {
 	UserID := r.Context().Value(shared.UserIDKey).(string)
 	// Get Session ID
 	Session_ID := r.URL.Query().Get("session_id")
+	Chat_List := r.URL.Query().Get("chat_list")
+
+	if Chat_List == "fetch" {
+		// Get The Chat List
+		Query := `SELECT 
+					c.*,
+					u.id AS other_user_id,
+					u.first_name,
+					u.last_name,
+					u.avatar
+				FROM chats c
+				JOIN users u ON u.id = 
+					CASE 
+						WHEN c.sender_id = ? THEN c.receiver_id
+						ELSE c.sender_id
+					END
+				WHERE (c.sender_id = ? OR c.receiver_id = ?)
+				AND c.created_at IN (
+					SELECT MAX(created_at)
+					FROM chats
+					WHERE sender_id = ? OR receiver_id = ?
+					GROUP BY 
+						CASE 
+							WHEN sender_id = ? THEN receiver_id
+							ELSE sender_id
+						END
+				)
+				ORDER BY c.created_at DESC;
+	          `
+		rows, err := db.DB.Query(Query, UserID, UserID, UserID, UserID, UserID, UserID)
+		if err != nil {
+			utils.Log("ERROR", "Error fetching chat list from database: "+err.Error())
+			utils.SendJSON(w, http.StatusInternalServerError, utils.JSONResponse{
+				Success: false,
+				Message: "Error occured, Please try again later",
+				Error:   err.Error(),
+			})
+			return
+		}
+		defer rows.Close()
+
+		var ChatList []MessageStruct
+		for rows.Next() {
+			var item MessageStruct
+			if err := rows.Scan(&item.ID, &item.SessionID, &item.Sender, &item.Receiver, &item.Content, &item.Type, &item.CreatedAt, &item.Other_user_id, &item.Other_first_name, &item.Other_last_name, &item.Other_avatar); err != nil {
+				utils.Log("ERROR", "Error scanning row: "+err.Error())
+				continue
+			}
+			ChatList = append(ChatList, item)
+		}
+		utils.Log("INFO", "Chat USERS List Fetched successfully")
+		utils.SendJSON(w, http.StatusOK, utils.JSONResponse{
+			Success: true,
+			Message: "Chat List Fetched successfully",
+			Data: map[string]any{
+				"ChatList": ChatList,
+			},
+		})
+		return
+	}
+
 	if Session_ID == "" {
 		utils.Log("ERROR", "No Session id Provided: ")
 		utils.SendJSON(w, http.StatusInternalServerError, utils.JSONResponse{

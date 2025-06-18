@@ -39,7 +39,10 @@ export function UserProvider({ children }) {
   return (
     <UserContext.Provider value={{ user, loading, setUser, fetchUser }}>
        {/* Always visible floating chat */}
-     
+      {/* {user &&
+        // <FloatingChat currentUser={user} />
+        
+      } */}
       {children}
     </UserContext.Provider>
   );

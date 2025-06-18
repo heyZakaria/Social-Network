@@ -12,7 +12,7 @@ import Image from "next/image";
 import { FaLock } from "react-icons/fa";
 import { FetchData } from "@/context/fetchJson";
 
-export default function ProfileComponent({ ProfileData }) {
+export default function ProfileComponent({ ProfileData, currentUser }) {
   const [activeTab, setActiveTab] = useState("posts");
   if (!ProfileData) {
     return <div>Loading...</div>;
@@ -34,11 +34,11 @@ export default function ProfileComponent({ ProfileData }) {
           setLoading(false);
           return
         }
-        if (data.data.posts.length < limit) setHasMore(false); // no more posts
+        if (data?.data?.posts?.length < limit) setHasMore(false); // no more posts
         setPosts((prev) => {
           const existingIds = new Set(prev.map((p) => p.PostId));
-          const uniqueNewPosts = data.data.posts.filter((p) => !existingIds.has(p.PostId));
-          return [...prev, ...uniqueNewPosts];
+          const uniqueNewPosts = data?.data?.posts?.filter((p) => !existingIds.has(p.PostId));
+          return [...prev, ...uniqueNewPosts || []];
         });
       } finally {
         setLoading(false);
@@ -102,8 +102,11 @@ console.log("Following:", ProfileData.following);
                   <FollowButton targetUserId={ProfileData.id} />
                   {ProfileData.profile_status === "public" ||
                     ProfileData.CanView ? (
-                    <button className={styles.messageButton}>Message</button>
+                      <div>
+                      <FloatingChat currentUser={currentUser} profileData={ProfileData} />
+                     </div>
                   ) : null}
+
                 </div>
               )}
             </div>
@@ -216,7 +219,7 @@ console.log("Following:", ProfileData.following);
       )}
 
       {/* Always visible floating chat */}
-      <FloatingChat currentUser={ProfileData} />
+      {/* <FloatingChat currentUser={ProfileData} /> */}
     </div>
   );
 }

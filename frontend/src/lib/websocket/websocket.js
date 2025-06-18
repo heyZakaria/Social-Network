@@ -1,4 +1,4 @@
-let socket = null;
+export let socket = null;
 
 export const websocket = {
 	send: (message) => {
@@ -29,11 +29,6 @@ export const OpenWebSocket = () => {
 
     socket.onopen = () => {
         console.log("🟢  WebSocket connection established");
-    };
-
-    socket.onmessage = (event) => {
-        const data = JSON.parse(event.data);
-        console.log("➡️ Message received:", data);
     };
 
     socket.onclose = () => {

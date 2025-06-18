@@ -88,8 +88,7 @@
 }
 
 .editButton,
-.followButton,
-.messageButton {
+.followButton {
   padding: 8px 16px;
   border-radius: 6px;
   font-size: 14px;
@@ -129,15 +128,8 @@
   background-color: #d8dadf;
 }
 
-.messageButton {
-  background-color: #f0f2f5;
-  color: #050505;
-  border: none;
-}
 
-.messageButton:hover {
-  background-color: #e4e6eb;
-}
+
 
 .profileStats {
   display: flex;
@@ -428,8 +420,7 @@ input:checked + .slider:before {
   }
 
   .editButton,
-  .followButton,
-  .messageButton {
+  .followButton {
     font-size: 12px;
     padding: 6px 12px;
   }

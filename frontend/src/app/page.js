@@ -12,6 +12,7 @@ import { useState } from "react";
 import { FetchData } from "@/context/fetchJson";
 
 export default function Home() {
+  
   const { user: currentUser } = useUser();
   const [posts, setPosts] = useState([]);
   const [offset, setOffset] = useState(0);
@@ -77,6 +78,7 @@ export default function Home() {
       {currentUser ? (
         <>
           <div className={styles.mainContent}>
+            
             <CreatePost Refrech={RefrechPosts}/>
             <div className={styles.contentArea}>
               <div className={styles.feed}>
@@ -111,7 +113,6 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <FloatingChat currentUser={currentUser} />
         </>
       ) : (
         <div className={styles.hero}>
@@ -139,6 +140,7 @@ export default function Home() {
           </div>
         </div>
       )}
+        <FloatingChat currentUser={currentUser} />
     </div>
   );
 }
