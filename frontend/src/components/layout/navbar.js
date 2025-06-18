@@ -23,7 +23,7 @@ import {
 } from "react-icons/hi2";
 
 import { useNotifications } from "@/context/notifications-context";
-import { formatDate, getNotificationIcon } from "@/lib/notifications-utils";
+import { formatDate, getNotificationIcon } from "@/components/notifications/notifications-utils";
 import NotificationItem from "@/components/notifications/notification-item";
 
 

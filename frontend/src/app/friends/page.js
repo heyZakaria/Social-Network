@@ -8,7 +8,7 @@ import { useUser } from '@/context/user_context';
 import FollowButton from '@/components/profile/follow-button';
 import { useFriends } from '@/context/friends_context';
 import Image from "next/image";
-import {useAcceptReject} from '@/hooks/use_accept_reject';
+import { HiCheck, HiX } from "react-icons/hi";
 
 export default function FriendsPage() {
   const { currentUser } = useUser();
@@ -17,14 +17,9 @@ export default function FriendsPage() {
     requests = [],
     suggestions = [],
     loading,
-    handleAcceptRequest,
-    handleRejectRequest,
     refetch,
+    handledRequests, accept, reject
   } = useFriends();
-
-  // const [handledRequests, setHandledRequests] = useState({});
-
-  const { handledRequests, accept, reject } = useAcceptReject(handleAcceptRequest, handleRejectRequest, refetch);
 
   useEffect(() => {
     refetch();
@@ -85,13 +80,13 @@ export default function FriendsPage() {
                             className={`${styles.followButton} ${styles.acceptButton}`}
                             onClick={() => accept(friend.id)}
                           >
-                            Accept
+                            <HiCheck size={16} /> Accept
                           </button>
                           <button
                             className={`${styles.ignoreButton} ${styles.rejectButton}`}
                             onClick={() => reject(friend.id)}
                           >
-                            Reject
+                            <HiX size={16} /> Reject
                           </button>
                         </>
                       )}
@@ -141,7 +136,6 @@ export default function FriendsPage() {
           </div>
         )}
       </div>
-
       <FloatingChat currentUser={currentUser} />
     </div>
   );

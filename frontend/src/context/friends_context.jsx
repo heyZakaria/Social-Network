@@ -8,6 +8,7 @@ export function FriendsProvider({ children }) {
   const [requests, setRequests] = useState([]);
   const [loading, setLoading] = useState(true);
   const [statusCache, setStatusCache] = useState({});
+  const [handledRequests, setHandledRequests] = useState({});
 
   const fetchAll = async () => {
     setLoading(true);
@@ -36,7 +37,7 @@ export function FriendsProvider({ children }) {
       });
       const data = await res.json();
       console.log("Follow status response:", data);
-      
+
       const status = {
         isFollowing: data.data.Data?.IsFollowing || false,
         requestPending: data.data.Data?.RequestPending || false,
@@ -103,6 +104,19 @@ export function FriendsProvider({ children }) {
     }
   }
 
+  const accept = async (id) => {
+    setHandledRequests((prev) => ({ ...prev, [id]: "accepted" }));
+    await handleAcceptRequest(id);
+    fetchAll();
+  };
+
+  const reject = async (id) => {
+    setHandledRequests((prev) => ({ ...prev, [id]: "rejected" }));
+    await handleRejectRequest(id);
+    fetchAll();
+  };
+
+
   return (
     <FriendsContext.Provider
       value={{
@@ -114,6 +128,9 @@ export function FriendsProvider({ children }) {
         toggleFollow,
         handleAcceptRequest,
         handleRejectRequest,
+        handledRequests, 
+        accept,          
+        reject           
       }}
     >
       {children}

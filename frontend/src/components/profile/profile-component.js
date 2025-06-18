@@ -34,6 +34,8 @@ export default function ProfileComponent({ ProfileData }) {
           setLoading(false);
           return
         }
+        console.log("Fetched Posts:", data.data.posts);
+        
         if (data.data.posts.length < limit) setHasMore(false); // no more posts
         setPosts((prev) => {
           const existingIds = new Set(prev.map((p) => p.PostId));
