@@ -42,9 +42,8 @@ export default function FollowButton({ targetUserId }) {
   return (
     <>
       <button
-        className={`${styles.followButton} ${
-          status.isFollowing ? styles.following : status.requestPending ? styles.pending : ""
-        }`}
+        className={`${styles.followButton} ${status.isFollowing ? styles.following : status.requestPending ? styles.pending : ""
+          }`}
         onClick={handleClick}
         disabled={loading}
       >

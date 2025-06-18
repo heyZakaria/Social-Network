@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Link from 'next/link';
 import styles from '@/styles/friends.module.css';
 import FloatingChat from '@/components/chat/floating-chat';
@@ -17,14 +17,10 @@ export default function FriendsPage() {
     requests = [],
     suggestions = [],
     loading,
-    refetch,
-    handledRequests, accept, reject
+    handledRequests,
+    accept,
+    reject,
   } = useFriends();
-
-  useEffect(() => {
-    refetch();
-  }, []);
-
 
   if (loading) return <div className={styles.loading}>Loading...</div>;
 
@@ -78,13 +74,17 @@ export default function FriendsPage() {
                         <>
                           <button
                             className={`${styles.followButton} ${styles.acceptButton}`}
-                            onClick={() => accept(friend.id)}
+                            onClick={() => {
+                              accept(friend.id);
+                            }}
                           >
                             <HiCheck size={16} /> Accept
                           </button>
                           <button
                             className={`${styles.ignoreButton} ${styles.rejectButton}`}
-                            onClick={() => reject(friend.id)}
+                            onClick={() => {
+                              reject(friend.id);
+                            }}
                           >
                             <HiX size={16} /> Reject
                           </button>

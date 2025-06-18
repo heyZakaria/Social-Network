@@ -1,5 +1,5 @@
 'use client';
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState, useEffect } from "react";
 
 const FriendsContext = createContext();
 
@@ -15,17 +15,19 @@ export function FriendsProvider({ children }) {
     try {
       const res = await fetch("/api/users/friends", { credentials: "include" });
       const data = await res.json();
-      console.log("Friends response:::::::::::::::::::::::::", data);
       setSuggestions(data.data?.suggestions || []);
       setRequests(data.data?.requests || []);
-
-      console.log("Friends data:", data);
     } catch (e) {
-      setRequests([]);
       setSuggestions([]);
+      setRequests([]);
     }
     setLoading(false);
-  }
+  };
+
+  useEffect(() => {
+    fetchAll();
+  }, []);
+
   const getFollowStatus = async (userId) => {
     const id = String(userId);
     if (statusCache[id]) return statusCache[id];
@@ -36,8 +38,6 @@ export function FriendsProvider({ children }) {
         credentials: "include",
       });
       const data = await res.json();
-      console.log("Follow status response:", data);
-
       const status = {
         isFollowing: data.data.Data?.IsFollowing || false,
         requestPending: data.data.Data?.RequestPending || false,
@@ -45,92 +45,77 @@ export function FriendsProvider({ children }) {
       setStatusCache((prev) => ({ ...prev, [id]: status }));
       return status;
     } catch (err) {
-      console.error("Error getting follow status:", err);
       return { isFollowing: false, requestPending: false };
     }
   };
 
-  const toggleFollow = async (userId) => {
-    const id = String(userId);
-    try {
-      const res = await fetch(`/api/users/follow?id=${id}`, {
-        method: "POST",
-        credentials: "include",
-      });
-      const data = await res.json();
-      const updatedStatus = {
-        isFollowing: data.data.Data?.IsFollowing || false,
-        requestPending: data.data.Data?.RequestPending || false,
-      };
-      setStatusCache((prev) => ({ ...prev, [id]: updatedStatus }));
-      await fetchAll();
-      return updatedStatus;
-    } catch (err) {
-      console.error("Follow error:", err);
-      return { isFollowing: false, requestPending: false };
-    }
-  };
+const toggleFollow = async (userId) => {
+  const id = String(userId);
+  try {
+    const res = await fetch(`/api/users/follow?id=${id}`, {
+      method: "POST",
+      credentials: "include",
+    });
+    const data = await res.json();
+    const updatedStatus = {
+      isFollowing: data.data.Data?.IsFollowing || false,
+      requestPending: data.data.Data?.RequestPending || false,
+    };
+    setStatusCache((prev) => ({ ...prev, [id]: updatedStatus }));
+    await fetchAll();
+
+    return updatedStatus;
+  } catch (err) {
+    console.error("Follow error:", err);
+    return { isFollowing: false, requestPending: false };
+  }
+};
+
 
   const handleAcceptRequest = async (userId) => {
-    const id = String(userId);
     try {
-      const res = await fetch(`/api/users/accept?id=${id}`, {
+      await fetch(`/api/users/accept?id=${userId}`, {
         method: "POST",
         credentials: "include",
       });
-      const data = await res.json();
-      console.log("Accept request response:", data);
-      // await fetchAll();
-      // return data.data.Data;
     } catch (err) {
-      console.error("Error accepting friend request:", err);
-      return null;
+      console.error("Accept error", err);
     }
-  }
+  };
+
   const handleRejectRequest = async (userId) => {
-    const id = String(userId);
     try {
-      const res = await fetch(`/api/users/reject?id=${id}`, {
+      await fetch(`/api/users/reject?id=${userId}`, {
         method: "POST",
         credentials: "include",
       });
-      const data = await res.json();
-      console.log("Reject request response:", data);
-      // await fetchAll();
-      // return data.data.Data;
     } catch (err) {
-      console.error("Error rejecting friend request:", err);
-      return null;
+      console.error("Reject error", err);
     }
-  }
+  };
 
   const accept = async (id) => {
-    setHandledRequests((prev) => ({ ...prev, [id]: "accepted" }));
     await handleAcceptRequest(id);
-    fetchAll();
+    setHandledRequests((prev) => ({ ...prev, [id]: "accepted" }));
   };
 
   const reject = async (id) => {
-    setHandledRequests((prev) => ({ ...prev, [id]: "rejected" }));
     await handleRejectRequest(id);
-    fetchAll();
+    setHandledRequests((prev) => ({ ...prev, [id]: "rejected" }));
   };
-
 
   return (
     <FriendsContext.Provider
       value={{
         suggestions,
-        loading,
         requests,
+        loading,
         refetch: fetchAll,
         getFollowStatus,
         toggleFollow,
-        handleAcceptRequest,
-        handleRejectRequest,
-        handledRequests, 
-        accept,          
-        reject           
+        handledRequests,
+        accept,
+        reject,
       }}
     >
       {children}
