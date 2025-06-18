@@ -1,7 +1,7 @@
 import { useState , useEffect } from "react";
 import { FetchData } from "@/context/fetchJson";
 
-export default function usePosts({groupId , limit}={groupId : null , limit : 10}){
+export default function usePosts({groupId , limit , ProfileId}={groupId : null , limit : 10 , ProfileId:null}){
  const [posts, setPosts] = useState([]);
     const [offset, setOffset] = useState(0);
     const [loading, setLoading] = useState(false);
@@ -9,9 +9,10 @@ export default function usePosts({groupId , limit}={groupId : null , limit : 10}
     const [refrech, setRefrech] = useState(0);
     useEffect(() => {
       async function x() {
-        const GroupQuery = groupId ? `&group_id=${groupId}` : ""
+        const GroupQuery = ProfileId ? `&user_id=${ProfileId}` : ""
+        const ProfileQuery = groupId  ? `&group_id=${groupId}` : ""
         const data = await FetchData(
-        `/api/posts/getposts?limit=${limit}&offset=${offset}${GroupQuery}`
+        `/api/posts/getposts?limit=${limit}&offset=${offset}${GroupQuery}${ProfileQuery}`
       );
       if (data.data.posts.length < limit) {
         console.log("no more posts", data.data.posts.length);

@@ -15,18 +15,16 @@ export function middleware(request) {
 
   // Redirect logic
   if (!token && !isPublicPath) {
+
     // Redirect to login if no token and accessing protected route
     return NextResponse.redirect(new URL('/login', request.url))
   }
-
   if (token && isPublicPath) {
     // Redirect to home if has token and accessing public route
     return NextResponse.redirect(new URL('/home', request.url))
   }
-
   return NextResponse.next()
 }
-
 // Configure middleware to run on specific paths
 export const config = {
   matcher: [

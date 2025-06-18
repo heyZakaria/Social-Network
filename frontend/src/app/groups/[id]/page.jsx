@@ -15,7 +15,7 @@ import usePosts from "@/hooks/usePosts";
 
 
 function isMember(DummyTest) {
-  // Need To Check if the user is a Member
+  // TODO : Need To Check if the user is a Member
   return DummyTest;
 }
 
@@ -24,7 +24,7 @@ function GroupNav({ OnMembers, HandleShowInvite }) {
 
   const p = useParams()
   const groupId = p.id
-  console.log("wa3333333333333 groupId:", groupId);
+  console.log("waaaaaaaaaaaaaaaaaa groupId:", groupId);
   
 
   let Nav = (
@@ -87,7 +87,7 @@ if (members.length > 3) {
           <p>{`${member.FirstName} ${member.LastName}`}</p>
           <img
             className={styles.memberImage}
-            src={member.Avatar || "https://cdn1.iconfinder.com/data/icons/fillio-users-and-hand-gestures/48/person_-_man_2-512.png"}
+            src={member.Avatar ? `/uploads/profile_image/${member.Avatar}` : "https://cdn1.iconfinder.com/data/icons/fillio-users-and-hand-gestures/48/person_-_man_2-512.png"}
             alt={`${member.FirstName} ${member.LastName}`}
           />
           <p>{member.Role}</p>
@@ -156,30 +156,51 @@ export default function GroupCard({ children }) {
   const {posts , loadingPosts , hasMore , loadMore , RefrechPosts} = usePosts({groupId:groupId , limit:10})
   console.log("groupId:", groupId);
 
-  const handleInvite = (id) => {
-    setInvitedFriends(prevInvite =>
-      prevInvite.map(friend =>
-        friend.Id === id ? { ...friend, invited: !friend.invited } : friend
-      )
-    );
+  const handleInvite = async(id) => {
+
+    // setInvitedFriends(prevInvite =>
+    //   prevInvite.map(friend =>
+    //     friend.id === id ? { ...friend, invited: !friend.invited } : friend
+    //   )
+    // );
+
+    
   };
 
-  const HandleRefrech = ()=>{
-    setRefrech(prev => prev +1)
-  }
+  const HandleShowInvite = async() => {
 
-  const HandleShowInvite = () => {
-    setShowInvite(prev => !prev)
+      if (!ShowInvite){
+   try {
+      const resp = await fetch(`http://localhost:8080/api/groups/group/FriendList?id=${groupId}`,
+        { credentials: "include" })
+      if (!resp.ok) { throw new Error("Something Happened , Try Again") }
+      const Data = await resp.json()
+      console.log("data", Data)
+      setInvitedFriends(Data.data)
+      setShowInvite(true)
+      if (ShowMembers) { setShowMembers(false) }
+      console.log("toggled Members");
+    } catch (error) {
+      SetErr(err.message)
+    }
+    }else{
+      setShowInvite(!ShowInvite)
+    }
+
     if (ShowMembers) {
       setShowMembers(!ShowMembers)
 
     }
+
+
   }
+
 
   const [ShowMembers, setShowMembers] = useState(false)
 
   const HandleMembersList = async () => {
-    try {
+    if (!ShowMembers){
+   try {
       const resp = await fetch(`http://localhost:8080/api/groups/group/members?id=${groupId}`,
         { credentials: "include" })
       if (!resp.ok) { throw new Error("Something Happened , Try Again") }
@@ -192,10 +213,13 @@ export default function GroupCard({ children }) {
     } catch (error) {
       SetErr(err.message)
     }
-
-
-
+    }else{
+      setShowMembers(!ShowMembers)
+    }
   }
+
+
+
 
 
   useEffect(() => {
@@ -236,22 +260,20 @@ export default function GroupCard({ children }) {
         className={styles.Groupcover}></img>
       <h1 className={styles.groupTitle}>{group.title}</h1>
       <Description Text={group.description} />
-      <GroupNav HandleShowInvite={HandleShowInvite} OnMembers={HandleMembersList} FriendsList={FriendsList1}></GroupNav>
+       <CreatePost Refrech={RefrechPosts}
+        GroupId={groupId}/>
+      <GroupNav HandleShowInvite={HandleShowInvite} OnMembers={HandleMembersList} FriendsList={invitedFriends}></GroupNav>
       {ShowMembers && <Members members={members} />}
       {children}
-      
       {ShowInvite && <InviteFriends FriendsList={invitedFriends} onInvite={handleInvite}></InviteFriends>}
       {ShowInvite && <ShowEventForm ></ShowEventForm>}
-        <CreatePost Refrech={RefrechPosts}
-            GroupId={groupId}/>
+
       <PostFeeds
             posts={posts}
           loading={loadingPosts}
           loadMore={loadMore}
           hasMore={hasMore}
-          RefrechPosts={RefrechPosts}
           currentUser={currentUser}
-          groupId={groupId}
       ></PostFeeds>
       
     </div>

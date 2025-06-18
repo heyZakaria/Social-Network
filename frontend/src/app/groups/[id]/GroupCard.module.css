@@ -1,5 +1,7 @@
 /* === Create Group Section === */
-
+a:hover{
+text-decoration: none; 
+}
 .createGroupContainer {
   background: #fff;
   padding: 30px;

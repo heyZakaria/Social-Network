@@ -12,7 +12,6 @@ func handleInvite(w http.ResponseWriter, r *http.Request) {
 	UserId := r.Context().Value(shared.UserIDKey).(string)
 	InvitedFriend := r.URL.Query().Get("Invited_id")
 	GroupId := r.URL.Query().Get("Group_id")
-
 	err, Validated := InviteValidation(UserId, InvitedFriend, GroupId)
 	if err != nil || !Validated {
 		utils.Log("ERROR", "Error : Bad Request in InviteValidation"+err.Error())
