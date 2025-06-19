@@ -9,6 +9,7 @@ import { IoPaperPlaneOutline } from 'react-icons/io5';
 import { FetchData } from "@/context/fetchJson";
 import { useUser } from '@/context/user_context';
 import Image from "next/image"
+import { logoutUser } from "@/app/(auth)/_logout/logout";
 
 export default function CommentSection({ setCommentsCount, postId }) {
   const { user: currentUser } = useUser();
@@ -156,10 +157,8 @@ export default function CommentSection({ setCommentsCount, postId }) {
           setCommentsCount(comments.length + 1);
           setNewComment("");
         } else {
-          console.log('Error :', data);
-          SetErrorMsg(data.message || "Failed to add comment");
-          // Display Error Box
-
+          await logoutUser()
+          window.location.href = "/login"
         }
 
       } catch (error) {
@@ -239,7 +238,7 @@ export default function CommentSection({ setCommentsCount, postId }) {
                           height={200}
                           className={styles.commentImg}
                           style={{ objectFit: 'cover' }}
-                          // onClick={() => openImageModal(comment.Comment_img)}
+                        // onClick={() => openImageModal(comment.Comment_img)}
                         />
                       </div>
                     )}
@@ -327,25 +326,25 @@ export default function CommentSection({ setCommentsCount, postId }) {
         </button>
       </form>
       {/* Selected Image Preview */}
-        {selectedImage && (
-          <div className={styles.imagePreview}>
-            <Image width={200} height={100}
-              src={URL.createObjectURL(selectedImage)}
-              className={styles.previewImage}
-            />
-            <button
-              onClick={() => {
-                setSelectedImage(null);
-                if (fileInputRef.current) fileInputRef.current.value = '';
-              }}
-              className={styles.removeImageButton}
-              type="button"
-              disabled={isLoading}
-            >
-              ×
-            </button>
-          </div>
-        )}
+      {selectedImage && (
+        <div className={styles.imagePreview}>
+          <Image width={200} height={100}
+            src={URL.createObjectURL(selectedImage)}
+            className={styles.previewImage}
+          />
+          <button
+            onClick={() => {
+              setSelectedImage(null);
+              if (fileInputRef.current) fileInputRef.current.value = '';
+            }}
+            className={styles.removeImageButton}
+            type="button"
+            disabled={isLoading}
+          >
+            ×
+          </button>
+        </div>
+      )}
       {ErrorMsg && <div className={styles.ErrorMessage}>{ErrorMsg}</div>}
     </div>
   );
