@@ -213,6 +213,13 @@ export default function FloatingChat({ currentUser, profileData }) {
                     onClick={() => handleChatSelect(chat)}
                   >
                     <div className={styles.chatListItemAvatar}>
+                      {chat.readed > 0 ? (
+                        <div className={styles.totalunreaded}>
+                          <span>{chat.readed}</span>
+                        </div>
+                        ):("")
+                      }
+                      
                       <Image
                         width={200}
                         height={100}

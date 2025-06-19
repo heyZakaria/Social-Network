@@ -182,13 +182,29 @@
 }
 
 .chatListItem.unread {
-  background-color: #e7f3ff;
+  background-color: #d2e7fc;
 }
 
 .chatListItem.unread:hover {
   background-color: #d9ecff;
 }
 
+.totalunreaded {
+    top: -6px;
+    left: -8px;
+    color: #fff;
+    background-color: #e41e3f;
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+    width: 20px;
+    height: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    display: flex;
+    position: absolute;
+    
+}
 .chatListItemAvatar {
   position: relative;
   margin-right: 12px;
