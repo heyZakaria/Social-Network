@@ -1,0 +1,77 @@
+import Link from "next/link"
+import styles from "@/styles/UpcomingEvents.module.css"
+
+export default function UpcomingEvents({ events = [] }) {
+ /*  if (events.length === 0) {
+    return (
+      <div className={styles.container}>
+        {  <h3 className={styles.title}>Upcoming Events</h3>
+        <p>No upcoming events.</p>
+        <Link href="/events/create" className={styles.seeAll}>
+          Create an Event
+        </Link> }
+      </div>
+    )
+  } */
+  console.log("weeeeeeeeeeeeeeeeeeee");
+
+  events = [{
+    "id": 1,
+    "title": "Event 1",
+    "description": "Description 1",
+    "date": "2023-01-01T12:00:00.000Z",
+    "location": "Location 1",
+    "attendees": 10
+  },
+  {
+    "id": 2,
+    "title": "Event 2",
+    "description": "Description 2",
+    "date": "2023-01-02T12:00:00.000Z",
+    "location": "Location 2",
+    "attendees": 20
+  }
+  ]
+
+  const formatDate = (dateString) => {
+    const date = new Date(dateString)
+    const options = { month: "short", day: "numeric", hour: "2-digit", minute: "2-digit" }
+    return date.toLocaleDateString("en-US", options)
+  }
+
+  return (
+    <div className={styles.container}>
+      <h3 className={styles.title}>Upcoming Events</h3>
+      <div className={styles.list}>
+        {events.slice(0,3).map((event) => (
+          <Link href={`/events/${event.id}`} key={event.id}>
+            <div className={styles.item}>
+              <div className={styles.eventDate}>
+                <div className={styles.eventMonth}>
+                  {new Date(event.date).toLocaleString("default", { month: "short" }).toUpperCase()}
+                </div>
+                <div className={styles.eventDay}>{new Date(event.date).getDate()}</div>
+              </div>
+              <div className={styles.info}>
+                <div className={styles.name}>{event.title}</div>
+                <div className={styles.meta}>
+                  <span>{formatDate(event.date)}</span>
+                  <span className={styles.eventLocation}>{event.location}</span>
+                  <span className={styles.eventAttendees}>{event.attendees} going</span>
+                </div>
+              </div>
+            </div>
+          </Link>
+        ))}
+      </div>
+      {events.length > 3 && (
+        <Link href="/events" className={styles.seeAll}>
+          See All Events
+        </Link>
+      )}
+    </div>
+  )
+}
+
+
+

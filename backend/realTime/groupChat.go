@@ -9,16 +9,12 @@ import (
 	"github.com/gorilla/websocket"
 )
 
-
-
 var clients = make(map[*Client]bool)
 var broadcast = make(chan []byte)
 var mutex = &sync.Mutex{}
 
-
-
 func GroupChat(conn *websocket.Conn, r *http.Request) {
-	
+
 	client := &Client{
 		Conn:     conn,
 		Username: r.URL.Query().Get("username"),

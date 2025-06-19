@@ -5,7 +5,7 @@ import (
 	"strconv"
 
 	db "socialNetwork/db/sqlite"
-	shared "socialNetwork/context"
+	shared "socialNetwork/shared_packages"
 	"socialNetwork/utils"
 )
 

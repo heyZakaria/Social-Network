@@ -6,8 +6,8 @@ import (
 	"net/http"
 	"strings"
 
-	shared "socialNetwork/context"
 	db "socialNetwork/db/sqlite"
+	shared "socialNetwork/shared_packages"
 	"socialNetwork/utils"
 
 	"golang.org/x/crypto/bcrypt"

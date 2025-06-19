@@ -5,10 +5,13 @@ import { BsImage } from 'react-icons/bs';
 import styles from '@/styles/posts.module.css';
 import PopupInput from './popup-input';
 import PopupPrivacy from './popup-privacy';
-import { useUser } from "@/app/(utils)/user_context";
+import { useUser } from "@/context/user_context";
+import Image from "next/image";
 
 
-const CreatePost = () => {
+const CreatePost = ({
+  Refrech , GroupId
+}) => {
   // State for form data  
   const {user : currentUser} = useUser()
   const [postContent, setPostContent] = useState('');
@@ -160,18 +163,12 @@ const CreatePost = () => {
         console.log("data", formData);
 
 
-        const response = await fetch('http://localhost:8080/rest/createpost', {
+        const response = await fetch(GroupId ? `/api/posts/createpost?group_id=${GroupId}` : `/api/posts/createpost`, {
           method: 'POST',
           credentials: 'include', // This sends cookies with the request
           body: formData,
         });
         console.log("response----------", response);
-
-
-        if (!response.ok) {
-          handleErrors(response.status);
-          return;
-        }
 
         const data = await response.json();
 
@@ -180,7 +177,10 @@ const CreatePost = () => {
 
           // Reset form on success
           resetForm();
-
+          Refrech();
+          if (data.error){
+             setErrors(prev => ({ ...prev, content:  data.error}));
+          }
         } else {
           setErrors(prev => ({ ...prev, content: data.message || 'Failed to create post' }));
         }
@@ -232,18 +232,21 @@ const CreatePost = () => {
     // Clear content errors
     setErrors(prev => ({ ...prev, content: '' }));
   };
-
+  console.log("Aciba", currentUser);
+  
   return (
     <form onSubmit={publishPost} className={styles.postForm} id="postForm">
       <div className={styles.createPost}>
         <div className={styles.createPostHeader}>
-          <img
+          <Image width={100} height={100}
             src={ currentUser.avatar || "/uploads/profile.jpeg"}
+            alt="User Avatar"
             className={styles.createPostAvatar}
           />
           <PopupInput
             postContent={postContent}
             onContentChange={handleContentChange}
+            currentUser={currentUser}
           // disabled={isLoading}
           />
         </div>
@@ -265,7 +268,7 @@ const CreatePost = () => {
       {/* Selected Image Preview */}
       {selectedImage && (
         <div className={styles.imagePreview}>
-          <img
+          <Image width={200} height={100}
             src={URL.createObjectURL(selectedImage)}
             className={styles.previewImage}
           />
@@ -305,10 +308,15 @@ const CreatePost = () => {
             style={{ display: 'none' }}
           />
 
-          <PopupPrivacy
+        {
+          // Conditional Rendrering : GroupId deos not exist => do not render popup
+          !GroupId && 
+         <PopupPrivacy
+            followers={currentUser.followers || []}
             onPrivacyChange={handlePrivacyChange}
             disabled={isLoading}
           />
+           }
         </div>
 
         <button

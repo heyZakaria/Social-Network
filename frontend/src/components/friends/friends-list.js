@@ -1,5 +1,6 @@
 import Link from "next/link";
 import styles from "@/styles/components.module.css";
+import Image from "next/image";
 
 export default function FriendsList({
   friends = [],
@@ -23,8 +24,8 @@ export default function FriendsList({
           <Link href={`/profile/${friend.id}`} key={friend.id}>
             <div className={styles.item}>
               <div style={{ position: "relative" }}>
-                <img
-                  src={friend.avatar || "https://i.pravatar.cc/150?u=10`"}
+                <Image width={200} height={100}
+                  src={friend.avatar || "/uploads/profile.jpeg"}
                   alt={friend.firstName}
                   className={styles.avatar}
                 />

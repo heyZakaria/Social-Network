@@ -12,6 +12,7 @@ type Post struct {
 	Post_Content   string
 	Post_image     string
 	Privacy        string
+	Group_id       *string
 	CreatedAt      *time.Time
 	Liked          bool
 	LikeCounts     int

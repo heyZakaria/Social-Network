@@ -12,7 +12,7 @@ export default function useFetch(url, method = 'GET') {
       setError('');
       setLoading(true);
 
-      try {
+      try {        
         const response = await fetch(url, {
           credentials: 'include',
           method

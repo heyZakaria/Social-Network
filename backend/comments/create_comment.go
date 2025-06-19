@@ -3,72 +3,58 @@ package comments
 import (
 	"encoding/json"
 	"net/http"
-	"socialNetwork/auth"
-	shared "socialNetwork/context"
-	"socialNetwork/utils"
 	"strings"
+
+	shared "socialNetwork/shared_packages"
+	"socialNetwork/utils"
 )
 
-func (c *Comment) CommentSaver(w http.ResponseWriter, r *http.Request) {
-	/* 	token := auth.GetToken(w, r)
-	   	UserId, err := user.GetUserIDByToken(token)
-	   	if err != nil {
-	   		utils.Log("ERROR", err.Error())
-	   		utils.SendJSON(w, http.StatusUnauthorized, utils.JSONResponse{
-	   			Success: false,
-	   			Message: err.Error(),
-	   		})
-	   		return
-	   	} */
+func CommentSaver(w http.ResponseWriter, r *http.Request) {
 	UserId := r.Context().Value(shared.UserIDKey).(string)
-	var commentData CommentData
-	var profile auth.Profile
+
+	var Comment Comment
 
 	decoder := json.NewDecoder(r.Body)
-	err := decoder.Decode(&commentData)
+	err := decoder.Decode(&Comment)
 
 	defer r.Body.Close()
 
 	if err != nil {
-		utils.Log("ERROR", err.Error())
-		//////////////////////////// isn't Bad Request!!!
-		utils.SendJSON(w, http.StatusUnauthorized, utils.JSONResponse{
+		utils.Log("Error", "have problem to decode the comment data")
+		utils.SendJSON(w, http.StatusInternalServerError, utils.JSONResponse{
 			Success: false,
-			Message: err.Error(),
+			Message: "have problem to decode the comment data",
+			Error:   err.Error(),
 		})
 		return
 	}
-	c.Content = commentData.Comment
-	c.PostID = commentData.PostID
-	profile.UserID = UserId
-	c.Content = strings.TrimSpace(c.Content)
-	if c.Content == "" || len(c.Content) > 10000 {
-		utils.Log("ERROR", "comment is empty or length of comment is more then 10000 ")
+	Comment.Content = strings.TrimSpace(Comment.Content)
+	if Comment.Content == "" || len(Comment.Content) > 10000 {
+		utils.Log("Error", "comment is empty or length of comment is more then 10000!! ")
 		utils.SendJSON(w, http.StatusBadRequest, utils.JSONResponse{
 			Success: false,
 			Message: "comment is empty or length of comment is more then 10000!! ",
+			Error:   "Comment must be between 1 and 10000 characters",
 		})
 		return
 	}
-	err = c.SaveComment(UserId, c.PostID, c.Content)
+	err = Comment.SaveComment(UserId)
 	if err != nil {
-		utils.Log("ERROR", "data it's given machi hiya hadik!!!")
+		utils.Log("Error", "have problem to save the comment data")
 		utils.SendJSON(w, http.StatusBadRequest, utils.JSONResponse{
 			Success: false,
-			Message: "data it's given machi hiya hadik!!!",
-		})
-		return
-	}
-	comment, err := c.Getcomments(c.PostID, 0)
-	if err != nil {
-		utils.Log("ERROR", "have problem ==> getting comments!!!!")
-		utils.SendJSON(w, http.StatusInternalServerError, utils.JSONResponse{
-			Success: false,
-			Message: "have problem ==> getting comments!!!!",
+			Message: "have problem to save the comment data",
+			Error:   err.Error(),
 		})
 		return
 	}
 
-	w.Header().Set("Content-Type", "application/json")
-	json.NewEncoder(w).Encode(comment)
+	utils.Log("Success", "Comment saved successfully")
+	utils.SendJSON(w, http.StatusOK, utils.JSONResponse{
+		Success: true,
+		Message: "Comment saved successfully",
+		Data: map[string]interface{}{
+			"Comment": Comment,
+		},
+	})
 }

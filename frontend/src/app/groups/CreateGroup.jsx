@@ -59,7 +59,7 @@ export default function CreateGroupCard() {
             return
         }
         try {
-            const Resp = fetch("/api/groups", {
+            const Resp = fetch("POST http://localhost:8080/api/groups", {
                 method: "POST",
                 headers: {
                     'Content-type': 'application/json'
@@ -97,24 +97,6 @@ export default function CreateGroupCard() {
                     placeholder="Enter Description"
                     onChange={HandleChange}
                     name="Description">
-<<<<<<< HEAD
-                {FormErr.DescriptionErr && <ErrorComponent Err={FormErr.deci}></ErrorComponent>}
-                </InputComp>
-
-
-                                <InputComp
-                    
-                    onChange={HandleChange}
-                    name="Description">
-                {FormErr.DescriptionErr && <ErrorComponent Err={FormErr.deci}></ErrorComponent>}
-                </InputComp>
-                
-              
-                   
-                <button type="submit"
-                    disabled={Display}></button>
-                
-=======
                     {FormErr.DescriptionErr && <ErrorComponent Err={FormErr.deci}></ErrorComponent>}
                 </InputComp>
 
@@ -123,7 +105,6 @@ export default function CreateGroupCard() {
 
 
 
->>>>>>> HaFiid
             </form>
             {SuccessMsg && <p>{SuccessMsg}</p>}
             {Err && <p>{Err}</p>}

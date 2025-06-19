@@ -1,18 +1,35 @@
-package Events
+package Event
 
 import (
 	"net/http"
 	db "socialNetwork/db/sqlite"
 	"socialNetwork/utils"
+	"strconv"
+	"strings"
 
 	"encoding/json"
 )
 
 func GetGroupEvents(w http.ResponseWriter, r *http.Request) {
-	/* if !middleware.IsLoggedIn(w, r) {
+	//UserId := r.Context().Value(shared.UserIDKey).(string)
+
+	splitedPath := strings.Split(r.URL.Path, "/")
+	if len(splitedPath) < 2 || splitedPath[1] == "" {
+		utils.SendJSON(w, http.StatusBadRequest, utils.JSONResponse{
+			Success: false,
+			Error:   "Bad request: Invalid Group Id",
+		})
 		return
 	}
-	utils.Log("INFO", "Received request for GetGroupEvents") */
+	GroupId := splitedPath[1]
+	GroupID, err := strconv.Atoi(GroupId)
+	if err != nil {
+		utils.SendJSON(w, http.StatusBadRequest, utils.JSONResponse{
+			Success: false,
+			Error:   "Bad request: Invalid Group Id",
+		})
+		return
+	}
 	var Events = []Event{}
 	// TO DO get Group Name
 	prepared_statement, err := db.DB.Prepare("SELECT * FROM events Where group_id = ?")
@@ -21,7 +38,7 @@ func GetGroupEvents(w http.ResponseWriter, r *http.Request) {
 	}
 	defer prepared_statement.Close()
 
-	rows, err := prepared_statement.Query(1)
+	rows, err := prepared_statement.Query(GroupID)
 	if err != nil {
 		utils.Log("ERROR", "Database query failed: "+err.Error())
 	}

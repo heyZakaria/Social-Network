@@ -141,7 +141,7 @@
 
 .profileStats {
   display: flex;
-  gap: 20px;
+  gap: 10px;
   margin-bottom: 15px;
   flex-wrap: wrap;
 }
@@ -211,7 +211,7 @@
 .postsGrid {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 10px;
 }
 
 .emptyState {

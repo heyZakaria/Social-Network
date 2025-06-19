@@ -1,15 +1,13 @@
-
 package post
 
 import (
 	"database/sql"
-	"fmt"
 	"net/http"
 	"strconv"
 
 	"socialNetwork/auth"
 	db "socialNetwork/db/sqlite"
-	shared "socialNetwork/context"
+	shared "socialNetwork/shared_packages"
 	"socialNetwork/utils"
 )
 
@@ -19,12 +17,12 @@ import (
 func PostsPagination(w http.ResponseWriter, r *http.Request) {
 	utils.Log("", "Get request made to GetPostsScroll Handler")
 	UserID := r.Context().Value(shared.UserIDKey).(string)
-
+	GroupId := r.URL.Query().Get("group_id")
 	// we will have both, Limit of Posts, and Offset of Posts 10 in our case
 	offset := r.URL.Query().Get("offset")
 	limit := r.URL.Query().Get("limit")
 	specificUser := r.URL.Query().Get("user_id")
-	fmt.Println("specificUser", specificUser)
+	//	fmt.Println("specificUser", specificUser)
 	if offset == "" || limit == "" {
 		utils.Log("ERROR", "Offset or Limit is not valid in GetPostsScroll Handler: ")
 		utils.SendJSON(w, http.StatusBadRequest, utils.JSONResponse{
@@ -60,6 +58,8 @@ func PostsPagination(w http.ResponseWriter, r *http.Request) {
 	query := "SELECT * FROM posts ORDER BY created_at DESC LIMIT ? OFFSET ?"
 	if specificUser != "" {
 		query = "SELECT * FROM posts WHERE user_id = ? ORDER BY created_at DESC LIMIT ? OFFSET ?"
+	} else if GroupId != "" {
+		query = "SELECT * FROM posts WHERE  group_id = ? ORDER BY created_at DESC LIMIT ? OFFSET ?"
 	}
 	stmnt, err := db.DB.Prepare(query)
 	if err != nil {
@@ -76,9 +76,12 @@ func PostsPagination(w http.ResponseWriter, r *http.Request) {
 	var rows *sql.Rows
 	if specificUser != "" {
 		rows, err = stmnt.Query(specificUser, Limit, Offset)
+	} else if GroupId != "" {
+		rows, err = stmnt.Query(GroupId, Limit, Offset)
 	} else {
 		rows, err = stmnt.Query(Limit, Offset)
 	}
+
 	if err != nil {
 		utils.Log("ERROR", "Error scanning Post in GetPostsScroll Handler: "+err.Error())
 		utils.SendJSON(w, http.StatusInternalServerError, utils.JSONResponse{
@@ -92,7 +95,7 @@ func PostsPagination(w http.ResponseWriter, r *http.Request) {
 	for rows.Next() {
 		Post := Post{}
 		Profile := auth.Profile{}
-		err = rows.Scan(&Post.PostId, &Post.UserID, &Post.Post_Content, &Post.Post_image, &Post.Privacy, &Post.CreatedAt)
+		err = rows.Scan(&Post.PostId, &Post.UserID, &Post.Post_Content, &Post.Post_image, &Post.Privacy, &Post.Group_id, &Post.CreatedAt)
 		if err != nil {
 			utils.Log("ERROR", "Error scanning Post in GetPostsScroll Handler: "+err.Error())
 			utils.SendJSON(w, http.StatusInternalServerError, utils.JSONResponse{
@@ -105,6 +108,7 @@ func PostsPagination(w http.ResponseWriter, r *http.Request) {
 		// TODO Each Post Must Check if the exist user Has Liked the post or not
 		// TODO get Likes count as well
 		err = db.DB.QueryRow("SELECT COUNT(*) FROM likes WHERE post_id = ?", Post.PostId).Scan(&Post.LikeCounts)
+		err = db.DB.QueryRow("SELECT COUNT(*) FROM comments WHERE post_id = ?", Post.PostId).Scan(&Post.CommentCounts)
 		// check the privacy of post,
 		stmnt, err := db.DB.Prepare("SELECT first_name, last_name, avatar, profile_status FROM users WHERE id = ?")
 		if err != nil {

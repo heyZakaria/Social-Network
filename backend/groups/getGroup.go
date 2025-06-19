@@ -6,7 +6,7 @@ import (
 
 	db "socialNetwork/db/sqlite"
 
-	shared "socialNetwork/context"
+	shared "socialNetwork/shared_packages"
 	"socialNetwork/utils"
 )
 
@@ -23,7 +23,7 @@ func getGroup(w http.ResponseWriter, r *http.Request) {
 		})
 		return
 	}
-	GroupExist, MemberExist, Err := ValidateGroup(db.DB, GroupId, UserId)
+	GroupExist, MemberExist, Err := shared.ValidateGroup(db.DB, GroupId, UserId)
 	if Err != nil {
 		utils.SendJSON(w, http.StatusInternalServerError, utils.JSONResponse{
 			Success: false,
@@ -51,7 +51,7 @@ func getGroup(w http.ResponseWriter, r *http.Request) {
 	GetGroupQuery := `SELECT 
 	g.id , 
 	g.title,
-	g.descriptio , 
+	g.description, 
 	g.creator_id  ,
 	g.covername, 
 		( SELECT COUNT(*) From groupMember gm WHERE gm.group_id = g.id AND

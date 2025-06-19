@@ -4,8 +4,7 @@ import (
 	"net/http"
 	"time"
 
-	"socialNetwork/user"
-
+	tkn "socialNetwork/token"
 	"socialNetwork/utils"
 )
 
@@ -24,20 +23,12 @@ func SendSuccessWithToken(w http.ResponseWriter, r *http.Request, userID string)
 	// set cookies manual like we recieve it in graphql
 	// w.Header().Set("Authorization", "Bearer "+token)
 
-	// set cookies auto -------> show file of cookies in Browser to understand this part
-	// secure vs XSS
 	http.SetCookie(w, &http.Cookie{
 		Name:     "token",
 		Value:    token,
 		Path:     "/",
 		HttpOnly: true,
 
-		// should be true if we work by https
-		// to use https should be install SSL ----> sudo apt install openssl (Linux)
-		// openssl req -newkey rsa:2048 -nodes -keyout server.key -out server.crt
-
-		// TO run server use SSL
-		// 	err = http.ListenAndServeTLS(":8080", "server.crt", "server.key", nil)
 		Secure: false,
 
 		// secure vs CSRF attacks (Cross Site Request Forgery)
@@ -46,7 +37,8 @@ func SendSuccessWithToken(w http.ResponseWriter, r *http.Request, userID string)
 	})
 
 	utils.Log("INFO", "Save Token into Sessions")
-	user.SaveToken(userID, token)
+	tkn.SaveToken(userID, token)
+
 	utils.SendJSON(w, http.StatusOK, utils.JSONResponse{
 		Success: true,
 		Message: "Login successful",

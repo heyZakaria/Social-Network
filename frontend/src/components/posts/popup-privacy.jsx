@@ -3,7 +3,7 @@
 import styles from "@/styles/posts.module.css";
 import { useState } from "react";
 
-const PopupPrivacy = ({ onPrivacyChange, disabled = false }) => {
+const PopupPrivacy = ({ followers, onPrivacyChange, disabled = false }) => {
     const [showPopupFollowers, setShowPopupFollowers] = useState(false);
     const [selectedFollowers, setSelectedFollowers] = useState([]);
     const [showOptions, setShowOptions] = useState(false);
@@ -82,16 +82,6 @@ const PopupPrivacy = ({ onPrivacyChange, disabled = false }) => {
         }
     };
 
-
-    // fetch users in db 
-    const followers = [
-        { id: 1, name: 'John Smith', avatar: '/api/placeholder/40/40' },
-        { id: 2, name: 'Sarah Johnson', avatar: '/api/placeholder/40/40' },
-        { id: 3, name: 'Michael Brown', avatar: '/api/placeholder/40/40' },
-        { id: 4, name: 'Emily Wilson', avatar: '/api/placeholder/40/40' },
-        { id: 5, name: 'David Lee', avatar: '/api/placeholder/40/40' }
-    ];
-
     return (
         <div>
             <button
@@ -157,21 +147,23 @@ const PopupPrivacy = ({ onPrivacyChange, disabled = false }) => {
                         </div>
 
                         <div className={styles.followersList}>
-                            {followers.map(follower => (
-                                <div key={follower.id} className={styles.followerItem}>
-                                    <input
-                                        type="checkbox"
-                                        id={`follower-${follower.id}`}
-                                        checked={selectedFollowers.includes(follower.id)}
-                                        onChange={() => toggleFollower(follower.id)}
-                                        className={styles.followerCheckbox}
-                                    />
-                                    <img src={follower.avatar} alt={follower.name} className={styles.followerAvatar} />
-                                    <label htmlFor={`follower-${follower.id}`} className={styles.followerName}>
-                                        {follower.name}
-                                    </label>
-                                </div>
-                            ))}
+                            {followers.length == 0 ? "You don't have any followers..." : 
+                                followers.map(follower => (
+                                    <div key={follower.id} className={styles.followerItem}>
+                                        <input
+                                            type="checkbox"
+                                            id={`follower-${follower.id}`}
+                                            checked={selectedFollowers.includes(follower.id)}
+                                            onChange={() => toggleFollower(follower.id)}
+                                            className={styles.followerCheckbox}
+                                        />
+                                        <Image width={200} height={100} src={follower.avatar || "/uploads/profile.jpeg"} alt={follower.firstName +" "+ follower.lastName} className={styles.followerAvatar} />
+                                        <label htmlFor={`follower-${follower.id}`} className={styles.followerName}>
+                                            {follower.firstName +" "+ follower.lastName}
+                                        </label>
+                                    </div>
+                                ))
+                            }
                         </div>
 
                         <div className={styles.popupFooter}>

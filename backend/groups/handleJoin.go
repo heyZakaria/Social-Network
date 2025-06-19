@@ -5,15 +5,13 @@ import (
 	"fmt"
 	"net/http"
 
-	"socialNetwork/auth"
 	db "socialNetwork/db/sqlite"
-	shared "socialNetwork/context"
-	"socialNetwork/user"
+	shared "socialNetwork/shared_packages"
 	utils "socialNetwork/utils"
 )
 
 func handleJoin(w http.ResponseWriter, r *http.Request) {
-	token := auth.GetToken(w, r)
+	/* token := auth.GetToken(w, r)
 	if token == "" {
 		return
 	}
@@ -25,7 +23,8 @@ func handleJoin(w http.ResponseWriter, r *http.Request) {
 			Message: err.Error(),
 		})
 		return
-	}
+	} */
+
 	utils.Log("INFO", "Recieved Group Join Request")
 	Group_id := r.URL.Query().Get("id")
 	// if err != nil {
@@ -38,7 +37,7 @@ func handleJoin(w http.ResponseWriter, r *http.Request) {
 	// }
 	Action := r.URL.Query().Get("action")
 	UserId := r.Context().Value(shared.UserIDKey).(string)
-	err = ValidateJoinRequest(UserId, Group_id, Action, db.DB)
+	err := ValidateJoinRequest(UserId, Group_id, Action, db.DB)
 	if err != nil {
 		utils.Log("ERROR", "Error : Bad Request in ValidateJoinRequest"+err.Error())
 		utils.SendJSON(w, http.StatusBadRequest, utils.JSONResponse{
@@ -80,7 +79,7 @@ func handleJoin(w http.ResponseWriter, r *http.Request) {
 // Validation Function
 
 func ValidateJoinRequest(UserId string, GroupId string, Action string, Db *sql.DB) error {
-	groupExist, IsMember, Err := ValidateGroup(db.DB, GroupId, UserId)
+	groupExist, IsMember, Err := shared.ValidateGroup(db.DB, GroupId, UserId)
 	if Err != nil {
 		return Err
 	}
@@ -101,22 +100,4 @@ func ValidateJoinRequest(UserId string, GroupId string, Action string, Db *sql.D
 
 	}
 	return nil
-}
-
-func ValidateGroup(Db *sql.DB, GroupId string, UserId string) (bool, bool, error) {
-	var groupExist, memberExist bool
-	fmt.Println(GroupId)
-	CheckGroupQuery := "SELECT EXISTS(SELECT 1 FROM groups WHERE id = ?)"
-	err := Db.QueryRow(CheckGroupQuery, GroupId).Scan(&groupExist)
-	if err != nil {
-		return false, false, fmt.Errorf("error checking group existence: %w", err)
-	}
-
-	CheckGroupMemberQuery := "SELECT EXISTS(SELECT 1 FROM groupMember WHERE user_id = ? AND group_id = ?)"
-	err = Db.QueryRow(CheckGroupMemberQuery, UserId, GroupId).Scan(&memberExist)
-	if err != nil {
-		return groupExist, false, fmt.Errorf("error checking group membership: %w", err)
-	}
-
-	return groupExist, memberExist, nil
 }

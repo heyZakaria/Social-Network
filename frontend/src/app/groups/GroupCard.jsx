@@ -65,10 +65,9 @@ function Members({ members }) {
           <p>{member.name}</p>
             <img
               className={styles.memberImage}
-              src={member.picture || "https://cdn1.iconfinder.com/data/icons/fillio-users-and-hand-gestures/48/person_-_man_2-512.png"}
+              src={member.AVA || "https://cdn1.iconfinder.com/data/icons/fillio-users-and-hand-gestures/48/person_-_man_2-512.png"}
               alt={member.name}
             />
-        
         </li>
       ))}
     </ul>
@@ -186,7 +185,7 @@ if (ShowInvite){
       {children}
       {ShowInvite && <InviteFriends FriendsList={invitedFriends} onInvite = {handleInvite}></InviteFriends>}
 
-      <GroupsList></GroupsList>
+      <GroupsList/>
 
     </div>
   );

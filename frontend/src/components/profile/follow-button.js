@@ -48,7 +48,6 @@ export default function FollowButton({ targetUserId }) {
         onClick={handleClick}
         disabled={loading}
       >
-        
         {loading ? (
           "⏳ Processing..."
         ) : status.isFollowing ? (

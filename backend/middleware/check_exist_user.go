@@ -3,17 +3,19 @@ package middleware
 import (
 	"net/http"
 
-	"socialNetwork/auth"
-	shared "socialNetwork/context"
+	shared "socialNetwork/shared_packages"
+	Tkn "socialNetwork/token"
 	"socialNetwork/utils"
 )
 
 // Handler /verify
 func CheckUserExeting(next http.Handler) http.Handler {
+
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		var UserID string
+		var err error
 		if r.URL.String() != "/api/login" && r.URL.String() != "/api/register" {
-			token := auth.GetToken(w, r)
+			token := Tkn.GetToken(w, r)
 			if token == "" {
 				utils.SendJSON(w, http.StatusUnauthorized, utils.JSONResponse{
 					Success: false,
@@ -22,8 +24,8 @@ func CheckUserExeting(next http.Handler) http.Handler {
 				})
 				return
 			}
-			payload, err := auth.VerifyJWT(token)
-			UserID = payload.UserID
+
+			UserID, err = Tkn.GetUserIDByToken(token)
 			if err != nil || UserID == "" {
 				utils.Log("ERROR", "Invalid Token in CheckUserExeting Handler: ")
 				utils.SendJSON(w, http.StatusUnauthorized, utils.JSONResponse{

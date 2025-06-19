@@ -3,13 +3,7 @@
 import styles from "@/styles/posts.module.css";
 import { useState } from "react";
 
-const PopupInput = ({ postContent, onContentChange}) => {
-  const currentUser = {
-    id: 1,
-    avatar: "",
-    firstName: "test",
-    lastName: "test",
-  };
+const PopupInput = ({ postContent, onContentChange, currentUser}) => {
 
   const [showPopup, setShowPopup] = useState(false);
   const [localContent, setLocalContent] = useState(postContent || '');
@@ -35,13 +29,12 @@ const PopupInput = ({ postContent, onContentChange}) => {
   };
 
   return (
-    <div>
-      <input
-        type="text"
+    <div className={styles.textareaContainer}>
+      <textarea
         placeholder={`What's on your mind, ${currentUser.firstName}?`}
         className={styles.createPostInput}
         onClick={handleInputClick}
-        value={postContent ? `${postContent.substring(0, 20)}${postContent.length > 20 ? ' ...' : ''}` : ''}
+        value={postContent ? `${postContent.substring(0, 200)}${postContent.length > 200 ? ' ...' : ''}` : ''}
         readOnly
         // disabled={disabled}
       />

@@ -5,6 +5,7 @@ import Link from "next/link"
 import styles from "@/styles/components.module.css"
 import { useFriends } from "@/context/friends_context" 
 import FollowButton from '@/components/profile/follow-button'
+import Image from "next/image";
 
 
 export default function FriendSuggestions() {
@@ -36,31 +37,38 @@ export default function FriendSuggestions() {
       <div className={styles.list}>
         {currentSuggestions.slice(0, 5).map((user) => (
           <div key={user.id} className={styles.item}>
-            <img
-              src={user.avatar || "/uploads/profile.jpeg"}
-              alt={`${user.firstName} ${user.lastName}`}
-              className={styles.avatar}
-            />
-            <div className={styles.info}>
-              <div className={styles.name}>
-                {user.firstName} {user.lastName}
-              </div>
-              {user.mutualFriends > 0 && (
-                <div className={styles.meta}>
-                  {user.mutualFriends} mutual {user.mutualFriends === 1 ? "friend" : "friends"}
+              <Link href={"/profile" + `/${user.id}`} className={styles.item} key={user.id}>
+              <Image width={200} height={100}
+                src={user.avatar || "/uploads/profile.jpeg"}
+                alt={`${user.firstName} ${user.lastName}`}
+                className={styles.avatar}
+              />
+              </Link>
+
+              <div className={styles.info}>
+                <Link href={"/profile" + `/${user.id}`} className={styles.item} key={user.id}>
+                <div className={styles.name}>
+                  <span>{user.firstName} {user.lastName}</span>
                 </div>
-              )}
+                </Link>
+
+                <div className={styles.actions}>
+                      <FollowButton targetUserId={user.id} />
+                  {/* <button
+                    className={`${styles.button} ${styles.secondaryButton}`}
+                    onClick={() => handleIgnore(user.id)}
+                  >
+                    Ignore
+                  </button> */}
+                </div>
+                {/* {user.mutualFriends > 0 && (
+                  <div className={styles.meta}>
+                    {user.mutualFriends} mutual {user.mutualFriends === 1 ? "friend" : "friends"}
+                  </div>
+                )} */}
+              </div>
+
             </div>
-            <div className={styles.actions}>
-                    <FollowButton targetUserId={user.id} />
-              {/* <button
-                className={`${styles.button} ${styles.secondaryButton}`}
-                onClick={() => handleIgnore(user.id)}
-              >
-                Ignore
-              </button> */}
-            </div>
-          </div>
         ))}
       </div>
       {currentSuggestions.length > 5 && (

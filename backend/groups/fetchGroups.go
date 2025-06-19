@@ -5,28 +5,15 @@ import (
 	"fmt"
 	"net/http"
 
-	"socialNetwork/auth"
 	db "socialNetwork/db/sqlite"
-	"socialNetwork/user"
+	shared "socialNetwork/shared_packages"
 	"socialNetwork/utils"
 )
 
 func fetchGroups(w http.ResponseWriter, r *http.Request) {
 	utils.Log("INFO", "Recieved Request for fetching groups")
-	token := auth.GetToken(w, r)
-	if token == "" {
-		return
-	}
-	User_id, err := user.GetUserIDByToken(token)
-	if err != nil {
-		utils.Log("Error Getting User Token", err.Error())
-		utils.SendJSON(w, http.StatusUnauthorized, utils.JSONResponse{
-			Success: false,
-			Message: err.Error(),
-		})
-		fmt.Println("1")
-		return
-	}
+
+	User_id := r.Context().Value(shared.UserIDKey).(string)
 	Groups, err := GetGroups(db.DB, User_id)
 	if err != nil {
 		utils.Log("Error Fetching Groups", err.Error())
@@ -34,7 +21,6 @@ func fetchGroups(w http.ResponseWriter, r *http.Request) {
 			Success: false,
 			Message: err.Error(),
 		})
-		fmt.Println("2")
 
 		return
 	}
@@ -57,19 +43,18 @@ func fetchGroups(w http.ResponseWriter, r *http.Request) {
 
 func GetGroups(db *sql.DB, currentUserID string) ([]Group, error) {
 	query := `
-	SELECT  
-    	g.title, 
-    	g.descriptio, 
-    	g.covername, 
-    	g.id, 
+SELECT  
+    g.title, 
+    g.description,
+    g.covername, 
+    g.id, 
     (SELECT COUNT(*) FROM groupMember WHERE group_id = g.id AND (memberState = "Member" OR memberState = "Admin" )) AS member_count,  
-    	COALESCE(gmCurrent.memberState, 'Join') AS mb 
-	FROM groups g 
-	LEFT JOIN groupMember gmCurrent 
+    COALESCE(gmCurrent.memberState, 'Join') AS mb 
+FROM groups g 
+LEFT JOIN groupMember gmCurrent 
     ON gmCurrent.group_id = g.id AND gmCurrent.user_id = ?
-
 	`
-
+	
 	rows, err := db.Query(query, currentUserID)
 	if err != nil {
 		utils.Log("ERROR", "Query failed: "+err.Error())

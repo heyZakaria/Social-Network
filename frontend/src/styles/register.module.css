@@ -40,7 +40,7 @@
 .registerForm {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 10px;
 }
 
 .formGroup {
@@ -50,7 +50,7 @@
 
 .formGroupDouble {
     flex-direction: row;
-    gap: 20px;
+    gap: 10px;
 }
 
 .field {

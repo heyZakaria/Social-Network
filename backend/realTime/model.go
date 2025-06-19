@@ -21,12 +21,9 @@ type MessageStruct struct {
 	Content  string `json:"content"`
 	Type     string `json:"type"`
 }
- 
-type JSONRequest struct {
 
-	RealTimeType string `json:"type"`
-	NotificationType string `json:"notif_type"` // check this just if the RealTimeType == "Notification" 
+type JSONRequest struct {
+	RealTimeType     string `json:"type"`
+	NotificationType string `json:"notif_type"` // check this just if the RealTimeType == "Notification"
 
 }
-
-

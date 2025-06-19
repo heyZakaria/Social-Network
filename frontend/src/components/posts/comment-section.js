@@ -6,6 +6,7 @@ import styles from "@/styles/posts.module.css";
 import EmojiPicker from "@/components/common/emoji-picker";
 import { IoPaperPlaneOutline } from 'react-icons/io5';
 import { useUser } from '@/context/user_context';
+import Image from "next/image";
 
 
 export default function CommentSection({ postId }) {
@@ -37,7 +38,7 @@ export default function CommentSection({ postId }) {
               id: 2,
               firstName: "Jane",
               lastName: "Smith",
-              avatar: "https://i.pravatar.cc/150?u=10`",
+              avatar: "/uploads/profile.jpeg",
             },
             content: "Wow, that looks amazing! Which trail was this? 😍",
             createdAt: "2023-03-10T12:15:00Z",
@@ -50,7 +51,7 @@ export default function CommentSection({ postId }) {
               id: 3,
               firstName: "Mike",
               lastName: "Johnson",
-              avatar: "https://i.pravatar.cc/150?u=10`",
+              avatar: "/uploads/profile.jpeg",
             },
             content: "Incredible views! I need to go hiking more often. 🏔️",
             createdAt: "2023-03-10T13:30:00Z",
@@ -63,7 +64,7 @@ export default function CommentSection({ postId }) {
               id: 4,
               firstName: "Sarah",
               lastName: "Williams",
-              avatar: "https://i.pravatar.cc/150?u=10`",
+              avatar: "/uploads/profile.jpeg",
             },
             content:
               "I was there last month! Did you take the north trail or the south one? 🧭",
@@ -77,7 +78,7 @@ export default function CommentSection({ postId }) {
               id: 5,
               firstName: "Alex",
               lastName: "Brown",
-              avatar: "https://i.pravatar.cc/150?u=10`",
+              avatar: "/uploads/profile.jpeg",
             },
             content:
               "The colors in this photo are stunning. What camera settings did you use? 📸",
@@ -184,7 +185,7 @@ export default function CommentSection({ postId }) {
                   href={`/profile/${comment.user.id}`}
                   className={styles.commentAvatar}
                 >
-                  <img
+                  <Image width={200} height={100}
                     src={ currentUser.avatar || // TODO add default avatar
                       "/uploads/profile.jpeg"
                     }
@@ -236,7 +237,7 @@ export default function CommentSection({ postId }) {
       )}
 
       <form className={styles.commentForm} onSubmit={handleSubmitComment}>
-        <img
+        <Image width={200} height={100}
           src={currentUser.avatar || "/uploads/profile.jpeg"}
           alt={currentUser.firstName}
           className={styles.commentFormAvatar}

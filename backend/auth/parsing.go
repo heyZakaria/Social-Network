@@ -2,10 +2,9 @@ package auth
 
 import (
 	"net/http"
+	"socialNetwork/utils"
 	"strings"
 	"time"
-
-	"socialNetwork/utils"
 )
 
 func ParseForm(r *http.Request) (Profile, error) {
@@ -20,3 +19,7 @@ func ParseForm(r *http.Request) (Profile, error) {
 	utils.Log("INFO", "Form fields parsed successfully")
 	return p, nil
 }
+
+// PrepareImage Function Has been Transfered to Utils Package
+// Import Cycle not allowed in golang
+// Shared Functions Must be in single Package

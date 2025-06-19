@@ -4,7 +4,7 @@ import (
 	"net/http"
 	"strings"
 
-	shared "socialNetwork/context"
+	shared "socialNetwork/shared_packages"
 	"socialNetwork/utils"
 )
 
@@ -34,6 +34,10 @@ func CreatePost(w http.ResponseWriter, r *http.Request) {
 		"custom_users": true,
 		"followers":    true,
 	}
+	GroupId := r.URL.Query().Get("group_id")
+	if GroupId != "" {
+		PostData.Group_id = &GroupId
+	}
 	r.ParseMultipartForm(10 << 20)
 
 	ImageProvided, postImage, file, err := utils.PrepareImage(r, "post_image", "posts")
@@ -42,7 +46,8 @@ func CreatePost(w http.ResponseWriter, r *http.Request) {
 		utils.Log("ERROR", "Error Trying to Prepare Image: "+postImage)
 		utils.SendJSON(w, http.StatusInternalServerError, utils.JSONResponse{
 			Success: false,
-			Message: "Error occured Please try again later.",
+			Error:   "Error While Preparing Image, Please try again later.",
+			Message: "Error occured Please try again later. " + err.Error(),
 		})
 		return
 	}
@@ -53,6 +58,7 @@ func CreatePost(w http.ResponseWriter, r *http.Request) {
 		utils.Log("ERROR", "Post Content is Empty")
 		utils.SendJSON(w, http.StatusBadRequest, utils.JSONResponse{
 			Success: false,
+			Error:   "Post content is required to create a post",
 			Message: "Post content is required to create a post",
 		})
 		return
@@ -62,6 +68,7 @@ func CreatePost(w http.ResponseWriter, r *http.Request) {
 		utils.Log("ERROR", "Error On the Privacy Mode user selected : "+PostData.Privacy)
 		utils.SendJSON(w, http.StatusBadRequest, utils.JSONResponse{
 			Success: false,
+			Error:   "Please Check the privacy of your Post.",
 			Message: "Please Check the privacy of your Post.",
 		})
 		return
@@ -79,6 +86,7 @@ func CreatePost(w http.ResponseWriter, r *http.Request) {
 		utils.SendJSON(w, http.StatusInternalServerError, utils.JSONResponse{
 			Success: false,
 			Message: "Error Inserting Post, Try again later.",
+			Error:   "Internal Server Error, Try again later.",
 		})
 		return
 	}
