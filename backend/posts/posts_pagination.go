@@ -16,6 +16,8 @@ import (
 // GetPostsScroll is a handler function that handles the GET request to fetch posts with pagination
 
 func PostsPagination(w http.ResponseWriter, r *http.Request) {
+	// TODO : Handle Group privacy ( protect on privacy)
+
 	utils.Log("", "Get request made to GetPostsScroll Handler")
 	UserID := r.Context().Value(shared.UserIDKey).(string)
 	GroupId := r.URL.Query().Get("group_id")

@@ -164,7 +164,26 @@ export default function GroupCard({ children }) {
     //   )
     // );
 
-    
+    try {
+      const respo = await fetch(`http://localhost:8080/api/groups/invite?Invited_id=${id}&Group_id=${groupId}`,
+        {method:"POST",
+          credentials:"include"
+        })
+        if (!respo.ok)throw new Error("Something Happened , Try Again")
+        const Data = await respo.json()
+      
+        setInvitedFriends(prevInvite =>
+      prevInvite.filter(friend =>
+        friend.id != id 
+      )
+      
+    );
+            console.log("dddddddddddd", Data ,invitedFriends , id);
+
+
+    } catch (error) {
+        SetErr(error.message)
+    }
   };
 
   const HandleShowInvite = async() => {
@@ -232,15 +251,11 @@ export default function GroupCard({ children }) {
       }
     ).
       then(async (res) => {
-
         const Data = await res.json()
         console.log(Data.data, "dttdtd");
         setGroup(Data.data)
-
         if (!res.ok) { throw new Error(Data.message) }
         console.log(group);
-
-
       }).
       then(Data => {
         console.log(Data)

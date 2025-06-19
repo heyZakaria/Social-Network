@@ -4,7 +4,7 @@ import './InviteFriends.css';
 
 
 export default function InviteFriends({ FriendsList, onInvite }) {
-  
+  if (!FriendsList || FriendsList.length ===0)return <p>No More Friends To Invite</p>
   return (
     <div className="friendListContainer">
       <ul className="friendList">

@@ -66,6 +66,8 @@ func getFriendList(w http.ResponseWriter, r *http.Request) {
 			SELECT 1 FROM groupMember GM
 			WHERE GM.user_id = NotMemberFriends.user_id AND GM.group_id = ?
 		)
+		AND NOT EXISTS (
+		SELECT 1 FROM group_invite gi WHERE gi.reciever_id = user_id )
 		AND NotMemberFriends.user_id != ?
 	`
 
