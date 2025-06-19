@@ -103,7 +103,7 @@ export default function ChatComponent({ currentUser, otherUser , refresh, active
           read: false,
           sender: data.sender,
           receiver: data.receiver,
-          content: data.content+"|||",
+          content: data.content,
           type: data.type,
           first_time: false,//
           session_id: data.session_id, // Assuming session_id is the chat ID
