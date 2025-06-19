@@ -157,8 +157,12 @@ export default function CommentSection({ setCommentsCount, postId }) {
           setCommentsCount(comments.length + 1);
           setNewComment("");
         } else {
-          await logoutUser()
-          window.location.href = "/login"
+          if (data.error == "You are not Authorized.") {
+            await logoutUser()
+            window.location.href = "/login"
+          } else {
+            setErrors(prev => ({ ...prev, content: data.error }));
+          }
         }
 
       } catch (error) {
