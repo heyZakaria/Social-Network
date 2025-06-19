@@ -10,7 +10,7 @@ import { FetchData } from "@/context/fetchJson";
 
 
 
-export default function ChatComponent({ currentUser, otherUser , refresh}) {
+export default function ChatComponent({ currentUser, otherUser , refresh, activeChat}) {
   const [messages, setMessages] = useState([]);
   const [newMessage, setNewMessage] = useState("");
   const [isLoading, setIsLoading] = useState(true);
@@ -62,37 +62,15 @@ export default function ChatComponent({ currentUser, otherUser , refresh}) {
 
     // In a real app, this would send the message through WebSocket
     // For now, we'll just add it to the local state
-    const newMsg = {
-      id: Date.now(),
-      read: false,
+    websocket.send({
       sender: currentUser.id,
-      receiver: otherUser.id,
+      receiver: otherUser.other_user_id,
       content: newMessage,
       type: "private_message",
       first_time: false,//
       session_id: "", // Assuming session_id is the chat ID
-      createdAt: new Date().toISOString(),
-    };
-
-        console.log("Aciba MOP", {
-          sender: currentUser.id,
-          receiver: otherUser.other_user_id,
-          content: newMessage,
-          type: "private_message",
-          first_time: false,//
-          session_id: "", // Assuming session_id is the chat ID
-        });
-     console.log("handleSendMessage Function called with message:", newMessage);
-        websocket.send({
-          sender: currentUser.id,
-          receiver: otherUser.other_user_id,
-          content: newMessage,
-          type: "private_message",
-          first_time: false,//
-          session_id: "", // Assuming session_id is the chat ID
-        });
+    });
     refresh()
-    setMessages([...messages, newMsg]);
     setNewMessage("");
   };
 
@@ -120,21 +98,21 @@ export default function ChatComponent({ currentUser, otherUser , refresh}) {
 // }
   socket.onmessage = (event) => {
     const data = JSON.parse(event.data);
-    if (data.sender == otherUser.other_user_id) {
         const newMsg = {
           id: Date.now(),
           read: false,
           sender: data.sender,
           receiver: data.receiver,
-          content: data.content,
+          content: data.content+"|||",
           type: data.type,
           first_time: false,//
           session_id: data.session_id, // Assuming session_id is the chat ID
           createdAt: new Date().toISOString(),
         };
       setMessages((prevMessages) => [...prevMessages, newMsg]);
-      
-    }
+      if (data.receiver == currentUser.id){
+        fetch(`/api/websocket/set_readed?session_id=${data.session_id}`);
+      }
     console.log("Message received in Chat CompLD:", data);
   }
 

@@ -4,8 +4,6 @@ import { useState, useEffect } from "react";
 // import Link from "next/link";
 import styles from "@/styles/profile.module.css";
 import PostComponent from "@/components/posts/post-component";
-import FollowButton from "./follow-button";
-import PrivacyToggle from "./privacy-toggle";
 import UserList from "../friends/user-list";
 import FloatingChat from "@/components/chat/floating-chat";
 import Image from "next/image";
@@ -88,27 +86,8 @@ console.log("Following:", ProfileData.following);
                   </span>
                 )}
               </h1>
-
-              {ProfileData.IsOwnProfile ? (
-                <div className={styles.profileActions}>
-                  {/* <Link href="/settings" className={styles.editButton}>
-                    Edit Profile
-                  </Link> */}
-
-                  <PrivacyToggle user={ProfileData} />
-                </div>
-              ) : (
-                <div className={styles.profileActions}>
-                  <FollowButton targetUserId={ProfileData.id} />
-                  {ProfileData.profile_status === "public" ||
-                    ProfileData.CanView ? (
-                      <div>
-                      <FloatingChat currentUser={currentUser} profileData={ProfileData} />
-                     </div>
-                  ) : null}
-
-                </div>
-              )}
+                <FloatingChat currentUser={currentUser} profileData={ProfileData} />
+             
             </div>
 
             <div className={styles.profileStats}>

@@ -142,7 +142,10 @@
   display: flex;
   gap: 0.5rem;
 }
-
+.buttonsProfile{
+  display: flex;
+  gap: 10px;
+}
 .messageButton,
 .followButton,
 .unfollowButton,
@@ -229,7 +232,6 @@
     width: 100%;
   }
 
-  .messageButton,
   .followButton,
   .unfollowButton,
   .ignoreButton {

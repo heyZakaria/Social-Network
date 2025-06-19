@@ -112,6 +112,7 @@ export default function Home() {
                 )}
               </div>
             </div>
+            <FloatingChat currentUser={currentUser} />
           </div>
         </>
       ) : (
@@ -140,7 +141,6 @@ export default function Home() {
           </div>
         </div>
       )}
-        <FloatingChat currentUser={currentUser} />
     </div>
   );
 }

@@ -28,7 +28,7 @@ func CheckUserExeting(next http.Handler) http.Handler {
 			UserID, err = Tkn.GetUserIDByToken(token)
 			r.Header.Set("UserID", UserID)
 			if err != nil || UserID == "" {
-				utils.Log("ERROR", "Invalid Token in CheckUserExeting Handler: ")
+				utils.Log("ERROR", "Invalid Token in CheckUserExeting Handler: "+token+" UserID:"+UserID)
 				utils.SendJSON(w, http.StatusUnauthorized, utils.JSONResponse{
 					Success: false,
 					Message: "Please login to continue",

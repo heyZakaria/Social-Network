@@ -7,12 +7,13 @@ import EmojiPicker from "@/components/common/emoji-picker";
 import { IoClose, IoChatbubbleEllipses, IoCloseSharp } from "react-icons/io5";
 import { IoIosArrowBack } from "react-icons/io";
 
+import PrivacyToggle from "@/components/profile/privacy-toggle";
+import FollowButton from "@/components/profile/follow-button";
 import Image from "next/image";
-import {socket, websocket } from "@/lib/websocket/websocket";
+import { socket, websocket } from "@/lib/websocket/websocket";
 import { FetchData } from "@/context/fetchJson";
 import { date } from "zod";
 export default function FloatingChat({ currentUser, profileData }) {
-  
   const [isOpen, setIsOpen] = useState(false);
   const [activeChat, setActiveChat] = useState(null);
   const [refresh, setRefresh] = useState(0);
@@ -25,12 +26,19 @@ export default function FloatingChat({ currentUser, profileData }) {
     // For now, we'll use mock data
     const fetchRecentChats = async () => {
       try {
-        const response = await FetchData(`/api/websocket/Get_Chat_History?chat_list=fetch`)
-        console.log("Response List Of users Chat History ", response?.data?.ChatList);
-        setRecentChats(response?.data?.ChatList || []);
-        setUnreadCount(
-          // response.data.ChatList.reduce((acc, chat) => acc + chat.unreadCount, 0)
+        const response = await FetchData(
+          `/api/websocket/Get_Chat_History?chat_list=fetch`
         );
+        console.log(
+          "Response List Of users Chat History ",
+          response?.data?.ChatList
+        );
+        setRecentChats(response?.data?.ChatList || []);
+        console.log("recent chat", response?.data?.ChatList);
+        
+        setUnreadCount(response.data.ChatList.reduce((acc, chat) => acc + chat.readed, 0));
+        console.log("Unread Count", unreadCount);
+        
       } catch (error) {
         console.error("Error fetching recent chats:", error);
       }
@@ -41,53 +49,38 @@ export default function FloatingChat({ currentUser, profileData }) {
 
   if (socket && websocket) {
     socket.onmessage = (event) => {
-          refreshChatList()
-          console.log("List Refreched From Floating chat comp");
+      refreshChatList();
+
+      console.log("List Refreched From Floating chat comp");
+    };
+  }
+
+  function generateChatSessionID(userID, receiverID) {
+    if (userID < receiverID) {
+      return `${userID}_${receiverID}`;
     }
+    return `${receiverID}_${userID}`;
   }
- 
-//   {
-//     "id": 81,
-//     "sender": "1def295f-6cb0-4257-b8f1-a7e7a7205e03",
-//     "receiver": "6f336313-eb72-47c7-b727-c9fd1732e5a0",
-//     "content": "t4w5tt5t54trtw5wyw5yy5e6u6u65u6u565y63",
-//     "type": "private_message",
-//     "first_time": false,
-//     "session_id": "1def295f-6cb0-4257-b8f1-a7e7a7205e03_6f336313-eb72-47c7-b727-c9fd1732e5a0",
-//     "createdAt": "2025-06-18T02:38:59Z",
-//     "other_user_id": "6f336313-eb72-47c7-b727-c9fd1732e5a0",
-//     "other_first_name": "Omar",
-//     "other_last_name": "Elhacouch",
-//     "other_avatar": ""
-// }
 
-function generateChatSessionID(userID, receiverID) {
-  if (userID < receiverID) {
-    return `${userID}_${receiverID}`;
-  }
-  return `${receiverID}_${userID}`;
-}
+  const GenerateChat = () => {
+    console.log("Profile Data", profileData);
 
-
-const GenerateChat = () => {
-  console.log("Profile Data", profileData);
-  
-  const chat = {
-    id: Date.now(),
-    session_id: generateChatSessionID(currentUser.id, profileData.id),
-    other_user_id: profileData.id,
-    other_first_name: profileData.firstName,
-    other_last_name: profileData.lastName,
-    other_avatar: profileData.avatar || "/uploads/profile.jpeg",
-  }
-  return chat
-}
+    const chat = {
+      id: Date.now(),
+      session_id: generateChatSessionID(currentUser.id, profileData.id),
+      other_user_id: profileData.id,
+      other_first_name: profileData.firstName,
+      other_last_name: profileData.lastName,
+      other_avatar: profileData.avatar || "/uploads/profile.jpeg",
+    };
+    return chat;
+  };
   const handleChatSelect = (chat) => {
-    
     setActiveChat(chat);
     console.log("Chat Example", chat);
     console.log("Active Chat", activeChat);
     setIsOpen(true);
+    setUnreadCount((prev) => prev - chat.readed)
   };
 
   const handleClose = () => {
@@ -98,6 +91,7 @@ const GenerateChat = () => {
   const handleListChat = () => {
     setIsOpen(true);
     setActiveChat(null);
+    refreshChatList()
   };
 
   const handleEmojiSelect = (emoji) => {
@@ -126,110 +120,134 @@ const GenerateChat = () => {
     }
   };
 
-
   return (
-    <div>
-      <button className={styles.messageButton} onClick={() => handleChatSelect(GenerateChat())}>Message</button>
-    <div className={styles.floatingChatContainer}>
-      {isOpen && activeChat ? (
-        <div className={styles.chatWindow}>
-          <div className={styles.chatHeader}>
-            <div className={styles.chatHeaderInfo}>
-              <div className={styles.backArrow}>
-                <IoIosArrowBack size={24} onClick={handleListChat} />
-              </div>
-              <Image width={20} height={20}
-                src={
-                  activeChat.avatar|| "/uploads/profile.jpeg"
-                }
-                alt={activeChat.other_first_name}
-                className={styles.chatHeaderAvatar}
-              />
-              <div className={styles.chatHeaderName}>
-                {activeChat.other_first_name} {activeChat.other_last_name}
-              </div>
-            </div>
-            <div className={styles.chatHeaderActions}>
-              <button className={styles.chatHeaderAction} onClick={handleClose}>
-              <IoCloseSharp size={24} />
-              </button>
-            </div>
-          </div>
-          <div className={styles.chatBody}>
-            <ChatComponent
-              currentUser={currentUser}
-              otherUser={activeChat}
-              refresh={refreshChatList}
-            />
-          </div>
-        </div>
-      ) : (
-        <div className={styles.chatButton} onClick={() => setIsOpen(true)}>
-          <IoChatbubbleEllipses size={24} />
-          {unreadCount > 0 && (
-            <span className={styles.unreadBadge}>{unreadCount}</span>
-          )}
-        </div>
-      )}
+    <>
+      
+        {profileData?.IsOwnProfile ? (
+          <div className={styles.profileActions}>
+            {/* <Link href="/settings" className={styles.editButton}>
+            Edit Profile
+          </Link> */}
 
-      {isOpen && !activeChat && (
-        <div className={styles.chatList}>
-          <div className={styles.chatListHeader}>
-            <h3>Messages</h3>
-            <button
-              className={styles.chatListClose}
-              onClick={() => setIsOpen(false)}
-            >
-              <IoClose size={16} />
-            </button>
+            <PrivacyToggle user={profileData} />
           </div>
-          <div className={styles.chatListContent}>
-            {recentChats?.length > 0 ? (
-              recentChats.map((chat) => (
-                <div
-                  key={chat.id}
-                  className={`${styles.chatListItem} ${
-                    chat.unreadCount > 0 ? styles.unread : ""
-                  }`}
-                  onClick={() => handleChatSelect(chat)}
-                >
-                  <div className={styles.chatListItemAvatar}>
-                    <Image width={200} height={100}
-                      src={
-                        chat.avatar || "/uploads/profile.jpeg"
-                      }
-                      alt={chat.other_first_name}
-                    />
-                    {/* {chat.user.isOnline && (
-                      <div className={styles.onlineIndicator}></div>
-                    )} */}
-                  </div>
-                  <div className={styles.chatListItemInfo}>
-                    <div className={styles.chatListItemName}>
-                      {chat.other_first_name} {chat.other_last_name}
-                    </div>
-                    <div className={styles.chatListItemMessage}>
-                      {chat.content}
-                    </div>
-                  </div>
-                  <div className={styles.chatListItemMeta}>
-                    <div className={styles.chatListItemTime}>
-                     
-                      {formatTime(chat.createdAt)}
-                    </div>
-                    {chat.unreadCount > 0 && (
-                      <div className={styles.chatListItemBadge}>
-                        {chat.unreadCount}
-                      </div>
-                    )}
-                  </div>
+        ) : (
+          <div className={styles.profileActions}>
+            <FollowButton targetUserId={profileData?.id} />
+            {profileData?.profile_status === "public" || profileData?.CanView ? (
+              <button
+                className={styles.messageButton}
+                onClick={() => handleChatSelect(GenerateChat())}
+              >
+                Message
+              </button>
+            ) : null}
+          </div>
+        )}
+
+      <div className={styles.floatingChatContainer}>
+        {isOpen && activeChat ? (
+          <div className={styles.chatWindow}>
+            <div className={styles.chatHeader}>
+              <div className={styles.chatHeaderInfo}>
+                <div className={styles.backArrow}>
+                  <IoIosArrowBack size={24} onClick={handleListChat} />
                 </div>
-              ))
-            ) : (
-              <div className={styles.emptyState}>No recent messages</div>
+                <Image
+                  width={20}
+                  height={20}
+                  src={activeChat.avatar || "/uploads/profile.jpeg"}
+                  alt={activeChat.other_first_name}
+                  className={styles.chatHeaderAvatar}
+                />
+                <div className={styles.chatHeaderName}>
+                  {activeChat.other_first_name} {activeChat.other_last_name}
+                </div>
+              </div>
+              <div className={styles.chatHeaderActions}>
+                <button
+                  className={styles.chatHeaderAction}
+                  onClick={handleClose}
+                >
+                  <IoCloseSharp size={24} />
+                </button>
+              </div>
+            </div>
+            <div className={styles.chatBody}>
+              <ChatComponent
+                currentUser={currentUser}
+                otherUser={activeChat}
+                refresh={refreshChatList}
+                activeChat={activeChat}
+              />
+            </div>
+          </div>
+        ) : (
+          <div className={styles.chatButton} onClick={() => setIsOpen(true)}>
+            <IoChatbubbleEllipses size={24} />
+            {unreadCount > 0 && (
+              <span className={styles.unreadBadge}>{unreadCount}</span>
             )}
           </div>
-          {/* <div className={styles.chatListFooter}>
+        )}
+
+        {isOpen && !activeChat && (
+          <div className={styles.chatList}>
+            <div className={styles.chatListHeader}>
+              <h3>Messages</h3>
+              <button
+                className={styles.chatListClose}
+                onClick={() => setIsOpen(false)}
+              >
+                <IoClose size={16} />
+              </button>
+            </div>
+            <div className={styles.chatListContent}>
+              {recentChats?.length > 0 ? (
+                recentChats.map((chat) => (
+                  <div
+                    key={chat.id}
+                    className={`${styles.chatListItem} ${
+                      chat.readed > 0 ? styles.unread : ""
+                    }`}
+                    onClick={() => handleChatSelect(chat)}
+                  >
+                    <div className={styles.chatListItemAvatar}>
+                      <Image
+                        width={200}
+                        height={100}
+                        src={chat.avatar || "/uploads/profile.jpeg"}
+                        alt={chat.other_first_name}
+                      />
+                      {/* {chat.user.isOnline && (
+                      <div className={styles.onlineIndicator}></div>
+                    )} */}
+                    </div>
+                    <div className={styles.chatListItemInfo}>
+                      <div className={styles.chatListItemName}>
+                        {chat.other_first_name} {chat.other_last_name}
+                      </div>
+                      <div className={styles.chatListItemMessage}>
+                        {chat.content}
+                      </div>
+                    </div>
+                    <div className={styles.chatListItemMeta}>
+                      <div className={styles.chatListItemTime}>
+                        {formatTime(chat.createdAt)}
+                      </div>
+                      {chat.unreadCount > 0 && (
+                        <div className={styles.chatListItemBadge}>
+                          {chat.unreadCount}
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                ))
+              ) : (
+                <div className={styles.emptyState}>No recent messages</div>
+              )}
+            </div>
+            {/* <div className={styles.chatListFooter}>
             <form
               className={styles.quickMessageForm}
               onSubmit={handleSendMessage}
@@ -255,10 +273,9 @@ const GenerateChat = () => {
               </button>
             </form>
           </div> */}
-        </div>
-      )}
-    </div>
-    </div>
-
+          </div>
+        )}
+      </div>
+    </>
   );
 }

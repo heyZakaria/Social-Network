@@ -101,25 +101,33 @@ func (msgs *MessageStruct) InsertDB(UserID string) (bool, bool) {
 func WriteMessages(UserID string) {
 	for {
 		// Grab the next message from the broadcast channel
+		client, ok := clients[UserID]
+		if !ok || client == nil || client.Broadcast == nil {
+			utils.Log("ERROR", "Problem passing data through the channel")
+			mutex.Unlock()
+			continue
+		}
 		message := <-clients[UserID].Broadcast
 
 		mutex.Lock()
 		var err error
-		client, ok := clients[message.Receiver]
+		var ReciverNotFound = false
+		client, ok = clients[message.Receiver]
 		if !ok || client == nil || client.Conn == nil {
 			utils.Log("ERROR", "Client not found or connection is nil for Receiver: "+message.Receiver)
-			mutex.Unlock()
-			continue
+			ReciverNotFound = true
 		}
 		// For Private MSGS
 		if message.Type == "private_message" {
-			err = clients[message.Receiver].Conn.WriteJSON(message)
-			if err != nil {
-				utils.Log("ERROR", "Error sending message to Receiver: "+message.Receiver)
-				clients[message.Receiver].Conn.Close()
-				delete(clients, message.Receiver)
+			if !ReciverNotFound {
+				err = clients[message.Receiver].Conn.WriteJSON(message)
+				if err != nil {
+					utils.Log("ERROR", "Error sending message to Receiver: "+message.Receiver)
+					clients[message.Receiver].Conn.Close()
+					delete(clients, message.Receiver)
+				}
+				utils.Log("INFO", fmt.Sprintf("Message sent to %s: %s", message.Receiver, message.Content))
 			}
-			utils.Log("INFO", fmt.Sprintf("Message sent to %s: %s", message.Receiver, message.Content))
 			err = clients[UserID].Conn.WriteJSON(message)
 			if err != nil {
 				utils.Log("ERROR", "Error sending message to UserID: "+UserID)
@@ -127,15 +135,6 @@ func WriteMessages(UserID string) {
 				delete(clients, UserID)
 			}
 			utils.Log("INFO", fmt.Sprintf("Message sent to %s: %s", UserID, message.Content))
-		} else if message.Type == "fetch_messages" {
-			// FOR Fech History of CHAT
-			err = clients[UserID].Conn.WriteJSON(message)
-			if err != nil {
-				utils.Log("ERROR", "Error sending history to the user: "+UserID)
-				clients[UserID].Conn.Close()
-				delete(clients, UserID)
-			}
-			utils.Log("INFO", fmt.Sprintf("History sent to %s: %s", UserID))
 		}
 
 		mutex.Unlock()

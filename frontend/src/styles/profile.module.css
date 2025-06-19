@@ -81,11 +81,7 @@
   color: #65676b;
 }
 
-.profileActions {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-}
+
 
 .editButton,
 .followButton {

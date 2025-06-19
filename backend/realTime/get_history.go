@@ -57,10 +57,11 @@ func Get_Chat_History(w http.ResponseWriter, r *http.Request) {
 		var ChatList []MessageStruct
 		for rows.Next() {
 			var item MessageStruct
-			if err := rows.Scan(&item.ID, &item.SessionID, &item.Sender, &item.Receiver, &item.Content, &item.Type, &item.CreatedAt, &item.Other_user_id, &item.Other_first_name, &item.Other_last_name, &item.Other_avatar); err != nil {
+			if err := rows.Scan(&item.ID, &item.SessionID, &item.Sender, &item.Receiver, &item.Content, &item.Readed, &item.Type, &item.CreatedAt, &item.Other_user_id, &item.Other_first_name, &item.Other_last_name, &item.Other_avatar); err != nil {
 				utils.Log("ERROR", "Error scanning row: "+err.Error())
 				continue
 			}
+			db.DB.QueryRow(`SELECT COUNT(*) FROM chats WHERE session_id = ? AND message_readed = 0 AND receiver_id = ?`, item.SessionID, UserID).Scan(&item.Readed)
 			ChatList = append(ChatList, item)
 		}
 		utils.Log("INFO", "Chat USERS List Fetched successfully")
@@ -117,6 +118,11 @@ func Get_Chat_History(w http.ResponseWriter, r *http.Request) {
 			continue
 		}
 		Messages = append(Messages, msg)
+	}
+
+	_, err = db.DB.Exec("UPDATE chats SET message_readed = 1 WHERE session_id = ? AND receiver_id = ?", Session_ID, UserID)
+	if err != nil {
+		utils.Log("ERROR", "Error marking messages as read: "+err.Error())
 	}
 	utils.Log("INFO", "Chat History Fetched successfully :D")
 	utils.SendJSON(w, http.StatusOK, utils.JSONResponse{

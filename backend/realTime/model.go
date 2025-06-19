@@ -21,13 +21,14 @@ type Client struct {
 	Mutex     *sync.Mutex
 }
 type MessageStruct struct {
-	ID               int		`json:"id"`
+	ID               int        `json:"id"`
 	Sender           string     `json:"sender"`
 	Receiver         string     `json:"receiver"`
 	Content          string     `json:"content"`
 	Type             string     `json:"type"`
 	FirstTime        bool       `json:"first_time"`
 	SessionID        string     `json:"session_id"`
+	Readed           int        `json:"readed"`
 	CreatedAt        *time.Time `json:"createdAt"`
 	Other_user_id    string     `json:"other_user_id"`
 	Other_first_name string     `json:"other_first_name"`
