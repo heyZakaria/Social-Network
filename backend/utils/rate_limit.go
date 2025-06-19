@@ -22,7 +22,7 @@ func CheckRateLimit(RateLimit map[string]LimitInfo, UserId string, w http.Respon
 				Log("ERROR", "Rate limit exceeded for user: "+UserId)
 				SendJSON(w, http.StatusTooManyRequests, JSONResponse{
 					Success: false,
-					Message: "You have exceeded the rate limit for creating posts. Please try again later.",
+					Message: "You have exceeded the rate limit. Please try again later.",
 				})
 				return true
 			}

@@ -14,7 +14,7 @@ export default function CommentSection({ setCommentsCount, postId }) {
   const { user: currentUser } = useUser();
   const [comments, setComments] = useState([]);
   const [selectedImage, setSelectedImage] = useState(null);
-
+  const [ErrorMsg, SetErrorMsg] = useState("");
   const [displayedComments, setDisplayedComments] = useState([]);
   const [newComment, setNewComment] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -134,6 +134,7 @@ export default function CommentSection({ setCommentsCount, postId }) {
         const data = await response.json();
 
         if (data.success) {
+          SetErrorMsg("");
           console.log("Comment data from backend:", data)
           resetForm();
 
@@ -142,12 +143,12 @@ export default function CommentSection({ setCommentsCount, postId }) {
             content: newComment,
             comment_img: data.Comment?.comment_img || null,
             UserID: currentUser.id,
-            ID: data.Comment.ID,
+            ID: data.data.Comment.ID,
             FirstName: currentUser.firstName,
             LastName: currentUser.lastName,
             CreatedAt: currentUser.CreatedAt,
             Avatar: currentUser.avatar || "/uploads/profile.jpeg"
-          };
+          }
 
           const updatedComments = [newCommentObj, ...comments];
           setComments(updatedComments);
@@ -155,7 +156,10 @@ export default function CommentSection({ setCommentsCount, postId }) {
           setCommentsCount(comments.length + 1);
           setNewComment("");
         } else {
-          console.log('Error :', data.error);
+          console.log('Error :', data);
+          SetErrorMsg(data.message || "Failed to add comment");
+          // Display Error Box
+
         }
 
       } catch (error) {
@@ -293,27 +297,6 @@ export default function CommentSection({ setCommentsCount, postId }) {
           </div>
         </div>
 
-        {/* Selected Image Preview */}
-        {selectedImage && (
-          <div className={styles.imagePreview}>
-            <Image width={200} height={100}
-              src={URL.createObjectURL(selectedImage)}
-              className={styles.previewImage}
-            />
-            <button
-              onClick={() => {
-                setSelectedImage(null);
-                if (fileInputRef.current) fileInputRef.current.value = '';
-              }}
-              className={styles.removeImageButton}
-              type="button"
-              disabled={isLoading}
-            >
-              ×
-            </button>
-          </div>
-        )}
-
         <div className={styles.buImgCont}>
           <button
             className={styles.imgAction}
@@ -343,6 +326,27 @@ export default function CommentSection({ setCommentsCount, postId }) {
           <IoPaperPlaneOutline size={16} />
         </button>
       </form>
+      {/* Selected Image Preview */}
+        {selectedImage && (
+          <div className={styles.imagePreview}>
+            <Image width={200} height={100}
+              src={URL.createObjectURL(selectedImage)}
+              className={styles.previewImage}
+            />
+            <button
+              onClick={() => {
+                setSelectedImage(null);
+                if (fileInputRef.current) fileInputRef.current.value = '';
+              }}
+              className={styles.removeImageButton}
+              type="button"
+              disabled={isLoading}
+            >
+              ×
+            </button>
+          </div>
+        )}
+      {ErrorMsg && <div className={styles.ErrorMessage}>{ErrorMsg}</div>}
     </div>
   );
 }
