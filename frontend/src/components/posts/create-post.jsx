@@ -7,16 +7,16 @@ import PopupInput from './popup-input';
 import PopupPrivacy from './popup-privacy';
 import { useUser } from "@/context/user_context";
 import Image from "next/image";
+import { logoutUser } from '@/app/(auth)/_logout/logout';
 
-
-const CreatePost = ({ Refrech}) => {
+const CreatePost = ({ Refrech }) => {
   // State for form data  
-  const {user : currentUser} = useUser()
+  const { user: currentUser } = useUser()
   const [postContent, setPostContent] = useState('');
   const [privacy, setPrivacy] = useState('public');
   const [selectedImage, setSelectedImage] = useState(null);
   const [allowedUsers, setAllowedUsers] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);  
+  const [isLoading, setIsLoading] = useState(false);
 
   // State for errors
   const [errors, setErrors] = useState({
@@ -104,11 +104,11 @@ const CreatePost = ({ Refrech}) => {
 
   const publishPost = async (event) => {
     event.preventDefault();
-
     // Validation
     const isValid = validateForm();
 
     if (isValid) {
+
       setIsLoading(true);
 
       try {
@@ -151,15 +151,15 @@ const CreatePost = ({ Refrech}) => {
           // Reset form on success
           resetForm();
           Refrech();
-          if (data.error){
-             setErrors(prev => ({ ...prev, content:  data.error}));
+          if (data.error) {
+            setErrors(prev => ({ ...prev, content: data.error }));
           }
         } else {
-          setErrors(prev => ({ ...prev, content: data.message || 'Failed to create post' }));
+          await logoutUser()
+          window.location.href = "/login"
         }
 
       } catch (error) {
-        console.error('Error:', error);
         setErrors(prev => ({ ...prev, content: 'Network error. Please try again.' }));
       } finally {
         setIsLoading(false);
@@ -205,13 +205,13 @@ const CreatePost = ({ Refrech}) => {
     // Clear content errors
     setErrors(prev => ({ ...prev, content: '' }));
   };
-  
+
   return (
     <form onSubmit={publishPost} className={styles.postForm} id="postForm">
       <div className={styles.createPost}>
         <div className={styles.createPostHeader}>
           <Image width={200} height={100}
-            src={ currentUser.avatar || "/uploads/profile.jpeg"}
+            src={currentUser.avatar || "/uploads/profile.jpeg"}
             alt="User Avatar"
             className={styles.createPostAvatar}
           />

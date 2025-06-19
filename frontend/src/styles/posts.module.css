@@ -966,6 +966,19 @@
   min-height: 150px;
 }
 
+.error_popup {
+  width: 80%;
+  height: 80%;
+  background-color: #8a7da3;
+  position: relative;
+  align-items: center;
+}
+
+.text_error{
+  align-items: center;
+  color: red;
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .commentImg {
