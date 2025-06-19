@@ -25,3 +25,10 @@ type JSONRequest struct {
     RealTimeType     string `json:"type"`
     NotificationType string `json:"notif_type"` // check this just if the RealTimeType == "Notification"
 }
+
+type UserProfile struct {
+	UserID    string
+	FirstName string
+	LastName  string
+	Avatar    string
+}

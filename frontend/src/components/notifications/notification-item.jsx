@@ -38,9 +38,9 @@ export default function NotificationItem({ notification, onClick }) {
           >
             {notification.from || "User"}
           </Link>
+        </p>
         <p className={styles.notificationText}>
           {notification.content || "You have a new notification"}
-        </p>
         </p>
         <span className={styles.notificationTime}>
           {formatDate(notification.createdAt)}

@@ -43,33 +43,33 @@ export function FriendsProvider({ children }) {
         requestPending: data.data.Data?.RequestPending || false,
       };
       setStatusCache((prev) => ({ ...prev, [id]: status }));
+      await fetchAll()
       return status;
     } catch (err) {
       return { isFollowing: false, requestPending: false };
     }
   };
 
-const toggleFollow = async (userId) => {
-  const id = String(userId);
-  try {
-    const res = await fetch(`/api/users/follow?id=${id}`, {
-      method: "POST",
-      credentials: "include",
-    });
-    const data = await res.json();
-    const updatedStatus = {
-      isFollowing: data.data.Data?.IsFollowing || false,
-      requestPending: data.data.Data?.RequestPending || false,
-    };
-    setStatusCache((prev) => ({ ...prev, [id]: updatedStatus }));
-    await fetchAll();
-
-    return updatedStatus;
-  } catch (err) {
-    console.error("Follow error:", err);
-    return { isFollowing: false, requestPending: false };
-  }
-};
+  const toggleFollow = async (userId) => {
+    const id = String(userId);
+    try {
+      const res = await fetch(`/api/users/follow?id=${id}`, {
+        method: "POST",
+        credentials: "include",
+      });
+      const data = await res.json();
+      const updatedStatus = {
+        isFollowing: data.data.Data?.IsFollowing || false,
+        requestPending: data.data.Data?.RequestPending || false,
+      };
+      setStatusCache((prev) => ({ ...prev, [id]: updatedStatus }));
+      await fetchAll();
+      return updatedStatus;
+    } catch (err) {
+      console.error("Follow error:", err);
+      return { isFollowing: false, requestPending: false };
+    }
+  };
 
 
   const handleAcceptRequest = async (userId) => {
@@ -78,6 +78,7 @@ const toggleFollow = async (userId) => {
         method: "POST",
         credentials: "include",
       });
+      await fetchAll();
     } catch (err) {
       console.error("Accept error", err);
     }
@@ -89,6 +90,7 @@ const toggleFollow = async (userId) => {
         method: "POST",
         credentials: "include",
       });
+      await fetchAll();
     } catch (err) {
       console.error("Reject error", err);
     }

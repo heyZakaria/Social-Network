@@ -2,7 +2,6 @@ package profile
 
 import (
 	"database/sql"
-	"fmt"
 	"net/http"
 
 	db "socialNetwork/db/sqlite"
@@ -154,24 +153,16 @@ func ToggleFollowUser(w http.ResponseWriter, r *http.Request) {
 			p.FirstName, p.LastName = "Someone", ""
 		}
 		notificationType := "follow_request"
-		title := "New Follow Request"
 		content := "Sent you a follow request"
 		if profile.IsFollowing {
 			notificationType = "follow"
-			title = "New Follower"
-			content = fmt.Sprintf("%s %s started following you", p.FirstName, p.LastName)
+			content = "started following you"
 		}
-		realTime.SendNotification(targetUserId, realTime.MessageStruct{
-			Type: "notification",
-			Data: map[string]interface{}{
-				"id":      p.UserID,
-				"type":    notificationType,
-				"title":   title,
-				"content": content,
-				"avatar":  p.Avatar,
-				"from":    p.FirstName + " " + p.LastName,
-				"read":    false,
-			},
-		})
+		realTime.BuildAndDispatchNotification(db.DB,
+			followerId,
+			targetUserId,
+			notificationType,
+			content,
+		)
 	}
 }

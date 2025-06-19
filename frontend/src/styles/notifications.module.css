@@ -186,6 +186,7 @@
   display: flex;
   gap: 8px;
   margin-top: 6px;
+  justify-content: flex-end;
 }
 
 .actionButton {

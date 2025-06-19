@@ -51,15 +51,6 @@ func handleFriendRequest(w http.ResponseWriter, r *http.Request, query, successM
 	})
 }
 
-// func AcceptFollowRequest(w http.ResponseWriter, r *http.Request) {
-// 	handleFriendRequest(
-// 		w, r,
-// 		`UPDATE followers SET follower_status = 'accepted' WHERE followed_id = ? AND follower_id = ? AND follower_status = 'pending'`,
-// 		"Friend request accepted successfully",
-// 		"Failed to accept friend request",
-// 		"You cannot accept your own request",
-// 	)
-// }
 
 func RejectFollowRequest(w http.ResponseWriter, r *http.Request) {
 	handleFriendRequest(
@@ -87,24 +78,17 @@ func AcceptFollowRequest(w http.ResponseWriter, r *http.Request) {
 
 	// Only send notification if friendID is not empty and not the same as userID
 	if friendID != "" && friendID != userID {
-		// Fetch first and last name of the user who accepted the request
 		var p UserProfile
 		err := db.DB.QueryRow("SELECT first_name, last_name, avatar FROM users WHERE id = ?", userID).Scan(&p.FirstName, &p.LastName, &p.Avatar)
 		if err != nil {
 			utils.Log("ERROR", "Failed to fetch user name for notification: "+err.Error())
 			p.FirstName, p.LastName = "Someone", ""
 		}
-		realTime.SendNotification(friendID, realTime.MessageStruct{
-			Type: "notification",
-			Data: map[string]interface{}{
-				"id":      userID,
-				"type":    "follow_request_accepted",
-				"title":   "Friend Request Accepted",
-				"content": "accepted your Follow", 
-				"avatar":  p.Avatar,
-				"from":    p.FirstName + " " + p.LastName,
-				"read":    false,
-			},
-		})
+		realTime.BuildAndDispatchNotification(db.DB,
+			userID,
+			friendID,
+			"follow_request_accepted",
+			"accepted your Follow",
+		)
 	}
 }
