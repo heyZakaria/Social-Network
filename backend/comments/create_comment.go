@@ -46,7 +46,7 @@ func CommentSaver(w http.ResponseWriter, r *http.Request) {
 		utils.SendJSON(w, http.StatusBadRequest, utils.JSONResponse{
 			Success: false,
 			Message: "comment is empty or length of comment is more then 10000 or doesn't have image !! ",
-			Error:   "Comment must be between 1 and 10000 characters",
+			Error:   "comment is empty or length of comment is more then 10000 or doesn't have image !!",
 		})
 		return
 	}

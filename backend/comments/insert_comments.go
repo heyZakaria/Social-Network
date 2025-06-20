@@ -9,13 +9,16 @@ import (
 )
 
 func (c *Comment) SaveComment(userID string, postId int) error {
+	// ganerate uuid for comment
 	c.ID = uuid.Must(uuid.NewV4()).String()
 	c.PostID = postId
 	c.UserID = userID
 	return c.InsertComment()
 }
 
+// this func for insert comment in data base
 func (c *Comment) InsertComment() error {
+	// prepare query to insert comment
 	query := "INSERT INTO comments (id, user_id, post_id, comment_img, content) VALUES (?, ?, ?, ?, ?)"
 	prp, prepareErr := db.DB.Prepare(query)
 	if prepareErr != nil {

@@ -21,14 +21,15 @@ export default function CommentSection({ setCommentsCount, postId }) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [showAllComments, setShowAllComments] = useState(false);
-  const COMMENTS_TO_SHOW = 2; // Initial number of comments to show
+  const COMMENTS_TO_SHOW = 2; 
 
   useEffect(() => {
+
+    // get comments
     const fetchComments = async () => {
       try {
         setIsLoading(true);
-        const Data = await FetchData(`/api/comment/getcomment?post_id=${postId}`)
-
+        const Data = await FetchData(`/api/comment/getcomment?post_id=${postId}`)        
         setComments(Data.data.Comments);
         updateDisplayedComments(Data.data.Comments, showAllComments);
         setIsLoading(false);
@@ -53,6 +54,7 @@ export default function CommentSection({ setCommentsCount, postId }) {
     setShowAllComments(true);
   };
 
+  
   const handleEmojiSelect = (emoji) => {
     setNewComment((prevComment) => prevComment + emoji);
   }
@@ -67,6 +69,7 @@ export default function CommentSection({ setCommentsCount, postId }) {
     }
   };
 
+  // reset form comment
   const resetForm = () => {
     setNewComment('');
     setSelectedImage(null);
@@ -136,9 +139,8 @@ export default function CommentSection({ setCommentsCount, postId }) {
 
         if (data.success) {
           SetErrorMsg("");
-          console.log("Comment data from backend:", data)
           resetForm();
-
+          
           const newCommentObj = {
             postId: postId,
             content: newComment,
@@ -150,7 +152,7 @@ export default function CommentSection({ setCommentsCount, postId }) {
             CreatedAt: currentUser.CreatedAt,
             Avatar: currentUser.avatar || "/uploads/profile.jpeg"
           }
-
+          
           const updatedComments = [newCommentObj, ...comments];
           setComments(updatedComments);
           updateDisplayedComments(updatedComments, showAllComments);
@@ -201,7 +203,6 @@ export default function CommentSection({ setCommentsCount, postId }) {
       ) : (
         <>
           <div className={styles.comments}>
-            {console.log("All comments before render:", displayedComments)}
 
             {displayedComments.map((comment) => (
 
@@ -226,15 +227,12 @@ export default function CommentSection({ setCommentsCount, postId }) {
                       {comment.FirstName} {comment.LastName}
                     </Link>
 
-                    {/* Comment text */}
                     {comment.content && (
                       <p className={styles.commentText}>{comment.content}</p>
                     )}
 
-                    {/* Comment image */}
                     {comment.Comment_img && (
                       <div className={styles.commentImage}>
-                        {console.log("Comment image path:", comment.Comment_img)}
                         <Image
                           src={comment.Comment_img}
                           alt="Comment attachment"
@@ -242,7 +240,6 @@ export default function CommentSection({ setCommentsCount, postId }) {
                           height={200}
                           className={styles.commentImg}
                           style={{ objectFit: 'cover' }}
-                        // onClick={() => openImageModal(comment.Comment_img)}
                         />
                       </div>
                     )}
@@ -311,7 +308,6 @@ export default function CommentSection({ setCommentsCount, postId }) {
             Photo/GIF
           </button>
 
-          {/* Hidden file input */}
           <input
             type="file"
             ref={fileInputRef}
@@ -320,16 +316,13 @@ export default function CommentSection({ setCommentsCount, postId }) {
             style={{ display: 'none' }}
           />
         </div>
-        {/* select image  */}
         <button
           type="submit"
           className={styles.commentSubmit}
-        // disabled={isSubmitting || !newComment.trim()}
         >
           <IoPaperPlaneOutline size={16} />
         </button>
       </form>
-      {/* Selected Image Preview */}
       {selectedImage && (
         <div className={styles.imagePreview}>
           <Image width={200} height={100}

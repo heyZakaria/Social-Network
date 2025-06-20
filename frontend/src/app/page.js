@@ -81,7 +81,7 @@ export default function Home() {
             <div className={styles.contentArea}>
               <div className={styles.feed}>
                 {loading && posts.length === 0 ? (
-                  <p>Loading...</p>
+                  <p>no posts yet...</p>
                 ) : posts.length > 0 ? (
                   <>
                     {posts.map((post) => (

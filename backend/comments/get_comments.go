@@ -10,6 +10,7 @@ import (
 	"socialNetwork/utils"
 )
 
+// this func to get comment by post
 func GetCommentByPost(w http.ResponseWriter, r *http.Request) {
 	UserID := r.Context().Value(shared.UserIDKey).(string)
 	if UserID == "" {
@@ -63,6 +64,7 @@ func GetCommentByPost(w http.ResponseWriter, r *http.Request) {
 	})
 }
 
+// this func to get comments from data base
 func Getcomments(postID int) ([]Comment, error) {
 	var comments []Comment
 
