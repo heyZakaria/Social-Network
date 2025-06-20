@@ -13,6 +13,8 @@ export default function UpcomingEvents({ events = [] }) {
       </div>
     )
   }
+  console.log("weeeeeeeeeeeeeeeeeeee");
+  
 
   const formatDate = (dateString) => {
     const date = new Date(dateString)
@@ -22,7 +24,7 @@ export default function UpcomingEvents({ events = [] }) {
 
   return (
     <div className={styles.container}>
-      <h3 className={styles.title}>Upcoming Events</h3>
+      <h3 className={styles.title}>Upcoming Eventss</h3>
       <div className={styles.list}>
         {events.slice(0, 3).map((event) => (
           <Link href={`/events/${event.id}`} key={event.id}>

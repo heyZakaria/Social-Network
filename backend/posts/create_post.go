@@ -1,6 +1,7 @@
 package post
 
 import (
+	"fmt"
 	"net/http"
 	"strings"
 
@@ -34,6 +35,11 @@ func CreatePost(w http.ResponseWriter, r *http.Request) {
 		"custom_users": true,
 		"followers":    true,
 	}
+	GroupId := r.URL.Query().Get("group_id")
+	if GroupId != "" {
+		PostData.Group_id = &GroupId
+	}
+	fmt.Println("grrrroup_id:", GroupId)
 	r.ParseMultipartForm(10 << 20)
 
 	ImageProvided, postImage, file, err := utils.PrepareImage(r, "post_image", "posts")

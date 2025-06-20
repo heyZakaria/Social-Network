@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "reactt"
+import { useState } from "react"
 
 export default function CreateGroupCard() {
 

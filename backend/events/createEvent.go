@@ -1,11 +1,14 @@
-package Events
+package Event
 
 import (
 	"encoding/json"
 	"net/http"
-	db "socialNetwork/db/sqlite"
-	"socialNetwork/utils"
+	"strconv"
 	"time"
+
+	db "socialNetwork/db/sqlite"
+	shared "socialNetwork/shared_packages"
+	"socialNetwork/utils"
 )
 
 func CreateEvent(w http.ResponseWriter, r *http.Request) {
@@ -34,7 +37,7 @@ func CreateEvent(w http.ResponseWriter, r *http.Request) {
 
 	// TO DO get Event Creator id
 	// TO DO check if the user is in the group
-	
+
 	var event Event
 
 	err := json.NewDecoder(r.Body).Decode(&event)
@@ -49,7 +52,35 @@ func CreateEvent(w http.ResponseWriter, r *http.Request) {
 		})
 		return
 	}
-	event.GroupID = 1
+	UserId := r.Context().Value(shared.UserIDKey).(string)
+
+	GroupId := r.URL.Query().Get("id")
+	event.GroupID, _ = strconv.Atoi(GroupId)
+	GroupExist, MemberExist, Err := shared.ValidateGroup(db.DB, GroupId, UserId)
+	if Err != nil {
+		utils.SendJSON(w, http.StatusInternalServerError, utils.JSONResponse{
+			Success: false,
+			Message: "Internal Error",
+		})
+		return
+	}
+	if !GroupExist {
+
+		utils.Log("Error", "Bad request : Group Does Not Exist")
+		utils.SendJSON(w, http.StatusNotFound, utils.JSONResponse{
+			Success: false,
+			Message: "Group Does Not Exist",
+		})
+		return
+	}
+	if !MemberExist {
+		utils.Log("Error", "Not a Member ")
+		utils.SendJSON(w, http.StatusForbidden, utils.JSONResponse{
+			Success: false,
+			Message: "You're Not a Member Plz Send a Join Request",
+		})
+		return
+	}
 	_, err = db.DB.Exec("INSERT INTO events ( title, event_description, date_of_event, event_location) VALUES (?, ?, ?, ?)", event.Title, event.Description, event.DateOfEvent, event.EventLocation /* event.GroupID */)
 	if err != nil {
 		utils.Log("ERROR", "Failed to create event: "+err.Error())
@@ -65,11 +96,9 @@ func CreateEvent(w http.ResponseWriter, r *http.Request) {
 		Success: true,
 		Message: "Event created successfully",
 	})
-
 }
 
 func ValideEventForm(event Event) bool {
-
 	if len(event.Title) < 10 || len(event.Title) > 100 {
 		utils.Log("WARNING", "Title is required.")
 		return false
@@ -87,8 +116,6 @@ func ValideEventForm(event Event) bool {
 		return false
 	}
 
-	
-
 	currentDate := time.Now()
 	if yourDate.Before(currentDate) {
 		utils.Log("WARNING", "Date must be in the future.")
@@ -101,5 +128,4 @@ func ValideEventForm(event Event) bool {
 	}
 
 	return true
-
 }
