@@ -66,8 +66,7 @@ SELECT
     COALESCE(gmCurrent.memberState, 'Join') AS mb 
 FROM groups g 
 LEFT JOIN groupMember gmCurrent 
-    ON gmCurrent.group_id = g.id AND gmCurrent.user_id = ?
-
+ON gmCurrent.group_id = g.id AND gmCurrent.user_id = ?
 	`
 
 	rows, err := db.Query(query, currentUserID)

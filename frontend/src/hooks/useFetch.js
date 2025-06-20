@@ -24,7 +24,7 @@ export default function useFetch(url, method = 'GET') {
 
         const result = await response.json();
         if (isMounted) {
-          setData(result);
+          setData(result.data);
         }
       } catch (err) {
         if (isMounted) {

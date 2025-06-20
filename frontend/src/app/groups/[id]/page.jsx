@@ -11,6 +11,7 @@ import Link from "next/link";
 import PostFeeds from "@/components/posts/posts-feed";
 import { useUser } from "@/context/user_context";
 import usePosts from "@/hooks/usePosts";
+import PendingInviteList from "@/components/Group/PendingInvites";
 
 
 
@@ -290,6 +291,9 @@ export default function GroupCard({ children }) {
           hasMore={hasMore}
           currentUser={currentUser}
       ></PostFeeds>
+      <PendingInviteList
+      groupId={groupId}
+      ></PendingInviteList>
       
     </div>
 

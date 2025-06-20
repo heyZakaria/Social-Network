@@ -12,6 +12,7 @@ import (
 )
 
 func handleAdminApproveInvite(w http.ResponseWriter, r *http.Request) {
+	utils.Log("INFO", "Recieved a Admin approving request")
 	var Invite Invite
 	UserId := r.Context().Value(shared.UserIDKey).(string)
 	Invite_id := r.URL.Query().Get("Invite")

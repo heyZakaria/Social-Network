@@ -57,6 +57,16 @@ func handleJoin(w http.ResponseWriter, r *http.Request) {
 			})
 			return
 		}
+		InviteQuery := `INSERT INTO group_invite (reciever_id , Joinstate , Group_id) VALUES (? , ? , ?)`
+		_, err = db.DB.Exec(InviteQuery, UserId, "Accepted", Group_id)
+		if err != nil {
+			utils.Log("ERROR", "Error Inserting Invite to Db"+err.Error())
+			utils.SendJSON(w, http.StatusInternalServerError, utils.JSONResponse{
+				Success: false,
+				Error:   "Internal Error",
+			})
+			return
+		}
 
 	case "Canceling":
 		_, err := db.DB.Exec("DELETE FROM groupMember WHERE group_id = ? AND user_id = ? AND memberState = ?", Group_id, UserId, "Pending")
@@ -95,9 +105,8 @@ func ValidateJoinRequest(UserId string, GroupId string, Action string, Db *sql.D
 
 	case "Canceling":
 		if !IsMember {
-			return fmt.Errorf("Group Request Cancelation Failed  ")
+			return fmt.Errorf("Group Request Cancelation Failed ")
 		}
-
 	}
 	return nil
 }

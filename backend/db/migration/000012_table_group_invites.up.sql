@@ -1,6 +1,6 @@
 CREATE TABLE IF NOT EXISTS group_invite (
 id INTEGER PRIMARY KEY AUTOINCREMENT,
-sender_id TEXT NOT NULL,
+sender_id TEXT NULL,
 reciever_id TEXT NOT NULL,
 Joinstate TEXT NOT NULL CHECK( Joinstate IN ('Rejected' , 'Pending' , 'Accepted')),
 Group_id INTEGER,

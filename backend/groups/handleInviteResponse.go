@@ -3,6 +3,7 @@ package Group
 import (
 	"fmt"
 	"net/http"
+
 	db "socialNetwork/db/sqlite"
 	"socialNetwork/utils"
 )
@@ -11,7 +12,7 @@ func handleInviteResponse(w http.ResponseWriter, r *http.Request) {
 	// UserId := r.Context().Value(shared.UserIDKey).(string)
 	InviteId := r.URL.Query().Get("Invite_id")
 	Action := r.URL.Query().Get("Action")
- 
+
 	var invite Invite
 	err := db.DB.QueryRow(`SELECT id, sender_id, reciever_id, group_id, Joinstate FROM group_invite WHERE id = ?`, InviteId).Scan(&invite.Id, &invite.Sender_id, &invite.Reciever_id, &invite.Group_id, &invite.Joinstate)
 	if err != nil {
@@ -37,7 +38,8 @@ func handleInviteResponse(w http.ResponseWriter, r *http.Request) {
 	switch Action {
 	case "accept":
 		newState := "Pending"
-		if adminId == invite.Sender_id {
+		// TODO : check Validation for INvite Sender Id
+		if adminId == invite.Sender_id.String {
 			newState = "Member"
 		}
 

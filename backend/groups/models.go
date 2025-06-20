@@ -1,5 +1,7 @@
 package Group
 
+import "database/sql"
+
 type Group struct {
 	AdminId     string
 	ID          int    `json:"id"`
@@ -20,7 +22,7 @@ type GroupMember struct {
 
 type Invite struct {
 	Id          int
-	Sender_id   string
+	Sender_id   sql.NullString
 	Reciever_id string
 	Group_id    string
 	Joinstate   string

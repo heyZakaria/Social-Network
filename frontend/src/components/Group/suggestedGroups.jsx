@@ -64,10 +64,10 @@ export default function GroupsList() {
   useEffect(() => {
     if (data) {
       console.log(data);
-      if(data.data == null){
+      if(data == null){
         return
       }
-      const mapped = data.data.map(group => ({
+      const mapped = data.map(group => ({
         Id: group.id,
         title: group.title,
         description: group.description,
