@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import styles from '@/styles/friends.module.css';
 import FloatingChat from '@/components/chat/floating-chat';
@@ -10,7 +10,8 @@ import { useFriends } from '@/context/friends_context';
 import Image from "next/image";
 import { HiCheck, HiX } from "react-icons/hi";
 
-export default function FriendsPage() {
+
+function FriendsPage() {
   const { currentUser } = useUser();
   const [activeTab, setActiveTab] = useState('suggestions');
   const {
@@ -21,8 +22,12 @@ export default function FriendsPage() {
     accept,
     reject,
   } = useFriends();
+  console.log("Requests:", requests);
+  console.log("Suggestions:", suggestions);
+  
+  
 
-  if (loading) return <div className={styles.loading}>Loading...</div>;
+  if (loading && currentUser) return <div className={styles.loading}>Loading...</div>;
 
   return (
     <div className={styles.friendsContainer}>
@@ -140,3 +145,6 @@ export default function FriendsPage() {
     </div>
   );
 }
+
+
+export default React.memo(FriendsPage);

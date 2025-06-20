@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import Link from "next/link";
 import { useRouter, usePathname } from "next/navigation";
 import { logoutUser } from "@/app/(auth)/_logout/logout";
@@ -35,25 +35,39 @@ export default function Navbar({ user }) {
   const [isMessagesOpen, setIsMessagesOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const dropdownRef = useRef();
+  const notifBellRef = useRef(null);
+
   const router = useRouter();
 
   const { notifications, unreadCount, markAsRead } = useNotifications();
 
+  const handleClickOutside = useCallback((event) => {
+    const dropdown = dropdownRef.current;
+    const button = notifBellRef.current;
+
+    if (
+      dropdown &&
+      button &&
+      !dropdown.contains(event.target) &&
+      !button.contains(event.target)
+    ) {
+      setIsNotificationsOpen(false);
+    }
+  }, []);
+
   useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (
-        dropdownRef.current &&
-        !dropdownRef.current.contains(event.target)
-      ) {
-        closeAllMenus();
-      }
+    const handleClick = (e) => {
+      setTimeout(() => {
+        handleClickOutside(e);
+      }, 0);
     };
 
-    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("click", handleClick);
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("click", handleClick);
     };
-  }, []);
+  }, [handleClickOutside]);
+
 
   const handleViewAllClick = (e) => {
     e.preventDefault();
@@ -145,19 +159,20 @@ export default function Navbar({ user }) {
             <div className={styles.navbarIcons}>
               <div className={styles.iconContainer}>
                 <button
-                  className={styles.iconButton}
+                  ref={notifBellRef}
                   onClick={() => {
-                    setIsNotificationsOpen(!isNotificationsOpen);
+                    setIsNotificationsOpen(prev => !prev);
                     setIsMessagesOpen(false);
                     setIsMenuOpen(false);
                   }}
+                  className={styles.iconButton}
                 >
                   <HiBell size={20} />
                   {unreadCount > 0 && (
                     <span className={styles.badge}>{unreadCount}</span>
                   )}
-
                 </button>
+
                 {isNotificationsOpen && (
                   <div ref={dropdownRef} className={`${styles.dropdown} ${notifStyles.notificationsContainer}`}>
                     <div className={styles.dropdownHeader}>

@@ -8,11 +8,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        <FriendsProvider>
-          <UserProvider>
+        <UserProvider>
+          <FriendsProvider>
             <LayoutWrapper>{children}</LayoutWrapper>
-          </UserProvider>
-        </FriendsProvider>
+          </FriendsProvider>
+        </UserProvider>
       </body>
     </html>
   );

@@ -5,8 +5,9 @@ import { useFriends } from "@/context/friends_context"
 import FollowButton from '@/components/profile/follow-button'
 import Image from "next/image"
 import styles from "@/styles/components.module.css"
+import React from "react"
 
-export default function FriendSuggestions() {
+function FriendSuggestions() {
   const { suggestions = [] } = useFriends()
 
   if (!suggestions.length) return null
@@ -50,3 +51,6 @@ export default function FriendSuggestions() {
     </div>
   )
 }
+
+
+export default React.memo(FriendSuggestions)
