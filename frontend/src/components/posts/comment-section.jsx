@@ -161,7 +161,7 @@ export default function CommentSection({ setCommentsCount, postId }) {
             await logoutUser()
             window.location.href = "/login"
           } else {
-            setErrors(prev => ({ ...prev, content: data.error }));
+            SetErrorMsg(data.error);
           }
         }
 
@@ -279,7 +279,7 @@ export default function CommentSection({ setCommentsCount, postId }) {
           )}
         </>
       )}
-
+         {ErrorMsg && <div className={styles.ErrorMessage}>{ErrorMsg}</div>}
       <form className={styles.commentForm} onSubmit={handleSubmitComment}>
         <Image width={200} height={100}
           src={currentUser.avatar || "/uploads/profile.jpeg"}
@@ -349,7 +349,6 @@ export default function CommentSection({ setCommentsCount, postId }) {
           </button>
         </div>
       )}
-      {ErrorMsg && <div className={styles.ErrorMessage}>{ErrorMsg}</div>}
     </div>
   );
 }

@@ -17,10 +17,12 @@
   width: 100%;
   align-items: center;
 }
-.postImageWrapper{
+
+.postImageWrapper {
   width: 100%;
   text-align: center;
 }
+
 /* Create post header*/
 .createPostHeader {
   display: flex;
@@ -35,12 +37,15 @@
   object-fit: cover;
   margin-right: 10px;
 }
-.textareaContainer{
+
+.textareaContainer {
   width: 100%;
 }
-.textareaContainer textarea{
+
+.textareaContainer textarea {
   resize: none;
 }
+
 /* create post input */
 .createPostInput {
   /* margin-left: 1%; */
@@ -57,7 +62,7 @@
 }
 
 /* create post action for 3 buttons */
-.buttons{
+.buttons {
   display: flex;
 }
 
@@ -74,6 +79,7 @@
   cursor: pointer;
   transition: background-color 0.5s;
 }
+
 .photoAction:hover {
   background-color: #60667031;
 }
@@ -191,7 +197,7 @@
   color: #000000;
 }
 
-.closeButtoOptions{
+.closeButtoOptions {
   position: relative;
   /* margin-bottom: 10%; */
   margin-left: 91%;
@@ -254,12 +260,12 @@
   border-radius: 4px;
   height: 33px;
   padding: 7px 10px;
-  font-size: 14px;  
+  font-size: 14px;
   font-weight: 600;
   gap: 3px;
 }
 
-.privacyButton:hover{
+.privacyButton:hover {
   /* margin-top: 10px;
   margin-left: 650px; */
   background-color: #7c3aed;
@@ -347,73 +353,107 @@
   flex-direction: column;
 }
 
-.popupTitle{
+.popupTitle {
   font-size: 23px;
   text-align: center;
 }
 
 .followersList {
-  overflow-y: auto; /* Enable vertical scrolling */
-  padding: 5px; /* Padding around the list */
-  border: 1px solid #ccc; /* Light border around the list */
-  border-radius: 8px; /* Rounded corners */
-  background-color: #f8f9fa; /* Light background color */
+  overflow-y: auto;
+  /* Enable vertical scrolling */
+  padding: 5px;
+  /* Padding around the list */
+  border: 1px solid #ccc;
+  /* Light border around the list */
+  border-radius: 8px;
+  /* Rounded corners */
+  background-color: #f8f9fa;
+  /* Light background color */
 }
 
 .followerItem {
-  display: flex; /* Flexbox for layout */
-  align-items: center; /* Center items vertically */
-  padding: 10px; /* Padding for each item */
+  display: flex;
+  /* Flexbox for layout */
+  align-items: center;
+  /* Center items vertically */
+  padding: 10px;
+  /* Padding for each item */
 }
 
 
 
 .followerCheckbox {
-  margin-right: 12px; /* Space between checkbox and avatar */
-  cursor: pointer; /* Pointer cursor for checkbox */
+  margin-right: 12px;
+  /* Space between checkbox and avatar */
+  cursor: pointer;
+  /* Pointer cursor for checkbox */
 }
 
 .followerAvatar {
-  width: 40px; /* Avatar size */
-  height: 40px; /* Avatar size */
-  border-radius: 50%; /* Circular avatar */
-  margin-right: 15px; /* Space between avatar and name */
+  width: 40px;
+  /* Avatar size */
+  height: 40px;
+  /* Avatar size */
+  border-radius: 50%;
+  /* Circular avatar */
+  margin-right: 15px;
+  /* Space between avatar and name */
 }
 
 
 .popupFooter {
-  display: flex; /* Flexbox for footer layout */
-  justify-content: flex-end; /* Align buttons to the right */
-  margin-top: 10px; /* Space above the footer */
+  display: flex;
+  /* Flexbox for footer layout */
+  justify-content: flex-end;
+  /* Align buttons to the right */
+  margin-top: 10px;
+  /* Space above the footer */
 }
 
 .cancelButton {
-  background-color: #f44336; /* Red background for cancel button */
-  color: white; /* White text color */
-  border: none; /* No border */
-  border-radius: 5px; /* Rounded corners */
-  padding: 10px 15px; /* Padding for the button */
-  cursor: pointer; /* Pointer cursor on hover */
-  margin-right: 10px; /* Space between buttons */
-  transition: background-color 0.3s ease; /* Smooth transition */
+  background-color: #f44336;
+  /* Red background for cancel button */
+  color: white;
+  /* White text color */
+  border: none;
+  /* No border */
+  border-radius: 5px;
+  /* Rounded corners */
+  padding: 10px 15px;
+  /* Padding for the button */
+  cursor: pointer;
+  /* Pointer cursor on hover */
+  margin-right: 10px;
+  /* Space between buttons */
+  transition: background-color 0.3s ease;
+  /* Smooth transition */
 }
 
 .cancelButton:hover {
-  background-color: #d32f2fcc; /* Darker red on hover */
+  background-color: #d32f2fcc;
+  /* Darker red on hover */
 }
 
 .saveButton {
-  background-color: #5928a7; /* Green background for save button */
-  color: white; /* White text color */
-  border: none; /* No border */
-  border-radius: 5px; /* Rounded corners */
-  padding: 10px 15px; /* Padding for the button */
-  cursor: pointer; /* Pointer cursor on hover */
-  transition: background-color 0.3s ease; /* Smooth transition */
+  background-color: #5928a7;
+  /* Green background for save button */
+  color: white;
+  /* White text color */
+  border: none;
+  /* No border */
+  border-radius: 5px;
+  /* Rounded corners */
+  padding: 10px 15px;
+  /* Padding for the button */
+  cursor: pointer;
+  /* Pointer cursor on hover */
+  transition: background-color 0.3s ease;
+  /* Smooth transition */
 }
 
 .saveButton:hover {
-  background-color: #7947c3; /* Darker green on hover */
+  background-color: #7947c3;
+  /* Darker green on hover */
   color: #ffffff;
 }
 
@@ -577,11 +617,13 @@
 .comments {
   margin-bottom: 15px;
 }
-.commentsToggle{
+
+.commentsToggle {
   color: #65676b;
   background: none;
   border: none;
 }
+
 .comment {
   display: flex;
   margin-bottom: 10px;
@@ -682,18 +724,16 @@
   outline: none;
 }
 
-.ErrorMessage{
-    color: red;
-    text-align: center;
-    background-color: #f8d7da;
-    width: 100%;
-    height: 30px;
-    margin-top: 5px;
-    font-size: 14px;
-    border-radius: 4px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.ErrorMessage {
+  color: red;
+  text-align: center;
+  margin-top: 5px;
+  font-size: 12px;
+  border-radius: 4px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  display: flex;
+  justify-content: center;
+  font-weight: bold;
 }
 
 .commentInputActions {
@@ -929,6 +969,7 @@
   cursor: pointer;
   transition: background-color 0.5s;
 }
+
 .imgAction:hover {
   background-color: #60667031;
 }
@@ -974,7 +1015,7 @@
   align-items: center;
 }
 
-.text_error{
+.text_error {
   align-items: center;
   color: red;
 }
