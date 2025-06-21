@@ -164,6 +164,7 @@ export default function Navbar({ user }) {
                     setIsNotificationsOpen(prev => !prev);
                     setIsMessagesOpen(false);
                     setIsMenuOpen(false);
+                    markAsRead();
                   }}
                   className={styles.iconButton}
                 >

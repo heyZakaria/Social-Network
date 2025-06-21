@@ -52,8 +52,14 @@ func WSHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	mutex.Lock()
+	if existing, ok := clients[userID]; ok {
+		existing.Conn.Close()
+		delete(clients, userID)
+	}
 	clients[userID] = client
 	mutex.Unlock()
+
+	fmt.Println("map clients:", conn)
 
 	// === 4. Start goroutines ===
 	go handleWrite(client)

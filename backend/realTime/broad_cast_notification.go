@@ -2,6 +2,7 @@ package realTime
 
 import (
 	"database/sql"
+	"fmt"
 
 	db "socialNetwork/db/sqlite"
 	"socialNetwork/utils"
@@ -10,12 +11,14 @@ import (
 func SendStoredNotifications(userID string, client *Client) {
 	rows, err := db.DB.Query(`
 		SELECT id, sender_id, type_notification, content, is_read FROM notifications
-		WHERE user_id = ? AND is_read = 0
+		WHERE user_id = ? AND is_read = 0 order by created_at ASC
 	`, userID)
 	if err != nil {
 		utils.Log("ERROR", "Failed to query stored notifications: "+err.Error())
 		return
 	}
+	x := 0
+
 	defer rows.Close()
 
 	for rows.Next() {
@@ -43,8 +46,11 @@ func SendStoredNotifications(userID string, client *Client) {
 				},
 			}
 
+			fmt.Println("Sending stored notification to", userID, ":", msg)
 			client.Send <- msg
 		}
+		x++
+		fmt.Println("++++++++++++++++++", x)
 	}
 }
 

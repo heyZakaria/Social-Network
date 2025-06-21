@@ -7,3 +7,6 @@ CREATE TABLE IF NOT EXISTS notifications (
   is_read BOOLEAN DEFAULT FALSE,
   created_at DATETIME DEFAULT CURRENT_TIMESTAMP
 );
+
+CREATE UNIQUE INDEX IF NOT EXISTS idx_notifications_unique
+ON notifications (user_id, sender_id, type_notification, content);

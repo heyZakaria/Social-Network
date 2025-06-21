@@ -8,47 +8,53 @@ import FloatingChat from '@/components/chat/floating-chat'
 import { useUser } from '@/context/user_context'
 
 export default function Page() {
-    const { notifications, markAsRead } = useNotifications()
-    const [isLoading, setIsLoading] = useState(true)
-    const { user: currentUser } = useUser()
-    console.log("Current User:", currentUser);
+  const { notifications, markAsRead } = useNotifications()
+  const [isLoading, setIsLoading] = useState(true)
+  const { user: currentUser } = useUser()
 
+  console.log("Notifications++++++++++++++++:", notifications);
+  
+  useEffect(() => {
+    if (notifications) setIsLoading(false)
+  }, [notifications])
 
-    useEffect(() => {
-        if (notifications) setIsLoading(false)
-    }, [notifications])
-
-    const handleClick = (id) => markAsRead(id)
-
-    if (isLoading) {
-        return (
-            <ul className={styles.notificationsContainer}>
-                <li className={styles.loadingItem}>
-                    <p>Loading notifications...</p>
-                </li>
-            </ul>
-        )
+  const handleClick = async (id) => {
+    try {
+      await markAsRead(id)
+    } catch (err) {
+      console.error("Error marking as read:", err)
     }
+  }
 
-    if (!notifications.length) {
-        return (
-            <ul className={styles.notificationsContainer}>
-                <li className={styles.loadingItem}>
-                    <p>No notifications yet</p>
-                </li>
-            </ul>
-        )
-    }
-
+  if (isLoading) {
     return (
-        <>
-            <ul className={styles.notificationsContainer}>
-                {notifications.map((n, idx) => (
-                    <NotificationItem key={idx} notification={n} onClick={handleClick} />
-                ))}
-            </ul>
-
-            <FloatingChat currentUser={currentUser} />
-        </>
+      <ul className={styles.notificationsContainer}>
+        <li className={styles.loadingItem}>
+          <p>Loading notifications...</p>
+        </li>
+      </ul>
     )
+  }
+
+  if (!Array.isArray(notifications) || notifications.length === 0) {
+    return (
+      <ul className={styles.notificationsContainer}>
+        <li className={styles.loadingItem}>
+          <p>No notifications yet</p>
+        </li>
+      </ul>
+    )
+  }
+
+  return (
+    <>
+      <ul className={styles.notificationsContainer}>
+        {notifications.map((n) => (
+          <NotificationItem key={n.id} notification={n} onClick={handleClick} />
+        ))}
+      </ul>
+
+      <FloatingChat currentUser={currentUser} />
+    </>
+  )
 }

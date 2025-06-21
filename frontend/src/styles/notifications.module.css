@@ -25,11 +25,11 @@
     border-bottom: none;
   }
   
-  .read {
+  /* .read {
     background-color: #fff;
     opacity: 0.7;
   }
-  
+   */
   .unread {
     background-color: #f0f7ff;
   }

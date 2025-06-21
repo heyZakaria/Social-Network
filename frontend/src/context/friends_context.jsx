@@ -16,27 +16,15 @@ export function FriendsProvider({ children }) {
   const [hasFetched, setHasFetched] = useState(false);
   const suggestionsRef = useRef(suggestions);
   const requestsRef = useRef(requests);
+  const statusIntervals = useRef({});
+  const pendingToggles = useRef(new Set());
 
-  useEffect(() => {
-    suggestionsRef.current = suggestions;
-  }, [suggestions]);
+  useEffect(() => { suggestionsRef.current = suggestions; }, [suggestions]);
+  useEffect(() => { requestsRef.current = requests; }, [requests]);
 
-  useEffect(() => {
-    requestsRef.current = requests;
-  }, [requests]);
-
-  // Function to update global follow status
   const updateFollowStatus = (userId, status) => {
     const id = String(userId);
-    console.log(`Updating follow status for user ${id}:`, status); // Debug log
-    
-    setFollowStatuses(prev => {
-      const updated = { ...prev, [id]: status };
-      console.log('Updated followStatuses:', updated); // Debug log
-      return updated;
-    });
-    
-    // Also update status cache to keep them in sync
+    setFollowStatuses(prev => ({ ...prev, [id]: status }));
     setStatusCache(prev => ({ ...prev, [id]: status }));
   };
 
@@ -44,20 +32,14 @@ export function FriendsProvider({ children }) {
     setLoading(true);
     try {
       const res = await fetch("/api/users/friends", { credentials: "include" });
-      if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
-
       const data = await res.json();
 
       const newSuggestions = data.data?.suggestions || [];
       const newRequests = data.data?.requests || [];
 
-      const suggestionsChanged = JSON.stringify(newSuggestions) !== JSON.stringify(suggestionsRef.current);
-      const requestsChanged = JSON.stringify(newRequests) !== JSON.stringify(requestsRef.current);
-
-      if (suggestionsChanged) setSuggestions(newSuggestions);
-      if (requestsChanged) setRequests(newRequests);
+      if (JSON.stringify(newSuggestions) !== JSON.stringify(suggestionsRef.current)) setSuggestions(newSuggestions);
+      if (JSON.stringify(newRequests) !== JSON.stringify(requestsRef.current)) setRequests(newRequests);
     } catch (e) {
-      console.error("fetchAll error:", e);
       setSuggestions([]);
       setRequests([]);
     } finally {
@@ -67,56 +49,52 @@ export function FriendsProvider({ children }) {
 
   useEffect(() => {
     if (!currentUser) return;
-
     if (!hasFetched) {
       fetchAll();
       setHasFetched(true);
     }
 
-    fetchAll();
-
     const intervalId = setInterval(() => {
       fetchAll();
+      suggestionsRef.current.forEach(user => startStatusPolling(user.id));
+      requestsRef.current.forEach(user => startStatusPolling(user.id));
+    }, 5000);
 
-      suggestionsRef.current.forEach((user) => {
-        getFollowStatus(user.id);
-      });
-
-      requestsRef.current.forEach((user) => {
-        if (!handledRequests[user.id]) {
-          getFollowStatus(user.id);
-        }
-      });
-    }, 2000);
-
-    return () => clearInterval(intervalId);
+    return () => {
+      clearInterval(intervalId);
+      Object.values(statusIntervals.current).forEach(clearInterval);
+    };
   }, [currentUser]);
+
+  const startStatusPolling = (userId) => {
+    const id = String(userId);
+    if (statusIntervals.current[id]) return;
+
+    const fetchAndUpdate = async () => {
+      if (!pendingToggles.current.has(id)) {
+        await getFollowStatus(id);
+      }
+    };
+
+    fetchAndUpdate();
+    statusIntervals.current[id] = setInterval(fetchAndUpdate, 1000);
+  };
 
   const getFollowStatus = async (userId) => {
     const id = String(userId);
-    if (statusCache[id]) return statusCache[id];
 
     try {
-      const res = await fetch(`/api/users/follow?id=${id}`, {
-        method: "GET",
-        credentials: "include",
-      });
+      const res = await fetch(`/api/users/follow?id=${id}`, { method: "GET", credentials: "include" });
       const data = await res.json();
       const status = {
         isFollowing: data.data.Data?.IsFollowing || false,
         requestPending: data.data.Data?.RequestPending || false,
       };
-      
-      setStatusCache((prev) => ({ ...prev, [id]: status }));
-      
-      // Update global follow status - IMPORTANT: Use the string ID
       updateFollowStatus(id, status);
-      
-      await fetchAll();
+      fetchAll();
       return status;
-    } catch (err) {
+    } catch {
       const defaultStatus = { isFollowing: false, requestPending: false };
-      // Even on error, update the global status to prevent infinite loading
       updateFollowStatus(id, defaultStatus);
       return defaultStatus;
     }
@@ -124,80 +102,46 @@ export function FriendsProvider({ children }) {
 
   const toggleFollow = async (userId) => {
     const id = String(userId);
-    console.log(`Toggle follow for user ${id}`); // Debug log
-    
+    pendingToggles.current.add(id);
     try {
-      const res = await fetch(`/api/users/follow?id=${id}`, {
-        method: "POST",
-        credentials: "include",
-      });
+      const res = await fetch(`/api/users/follow?id=${id}`, { method: "POST", credentials: "include" });
       const data = await res.json();
       const updatedStatus = {
         isFollowing: data.data.Data?.IsFollowing || false,
         requestPending: data.data.Data?.RequestPending || false,
       };
-      
-      console.log(`Toggle follow result for user ${id}:`, updatedStatus); // Debug log
-      
-      setStatusCache((prev) => ({ ...prev, [id]: updatedStatus }));
-      
-      // Update global follow status immediately - IMPORTANT: Use the string ID
       updateFollowStatus(id, updatedStatus);
-      
-      await fetchAll();
+      fetchAll();
       return updatedStatus;
-    } catch (err) {
-      console.error("Follow error:", err);
+    } catch {
       const errorStatus = { isFollowing: false, requestPending: false };
       updateFollowStatus(id, errorStatus);
       return errorStatus;
+    } finally {
+      pendingToggles.current.delete(id);
     }
   };
 
-  const handleAcceptRequest = async (userId) => {
+  const handleRequest = async (userId, action) => {
+    const endpoint = `/api/users/${action}?id=${userId}`;
     try {
-      await fetch(`/api/users/accept?id=${userId}`, {
-        method: "POST",
-        credentials: "include",
-      });
-      
-      // Update the follow status when accepting a request
-      const id = String(userId);
-      const acceptedStatus = { isFollowing: true, requestPending: false };
-      updateFollowStatus(id, acceptedStatus);
-      
+      await fetch(endpoint, { method: "POST", credentials: "include" });
+      const status = action === "accept" ? { isFollowing: true, requestPending: false } : { isFollowing: false, requestPending: false };
+      updateFollowStatus(String(userId), status);
       await fetchAll();
     } catch (err) {
-      console.error("Accept error", err);
-    }
-  };
-
-  const handleRejectRequest = async (userId) => {
-    try {
-      await fetch(`/api/users/reject?id=${userId}`, {
-        method: "POST",
-        credentials: "include",
-      });
-      
-      // Update the follow status when rejecting a request
-      const id = String(userId);
-      const rejectedStatus = { isFollowing: false, requestPending: false };
-      updateFollowStatus(id, rejectedStatus);
-      
-      await fetchAll();
-    } catch (err) {
-      console.error("Reject error", err);
+      console.error(`${action} error`, err);
     }
   };
 
   const accept = async (id) => {
-    await handleAcceptRequest(id);
-    setHandledRequests((prev) => ({ ...prev, [id]: "accepted" }));
+    await handleRequest(id, "accept");
+    setHandledRequests(prev => ({ ...prev, [id]: "accepted" }));
   };
 
   const reject = async (id) => {
-    await handleRejectRequest(id);
-    setHandledRequests((prev) => ({ ...prev, [id]: "rejected" }));
+    await handleRequest(id, "reject");
+    setHandledRequests(prev => ({ ...prev, [id]: "rejected" }));
   };
 
   return (
@@ -214,6 +158,7 @@ export function FriendsProvider({ children }) {
         handledRequests,
         accept,
         reject,
+        startStatusPolling,
       }}
     >
       {children}
