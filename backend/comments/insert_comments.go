@@ -1,6 +1,7 @@
 package comments
 
 import (
+	"fmt"
 	"html"
 
 	db "socialNetwork/db/sqlite"
@@ -37,4 +38,18 @@ func (c *Comment) InsertComment() error {
 		return execErr
 	}
 	return nil
+}
+
+func (c *Comment) IsPostExist(postId int) error {
+	var num int
+	query := `SELECT COUNT(*) FROM posts WHERE id = ?`
+	row := db.DB.QueryRow(query, postId)
+	err := row.Scan(&num)
+	if err != nil {
+		return err
+	}
+	if num == 1 {
+		return nil
+	}
+	return fmt.Errorf("post with id %d does not exist", postId)
 }

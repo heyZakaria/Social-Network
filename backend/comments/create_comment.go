@@ -39,6 +39,19 @@ func CommentSaver(w http.ResponseWriter, r *http.Request) {
 		fmt.Println("have problem to convert from string to int")
 	}
 
+	err = Comment.IsPostExist(postId)
+	fmt.Println("ycvyhsgver", err)
+	if err != nil {
+		fmt.Println("hihihihih")
+		utils.Log("Error", "doesn't exist this post")
+		utils.SendJSON(w, http.StatusBadRequest, utils.JSONResponse{
+			Success: false,
+			Message: "doesn't exist this post",
+			Error:   err.Error(),
+		})
+		return
+	}
+
 	// this part to get content of comment and handle errors
 	Comment.Content = r.FormValue("content")
 	if (Comment.Content == "" || len(Comment.Content) > 10000) && commentImg == "" {
