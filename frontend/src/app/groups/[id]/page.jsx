@@ -190,9 +190,6 @@ export default function GroupCard({ children }) {
     } catch (error) {
       SetErr(err.message)
     }
-
-
-
   }
 
 
@@ -240,7 +237,7 @@ export default function GroupCard({ children }) {
       
       {ShowInvite && <InviteFriends FriendsList={invitedFriends} onInvite={handleInvite}></InviteFriends>} 
       {<ShowEventForm ></ShowEventForm>}
-      {<UpcomingEvents/>}
+      {<UpcomingEvents group_id= {p.id} />}
       
       <CreatePost Refrech={HandleRefrech} GroupId={groupId}/>
     </div>

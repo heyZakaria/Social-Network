@@ -86,6 +86,7 @@ export default function ShowEventForm() {
         SendEventForm(formData, groupId)
 
         setFormData({ title: "", description: "", day: "", time: "", date: "", location: "" });
+        handleClick()
     };
 
     return (
@@ -156,7 +157,7 @@ export default function ShowEventForm() {
                             {errors.location && <p className={styles.error}>{errors.location}</p>}
                         </div>
 
-                        <button type="submit">Create Event</button>
+                        <button type="submit" >Create Event</button>
                     </form>
                 </div>
             )}

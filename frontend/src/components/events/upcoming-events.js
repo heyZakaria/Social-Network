@@ -2,6 +2,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { IoAddOutline } from "react-icons/io5";
 import styles from "@/styles/UpcomingEvents.module.css";
+import { useParams } from "next/navigation";
 
 export default function UpcomingEvents() {
   const [events, setEvents] = useState([]);
@@ -12,22 +13,32 @@ export default function UpcomingEvents() {
     lastName: "Doe",
   };
 
+  const p = useParams()
+  const groupId = p.id
+  console.log("Weeeeeeeeeeee ID", groupId);
+
+
   const fetchEvents = () => {
-    fetch("http://localhost:8080/events/events", {
+    fetch(`http://localhost:8080/api/groups/events/${groupId}`, {
       method: "GET",
+      credentials: "include",
+
       headers: {
         "Content-Type": "application/json",
       },
     })
-      .then((res) => {
+      .then( async (res) => {
         if (!res.ok) {
           return res.json().then((errData) => {
             throw new Error(errData.error || "Event fetch failed");
           });
         }
+        ///console.log("Weeeeeeeeeeee EVENTS 1", res.json());
         return res.json();
       })
       .then((data) => {
+        console.log("Weeeeeeeeeeee EVENTS 2", data);
+
         setEvents(data);
         setError(null);
       })
@@ -38,13 +49,16 @@ export default function UpcomingEvents() {
   };
 
   const HandleEventPresence = (event) => {
-
-    fetch(`http://localhost:8080/events/${event.id}/response`, {
+    console.log("ZZZZZZZZZZZZ", event, event.id);
+    
+    fetch(`http://localhost:8080/api/groups/event_presence/response`, {
       method: "POST",
+      credentials: "include",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
+        group_id: groupId,
         event_id: event.id,
         presence: event.presence
       })
@@ -55,9 +69,13 @@ export default function UpcomingEvents() {
             throw new Error(errData.error || "Event presence err");
           });
         }
+
         return res.json();
       })
-
+      .then((data) =>{
+        console.log("WAAAAk WAAAAAAAAAAAAk", data);
+        
+      })
       .catch((error) => {
         console.error("Error fetching events:", error.message);
         setError(error.message);
@@ -98,19 +116,19 @@ export default function UpcomingEvents() {
                   <div className={styles.eventTime}>{formatDate(event.date)}</div>
                   <div className={styles.eventLocation}>{event.location}</div>
                   <div className={styles.eventGroup}>
-                    <Link href={`/groups/${event.groupId}`}>
-                      {event.groupName}
+                    <Link href={`/groups/${event.group_id}`}>
+                      {event.group_name}
                     </Link>
                   </div>
                 </div>
                 <p className={styles.eventCardDescription}>{event.description}</p>
                 <div className={styles.eventCardFooter}>
                   <div className={styles.eventAttendees}>
-                    <span>{event.attendees?.going?.length || 0} going</span>
+                    <span>{event.attendees || 0} going</span>
                   </div>
                   <div className={styles.eventActions}>
-                    <button onClick={() => HandleEventPresence({ id: event.id, presence: true })} className={styles.goingButton}> Going</button>
-                    <button onClick={() => HandleEventPresence({ id: event.id, presence: false })} className={styles.notGoingButton}>Not Going</button>
+                    <button onClick={() => HandleEventPresence({ id: event.id, presence: "going" })} className={styles.goingButton}> Going</button>
+                    <button onClick={() => HandleEventPresence({ id: event.id, presence: "not going" })} className={styles.notGoingButton}>Not Going</button>
                   </div>
                 </div>
               </div>

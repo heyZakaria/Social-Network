@@ -3,7 +3,7 @@ import FriendSuggestions from "@/components/friends/friend-suggestions"
 import GroupSuggestions from "@/components/groups/group-suggestions";
 import CurrentGroups from "@/components/groups/current-groups";
 import FriendsList from "@/components/friends/friends-list";
-import UpcomingEvents from "@/components/events/upcoming-events";
+//import UpcomingEvents from "@/components/events/upcoming-events";
 import styles from "@/styles/sidebar.module.css";
 import { usePathname } from "next/navigation";
 
@@ -129,7 +129,7 @@ export default function Sidebar({ position }) {
         <>
           <CurrentGroups groups={sampleCurrentGroups} />
           <GroupSuggestions suggestions={sampleGroupSuggestions} />
-          <UpcomingEvents events={sampleEvents} />
+         
         </>
       )}
 
