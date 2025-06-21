@@ -1,6 +1,8 @@
 package Group
 
-import "database/sql"
+import (
+	"database/sql"
+)
 
 type Group struct {
 	AdminId     string

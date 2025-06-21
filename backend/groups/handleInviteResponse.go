@@ -13,6 +13,11 @@ func handleInviteResponse(w http.ResponseWriter, r *http.Request) {
 	InviteId := r.URL.Query().Get("Invite_id")
 	Action := r.URL.Query().Get("Action")
 
+
+	fmt.Println("invited_id", InviteId)
+	fmt.Println("actiooon", Action)
+
+
 	var invite Invite
 	err := db.DB.QueryRow(`SELECT id, sender_id, reciever_id, group_id, Joinstate FROM group_invite WHERE id = ?`, InviteId).Scan(&invite.Id, &invite.Sender_id, &invite.Reciever_id, &invite.Group_id, &invite.Joinstate)
 	if err != nil {
@@ -39,10 +44,7 @@ func handleInviteResponse(w http.ResponseWriter, r *http.Request) {
 	case "accept":
 		newState := "Pending"
 		// TODO : check Validation for INvite Sender Id
-		if adminId == invite.Sender_id.String {
-			newState = "Member"
-		}
-
+	 
 		_, err := InsertGroupMember(db.DB, newState, invite.Group_id, invite.Reciever_id)
 		if err == nil {
 			db.DB.Exec("UPDATE group_invite SET Joinstate = 'Accepted' WHERE id = ?", invite.Id)

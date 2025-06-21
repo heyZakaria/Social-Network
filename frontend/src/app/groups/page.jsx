@@ -1,10 +1,16 @@
 "use client"
 
 import GroupsList from "@/components/Group/suggestedGroups";
+import {RequestsToJoinGroup} from "@/components/Group/PendingInvites"
 
 export default function GroupsSugges(){
 
- return <GroupsList></GroupsList>
+ return (
+ <>
+ <GroupsList></GroupsList>
+ <RequestsToJoinGroup></RequestsToJoinGroup>
+ </>
+ )
 }
 
 

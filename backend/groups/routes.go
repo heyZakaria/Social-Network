@@ -19,6 +19,7 @@ func GroupMux() http.Handler {
 	mux.HandleFunc("GET /group/pending", handlePendingInvites)
 	mux.HandleFunc("POST /group/inviteResponse", handleInviteResponse)
 	mux.HandleFunc("GET /group/FriendList", getFriendList)
+	mux.HandleFunc("GET /group/groupInvites", GetInvite)
 	mux.HandleFunc("POST /newEvent", Event.CreateEvent)                   // 	/groups/{id}/newEvent
 	mux.HandleFunc("GET /events", Event.GetGroupEvents)                   // 	/groups/{id}/events
 	mux.HandleFunc("POST /{event_id}/response", Event.GroupEventResponse) //  	/groups/{id}/event/{event_id}/response

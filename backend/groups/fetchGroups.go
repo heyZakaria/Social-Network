@@ -41,6 +41,7 @@ func fetchGroups(w http.ResponseWriter, r *http.Request) {
 	utils.Log("INFO", "Groups Fetched Successfuly")
 	for _, grop := range Groups {
 		fmt.Print("____________________________")
+		fmt.Println("user_id:", User_id)
 		fmt.Println("group title :", grop.Title)
 		fmt.Println("group desc :", grop.Description)
 		fmt.Println("group admin id  :", grop.AdminId)
