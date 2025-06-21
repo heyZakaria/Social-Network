@@ -1,6 +1,7 @@
 package post
 
 import (
+	"fmt"
 	"net/http"
 	"strings"
 
@@ -51,7 +52,8 @@ func CreatePost(w http.ResponseWriter, r *http.Request) {
 
 	PostData.Post_Content = r.FormValue("post_content")
 	PostData.Post_Content = strings.Trim(PostData.Post_Content, " ")
-	if PostData.Post_Content == "" && postImage == "" {
+	fmt.Println("leeeeeeeeeen", len(PostData.Post_Content))
+	if (PostData.Post_Content == "" && postImage == "") || len(PostData.Post_Content) > 10000 {
 		utils.Log("ERROR", "Post Content is Empty")
 		utils.SendJSON(w, http.StatusBadRequest, utils.JSONResponse{
 			Success: false,

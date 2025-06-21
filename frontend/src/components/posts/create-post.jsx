@@ -51,7 +51,7 @@ const CreatePost = ({ Refrech }) => {
 
     // Validate post content
     if (postContent) {
-      if (postContent.length > 10000) {
+      if (postContent.length > 10000 || postContent.length === 0) {
         newErrors.content = 'Maximum 10000 characters.';
         isValid = false;
       }
