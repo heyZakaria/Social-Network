@@ -2,7 +2,7 @@
 
 import styles from "@/styles/posts.module.css";
 import { useState } from "react";
-
+import Image from "next/image";
 const PopupPrivacy = ({ followers, onPrivacyChange, disabled = false }) => {
     const [showPopupFollowers, setShowPopupFollowers] = useState(false);
     const [selectedFollowers, setSelectedFollowers] = useState([]);

@@ -119,7 +119,7 @@ func PostsPagination(w http.ResponseWriter, r *http.Request) {
 
 			continue
 		}
-		if Profile.Profile_Status == "private" {
+		if Profile.Profile_Status == "private" && UserID != specificUser {
 			// Check if the User Id Has access to this post,
 			var HasAccess bool
 			// Check if the User Id Has access to this post,

@@ -49,6 +49,7 @@ export default function ProfileComponent({ ProfileData }) {
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeTab, offset, ProfileData.id]);
+console.log("posts", posts);
 
   console.log("Followers:", ProfileData.followers);
 console.log("Following:", ProfileData.following);
