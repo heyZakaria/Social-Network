@@ -10,7 +10,17 @@ import (
 
 // GetUserProfile gets the current user's profile
 func GetUserProfile(w http.ResponseWriter, r *http.Request) {
-	UserId := r.Context().Value(shared.UserIDKey).(string)
+	val := r.Context().Value(shared.UserIDKey)
+	UserId, ok := val.(string)
+	if !ok || UserId == "" {
+		utils.Log("WARN", "Unauthorized: user ID missing")
+		utils.SendJSON(w, http.StatusUnauthorized, utils.JSONResponse{
+			Success: false,
+			Message: "Unauthorized: user ID missing",
+			Error:   "User ID not found in context",
+		})
+		return
+	}
 	profile, err := getUserProfileData(UserId)
 	if err != nil {
 		utils.Log("ERROR", "Error fetching profile: "+err.Error())
@@ -64,7 +74,6 @@ func getUserProfileData(userId string) (*UserProfile, error) {
 
 	return profile, nil
 }
-
 
 func GetOtherUserProfile(w http.ResponseWriter, r *http.Request) {
 	utils.Log("INFO", "=========== GetOtherUserProfile called ===========")

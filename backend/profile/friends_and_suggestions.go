@@ -1,7 +1,6 @@
 package profile
 
 import (
-	// "fmt"
 	"net/http"
 
 	db "socialNetwork/db/sqlite"
@@ -10,7 +9,6 @@ import (
 )
 
 func GetFriendsAndRequests(w http.ResponseWriter, r *http.Request) {
-	utils.Log("", "GetFriendsAndRequests called")
 	var userID string
 	var isOwnProfile bool
 

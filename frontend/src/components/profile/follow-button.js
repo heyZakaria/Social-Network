@@ -1,42 +1,48 @@
-"use client";
-import { useEffect, useState } from "react";
+'use client';
+import { useEffect, useState, memo } from "react";
 import { useFriends } from "@/context/friends_context";
 import { FaUserPlus, FaUserCheck, FaClock } from "react-icons/fa";
 import styles from "@/styles/profile.module.css";
 
-export default function FollowButton({ targetUserId }) {
-  const { getFollowStatus, toggleFollow } = useFriends();
+function FollowButton({ targetUserId }) {
+  const {
+    followStatuses,
+    toggleFollow,
+    startStatusPolling,
+  } = useFriends();
+
   const [status, setStatus] = useState({ isFollowing: false, requestPending: false });
   const [loading, setLoading] = useState(true);
   const [confirm, setConfirm] = useState(false);
 
+  // Poll the follow status every 1 second
   useEffect(() => {
     if (!targetUserId) return;
-    (async () => {
-      setLoading(true);
-      const res = await getFollowStatus(targetUserId);
-      setStatus(res);
+    startStatusPolling(targetUserId);
+  }, [targetUserId, startStatusPolling]);
+
+  // Update local status when global changes
+  useEffect(() => {
+    const updatedStatus = followStatuses?.[targetUserId];
+    if (updatedStatus) {
+      setStatus(updatedStatus);
       setLoading(false);
-    })();
-  }, [targetUserId]);
+    }
+  }, [followStatuses, targetUserId]);
 
   const handleClick = async () => {
     if (status.isFollowing) {
       setConfirm(true);
     } else {
       setLoading(true);
-      const res = await toggleFollow(targetUserId);
-      setStatus(res);
-      setLoading(false);
+      await toggleFollow(targetUserId);
     }
   };
 
   const confirmUnfollow = async () => {
     setLoading(true);
-    const res = await toggleFollow(targetUserId);
-    setStatus(res);
     setConfirm(false);
-    setLoading(false);
+    await toggleFollow(targetUserId);
   };
 
   return (
@@ -70,12 +76,8 @@ export default function FollowButton({ targetUserId }) {
           <div className={styles.popup}>
             <p>Are you sure you want to unfollow this user?</p>
             <div className={styles.popupButtons}>
-              <button onClick={confirmUnfollow} className={styles.confirmBtn}>
-                Yes
-              </button>
-              <button onClick={() => setConfirm(false)} className={styles.cancelBtn}>
-                Cancel
-              </button>
+              <button onClick={confirmUnfollow} className={styles.confirmBtn}>Yes</button>
+              <button onClick={() => setConfirm(false)} className={styles.cancelBtn}>Cancel</button>
             </div>
           </div>
         </div>
@@ -83,3 +85,5 @@ export default function FollowButton({ targetUserId }) {
     </>
   );
 }
+
+export default memo(FollowButton, (prev, next) => prev.targetUserId === next.targetUserId);

@@ -1,9 +1,11 @@
 package profile
 
 import (
+	"fmt"
 	"net/http"
 
 	db "socialNetwork/db/sqlite"
+	"socialNetwork/realTime"
 	shared "socialNetwork/shared_packages"
 	"socialNetwork/utils"
 )
@@ -45,18 +47,9 @@ func handleFriendRequest(w http.ResponseWriter, r *http.Request, query, successM
 	}
 	utils.SendJSON(w, http.StatusOK, utils.JSONResponse{
 		Success: true,
-		 Message: successMsg,
-		})
-}
-
-func AcceptFollowRequest(w http.ResponseWriter, r *http.Request) {
-	handleFriendRequest(
-		w, r,
-		`UPDATE followers SET follower_status = 'accepted' WHERE followed_id = ? AND follower_id = ? AND follower_status = 'pending'`,
-		"Friend request accepted successfully",
-		"Failed to accept friend request",
-		"You cannot accept your own request",
-	)
+		Message: successMsg,
+	})
+	deleteFollowRequestNotification(userID, friendID)
 }
 
 func RejectFollowRequest(w http.ResponseWriter, r *http.Request) {
@@ -67,4 +60,44 @@ func RejectFollowRequest(w http.ResponseWriter, r *http.Request) {
 		"Failed to reject friend request",
 		"You cannot reject your own request",
 	)
+}
+
+func AcceptFollowRequest(w http.ResponseWriter, r *http.Request) {
+	userID := r.Context().Value(shared.UserIDKey).(string)
+	friendID := r.URL.Query().Get("id")
+
+	fmt.Println("AcceptFollowRequest called", "UserID:", userID, "FriendID:", friendID)
+
+	handleFriendRequest(
+		w, r,
+		`UPDATE followers SET follower_status = 'accepted' WHERE followed_id = ? AND follower_id = ? AND follower_status = 'pending'`,
+		"Friend request accepted successfully",
+		"Failed to accept friend request",
+		"You cannot accept your own request",
+	)
+
+	if friendID != "" && friendID != userID {
+		var p UserProfile
+		err := db.DB.QueryRow("SELECT first_name, last_name, avatar FROM users WHERE id = ?", userID).Scan(&p.FirstName, &p.LastName, &p.Avatar)
+		if err != nil {
+			utils.Log("ERROR", "Failed to fetch user name for notification: "+err.Error())
+			p.FirstName, p.LastName = "Someone", ""
+		}
+		realTime.BuildAndDispatchNotification(db.DB,
+			userID,
+			friendID,
+			"follow_request_accepted",
+			"accepted your Follow",
+		)
+	}
+}
+
+func deleteFollowRequestNotification(userID, senderID string) {
+	_, err := db.DB.Exec(`
+		DELETE FROM notifications 
+		WHERE user_id = ? AND sender_id = ? AND type_notification = 'follow_request'
+	`, userID, senderID)
+	if err != nil {
+		utils.Log("ERROR", "Failed to delete notification: "+err.Error())
+	}
 }

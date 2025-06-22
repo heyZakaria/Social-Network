@@ -54,11 +54,11 @@ func createSignature(header, payload, secretKey string) string {
 	return signature
 }
 
-func VerifyJWT(token string) (JWTPayload, error) {
+func VerifyJWT(token string) (string, error) {
 	parts := strings.Split(token, ".")
 
 	if len(parts) != 3 {
-		return JWTPayload{}, errors.New("Invalid token format")
+		return "", errors.New("Invalid token format")
 	}
 
 	encodedHeader := parts[0]
@@ -67,13 +67,13 @@ func VerifyJWT(token string) (JWTPayload, error) {
 
 	payloadJSON, err := base64.URLEncoding.DecodeString(encodedPayload)
 	if err != nil {
-		return JWTPayload{}, err
+		return "", err
 	}
 
 	var payload JWTPayload
 	err = json.Unmarshal(payloadJSON, &payload)
 	if err != nil {
-		return JWTPayload{}, err
+		return "", err
 	}
 
 	expectedSignature := createSignature(encodedHeader, encodedPayload, string(secretKey))
@@ -81,13 +81,13 @@ func VerifyJWT(token string) (JWTPayload, error) {
 	// secure vs Timing Attack
 	// compare indirect
 	if !hmac.Equal([]byte(signature), []byte(expectedSignature)) {
-		return JWTPayload{}, errors.New("Invalid signature")
+		return "", errors.New("Invalid signature")
 	}
 
 	if time.Now().Unix() > payload.Exp {
-		return JWTPayload{}, errors.New("token has expired")
+		return "", errors.New("token has expired")
 	}
-	return payload, nil
+	return payload.UserID, nil
 }
 
 func GetToken(w http.ResponseWriter, r *http.Request) (token string) {

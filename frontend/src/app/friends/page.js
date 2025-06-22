@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import styles from '@/styles/friends.module.css';
 import FloatingChat from '@/components/chat/floating-chat';
@@ -8,38 +8,26 @@ import { useUser } from '@/context/user_context';
 import FollowButton from '@/components/profile/follow-button';
 import { useFriends } from '@/context/friends_context';
 import Image from "next/image";
+import { HiCheck, HiX } from "react-icons/hi";
 
-export default function FriendsPage() {
+
+function FriendsPage() {
   const { currentUser } = useUser();
   const [activeTab, setActiveTab] = useState('suggestions');
   const {
     requests = [],
     suggestions = [],
     loading,
-    handleAcceptRequest,
-    handleRejectRequest,
-    refetch,
+    handledRequests,
+    accept,
+    reject,
   } = useFriends();
+  console.log("Requests:", requests);
+  console.log("Suggestions:", suggestions);
+  
+  
 
-  const [handledRequests, setHandledRequests] = useState({});
-
-  useEffect(() => {
-    refetch();
-  }, []);
-
-  const handleAccept = async (id) => {
-    setHandledRequests((prev) => ({ ...prev, [id]: 'accepted' }));
-    await handleAcceptRequest(id);
-    refetch();
-  };
-
-  const handleReject = async (id) => {
-    setHandledRequests((prev) => ({ ...prev, [id]: 'rejected' }));
-    await handleRejectRequest(id);
-    refetch();
-  };
-
-  if (loading) return <div className={styles.loading}>Loading...</div>;
+  if (loading && currentUser) return <div className={styles.loading}>Loading...</div>;
 
   return (
     <div className={styles.friendsContainer}>
@@ -83,23 +71,27 @@ export default function FriendsPage() {
                       {friend.nickName && <p className={styles.friendNickname}>({friend.nickName})</p>}
                     </div>
                     <div className={styles.friendActions}>
-                      {handledRequests[friend.id] === 'accepted' ? (
+                      {handledRequests[friend.id] === "accepted" ? (
                         <div className={styles.acceptedStatus}>Accepted</div>
-                      ) : handledRequests[friend.id] === 'rejected' ? (
+                      ) : handledRequests[friend.id] === "rejected" ? (
                         <div className={styles.rejectedStatus}>Rejected</div>
                       ) : (
                         <>
                           <button
                             className={`${styles.followButton} ${styles.acceptButton}`}
-                            onClick={() => handleAccept(friend.id)}
+                            onClick={() => {
+                              accept(friend.id);
+                            }}
                           >
-                            Accept
+                            <HiCheck size={16} /> Accept
                           </button>
                           <button
                             className={`${styles.ignoreButton} ${styles.rejectButton}`}
-                            onClick={() => handleReject(friend.id)}
+                            onClick={() => {
+                              reject(friend.id);
+                            }}
                           >
-                            Reject
+                            <HiX size={16} /> Reject
                           </button>
                         </>
                       )}
@@ -149,8 +141,10 @@ export default function FriendsPage() {
           </div>
         )}
       </div>
-
       <FloatingChat currentUser={currentUser} />
     </div>
   );
 }
+
+
+export default React.memo(FriendsPage);

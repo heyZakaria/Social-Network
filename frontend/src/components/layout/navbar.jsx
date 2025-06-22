@@ -1,10 +1,11 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import Link from "next/link";
 import { useRouter, usePathname } from "next/navigation";
 import { logoutUser } from "@/app/(auth)/_logout/logout";
 import styles from "@/styles/navbar.module.css";
+import notifStyles from "@/styles/notifications.module.css";
 import Image from "next/image";
 import {
   HiHome,
@@ -21,93 +22,71 @@ import {
   HiCog,
 } from "react-icons/hi2";
 
+import { useNotifications } from "@/context/notifications-context";
+import NotificationItem from "@/components/notifications/notification-item";
+
+
+
+
 export default function Navbar({ user }) {
-  const router = useRouter();
   const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isNotificationsOpen, setIsNotificationsOpen] = useState(false);
   const [isMessagesOpen, setIsMessagesOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [notifications, setNotifications] = useState([]);
-  const [unreadNotifications, setUnreadNotifications] = useState(0);
-  const [unreadMessages, setUnreadMessages] = useState(0);
+  const dropdownRef = useRef();
+  const notifBellRef = useRef(null);
 
+  const router = useRouter();
+
+  const { notifications, unreadCount, markAsRead } = useNotifications();
+
+  const handleClickOutside = useCallback((event) => {
+    const dropdown = dropdownRef.current;
+    const button = notifBellRef.current;
+
+    if (
+      dropdown &&
+      button &&
+      !dropdown.contains(event.target) &&
+      !button.contains(event.target)
+    ) {
+      setIsNotificationsOpen(false);
+    }
+  }, []);
 
   useEffect(() => {
-    // In a real app, you would fetch these from an API
-    if (user) {
-      // Simulate fetching notifications
-      setNotifications([
-        {
-          id: 1,
-          type: "follow_request",
-          content: "Sarah Williams sent you a follow request",
-          createdAt: "2023-03-22T10:15:00Z",
-          read: false,
-        },
-        {
-          id: 2,
-          type: "group_invitation",
-          content: "Jane Smith invited you to join Photography Enthusiasts",
-          createdAt: "2023-03-24T09:45:00Z",
-          read: false,
-        },
-        {
-          id: 3,
-          type: "like",
-          content: "Mike Johnson liked your post",
-          createdAt: "2023-03-25T14:30:00Z",
-          read: true,
-        },
-      ]);
+    const handleClick = (e) => {
+      setTimeout(() => {
+        handleClickOutside(e);
+      }, 0);
+    };
 
-      setUnreadNotifications(2);
-      setUnreadMessages(1);
-    }
-  }, [user]);
+    document.addEventListener("click", handleClick);
+    return () => {
+      document.removeEventListener("click", handleClick);
+    };
+  }, [handleClickOutside]);
 
-  
+
+  const handleViewAllClick = (e) => {
+    e.preventDefault();
+    markAsRead();
+    setIsNotificationsOpen(false);
+    router.push("/notifications");
+  };
+
+
   const handleLogout = async () => {
     await logoutUser();
     window.location.href = "/login";
   };
 
-  const formatDate = (dateString) => {
-    const date = new Date(dateString);
-    const now = new Date();
-    const diffInSeconds = Math.floor((now - date) / 1000);
-
-    if (diffInSeconds < 60) {
-      return "just now";
-    } else if (diffInSeconds < 3600) {
-      const minutes = Math.floor(diffInSeconds / 60);
-      return `${minutes} ${minutes === 1 ? "minute" : "minutes"} ago`;
-    } else if (diffInSeconds < 86400) {
-      const hours = Math.floor(diffInSeconds / 3600);
-      return `${hours} ${hours === 1 ? "hour" : "hours"} ago`;
-    } else {
-      const days = Math.floor(diffInSeconds / 86400);
-      return `${days} ${days === 1 ? "day" : "days"} ago`;
-    }
-  };
-
   const handleNotificationClick = (notificationId) => {
-    // Mark notification as read
-    setNotifications(
-      notifications.map((notif) =>
-        notif.id === notificationId ? { ...notif, read: true } : notif
-      )
-    );
-
-    // Update unread count
-    setUnreadNotifications(Math.max(0, unreadNotifications - 1));
-
-    // Close notifications panel
+    markAsRead(notificationId);
     setIsNotificationsOpen(false);
-
-    // In a real app, you would navigate to the relevant page
-    // For now, we'll just close the panel
   };
+
 
   const closeAllMenus = () => {
     setIsMenuOpen(false);
@@ -133,36 +112,32 @@ export default function Navbar({ user }) {
           <div className={styles.navbarCenter}>
             <Link
               href="/"
-              className={`${styles.navLink} ${
-                isActive("/") ? styles.active : ""
-              }`}
+              className={`${styles.navLink} ${isActive("/") ? styles.active : ""
+                }`}
               onClick={closeAllMenus}
             >
               <HiHome size={24} />
             </Link>
             <Link
               href="/friends"
-              className={`${styles.navLink} ${
-                isActive("/friends") ? styles.active : ""
-              }`}
+              className={`${styles.navLink} ${isActive("/friends") ? styles.active : ""
+                }`}
               onClick={closeAllMenus}
             >
               <HiUserGroup size={24} />
             </Link>
             <Link
               href="/groups"
-              className={`${styles.navLink} ${
-                isActive("/groups") ? styles.active : ""
-              }`}
+              className={`${styles.navLink} ${isActive("/groups") ? styles.active : ""
+                }`}
               onClick={closeAllMenus}
             >
               <HiUsers size={24} />
             </Link>
             <Link
               href="/events"
-              className={`${styles.navLink} ${
-                isActive("/events") ? styles.active : ""
-              }`}
+              className={`${styles.navLink} ${isActive("/events") ? styles.active : ""
+                }`}
               onClick={closeAllMenus}
             >
               <HiCalendar size={24} />
@@ -184,128 +159,59 @@ export default function Navbar({ user }) {
             <div className={styles.navbarIcons}>
               <div className={styles.iconContainer}>
                 <button
-                  className={styles.iconButton}
+                  ref={notifBellRef}
                   onClick={() => {
-                    setIsNotificationsOpen(!isNotificationsOpen);
+                    setIsNotificationsOpen(prev => !prev);
                     setIsMessagesOpen(false);
                     setIsMenuOpen(false);
+                    markAsRead();
                   }}
+                  className={styles.iconButton}
                 >
                   <HiBell size={20} />
-                  {unreadNotifications > 0 && (
-                    <span className={styles.badge}>{unreadNotifications}</span>
+                  {unreadCount > 0 && (
+                    <span className={styles.badge}>{unreadCount}</span>
                   )}
                 </button>
 
                 {isNotificationsOpen && (
-                  <div className={styles.dropdown}>
+                  <div ref={dropdownRef} className={`${styles.dropdown} ${notifStyles.notificationsContainer}`}>
                     <div className={styles.dropdownHeader}>
                       <h3>Notifications</h3>
-                      <button className={styles.markAllRead}>
-                        Mark all as read
-                      </button>
                     </div>
                     <div className={styles.dropdownContent}>
                       {notifications.length > 0 ? (
-                        notifications.map((notification) => (
-                          <div
-                            key={notification.id}
-                            className={`${styles.notificationItem} ${
-                              !notification.read ? styles.unread : ""
-                            }`}
-                            onClick={() =>
-                              handleNotificationClick(notification.id)
-                            }
-                          >
-                            <div className={styles.notificationContent}>
-                              <p>{notification.content}</p>
-                              <span className={styles.notificationTime}>
-                                {formatDate(notification.createdAt)}
-                              </span>
+                        <>
+                          <ul className={notifStyles.notificationsContainer}>
+                            {notifications.slice(0, 3).map((n, idx) => (
+                              <NotificationItem
+                                key={idx}
+                                notification={n}
+                                onClick={handleNotificationClick}
+                              />
+                            ))}
+                          </ul>
+                          {notifications.length > 0 && (
+                            <div className={styles.dropdownFooter}>
+                              <Link className={styles.viewAll} href="/notifications" onClick={(e) => {
+                                e.preventDefault();
+                                markAsRead();
+                                setIsNotificationsOpen(false);
+                                router.push("/notifications");
+                              }}>
+                                <span className={styles.viewAll}>View all notifications</span>
+                              </Link>
                             </div>
-                          </div>
-                        ))
+                          )}
+                        </>
                       ) : (
                         <div className={styles.emptyState}>
                           <p>No notifications yet</p>
                         </div>
                       )}
                     </div>
-                    <div className={styles.dropdownFooter}>
-                      {/* <Link
-                        href="/notifications"
-                        className={styles.viewAll}
-                        onClick={closeAllMenus}
-                      >
-                        View all notifications
-                      </Link> */}
-                    </div>
-                  </div>
-                )}
-              </div>
 
-              <div className={styles.iconContainer}>
-                <button
-                  className={styles.iconButton}
-                  onClick={() => {
-                    setIsMessagesOpen(!isMessagesOpen);
-                    setIsNotificationsOpen(false);
-                    setIsMenuOpen(false);
-                  }}
-                >
-                  <HiChatBubbleOvalLeftEllipsis size={20} />
-                  {unreadMessages > 0 && (
-                    <span className={styles.badge}>{unreadMessages}</span>
-                  )}
-                </button>
-
-                {isMessagesOpen && (
-                  <div className={styles.dropdown}>
-                    <div className={styles.dropdownHeader}>
-                      <h3>Messages</h3>
-                    </div>
-                    <div className={styles.dropdownContent}>
-                      <div className={`${styles.messageItem} ${styles.unread}`}>
-                        <Image width={200} height={100}
-                          src="/uploads/profile.jpeg"
-                          alt="Jane Smith"
-                          className={styles.messageAvatar}
-                        />
-                        <div className={styles.messageContent}>
-                          <p className={styles.messageName}>Jane Smith</p>
-                          <p className={styles.messageText}>
-                            It's going great! I'll share some previews with you
-                            soon.
-                          </p>
-                          <span className={styles.messageTime}>
-                            2 hours ago
-                          </span>
-                        </div>
-                      </div>
-                      <div className={styles.messageItem}>
-                        <Image width={200} height={100}
-                          src="/uploads/profile.jpeg"
-                          alt="Mike Johnson"
-                          className={styles.messageAvatar}
-                        />
-                        <div className={styles.messageContent}>
-                          <p className={styles.messageName}>Mike Johnson</p>
-                          <p className={styles.messageText}>
-                            Thanks for the feedback on my track!
-                          </p>
-                          <span className={styles.messageTime}>Yesterday</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div className={styles.dropdownFooter}>
-                      {/* <Link
-                        href="/messages"
-                        className={styles.viewAll}
-                        onClick={closeAllMenus}
-                      >
-                        View all messages
-                      </Link> */}
-                    </div>
+                    <div className={styles.dropdownFooter}></div>
                   </div>
                 )}
               </div>
@@ -320,7 +226,7 @@ export default function Navbar({ user }) {
                   setIsMessagesOpen(false);
                 }}
               >
-              
+
                 <Image width={200} height={100}
                   src={user.avatar || "/uploads/profile.jpeg"}
                   alt={user.firstName}
