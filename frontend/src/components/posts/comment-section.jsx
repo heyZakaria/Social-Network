@@ -18,7 +18,6 @@ export default function CommentSection({ setCommentsCount, postId }) {
   const [ErrorMsg, SetErrorMsg] = useState("");
   const [displayedComments, setDisplayedComments] = useState([]);
   const [newComment, setNewComment] = useState("");
-  const [isSubmitting, setIsSubmitting] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [showAllComments, setShowAllComments] = useState(false);
   const COMMENTS_TO_SHOW = 2; 
@@ -107,8 +106,6 @@ export default function CommentSection({ setCommentsCount, postId }) {
 
     e.preventDefault();
 
-    setIsSubmitting(true);
-
     const isValid = validComment()
     console.log("isValid", isValid);
 
@@ -169,11 +166,10 @@ export default function CommentSection({ setCommentsCount, postId }) {
 
       } catch (error) {
         console.error("Error adding comment:", error);
-      } finally {
-        setIsSubmitting(false);
-      }
+      } 
+    } else {
+      resetForm()
     }
-
 
   };
 
@@ -290,7 +286,6 @@ export default function CommentSection({ setCommentsCount, postId }) {
             className={styles.commentInput}
             value={newComment}
             onChange={(e) => setNewComment(e.target.value)}
-            disabled={isSubmitting}
           />
           <div className={styles.commentInputActions}>
             <EmojiPicker onEmojiSelect={handleEmojiSelect} />
@@ -301,7 +296,6 @@ export default function CommentSection({ setCommentsCount, postId }) {
           <button
             className={styles.imgAction}
             onClick={() => fileInputRef.current?.click()}
-            disabled={isLoading}
             type="button"
           >
             <BsImage size={20} />
@@ -336,7 +330,6 @@ export default function CommentSection({ setCommentsCount, postId }) {
             }}
             className={styles.removeImageButton}
             type="button"
-            disabled={isLoading}
           >
             ×
           </button>
