@@ -33,7 +33,7 @@ export default function NotificationItem({ notification, onClick }) {
         <p className={styles.notificationName}>
           <Link
             href={`/profile/${notification.id || ""}`}
-            onClick={() => onClick(notification.id)}
+            onClick={() => onClick(notification.notifId)}
             className={styles.notificationNameLink}
           >
             {notification.from || "User"}

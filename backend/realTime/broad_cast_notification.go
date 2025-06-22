@@ -2,7 +2,7 @@ package realTime
 
 import (
 	"database/sql"
-	"fmt"
+	"time"
 
 	db "socialNetwork/db/sqlite"
 	"socialNetwork/utils"
@@ -10,47 +10,50 @@ import (
 
 func SendStoredNotifications(userID string, client *Client) {
 	rows, err := db.DB.Query(`
-		SELECT id, sender_id, type_notification, content, is_read FROM notifications
-		WHERE user_id = ? AND is_read = 0 order by created_at ASC
+		SELECT id, sender_id, type_notification, content, is_read, created_at
+		FROM notifications
+		WHERE user_id = ? AND is_read = 0
+		ORDER BY created_at ASC
 	`, userID)
 	if err != nil {
 		utils.Log("ERROR", "Failed to query stored notifications: "+err.Error())
 		return
 	}
-	x := 0
-
 	defer rows.Close()
 
 	for rows.Next() {
-		var id int
-		var senderID, notifType, content string
-		var isRead bool
+		var (
+			notifID                      int
+			senderID, notifType, content string
+			isRead                       bool
+			createdAt                    time.Time
+		)
 
-		if err := rows.Scan(&id, &senderID, &notifType, &content, &isRead); err == nil {
-			sender, err := getSenderInfo(db.DB, senderID)
-			if err != nil {
-				sender.FirstName = "Someone"
-				sender.LastName = ""
-				sender.Avatar = ""
-			}
-
-			msg := MessageStruct{
-				Type: "notification",
-				Data: map[string]interface{}{
-					"id":      senderID,
-					"type":    notifType,
-					"content": content,
-					"avatar":  sender.Avatar,
-					"from":    sender.FirstName + " " + sender.LastName,
-					"read":    isRead,
-				},
-			}
-
-			fmt.Println("Sending stored notification to", userID, ":", msg)
-			client.Send <- msg
+		if err := rows.Scan(&notifID, &senderID, &notifType, &content, &isRead, &createdAt); err != nil {
+			utils.Log("ERROR", "Failed to scan: "+err.Error())
+			continue
 		}
-		x++
-		fmt.Println("++++++++++++++++++", x)
+
+		sender, err := getSenderInfo(db.DB, senderID)
+		if err != nil {
+			sender.FirstName, sender.LastName, sender.Avatar = "Someone", "", ""
+		}
+
+		msg := MessageStruct{
+			Type: "notification",
+			Data: map[string]interface{}{
+				"notifId":   notifID, 
+				"id":        senderID,
+				"type":      notifType,
+				"content":   content,
+				"avatar":    sender.Avatar,
+				"from":      sender.FirstName + " " + sender.LastName,
+				"read":      isRead,
+				"createdAt": createdAt.Format(time.RFC3339),
+			},
+		}
+
+		client.Send <- msg
 	}
 }
 

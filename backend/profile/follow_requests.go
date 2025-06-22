@@ -76,7 +76,6 @@ func AcceptFollowRequest(w http.ResponseWriter, r *http.Request) {
 		"You cannot accept your own request",
 	)
 
-	// Only send notification if friendID is not empty and not the same as userID
 	if friendID != "" && friendID != userID {
 		var p UserProfile
 		err := db.DB.QueryRow("SELECT first_name, last_name, avatar FROM users WHERE id = ?", userID).Scan(&p.FirstName, &p.LastName, &p.Avatar)

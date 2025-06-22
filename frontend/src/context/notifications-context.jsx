@@ -1,6 +1,8 @@
 "use client";
 
 import { createContext, useContext, useEffect, useState, useRef } from "react";
+import { useUser } from "@/context/user_context";
+
 
 const NotificationsContext = createContext();
 
@@ -8,87 +10,59 @@ export function NotificationsProvider({ user, children }) {
   const [notifications, setNotifications] = useState([]);
   const [unreadCount, setUnreadCount] = useState(0);
   const ws = useRef(null);
-  const channel = useRef(null);
-  const heartbeatInterval = useRef(null);
+  const bc = useRef(null);
 
-  // Helper to handle incoming notification
-  const handleIncomingNotification = (msg) => {
+  const handleIncoming = (msg) => {
     if (msg.Type !== "notification") return;
 
     const newNotif = {
+      notifId: msg.Data.notifId,
       id: msg.Data.id,
       type: msg.Data.type,
       content: msg.Data.content,
       from: msg.Data.from,
       avatar: msg.Data.avatar,
-      read: false,
-      createdAt: new Date().toISOString(),
+      read: msg.Data.read ?? false,
+      createdAt: msg.Data.createdAt,
     };
 
     setNotifications((prev) => {
-      const exists = prev.some(
-        (n) =>
-          n.id === newNotif.id &&
-          n.type === newNotif.type &&
-          n.content === newNotif.content
-      );
-      return exists ? prev : [newNotif, ...prev];
+      if (prev.some((n) => n.notifId === newNotif.notifId)) return prev;
+      return [newNotif, ...prev].sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
     });
 
-    setUnreadCount((prev) => prev + 1);
+    if (!newNotif.read) setUnreadCount((c) => c + 1);
   };
 
   useEffect(() => {
     if (!user) return;
 
-    // 1. Setup BroadcastChannel
-    channel.current = new BroadcastChannel("notifications_channel");
-    channel.current.onmessage = (event) => handleIncomingNotification(event.data);
+    // BroadcastChannel keeps tabs in sync.
+    bc.current = new BroadcastChannel("notifications_channel");
+    bc.current.onmessage = (e) => handleIncoming(e.data);
 
-    // 2. Determine primary tab
-    const lastPing = parseInt(localStorage.getItem("ws_active") || "0", 10);
-    const now = Date.now();
-    const isPrimaryTab = now - lastPing > 3000;
+    const socket = new WebSocket("ws://localhost:8080/ws");
+    ws.current = socket;
 
-    if (isPrimaryTab) {
-      localStorage.setItem("ws_active", now.toString());
+    socket.onmessage = (e) => {
+      try {
+        const msg = JSON.parse(e.data);
+        if (msg.Type === "notification") {
+          bc.current.postMessage(msg);
+          handleIncoming(msg);
+        }
+      } catch (err) {
+        console.error("WS parse error", err);
+      }
+    };
 
-      heartbeatInterval.current = setInterval(() => {
-        localStorage.setItem("ws_active", Date.now().toString());
-      }, 1000);
+    socket.onerror = (err) => console.error("WebSocket error", err);
+    socket.onclose = () => console.log("WebSocket closed");
 
-      // 3. Open WebSocket
-      fetch("/api/get-token", { credentials: "include" })
-        .then((res) => res.json())
-        .then((data) => {
-          const token = data.data?.token;
-          if (!token) return;
-
-          const socket = new WebSocket(`ws://localhost:8080/ws?token=${token}`);
-          ws.current = socket;
-
-          socket.onmessage = (event) => {
-            try {
-              const msg = JSON.parse(event.data);
-              if (msg.Type === "notification") {
-                channel.current.postMessage(msg); // Broadcast to other tabs
-                handleIncomingNotification(msg);   // Handle locally
-              }
-            } catch (err) {
-              console.error("WS Parse Error", err);
-            }
-          };
-
-          socket.onclose = () => console.log("WebSocket closed");
-          socket.onerror = (err) => console.error("WebSocket error:", err);
-        });
-    }
-
-    // Cleanup
+    // Clean‑up on unmount / refresh
     return () => {
-      ws.current?.close();
-      channel.current?.close();
-      clearInterval(heartbeatInterval.current);
+      socket.close();
+      bc.current?.close();
     };
   }, [user]);
 
@@ -99,11 +73,7 @@ export function NotificationsProvider({ user, children }) {
 
   return (
     <NotificationsContext.Provider
-      value={{
-        notifications,
-        unreadCount,
-        markAsRead,
-      }}
+      value={{ notifications, unreadCount, markAsRead, setNotifications }}
     >
       {children}
     </NotificationsContext.Provider>

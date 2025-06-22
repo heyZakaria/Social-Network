@@ -102,7 +102,7 @@ console.log("Following:", ProfileData.following);
               ) : (
                 <div className={styles.profileActions}>
                   <FollowButton targetUserId={ProfileData.id} />
-                  {ProfileData.profile_status === "public" ||
+                  {ProfileData.IsFollowing &&
                     ProfileData.CanView ? (
                     <button className={styles.messageButton}>Message</button>
                   ) : null}

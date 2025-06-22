@@ -1,7 +1,6 @@
 package profile
 
 import (
-	"fmt"
 	"net/http"
 
 	db "socialNetwork/db/sqlite"
@@ -12,8 +11,6 @@ import (
 // GetUserProfile gets the current user's profile
 func GetUserProfile(w http.ResponseWriter, r *http.Request) {
 	val := r.Context().Value(shared.UserIDKey)
-	fmt.Println("=========== GetUserProfile called ===========")
-	fmt.Println("Authenticated user ID:", val)
 	UserId, ok := val.(string)
 	if !ok || UserId == "" {
 		utils.Log("WARN", "Unauthorized: user ID missing")

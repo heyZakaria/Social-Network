@@ -58,13 +58,25 @@ export function FriendsProvider({ children }) {
       fetchAll();
       suggestionsRef.current.forEach(user => startStatusPolling(user.id));
       requestsRef.current.forEach(user => startStatusPolling(user.id));
-    }, 5000);
+    }, 1000);
 
     return () => {
       clearInterval(intervalId);
       Object.values(statusIntervals.current).forEach(clearInterval);
     };
   }, [currentUser]);
+
+  useEffect(() => {
+    setHandledRequests(prev => {
+      const updated = { ...prev };
+      for (const r of requests) {
+        if (updated[r.id]) {
+          delete updated[r.id];
+        }
+      }
+      return updated;
+    });
+  }, [requests]);
 
   const startStatusPolling = (userId) => {
     const id = String(userId);
@@ -126,13 +138,22 @@ export function FriendsProvider({ children }) {
     const endpoint = `/api/users/${action}?id=${userId}`;
     try {
       await fetch(endpoint, { method: "POST", credentials: "include" });
-      const status = action === "accept" ? { isFollowing: true, requestPending: false } : { isFollowing: false, requestPending: false };
+
+      const status =
+        action === "accept"
+          ? { isFollowing: true, requestPending: false }
+          : { isFollowing: false, requestPending: false };
+
       updateFollowStatus(String(userId), status);
       await fetchAll();
+      setNotifications((prev) =>
+        prev.filter((n) => !(n.type === "follow_request_accepted" && n.id === userId))
+      );
     } catch (err) {
       console.error(`${action} error`, err);
     }
   };
+
 
   const accept = async (id) => {
     await handleRequest(id, "accept");
