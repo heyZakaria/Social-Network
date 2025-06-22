@@ -113,19 +113,21 @@ console.log("dataaaa", data);
   )
 }
 
-function PendingRequest(invite , onInvite){
+function PendingRequest({invite , onInvite}){
     const [actionError, setActionError] = useState(null)
 
   const handleInviteResponse = async (e) => {
     try {
-      const respo = await fetch(`http://localhost:8080/api/groups/group/inviteResponse?Action=${e.target.value}&Invite_id=${invite.invite.invite_id}`, {
+      const respo = await fetch(`http://localhost:8080/api/groups/group/inviteResponse?Action=${e.target.value}&Invite_id=${invite.invite_id}`, {
         credentials: 'include',
         method: "POST"
       })
 
       const res = await respo.json()
       if (!respo.ok || !res.success) throw new Error(res.message || "Failed to process this action")
-      onInvite(invite.invite.invite_id)
+      onInvite(invite.invite_id)
+    console.log(onInvite );
+    
     } catch (error) {
       setActionError(error.message)
     }
@@ -138,14 +140,14 @@ function PendingRequest(invite , onInvite){
     <li className={styles.inviteCard}>
       <p></p>
       <Image
-        src={`/uploads/profile_images/${invite.invite.avatar || "anon.png"}`}
-        alt={`${invite.invite.first_name} ${invite.invite.last_name}` || "Img"}
+        src={`/uploads/profile_images/${invite.avatar || "anon.png"}`}
+        alt={`${invite.first_name} ${invite.last_name}` || "Img"}
         width={60}
         height={60}
         className={styles.avatar}
       />
       <div className={styles.inviteDetails}>
-        <p className={styles.name}>{`${invite.invite.first_name} ${invite.invite.last_name} Invited you to join $ ${invite.invite.group_title}`}</p>
+        <p className={styles.name}>{`${invite.first_name} ${invite.last_name} Invited you to join $ ${invite.group_title}`}</p>
         {actionError && <p className={styles.errorText}>{actionError}</p>}
       </div>
       <div className={styles.actions}>

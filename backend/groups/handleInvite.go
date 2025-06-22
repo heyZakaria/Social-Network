@@ -58,10 +58,14 @@ func InviteValidation(senderId, receiverId, groupId string) (error, bool) {
 		return fmt.Errorf("group does not exist"), false
 	}
 
-	err = db.DB.QueryRow(`SELECT EXISTS(SELECT 1 FROM followers WHERE follower_id = ? AND followed_id = ? AND follower_status = 'accepted')`, senderId, receiverId).Scan(&isFriend)
-	if err != nil {
-		return err, false
-	}
+	err = db.DB.QueryRow(`
+    SELECT EXISTS(
+        SELECT 1 FROM followers 
+        WHERE 
+            (follower_id = ? AND followed_id = ? AND follower_status = 'accepted') 
+            OR 
+            (follower_id = ? AND followed_id = ? AND follower_status = 'accepted')
+    )`, senderId, receiverId, receiverId, senderId).Scan(&isFriend)
 
 	err = db.DB.QueryRow(`SELECT EXISTS(SELECT 1 FROM groupMember WHERE group_id = ? AND user_id = ?)`, groupId, receiverId).Scan(&isMember)
 	if err != nil {

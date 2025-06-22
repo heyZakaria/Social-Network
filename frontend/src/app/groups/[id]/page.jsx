@@ -20,7 +20,7 @@ function isMember(DummyTest) {
   return DummyTest;
 }
 
-function GroupNav({ OnMembers, HandleShowInvite }) {
+function GroupNav({ OnMembers, HandleShowInvite , HandleShowEvents }) {
   const [JoinRequest, setJoinRequest] = useState(false);
 
   const p = useParams()
@@ -58,8 +58,9 @@ function GroupNav({ OnMembers, HandleShowInvite }) {
       <div className={styles.GroupNav}>
         <a href="#" onClick={() => { HandleShowInvite() }}>Invite Friends</a>
         <a href="#" onClick={() => { OnMembers() }}>Members</a>
+        <a href="#" onClick={() => { HandleShowEvents()}}>Events</a>
 
-        <button onClick={HandleEvents}>Eventss</button>
+        <button onClick={HandleEvents}>Events</button>
 
       </div>
     );
@@ -147,10 +148,17 @@ export default function GroupCard({ children }) {
   const [err, SetErr] = useState(null)
   const [loading, setLoading] = useState(true)
   const [members, setMembers] = useState([])
+  const [showEvents , setshowEvents] = useState(false)
   const [ShowInvite, setShowInvite] = useState(false);
   const [invitedFriends, setInvitedFriends] = useState(
     FriendsList1.map(friend => ({ ...friend, invited: false }))
   );
+
+  const HandleShowEvents = ()=>{
+    setshowEvents(!showEvents)
+    setShowInvite(false)
+    setShowMembers(false)
+  }
   const { user: currentUser } = useUser();
   const p = useParams()
   const groupId = p.id
@@ -278,11 +286,11 @@ export default function GroupCard({ children }) {
       <Description Text={group.description} />
        <CreatePost Refrech={RefrechPosts}
         GroupId={groupId}/>
-      <GroupNav HandleShowInvite={HandleShowInvite} OnMembers={HandleMembersList} FriendsList={invitedFriends}></GroupNav>
+      <GroupNav HandleShowInvite={HandleShowInvite} HandleShowEvents={HandleShowEvents} OnMembers={HandleMembersList} FriendsList={invitedFriends}></GroupNav>
       {ShowMembers && <Members members={members} />}
       {children}
       {ShowInvite && <InviteFriends FriendsList={invitedFriends} onInvite={handleInvite}></InviteFriends>}
-      {ShowInvite && <ShowEventForm ></ShowEventForm>}
+      {showEvents && <ShowEventForm ></ShowEventForm>}
 
       <PostFeeds
             posts={posts}
@@ -332,101 +340,3 @@ const FriendsList1 = [
   }
 ];
 
-const groupCardData = {
-  groupName: "React Enthusiasts",
-  description: "A community of developers passionate about building with React.",
-  members: [
-    {
-      id: 1,
-      name: "Alice Johnson",
-      picture: "https://randomuser.me/api/portraits/women/1.jpg"
-    },
-    {
-      id: 2,
-      name: "Bob Smith",
-      picture: "https://randomuser.me/api/portraits/men/2.jpg"
-    },
-    {
-      id: 3,
-      name: "Charlie Brown",
-      picture: null // No picture
-    },
-    {
-      id: 4,
-      name: "Emily Davis",
-      picture: "https://randomuser.me/api/portraits/women/2.jpg"
-    },
-    {
-      id: 5,
-      name: "John Doe",
-      picture: "https://randomuser.me/api/portraits/men/3.jpg"
-    },
-    {
-      id: 6,
-      name: "Sarah Lee",
-      picture: "https://randomuser.me/api/portraits/women/3.jpg"
-    },
-    {
-      id: 7,
-      name: "Mark Fisher",
-      picture: "https://randomuser.me/api/portraits/men/4.jpg"
-    },
-    {
-      id: 8,
-      name: "Jessica Taylor",
-      picture: "https://randomuser.me/api/portraits/women/4.jpg"
-    },
-    {
-      id: 9,
-      name: "James Black",
-      picture: null // No picture
-    },
-    {
-      id: 10,
-      name: "Chris Wright",
-      picture: "https://randomuser.me/api/portraits/men/5.jpg"
-    },
-    {
-      id: 11,
-      name: "Olivia White",
-      picture: "https://randomuser.me/api/portraits/women/5.jpg"
-    },
-    {
-      id: 12,
-      name: "Lucas Green",
-      picture: "https://randomuser.me/api/portraits/men/6.jpg"
-    },
-    {
-      id: 13,
-      name: "Liam Scott",
-      picture: "https://randomuser.me/api/portraits/men/7.jpg"
-    },
-    {
-      id: 14,
-      name: "Mia Moore",
-      picture: "https://randomuser.me/api/portraits/women/6.jpg"
-    },
-    {
-      id: 15,
-      name: "Noah Adams",
-      picture: "https://randomuser.me/api/portraits/men/8.jpg"
-    },
-    {
-      id: 16,
-      name: "Sophie Garcia",
-      picture: "https://randomuser.me/api/portraits/women/7.jpg"
-    },
-    {
-      id: 17,
-      name: "Henry Martinez",
-      picture: "https://randomuser.me/api/portraits/men/9.jpg"
-    },
-    {
-      id: 18,
-      name: "Amelia Clark",
-      picture: null // No picture
-    }
-  ],
-  children: <p>Join our next meetup on Friday!</p>,//posts will be here
-  srcImg: "https://media.licdn.com/dms/image/v2/D4D12AQF26-NZ279EaA/article-cover_image-shrink_600_2000/article-cover_image-shrink_600_2000/0/1688018102545?e=2147483647&v=beta&t=XMRwgTVSCknARngRO6R3_nFRrOX-BVxrpFLuwVX-SOA"
-};
