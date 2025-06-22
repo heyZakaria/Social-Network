@@ -146,7 +146,7 @@ export default function CommentSection({ setCommentsCount, postId }) {
             ID: data.data.Comment.ID,
             FirstName: currentUser.firstName,
             LastName: currentUser.lastName,
-            CreatedAt: currentUser.CreatedAt,
+            CreatedAt: new Date().toISOString(),
             Avatar: currentUser.avatar || "/uploads/profile.jpeg"
           }
           

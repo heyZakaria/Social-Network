@@ -104122,3 +104122,63 @@
 2025/06/22 14:59:00 [INFO] 2025-06-22 14:59:00 - Starting avatar upload
 2025/06/22 14:59:00 [INFO] 2025-06-22 14:59:00 - No image file provided
 2025/06/22 14:59:00 [LOG] 2025-06-22 14:59:00 - Comment saved successfully
+2025/06/22 15:01:27 [INFO] 2025-06-22 15:01:27 - Starting HTTP server at http://localhost:8080 ...
+2025/06/22 15:01:27 [INFO] 2025-06-22 15:01:27 - Migrations applied successfully!
+2025/06/22 15:01:33 [LOG] 2025-06-22 15:01:33 - Get request made to GetPostsScroll Handler
+2025/06/22 15:01:33 [LOG] 2025-06-22 15:01:33 - GetFriendsAndRequests called
+2025/06/22 15:01:33 [INFO] 2025-06-22 15:01:33 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/22 15:01:33 [LOG] 2025-06-22 15:01:33 - Get request made to GetPostsScroll Handler
+2025/06/22 15:01:33 [INFO] 2025-06-22 15:01:33 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/22 15:01:33 [LOG] 2025-06-22 15:01:33 - GetFriendsAndRequests called
+2025/06/22 15:01:37 [LOG] 2025-06-22 15:01:37 - Comments retrieved successfully for post ID 1
+2025/06/22 15:01:37 [LOG] 2025-06-22 15:01:37 - Comments retrieved successfully for post ID 1
+2025/06/22 15:01:41 [INFO] 2025-06-22 15:01:41 - Starting avatar upload
+2025/06/22 15:01:41 [INFO] 2025-06-22 15:01:41 - No image file provided
+2025/06/22 15:01:41 [LOG] 2025-06-22 15:01:41 - Comment saved successfully
+2025/06/22 15:01:43 [LOG] 2025-06-22 15:01:43 - Get request made to GetPostsScroll Handler
+2025/06/22 15:01:43 [LOG] 2025-06-22 15:01:43 - GetFriendsAndRequests called
+2025/06/22 15:01:43 [INFO] 2025-06-22 15:01:43 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/22 15:01:43 [LOG] 2025-06-22 15:01:43 - GetFriendsAndRequests called
+2025/06/22 15:01:43 [LOG] 2025-06-22 15:01:43 - Get request made to GetPostsScroll Handler
+2025/06/22 15:01:43 [INFO] 2025-06-22 15:01:43 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/22 15:01:44 [LOG] 2025-06-22 15:01:44 - Comments retrieved successfully for post ID 1
+2025/06/22 15:01:44 [LOG] 2025-06-22 15:01:44 - Comments retrieved successfully for post ID 1
+2025/06/22 15:04:05 [LOG] 2025-06-22 15:04:05 - Get request made to GetPostsScroll Handler
+2025/06/22 15:04:05 [LOG] 2025-06-22 15:04:05 - GetFriendsAndRequests called
+2025/06/22 15:04:05 [INFO] 2025-06-22 15:04:05 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/22 15:04:05 [LOG] 2025-06-22 15:04:05 - GetFriendsAndRequests called
+2025/06/22 15:04:05 [LOG] 2025-06-22 15:04:05 - Get request made to GetPostsScroll Handler
+2025/06/22 15:04:05 [INFO] 2025-06-22 15:04:05 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/22 15:04:06 [LOG] 2025-06-22 15:04:06 - Comments retrieved successfully for post ID 1
+2025/06/22 15:04:06 [LOG] 2025-06-22 15:04:06 - Comments retrieved successfully for post ID 1
+2025/06/22 15:04:08 [INFO] 2025-06-22 15:04:08 - Starting avatar upload
+2025/06/22 15:04:08 [INFO] 2025-06-22 15:04:08 - No image file provided
+2025/06/22 15:04:08 [LOG] 2025-06-22 15:04:08 - Comment saved successfully
+2025/06/22 15:04:24 [INFO] 2025-06-22 15:04:24 - Starting avatar upload
+2025/06/22 15:04:24 [INFO] 2025-06-22 15:04:24 - No image file provided
+2025/06/22 15:04:24 [LOG] 2025-06-22 15:04:24 - Comment saved successfully
+2025/06/22 15:04:28 [INFO] 2025-06-22 15:04:28 - Starting avatar upload
+2025/06/22 15:04:28 [INFO] 2025-06-22 15:04:28 - No image file provided
+2025/06/22 15:04:28 [LOG] 2025-06-22 15:04:28 - Comment saved successfully
+2025/06/22 15:05:08 [LOG] 2025-06-22 15:05:08 - Get request made to GetPostsScroll Handler
+2025/06/22 15:05:08 [LOG] 2025-06-22 15:05:08 - Get request made to GetPostsScroll Handler
+2025/06/22 15:05:08 [LOG] 2025-06-22 15:05:08 - GetFriendsAndRequests called
+2025/06/22 15:05:08 [INFO] 2025-06-22 15:05:08 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/22 15:05:08 [LOG] 2025-06-22 15:05:08 - GetFriendsAndRequests called
+2025/06/22 15:05:08 [INFO] 2025-06-22 15:05:08 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/22 15:05:09 [LOG] 2025-06-22 15:05:09 - Comments retrieved successfully for post ID 1
+2025/06/22 15:05:09 [LOG] 2025-06-22 15:05:09 - Comments retrieved successfully for post ID 1
+2025/06/22 15:05:15 [INFO] 2025-06-22 15:05:15 - Starting avatar upload
+2025/06/22 15:05:15 [INFO] 2025-06-22 15:05:15 - Avatar file retrieved: giphy.gif
+2025/06/22 15:05:15 [INFO] 2025-06-22 15:05:15 - Detected content type: image/gif
+2025/06/22 15:05:15 [INFO] 2025-06-22 15:05:15 - Generated avatar filename: 4aa038c3-0773-41b4-b74f-ca05a2d770cf.gif
+2025/06/22 15:05:15 [INFO] 2025-06-22 15:05:15 - Avatar saved successfully
+2025/06/22 15:05:15 [LOG] 2025-06-22 15:05:15 - Comment saved successfully
+2025/06/22 15:05:21 [LOG] 2025-06-22 15:05:21 - GetFriendsAndRequests called
+2025/06/22 15:05:21 [LOG] 2025-06-22 15:05:21 - Get request made to GetPostsScroll Handler
+2025/06/22 15:05:21 [INFO] 2025-06-22 15:05:21 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/22 15:05:21 [LOG] 2025-06-22 15:05:21 - GetFriendsAndRequests called
+2025/06/22 15:05:21 [LOG] 2025-06-22 15:05:21 - Get request made to GetPostsScroll Handler
+2025/06/22 15:05:21 [INFO] 2025-06-22 15:05:21 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/22 15:05:23 [LOG] 2025-06-22 15:05:23 - Comments retrieved successfully for post ID 1
+2025/06/22 15:05:23 [LOG] 2025-06-22 15:05:23 - Comments retrieved successfully for post ID 1
