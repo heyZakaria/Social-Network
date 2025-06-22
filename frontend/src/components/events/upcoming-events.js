@@ -3,54 +3,20 @@ import Link from "next/link";
 import { IoAddOutline } from "react-icons/io5";
 import styles from "@/styles/UpcomingEvents.module.css";
 import { useParams } from "next/navigation";
-
+let groupId
 export default function UpcomingEvents() {
   const [events, setEvents] = useState([]);
+  const [attendees, setAttendees] = useState(0);
   const [error, setError] = useState(null);
-  const currentUser = {
-    id: 1,
-    firstName: "John",
-    lastName: "Doe",
-  };
 
   const p = useParams()
-  const groupId = p.id
+  groupId = p.id
   console.log("Weeeeeeeeeeee ID", groupId);
 
 
-  const fetchEvents = () => {
-    fetch(`http://localhost:8080/api/groups/events/${groupId}`, {
-      method: "GET",
-      credentials: "include",
-
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-      .then( async (res) => {
-        if (!res.ok) {
-          return res.json().then((errData) => {
-            throw new Error(errData.error || "Event fetch failed");
-          });
-        }
-        ///console.log("Weeeeeeeeeeee EVENTS 1", res.json());
-        return res.json();
-      })
-      .then((data) => {
-        console.log("Weeeeeeeeeeee EVENTS 2", data);
-
-        setEvents(data);
-        setError(null);
-      })
-      .catch((error) => {
-        console.error("Error fetching events:", error.message);
-        setError(error.message);
-      });
-  };
-
   const HandleEventPresence = (event) => {
     console.log("ZZZZZZZZZZZZ", event, event.id);
-    
+
     fetch(`http://localhost:8080/api/groups/event_presence/response`, {
       method: "POST",
       credentials: "include",
@@ -72,9 +38,8 @@ export default function UpcomingEvents() {
 
         return res.json();
       })
-      .then((data) =>{
-        console.log("WAAAAk WAAAAAAAAAAAAk", data);
-        
+      .then((data) => {
+        fetchEvents()
       })
       .catch((error) => {
         console.error("Error fetching events:", error.message);
@@ -139,3 +104,37 @@ export default function UpcomingEvents() {
     </div>
   );
 }
+
+
+export const fetchEvents = () => {
+
+  fetch(`http://localhost:8080/api/groups/events/${groupId}`, {
+    method: "GET",
+    credentials: "include",
+
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+    .then(async (res) => {
+      if (!res.ok) {
+        return res.json().then((errData) => {
+          throw new Error(errData.error || "Event fetch failed");
+        });
+      }
+      ///console.log("Weeeeeeeeeeee EVENTS 1", res.json());
+      return res.json();
+    })
+    .then((data) => {
+      console.log("Weeeeeeeeeeee EVENTS 2", data, data.attendees);
+
+      setEvents(data);
+
+      setAttendees(data.attendees)
+      setError(null);
+    })
+    .catch((error) => {
+      console.error("Error fetching events:", error.message);
+      setError(error.message);
+    });
+};

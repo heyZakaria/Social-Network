@@ -3,7 +3,8 @@
 import { useState } from 'react';
 import styles from "@/components/events/newEvent.module.css";
 import { useParams } from "next/navigation";
-
+import { fetchEvents } from './upcoming-events';    
+let groupId
 export default function ShowEventForm() {
     const [showForm, setShowForm] = useState(false);
     const [formData, setFormData] = useState({
@@ -18,7 +19,7 @@ export default function ShowEventForm() {
     const [serverError, setServerError] = useState('')
 
     const p = useParams()
-    const groupId = p.id
+    groupId = p.id
     console.log("===================groupId:", groupId);
 
     const handleClick = () => {
@@ -87,6 +88,7 @@ export default function ShowEventForm() {
 
         setFormData({ title: "", description: "", day: "", time: "", date: "", location: "" });
         handleClick()
+        fetchEvents()
     };
 
     return (
@@ -168,7 +170,6 @@ export default function ShowEventForm() {
 
 function SendEventForm(formData, groupId) {
     // Last version --> /groups/{id}/newEvent
-
 
     fetch(`http://localhost:8080/api/groups/${groupId}/newEvent`, {
         method: "POST",
