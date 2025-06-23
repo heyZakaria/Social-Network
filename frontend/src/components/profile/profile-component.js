@@ -48,6 +48,7 @@ export default function ProfileComponent({ ProfileData, currentUser }) {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeTab, offset, ProfileData.id]);
 
+  console.log("posts:", posts);
   console.log("Followers:", ProfileData.followers);
 console.log("Following:", ProfileData.following);
 
@@ -86,7 +87,7 @@ console.log("Following:", ProfileData.following);
                   </span>
                 )}
               </h1>
-                <FloatingChat currentUser={currentUser} profileData={ProfileData} />
+                <FloatingChat currentUser={currentUser} profileData={ProfileData} source="profile" />
              
             </div>
 

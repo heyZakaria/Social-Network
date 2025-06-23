@@ -14,35 +14,11 @@ func Get_Chat_History(w http.ResponseWriter, r *http.Request) {
 	// Get Session ID
 	Session_ID := r.URL.Query().Get("session_id")
 	Chat_List := r.URL.Query().Get("chat_list")
+	var Messages []MessageStruct
 
 	if Chat_List == "fetch" {
 		// Get The Chat List
-		Query := `SELECT 
-					c.*,
-					u.id AS other_user_id,
-					u.first_name,
-					u.last_name,
-					u.avatar
-				FROM chats c
-				JOIN users u ON u.id = 
-					CASE 
-						WHEN c.sender_id = ? THEN c.receiver_id
-						ELSE c.sender_id
-					END
-				WHERE (c.sender_id = ? OR c.receiver_id = ?)
-				AND c.created_at IN (
-					SELECT MAX(created_at)
-					FROM chats
-					WHERE sender_id = ? OR receiver_id = ?
-					GROUP BY 
-						CASE 
-							WHEN sender_id = ? THEN receiver_id
-							ELSE sender_id
-						END
-				)
-				ORDER BY c.created_at DESC;
-	          `
-		rows, err := db.DB.Query(Query, UserID, UserID, UserID, UserID, UserID, UserID)
+		rows, err := db.DB.Query(Get_Recent_Chats, UserID, UserID, UserID, UserID, UserID, UserID)
 		if err != nil {
 			utils.Log("ERROR", "Error fetching chat list from database: "+err.Error())
 			utils.SendJSON(w, http.StatusInternalServerError, utils.JSONResponse{
@@ -54,22 +30,21 @@ func Get_Chat_History(w http.ResponseWriter, r *http.Request) {
 		}
 		defer rows.Close()
 
-		var ChatList []MessageStruct
 		for rows.Next() {
 			var item MessageStruct
-			if err := rows.Scan(&item.ID, &item.SessionID, &item.Sender, &item.Receiver, &item.Content, &item.Readed, &item.Type, &item.CreatedAt, &item.Other_user_id, &item.Other_first_name, &item.Other_last_name, &item.Other_avatar); err != nil {
+			if err := rows.Scan(&item.ID, &item.SessionID, &item.Sender, &item.Receiver, &item.Content, &item.Readed, &item.CreatedAt, &item.Other_user_id, &item.Other_first_name, &item.Other_last_name, &item.Other_avatar); err != nil {
 				utils.Log("ERROR", "Error scanning row: "+err.Error())
 				continue
 			}
 			db.DB.QueryRow(`SELECT COUNT(*) FROM chats WHERE session_id = ? AND message_readed = 0 AND receiver_id = ?`, item.SessionID, UserID).Scan(&item.Readed)
-			ChatList = append(ChatList, item)
+			Messages = append(Messages, item)
 		}
 		utils.Log("INFO", "Chat USERS List Fetched successfully")
 		utils.SendJSON(w, http.StatusOK, utils.JSONResponse{
 			Success: true,
 			Message: "Chat List Fetched successfully",
 			Data: map[string]any{
-				"ChatList": ChatList,
+				"ChatList": Messages,
 			},
 		})
 		return
@@ -83,12 +58,58 @@ func Get_Chat_History(w http.ResponseWriter, r *http.Request) {
 		})
 		return
 	}
+	var Exists bool
+
+	db.DB.QueryRow(`SELECT EXISTS(SELECT 1 FROM group_chat WHERE session_id = ? LIMIT 1)`, Session_ID).Scan(&Exists)
+	fmt.Println("Request to fetch messages for session ID:", Session_ID, "and for chatList:", Chat_List)
+	fmt.Println("Exists:", Exists)
+	if Exists {
+		fmt.Println("fetch_messages for Chat group session ID:", Session_ID)
+		rows, err := db.DB.Query(`SELECT 
+				c.*,
+				users.first_name AS sender_first_name,
+				users.last_name AS sender_last_name,
+				users.avatar AS sender_avatar
+				FROM group_chat c
+				JOIN users ON c.sender_id = users.id
+				WHERE c.session_id = ?;
+			`, Session_ID)
+		if err != nil {
+			utils.Log("ERROR", "Error fetching messages from database for CHATGROUP: "+err.Error())
+			utils.SendJSON(w, http.StatusInternalServerError, utils.JSONResponse{
+				Success: false,
+				Message: "Error occured, Please try again later",
+			})
+			return
+		}
+		defer rows.Close()
+		for rows.Next() {
+			var msg MessageStruct
+			err = rows.Scan(&msg.ID, &msg.SessionID, &msg.Sender, &msg.GroupID, &msg.Content, &msg.CreatedAt, &msg.Other_first_name, &msg.Other_last_name, &msg.Other_avatar)
+			if err != nil {
+				utils.Log("ERROR", "Error scanning row: "+err.Error())
+				continue
+			}
+			Messages = append(Messages, msg)
+		}
+		utils.Log("INFO", "GroupCHAT History Fetched successfully :D")
+		utils.SendJSON(w, http.StatusOK, utils.JSONResponse{
+			Success: true,
+			Message: "GroupCHAT History Fetched successfully",
+			Data: map[string]any{
+				"Messages": Messages,
+			},
+		})
+		return
+	}
+
+	//////////////////////////////////////////////////////////////////////////////////////////
+
 	// Get Send And recived from Chat Table using Session ID
-	var Exist bool
 	err := db.DB.QueryRow(`SELECT EXISTS(SELECT 1 FROM chats WHERE sender_id = ? 
 		OR receiver_id = ? AND session_id = ? LIMIT 1)`,
-		UserID, UserID, Session_ID).Scan(&Exist)
-	if err != nil || !Exist {
+		UserID, UserID, Session_ID).Scan(&Exists)
+	if err != nil || !Exists {
 		utils.Log("ERROR", "Error Trying in Get_Chat_History Handler sessionID: "+Session_ID)
 		utils.SendJSON(w, http.StatusBadRequest, utils.JSONResponse{
 			Success: false,
@@ -97,22 +118,19 @@ func Get_Chat_History(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	var Messages []MessageStruct
-	var res = "|" + Session_ID + "|"
-	fmt.Println("fetch_messages: Fetching messages for session ID:", res)
-	rows, err := db.DB.Query(`SELECT id, sender_id, receiver_id, message_content, 
-				message_type, created_at FROM chats WHERE session_id = ?`, Session_ID)
+	rows, err := db.DB.Query(`SELECT * FROM chats WHERE session_id = ?`, Session_ID)
 	if err != nil {
 		utils.Log("ERROR", "Error fetching messages from database: "+err.Error())
 		utils.SendJSON(w, http.StatusInternalServerError, utils.JSONResponse{
 			Success: false,
 			Message: "Error occured, Please try again later",
 		})
+		return
 	}
 	defer rows.Close()
 	for rows.Next() {
 		var msg MessageStruct
-		err = rows.Scan(&msg.ID, &msg.Sender, &msg.Receiver, &msg.Content, &msg.Type, &msg.CreatedAt)
+		err = rows.Scan(&msg.ID, &msg.SessionID, &msg.Sender, &msg.Receiver, &msg.Content, &msg.Readed, &msg.CreatedAt)
 		if err != nil {
 			utils.Log("ERROR", "Error scanning row: "+err.Error())
 			continue

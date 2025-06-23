@@ -1,7 +1,8 @@
-CREATE TABLE IF NOT EXISTS `group_chat` (
+CREATE TABLE IF NOT EXISTS group_chat (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    group_id INTEGER NOT NULL REFERENCES groups(id) ON DELETE CASCADE,
-    `message` TEXT NOT NULL CHECK(LENGTH(`message`) < 250),
+    session_id TEXT NOT NULL,
     sender_id TEXT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+    group_id INTEGER NOT NULL REFERENCES groups(id) ON DELETE CASCADE,
+    message_content TEXT NOT NULL CHECK(LENGTH(message_content) < 250),
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP
 )

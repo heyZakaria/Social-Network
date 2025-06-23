@@ -11,7 +11,7 @@ import (
 // GetUserProfile gets the current user's profile
 func GetUserProfile(w http.ResponseWriter, r *http.Request) {
 	UserId := r.Context().Value(shared.UserIDKey).(string)
-	profile, err := getUserProfileData(UserId)
+	profile, err := GetUserProfileData(UserId)
 	if err != nil {
 		utils.Log("ERROR", "Error fetching profile: "+err.Error())
 		utils.SendJSON(w, http.StatusInternalServerError, utils.JSONResponse{
@@ -45,7 +45,7 @@ func GetUserProfile(w http.ResponseWriter, r *http.Request) {
 }
 
 // Helper function to get user profile data
-func getUserProfileData(userId string) (*UserProfile, error) {
+func GetUserProfileData(userId string) (*UserProfile, error) {
 	profile := &UserProfile{UserID: userId}
 	err := db.DB.QueryRow(`
         SELECT first_name, last_name, email, nickname, bio, avatar, 
@@ -84,7 +84,7 @@ func GetOtherUserProfile(w http.ResponseWriter, r *http.Request) {
 	}
 	utils.Log("INFO", "Requested profile for user ID: "+targetUserID)
 
-	profile, err := getUserProfileData(targetUserID)
+	profile, err := GetUserProfileData(targetUserID)
 	if err != nil {
 		utils.Log("ERROR", "Failed to get profile data: "+err.Error())
 		utils.SendJSON(w, http.StatusNotFound, utils.JSONResponse{

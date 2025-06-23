@@ -2,11 +2,12 @@
 import { useState, useEffect } from "react";
 import styles from './GroupCard.module.css';
 import InviteFriends from "@/components/group/InviteFriends";
-import { IoChevronBackCircleSharp, IoChevronForwardCircleSharp } from "react-icons/io5";
+import { IoChevronBackCircleSharp, IoChevronForwardCircleSharp, IoChatbubbleEllipsesSharp } from "react-icons/io5";
 import { useParams } from "next/navigation";
 import Image from "next/image";
-
-
+import Link from "next/link";
+import FloatingChat from "@/components/chat/floating-chat";
+import { useUser } from "@/context/user_context";
 function isMember(DummyTest) {
   // Need To Check if the user is a Member
   return DummyTest;
@@ -140,6 +141,7 @@ export default function GroupCard({ children }) {
   const [invitedFriends, setInvitedFriends] = useState(
     FriendsList1.map(friend => ({ ...friend, invited: false }))
   );
+  const { user: currentUser } = useUser();
 
   const handleInvite = (id) => {
     setInvitedFriends(prevInvite =>
@@ -201,15 +203,33 @@ export default function GroupCard({ children }) {
       })
     setLoading(false)
   }, [groupId])
-  console.log(`../../public/uploads/${group.covername}`);
 
   if (loading) return <p>Data is Loading</p>
   if (err !== null) return <p>{err}</p>
+  console.log("Groupx", group);
+  const groupInfo = {
+    id: group?.Group?.id,
+    title: group?.Group?.title,
+    covername: group?.Group?.covername,
+    description: group?.Group?.description,
+  }
   return (
 
+
     <div id={group.id} className={styles.GroupCardContainer}>
-      <Image width={200} height={100} src={`/uploads/groups_cover/${group.covername}`}
-        alt={group.title}></img>
+      <div className={styles.GroupCardHeader}>
+        <div className={styles.GroupCardHeaderContent}>
+          <Link href="/groups" className={styles.backButton}>
+            <IoChevronBackCircleSharp size={30} />
+          </Link>
+          <h1 className={styles.GroupCardTitle}>{group.title}</h1>
+        </div>
+        <div className={styles.GroupChatButton}>
+          <FloatingChat  currentUser={currentUser} source={"group"}  group={groupInfo}/>
+        </div>
+      </div>
+      <Image alt="test" width={200} height={100} src={`/uploads/groups_cover/${group.covername}`}
+      />
       <h1 className={styles.groupTitle}>{group.title}</h1>
       <Description Text={group.description} />
       <GroupNav HandleShowInvite={HandleShowInvite} OnMembers={HandleMembersList} FriendsList={FriendsList1}></GroupNav>

@@ -185,7 +185,7 @@ export default function GroupCard({ imgSrc, groupName, description, children, me
   return (
     <div className={styles.GroupCardContainer}>
       <Image width={200} height={100} src={imgSrc}
-        alt={groupName}></img>
+        alt={groupName}/>
       <h1 className={styles.groupTitle}>{groupName}</h1>
       <Description Text={description} />
       <GroupNav HandleShowInvite={HandleShowInvite} OnMembers={HandleMembersList} FriendsList={FriendsList1}></GroupNav>

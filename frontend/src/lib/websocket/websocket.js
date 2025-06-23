@@ -1,5 +1,11 @@
-export let socket = null;
 
+export let socket = null;
+export let broadcastChannel = null;
+if (typeof window !== "undefined" && "BroadcastChannel" in window) {
+	broadcastChannel = new window.BroadcastChannel("social_network_channel");
+} else {
+	broadcastChannel = null;
+}
 export const websocket = {
 	send: (message) => {
         console.log("Message sending request is made", message);
@@ -24,9 +30,12 @@ export const closeWebSocket = () => {
 };
 
 export const OpenWebSocket = () => {
+	// on message broadcast channel
+
  if (!socket || (socket.readyState !== WebSocket.OPEN && socket.readyState !== WebSocket.CONNECTING)) {
     socket = new WebSocket(`ws://localhost:8080/api/websocket/ws`);
-
+	// In Next.js, BroadcastChannel is only available in the browser.
+	
     socket.onopen = () => {
         console.log("🟢  WebSocket connection established");
     };

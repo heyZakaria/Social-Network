@@ -3,17 +3,21 @@
 import { useState, useEffect } from "react";
 import styles from "@/styles/floating-chat.module.css";
 import ChatComponent from "./chat-component";
-import EmojiPicker from "@/components/common/emoji-picker";
-import { IoClose, IoChatbubbleEllipses, IoCloseSharp } from "react-icons/io5";
+import {
+  IoClose,
+  IoChatbubbleEllipses,
+  IoCloseSharp,
+  IoChatbubbleEllipsesSharp,
+} from "react-icons/io5";
 import { IoIosArrowBack } from "react-icons/io";
 
 import PrivacyToggle from "@/components/profile/privacy-toggle";
 import FollowButton from "@/components/profile/follow-button";
 import Image from "next/image";
-import { socket, websocket } from "@/lib/websocket/websocket";
+import { broadcastChannel, socket, websocket } from "@/lib/websocket/websocket";
 import { FetchData } from "@/context/fetchJson";
 import { date } from "zod";
-export default function FloatingChat({ currentUser, profileData }) {
+export default function FloatingChat({ currentUser, profileData, source, group }) {
   const [isOpen, setIsOpen] = useState(false);
   const [activeChat, setActiveChat] = useState(null);
   const [refresh, setRefresh] = useState(0);
@@ -35,24 +39,36 @@ export default function FloatingChat({ currentUser, profileData }) {
         );
         setRecentChats(response?.data?.ChatList || []);
         console.log("recent chat", response?.data?.ChatList);
-        
-        setUnreadCount(response.data.ChatList.reduce((acc, chat) => acc + chat.readed, 0));
+        if (response?.data?.ChatList) {
+          setUnreadCount(
+            response.data.ChatList.reduce((acc, chat) => acc + chat.readed, 0)
+          );
+        }
         console.log("Unread Count", unreadCount);
-        
       } catch (error) {
         console.error("Error fetching recent chats:", error);
       }
     };
-
     fetchRecentChats();
   }, [refresh]);
-
+  console.log("Broadcast Channelx", broadcastChannel);
+  broadcastChannel.onmessage = (event) => {
+    console.log("BROD", event.data);
+    refreshChatList()
+  }
   if (socket && websocket) {
-    socket.onmessage = (event) => {
+    socket.onmessage = () => {
       refreshChatList();
-
-      console.log("List Refreched From Floating chat comp");
+      broadcastChannel.postMessage(JSON.stringify({ type: "refresh_chat_list" }));
+      console.log("List Refreched From Socket Floating chat comp");
     };
+    broadcastChannel.onmessage = (event) => {
+      const data = JSON.parse(event.data);
+      if (data.type === "refresh_chat_list") {
+        refreshChatList("broadcast");
+        console.log("List Refreched From Broadcast Channel Floating chat comp");
+      }
+    }
   }
 
   function generateChatSessionID(userID, receiverID) {
@@ -63,24 +79,34 @@ export default function FloatingChat({ currentUser, profileData }) {
   }
 
   const GenerateChat = () => {
-    console.log("Profile Data", profileData);
-
+    console.log("group Data", group);
     const chat = {
       id: Date.now(),
-      session_id: generateChatSessionID(currentUser.id, profileData.id),
-      other_user_id: profileData.id,
-      other_first_name: profileData.firstName,
-      other_last_name: profileData.lastName,
-      other_avatar: profileData.avatar || "/uploads/profile.jpeg",
-    };
+    }
+    if (source == "group") {
+      chat.session_id = group.id
+      chat.other_user_id = group.id
+      chat.sender = currentUser.id
+      chat.other_first_name = group.title
+      chat.other_last_name = ""
+      chat.type = "group_message"
+      chat.other_avatar = group.covername || "/uploads/profile.jpeg"
+    }else {
+      chat.session_id = generateChatSessionID(currentUser?.id, profileData?.id)
+      chat.other_user_id = profileData?.id
+      chat.other_first_name = profileData?.firstName
+      chat.type = "private_message"
+      chat.other_last_name = profileData?.lastName
+      chat.other_avatar = profileData?.avatar || "/uploads/profile.jpeg"
+    }
     return chat;
   };
   const handleChatSelect = (chat) => {
     setActiveChat(chat);
-    console.log("Chat Example", chat);
-    console.log("Active Chat", activeChat);
+    console.log("Chat Example 1", chat);
+    console.log("Active Chat 1", activeChat);
     setIsOpen(true);
-    setUnreadCount((prev) => prev - chat.readed)
+    setUnreadCount((prev) => prev - chat.readed);
   };
 
   const handleClose = () => {
@@ -91,14 +117,15 @@ export default function FloatingChat({ currentUser, profileData }) {
   const handleListChat = () => {
     setIsOpen(true);
     setActiveChat(null);
-    refreshChatList()
+    refreshChatList();
   };
 
   const handleEmojiSelect = (emoji) => {
     setNewMessage((prevMessage) => prevMessage + emoji);
   };
 
-  const refreshChatList = () => {
+  const refreshChatList = (from) => {
+    console.log("Refreshing chat list form : ", from);
     setRefresh((prev) => prev + 1);
   };
   const formatTime = (dateString) => {
@@ -122,28 +149,38 @@ export default function FloatingChat({ currentUser, profileData }) {
 
   return (
     <>
-      
-        {profileData?.IsOwnProfile ? (
-          <div className={styles.profileActions}>
-            {/* <Link href="/settings" className={styles.editButton}>
+      {profileData?.IsOwnProfile ? (
+        <div className={styles.profileActions}>
+          {/* <Link href="/settings" className={styles.editButton}>
             Edit Profile
           </Link> */}
 
-            <PrivacyToggle user={profileData} />
-          </div>
-        ) : (
-          <div className={styles.profileActions}>
+          <PrivacyToggle user={profileData} />
+        </div>
+      ) : (
+        <div className={styles.profileActions}>
+          {source === "profile" && (
             <FollowButton targetUserId={profileData?.id} />
-            {profileData?.profile_status === "public" || profileData?.CanView ? (
-              <button
-                className={styles.messageButton}
-                onClick={() => handleChatSelect(GenerateChat())}
-              >
-                Message
-              </button>
-            ) : null}
-          </div>
-        )}
+          )}
+          {profileData?.profile_status === "public" ||
+          profileData?.CanView ||
+          source == "group" ? (
+            <button
+              className={styles.messageButton}
+              onClick={() => handleChatSelect(GenerateChat())}
+            >
+              {source == "group" ? (
+                <>
+                  <IoChatbubbleEllipsesSharp size={30} />
+                  Chat ROOM
+                </>
+              ) : (
+                "Message"
+              )}
+            </button>
+          ) : null}
+        </div>
+      )}
 
       <div className={styles.floatingChatContainer}>
         {isOpen && activeChat ? (
@@ -217,9 +254,10 @@ export default function FloatingChat({ currentUser, profileData }) {
                         <div className={styles.totalunreaded}>
                           <span>{chat.readed}</span>
                         </div>
-                        ):("")
-                      }
-                      
+                      ) : (
+                        ""
+                      )}
+
                       <Image
                         width={200}
                         height={100}

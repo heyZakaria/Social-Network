@@ -23,6 +23,7 @@ type Client struct {
 type MessageStruct struct {
 	ID               int        `json:"id"`
 	Sender           string     `json:"sender"`
+	GroupID           string     `json:"group_id"`
 	Receiver         string     `json:"receiver"`
 	Content          string     `json:"content"`
 	Type             string     `json:"type"`
