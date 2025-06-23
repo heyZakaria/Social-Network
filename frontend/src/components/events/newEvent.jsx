@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import styles from "@/components/events/newEvent.module.css";
 import { useParams } from "next/navigation";
-import { fetchEvents } from './upcoming-events';    
+import UpcomingEvents from './upcoming-events';
 let groupId
 export default function ShowEventForm() {
     const [showForm, setShowForm] = useState(false);
@@ -62,11 +62,16 @@ export default function ShowEventForm() {
 
         formData.date = formData.day + " " + formData.time
 
-        if (!formData.location || formData.location.trim() === "" || formData.location.length < 5 || formData.location.length > 30) {
+        if (!formData.location || formData.location.trim() === "") {
             newErrors.location = "Event location is required.";
+        }
+        if (formData.location.length < 5 || formData.location.length > 30) {
+            newErrors.location = "Event lenght is not valide.";
         }
 
         setErrors(newErrors);
+        console.log("----------------->", newErrors.day);
+
         return Object.keys(newErrors).length === 0; // returns true if no errors
     };
     const closePopup = () => {
@@ -82,13 +87,12 @@ export default function ShowEventForm() {
             return; // Don't submit the form if there are errors
         }
 
-
-
         SendEventForm(formData, groupId)
+        UpcomingEvents()
 
         setFormData({ title: "", description: "", day: "", time: "", date: "", location: "" });
         handleClick()
-        fetchEvents()
+
     };
 
     return (
@@ -133,7 +137,7 @@ export default function ShowEventForm() {
                                 onChange={handleChange}
                                 className={styles.eventDate}
                             />
-                            {errors.date && <p className={styles.error}>{errors.date}</p>}
+                            {errors.day && <p className={styles.error}>{errors.day}</p>}
                         </div>
                         <div className={styles.labelContainer}>
                             <label className={styles.label}>Select Event Time:</label>
@@ -189,7 +193,6 @@ function SendEventForm(formData, groupId) {
             return res.json();
         })
         .then((data) => {
-            // setServerError("");
             console.log("Event created:", data);
         })
         .catch((error) => {

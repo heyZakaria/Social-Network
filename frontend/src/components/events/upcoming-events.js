@@ -4,7 +4,7 @@ import { IoAddOutline } from "react-icons/io5";
 import styles from "@/styles/UpcomingEvents.module.css";
 import { useParams } from "next/navigation";
 let groupId
-export default function UpcomingEvents() {
+export default function UpcomingEvents( ) {
   const [events, setEvents] = useState([]);
   const [attendees, setAttendees] = useState(0);
   const [error, setError] = useState(null);
@@ -13,6 +13,15 @@ export default function UpcomingEvents() {
   groupId = p.id
   console.log("Weeeeeeeeeeee ID", groupId);
 
+  const HandleGetEvents = async () => {
+    try {
+      const e = await fetchEvents();
+      // console.log("=+=++=+++===", e);
+      setEvents(e);
+    } catch (error) {
+      console.error("Error fetching events:", error.message);
+    }
+  }
 
   const HandleEventPresence = (event) => {
     console.log("ZZZZZZZZZZZZ", event, event.id);
@@ -38,8 +47,10 @@ export default function UpcomingEvents() {
 
         return res.json();
       })
-      .then((data) => {
-        fetchEvents()
+      .then(async (data) => {
+        let e = await fetchEvents()
+
+        setEvents(e)
       })
       .catch((error) => {
         console.error("Error fetching events:", error.message);
@@ -61,7 +72,7 @@ export default function UpcomingEvents() {
     <div className={styles.eventsContainer}>
       <div className={styles.eventsHeader}>
         <h1>Events</h1>
-        <a onClick={fetchEvents} className={styles.createEventButton}>
+        <a onClick={HandleGetEvents} className={styles.createEventButton}>
           <IoAddOutline size={20} />
           Get Events
         </a>
@@ -106,9 +117,9 @@ export default function UpcomingEvents() {
 }
 
 
-export const fetchEvents = () => {
+export const fetchEvents = async () => {
 
-  fetch(`http://localhost:8080/api/groups/events/${groupId}`, {
+  return fetch(`http://localhost:8080/api/groups/events/${groupId}`, {
     method: "GET",
     credentials: "include",
 
@@ -126,8 +137,8 @@ export const fetchEvents = () => {
       return res.json();
     })
     .then((data) => {
-      console.log("Weeeeeeeeeeee EVENTS 2", data, data.attendees);
-
+      console.log("Weeeeeeeeeeee EVENTS 2", data);
+      return data
       setEvents(data);
 
       setAttendees(data.attendees)
