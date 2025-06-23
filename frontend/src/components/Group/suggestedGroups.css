@@ -1,208 +1,214 @@
-/* Group List Container (like friendListContainer) */
+:root {
+  --primary-purple: #7c3aed;
+  --primary-purple-dark: #5b21b6;
+  --pending-green: #4caf50;
+  --pending-green-dark: #388e3c;
+  --bg-light: #fafafa;
+  --card-bg: #fff;
+  --text-primary: #222;
+  --text-secondary: #555;
+  --button-text: #fff;
+  --button-hover-purple: #5b21b6;
+  --button-hover-green: #388e3c;
+}
+
 .groupListContainer {
+  max-width: 1080px;
+  margin: 2rem auto;
+  padding: 1.5rem 2rem;
+  background-color: var(--bg-light);
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(124, 58, 237, 0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--text-primary);
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px;
-  background-color: #fafafa;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  margin: 20px 0;
 }
 
-/* Filter Button Group */
 .groupListHeader {
-  margin-bottom: 20px;
+  display: flex;
+  gap: 12px;
+  margin-bottom: 2rem;
+  background: #f7f1ff;
+  padding: 10px 16px;
+  border-radius: 9999px;
+  box-shadow: inset 0 0 8px rgba(124, 58, 237, 0.1);
+  user-select: none;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .groupListHeader button {
-  background: #7c3aed;
-  color: white;
-  padding: 8px 16px;
+  background: transparent;
   border: none;
-  border-radius: 8px;
+  padding: 10px 20px;
   font-size: 14px;
   font-weight: 600;
-  margin: 0 8px;
+  color: var(--primary-purple);
+  border-radius: 9999px;
   cursor: pointer;
-  transition: background 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+  flex-shrink: 0;
 }
 
-.groupListHeader button:hover {
-  background: #5b21b6;
+.groupListHeader button:hover,
+.groupListHeader button:focus {
+  background-color: var(--primary-purple);
+  color: var(--button-text);
+  box-shadow: 0 0 15px var(--primary-purple);
+  outline: none;
 }
 
-/* Group List (ul) */
+.groupListHeader button:active {
+  background-color: var(--button-hover-purple);
+  box-shadow: 0 0 20px var(--button-hover-purple);
+}
+
 .groupList {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-  width: 100%;
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
   justify-content: center;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  list-style: none;
 }
 
-/* Group Card */
 .groupCard {
-  background-color: #fff;
-  border-radius: 12px;
-  width: 200px;
-  text-align: center;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: pointer;
+  background: var(--card-bg);
+  width: 300px;
+  border-radius: 14px;
+  box-shadow: 0 6px 20px rgba(124, 58, 237, 0.15);
+  overflow: hidden;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  overflow: hidden;
-  height: auto;
-  /* Set a fixed height for the group card */
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  user-select: none;
+  min-height: 320px;
 }
 
-/* Group Card Hover Effect */
 .groupCard:hover {
-  transform: scale(1.05);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  transform: translateY(-8px) scale(1.05);
+  box-shadow: 0 12px 30px rgba(124, 58, 237, 0.3);
 }
 
-/* Cover Image (taking up half of the card) */
 .groupCard img {
   width: 100%;
-  height: 50%;
-  /* Cover the top half of the card */
+  height: 120px;
   object-fit: cover;
-  margin-bottom: 12px;
+  transition: filter 0.3s ease;
   border-bottom: 2px solid #ddd;
-  /* Adds a border below the image */
 }
 
-/* Group Content Section (below the image) */
+.groupCard:hover img {
+  filter: brightness(1.07);
+}
+
 .groupCardContent {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
   flex-grow: 1;
-  padding: 10px 0;
-  width: 100%;
-}
-
-/* Group Name */
-.groupCardContent p:first-of-type {
-  font-size: 16px;
-  font-weight: 600;
-  color: #333;
-  margin-bottom: 6px;
-  font-family: 'Arial', sans-serif;
-  text-transform: capitalize;
-}
-
-/* Group Description */
-.groupCardContent p:nth-of-type(2) {
-  font-size: 14px;
-  color: #666;
-  margin-bottom: 12px;
-  font-family: 'Arial', sans-serif;
-}
-
-/* Join / Pending Button */
-.groupCardContent button {
-  background: #7c3aed;
-  color: white;
-  padding: 6px 14px;
-  border: none;
-  border-radius: 8px;
-  font-size: 13px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background 0.3s ease;
-  width: 100%;
-}
-
-.groupCardContent button:hover {
-  background: #5b21b6;
-}
-
-/* Special styling for Pending state */
-.groupCardContent button.Pending {
-  background-color: #4caf50;
-}
-
-.groupCardContent button.Pending:hover {
-  background-color: #388e3c;
-}
-
-/* Member Count Styling */
-.groupCard p.memberCount {
-  font-size: 14px;
-  font-weight: 500;
-  color: #555;
-  margin-top: 10px;
-  text-align: center;
-  padding: 5px 10px;
-  background-color: #e0e0e0;
-  border-radius: 12px;
-  display: inline-block;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-}
-
-.groupCard p.memberCount span {
-  font-size: 16px;
-  font-weight: 600;
-  color: #333;
-  padding: 3px;
-  border-radius: 8px;
-  background-color: #4caf50;
-  /* Green for members count */
-  color: white;
-}
-
-/* Info Container - Flex Row */
-.InfoCountainer {
-  display: flex;
-  padding: 7px;
-  flex-direction: row;
-  gap: 4px;  /* Spacing between sections */
-  background-color: white;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-/* Section Styling - Flex Row */
-.Section {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 4px;  /* Space between icon and title/content */
-}
-
-/* Title and Content Layout - Flex Column */
-.TitleContent {
+  padding: 16px 18px 22px;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  gap: 6px;
 }
 
-/* Title (Name) Styling */
-.Section h2 {
-  font-size: 9px;
-  font-weight: 550;  /* Slightly bold */
-  color: #000000;
-  margin: 0;
-}
-
-/* Content Styling */
-.Section p {
-  font-size: 9px;
-  font-weight: normal;
-  color: #666;
-  margin: 0;
+.groupCardContent p:first-child {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--primary-purple-dark);
+  margin-bottom: 4px;
+  line-height: 1.2;
+  overflow: hidden;
+  text-overflow: ellipsis;
   white-space: nowrap;
 }
 
-/* Icon Styling */
-.Section svg {
-  font-size: 22px;
-  color: #7c3aed;  /* Icon color */
+.groupCardContent p:last-child {
+  font-weight: 400;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.groupCardContent button {
+  margin-top: auto;
+  align-self: flex-start;
+  padding: 8px 20px;
+  background-color: var(--primary-purple);
+  border: none;
+  border-radius: 20px;
+  color: var(--button-text);
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.groupCardContent button.Pending {
+  background-color: var(--pending-green);
+  transition: background-color 0.3s ease;
+}
+
+.groupCardContent button.Pending:hover {
+  background-color: var(--pending-green-dark);
+}
+
+.groupCardContent button:hover:not(.Pending) {
+  background-color: var(--primary-purple-dark);
+}
+
+.InfoCountainer {
+  display: flex;
+  justify-content: space-around;
+  padding: 12px 16px;
+  background: #f3eaff;
+  border-top: 1px solid #ddd;
+  font-size: 14px;
+  color: var(--primary-purple-dark);
+}
+
+.Section {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  user-select: none;
+}
+
+.Section > div:first-child {
+  font-size: 20px;
+  color: var(--primary-purple);
+  display: flex;
+  align-items: center;
+}
+
+.TitleContent h2 {
+  margin: 0;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.TitleContent p {
+  margin: 0;
+  font-weight: 400;
+  color: var(--text-secondary);
+  font-size: 12px;
+}
+
+/* Responsive tweaks */
+@media (max-width: 600px) {
+  .groupCard {
+    width: 100%;
+    min-height: auto;
+  }
+
+  .groupListHeader {
+    flex-wrap: wrap;
+  }
 }

@@ -5,13 +5,14 @@ import (
 	"errors"
 	"fmt"
 	"net/http"
-	"strconv"
 	"strings"
 
 	db "socialNetwork/db/sqlite"
 	shared "socialNetwork/shared_packages"
 
 	"socialNetwork/utils"
+
+	"github.com/google/uuid"
 )
 
 func createGroup(w http.ResponseWriter, r *http.Request) {
@@ -71,6 +72,7 @@ func createGroup(w http.ResponseWriter, r *http.Request) {
 		})
 		return
 	}
+	Group.ID = GroupId
 	utils.SendJSON(w, http.StatusOK, utils.JSONResponse{
 		Success: true,
 		Message: fmt.Sprintf("Group created successfully with ID %d", GroupId),
@@ -80,7 +82,10 @@ func createGroup(w http.ResponseWriter, r *http.Request) {
 }
 
 func InitGroup(title string, descr string, coverName string, admId string) Group {
+	Uiid_GroupId := uuid.New().String()
+
 	return Group{
+		ID:          Uiid_GroupId,
 		Description: descr,
 		Title:       title,
 		CoverName:   coverName,
@@ -107,40 +112,44 @@ func (g Group) InputValidation() error {
 	return nil
 }
 
-func (g Group) InsertGroup(db *sql.DB) (int, error) {
+func (g Group) InsertGroup(db *sql.DB) (string, error) {
 	utils.Log("INFO", "Saving group into DB")
 	stmt, err := db.Prepare(`
-	INSERT INTO groups (title, description, creator_id, covername)
-	VALUES (?, ?, ?, ?)
+	INSERT INTO groups (id , title, description, creator_id, covername)
+	VALUES (?, ?, ?, ? , ?)
 `)
 	if err != nil {
-		return -1, fmt.Errorf("Failed to insert into Db : %s", err)
+		return "-1", fmt.Errorf("Failed to insert into Db : %s", err)
 	}
-	res, err := stmt.Exec(g.Title, g.Description, g.AdminId, g.CoverName)
+	_, err = stmt.Exec(g.ID, g.Title, g.Description, g.AdminId, g.CoverName)
 	if err != nil {
-		return -1, fmt.Errorf("Failed to insert into Db : %s", err)
+		return "-1", fmt.Errorf("Failed to insert into Db : %s", err)
 	}
-	GroupId, err := res.LastInsertId()
-	if err != nil {
-		return -1, fmt.Errorf("Error Getting GroupId : %s", err)
-	}
-	GroupIdToString := strconv.Itoa(int(GroupId))
+	// GroupId, err := res.LastInsertId()
+	// if err != nil {
+	// 	return "-1", fmt.Errorf("Error Getting GroupId : %s", err)
+	// }
 
 	defer stmt.Close()
 
-	_, err = InsertGroupMember(db, "Admin", GroupIdToString, g.AdminId)
+	_, err = InsertGroupMember(db, "Admin", g.ID, g.AdminId)
 	if err != nil {
-		return -1, fmt.Errorf("Error Inserting GroupMember : %s", err)
+		return "-1", fmt.Errorf("Error Inserting GroupMember : %s", err)
 	}
-	return int(GroupId), nil
+	return g.ID, nil
 }
 
 func InsertGroupMember(db *sql.DB, state string, groupId string, userId string) (int, error) {
 	utils.Log("INFO", "Saving GroupMember into DB")
-	stmt, err := db.Prepare(`INSERT OR REPLACE INTO groupMember (user_id, group_id,memberState ) VALUES (? , ? , ?) `)
+	stmt, err := db.Prepare(`
+	INSERT INTO groupMember (user_id, group_id, memberState)
+VALUES (?, ?, ?)
+ON CONFLICT (group_id, user_id) DO UPDATE SET
+memberState = excluded.memberState`)
 	if err != nil {
 		return -1, err
 	}
+
 	defer stmt.Close()
 	res, err := stmt.Exec(userId, groupId, state)
 	if err != nil {

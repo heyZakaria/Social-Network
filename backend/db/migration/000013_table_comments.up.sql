@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS notifications (
+CREATE TABLE IF NOT EXISTS comments (
     id TEXT PRIMARY KEY,
     user_id TEXT NOT NULL,
     post_id INTEGER,

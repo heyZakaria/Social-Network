@@ -6,7 +6,7 @@ import (
 
 type Group struct {
 	AdminId     string
-	ID          int    `json:"id"`
+	ID          string `json:"id"`
 	Title       string `json:"title"`
 	Description string `json:"description"`
 	CoverName   string `json:"covername"`

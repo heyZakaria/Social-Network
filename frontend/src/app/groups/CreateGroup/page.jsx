@@ -3,7 +3,6 @@ import { useState , useEffect  } from "react"
 import { useRouter } from 'next/navigation'
 
 
-import styles from './CreateGroup.module.css';
 
 export default function CreateGroupCard() {
     /* Testing the GroupCard WithDummyData

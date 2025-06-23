@@ -1,0 +1,175 @@
+/* CreateGroup.module.css */
+
+/* === Container & Layout === */
+.createGroupContainer {
+  background: #121217; /* dark neutral background */
+  padding: 32px;
+  border-radius: 20px;
+  max-width: 500px;
+  margin: 2rem auto;
+  box-shadow: 0 0 18px rgba(124, 58, 237, 0.3); /* subtle purple glow */
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* === Typography === */
+.heading3 {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 700;
+  font-size: 28px;
+  color: #e0e0e0;
+  text-align: center;
+  margin: 0;
+  letter-spacing: 0.05em;
+  user-select: none;
+}
+
+.subtitle {
+  color: #8a8a8f;
+  font-size: 14px;
+  text-align: center;
+  margin-bottom: 16px;
+  user-select: none;
+}
+
+/* === Form === */
+.createGroupForm {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* === Form Group & Labels === */
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.label {
+  color: #bbb;
+  font-weight: 600;
+  font-size: 14px;
+  user-select: none;
+}
+
+/* === Inputs === */
+.inputText {
+  padding: 14px 18px;
+  font-size: 16px;
+  border-radius: 12px;
+  border: 1.8px solid #3b3b4f;
+  background-color: #1f1f2f;
+  color: #eee;
+  font-weight: 500;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  outline-offset: 2px;
+}
+
+.inputText::placeholder {
+  color: #666;
+  opacity: 0.8;
+}
+
+.inputText:focus {
+  border-color: #7c3aed;
+  box-shadow: 0 0 8px 1.5px rgba(124, 58, 237, 0.6);
+  outline: none;
+}
+
+/* === Error & Success Messages === */
+.error,
+.serverError {
+  color: #e63946;
+  font-size: 13px;
+  margin-top: 4px;
+  user-select: none;
+  font-weight: 600;
+}
+
+.successMessage {
+  color: #4caf50;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+  user-select: none;
+}
+
+/* === Submit Button === */
+.submitBtn {
+  background: linear-gradient(145deg, #7c3aed, #5b21b6);
+  color: #fff;
+  font-weight: 700;
+  font-size: 18px;
+  padding: 14px 0;
+  border-radius: 16px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 0 14px rgba(124, 58, 237, 0.7);
+  transition: background 0.4s ease, box-shadow 0.4s ease, transform 0.2s ease;
+  user-select: none;
+}
+
+.submitBtn:hover:not(:disabled) {
+  background: linear-gradient(145deg, #5b21b6, #7c3aed);
+  box-shadow: 0 0 20px rgba(124, 58, 237, 0.9);
+  transform: scale(1.05);
+}
+
+.submitBtn:disabled {
+  background: #3b3b4f;
+  color: #7a7a8f;
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
+/* === File Upload === */
+.fileUploadWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.fileUploadLabel {
+  background-color: #7c3aed;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 14px;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  text-align: center;
+  user-select: none;
+  box-shadow: 0 0 14px rgba(124, 58, 237, 0.7);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.fileUploadLabel:hover {
+  background-color: #5b21b6;
+  box-shadow: 0 0 22px rgba(124, 58, 237, 1);
+}
+
+.fileInputHidden {
+  display: none;
+}
+
+.fileNameDisplay {
+  font-size: 13px;
+  color: #999;
+  font-style: italic;
+  padding-left: 4px;
+  user-select: none;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .createGroupContainer {
+    padding: 24px 20px;
+    width: 90vw;
+  }
+  .submitBtn {
+    font-size: 16px;
+  }
+}

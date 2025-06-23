@@ -1,10 +1,12 @@
-"use client"
+"use client";
 import { useState, useEffect } from "react";
-import styles from './GroupCard.module.css';
+import styles from "./GroupCard.module.css";
 import InviteFriends from "@/components/Group/InviteFriends";
-import { IoChevronBackCircleSharp, IoChevronForwardCircleSharp } from "react-icons/io5";
-import { useParams } from "next/navigation";
-import { useRouter } from "next/navigation";
+import {
+  IoChevronBackCircleSharp,
+  IoChevronForwardCircleSharp,
+} from "react-icons/io5";
+import { useParams, useRouter } from "next/navigation";
 import ShowEventForm from "@/components/events/newEvent";
 import CreatePost from "@/components/posts/create-post";
 import Link from "next/link";
@@ -12,7 +14,7 @@ import PostFeeds from "@/components/posts/posts-feed";
 import { useUser } from "@/context/user_context";
 import usePosts from "@/hooks/usePosts";
 import PendingInviteList from "@/components/Group/PendingInvites";
-
+import { FiUserPlus, FiUsers, FiCalendar } from "react-icons/fi";
 
 
 function isMember(DummyTest) {
@@ -20,323 +22,278 @@ function isMember(DummyTest) {
   return DummyTest;
 }
 
-function GroupNav({ OnMembers, HandleShowInvite , HandleShowEvents }) {
-  const [JoinRequest, setJoinRequest] = useState(false);
+function GroupNav({ OnMembers, HandleShowInvite, HandleShowEvents }) {
+  const [joinRequest, setJoinRequest] = useState(false);
+  const p = useParams();
+  const groupId = p.id;
 
-  const p = useParams()
-  const groupId = p.id
-  console.log("waaaaaaaaaaaaaaaaaa groupId:", groupId);
-  
-
-  let Nav = (
-    <div className={styles.GroupNav}>
+  let nav = (
+    <div className={styles.groupNav}>
       <button
         onClick={async (e) => {
           e.preventDefault();
           try {
-            // -----> Should Fetch To InviteEndpoint
-            // const Resp = await fetch()
+            // TODO: Should Fetch To InviteEndpoint
           } catch (error) {
             console.log(error);
           }
-          setJoinRequest(!JoinRequest);
+          setJoinRequest(!joinRequest);
         }}
       >
-        {!JoinRequest ? "Join" : "Pending"}
+        {!joinRequest ? "Join" : "Pending"}
       </button>
     </div>
   );
-  const router = useRouter()
-  const HandleEvents = (e) => {
+
+  const router = useRouter();
+  const handleEvents = (e) => {
     e.preventDefault();
-    router.push(`${groupId}?events=all`)
-    
-  }
+    router.push(`${groupId}?events=all`);
+  };
 
   if (isMember(true)) {
-    Nav = (
-      <div className={styles.GroupNav}>
-        <a href="#" onClick={() => { HandleShowInvite() }}>Invite Friends</a>
-        <a href="#" onClick={() => { OnMembers() }}>Members</a>
-        <a href="#" onClick={() => { HandleShowEvents()}}>Events</a>
-
-        <button onClick={HandleEvents}>Events</button>
-
+    nav = (
+      <div className={styles.groupNav}>
+<button onClick={HandleShowInvite} className={styles.navIcon}>
+  <FiUserPlus size={20} />
+</button>
+<button onClick={OnMembers} className={styles.navIcon}>
+  <FiUsers size={20} />
+</button>
+<button onClick={HandleShowEvents} className={styles.navIcon}>
+  <FiCalendar size={20} />
+</button>
       </div>
     );
   }
 
-  return Nav;
+  return nav;
 }
 
 function Members({ members, groupId }) {
-  const [Current, setCurrent] = useState(0)
-  console.log("paginated", members);
-  let PaginatedMembers = members
-if (members.length > 3) {
-  PaginatedMembers =   members.slice(Current, Current + 3)
-}
+  const [current, setCurrent] = useState(0);
 
-   
-
-  const MembersList = (
-
-    <ul className={styles.membersList} id={groupId}>
-      {PaginatedMembers.map((member) => (
-
-        <li key={member.User_id} className={styles.memberItem}>
-                  <Link href={`/profile/${member.User_id}`}>
-          <p>{`${member.FirstName} ${member.LastName}`}</p>
-          <img
-            className={styles.memberImage}
-            src={member.Avatar ? `/uploads/profile_image/${member.Avatar}` : "https://cdn1.iconfinder.com/data/icons/fillio-users-and-hand-gestures/48/person_-_man_2-512.png"}
-            alt={`${member.FirstName} ${member.LastName}`}
-          />
-          <p>{member.Role}</p>
-      </Link>
-        </li>
-      ))}
-    </ul>
-
-
-  );
-
-  if (!members || members.length === 0) {
-    return <p>No members found.</p>;
+  let paginatedMembers = members;
+  if (members.length > 3) {
+    paginatedMembers = members.slice(current, current + 3);
   }
+
+  if (!members || members.length === 0) return <p>No members found.</p>;
+
   return (
     <div className={styles.membersNavigationWrapper}>
       <button
         className={styles.paginationButton}
-        onClick={() => {
-          if (Current > 0) {
-            setCurrent(prev => prev - 3);
-          }
-        }}
-        disabled={Current <= 0}
+        onClick={() => current > 0 && setCurrent((prev) => prev - 3)}
+        disabled={current <= 0}
       >
         <IoChevronBackCircleSharp />
       </button>
-      {MembersList}
+      <ul className={styles.membersList} id={groupId}>
+        {paginatedMembers.map((member) => (
+          <li key={member.User_id} className={styles.memberItem}>
+            <Link href={`/profile/${member.User_id}`}>
+              <p>{`${member.FirstName} ${member.LastName}`}</p>
+              <img
+                className={styles.memberImage}
+                src={
+                  member.Avatar
+                    ? `/uploads/profile_image/${member.Avatar}`
+                    : "https://img.freepik.com/free-vector/blue-circle-with-white-user_78370-4707.jpg?semt=ais_hybrid&w=740"
+                }
+                alt={`${member.FirstName} ${member.LastName}`}
+              />
+              <p>{member.Role}</p>
+            </Link>
+          </li>
+        ))}
+      </ul>
       <button
         className={styles.paginationButton}
-        onClick={() => {
-          if (Current + 3 < members.length) {
-            setCurrent(prev => prev + 3);
-          }
-        }}
-        disabled={Current + 3 >= members.length}
+        onClick={() =>
+          current + 3 < members.length && setCurrent((prev) => prev + 3)
+        }
+        disabled={current + 3 >= members.length}
       >
         <IoChevronForwardCircleSharp />
       </button>
-
     </div>
-
   );
-
 }
-
-
-
-
 
 function Description({ Text }) {
-  return <p className={styles.Description}>{Text}</p>;
+  return <p className={styles.description}>{Text}</p>;
 }
+
 export default function GroupCard({ children }) {
-  const [group, setGroup] = useState([])
-  const [err, SetErr] = useState(null)
-  const [loading, setLoading] = useState(true)
-  const [members, setMembers] = useState([])
-  const [showEvents , setshowEvents] = useState(false)
-  const [ShowInvite, setShowInvite] = useState(false);
+  const [group, setGroup] = useState([]);
+  const [err, setErr] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [members, setMembers] = useState([]);
+  const [showEvents, setShowEvents] = useState(false);
+  const [showInvite, setShowInvite] = useState(false);
   const [invitedFriends, setInvitedFriends] = useState(
-    FriendsList1.map(friend => ({ ...friend, invited: false }))
+    FriendsList1.map((friend) => ({ ...friend, invited: false }))
   );
+  const [showMembers, setShowMembers] = useState(false);
 
-  const HandleShowEvents = ()=>{
-    setshowEvents(!showEvents)
-    setShowInvite(false)
-    setShowMembers(false)
-  }
   const { user: currentUser } = useUser();
-  const p = useParams()
-  const groupId = p.id
-  const {posts , loadingPosts , hasMore , loadMore , RefrechPosts} = usePosts({groupId:groupId , limit:10})
-  console.log("groupId:", groupId);
+  const p = useParams();
+  const groupId = p.id;
+  const { posts, loadingPosts, hasMore, loadMore, RefrechPosts } = usePosts({
+    groupId: groupId,
+    limit: 10,
+  });
 
-  const handleInvite = async(id) => {
-
-    // setInvitedFriends(prevInvite =>
-    //   prevInvite.map(friend =>
-    //     friend.id === id ? { ...friend, invited: !friend.invited } : friend
-    //   )
-    // );
-
+  const handleInvite = async (id) => {
     try {
-      const respo = await fetch(`http://localhost:8080/api/groups/invite?Invited_id=${id}&Group_id=${groupId}`,
-        {method:"POST",
-          credentials:"include"
-        })
-        if (!respo.ok)throw new Error("Something Happened , Try Again")
-        const Data = await respo.json()
-      
-        setInvitedFriends(prevInvite =>
-      prevInvite.filter(friend =>
-        friend.id != id 
-      )
-      
-    );
-            console.log("dddddddddddd", Data ,invitedFriends , id);
-
-
+      const respo = await fetch(
+        `http://localhost:8080/api/groups/invite?Invited_id=${id}&Group_id=${groupId}`,
+        {
+          method: "POST",
+          credentials: "include",
+        }
+      );
+      if (!respo.ok) throw new Error("Something Happened, Try Again");
+      const Data = await respo.json();
+      setInvitedFriends((prev) => prev.filter((friend) => friend.id !== id));
     } catch (error) {
-        SetErr(error.message)
+      setErr(error.message);
     }
   };
 
-  const HandleShowInvite = async() => {
-
-      if (!ShowInvite){
-   try {
-      const resp = await fetch(`http://localhost:8080/api/groups/group/FriendList?id=${groupId}`,
-        { credentials: "include" })
-      if (!resp.ok) { throw new Error("Something Happened , Try Again") }
-      const Data = await resp.json()
-      console.log("data", Data)
-      setInvitedFriends(Data.data)
-      setShowInvite(true)
-      if (ShowMembers) { setShowMembers(false) }
-      console.log("toggled Members");
-    } catch (error) {
-      SetErr(err.message)
+  const HandleShowInvite = async () => {
+    if (!showInvite) {
+      try {
+        const resp = await fetch(
+          `http://localhost:8080/api/groups/group/FriendList?id=${groupId}`,
+          { credentials: "include" }
+        );
+        if (!resp.ok) throw new Error("Something Happened, Try Again");
+        const Data = await resp.json();
+        setInvitedFriends(Data.data);
+        setShowInvite(true);
+        if (showMembers) setShowMembers(false);
+      } catch (error) {
+        setErr(error.message);
+      }
+    } else {
+      setShowInvite(!showInvite);
     }
-    }else{
-      setShowInvite(!ShowInvite)
-    }
-
-    if (ShowMembers) {
-      setShowMembers(!ShowMembers)
-
-    }
-
-
-  }
-
-
-  const [ShowMembers, setShowMembers] = useState(false)
+    if (showMembers) setShowMembers(!showMembers);
+  };
 
   const HandleMembersList = async () => {
-    if (!ShowMembers){
-   try {
-      const resp = await fetch(`http://localhost:8080/api/groups/group/members?id=${groupId}`,
-        { credentials: "include" })
-      if (!resp.ok) { throw new Error("Something Happened , Try Again") }
-      const Data = await resp.json()
-      console.log("data", Data)
-      setMembers(Data.data)
-      setShowMembers(true)
-      if (ShowInvite) { setShowInvite(false) }
-      console.log("toggled Members");
-    } catch (error) {
-      SetErr(err.message)
+    if (!showMembers) {
+      try {
+        const resp = await fetch(
+          `http://localhost:8080/api/groups/group/members?id=${groupId}`,
+          { credentials: "include" }
+        );
+        if (!resp.ok) throw new Error("Something Happened, Try Again");
+        const Data = await resp.json();
+        setMembers(Data.data);
+        setShowMembers(true);
+        if (showInvite) setShowInvite(false);
+      } catch (error) {
+        setErr(error.message);
+      }
+    } else {
+      setShowMembers(!showMembers);
     }
-    }else{
-      setShowMembers(!ShowMembers)
-    }
-  }
+  };
 
-
-
-
+  const HandleShowEvents = () => {
+    setShowEvents(!showEvents);
+    setShowInvite(false);
+    setShowMembers(false);
+  };
 
   useEffect(() => {
-
-    if (!groupId) return
-    fetch(`http://localhost:8080/api/groups/group/?id=${groupId}`,
-      {
-        credentials: "include",
-        method: "GET",
-      }
-    ).
-      then(async (res) => {
-        const Data = await res.json()
-        console.log(Data.data, "dttdtd");
-        setGroup(Data.data)
-        if (!res.ok) { throw new Error(Data.message) }
-        console.log(group);
-      }).
-      then(Data => {
-        console.log(Data)
-      }).catch(error => {
-        SetErr(error.message)
+    if (!groupId) return;
+    fetch(`http://localhost:8080/api/groups/group/?id=${groupId}`, {
+      credentials: "include",
+      method: "GET",
+    })
+      .then(async (res) => {
+        const Data = await res.json();
+        setGroup(Data.data);
+        if (!res.ok) throw new Error(Data.message);
       })
-    setLoading(false)
-  }, [groupId])
+      .catch((error) => {
+        setErr(error.message);
+      });
+    setLoading(false);
+  }, [groupId]);
 
-  if (loading) return <p>Data is Loading</p>
-  if (err !== null) return <p>{err}</p>
+  if (loading) return <p>Data is Loading</p>;
+  if (err !== null) return <p>{err}</p>;
+
   return (
-
-    <div id={group.id} className={styles.GroupCardContainer}>
-      <img src={`/uploads/groups_cover/${group.covername}`}
+    <div id={group.id} className={styles.groupCardContainer}>
+       <GroupNav
+        HandleShowInvite={HandleShowInvite}
+        HandleShowEvents={HandleShowEvents}
+        OnMembers={HandleMembersList}
+        FriendsList={invitedFriends}
+      />
+      <img
+        src={`/uploads/groups_cover/${group.covername}`}
         alt={group.title}
-        className={styles.Groupcover}></img>
+        className={styles.groupCover}
+      />
       <h1 className={styles.groupTitle}>{group.title}</h1>
       <Description Text={group.description} />
-       <CreatePost Refrech={RefrechPosts}
-        GroupId={groupId}/>
-      <GroupNav HandleShowInvite={HandleShowInvite} HandleShowEvents={HandleShowEvents} OnMembers={HandleMembersList} FriendsList={invitedFriends}></GroupNav>
-      {ShowMembers && <Members members={members} />}
+     
+            <CreatePost Refrech={RefrechPosts} GroupId={groupId} />
+
+      {showMembers && <Members members={members} />}
       {children}
-      {ShowInvite && <InviteFriends FriendsList={invitedFriends} onInvite={handleInvite}></InviteFriends>}
-      {showEvents && <ShowEventForm ></ShowEventForm>}
-
+      {showInvite && (
+        <InviteFriends FriendsList={invitedFriends} onInvite={handleInvite} />
+      )}
+      {showEvents && <ShowEventForm />}
       <PostFeeds
-            posts={posts}
-          loading={loadingPosts}
-          loadMore={loadMore}
-          hasMore={hasMore}
-          currentUser={currentUser}
-      ></PostFeeds>
-      <PendingInviteList
-      groupId={groupId}
-      ></PendingInviteList>
-      
+        posts={posts}
+        loading={loadingPosts}
+        loadMore={loadMore}
+        hasMore={hasMore}
+        currentUser={currentUser}
+      />
+      <PendingInviteList groupId={groupId} />
     </div>
-
-  )
+  );
 }
+
 const FriendsList1 = [
   {
-    Id: 1,
+    id: 1,
     name: "John Doe",
     Pic: "https://randomuser.me/api/portraits/men/1.jpg",
   },
   {
-    Id: 2,
+    id: 2,
     name: "Jane Smith",
     Pic: "https://randomuser.me/api/portraits/women/2.jpg",
   },
   {
-    Id: 3,
+    id: 3,
     name: "Alice Johnson",
     Pic: "https://randomuser.me/api/portraits/women/3.jpg",
   },
   {
-    Id: 4,
+    id: 4,
     name: "Michael Brown",
     Pic: "https://randomuser.me/api/portraits/men/4.jpg",
   },
   {
-    Id: 5,
+    id: 5,
     name: "Emily Davis",
     Pic: "https://randomuser.me/api/portraits/women/5.jpg",
   },
   {
-    Id: 6,
+    id: 6,
     name: "Chris Lee",
     Pic: "https://randomuser.me/api/portraits/men/6.jpg",
-  }
+  },
 ];
-
