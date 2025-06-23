@@ -24,6 +24,7 @@ export function NotificationsProvider({ user, children }) {
       avatar: msg.Data.avatar,
       read: msg.Data.read ?? false,
       createdAt: msg.Data.createdAt,
+      inviteId: msg.Data.inviteId || null,
     };
 
     setNotifications((prev) => {

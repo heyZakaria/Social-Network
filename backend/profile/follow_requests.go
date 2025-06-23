@@ -84,6 +84,7 @@ func AcceptFollowRequest(w http.ResponseWriter, r *http.Request) {
 			p.FirstName, p.LastName = "Someone", ""
 		}
 		realTime.BuildAndDispatchNotification(db.DB,
+			0,
 			userID,
 			friendID,
 			"follow_request_accepted",

@@ -1,6 +1,5 @@
 'use client';
 
-import { usePathname } from 'next/navigation';     // ⬅️ import الصحيح
 import { useUser } from '@/context/user_context';
 import { NotificationsProvider } from '@/context/notifications-context';
 
@@ -9,17 +8,9 @@ import Nav from './nav';
 import Sidebar from './sidebar';
 
 export default function LayoutWrapper({ children }) {
-  const pathname = usePathname();
   const { user, loading } = useUser();
 
- const is404 = pathname === '/404';
-  if (loading) {
-    return <div>Loading...</div>;
-  }
-
-  if (is404) {
-    return <>{children}</>;         
-  }
+  if (loading) return <div>Loading...</div>;
 
   if (!user) {
     return (
@@ -39,9 +30,7 @@ export default function LayoutWrapper({ children }) {
             <div className="left-sidebar">
               <Sidebar position="left" user={user} />
             </div>
-
             <div className="content-area">{children}</div>
-
             <div className="right-sidebar">
               <Sidebar position="right" user={user} />
             </div>

@@ -159,6 +159,7 @@ func ToggleFollowUser(w http.ResponseWriter, r *http.Request) {
 			content = "started following you"
 		}
 		realTime.BuildAndDispatchNotification(db.DB,
+			0,
 			followerId,
 			targetUserId,
 			notificationType,

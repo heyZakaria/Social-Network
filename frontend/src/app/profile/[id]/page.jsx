@@ -1,65 +1,61 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter, useParams } from 'next/navigation';
 import ProfileComponent from '@/components/profile/profile-component';
 import { useUser } from '@/context/user_context';
-import { useParams } from 'next/navigation';
 
-export default function ProfilePage({ params }) {
+export default function ProfilePage() {
   const router = useRouter();
   const { user: currentUser, loading } = useUser();
   const [profileUser, setProfileUser] = useState(null);
   const [profileLoading, setProfileLoading] = useState(true);
-  const [notFoundFlag, setNotFoundFlag] = useState(false);
 
-
-  const paramsx = useParams();
-  const ids = paramsx.id
+  const { id: ids } = useParams(); // ← directly destructure
 
   useEffect(() => {
-
     async function loadProfileUser() {
       try {
         const res = await fetch(`/api/users/get/profile?id=${ids}`, {
           credentials: "include",
-        }
-        );
-        
+        });
+
         if (!res.ok) {
-          setNotFoundFlag(true);
+          router.replace('/not-found'); // ✅ Redirect to your custom 404
           return;
         }
 
         const json = await res.json();
-        const user = json.data.Data;
-        console.log('ProfilePage: Response from /api/users/get/profile:', user);
-        
+        const user = json.data?.Data;
+
+        if (!user) {
+          router.replace('/not-found'); // ✅ In case data is malformed
+          return;
+        }
+
         setProfileUser(user);
-        if (currentUser && user) {
+
+        if (currentUser) {
           user.IsOwnProfile = (user.id === currentUser.id);
         }
+
       } catch (error) {
         console.error('Error fetching profile:', error);
-        setNotFoundFlag(true);
+        router.replace('/not-found'); // ✅ On error
       } finally {
         setProfileLoading(false);
       }
     }
 
     loadProfileUser();
-  }, [ids, currentUser]);
+  }, [ids, currentUser, router]);
 
   if (loading || profileLoading) return <div>Loading...</div>;
 
   return (
     <ProfileComponent
-      ProfileData={
-        profileUser
-      }
-      currentUser={
-        currentUser
-      }
+      ProfileData={profileUser}
+      currentUser={currentUser}
     />
   );
 }

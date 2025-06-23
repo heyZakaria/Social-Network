@@ -1,6 +1,7 @@
 package Group
 
 import (
+	"database/sql"
 	"fmt"
 	"net/http"
 
@@ -11,7 +12,6 @@ import (
 )
 
 func getGroup(w http.ResponseWriter, r *http.Request) {
-	var g Group
 	utils.Log("INFO", "Recieved Request To fetch Group page")
 	GroupId := r.URL.Query().Get("id")
 	UserId := r.Context().Value(shared.UserIDKey).(string)
@@ -48,6 +48,26 @@ func getGroup(w http.ResponseWriter, r *http.Request) {
 		})
 		return
 	}
+	group, Err  := getGroupData(db.DB, GroupId)
+	if Err != nil {
+		utils.Log("Error", "Error Getting Group Data"+Err.Error())
+		utils.SendJSON(w, http.StatusInternalServerError, utils.JSONResponse{
+			Success: false,
+			Message: "Internal Error",
+		})
+		return
+	}
+
+	utils.SendJSON(w, http.StatusOK, utils.JSONResponse{
+		Success: true,
+		Message: "Group fetching Successed",
+		Data:    group,
+	})
+	utils.Log("INFO", fmt.Sprintf(`Group With ID : %s Fetched With Success`, GroupId))
+}
+
+func getGroupData(db *sql.DB, groupId string) (Group, error) {
+	var g Group
 	GetGroupQuery := `SELECT 
 	g.id , 
 	g.title,
@@ -61,20 +81,9 @@ func getGroup(w http.ResponseWriter, r *http.Request) {
 	WHERE g.id = ?
 	`
 
-	err := db.DB.QueryRow(GetGroupQuery, GroupId).Scan(&g.ID, &g.Title, &g.Description, &g.AdminId, &g.CoverName, &g.MemberCount)
+	err := db.QueryRow(GetGroupQuery, groupId).Scan(&g.ID, &g.Title, &g.Description, &g.AdminId, &g.CoverName, &g.MemberCount)
 	if err != nil {
-		utils.Log("Error", "Error Getting Group from DB"+err.Error())
-		utils.SendJSON(w, http.StatusInternalServerError, utils.JSONResponse{
-			Success: false,
-			Message: "Internal Error",
-		})
-		return
+		return g, err
 	}
-
-	utils.SendJSON(w, http.StatusOK, utils.JSONResponse{
-		Success: true,
-		Message: "Group fetching Successed",
-		Data:    g,
-	})
-	utils.Log("INFO", fmt.Sprintf(`Group With ID : %s Fetched With Success`, GroupId))
+	return g, nil
 }

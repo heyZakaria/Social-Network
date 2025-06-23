@@ -24,12 +24,19 @@ import {
 
 import { useNotifications } from "@/context/notifications-context";
 import NotificationItem from "@/components/notifications/notification-item";
+import shouldShowNav from "@/components/layout/should-show";
 
 
 
 
 export default function Navbar({ user }) {
+
   const pathname = usePathname();
+
+  if (!shouldShowNav(pathname)) {
+    return null;
+  }
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isNotificationsOpen, setIsNotificationsOpen] = useState(false);
   const [isMessagesOpen, setIsMessagesOpen] = useState(false);

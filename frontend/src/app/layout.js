@@ -9,13 +9,13 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        <UserProvider>
-          <NotificationsProvider>
+        <NotificationsProvider>
+          <UserProvider>
             <FriendsProvider>
               <LayoutWrapper>{children}</LayoutWrapper>
             </FriendsProvider>
-          </NotificationsProvider>
-        </UserProvider>
+          </UserProvider>
+        </NotificationsProvider>
       </body>
     </html>
   );

@@ -21,7 +21,7 @@ func DispatchNotificationToUser(toUserID string, notif MessageStruct) {
 	}
 }
 
-func BuildAndDispatchNotification(db *sql.DB, senderID, receiverID, notifType, content string) {
+func BuildAndDispatchNotification(db *sql.DB, inviteID int, senderID, receiverID, notifType, content string) {
 	if senderID == "" || receiverID == "" || senderID == receiverID {
 		return
 	}
@@ -38,16 +38,20 @@ func BuildAndDispatchNotification(db *sql.DB, senderID, receiverID, notifType, c
 	notif := MessageStruct{
 		Type: "notification",
 		Data: map[string]interface{}{
-			"notifId":   notifID,
-			"id":        sender.UserID,
-			"type":      notifType,
-			"content":   content,
-			"avatar":    sender.Avatar,
-			"from":      fmt.Sprintf("%s %s", sender.FirstName, sender.LastName),
-			"read":      false,
-			"createdAt": time.Now().Format(time.RFC3339),
+			"invitedId": inviteID,
+			"notifId":         notifID,
+			"id":              sender.UserID,
+			"type":            notifType,
+			"content":         content,
+			"avatar":          sender.Avatar,
+			"from":            fmt.Sprintf("%s %s", sender.FirstName, sender.LastName),
+			"read":            false,
+			"createdAt":       time.Now().Format(time.RFC3339),
 		},
 	}
+	fmt.Println("NOTIFICATION", notif)
+
+	
 	DispatchNotificationToUser(receiverID, notif)
 }
 

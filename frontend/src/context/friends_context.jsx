@@ -1,12 +1,14 @@
 'use client';
 import { createContext, useContext, useState, useEffect, useRef } from "react";
 import { useUser } from "@/context/user_context";
+import { useNotifications } from "@/context/notifications-context";
+
 
 const FriendsContext = createContext();
 
 export function FriendsProvider({ children }) {
   const { user: currentUser } = useUser();
-
+  const { setNotifications } = useNotifications();
   const [suggestions, setSuggestions] = useState([]);
   const [requests, setRequests] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -18,6 +20,8 @@ export function FriendsProvider({ children }) {
   const requestsRef = useRef(requests);
   const statusIntervals = useRef({});
   const pendingToggles = useRef(new Set());
+    const [actionError, setActionError] = useState(null)
+
 
   useEffect(() => { suggestionsRef.current = suggestions; }, [suggestions]);
   useEffect(() => { requestsRef.current = requests; }, [requests]);
@@ -165,6 +169,24 @@ export function FriendsProvider({ children }) {
     setHandledRequests(prev => ({ ...prev, [id]: "rejected" }));
   };
 
+  const handleInviteResponse = async (e, id) => {
+
+    try {
+      const respo = await fetch(`http://localhost:8080/api/groups/group/inviteResponse?Action=${e.target.value}&Invite_id=${id}`, {
+        credentials: 'include',
+        method: "POST"
+      })
+
+      const res = await respo.json()
+      if (!respo.ok || !res.success) throw new Error(res.message || "Failed to process this action")
+      // onInvite(invite.invite_id)
+      // console.log(onInvite);
+
+    } catch (error) {
+      setActionError(error.message)
+    }
+  }
+
   return (
     <FriendsContext.Provider
       value={{
@@ -180,6 +202,7 @@ export function FriendsProvider({ children }) {
         accept,
         reject,
         startStatusPolling,
+        handleInviteResponse,
       }}
     >
       {children}

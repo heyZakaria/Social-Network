@@ -5,6 +5,7 @@ import (
 	"net/http"
 
 	db "socialNetwork/db/sqlite"
+	"socialNetwork/realTime"
 	shared "socialNetwork/shared_packages"
 	"socialNetwork/utils"
 )
@@ -27,7 +28,7 @@ func handleInvite(w http.ResponseWriter, r *http.Request) {
 	}
 
 	InsertQuery := `INSERT INTO group_invite (sender_id, reciever_id, group_id, Joinstate) VALUES (?, ?, ?, ?)`
-	_, err = db.DB.Exec(InsertQuery, UserId, InvitedFriend, GroupId, "Pending")
+	sqlres, err := db.DB.Exec(InsertQuery, UserId, InvitedFriend, GroupId, "Pending")
 	if err != nil {
 		utils.Log("ERROR", "Error Inserting Invite to Db"+err.Error())
 		utils.SendJSON(w, http.StatusInternalServerError, utils.JSONResponse{
@@ -38,11 +39,47 @@ func handleInvite(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	Invite_id, err := sqlres.LastInsertId()
+	if err != nil {
+		utils.Log("ERROR", "Error Getting Last Inserted Invite ID"+err.Error())
+		utils.SendJSON(w, http.StatusInternalServerError, utils.JSONResponse{
+			Success: false,
+			Error:   "Internal Error",
+			Data:    InvitedFriend,
+		})
+		return
+	}
+	utils.Log("INFO", fmt.Sprintf("Invite ID: %d", Invite_id))
+	// Insert into groupMember table
 	utils.SendJSON(w, http.StatusOK, utils.JSONResponse{
 		Success: true,
 		Message: "User Has Been Invited",
 	})
 	utils.Log("INFO", fmt.Sprintf(`User with Id : %s Has Been Invited`, InvitedFriend))
+
+	group, Err := getGroupData(db.DB, GroupId)
+	if Err != nil {
+		utils.Log("Error", "Error Getting Group Data"+Err.Error())
+		utils.SendJSON(w, http.StatusInternalServerError, utils.JSONResponse{
+			Success: false,
+			Message: "Internal Error",
+		})
+		return
+	}
+	// Invited := strconv.Itoa(int(Invite_id)) // Convert Invite_id to int for realTime function
+
+	fmt.Println("Invite_id", Invite_id)
+	fmt.Println("UserId", UserId)
+	fmt.Println("InvitedFriend", InvitedFriend)
+	fmt.Println("Group Title", group.Title)
+	// Dispatch notification to the invited user
+	realTime.BuildAndDispatchNotification(db.DB,
+		int(Invite_id),
+		UserId,
+		InvitedFriend,
+		"invite_group",
+		fmt.Sprintf("Invited to join the group %s", group.Title),
+	)
 }
 
 func InviteValidation(senderId, receiverId, groupId string) (error, bool) {
