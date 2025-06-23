@@ -32,7 +32,7 @@ func SendSuccessWithToken(w http.ResponseWriter, r *http.Request, userID string)
 		Secure: false,
 
 		// secure vs CSRF attacks (Cross Site Request Forgery)
-		SameSite: http.SameSiteStrictMode,
+		SameSite: http.SameSiteLaxMode,
 		Expires:  time.Now().Add(time.Hour * 24),
 	})
 
