@@ -4,7 +4,7 @@ import "net/http"
 
 func ProfileMux() http.Handler {
 	mux := http.NewServeMux()
-	
+
 	mux.HandleFunc("GET /friends", GetFriendsAndRequests)
 	mux.HandleFunc("GET /profile", GetUserProfile)
 	mux.HandleFunc("PUT /privacy", ProfileStatus)

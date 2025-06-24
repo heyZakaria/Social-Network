@@ -5,6 +5,7 @@ import (
 	"net/http"
 
 	db "socialNetwork/db/sqlite"
+	Shared_Profile "socialNetwork/profile_shared"
 	"socialNetwork/realTime"
 	shared "socialNetwork/shared_packages"
 	"socialNetwork/utils"
@@ -29,7 +30,7 @@ func ToggleFollowUser(w http.ResponseWriter, r *http.Request) {
 		})
 		return
 	}
-	profile := &UserProfile{}
+	profile := &Shared_Profile.UserProfile{}
 
 	// Get target user's profile status
 	var profileStatus string
@@ -145,7 +146,7 @@ func ToggleFollowUser(w http.ResponseWriter, r *http.Request) {
 	})
 
 	// Send notification to target user when followed (not for unfollow/cancel)
-	var p UserProfile
+	var p Shared_Profile.UserProfile
 	if (profile.IsFollowing || profile.RequestPending) && targetUserId != "" && targetUserId != followerId {
 		err := db.DB.QueryRow("SELECT id, first_name, last_name, avatar FROM users WHERE id = ?", followerId).Scan(&p.UserID, &p.FirstName, &p.LastName, &p.Avatar)
 		if err != nil {

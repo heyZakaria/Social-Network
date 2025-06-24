@@ -1,11 +1,116 @@
-/* Container */
-.groupCardContainer {
+/* === Create Group Section === */
+a:hover{
+text-decoration: none; 
+}
+.createGroupContainer {
+  max-width: 1000px;
+  min-width: 280px;
   background: #fff;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
+}
+
+.heading3 {
+  text-align: center;
+  font-size: 24px;
+  color: #333;
+}
+
+.subtitle {
+  text-align: center;
+  font-size: 14px;
+  color: #666;
+}
+.GroupCardHeader{
+  display: flex;
+  justify-content: space-between;
+}
+.GroupCardHeaderContent{
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+.createGroupForm {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #555;
+}
+
+.inputText {
+  padding: 12px;
+  height: 45px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  font-size: 15px;
+  transition: border 0.2s;
+}
+
+.inputText:focus {
+  outline: none;
+  border-color: #7c3aed;
+}
+
+.error {
+  color: #e63946;
+  font-size: 13px;
+}
+
+.successMessage {
+  color: #16a34a;
+  font-size: 14px;
+  text-align: center;
+}
+
+.serverError {
+  color: #e63946;
+  font-size: 14px;
+  text-align: center;
+}
+
+.submitBtn {
+  background: #7c3aed;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.submitBtn:hover {
+  background: #5b21b6;
+}
+
+@media (max-width: 500px) {
+  .createGroupContainer {
+    padding: 20px;
+  }
+}
+
+
+/* === Updated Group Card Section === */
+
+.GroupCardContainer {
+  background-color: #ffffff;
   border-radius: 16px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
   width: 100%;
-  max-width: 1000px;
-  min-width: 280px;
+  min-width: 250px;
   padding: 24px;
   overflow: hidden;
   transition: box-shadow 0.3s ease;

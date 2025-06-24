@@ -4,19 +4,19 @@ import { useState, useEffect } from "react";
 // import Link from "next/link";
 import styles from "@/styles/profile.module.css";
 import PostComponent from "@/components/posts/post-component";
-import FollowButton from "./follow-button";
-import PrivacyToggle from "./privacy-toggle";
 import UserList from "../friends/user-list";
 import FloatingChat from "@/components/chat/floating-chat";
 import Image from "next/image";
 import { FaLock } from "react-icons/fa";
 import usePosts from "@/hooks/usePosts";
 import PostFeeds from "../posts/posts-feed";
+import { useUser } from "@/context/user_context";
 export default function ProfileComponent({ ProfileData }) {
   const [activeTab, setActiveTab] = useState("posts");
   if (!ProfileData) {
     return <div>Loading...</div>;
   }
+  const {user: currentUser} = useUser()
   const {posts , loading , hasMore , loadMore } = usePosts({groupId:null , ProfileId:ProfileData.id , limit:10})
 
   // const [posts, setPosts] = useState([]);
@@ -89,24 +89,8 @@ export default function ProfileComponent({ ProfileData }) {
                   </span>
                 )}
               </h1>
-
-              {ProfileData.IsOwnProfile ? (
-                <div className={styles.profileActions}>
-                  {/* <Link href="/settings" className={styles.editButton}>
-                    Edit Profile
-                  </Link> */}
-
-                  <PrivacyToggle user={ProfileData} />
-                </div>
-              ) : (
-                <div className={styles.profileActions}>
-                  <FollowButton targetUserId={ProfileData.id} />
-                  {ProfileData.IsFollowing &&
-                    ProfileData.CanView ? (
-                    <button className={styles.messageButton}>Message</button>
-                  ) : null}
-                </div>
-              )}
+                <FloatingChat currentUser={currentUser} profileData={ProfileData} source="profile" />
+             
             </div>
 
             <div className={styles.profileStats}>
@@ -224,7 +208,7 @@ export default function ProfileComponent({ ProfileData }) {
       )}
 
       {/* Always visible floating chat */}
-      <FloatingChat currentUser={ProfileData} />
+      {/* <FloatingChat currentUser={ProfileData} /> */}
     </div>
   );
 }

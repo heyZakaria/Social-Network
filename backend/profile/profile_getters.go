@@ -4,6 +4,7 @@ import (
 	"net/http"
 
 	db "socialNetwork/db/sqlite"
+	Shared_Profile "socialNetwork/profile_shared"
 	shared "socialNetwork/shared_packages"
 	"socialNetwork/utils"
 )
@@ -21,7 +22,7 @@ func GetUserProfile(w http.ResponseWriter, r *http.Request) {
 		})
 		return
 	}
-	profile, err := getUserProfileData(UserId)
+	profile, err := Shared_Profile.GetUserProfileData(UserId)
 	if err != nil {
 		utils.Log("ERROR", "Error fetching profile: "+err.Error())
 		utils.SendJSON(w, http.StatusInternalServerError, utils.JSONResponse{
@@ -54,27 +55,6 @@ func GetUserProfile(w http.ResponseWriter, r *http.Request) {
 	})
 }
 
-// Helper function to get user profile data
-func getUserProfileData(userId string) (*UserProfile, error) {
-	profile := &UserProfile{UserID: userId}
-	err := db.DB.QueryRow(`
-        SELECT first_name, last_name, email, nickname, bio, avatar, 
-               profile_status, birthday, created_at 
-        FROM users 
-        WHERE id = ?`, userId).Scan(
-		&profile.FirstName, &profile.LastName, &profile.Email,
-		&profile.NickName, &profile.Bio, &profile.Avatar,
-		&profile.ProfileStatus, &profile.Birthday, &profile.CreatedAt)
-	if err != nil {
-		return nil, err
-	}
-	db.DB.QueryRow("SELECT COUNT(*) FROM posts WHERE user_id = ?", userId).Scan(&profile.PostsCount)
-	db.DB.QueryRow("SELECT COUNT(*) FROM followers WHERE followed_id = ? AND follower_status = 'accepted'", userId).Scan(&profile.FollowerCount)
-	db.DB.QueryRow("SELECT COUNT(*) FROM followers WHERE follower_id = ? AND follower_status = 'accepted'", userId).Scan(&profile.FollowingCount)
-
-	return profile, nil
-}
-
 func GetOtherUserProfile(w http.ResponseWriter, r *http.Request) {
 	utils.Log("INFO", "=========== GetOtherUserProfile called ===========")
 	currentUserId := r.Context().Value(shared.UserIDKey).(string)
@@ -93,7 +73,7 @@ func GetOtherUserProfile(w http.ResponseWriter, r *http.Request) {
 	}
 	utils.Log("INFO", "Requested profile for user ID: "+targetUserID)
 
-	profile, err := getUserProfileData(targetUserID)
+	profile, err := Shared_Profile.GetUserProfileData(targetUserID)
 	if err != nil {
 		utils.Log("ERROR", "Failed to get profile data: "+err.Error())
 		utils.SendJSON(w, http.StatusNotFound, utils.JSONResponse{

@@ -5,13 +5,14 @@ import (
 	"net/http"
 
 	db "socialNetwork/db/sqlite"
+	Shared_groups "socialNetwork/groups_shared"
 
 	shared "socialNetwork/shared_packages"
 	"socialNetwork/utils"
 )
 
 func getGroupMembers(w http.ResponseWriter, r *http.Request) {
-	var groupMembers []GroupMember
+	var groupMembers []Shared_groups.GroupMember
 	utils.Log("INFO", "Received request to fetch group members")
 
 	groupId := r.URL.Query().Get("id")
@@ -51,37 +52,15 @@ func getGroupMembers(w http.ResponseWriter, r *http.Request) {
 		})
 		return
 	}
-
-	query := `
-		SELECT u.first_name, u.last_name, u.id, u.avatar , gm.memberState
-		FROM groupMember gm
-		JOIN users u ON u.id = gm.user_id
-		WHERE gm.group_id = ? AND gm.memberState IN ('Member', 'Admin') 
-		ORDER BY u.first_name
-	`
-
-	rows, err := db.DB.Query(query, groupId, userId)
+	groupMembers, err = Shared_groups.GetMembersOfGroup(groupId, userId)
 	if err != nil {
-		utils.Log("ERROR", "Failed to query group members: "+err.Error())
+		utils.Log("ERROR", "Failed to fetch group members: "+err.Error())
 		utils.SendJSON(w, http.StatusInternalServerError, utils.JSONResponse{
 			Success: false,
-			Message: "Internal error while fetching members",
+			Message: "Failed to fetch group members",
+			Error:   err.Error(),
 		})
 		return
-	}
-	defer rows.Close()
-
-	for rows.Next() {
-		var gm GroupMember
-		if err := rows.Scan(&gm.FirstName, &gm.LastName, &gm.User_id, &gm.Avatar , &gm.Role); err != nil {
-			utils.Log("ERROR", "Failed to scan group member: "+err.Error())
-			utils.SendJSON(w, http.StatusInternalServerError, utils.JSONResponse{
-				Success: false,
-				Message: "Error processing group data",
-			})
-			return
-		}
-		groupMembers = append(groupMembers, gm)
 	}
 	fmt.Println(groupMembers)
 

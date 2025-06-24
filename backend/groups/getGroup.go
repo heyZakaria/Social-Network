@@ -66,7 +66,7 @@ func getGroup(w http.ResponseWriter, r *http.Request) {
 		utils.Log("Error", "Error Getting Group from DB"+err.Error())
 		utils.SendJSON(w, http.StatusInternalServerError, utils.JSONResponse{
 			Success: false,
-			Message: "Internal Error",
+			Message: "Internal Error" + err.Error(),
 		})
 		return
 	}

@@ -5,6 +5,7 @@ import (
 	"net/http"
 
 	db "socialNetwork/db/sqlite"
+	Shared_Profile "socialNetwork/profile_shared"
 	shared "socialNetwork/shared_packages"
 	"socialNetwork/utils"
 )
@@ -12,7 +13,7 @@ import (
 func ProfileStatus(w http.ResponseWriter, r *http.Request) {
 	userID := r.Context().Value(shared.UserIDKey).(string)
 
-	var payload UserProfile
+	var payload Shared_Profile.UserProfile
 	err := json.NewDecoder(r.Body).Decode(&payload)
 	if err != nil || (payload.ProfileStatus != "public" && payload.ProfileStatus != "private") {
 		utils.SendJSON(w, http.StatusBadRequest, utils.JSONResponse{

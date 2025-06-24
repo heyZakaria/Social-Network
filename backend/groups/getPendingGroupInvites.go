@@ -6,6 +6,7 @@ import (
 	"net/http"
 
 	db "socialNetwork/db/sqlite"
+	Shared_groups "socialNetwork/groups_shared"
 	shared "socialNetwork/shared_packages"
 	"socialNetwork/utils"
 )
@@ -86,7 +87,7 @@ WHERE
 
 	var pending []map[string]interface{}
 	for rows.Next() {
-		var gm GroupMember
+		var gm Shared_groups.GroupMember
 		var InviteId int
 		// var firstName, lastName, avatar string
 

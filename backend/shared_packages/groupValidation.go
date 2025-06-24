@@ -14,7 +14,7 @@ func ValidateGroup(Db *sql.DB, GroupId string, UserId string) (bool, bool, error
 		return false, false, fmt.Errorf("error checking group existence: %w", err)
 	}
 
-	CheckGroupMemberQuery := "SELECT EXISTS(SELECT 1 FROM groupMember WHERE user_id = ? AND group_id = ?)"
+	CheckGroupMemberQuery := "SELECT EXISTS(SELECT 1 FROM groupMember WHERE (user_id = ? AND group_id = ?) AND (memberState = 'Member' OR memberState = 'Admin'))"
 	err = Db.QueryRow(CheckGroupMemberQuery, UserId, GroupId).Scan(&memberExist)
 	if err != nil {
 		return groupExist, false, fmt.Errorf("error checking group membership: %w", err)

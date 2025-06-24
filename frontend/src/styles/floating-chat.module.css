@@ -24,6 +24,33 @@
   transform: scale(1.05);
 }
 
+.messageButton {
+    cursor: pointer;
+    border: none;
+    align-items: center;
+    padding: .6rem 1.2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: all .3s;
+    display: inline-flex;
+    box-shadow: 0 4px 12px #1da1f24d;
+
+}
+.profileActions {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.messageButton {
+  background-color: #f0f2f5;
+  color: #430ba3;
+  border: none;
+}
+
+.messageButton:hover {
+  background-color: #e4e6eb;
+}
 .unreadBadge {
   position: absolute;
   top: -5px;
@@ -66,6 +93,9 @@
 .chatHeaderInfo {
   display: flex;
   align-items: center;
+}
+.backArrow{
+  cursor: pointer;
 }
 
 .chatHeaderAvatar {
@@ -152,13 +182,29 @@
 }
 
 .chatListItem.unread {
-  background-color: #e7f3ff;
+  background-color: #d2e7fc;
 }
 
 .chatListItem.unread:hover {
   background-color: #d9ecff;
 }
 
+.totalunreaded {
+    top: -6px;
+    left: -8px;
+    color: #fff;
+    background-color: #e41e3f;
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+    width: 20px;
+    height: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    display: flex;
+    position: absolute;
+    
+}
 .chatListItemAvatar {
   position: relative;
   margin-right: 12px;

@@ -56,7 +56,6 @@ export function NotificationsProvider({ user, children }) {
       }
     };
 
-    socket.onerror = (err) => console.error("WebSocket error", err);
     socket.onclose = () => console.log("WebSocket closed");
 
     // Clean‑up on unmount / refresh

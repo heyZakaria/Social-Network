@@ -239,7 +239,7 @@ const CreatePost = ({
       <div className={styles.createPost}>
         <div className={styles.createPostHeader}>
           <Image width={100} height={100}
-            src={ currentUser.avatar || "/uploads/profile.jpeg"}
+            src={ currentUser?.avatar || "/uploads/profile.jpeg"}
             alt="User Avatar"
             className={styles.createPostAvatar}
           />

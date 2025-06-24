@@ -1,1 +1,1 @@
-DROP TABLE IF EXISTS group_invite
+DROP TABLE IF EXISTS group_invites;

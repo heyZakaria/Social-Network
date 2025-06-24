@@ -13,14 +13,6 @@ type Group struct {
 	MemberCount int    `json:"memberCount"`
 	MemberState string `json:"memberState"`
 }
-type GroupMember struct {
-	User_id   string
-	Group_id  int
-	FirstName string
-	LastName  string
-	Avatar    string
-	Role      string
-}
 
 type Invite struct {
 	Id          int

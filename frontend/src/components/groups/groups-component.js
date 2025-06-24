@@ -169,6 +169,7 @@ export default function GroupsComponent({
         />
       )}
       <FloatingChat currentUser={currentUser} />
+      
     </div>
   );
 }

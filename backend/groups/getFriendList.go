@@ -5,13 +5,13 @@ import (
 	"net/http"
 
 	db "socialNetwork/db/sqlite"
-	profile "socialNetwork/profile"
+	Shared_Profile "socialNetwork/profile_shared"
 	shared "socialNetwork/shared_packages"
 	"socialNetwork/utils"
 )
 
 func getFriendList(w http.ResponseWriter, r *http.Request) {
-	var Users []profile.User
+	var Users []Shared_Profile.User
 	utils.Log("INFO", "Received request to fetch FriendList")
 
 	userId := r.Context().Value(shared.UserIDKey).(string)
@@ -70,7 +70,6 @@ func getFriendList(w http.ResponseWriter, r *http.Request) {
 		SELECT 1 FROM group_invite gi WHERE gi.reciever_id = user_id )
 		AND NotMemberFriends.user_id != ?
 	`
-
 	rows, err := db.DB.Query(query, userId, userId, groupId, userId)
 	if err != nil {
 		utils.Log("ERROR", "Failed to query FriendList: "+err.Error())
@@ -83,7 +82,7 @@ func getFriendList(w http.ResponseWriter, r *http.Request) {
 	defer rows.Close()
 
 	for rows.Next() {
-		var u profile.User
+		var u Shared_Profile.User
 		if err := rows.Scan(&u.ID, &u.Avatar, &u.LastName, &u.FirstName); err != nil {
 			utils.Log("ERROR", "Error processing FriendList data: "+err.Error())
 			utils.SendJSON(w, http.StatusInternalServerError, utils.JSONResponse{

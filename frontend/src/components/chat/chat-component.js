@@ -5,52 +5,29 @@ import styles from "@/styles/chat.module.css";
 import EmojiPicker from "@/components/common/emoji-picker";
 import { IoSendSharp } from "react-icons/io5";
 import Image from "next/image";
+import {socket, websocket, broadcastChannel } from "@/lib/websocket/websocket";
+import { FetchData } from "@/context/fetchJson";
 
-
-
-export default function ChatComponent({ currentUser, otherUser }) {
+export default function ChatComponent({ currentUser, otherUser , refresh, activeChat}) {
   const [messages, setMessages] = useState([]);
   const [newMessage, setNewMessage] = useState("");
   const [isLoading, setIsLoading] = useState(true);
   const messagesEndRef = useRef(null);
-
   useEffect(() => {
     // In a real app, this would be a WebSocket connection
     // For now, we'll use mock data
     const fetchMessages = async () => {
       try {
         // Simulate API call
-        setTimeout(() => {
-          const mockMessages = [
-            {
-              id: 1,
-              fromUserId: currentUser.id,
-              toUserId: otherUser.id,
-              content: "Hey, how's your photography project coming along? 📸",
-              read: true,
-              createdAt: "2023-03-26T10:30:00Z",
-            },
-            {
-              id: 2,
-              fromUserId: otherUser.id,
-              toUserId: currentUser.id,
-              content:
-                "It's going great! I'll share some previews with you soon. 😊",
-              read: true,
-              createdAt: "2023-03-26T10:35:00Z",
-            },
-            {
-              id: 3,
-              fromUserId: currentUser.id,
-              toUserId: otherUser.id,
-              content:
-                "That would be awesome! I'm looking forward to seeing them. 🙌",
-              read: true,
-              createdAt: "2023-03-26T10:40:00Z",
-            },
-          ];
-
-          setMessages(mockMessages);
+        // Fetch messages from the server or WebSocket
+        // Send websocket message to fetch initial messages
+        setIsLoading(true);
+        // Generate Session id 
+       
+        setTimeout(async () => {
+          const response = await FetchData(`/api/websocket/Get_Chat_History?session_id=${otherUser.session_id}`)
+          console.log("Response Chat History", response);
+          setMessages(response?.data?.Messages || []);
           setIsLoading(false);
         }, 1000);
       } catch (error) {
@@ -63,7 +40,7 @@ export default function ChatComponent({ currentUser, otherUser }) {
 
     // In a real app, we would set up a WebSocket connection here
     // and clean it up in the return function
-  }, [currentUser.id, otherUser.id]);
+  }, [currentUser.id, otherUser.other_user_id]);
 
   useEffect(() => {
     // Scroll to bottom when messages change
@@ -78,19 +55,22 @@ export default function ChatComponent({ currentUser, otherUser }) {
     e.preventDefault();
 
     if (!newMessage.trim()) return;
-
+    console.log("currentUSER", currentUser);
+    
     // In a real app, this would send the message through WebSocket
     // For now, we'll just add it to the local state
-    const newMsg = {
-      id: Date.now(),
-      fromUserId: currentUser.id,
-      toUserId: otherUser.id,
+    websocket.send({
+      sender: currentUser.id,
+      receiver: `${otherUser.other_user_id}`,
       content: newMessage,
-      read: false,
-      createdAt: new Date().toISOString(),
-    };
-
-    setMessages([...messages, newMsg]);
+      type: activeChat.type || "private_message",
+      first_time: false,//
+      session_id: `${activeChat.session_id}` || "", // Assuming session_id is the chat ID
+      group_id: `${otherUser.other_user_id}` || "", // Assuming group_id is the chat ID for group chats
+      // other_first_name: "test"
+    });
+    
+    refresh()
     setNewMessage("");
   };
 
@@ -102,29 +82,57 @@ export default function ChatComponent({ currentUser, otherUser }) {
     const date = new Date(dateString);
     return date.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
   };
+  
+  socket.onmessage = (event) => {
+        const data = JSON.parse(event.data);
+        const newMsg = GenerateChat(data);
+        broadcastChannel.postMessage(JSON.stringify(newMsg));
+
+        console.log("Websocket Active Chatx", activeChat);
+        
+    console.log("Message received in Chat CompLD:", data);
+  }
+  
+  if (broadcastChannel) {
+    broadcastChannel.onmessage = (event) => {
+      refresh("from broadcast channel");
+      const data = JSON.parse(event.data);
+      GenerateChat(data);
+
+      console.log("Message received in Chat CompLD:", data);
+    }
+  } else {
+      console.warn("BroadcastChannel is not supported in this environment.");
+    }
+  // if (socket && isOpen){
+  //   socket.onmessage = (event) => {
+  //     const data = JSON.parse(event.data);
+  //     const newMsg = {
+  //       id: Date.now(),
+  //       read: false,
+  //       sender: currentUser.id,
+  //       receiver: otherUser.id,
+  //       content: newMessage,
+  //       type: "private_message",
+  //       first_time: false,//
+  //       session_id: "", // Assuming session_id is the chat ID
+  //       createdAt: new Date().toISOString(),
+  //     };
+  //     setMessages((prevMessages) => [...prevMessages, newMsg]);
+
+  //     console.log("➡️ Message received in Chat Comp:", data);
+  //   };
+  // }
 
   return (
     <div className={styles.chatContainer}>
-      <div className={styles.chatHeader}>
-        <Image width={200} height={100}
-          src={otherUser.avatar || "/uploads/profile.jpeg"}
-          alt={otherUser.firstName}
-          className={styles.chatAvatar}
-        />
-        <div className={styles.chatInfo}>
-          <div className={styles.chatName}>
-            {otherUser.firstName} {otherUser.lastName}
-          </div>
-          <div className={styles.chatStatus}>Online</div>
-        </div>
-      </div>
 
       <div className={styles.chatMessages}>
         {isLoading ? (
           <div className={styles.loading}>Loading messages...</div>
-        ) : messages.length > 0 ? (
+        ) : messages?.length > 0 ? (
           messages.map((message) => {
-            const isOwnMessage = message.fromUserId === currentUser.id;
+            const isOwnMessage = message.sender === currentUser.id;
 
             return (
               <div
@@ -135,7 +143,8 @@ export default function ChatComponent({ currentUser, otherUser }) {
               >
                 <div className={styles.messageContent}>{message.content}</div>
                 <div className={styles.messageTime}>
-                  {formatTime(message.createdAt)}
+                  {isOwnMessage ? "You" : message.other_first_name ? message.other_first_name : activeChat.other_first_name} {" "}
+                     {formatTime(message.createdAt)}
                 </div>
               </div>
             );
@@ -171,4 +180,31 @@ export default function ChatComponent({ currentUser, otherUser }) {
       </form>
     </div>
   );
+
+  function GenerateChat(data) {
+    const newMsg = {
+      id: Date.now(),
+      read: false,
+      sender: data.sender,
+      receiver: data.receiver,
+      content: data.content,
+      type: data.type,
+      first_time: false, //
+      session_id: data.session_id, // Assuming session_id is the chat ID
+      createdAt: new Date().toISOString(),
+      other_first_name: data.other_first_name || ""
+    };
+    console.log("MSG Recived", newMsg);
+
+    if (currentUser.id == data.receiver && activeChat.other_user_id == data.sender ||
+      activeChat.other_user_id == data.receiver) {
+      console.log("%c Msg Recived", "color: green; font-weight: bold;", data);
+
+      setMessages((prevMessages) => [...prevMessages, newMsg]);
+      if (data.receiver == currentUser.id) {
+        fetch(`/api/websocket/set_readed?session_id=${data.session_id}`);
+      }
+    }
+    return newMsg;
+  }
 }

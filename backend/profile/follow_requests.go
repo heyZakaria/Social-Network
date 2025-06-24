@@ -5,6 +5,7 @@ import (
 	"net/http"
 
 	db "socialNetwork/db/sqlite"
+	Shared_Profile "socialNetwork/profile_shared"
 	"socialNetwork/realTime"
 	shared "socialNetwork/shared_packages"
 	"socialNetwork/utils"
@@ -77,7 +78,7 @@ func AcceptFollowRequest(w http.ResponseWriter, r *http.Request) {
 	)
 
 	if friendID != "" && friendID != userID {
-		var p UserProfile
+		var p Shared_Profile.UserProfile
 		err := db.DB.QueryRow("SELECT first_name, last_name, avatar FROM users WHERE id = ?", userID).Scan(&p.FirstName, &p.LastName, &p.Avatar)
 		if err != nil {
 			utils.Log("ERROR", "Failed to fetch user name for notification: "+err.Error())

@@ -4,6 +4,7 @@ import (
 	"net/http"
 
 	db "socialNetwork/db/sqlite"
+	Shared_Profile "socialNetwork/profile_shared"
 	shared "socialNetwork/shared_packages"
 	"socialNetwork/utils"
 )
@@ -20,7 +21,7 @@ func GetFriendsAndRequests(w http.ResponseWriter, r *http.Request) {
 		isOwnProfile = true
 	}
 
-	var requests []User
+	var requests []Shared_Profile.User
 	var err error
 	if isOwnProfile {
 		requests, err = LoadUsers(queryPendingRequests, false, userID)
@@ -54,16 +55,16 @@ func GetFriendsAndRequests(w http.ResponseWriter, r *http.Request) {
 	})
 }
 
-func LoadUsers(query string, hasNick bool, args ...interface{}) ([]User, error) {
+func LoadUsers(query string, hasNick bool, args ...interface{}) ([]Shared_Profile.User, error) {
 	rows, err := db.DB.Query(query, args...)
 	if err != nil {
 		return nil, err
 	}
 	defer rows.Close()
 
-	var users []User
+	var users []Shared_Profile.User
 	for rows.Next() {
-		var u User
+		var u Shared_Profile.User
 		if hasNick {
 			err = rows.Scan(&u.ID, &u.FirstName, &u.LastName, &u.Avatar, &u.NickName)
 		} else {

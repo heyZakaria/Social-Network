@@ -1,21 +1,19 @@
 "use client";
 import { useState, useEffect } from "react";
-import styles from "./GroupCard.module.css";
-import InviteFriends from "@/components/Group/InviteFriends";
-import {
-  IoChevronBackCircleSharp,
-  IoChevronForwardCircleSharp,
-} from "react-icons/io5";
 import { useParams, useRouter } from "next/navigation";
 import ShowEventForm from "@/components/events/newEvent";
 import CreatePost from "@/components/posts/create-post";
 import Link from "next/link";
 import PostFeeds from "@/components/posts/posts-feed";
-import { useUser } from "@/context/user_context";
 import usePosts from "@/hooks/usePosts";
 import PendingInviteList from "@/components/Group/PendingInvites";
 import { FiUserPlus, FiUsers, FiCalendar } from "react-icons/fi";
-
+import styles from './GroupCard.module.css';
+import InviteFriends from "@/components/Group/InviteFriends";
+import { IoChevronBackCircleSharp, IoChevronForwardCircleSharp, IoChatbubbleEllipsesSharp } from "react-icons/io5";
+import Image from "next/image";
+import FloatingChat from "@/components/chat/floating-chat";
+import { useUser } from "@/context/user_context";
 
 function isMember(DummyTest) {
   // TODO : Need To Check if the user is a Member
@@ -54,15 +52,15 @@ function GroupNav({ OnMembers, HandleShowInvite, HandleShowEvents }) {
   if (isMember(true)) {
     nav = (
       <div className={styles.groupNav}>
-<button onClick={HandleShowInvite} className={styles.navIcon}>
-  <FiUserPlus size={20} />
-</button>
-<button onClick={OnMembers} className={styles.navIcon}>
-  <FiUsers size={20} />
-</button>
-<button onClick={HandleShowEvents} className={styles.navIcon}>
-  <FiCalendar size={20} />
-</button>
+        <button onClick={HandleShowInvite} className={styles.navIcon}>
+          <FiUserPlus size={20} />
+        </button>
+        <button onClick={OnMembers} className={styles.navIcon}>
+          <FiUsers size={20} />
+        </button>
+        <button onClick={HandleShowEvents} className={styles.navIcon}>
+          <FiCalendar size={20} />
+        </button>
       </div>
     );
   }
@@ -217,7 +215,12 @@ export default function GroupCard({ children }) {
     })
       .then(async (res) => {
         const Data = await res.json();
+        console.log("DATA of GROUP", Data.data, "===============");
         setGroup(Data.data);
+
+        console.log("group after set", group);
+        console.log("Data.data", Data.data);
+
         if (!res.ok) throw new Error(Data.message);
       })
       .catch((error) => {
@@ -229,38 +232,62 @@ export default function GroupCard({ children }) {
   if (loading) return <p>Data is Loading</p>;
   if (err !== null) return <p>{err}</p>;
 
-  return (
-    <div id={group.id} className={styles.groupCardContainer}>
-       <GroupNav
-        HandleShowInvite={HandleShowInvite}
-        HandleShowEvents={HandleShowEvents}
-        OnMembers={HandleMembersList}
-        FriendsList={invitedFriends}
-      />
-      <img
-        src={`/uploads/groups_cover/${group.covername}`}
-        alt={group.title}
-        className={styles.groupCover}
-      />
-      <h1 className={styles.groupTitle}>{group.title}</h1>
-      <Description Text={group.description} />
-     
-            <CreatePost Refrech={RefrechPosts} GroupId={groupId} />
+  const groupInfo = {
+    id: group?.id,
+    title: group?.title,
+    covername: group?.covername,
+    description: group?.description,
+  }
 
-      {showMembers && <Members members={members} />}
-      {children}
-      {showInvite && (
-        <InviteFriends FriendsList={invitedFriends} onInvite={handleInvite} />
-      )}
-      {showEvents && <ShowEventForm />}
-      <PostFeeds
-        posts={posts}
-        loading={loadingPosts}
-        loadMore={loadMore}
-        hasMore={hasMore}
-        currentUser={currentUser}
-      />
-      <PendingInviteList groupId={groupId} />
+  return (
+    <div>
+      <div id={group.id} className={styles.groupCardContainer}>
+        <GroupNav
+          HandleShowInvite={HandleShowInvite}
+          HandleShowEvents={HandleShowEvents}
+          OnMembers={HandleMembersList}
+          FriendsList={invitedFriends}
+        />
+        <img
+          src={`/uploads/groups_cover/${group.covername}`}
+          alt={group.title}
+          className={styles.groupCover}
+        />
+      </div>
+      <div id={group.id} className={styles.GroupCardContainer}>
+        <div className={styles.GroupCardHeader}>
+          <div className={styles.GroupCardHeaderContent}>
+            <Link href="/groups" className={styles.backButton}>
+              <IoChevronBackCircleSharp size={30} />
+            </Link>
+            <h1 className={styles.GroupCardTitle}>{group.title}</h1>
+          </div>
+          <div className={styles.GroupChatButton}>
+            <FloatingChat currentUser={currentUser} source={"group"} group={groupInfo} />
+          </div>
+        </div>
+        <Image alt="test" width={200} height={100} src={`/uploads/groups_cover/${group.covername}`}
+        />
+        <h1 className={styles.groupTitle}>{group.title}</h1>
+        <Description Text={group.description} />
+
+        <CreatePost Refrech={RefrechPosts} GroupId={groupId} />
+
+        {showMembers && <Members members={members} />}
+        {children}
+        {showInvite && (
+          <InviteFriends FriendsList={invitedFriends} onInvite={handleInvite} />
+        )}
+        {showEvents && <ShowEventForm />}
+        <PostFeeds
+          posts={posts}
+          loading={loadingPosts}
+          loadMore={loadMore}
+          hasMore={hasMore}
+          currentUser={currentUser}
+        />
+        <PendingInviteList groupId={groupId} />
+      </div>
     </div>
   );
 }

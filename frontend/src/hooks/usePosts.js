@@ -14,18 +14,23 @@ export default function usePosts({groupId , limit , ProfileId}={groupId : null ,
         const data = await FetchData(
         `/api/posts/getposts?limit=${limit}&offset=${offset}${GroupQuery}${ProfileQuery}`
       );
-      if (data.data.posts.length < limit) {
+      if (data?.data?.posts?.length < limit) {
         console.log("no more posts", data.data.posts.length);
         console.log("no more posts", data.data.posts);
-
         setHasMore(false); // no more posts
       }
+      
       setPosts((prev) => {
+        let combinedPosts = [...prev];
         const existingIds = new Set(prev.map((p) => p.PostId));
-        const uniqueNewPosts = data.data.posts.filter(
+        const uniqueNewPosts = data?.data?.posts?.filter(
           (p) => !existingIds.has(p.PostId)
         );
-        const combinedPosts = [...prev, ...uniqueNewPosts];
+        if (uniqueNewPosts?.length === 0) {
+          console.log("no new posts");
+          return prev; // No new posts, return previous state
+        }
+        combinedPosts = [...prev, ...uniqueNewPosts || []];
       
         // Sort posts from highest PostId to lowest
         combinedPosts.sort((a, b) => b.PostId - a.PostId);
