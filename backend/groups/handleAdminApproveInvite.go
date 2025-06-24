@@ -128,17 +128,39 @@ func handleAdminApproveInvite(w http.ResponseWriter, r *http.Request) {
 		Success: true,
 		Message: fmt.Sprintf("Your action '%s' on the invite has been completed successfully.", Action),
 	})
+	invitedInt, err := strconv.Atoi(Invite_id)
+	if err != nil {
+		utils.Log("ERROR", "Invalid Invite ID format during notification cleanup")
+	}
+
+	fmt.Println("Invite.Sender_id.String", Invite.Sender_id.String)
+	fmt.Println("Invite.Reciever_id", Invite.Reciever_id)
+	fmt.Println("Invite.Id", invitedInt)
+
+	realTime.DeleteFollowRequestNotification(
+		Invite.Sender_id.String,
+		Invite.Reciever_id,
+		"admin_accept_invite",
+		int64(invitedInt),
+	)
+
+	realTime.DeleteFollowRequestNotification(
+		UserId,
+		Invite.Reciever_id,
+		"invite_group_admin",
+		int64(invitedInt),
+	)
+
 	if Action == "accept" {
-		realTime.BuildAndDispatchNotification(db.DB,
-			Invite.Id,
+		realTime.BuildAndDispatchNotification(
+			db.DB,
+			int64(invitedInt),
 			Invite.Sender_id.String,
 			Invite.Reciever_id,
 			"admin_accept_invite",
-			"Admin accept to join group",
-			// fmt.Sprintf("Invited to join the group %s", group.Title),
+			"Admin approved the request to join the group",
 		)
 	}
-	realTime.DeleteFollowRequestNotification(Invite.Reciever_id, Invite.Sender_id.String, "admin_accept_invite", Invite.Id)
 }
 
 func ApprovingValidation(CurrentUserId string, InviteId int, GroupId string, SenderId string) (bool, error) {
@@ -186,3 +208,11 @@ func ApprovingValidation(CurrentUserId string, InviteId int, GroupId string, Sen
 
 	return true, nil
 }
+
+// invite.Sender_id.String 38ebe970-50e9-451e-a5e7-4236671eb9b8
+// invite.Reciever_id 953b6e4a-f46c-4946-ba2c-1b09828c5722
+// invite.Id 30
+
+// invite.Sender_id.String 38ebe970-50e9-451e-a5e7-4236671eb9b8
+// Invite.Reciever_id 953b6e4a-f46c-4946-ba2c-1b09828c5722
+// Invite.Id 0

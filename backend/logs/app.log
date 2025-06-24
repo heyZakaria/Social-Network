@@ -29578,3 +29578,2144 @@
 2025/06/24 04:50:17 [INFO] 2025-06-24 04:50:17 - Verify-token hit
 2025/06/24 04:50:21 [INFO] 2025-06-24 04:50:21 - Notification deleted from db
 2025/06/24 04:50:21 [INFO] 2025-06-24 04:50:21 - Sent notification via WS to 38ebe970-50e9-451e-a5e7-4236671eb9b8
+2025/06/24 05:17:01 [INFO] 2025-06-24 05:17:01 - Starting HTTP server at http://localhost:8080 ...
+2025/06/24 05:17:01 [INFO] 2025-06-24 05:17:01 - Migrations applied successfully!
+2025/06/24 05:17:08 [INFO] 2025-06-24 05:17:08 - Parsed multipart form
+2025/06/24 05:17:08 [INFO] 2025-06-24 05:17:08 - Form fields parsed successfully
+2025/06/24 05:17:08 [INFO] 2025-06-24 05:17:08 - Form fields parsed
+2025/06/24 05:17:08 [INFO] 2025-06-24 05:17:08 - Checking if email exists: gacakyni@mailinator.com
+2025/06/24 05:17:08 [INFO] 2025-06-24 05:17:08 - Email is unique
+2025/06/24 05:17:08 [INFO] 2025-06-24 05:17:08 - Validating registration input
+2025/06/24 05:17:08 [INFO] 2025-06-24 05:17:08 - Registration input valid
+2025/06/24 05:17:08 [INFO] 2025-06-24 05:17:08 - User input validated
+2025/06/24 05:17:08 [INFO] 2025-06-24 05:17:08 - Hashing password
+2025/06/24 05:17:08 [INFO] 2025-06-24 05:17:08 - Password hashed successfully
+2025/06/24 05:17:08 [INFO] 2025-06-24 05:17:08 - Password hashed
+2025/06/24 05:17:08 [INFO] 2025-06-24 05:17:08 - Starting avatar upload
+2025/06/24 05:17:08 [INFO] 2025-06-24 05:17:08 - No image file provided
+2025/06/24 05:17:08 [INFO] 2025-06-24 05:17:08 - Saving user to database with ID: c88bc610-2cf6-4951-b534-2dc2a500ccba
+2025/06/24 05:17:08 [INFO] 2025-06-24 05:17:08 - User saved successfully
+2025/06/24 05:17:08 [INFO] 2025-06-24 05:17:08 - User registered with ID: c88bc610-2cf6-4951-b534-2dc2a500ccba
+2025/06/24 05:17:08 [INFO] 2025-06-24 05:17:08 - Save Token into Sessions
+2025/06/24 05:17:08 [INFO] 2025-06-24 05:17:08 - Login successful for user: c88bc610-2cf6-4951-b534-2dc2a500ccba
+2025/06/24 05:17:08 [INFO] 2025-06-24 05:17:08 - Success Register
+2025/06/24 05:17:10 [LOG] 2025-06-24 05:17:10 - Get request made to GetPostsScroll Handler
+2025/06/24 05:17:10 [INFO] 2025-06-24 05:17:10 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 05:17:10 [LOG] 2025-06-24 05:17:10 - Get request made to GetPostsScroll Handler
+2025/06/24 05:17:10 [INFO] 2025-06-24 05:17:10 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 05:18:20 [INFO] 2025-06-24 05:18:20 - Verify-token hit
+2025/06/24 05:18:22 [INFO] 2025-06-24 05:18:22 - =========== GetOtherUserProfile called ===========
+2025/06/24 05:18:22 [INFO] 2025-06-24 05:18:22 - Authenticated user ID: 38ebe970-50e9-451e-a5e7-4236671eb9b8
+2025/06/24 05:18:22 [INFO] 2025-06-24 05:18:22 - Requested profile for user ID: 65c87b92-d290-4376-9e0b-
+2025/06/24 05:18:22 [ERROR] 2025-06-24 05:18:22 - Failed to get profile data: sql: no rows in result set
+2025/06/24 05:18:22 [INFO] 2025-06-24 05:18:22 - =========== GetOtherUserProfile called ===========
+2025/06/24 05:18:22 [INFO] 2025-06-24 05:18:22 - Authenticated user ID: 38ebe970-50e9-451e-a5e7-4236671eb9b8
+2025/06/24 05:18:22 [INFO] 2025-06-24 05:18:22 - Requested profile for user ID: 65c87b92-d290-4376-9e0b-
+2025/06/24 05:18:22 [ERROR] 2025-06-24 05:18:22 - Failed to get profile data: sql: no rows in result set
+2025/06/24 05:18:26 [INFO] 2025-06-24 05:18:26 - Verify-token hit
+2025/06/24 05:18:26 [INFO] 2025-06-24 05:18:26 - =========== GetOtherUserProfile called ===========
+2025/06/24 05:18:26 [INFO] 2025-06-24 05:18:26 - Authenticated user ID: 38ebe970-50e9-451e-a5e7-4236671eb9b8
+2025/06/24 05:18:26 [INFO] 2025-06-24 05:18:26 - Requested profile for user ID: 65c87b92-d290-4376-9e0b-
+2025/06/24 05:18:26 [ERROR] 2025-06-24 05:18:26 - Failed to get profile data: sql: no rows in result set
+2025/06/24 05:18:26 [INFO] 2025-06-24 05:18:26 - =========== GetOtherUserProfile called ===========
+2025/06/24 05:18:26 [INFO] 2025-06-24 05:18:26 - Authenticated user ID: 38ebe970-50e9-451e-a5e7-4236671eb9b8
+2025/06/24 05:18:26 [INFO] 2025-06-24 05:18:26 - Requested profile for user ID: 65c87b92-d290-4376-9e0b-
+2025/06/24 05:18:26 [ERROR] 2025-06-24 05:18:26 - Failed to get profile data: sql: no rows in result set
+2025/06/24 05:18:27 [INFO] 2025-06-24 05:18:27 - Verify-token hit
+2025/06/24 05:18:27 [INFO] 2025-06-24 05:18:27 - =========== GetOtherUserProfile called ===========
+2025/06/24 05:18:27 [INFO] 2025-06-24 05:18:27 - Authenticated user ID: 38ebe970-50e9-451e-a5e7-4236671eb9b8
+2025/06/24 05:18:27 [INFO] 2025-06-24 05:18:27 - Requested profile for user ID: 65c87b92-d290-4376-9e0b-
+2025/06/24 05:18:27 [ERROR] 2025-06-24 05:18:27 - Failed to get profile data: sql: no rows in result set
+2025/06/24 05:18:27 [INFO] 2025-06-24 05:18:27 - =========== GetOtherUserProfile called ===========
+2025/06/24 05:18:27 [INFO] 2025-06-24 05:18:27 - Authenticated user ID: 38ebe970-50e9-451e-a5e7-4236671eb9b8
+2025/06/24 05:18:27 [INFO] 2025-06-24 05:18:27 - Requested profile for user ID: 65c87b92-d290-4376-9e0b-
+2025/06/24 05:18:27 [ERROR] 2025-06-24 05:18:27 - Failed to get profile data: sql: no rows in result set
+2025/06/24 05:18:31 [LOG] 2025-06-24 05:18:31 - Get request made to GetPostsScroll Handler
+2025/06/24 05:18:31 [INFO] 2025-06-24 05:18:31 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 05:18:31 [LOG] 2025-06-24 05:18:31 - Get request made to GetPostsScroll Handler
+2025/06/24 05:18:31 [INFO] 2025-06-24 05:18:31 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 05:20:52 [LOG] 2025-06-24 05:20:52 - Get request made to GetPostsScroll Handler
+2025/06/24 05:20:52 [INFO] 2025-06-24 05:20:52 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 05:20:52 [LOG] 2025-06-24 05:20:52 - Get request made to GetPostsScroll Handler
+2025/06/24 05:20:52 [INFO] 2025-06-24 05:20:52 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 05:20:58 [INFO] 2025-06-24 05:20:58 - Verify-token hit
+2025/06/24 05:20:58 [INFO] 2025-06-24 05:20:58 - Verify-token hit
+2025/06/24 05:21:01 [LOG] 2025-06-24 05:21:01 - Get request made to GetPostsScroll Handler
+2025/06/24 05:21:01 [INFO] 2025-06-24 05:21:01 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 05:21:01 [LOG] 2025-06-24 05:21:01 - Get request made to GetPostsScroll Handler
+2025/06/24 05:21:01 [INFO] 2025-06-24 05:21:01 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 05:21:06 [INFO] 2025-06-24 05:21:06 - Verify-token hit
+2025/06/24 05:21:06 [INFO] 2025-06-24 05:21:06 - =========== GetOtherUserProfile called ===========
+2025/06/24 05:21:06 [INFO] 2025-06-24 05:21:06 - Authenticated user ID: 1a3b436a-e419-43ab-b433-90785a20fcd1
+2025/06/24 05:21:06 [INFO] 2025-06-24 05:21:06 - Requested profile for user ID: 1a3b436a-e419-43ab-b433-90785a20fcd1
+2025/06/24 05:21:06 [INFO] 2025-06-24 05:21:06 - =========== GetOtherUserProfile called ===========
+2025/06/24 05:21:06 [INFO] 2025-06-24 05:21:06 - Authenticated user ID: 1a3b436a-e419-43ab-b433-90785a20fcd1
+2025/06/24 05:21:06 [INFO] 2025-06-24 05:21:06 - Requested profile for user ID: 1a3b436a-e419-43ab-b433-90785a20fcd1
+2025/06/24 05:21:06 [INFO] 2025-06-24 05:21:06 - User is viewing their own profile
+2025/06/24 05:21:06 [INFO] 2025-06-24 05:21:06 - Profile returned successfully
+2025/06/24 05:21:06 [INFO] 2025-06-24 05:21:06 - User is viewing their own profile
+2025/06/24 05:21:06 [INFO] 2025-06-24 05:21:06 - Profile returned successfully
+2025/06/24 05:21:06 [LOG] 2025-06-24 05:21:06 - Get request made to GetPostsScroll Handler
+2025/06/24 05:21:06 [LOG] 2025-06-24 05:21:06 - Get request made to GetPostsScroll Handler
+2025/06/24 05:21:06 [ERROR] 2025-06-24 05:21:06 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 05:21:06 [ERROR] 2025-06-24 05:21:06 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 05:21:17 [INFO] 2025-06-24 05:21:17 - Verify-token hit
+2025/06/24 05:21:17 [INFO] 2025-06-24 05:21:17 - =========== GetOtherUserProfile called ===========
+2025/06/24 05:21:17 [INFO] 2025-06-24 05:21:17 - Authenticated user ID: 38ebe970-50e9-451e-a5e7-4236671eb9b8
+2025/06/24 05:21:17 [INFO] 2025-06-24 05:21:17 - Requested profile for user ID: 38ebe970-50e9-451e-a5e7-4236671eb9b8
+2025/06/24 05:21:17 [INFO] 2025-06-24 05:21:17 - User is viewing their own profile
+2025/06/24 05:21:17 [INFO] 2025-06-24 05:21:17 - Profile returned successfully
+2025/06/24 05:21:17 [INFO] 2025-06-24 05:21:17 - =========== GetOtherUserProfile called ===========
+2025/06/24 05:21:17 [INFO] 2025-06-24 05:21:17 - Authenticated user ID: 38ebe970-50e9-451e-a5e7-4236671eb9b8
+2025/06/24 05:21:17 [INFO] 2025-06-24 05:21:17 - Requested profile for user ID: 38ebe970-50e9-451e-a5e7-4236671eb9b8
+2025/06/24 05:21:17 [INFO] 2025-06-24 05:21:17 - User is viewing their own profile
+2025/06/24 05:21:17 [INFO] 2025-06-24 05:21:17 - Profile returned successfully
+2025/06/24 05:21:17 [LOG] 2025-06-24 05:21:17 - Get request made to GetPostsScroll Handler
+2025/06/24 05:21:17 [ERROR] 2025-06-24 05:21:17 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 05:21:17 [LOG] 2025-06-24 05:21:17 - Get request made to GetPostsScroll Handler
+2025/06/24 05:21:17 [ERROR] 2025-06-24 05:21:17 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 05:21:32 [INFO] 2025-06-24 05:21:32 - Verify-token hit
+2025/06/24 05:21:40 [INFO] 2025-06-24 05:21:40 - Sent notification via WS to 1a3b436a-e419-43ab-b433-90785a20fcd1
+2025/06/24 05:21:43 [INFO] 2025-06-24 05:21:43 - Notification deleted from db
+2025/06/24 05:21:43 [INFO] 2025-06-24 05:21:43 - Sent notification via WS to 38ebe970-50e9-451e-a5e7-4236671eb9b8
+2025/06/24 05:22:05 [INFO] 2025-06-24 05:22:05 - Sent notification via WS to c88bc610-2cf6-4951-b534-2dc2a500ccba
+2025/06/24 05:22:50 [INFO] 2025-06-24 05:22:50 - Handling file upload for form field 'Image'
+2025/06/24 05:22:50 [INFO] 2025-06-24 05:22:50 - No file uploaded for field 'Image'
+2025/06/24 05:22:50 [INFO] 2025-06-24 05:22:50 - Group Input Validated
+2025/06/24 05:22:50 [INFO] 2025-06-24 05:22:50 - Saving group into DB
+2025/06/24 05:22:50 [INFO] 2025-06-24 05:22:50 - Saving GroupMember into DB
+2025/06/24 05:22:50 [INFO] 2025-06-24 05:22:50 - Group created successfully with ID: 3
+2025/06/24 05:22:53 [INFO] 2025-06-24 05:22:53 - Recieved Request for fetching groups
+2025/06/24 05:22:53 [INFO] 2025-06-24 05:22:53 - Groups Fetched Successfuly
+2025/06/24 05:22:53 [LOG] 2025-06-24 05:22:53 - Invite Request Group to join fetched successfully
+2025/06/24 05:22:53 [INFO] 2025-06-24 05:22:53 - Recieved Request for fetching groups
+2025/06/24 05:22:53 [INFO] 2025-06-24 05:22:53 - Groups Fetched Successfuly
+2025/06/24 05:22:53 [LOG] 2025-06-24 05:22:53 - Invite Request Group to join fetched successfully
+2025/06/24 05:22:58 [INFO] 2025-06-24 05:22:58 - Recieved Request To fetch Group page
+2025/06/24 05:22:58 [INFO] 2025-06-24 05:22:58 - Group With ID : 3 Fetched With Success
+2025/06/24 05:22:58 [INFO] 2025-06-24 05:22:58 - Recieved Request To fetch Group page
+2025/06/24 05:22:58 [INFO] 2025-06-24 05:22:58 - Group With ID : 3 Fetched With Success
+2025/06/24 05:22:58 [LOG] 2025-06-24 05:22:58 - Get request made to GetPostsScroll Handler
+2025/06/24 05:22:58 [ERROR] 2025-06-24 05:22:58 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 05:22:58 [LOG] 2025-06-24 05:22:58 - Get request made to GetPostsScroll Handler
+2025/06/24 05:22:58 [ERROR] 2025-06-24 05:22:58 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 05:22:58 [INFO] 2025-06-24 05:22:58 - Admin requested pending invites
+2025/06/24 05:22:58 [INFO] 2025-06-24 05:22:58 - Admin requested pending invites
+2025/06/24 05:23:01 [INFO] 2025-06-24 05:23:01 - Received request to fetch FriendList
+2025/06/24 05:23:01 [INFO] 2025-06-24 05:23:01 - Friends in group 3 fetched successfully
+2025/06/24 05:23:14 [INFO] 2025-06-24 05:23:14 - Recieved Invite to group  Request
+2025/06/24 05:23:14 [INFO] 2025-06-24 05:23:14 - Invite ID: 16
+2025/06/24 05:23:14 [INFO] 2025-06-24 05:23:14 - User with Id : 38ebe970-50e9-451e-a5e7-4236671eb9b8 Has Been Invited
+2025/06/24 05:23:14 [INFO] 2025-06-24 05:23:14 - Sent notification via WS to 38ebe970-50e9-451e-a5e7-4236671eb9b8
+2025/06/24 05:23:20 [INFO] 2025-06-24 05:23:20 - Saving GroupMember into DB
+2025/06/24 05:23:20 [INFO] 2025-06-24 05:23:20 - Notification deleted from db
+2025/06/24 05:23:23 [INFO] 2025-06-24 05:23:23 - Verify-token hit
+2025/06/24 05:23:25 [INFO] 2025-06-24 05:23:25 - Received request to fetch group members
+2025/06/24 05:23:25 [INFO] 2025-06-24 05:23:25 - Group members for group 3 fetched successfully
+2025/06/24 05:23:30 [INFO] 2025-06-24 05:23:30 - Recieved Request for fetching groups
+2025/06/24 05:23:30 [INFO] 2025-06-24 05:23:30 - Groups Fetched Successfuly
+2025/06/24 05:23:30 [LOG] 2025-06-24 05:23:30 - Invite Request Group to join fetched successfully
+2025/06/24 05:23:30 [INFO] 2025-06-24 05:23:30 - Recieved Request for fetching groups
+2025/06/24 05:23:30 [LOG] 2025-06-24 05:23:30 - Invite Request Group to join fetched successfully
+2025/06/24 05:23:30 [INFO] 2025-06-24 05:23:30 - Groups Fetched Successfuly
+2025/06/24 05:23:35 [INFO] 2025-06-24 05:23:35 - Recieved Request To fetch Group page
+2025/06/24 05:23:35 [INFO] 2025-06-24 05:23:35 - Group With ID : 3 Fetched With Success
+2025/06/24 05:23:35 [INFO] 2025-06-24 05:23:35 - Recieved Request To fetch Group page
+2025/06/24 05:23:35 [INFO] 2025-06-24 05:23:35 - Group With ID : 3 Fetched With Success
+2025/06/24 05:23:35 [LOG] 2025-06-24 05:23:35 - Get request made to GetPostsScroll Handler
+2025/06/24 05:23:35 [ERROR] 2025-06-24 05:23:35 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 05:23:35 [LOG] 2025-06-24 05:23:35 - Get request made to GetPostsScroll Handler
+2025/06/24 05:23:35 [ERROR] 2025-06-24 05:23:35 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 05:23:35 [INFO] 2025-06-24 05:23:35 - Admin requested pending invites
+2025/06/24 05:23:35 [INFO] 2025-06-24 05:23:35 - Admin requested pending invites
+2025/06/24 05:23:36 [INFO] 2025-06-24 05:23:36 - Received request to fetch FriendList
+2025/06/24 05:23:36 [INFO] 2025-06-24 05:23:36 - Friends in group 3 fetched successfully
+2025/06/24 05:23:40 [INFO] 2025-06-24 05:23:40 - Recieved Invite to group  Request
+2025/06/24 05:23:40 [INFO] 2025-06-24 05:23:40 - Invite ID: 17
+2025/06/24 05:23:40 [INFO] 2025-06-24 05:23:40 - User with Id : c88bc610-2cf6-4951-b534-2dc2a500ccba Has Been Invited
+2025/06/24 05:23:40 [INFO] 2025-06-24 05:23:40 - Sent notification via WS to c88bc610-2cf6-4951-b534-2dc2a500ccba
+2025/06/24 05:23:53 [LOG] 2025-06-24 05:23:53 - Get request made to GetPostsScroll Handler
+2025/06/24 05:23:53 [INFO] 2025-06-24 05:23:53 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 05:23:53 [LOG] 2025-06-24 05:23:53 - Get request made to GetPostsScroll Handler
+2025/06/24 05:23:53 [INFO] 2025-06-24 05:23:53 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 05:24:04 [INFO] 2025-06-24 05:24:04 - Saving GroupMember into DB
+2025/06/24 05:24:04 [INFO] 2025-06-24 05:24:04 - Sent notification via WS to 1a3b436a-e419-43ab-b433-90785a20fcd1
+2025/06/24 05:24:09 [LOG] 2025-06-24 05:24:09 - Get request made to GetPostsScroll Handler
+2025/06/24 05:24:09 [INFO] 2025-06-24 05:24:09 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 05:24:09 [LOG] 2025-06-24 05:24:09 - Get request made to GetPostsScroll Handler
+2025/06/24 05:24:09 [INFO] 2025-06-24 05:24:09 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 05:24:31 [LOG] 2025-06-24 05:24:31 - Get request made to GetPostsScroll Handler
+2025/06/24 05:24:31 [INFO] 2025-06-24 05:24:31 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 05:24:31 [LOG] 2025-06-24 05:24:31 - Get request made to GetPostsScroll Handler
+2025/06/24 05:24:31 [INFO] 2025-06-24 05:24:31 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 05:24:35 [INFO] 2025-06-24 05:24:35 - Verify-token hit
+2025/06/24 05:26:36 [INFO] 2025-06-24 05:26:36 - Saving GroupMember into DB
+2025/06/24 05:26:36 [INFO] 2025-06-24 05:26:36 - Sent notification via WS to 1a3b436a-e419-43ab-b433-90785a20fcd1
+2025/06/24 05:29:55 [INFO] 2025-06-24 05:29:55 - Starting HTTP server at http://localhost:8080 ...
+2025/06/24 05:29:55 [INFO] 2025-06-24 05:29:55 - Migrations applied successfully!
+2025/06/24 05:30:01 [INFO] 2025-06-24 05:30:01 - Verify-token hit
+2025/06/24 05:30:08 [INFO] 2025-06-24 05:30:08 - Saving GroupMember into DB
+2025/06/24 05:30:08 [INFO] 2025-06-24 05:30:08 - User 1a3b436a-e419-43ab-b433-90785a20fcd1 not connected, notification saved to DB
+2025/06/24 05:30:10 [INFO] 2025-06-24 05:30:10 - Verify-token hit
+2025/06/24 05:30:19 [LOG] 2025-06-24 05:30:19 - Get request made to GetPostsScroll Handler
+2025/06/24 05:30:19 [INFO] 2025-06-24 05:30:19 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 05:30:19 [LOG] 2025-06-24 05:30:19 - Get request made to GetPostsScroll Handler
+2025/06/24 05:30:19 [INFO] 2025-06-24 05:30:19 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 05:30:23 [INFO] 2025-06-24 05:30:23 - Recieved a Admin approving request
+2025/06/24 05:30:23 [INFO] 2025-06-24 05:30:23 - Saving GroupMember into DB
+2025/06/24 05:30:23 [INFO] 2025-06-24 05:30:23 - Admin accept invite 17 successfully
+2025/06/24 05:30:23 [INFO] 2025-06-24 05:30:23 - Sent notification via WS to c88bc610-2cf6-4951-b534-2dc2a500ccba
+2025/06/24 05:30:23 [LOG] 2025-06-24 05:30:23 - No notification matched for deletion
+2025/06/24 05:30:27 [LOG] 2025-06-24 05:30:27 - Get request made to GetPostsScroll Handler
+2025/06/24 05:30:27 [INFO] 2025-06-24 05:30:27 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 05:30:27 [LOG] 2025-06-24 05:30:27 - Get request made to GetPostsScroll Handler
+2025/06/24 05:30:27 [INFO] 2025-06-24 05:30:27 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 05:38:35 [INFO] 2025-06-24 05:38:35 - Starting HTTP server at http://localhost:8080 ...
+2025/06/24 05:38:35 [INFO] 2025-06-24 05:38:35 - Migrations applied successfully!
+2025/06/24 05:38:54 [INFO] 2025-06-24 05:38:54 - Verify-token hit
+2025/06/24 05:38:56 [ERROR] 2025-06-24 05:38:56 - Error getting invite from DB: sql: no rows in result set
+2025/06/24 05:38:58 [INFO] 2025-06-24 05:38:58 - Verify-token hit
+2025/06/24 05:39:00 [ERROR] 2025-06-24 05:39:00 - Error getting invite from DB: sql: no rows in result set
+2025/06/24 05:39:01 [INFO] 2025-06-24 05:39:01 - Verify-token hit
+2025/06/24 05:39:06 [LOG] 2025-06-24 05:39:06 - Get request made to GetPostsScroll Handler
+2025/06/24 05:39:06 [INFO] 2025-06-24 05:39:06 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 05:39:06 [LOG] 2025-06-24 05:39:06 - Get request made to GetPostsScroll Handler
+2025/06/24 05:39:06 [INFO] 2025-06-24 05:39:06 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 05:39:10 [INFO] 2025-06-24 05:39:10 - Recieved a Admin approving request
+2025/06/24 05:39:10 [ERROR] 2025-06-24 05:39:10 - Invite does not exist
+2025/06/24 05:39:12 [LOG] 2025-06-24 05:39:12 - Get request made to GetPostsScroll Handler
+2025/06/24 05:39:12 [INFO] 2025-06-24 05:39:12 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 05:39:12 [LOG] 2025-06-24 05:39:12 - Get request made to GetPostsScroll Handler
+2025/06/24 05:39:12 [INFO] 2025-06-24 05:39:12 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 05:39:16 [INFO] 2025-06-24 05:39:16 - Verify-token hit
+2025/06/24 05:40:28 [INFO] 2025-06-24 05:40:28 - Verify-token hit
+2025/06/24 05:40:31 [INFO] 2025-06-24 05:40:31 - Verify-token hit
+2025/06/24 05:40:37 [INFO] 2025-06-24 05:40:37 - Recieved Request To fetch Group page
+2025/06/24 05:40:37 [LOG] 2025-06-24 05:40:37 - Not a Member 
+2025/06/24 05:40:37 [INFO] 2025-06-24 05:40:37 - Recieved Request To fetch Group page
+2025/06/24 05:40:37 [LOG] 2025-06-24 05:40:37 - Not a Member 
+2025/06/24 05:40:37 [LOG] 2025-06-24 05:40:37 - Get request made to GetPostsScroll Handler
+2025/06/24 05:40:37 [ERROR] 2025-06-24 05:40:37 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 05:40:37 [LOG] 2025-06-24 05:40:37 - Get request made to GetPostsScroll Handler
+2025/06/24 05:40:37 [ERROR] 2025-06-24 05:40:37 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 05:40:37 [INFO] 2025-06-24 05:40:37 - Admin requested pending invites
+2025/06/24 05:40:37 [INFO] 2025-06-24 05:40:37 - Admin requested pending invites
+2025/06/24 05:40:43 [INFO] 2025-06-24 05:40:43 - Verify-token hit
+2025/06/24 05:40:43 [INFO] 2025-06-24 05:40:43 - =========== GetOtherUserProfile called ===========
+2025/06/24 05:40:43 [INFO] 2025-06-24 05:40:43 - Authenticated user ID: 38ebe970-50e9-451e-a5e7-4236671eb9b8
+2025/06/24 05:40:43 [INFO] 2025-06-24 05:40:43 - Requested profile for user ID: 65c87b92-d290-4376-9e0b-
+2025/06/24 05:40:43 [ERROR] 2025-06-24 05:40:43 - Failed to get profile data: sql: no rows in result set
+2025/06/24 05:40:43 [INFO] 2025-06-24 05:40:43 - =========== GetOtherUserProfile called ===========
+2025/06/24 05:40:43 [INFO] 2025-06-24 05:40:43 - Authenticated user ID: 38ebe970-50e9-451e-a5e7-4236671eb9b8
+2025/06/24 05:40:43 [INFO] 2025-06-24 05:40:43 - Requested profile for user ID: 65c87b92-d290-4376-9e0b-
+2025/06/24 05:40:43 [ERROR] 2025-06-24 05:40:43 - Failed to get profile data: sql: no rows in result set
+2025/06/24 05:40:47 [LOG] 2025-06-24 05:40:47 - Get request made to GetPostsScroll Handler
+2025/06/24 05:40:47 [INFO] 2025-06-24 05:40:47 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 05:40:47 [LOG] 2025-06-24 05:40:47 - Get request made to GetPostsScroll Handler
+2025/06/24 05:40:47 [INFO] 2025-06-24 05:40:47 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 05:40:50 [INFO] 2025-06-24 05:40:50 - Verify-token hit
+2025/06/24 05:40:54 [INFO] 2025-06-24 05:40:54 - Recieved Request for fetching groups
+2025/06/24 05:40:54 [INFO] 2025-06-24 05:40:54 - Groups Fetched Successfuly
+2025/06/24 05:40:54 [LOG] 2025-06-24 05:40:54 - Invite Request Group to join fetched successfully
+2025/06/24 05:40:54 [INFO] 2025-06-24 05:40:54 - Recieved Request for fetching groups
+2025/06/24 05:40:54 [LOG] 2025-06-24 05:40:54 - Invite Request Group to join fetched successfully
+2025/06/24 05:40:54 [INFO] 2025-06-24 05:40:54 - Groups Fetched Successfuly
+2025/06/24 05:40:57 [INFO] 2025-06-24 05:40:57 - Recieved Request To fetch Group page
+2025/06/24 05:40:57 [INFO] 2025-06-24 05:40:57 - Group With ID : 3 Fetched With Success
+2025/06/24 05:40:57 [INFO] 2025-06-24 05:40:57 - Recieved Request To fetch Group page
+2025/06/24 05:40:57 [INFO] 2025-06-24 05:40:57 - Group With ID : 3 Fetched With Success
+2025/06/24 05:40:57 [LOG] 2025-06-24 05:40:57 - Get request made to GetPostsScroll Handler
+2025/06/24 05:40:57 [ERROR] 2025-06-24 05:40:57 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 05:40:57 [LOG] 2025-06-24 05:40:57 - Get request made to GetPostsScroll Handler
+2025/06/24 05:40:57 [ERROR] 2025-06-24 05:40:57 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 05:40:57 [INFO] 2025-06-24 05:40:57 - Admin requested pending invites
+2025/06/24 05:40:57 [INFO] 2025-06-24 05:40:57 - Admin requested pending invites
+2025/06/24 05:40:58 [INFO] 2025-06-24 05:40:58 - Received request to fetch FriendList
+2025/06/24 05:40:58 [INFO] 2025-06-24 05:40:58 - Friends in group 3 fetched successfully
+2025/06/24 05:41:12 [INFO] 2025-06-24 05:41:12 - Verify-token hit
+2025/06/24 05:41:12 [INFO] 2025-06-24 05:41:12 - =========== GetOtherUserProfile called ===========
+2025/06/24 05:41:12 [INFO] 2025-06-24 05:41:12 - Authenticated user ID: 38ebe970-50e9-451e-a5e7-4236671eb9b8
+2025/06/24 05:41:12 [INFO] 2025-06-24 05:41:12 - Requested profile for user ID: 38ebe970-50e9-451e-a5e7-4236671eb9b8
+2025/06/24 05:41:12 [INFO] 2025-06-24 05:41:12 - User is viewing their own profile
+2025/06/24 05:41:12 [INFO] 2025-06-24 05:41:12 - Profile returned successfully
+2025/06/24 05:41:12 [INFO] 2025-06-24 05:41:12 - =========== GetOtherUserProfile called ===========
+2025/06/24 05:41:12 [INFO] 2025-06-24 05:41:12 - Authenticated user ID: 38ebe970-50e9-451e-a5e7-4236671eb9b8
+2025/06/24 05:41:12 [INFO] 2025-06-24 05:41:12 - Requested profile for user ID: 38ebe970-50e9-451e-a5e7-4236671eb9b8
+2025/06/24 05:41:12 [INFO] 2025-06-24 05:41:12 - User is viewing their own profile
+2025/06/24 05:41:12 [INFO] 2025-06-24 05:41:12 - Profile returned successfully
+2025/06/24 05:41:12 [LOG] 2025-06-24 05:41:12 - Get request made to GetPostsScroll Handler
+2025/06/24 05:41:12 [ERROR] 2025-06-24 05:41:12 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 05:41:12 [LOG] 2025-06-24 05:41:12 - Get request made to GetPostsScroll Handler
+2025/06/24 05:41:12 [ERROR] 2025-06-24 05:41:12 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 05:41:21 [LOG] 2025-06-24 05:41:21 - Get request made to GetPostsScroll Handler
+2025/06/24 05:41:21 [ERROR] 2025-06-24 05:41:21 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 05:41:21 [INFO] 2025-06-24 05:41:21 - Recieved Request To fetch Group page
+2025/06/24 05:41:21 [INFO] 2025-06-24 05:41:21 - Group With ID : 3 Fetched With Success
+2025/06/24 05:41:21 [INFO] 2025-06-24 05:41:21 - Recieved Request To fetch Group page
+2025/06/24 05:41:21 [INFO] 2025-06-24 05:41:21 - Group With ID : 3 Fetched With Success
+2025/06/24 05:41:21 [LOG] 2025-06-24 05:41:21 - Get request made to GetPostsScroll Handler
+2025/06/24 05:41:21 [ERROR] 2025-06-24 05:41:21 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 05:41:21 [INFO] 2025-06-24 05:41:21 - Admin requested pending invites
+2025/06/24 05:41:21 [INFO] 2025-06-24 05:41:21 - Admin requested pending invites
+2025/06/24 05:41:29 [INFO] 2025-06-24 05:41:29 - Recieved Request To fetch Group page
+2025/06/24 05:41:29 [INFO] 2025-06-24 05:41:29 - Group With ID : 3 Fetched With Success
+2025/06/24 05:41:29 [INFO] 2025-06-24 05:41:29 - Recieved Request To fetch Group page
+2025/06/24 05:41:29 [LOG] 2025-06-24 05:41:29 - Get request made to GetPostsScroll Handler
+2025/06/24 05:41:29 [ERROR] 2025-06-24 05:41:29 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 05:41:29 [INFO] 2025-06-24 05:41:29 - Group With ID : 3 Fetched With Success
+2025/06/24 05:41:29 [LOG] 2025-06-24 05:41:29 - Get request made to GetPostsScroll Handler
+2025/06/24 05:41:29 [ERROR] 2025-06-24 05:41:29 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 05:41:29 [INFO] 2025-06-24 05:41:29 - Admin requested pending invites
+2025/06/24 05:41:29 [INFO] 2025-06-24 05:41:29 - Admin requested pending invites
+2025/06/24 05:41:31 [INFO] 2025-06-24 05:41:31 - Received request to fetch group members
+2025/06/24 05:41:31 [INFO] 2025-06-24 05:41:31 - Group members for group 3 fetched successfully
+2025/06/24 05:41:34 [INFO] 2025-06-24 05:41:34 - Received request to fetch FriendList
+2025/06/24 05:41:34 [INFO] 2025-06-24 05:41:34 - Friends in group 3 fetched successfully
+2025/06/24 05:41:39 [INFO] 2025-06-24 05:41:39 - Sent notification via WS to 1a3b436a-e419-43ab-b433-90785a20fcd1
+2025/06/24 05:41:47 [LOG] 2025-06-24 05:41:47 - Get request made to GetPostsScroll Handler
+2025/06/24 05:41:47 [INFO] 2025-06-24 05:41:47 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 05:41:47 [LOG] 2025-06-24 05:41:47 - Get request made to GetPostsScroll Handler
+2025/06/24 05:41:47 [INFO] 2025-06-24 05:41:47 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 05:41:49 [INFO] 2025-06-24 05:41:49 - Notification deleted from db
+2025/06/24 05:41:49 [INFO] 2025-06-24 05:41:49 - Sent notification via WS to 38ebe970-50e9-451e-a5e7-4236671eb9b8
+2025/06/24 05:41:57 [INFO] 2025-06-24 05:41:57 - Recieved Request To fetch Group page
+2025/06/24 05:41:57 [INFO] 2025-06-24 05:41:57 - Group With ID : 3 Fetched With Success
+2025/06/24 05:41:57 [INFO] 2025-06-24 05:41:57 - Recieved Request To fetch Group page
+2025/06/24 05:41:57 [LOG] 2025-06-24 05:41:57 - Get request made to GetPostsScroll Handler
+2025/06/24 05:41:57 [INFO] 2025-06-24 05:41:57 - Group With ID : 3 Fetched With Success
+2025/06/24 05:41:57 [ERROR] 2025-06-24 05:41:57 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 05:41:57 [LOG] 2025-06-24 05:41:57 - Get request made to GetPostsScroll Handler
+2025/06/24 05:41:57 [ERROR] 2025-06-24 05:41:57 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 05:41:57 [INFO] 2025-06-24 05:41:57 - Admin requested pending invites
+2025/06/24 05:41:57 [INFO] 2025-06-24 05:41:57 - Admin requested pending invites
+2025/06/24 05:41:58 [INFO] 2025-06-24 05:41:58 - Received request to fetch group members
+2025/06/24 05:41:58 [INFO] 2025-06-24 05:41:58 - Group members for group 3 fetched successfully
+2025/06/24 05:41:59 [INFO] 2025-06-24 05:41:59 - Received request to fetch FriendList
+2025/06/24 05:41:59 [INFO] 2025-06-24 05:41:59 - Friends in group 3 fetched successfully
+2025/06/24 05:42:06 [INFO] 2025-06-24 05:42:06 - Verify-token hit
+2025/06/24 05:42:06 [INFO] 2025-06-24 05:42:06 - =========== GetOtherUserProfile called ===========
+2025/06/24 05:42:06 [INFO] 2025-06-24 05:42:06 - =========== GetOtherUserProfile called ===========
+2025/06/24 05:42:06 [INFO] 2025-06-24 05:42:06 - Authenticated user ID: 1a3b436a-e419-43ab-b433-90785a20fcd1
+2025/06/24 05:42:06 [INFO] 2025-06-24 05:42:06 - Authenticated user ID: 1a3b436a-e419-43ab-b433-90785a20fcd1
+2025/06/24 05:42:06 [INFO] 2025-06-24 05:42:06 - Requested profile for user ID: 38ebe970-50e9-451e-a5e7-4236671eb9b8
+2025/06/24 05:42:06 [INFO] 2025-06-24 05:42:06 - Requested profile for user ID: 38ebe970-50e9-451e-a5e7-4236671eb9b8
+2025/06/24 05:42:06 [INFO] 2025-06-24 05:42:06 - Profile returned successfully
+2025/06/24 05:42:06 [INFO] 2025-06-24 05:42:06 - Profile returned successfully
+2025/06/24 05:42:06 [LOG] 2025-06-24 05:42:06 - Get request made to GetPostsScroll Handler
+2025/06/24 05:42:06 [LOG] 2025-06-24 05:42:06 - Get request made to GetPostsScroll Handler
+2025/06/24 05:42:06 [ERROR] 2025-06-24 05:42:06 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 05:42:06 [ERROR] 2025-06-24 05:42:06 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 05:42:08 [INFO] 2025-06-24 05:42:08 - Sent notification via WS to 38ebe970-50e9-451e-a5e7-4236671eb9b8
+2025/06/24 05:42:10 [INFO] 2025-06-24 05:42:10 - Recieved Request To fetch Group page
+2025/06/24 05:42:10 [INFO] 2025-06-24 05:42:10 - Group With ID : 3 Fetched With Success
+2025/06/24 05:42:10 [INFO] 2025-06-24 05:42:10 - Recieved Request To fetch Group page
+2025/06/24 05:42:10 [INFO] 2025-06-24 05:42:10 - Group With ID : 3 Fetched With Success
+2025/06/24 05:42:10 [LOG] 2025-06-24 05:42:10 - Get request made to GetPostsScroll Handler
+2025/06/24 05:42:10 [ERROR] 2025-06-24 05:42:10 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 05:42:10 [LOG] 2025-06-24 05:42:10 - Get request made to GetPostsScroll Handler
+2025/06/24 05:42:10 [ERROR] 2025-06-24 05:42:10 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 05:42:10 [INFO] 2025-06-24 05:42:10 - Admin requested pending invites
+2025/06/24 05:42:10 [INFO] 2025-06-24 05:42:10 - Admin requested pending invites
+2025/06/24 05:42:11 [INFO] 2025-06-24 05:42:11 - Received request to fetch FriendList
+2025/06/24 05:42:11 [INFO] 2025-06-24 05:42:11 - Friends in group 3 fetched successfully
+2025/06/24 05:42:16 [INFO] 2025-06-24 05:42:16 - Recieved Request To fetch Group page
+2025/06/24 05:42:16 [INFO] 2025-06-24 05:42:16 - Group With ID : 3 Fetched With Success
+2025/06/24 05:42:16 [INFO] 2025-06-24 05:42:16 - Recieved Request To fetch Group page
+2025/06/24 05:42:16 [INFO] 2025-06-24 05:42:16 - Group With ID : 3 Fetched With Success
+2025/06/24 05:42:16 [LOG] 2025-06-24 05:42:16 - Get request made to GetPostsScroll Handler
+2025/06/24 05:42:16 [ERROR] 2025-06-24 05:42:16 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 05:42:16 [INFO] 2025-06-24 05:42:16 - Admin requested pending invites
+2025/06/24 05:42:16 [LOG] 2025-06-24 05:42:16 - Get request made to GetPostsScroll Handler
+2025/06/24 05:42:16 [ERROR] 2025-06-24 05:42:16 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 05:42:16 [INFO] 2025-06-24 05:42:16 - Admin requested pending invites
+2025/06/24 05:42:17 [INFO] 2025-06-24 05:42:17 - Received request to fetch group members
+2025/06/24 05:42:17 [INFO] 2025-06-24 05:42:17 - Group members for group 3 fetched successfully
+2025/06/24 05:42:19 [INFO] 2025-06-24 05:42:19 - Received request to fetch FriendList
+2025/06/24 05:42:19 [INFO] 2025-06-24 05:42:19 - Friends in group 3 fetched successfully
+2025/06/24 05:42:38 [INFO] 2025-06-24 05:42:38 - Received request to fetch group members
+2025/06/24 05:42:38 [INFO] 2025-06-24 05:42:38 - Group members for group 3 fetched successfully
+2025/06/24 05:42:39 [INFO] 2025-06-24 05:42:39 - Received request to fetch FriendList
+2025/06/24 05:42:39 [INFO] 2025-06-24 05:42:39 - Friends in group 3 fetched successfully
+2025/06/24 05:42:40 [INFO] 2025-06-24 05:42:40 - Received request to fetch group members
+2025/06/24 05:42:40 [INFO] 2025-06-24 05:42:40 - Group members for group 3 fetched successfully
+2025/06/24 05:42:42 [INFO] 2025-06-24 05:42:42 - Verify-token hit
+2025/06/24 05:42:42 [INFO] 2025-06-24 05:42:42 - =========== GetOtherUserProfile called ===========
+2025/06/24 05:42:42 [INFO] 2025-06-24 05:42:42 - Authenticated user ID: 1a3b436a-e419-43ab-b433-90785a20fcd1
+2025/06/24 05:42:42 [INFO] 2025-06-24 05:42:42 - Requested profile for user ID: 1a3b436a-e419-43ab-b433-90785a20fcd1
+2025/06/24 05:42:42 [INFO] 2025-06-24 05:42:42 - User is viewing their own profile
+2025/06/24 05:42:42 [INFO] 2025-06-24 05:42:42 - Profile returned successfully
+2025/06/24 05:42:42 [INFO] 2025-06-24 05:42:42 - =========== GetOtherUserProfile called ===========
+2025/06/24 05:42:42 [INFO] 2025-06-24 05:42:42 - Authenticated user ID: 1a3b436a-e419-43ab-b433-90785a20fcd1
+2025/06/24 05:42:42 [INFO] 2025-06-24 05:42:42 - Requested profile for user ID: 1a3b436a-e419-43ab-b433-90785a20fcd1
+2025/06/24 05:42:42 [INFO] 2025-06-24 05:42:42 - User is viewing their own profile
+2025/06/24 05:42:42 [INFO] 2025-06-24 05:42:42 - Profile returned successfully
+2025/06/24 05:42:42 [LOG] 2025-06-24 05:42:42 - Get request made to GetPostsScroll Handler
+2025/06/24 05:42:42 [LOG] 2025-06-24 05:42:42 - Get request made to GetPostsScroll Handler
+2025/06/24 05:42:42 [ERROR] 2025-06-24 05:42:42 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 05:42:42 [ERROR] 2025-06-24 05:42:42 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 05:42:57 [INFO] 2025-06-24 05:42:57 - Verify-token hit
+2025/06/24 05:42:58 [INFO] 2025-06-24 05:42:58 - Sent notification via WS to 1a3b436a-e419-43ab-b433-90785a20fcd1
+2025/06/24 05:43:01 [INFO] 2025-06-24 05:43:01 - Verify-token hit
+2025/06/24 05:43:01 [INFO] 2025-06-24 05:43:01 - =========== GetOtherUserProfile called ===========
+2025/06/24 05:43:01 [INFO] 2025-06-24 05:43:01 - Authenticated user ID: 1a3b436a-e419-43ab-b433-90785a20fcd1
+2025/06/24 05:43:01 [INFO] 2025-06-24 05:43:01 - Requested profile for user ID: 38ebe970-50e9-451e-a5e7-4236671eb9b8
+2025/06/24 05:43:01 [INFO] 2025-06-24 05:43:01 - Profile returned successfully
+2025/06/24 05:43:01 [INFO] 2025-06-24 05:43:01 - =========== GetOtherUserProfile called ===========
+2025/06/24 05:43:01 [INFO] 2025-06-24 05:43:01 - Authenticated user ID: 1a3b436a-e419-43ab-b433-90785a20fcd1
+2025/06/24 05:43:01 [INFO] 2025-06-24 05:43:01 - Requested profile for user ID: 38ebe970-50e9-451e-a5e7-4236671eb9b8
+2025/06/24 05:43:01 [INFO] 2025-06-24 05:43:01 - Profile returned successfully
+2025/06/24 05:43:01 [LOG] 2025-06-24 05:43:01 - Get request made to GetPostsScroll Handler
+2025/06/24 05:43:01 [LOG] 2025-06-24 05:43:01 - Get request made to GetPostsScroll Handler
+2025/06/24 05:43:01 [ERROR] 2025-06-24 05:43:01 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 05:43:01 [ERROR] 2025-06-24 05:43:01 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 05:43:03 [INFO] 2025-06-24 05:43:03 - Sent notification via WS to 38ebe970-50e9-451e-a5e7-4236671eb9b8
+2025/06/24 05:43:08 [INFO] 2025-06-24 05:43:08 - Sent notification via WS to 1a3b436a-e419-43ab-b433-90785a20fcd1
+2025/06/24 05:43:10 [INFO] 2025-06-24 05:43:10 - Notification deleted from db
+2025/06/24 05:43:10 [INFO] 2025-06-24 05:43:10 - Sent notification via WS to 38ebe970-50e9-451e-a5e7-4236671eb9b8
+2025/06/24 05:43:14 [INFO] 2025-06-24 05:43:14 - Verify-token hit
+2025/06/24 05:43:15 [INFO] 2025-06-24 05:43:15 - =========== GetOtherUserProfile called ===========
+2025/06/24 05:43:15 [INFO] 2025-06-24 05:43:15 - Authenticated user ID: 1a3b436a-e419-43ab-b433-90785a20fcd1
+2025/06/24 05:43:15 [INFO] 2025-06-24 05:43:15 - Requested profile for user ID: 38ebe970-50e9-451e-a5e7-4236671eb9b8
+2025/06/24 05:43:15 [INFO] 2025-06-24 05:43:15 - Profile returned successfully
+2025/06/24 05:43:15 [INFO] 2025-06-24 05:43:15 - =========== GetOtherUserProfile called ===========
+2025/06/24 05:43:15 [INFO] 2025-06-24 05:43:15 - Authenticated user ID: 1a3b436a-e419-43ab-b433-90785a20fcd1
+2025/06/24 05:43:15 [INFO] 2025-06-24 05:43:15 - Requested profile for user ID: 38ebe970-50e9-451e-a5e7-4236671eb9b8
+2025/06/24 05:43:15 [INFO] 2025-06-24 05:43:15 - Profile returned successfully
+2025/06/24 05:43:15 [LOG] 2025-06-24 05:43:15 - Get request made to GetPostsScroll Handler
+2025/06/24 05:43:15 [ERROR] 2025-06-24 05:43:15 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 05:43:15 [LOG] 2025-06-24 05:43:15 - Get request made to GetPostsScroll Handler
+2025/06/24 05:43:15 [ERROR] 2025-06-24 05:43:15 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 05:43:19 [LOG] 2025-06-24 05:43:19 - Get request made to GetPostsScroll Handler
+2025/06/24 05:43:19 [LOG] 2025-06-24 05:43:19 - Get request made to GetPostsScroll Handler
+2025/06/24 05:43:19 [INFO] 2025-06-24 05:43:19 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 05:43:19 [INFO] 2025-06-24 05:43:19 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 05:43:21 [INFO] 2025-06-24 05:43:21 - Recieved Request for fetching groups
+2025/06/24 05:43:21 [INFO] 2025-06-24 05:43:21 - Groups Fetched Successfuly
+2025/06/24 05:43:21 [LOG] 2025-06-24 05:43:21 - Invite Request Group to join fetched successfully
+2025/06/24 05:43:21 [INFO] 2025-06-24 05:43:21 - Recieved Request for fetching groups
+2025/06/24 05:43:21 [INFO] 2025-06-24 05:43:21 - Groups Fetched Successfuly
+2025/06/24 05:43:21 [LOG] 2025-06-24 05:43:21 - Invite Request Group to join fetched successfully
+2025/06/24 05:43:23 [INFO] 2025-06-24 05:43:23 - Recieved Request To fetch Group page
+2025/06/24 05:43:23 [INFO] 2025-06-24 05:43:23 - Group With ID : 3 Fetched With Success
+2025/06/24 05:43:23 [INFO] 2025-06-24 05:43:23 - Recieved Request To fetch Group page
+2025/06/24 05:43:23 [INFO] 2025-06-24 05:43:23 - Group With ID : 3 Fetched With Success
+2025/06/24 05:43:23 [LOG] 2025-06-24 05:43:23 - Get request made to GetPostsScroll Handler
+2025/06/24 05:43:23 [ERROR] 2025-06-24 05:43:23 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 05:43:23 [LOG] 2025-06-24 05:43:23 - Get request made to GetPostsScroll Handler
+2025/06/24 05:43:23 [ERROR] 2025-06-24 05:43:23 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 05:43:23 [INFO] 2025-06-24 05:43:23 - Admin requested pending invites
+2025/06/24 05:43:23 [INFO] 2025-06-24 05:43:23 - Admin requested pending invites
+2025/06/24 05:43:24 [INFO] 2025-06-24 05:43:24 - Received request to fetch FriendList
+2025/06/24 05:43:24 [INFO] 2025-06-24 05:43:24 - Friends in group 3 fetched successfully
+2025/06/24 05:43:29 [INFO] 2025-06-24 05:43:29 - Recieved Request To fetch Group page
+2025/06/24 05:43:29 [INFO] 2025-06-24 05:43:29 - Group With ID : 3 Fetched With Success
+2025/06/24 05:43:29 [LOG] 2025-06-24 05:43:29 - Get request made to GetPostsScroll Handler
+2025/06/24 05:43:29 [INFO] 2025-06-24 05:43:29 - Recieved Request To fetch Group page
+2025/06/24 05:43:29 [INFO] 2025-06-24 05:43:29 - Group With ID : 3 Fetched With Success
+2025/06/24 05:43:29 [ERROR] 2025-06-24 05:43:29 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 05:43:29 [LOG] 2025-06-24 05:43:29 - Get request made to GetPostsScroll Handler
+2025/06/24 05:43:29 [ERROR] 2025-06-24 05:43:29 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 05:43:29 [INFO] 2025-06-24 05:43:29 - Admin requested pending invites
+2025/06/24 05:43:29 [INFO] 2025-06-24 05:43:29 - Admin requested pending invites
+2025/06/24 05:43:30 [INFO] 2025-06-24 05:43:30 - Received request to fetch FriendList
+2025/06/24 05:43:30 [INFO] 2025-06-24 05:43:30 - Friends in group 3 fetched successfully
+2025/06/24 05:43:38 [INFO] 2025-06-24 05:43:38 - Received request to fetch group members
+2025/06/24 05:43:38 [INFO] 2025-06-24 05:43:38 - Group members for group 3 fetched successfully
+2025/06/24 05:43:43 [INFO] 2025-06-24 05:43:43 - Received request to fetch FriendList
+2025/06/24 05:43:43 [INFO] 2025-06-24 05:43:43 - Friends in group 3 fetched successfully
+2025/06/24 05:43:45 [INFO] 2025-06-24 05:43:45 - Recieved Invite to group  Request
+2025/06/24 05:43:45 [INFO] 2025-06-24 05:43:45 - Invite ID: 18
+2025/06/24 05:43:45 [INFO] 2025-06-24 05:43:45 - User with Id : 0acc4c0b-5ec0-4657-8550-bc22231832f3 Has Been Invited
+2025/06/24 05:43:45 [INFO] 2025-06-24 05:43:45 - User 0acc4c0b-5ec0-4657-8550-bc22231832f3 not connected, notification saved to DB
+2025/06/24 05:44:20 [INFO] 2025-06-24 05:44:20 - Verify-token hit
+2025/06/24 05:44:27 [INFO] 2025-06-24 05:44:27 - Received request to fetch FriendList
+2025/06/24 05:44:27 [INFO] 2025-06-24 05:44:27 - Friends in group 3 fetched successfully
+2025/06/24 05:44:33 [INFO] 2025-06-24 05:44:33 - Verify-token hit
+2025/06/24 05:44:36 [INFO] 2025-06-24 05:44:36 - Recieved Request To fetch Group page
+2025/06/24 05:44:36 [INFO] 2025-06-24 05:44:36 - Group With ID : 3 Fetched With Success
+2025/06/24 05:44:36 [INFO] 2025-06-24 05:44:36 - Recieved Request To fetch Group page
+2025/06/24 05:44:36 [LOG] 2025-06-24 05:44:36 - Get request made to GetPostsScroll Handler
+2025/06/24 05:44:36 [INFO] 2025-06-24 05:44:36 - Group With ID : 3 Fetched With Success
+2025/06/24 05:44:36 [ERROR] 2025-06-24 05:44:36 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 05:44:36 [LOG] 2025-06-24 05:44:36 - Get request made to GetPostsScroll Handler
+2025/06/24 05:44:36 [ERROR] 2025-06-24 05:44:36 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 05:44:36 [INFO] 2025-06-24 05:44:36 - Admin requested pending invites
+2025/06/24 05:44:36 [INFO] 2025-06-24 05:44:36 - Admin requested pending invites
+2025/06/24 05:44:39 [INFO] 2025-06-24 05:44:39 - Received request to fetch FriendList
+2025/06/24 05:44:39 [INFO] 2025-06-24 05:44:39 - Friends in group 3 fetched successfully
+2025/06/24 05:44:41 [INFO] 2025-06-24 05:44:41 - Recieved Invite to group  Request
+2025/06/24 05:44:41 [INFO] 2025-06-24 05:44:41 - Invite ID: 19
+2025/06/24 05:44:41 [INFO] 2025-06-24 05:44:41 - User with Id : 38ebe970-50e9-451e-a5e7-4236671eb9b8 Has Been Invited
+2025/06/24 05:44:41 [INFO] 2025-06-24 05:44:41 - Sent notification via WS to 38ebe970-50e9-451e-a5e7-4236671eb9b8
+2025/06/24 05:44:47 [INFO] 2025-06-24 05:44:47 - Saving GroupMember into DB
+2025/06/24 05:44:47 [INFO] 2025-06-24 05:44:47 - Notification deleted from db
+2025/06/24 05:44:49 [INFO] 2025-06-24 05:44:49 - Verify-token hit
+2025/06/24 05:44:50 [INFO] 2025-06-24 05:44:50 - =========== GetOtherUserProfile called ===========
+2025/06/24 05:44:50 [INFO] 2025-06-24 05:44:50 - Authenticated user ID: 1a3b436a-e419-43ab-b433-90785a20fcd1
+2025/06/24 05:44:50 [INFO] 2025-06-24 05:44:50 - Requested profile for user ID: 38ebe970-50e9-451e-a5e7-4236671eb9b8
+2025/06/24 05:44:50 [INFO] 2025-06-24 05:44:50 - Profile returned successfully
+2025/06/24 05:44:50 [INFO] 2025-06-24 05:44:50 - =========== GetOtherUserProfile called ===========
+2025/06/24 05:44:50 [INFO] 2025-06-24 05:44:50 - Authenticated user ID: 1a3b436a-e419-43ab-b433-90785a20fcd1
+2025/06/24 05:44:50 [INFO] 2025-06-24 05:44:50 - Requested profile for user ID: 38ebe970-50e9-451e-a5e7-4236671eb9b8
+2025/06/24 05:44:50 [INFO] 2025-06-24 05:44:50 - Profile returned successfully
+2025/06/24 05:44:50 [LOG] 2025-06-24 05:44:50 - Get request made to GetPostsScroll Handler
+2025/06/24 05:44:50 [ERROR] 2025-06-24 05:44:50 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 05:44:50 [LOG] 2025-06-24 05:44:50 - Get request made to GetPostsScroll Handler
+2025/06/24 05:44:50 [ERROR] 2025-06-24 05:44:50 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 05:44:56 [INFO] 2025-06-24 05:44:56 - Verify-token hit
+2025/06/24 05:44:56 [INFO] 2025-06-24 05:44:56 - =========== GetOtherUserProfile called ===========
+2025/06/24 05:44:56 [INFO] 2025-06-24 05:44:56 - Authenticated user ID: 38ebe970-50e9-451e-a5e7-4236671eb9b8
+2025/06/24 05:44:56 [INFO] 2025-06-24 05:44:56 - Requested profile for user ID: 1a3b436a-e419-43ab-b433-90785a20fcd1
+2025/06/24 05:44:56 [INFO] 2025-06-24 05:44:56 - User is a follower and can view the profile
+2025/06/24 05:44:56 [INFO] 2025-06-24 05:44:56 - Profile returned successfully
+2025/06/24 05:44:56 [INFO] 2025-06-24 05:44:56 - =========== GetOtherUserProfile called ===========
+2025/06/24 05:44:56 [INFO] 2025-06-24 05:44:56 - Authenticated user ID: 38ebe970-50e9-451e-a5e7-4236671eb9b8
+2025/06/24 05:44:56 [INFO] 2025-06-24 05:44:56 - Requested profile for user ID: 1a3b436a-e419-43ab-b433-90785a20fcd1
+2025/06/24 05:44:56 [INFO] 2025-06-24 05:44:56 - User is a follower and can view the profile
+2025/06/24 05:44:56 [INFO] 2025-06-24 05:44:56 - Profile returned successfully
+2025/06/24 05:44:56 [LOG] 2025-06-24 05:44:56 - Get request made to GetPostsScroll Handler
+2025/06/24 05:44:56 [INFO] 2025-06-24 05:44:56 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 05:44:56 [LOG] 2025-06-24 05:44:56 - Get request made to GetPostsScroll Handler
+2025/06/24 05:44:56 [INFO] 2025-06-24 05:44:56 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 05:45:11 [INFO] 2025-06-24 05:45:11 - Verify-token hit
+2025/06/24 05:45:11 [INFO] 2025-06-24 05:45:11 - =========== GetOtherUserProfile called ===========
+2025/06/24 05:45:11 [INFO] 2025-06-24 05:45:11 - Authenticated user ID: c88bc610-2cf6-4951-b534-2dc2a500ccba
+2025/06/24 05:45:11 [INFO] 2025-06-24 05:45:11 - Requested profile for user ID: 38ebe970-50e9-451e-a5e7-4236671eb9b8
+2025/06/24 05:45:11 [INFO] 2025-06-24 05:45:11 - Profile returned successfully
+2025/06/24 05:45:11 [INFO] 2025-06-24 05:45:11 - =========== GetOtherUserProfile called ===========
+2025/06/24 05:45:11 [INFO] 2025-06-24 05:45:11 - Authenticated user ID: c88bc610-2cf6-4951-b534-2dc2a500ccba
+2025/06/24 05:45:11 [INFO] 2025-06-24 05:45:11 - Requested profile for user ID: 38ebe970-50e9-451e-a5e7-4236671eb9b8
+2025/06/24 05:45:11 [INFO] 2025-06-24 05:45:11 - Profile returned successfully
+2025/06/24 05:45:11 [LOG] 2025-06-24 05:45:11 - Get request made to GetPostsScroll Handler
+2025/06/24 05:45:11 [ERROR] 2025-06-24 05:45:11 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 05:45:11 [LOG] 2025-06-24 05:45:11 - Get request made to GetPostsScroll Handler
+2025/06/24 05:45:11 [ERROR] 2025-06-24 05:45:11 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 05:45:15 [INFO] 2025-06-24 05:45:15 - Recieved Request for fetching groups
+2025/06/24 05:45:15 [LOG] 2025-06-24 05:45:15 - Invite Request Group to join fetched successfully
+2025/06/24 05:45:15 [INFO] 2025-06-24 05:45:15 - Groups Fetched Successfuly
+2025/06/24 05:45:15 [INFO] 2025-06-24 05:45:15 - Recieved Request for fetching groups
+2025/06/24 05:45:15 [LOG] 2025-06-24 05:45:15 - Invite Request Group to join fetched successfully
+2025/06/24 05:45:15 [INFO] 2025-06-24 05:45:15 - Groups Fetched Successfuly
+2025/06/24 05:45:17 [INFO] 2025-06-24 05:45:17 - Recieved Request To fetch Group page
+2025/06/24 05:45:17 [INFO] 2025-06-24 05:45:17 - Group With ID : 3 Fetched With Success
+2025/06/24 05:45:17 [LOG] 2025-06-24 05:45:17 - Get request made to GetPostsScroll Handler
+2025/06/24 05:45:17 [ERROR] 2025-06-24 05:45:17 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 05:45:17 [INFO] 2025-06-24 05:45:17 - Recieved Request To fetch Group page
+2025/06/24 05:45:17 [INFO] 2025-06-24 05:45:17 - Group With ID : 3 Fetched With Success
+2025/06/24 05:45:17 [LOG] 2025-06-24 05:45:17 - Get request made to GetPostsScroll Handler
+2025/06/24 05:45:17 [ERROR] 2025-06-24 05:45:17 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 05:45:17 [INFO] 2025-06-24 05:45:17 - Admin requested pending invites
+2025/06/24 05:45:17 [INFO] 2025-06-24 05:45:17 - Admin requested pending invites
+2025/06/24 05:45:18 [INFO] 2025-06-24 05:45:18 - Received request to fetch FriendList
+2025/06/24 05:45:18 [INFO] 2025-06-24 05:45:18 - Friends in group 3 fetched successfully
+2025/06/24 05:45:20 [INFO] 2025-06-24 05:45:20 - Recieved Invite to group  Request
+2025/06/24 05:45:20 [INFO] 2025-06-24 05:45:20 - Invite ID: 20
+2025/06/24 05:45:20 [INFO] 2025-06-24 05:45:20 - User with Id : c88bc610-2cf6-4951-b534-2dc2a500ccba Has Been Invited
+2025/06/24 05:45:20 [INFO] 2025-06-24 05:45:20 - Sent notification via WS to c88bc610-2cf6-4951-b534-2dc2a500ccba
+2025/06/24 05:45:31 [LOG] 2025-06-24 05:45:31 - Get request made to GetPostsScroll Handler
+2025/06/24 05:45:31 [INFO] 2025-06-24 05:45:31 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 05:45:31 [LOG] 2025-06-24 05:45:31 - Get request made to GetPostsScroll Handler
+2025/06/24 05:45:31 [INFO] 2025-06-24 05:45:31 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 05:45:36 [INFO] 2025-06-24 05:45:36 - Saving GroupMember into DB
+2025/06/24 05:45:36 [INFO] 2025-06-24 05:45:36 - Notification deleted from db
+2025/06/24 05:45:36 [INFO] 2025-06-24 05:45:36 - Sent notification via WS to 1a3b436a-e419-43ab-b433-90785a20fcd1
+2025/06/24 05:45:38 [INFO] 2025-06-24 05:45:38 - Verify-token hit
+2025/06/24 05:45:39 [INFO] 2025-06-24 05:45:39 - =========== GetOtherUserProfile called ===========
+2025/06/24 05:45:39 [INFO] 2025-06-24 05:45:39 - Authenticated user ID: c88bc610-2cf6-4951-b534-2dc2a500ccba
+2025/06/24 05:45:39 [INFO] 2025-06-24 05:45:39 - Requested profile for user ID: 38ebe970-50e9-451e-a5e7-4236671eb9b8
+2025/06/24 05:45:39 [INFO] 2025-06-24 05:45:39 - Profile returned successfully
+2025/06/24 05:45:39 [INFO] 2025-06-24 05:45:39 - =========== GetOtherUserProfile called ===========
+2025/06/24 05:45:39 [INFO] 2025-06-24 05:45:39 - Authenticated user ID: c88bc610-2cf6-4951-b534-2dc2a500ccba
+2025/06/24 05:45:39 [INFO] 2025-06-24 05:45:39 - Requested profile for user ID: 38ebe970-50e9-451e-a5e7-4236671eb9b8
+2025/06/24 05:45:39 [INFO] 2025-06-24 05:45:39 - Profile returned successfully
+2025/06/24 05:45:39 [LOG] 2025-06-24 05:45:39 - Get request made to GetPostsScroll Handler
+2025/06/24 05:45:39 [ERROR] 2025-06-24 05:45:39 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 05:45:39 [LOG] 2025-06-24 05:45:39 - Get request made to GetPostsScroll Handler
+2025/06/24 05:45:39 [ERROR] 2025-06-24 05:45:39 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 05:45:44 [INFO] 2025-06-24 05:45:44 - Recieved a Admin approving request
+2025/06/24 05:45:44 [INFO] 2025-06-24 05:45:44 - Saving GroupMember into DB
+2025/06/24 05:45:44 [INFO] 2025-06-24 05:45:44 - Admin accept invite 20 successfully
+2025/06/24 05:45:44 [LOG] 2025-06-24 05:45:44 - No notification matched for deletion
+2025/06/24 05:45:44 [INFO] 2025-06-24 05:45:44 - Sent notification via WS to c88bc610-2cf6-4951-b534-2dc2a500ccba
+2025/06/24 05:45:46 [INFO] 2025-06-24 05:45:46 - Verify-token hit
+2025/06/24 05:45:47 [INFO] 2025-06-24 05:45:47 - =========== GetOtherUserProfile called ===========
+2025/06/24 05:45:47 [INFO] 2025-06-24 05:45:47 - Authenticated user ID: 1a3b436a-e419-43ab-b433-90785a20fcd1
+2025/06/24 05:45:47 [INFO] 2025-06-24 05:45:47 - Requested profile for user ID: 38ebe970-50e9-451e-a5e7-4236671eb9b8
+2025/06/24 05:45:47 [INFO] 2025-06-24 05:45:47 - Profile returned successfully
+2025/06/24 05:45:47 [INFO] 2025-06-24 05:45:47 - =========== GetOtherUserProfile called ===========
+2025/06/24 05:45:47 [INFO] 2025-06-24 05:45:47 - Authenticated user ID: 1a3b436a-e419-43ab-b433-90785a20fcd1
+2025/06/24 05:45:47 [INFO] 2025-06-24 05:45:47 - Requested profile for user ID: 38ebe970-50e9-451e-a5e7-4236671eb9b8
+2025/06/24 05:45:47 [INFO] 2025-06-24 05:45:47 - Profile returned successfully
+2025/06/24 05:45:47 [LOG] 2025-06-24 05:45:47 - Get request made to GetPostsScroll Handler
+2025/06/24 05:45:47 [ERROR] 2025-06-24 05:45:47 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 05:45:47 [LOG] 2025-06-24 05:45:47 - Get request made to GetPostsScroll Handler
+2025/06/24 05:45:47 [ERROR] 2025-06-24 05:45:47 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 05:45:53 [INFO] 2025-06-24 05:45:53 - Recieved a Admin approving request
+2025/06/24 05:45:53 [ERROR] 2025-06-24 05:45:53 - Invite does not exist
+2025/06/24 05:45:55 [INFO] 2025-06-24 05:45:55 - Verify-token hit
+2025/06/24 05:45:56 [INFO] 2025-06-24 05:45:56 - =========== GetOtherUserProfile called ===========
+2025/06/24 05:45:56 [INFO] 2025-06-24 05:45:56 - Authenticated user ID: 1a3b436a-e419-43ab-b433-90785a20fcd1
+2025/06/24 05:45:56 [INFO] 2025-06-24 05:45:56 - Requested profile for user ID: 38ebe970-50e9-451e-a5e7-4236671eb9b8
+2025/06/24 05:45:56 [INFO] 2025-06-24 05:45:56 - Profile returned successfully
+2025/06/24 05:45:56 [INFO] 2025-06-24 05:45:56 - =========== GetOtherUserProfile called ===========
+2025/06/24 05:45:56 [INFO] 2025-06-24 05:45:56 - Authenticated user ID: 1a3b436a-e419-43ab-b433-90785a20fcd1
+2025/06/24 05:45:56 [INFO] 2025-06-24 05:45:56 - Requested profile for user ID: 38ebe970-50e9-451e-a5e7-4236671eb9b8
+2025/06/24 05:45:56 [INFO] 2025-06-24 05:45:56 - Profile returned successfully
+2025/06/24 05:45:56 [LOG] 2025-06-24 05:45:56 - Get request made to GetPostsScroll Handler
+2025/06/24 05:45:56 [ERROR] 2025-06-24 05:45:56 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 05:45:56 [LOG] 2025-06-24 05:45:56 - Get request made to GetPostsScroll Handler
+2025/06/24 05:45:56 [ERROR] 2025-06-24 05:45:56 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 05:51:23 [INFO] 2025-06-24 05:51:23 - Starting HTTP server at http://localhost:8080 ...
+2025/06/24 05:51:23 [INFO] 2025-06-24 05:51:23 - Migrations applied successfully!
+2025/06/24 05:51:26 [INFO] 2025-06-24 05:51:26 - Verify-token hit
+2025/06/24 05:51:26 [INFO] 2025-06-24 05:51:26 - =========== GetOtherUserProfile called ===========
+2025/06/24 05:51:26 [INFO] 2025-06-24 05:51:26 - Authenticated user ID: 1a3b436a-e419-43ab-b433-90785a20fcd1
+2025/06/24 05:51:26 [INFO] 2025-06-24 05:51:26 - Requested profile for user ID: 38ebe970-50e9-451e-a5e7-4236671eb9b8
+2025/06/24 05:51:26 [INFO] 2025-06-24 05:51:26 - Profile returned successfully
+2025/06/24 05:51:26 [INFO] 2025-06-24 05:51:26 - =========== GetOtherUserProfile called ===========
+2025/06/24 05:51:26 [INFO] 2025-06-24 05:51:26 - Authenticated user ID: 1a3b436a-e419-43ab-b433-90785a20fcd1
+2025/06/24 05:51:26 [INFO] 2025-06-24 05:51:26 - Requested profile for user ID: 38ebe970-50e9-451e-a5e7-4236671eb9b8
+2025/06/24 05:51:26 [INFO] 2025-06-24 05:51:26 - Profile returned successfully
+2025/06/24 05:51:26 [LOG] 2025-06-24 05:51:26 - Get request made to GetPostsScroll Handler
+2025/06/24 05:51:26 [ERROR] 2025-06-24 05:51:26 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 05:51:26 [LOG] 2025-06-24 05:51:26 - Get request made to GetPostsScroll Handler
+2025/06/24 05:51:26 [ERROR] 2025-06-24 05:51:26 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 05:51:28 [INFO] 2025-06-24 05:51:28 - Recieved a Admin approving request
+2025/06/24 05:51:28 [ERROR] 2025-06-24 05:51:28 - Invite does not exist
+2025/06/24 05:51:29 [INFO] 2025-06-24 05:51:29 - Verify-token hit
+2025/06/24 05:51:29 [INFO] 2025-06-24 05:51:29 - =========== GetOtherUserProfile called ===========
+2025/06/24 05:51:29 [INFO] 2025-06-24 05:51:29 - Authenticated user ID: 1a3b436a-e419-43ab-b433-90785a20fcd1
+2025/06/24 05:51:29 [INFO] 2025-06-24 05:51:29 - Requested profile for user ID: 38ebe970-50e9-451e-a5e7-4236671eb9b8
+2025/06/24 05:51:29 [INFO] 2025-06-24 05:51:29 - =========== GetOtherUserProfile called ===========
+2025/06/24 05:51:29 [INFO] 2025-06-24 05:51:29 - Authenticated user ID: 1a3b436a-e419-43ab-b433-90785a20fcd1
+2025/06/24 05:51:29 [INFO] 2025-06-24 05:51:29 - Requested profile for user ID: 38ebe970-50e9-451e-a5e7-4236671eb9b8
+2025/06/24 05:51:29 [INFO] 2025-06-24 05:51:29 - Profile returned successfully
+2025/06/24 05:51:29 [INFO] 2025-06-24 05:51:29 - Profile returned successfully
+2025/06/24 05:51:29 [LOG] 2025-06-24 05:51:29 - Get request made to GetPostsScroll Handler
+2025/06/24 05:51:29 [ERROR] 2025-06-24 05:51:29 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 05:51:29 [LOG] 2025-06-24 05:51:29 - Get request made to GetPostsScroll Handler
+2025/06/24 05:51:29 [ERROR] 2025-06-24 05:51:29 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 05:53:40 [INFO] 2025-06-24 05:53:40 - Starting HTTP server at http://localhost:8080 ...
+2025/06/24 05:53:40 [INFO] 2025-06-24 05:53:40 - Migrations applied successfully!
+2025/06/24 05:53:58 [INFO] 2025-06-24 05:53:58 - Verify-token hit
+2025/06/24 05:53:58 [INFO] 2025-06-24 05:53:58 - =========== GetOtherUserProfile called ===========
+2025/06/24 05:53:58 [INFO] 2025-06-24 05:53:58 - Authenticated user ID: c88bc610-2cf6-4951-b534-2dc2a500ccba
+2025/06/24 05:53:58 [INFO] 2025-06-24 05:53:58 - Requested profile for user ID: 38ebe970-50e9-451e-a5e7-4236671eb9b8
+2025/06/24 05:53:58 [INFO] 2025-06-24 05:53:58 - Profile returned successfully
+2025/06/24 05:53:58 [INFO] 2025-06-24 05:53:58 - =========== GetOtherUserProfile called ===========
+2025/06/24 05:53:58 [INFO] 2025-06-24 05:53:58 - Authenticated user ID: c88bc610-2cf6-4951-b534-2dc2a500ccba
+2025/06/24 05:53:58 [INFO] 2025-06-24 05:53:58 - Requested profile for user ID: 38ebe970-50e9-451e-a5e7-4236671eb9b8
+2025/06/24 05:53:58 [INFO] 2025-06-24 05:53:58 - Profile returned successfully
+2025/06/24 05:53:59 [LOG] 2025-06-24 05:53:59 - Get request made to GetPostsScroll Handler
+2025/06/24 05:53:59 [ERROR] 2025-06-24 05:53:59 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 05:53:59 [LOG] 2025-06-24 05:53:59 - Get request made to GetPostsScroll Handler
+2025/06/24 05:53:59 [ERROR] 2025-06-24 05:53:59 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 05:54:10 [INFO] 2025-06-24 05:54:10 - Verify-token hit
+2025/06/24 05:54:49 [INFO] 2025-06-24 05:54:49 - Verify-token hit
+2025/06/24 05:54:50 [INFO] 2025-06-24 05:54:50 - =========== GetOtherUserProfile called ===========
+2025/06/24 05:54:50 [INFO] 2025-06-24 05:54:50 - Authenticated user ID: 1a3b436a-e419-43ab-b433-90785a20fcd1
+2025/06/24 05:54:50 [INFO] 2025-06-24 05:54:50 - Requested profile for user ID: 38ebe970-50e9-451e-a5e7-4236671eb9b8
+2025/06/24 05:54:50 [INFO] 2025-06-24 05:54:50 - Profile returned successfully
+2025/06/24 05:54:50 [INFO] 2025-06-24 05:54:50 - =========== GetOtherUserProfile called ===========
+2025/06/24 05:54:50 [INFO] 2025-06-24 05:54:50 - Authenticated user ID: 1a3b436a-e419-43ab-b433-90785a20fcd1
+2025/06/24 05:54:50 [INFO] 2025-06-24 05:54:50 - Requested profile for user ID: 38ebe970-50e9-451e-a5e7-4236671eb9b8
+2025/06/24 05:54:50 [INFO] 2025-06-24 05:54:50 - Profile returned successfully
+2025/06/24 05:54:50 [LOG] 2025-06-24 05:54:50 - Get request made to GetPostsScroll Handler
+2025/06/24 05:54:50 [ERROR] 2025-06-24 05:54:50 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 05:54:50 [LOG] 2025-06-24 05:54:50 - Get request made to GetPostsScroll Handler
+2025/06/24 05:54:50 [ERROR] 2025-06-24 05:54:50 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 05:54:52 [INFO] 2025-06-24 05:54:52 - Recieved a Admin approving request
+2025/06/24 05:54:52 [ERROR] 2025-06-24 05:54:52 - Invite does not exist
+2025/06/24 05:54:57 [INFO] 2025-06-24 05:54:57 - Verify-token hit
+2025/06/24 05:54:57 [INFO] 2025-06-24 05:54:57 - =========== GetOtherUserProfile called ===========
+2025/06/24 05:54:57 [INFO] 2025-06-24 05:54:57 - Authenticated user ID: 1a3b436a-e419-43ab-b433-90785a20fcd1
+2025/06/24 05:54:57 [INFO] 2025-06-24 05:54:57 - Requested profile for user ID: 38ebe970-50e9-451e-a5e7-4236671eb9b8
+2025/06/24 05:54:57 [INFO] 2025-06-24 05:54:57 - Profile returned successfully
+2025/06/24 05:54:57 [INFO] 2025-06-24 05:54:57 - =========== GetOtherUserProfile called ===========
+2025/06/24 05:54:57 [INFO] 2025-06-24 05:54:57 - Authenticated user ID: 1a3b436a-e419-43ab-b433-90785a20fcd1
+2025/06/24 05:54:57 [INFO] 2025-06-24 05:54:57 - Requested profile for user ID: 38ebe970-50e9-451e-a5e7-4236671eb9b8
+2025/06/24 05:54:57 [INFO] 2025-06-24 05:54:57 - Profile returned successfully
+2025/06/24 05:54:57 [LOG] 2025-06-24 05:54:57 - Get request made to GetPostsScroll Handler
+2025/06/24 05:54:57 [ERROR] 2025-06-24 05:54:57 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 05:54:57 [LOG] 2025-06-24 05:54:57 - Get request made to GetPostsScroll Handler
+2025/06/24 05:54:57 [ERROR] 2025-06-24 05:54:57 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 05:55:45 [INFO] 2025-06-24 05:55:45 - Verify-token hit
+2025/06/24 05:55:46 [INFO] 2025-06-24 05:55:46 - =========== GetOtherUserProfile called ===========
+2025/06/24 05:55:46 [INFO] 2025-06-24 05:55:46 - Authenticated user ID: 1a3b436a-e419-43ab-b433-90785a20fcd1
+2025/06/24 05:55:46 [INFO] 2025-06-24 05:55:46 - Requested profile for user ID: 38ebe970-50e9-451e-a5e7-4236671eb9b8
+2025/06/24 05:55:46 [INFO] 2025-06-24 05:55:46 - Profile returned successfully
+2025/06/24 05:55:46 [INFO] 2025-06-24 05:55:46 - =========== GetOtherUserProfile called ===========
+2025/06/24 05:55:46 [INFO] 2025-06-24 05:55:46 - Authenticated user ID: 1a3b436a-e419-43ab-b433-90785a20fcd1
+2025/06/24 05:55:46 [INFO] 2025-06-24 05:55:46 - Requested profile for user ID: 38ebe970-50e9-451e-a5e7-4236671eb9b8
+2025/06/24 05:55:46 [INFO] 2025-06-24 05:55:46 - Profile returned successfully
+2025/06/24 05:55:46 [LOG] 2025-06-24 05:55:46 - Get request made to GetPostsScroll Handler
+2025/06/24 05:55:46 [ERROR] 2025-06-24 05:55:46 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 05:55:46 [LOG] 2025-06-24 05:55:46 - Get request made to GetPostsScroll Handler
+2025/06/24 05:55:46 [ERROR] 2025-06-24 05:55:46 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 05:55:50 [LOG] 2025-06-24 05:55:50 - Get request made to GetPostsScroll Handler
+2025/06/24 05:55:50 [INFO] 2025-06-24 05:55:50 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 05:55:50 [LOG] 2025-06-24 05:55:50 - Get request made to GetPostsScroll Handler
+2025/06/24 05:55:50 [INFO] 2025-06-24 05:55:50 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 05:55:52 [INFO] 2025-06-24 05:55:52 - Verify-token hit
+2025/06/24 05:56:51 [INFO] 2025-06-24 05:56:51 - Verify-token hit
+2025/06/24 05:56:51 [INFO] 2025-06-24 05:56:51 - =========== GetOtherUserProfile called ===========
+2025/06/24 05:56:51 [INFO] 2025-06-24 05:56:51 - Authenticated user ID: 1a3b436a-e419-43ab-b433-90785a20fcd1
+2025/06/24 05:56:51 [INFO] 2025-06-24 05:56:51 - Requested profile for user ID: 38ebe970-50e9-451e-a5e7-4236671eb9b8
+2025/06/24 05:56:51 [INFO] 2025-06-24 05:56:51 - Profile returned successfully
+2025/06/24 05:56:51 [INFO] 2025-06-24 05:56:51 - =========== GetOtherUserProfile called ===========
+2025/06/24 05:56:51 [INFO] 2025-06-24 05:56:51 - Authenticated user ID: 1a3b436a-e419-43ab-b433-90785a20fcd1
+2025/06/24 05:56:51 [INFO] 2025-06-24 05:56:51 - Requested profile for user ID: 38ebe970-50e9-451e-a5e7-4236671eb9b8
+2025/06/24 05:56:51 [INFO] 2025-06-24 05:56:51 - Profile returned successfully
+2025/06/24 05:56:51 [LOG] 2025-06-24 05:56:51 - Get request made to GetPostsScroll Handler
+2025/06/24 05:56:51 [ERROR] 2025-06-24 05:56:51 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 05:56:52 [LOG] 2025-06-24 05:56:52 - Get request made to GetPostsScroll Handler
+2025/06/24 05:56:52 [ERROR] 2025-06-24 05:56:52 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 05:56:53 [LOG] 2025-06-24 05:56:53 - Get request made to GetPostsScroll Handler
+2025/06/24 05:56:53 [INFO] 2025-06-24 05:56:53 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 05:56:53 [LOG] 2025-06-24 05:56:53 - Get request made to GetPostsScroll Handler
+2025/06/24 05:56:53 [INFO] 2025-06-24 05:56:53 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 05:56:54 [INFO] 2025-06-24 05:56:54 - Verify-token hit
+2025/06/24 05:56:58 [INFO] 2025-06-24 05:56:58 - Recieved Request for fetching groups
+2025/06/24 05:56:58 [LOG] 2025-06-24 05:56:58 - Invite Request Group to join fetched successfully
+2025/06/24 05:56:58 [INFO] 2025-06-24 05:56:58 - Groups Fetched Successfuly
+2025/06/24 05:56:58 [INFO] 2025-06-24 05:56:58 - Recieved Request for fetching groups
+2025/06/24 05:56:58 [LOG] 2025-06-24 05:56:58 - Invite Request Group to join fetched successfully
+2025/06/24 05:56:58 [INFO] 2025-06-24 05:56:58 - Groups Fetched Successfuly
+2025/06/24 05:57:00 [INFO] 2025-06-24 05:57:00 - Recieved Request To fetch Group page
+2025/06/24 05:57:00 [INFO] 2025-06-24 05:57:00 - Recieved Request To fetch Group page
+2025/06/24 05:57:00 [INFO] 2025-06-24 05:57:00 - Group With ID : 3 Fetched With Success
+2025/06/24 05:57:00 [INFO] 2025-06-24 05:57:00 - Group With ID : 3 Fetched With Success
+2025/06/24 05:57:00 [LOG] 2025-06-24 05:57:00 - Get request made to GetPostsScroll Handler
+2025/06/24 05:57:00 [ERROR] 2025-06-24 05:57:00 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 05:57:00 [LOG] 2025-06-24 05:57:00 - Get request made to GetPostsScroll Handler
+2025/06/24 05:57:00 [ERROR] 2025-06-24 05:57:00 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 05:57:00 [INFO] 2025-06-24 05:57:00 - Admin requested pending invites
+2025/06/24 05:57:00 [INFO] 2025-06-24 05:57:00 - Admin requested pending invites
+2025/06/24 05:57:01 [INFO] 2025-06-24 05:57:01 - Received request to fetch FriendList
+2025/06/24 05:57:01 [INFO] 2025-06-24 05:57:01 - Friends in group 3 fetched successfully
+2025/06/24 05:57:05 [LOG] 2025-06-24 05:57:05 - Get request made to GetPostsScroll Handler
+2025/06/24 05:57:05 [INFO] 2025-06-24 05:57:05 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 05:57:05 [LOG] 2025-06-24 05:57:05 - Get request made to GetPostsScroll Handler
+2025/06/24 05:57:05 [INFO] 2025-06-24 05:57:05 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 05:57:07 [INFO] 2025-06-24 05:57:07 - Recieved Invite to group  Request
+2025/06/24 05:57:07 [INFO] 2025-06-24 05:57:07 - Invite ID: 21
+2025/06/24 05:57:07 [INFO] 2025-06-24 05:57:07 - User with Id : 38ebe970-50e9-451e-a5e7-4236671eb9b8 Has Been Invited
+2025/06/24 05:57:07 [INFO] 2025-06-24 05:57:07 - Sent notification via WS to 38ebe970-50e9-451e-a5e7-4236671eb9b8
+2025/06/24 05:57:21 [INFO] 2025-06-24 05:57:21 - Saving GroupMember into DB
+2025/06/24 05:57:21 [INFO] 2025-06-24 05:57:21 - Notification deleted from db
+2025/06/24 05:57:32 [LOG] 2025-06-24 05:57:32 - Get request made to GetPostsScroll Handler
+2025/06/24 05:57:32 [INFO] 2025-06-24 05:57:32 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 05:57:32 [LOG] 2025-06-24 05:57:32 - Get request made to GetPostsScroll Handler
+2025/06/24 05:57:32 [INFO] 2025-06-24 05:57:32 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 05:57:38 [LOG] 2025-06-24 05:57:38 - Get request made to GetPostsScroll Handler
+2025/06/24 05:57:38 [INFO] 2025-06-24 05:57:38 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 05:57:38 [LOG] 2025-06-24 05:57:38 - Get request made to GetPostsScroll Handler
+2025/06/24 05:57:38 [INFO] 2025-06-24 05:57:38 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 05:58:02 [LOG] 2025-06-24 05:58:02 - Get request made to GetPostsScroll Handler
+2025/06/24 05:58:02 [INFO] 2025-06-24 05:58:02 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 05:58:02 [LOG] 2025-06-24 05:58:02 - Get request made to GetPostsScroll Handler
+2025/06/24 05:58:02 [INFO] 2025-06-24 05:58:02 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 06:04:44 [LOG] 2025-06-24 06:04:44 - Get request made to GetPostsScroll Handler
+2025/06/24 06:04:44 [INFO] 2025-06-24 06:04:44 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 06:04:44 [LOG] 2025-06-24 06:04:44 - Get request made to GetPostsScroll Handler
+2025/06/24 06:04:44 [INFO] 2025-06-24 06:04:44 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 06:37:19 [INFO] 2025-06-24 06:37:19 - Starting HTTP server at http://localhost:8080 ...
+2025/06/24 06:37:19 [INFO] 2025-06-24 06:37:19 - Migrations applied successfully!
+2025/06/24 06:37:25 [ERROR] 2025-06-24 06:37:25 - Token cookie is missing in GetToken
+2025/06/24 06:37:25 [ERROR] 2025-06-24 06:37:25 - Token cookie is missing in GetToken
+2025/06/24 06:37:25 [ERROR] 2025-06-24 06:37:25 - Token cookie is missing in GetToken
+2025/06/24 06:37:30 [INFO] 2025-06-24 06:37:30 - Received login request
+2025/06/24 06:37:30 [INFO] 2025-06-24 06:37:30 - Request body parsed successfully
+2025/06/24 06:37:30 [INFO] 2025-06-24 06:37:30 - Email and password fields validated
+2025/06/24 06:37:30 [WARNING] 2025-06-24 06:37:30 - Login attempt with unknown email: omarr@gmail.com
+2025/06/24 06:37:33 [INFO] 2025-06-24 06:37:33 - Received login request
+2025/06/24 06:37:33 [INFO] 2025-06-24 06:37:33 - Request body parsed successfully
+2025/06/24 06:37:33 [INFO] 2025-06-24 06:37:33 - Email and password fields validated
+2025/06/24 06:37:33 [INFO] 2025-06-24 06:37:33 - User data retrieved from DB for email: omar@gmail.com
+2025/06/24 06:37:33 [INFO] 2025-06-24 06:37:33 - Password validated successfully
+2025/06/24 06:37:33 [INFO] 2025-06-24 06:37:33 - Sending success with token for user: 1a3b436a-e419-43ab-b433-90785a20fcd1
+2025/06/24 06:37:33 [INFO] 2025-06-24 06:37:33 - Save Token into Sessions
+2025/06/24 06:37:33 [INFO] 2025-06-24 06:37:33 - Login successful for user: 1a3b436a-e419-43ab-b433-90785a20fcd1
+2025/06/24 06:37:33 [LOG] 2025-06-24 06:37:33 - Get request made to GetPostsScroll Handler
+2025/06/24 06:37:33 [INFO] 2025-06-24 06:37:33 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 06:37:33 [LOG] 2025-06-24 06:37:33 - Get request made to GetPostsScroll Handler
+2025/06/24 06:37:33 [INFO] 2025-06-24 06:37:33 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 06:37:37 [INFO] 2025-06-24 06:37:37 - Recieved Request for fetching groups
+2025/06/24 06:37:37 [INFO] 2025-06-24 06:37:37 - Groups Fetched Successfuly
+2025/06/24 06:37:37 [LOG] 2025-06-24 06:37:37 - Invite Request Group to join fetched successfully
+2025/06/24 06:37:37 [INFO] 2025-06-24 06:37:37 - Recieved Request for fetching groups
+2025/06/24 06:37:37 [INFO] 2025-06-24 06:37:37 - Groups Fetched Successfuly
+2025/06/24 06:37:37 [LOG] 2025-06-24 06:37:37 - Invite Request Group to join fetched successfully
+2025/06/24 06:38:07 [INFO] 2025-06-24 06:38:07 - Handling file upload for form field 'Image'
+2025/06/24 06:38:07 [INFO] 2025-06-24 06:38:07 - No file uploaded for field 'Image'
+2025/06/24 06:38:07 [INFO] 2025-06-24 06:38:07 - Group Input Validated
+2025/06/24 06:38:07 [INFO] 2025-06-24 06:38:07 - Saving group into DB
+2025/06/24 06:38:07 [ERROR] 2025-06-24 06:38:07 - Failed to save group to DB: Failed to insert into Db : CHECK constraint failed: LENGTH(title) > 10 AND LENGTH(title) <120
+2025/06/24 06:38:12 [INFO] 2025-06-24 06:38:12 - Handling file upload for form field 'Image'
+2025/06/24 06:38:12 [INFO] 2025-06-24 06:38:12 - No file uploaded for field 'Image'
+2025/06/24 06:38:12 [INFO] 2025-06-24 06:38:12 - Group Input Validated
+2025/06/24 06:38:12 [INFO] 2025-06-24 06:38:12 - Saving group into DB
+2025/06/24 06:38:12 [INFO] 2025-06-24 06:38:12 - Saving GroupMember into DB
+2025/06/24 06:38:12 [INFO] 2025-06-24 06:38:12 - Group created successfully with ID: 4
+2025/06/24 06:39:07 [ERROR] 2025-06-24 06:39:07 - Token cookie is missing in GetToken
+2025/06/24 06:39:07 [ERROR] 2025-06-24 06:39:07 - Token cookie is missing in GetToken
+2025/06/24 06:39:07 [ERROR] 2025-06-24 06:39:07 - Token cookie is missing in GetToken
+2025/06/24 06:39:09 [ERROR] 2025-06-24 06:39:09 - Token cookie is missing in GetToken
+2025/06/24 06:39:14 [INFO] 2025-06-24 06:39:14 - Received login request
+2025/06/24 06:39:14 [INFO] 2025-06-24 06:39:14 - Request body parsed successfully
+2025/06/24 06:39:14 [INFO] 2025-06-24 06:39:14 - Email and password fields validated
+2025/06/24 06:39:14 [INFO] 2025-06-24 06:39:14 - User data retrieved from DB for email: HAFID@gmail.com
+2025/06/24 06:39:14 [INFO] 2025-06-24 06:39:14 - Password validated successfully
+2025/06/24 06:39:14 [INFO] 2025-06-24 06:39:14 - Sending success with token for user: 38ebe970-50e9-451e-a5e7-4236671eb9b8
+2025/06/24 06:39:14 [INFO] 2025-06-24 06:39:14 - Save Token into Sessions
+2025/06/24 06:39:14 [INFO] 2025-06-24 06:39:14 - Login successful for user: 38ebe970-50e9-451e-a5e7-4236671eb9b8
+2025/06/24 06:39:14 [LOG] 2025-06-24 06:39:14 - Get request made to GetPostsScroll Handler
+2025/06/24 06:39:14 [INFO] 2025-06-24 06:39:14 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 06:39:14 [LOG] 2025-06-24 06:39:14 - Get request made to GetPostsScroll Handler
+2025/06/24 06:39:14 [INFO] 2025-06-24 06:39:14 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 06:39:21 [INFO] 2025-06-24 06:39:21 - Recieved Request for fetching groups
+2025/06/24 06:39:21 [LOG] 2025-06-24 06:39:21 - Invite Request Group to join fetched successfully
+2025/06/24 06:39:21 [INFO] 2025-06-24 06:39:21 - Groups Fetched Successfuly
+2025/06/24 06:39:21 [INFO] 2025-06-24 06:39:21 - Recieved Request for fetching groups
+2025/06/24 06:39:21 [INFO] 2025-06-24 06:39:21 - Groups Fetched Successfuly
+2025/06/24 06:39:21 [LOG] 2025-06-24 06:39:21 - Invite Request Group to join fetched successfully
+2025/06/24 06:39:26 [LOG] 2025-06-24 06:39:26 - Get request made to GetPostsScroll Handler
+2025/06/24 06:39:26 [ERROR] 2025-06-24 06:39:26 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 06:39:26 [INFO] 2025-06-24 06:39:26 - Recieved Request To fetch Group page
+2025/06/24 06:39:26 [INFO] 2025-06-24 06:39:26 - Group With ID : 4 Fetched With Success
+2025/06/24 06:39:26 [INFO] 2025-06-24 06:39:26 - Recieved Request To fetch Group page
+2025/06/24 06:39:26 [INFO] 2025-06-24 06:39:26 - Group With ID : 4 Fetched With Success
+2025/06/24 06:39:26 [LOG] 2025-06-24 06:39:26 - Get request made to GetPostsScroll Handler
+2025/06/24 06:39:26 [INFO] 2025-06-24 06:39:26 - Admin requested pending invites
+2025/06/24 06:39:26 [ERROR] 2025-06-24 06:39:26 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 06:39:26 [INFO] 2025-06-24 06:39:26 - Admin requested pending invites
+2025/06/24 06:39:28 [INFO] 2025-06-24 06:39:28 - Received request to fetch FriendList
+2025/06/24 06:39:28 [INFO] 2025-06-24 06:39:28 - Friends in group 4 fetched successfully
+2025/06/24 06:39:37 [INFO] 2025-06-24 06:39:37 - Verify-token hit
+2025/06/24 06:39:39 [INFO] 2025-06-24 06:39:39 - =========== GetOtherUserProfile called ===========
+2025/06/24 06:39:39 [INFO] 2025-06-24 06:39:39 - Authenticated user ID: 38ebe970-50e9-451e-a5e7-4236671eb9b8
+2025/06/24 06:39:39 [INFO] 2025-06-24 06:39:39 - Requested profile for user ID: 38ebe970-50e9-451e-a5e7-4236671eb9b8
+2025/06/24 06:39:39 [INFO] 2025-06-24 06:39:39 - User is viewing their own profile
+2025/06/24 06:39:39 [INFO] 2025-06-24 06:39:39 - Profile returned successfully
+2025/06/24 06:39:39 [INFO] 2025-06-24 06:39:39 - =========== GetOtherUserProfile called ===========
+2025/06/24 06:39:39 [INFO] 2025-06-24 06:39:39 - Authenticated user ID: 38ebe970-50e9-451e-a5e7-4236671eb9b8
+2025/06/24 06:39:39 [INFO] 2025-06-24 06:39:39 - Requested profile for user ID: 38ebe970-50e9-451e-a5e7-4236671eb9b8
+2025/06/24 06:39:39 [INFO] 2025-06-24 06:39:39 - User is viewing their own profile
+2025/06/24 06:39:39 [INFO] 2025-06-24 06:39:39 - Profile returned successfully
+2025/06/24 06:39:39 [LOG] 2025-06-24 06:39:39 - Get request made to GetPostsScroll Handler
+2025/06/24 06:39:39 [ERROR] 2025-06-24 06:39:39 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 06:39:39 [LOG] 2025-06-24 06:39:39 - Get request made to GetPostsScroll Handler
+2025/06/24 06:39:39 [ERROR] 2025-06-24 06:39:39 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 06:39:45 [INFO] 2025-06-24 06:39:45 - Recieved Request To fetch Group page
+2025/06/24 06:39:45 [INFO] 2025-06-24 06:39:45 - Group With ID : 4 Fetched With Success
+2025/06/24 06:39:45 [INFO] 2025-06-24 06:39:45 - Recieved Request To fetch Group page
+2025/06/24 06:39:45 [INFO] 2025-06-24 06:39:45 - Group With ID : 4 Fetched With Success
+2025/06/24 06:39:45 [LOG] 2025-06-24 06:39:45 - Get request made to GetPostsScroll Handler
+2025/06/24 06:39:45 [ERROR] 2025-06-24 06:39:45 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 06:39:45 [LOG] 2025-06-24 06:39:45 - Get request made to GetPostsScroll Handler
+2025/06/24 06:39:45 [ERROR] 2025-06-24 06:39:45 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 06:39:45 [INFO] 2025-06-24 06:39:45 - Admin requested pending invites
+2025/06/24 06:39:45 [INFO] 2025-06-24 06:39:45 - Admin requested pending invites
+2025/06/24 06:39:48 [LOG] 2025-06-24 06:39:48 - Get request made to GetPostsScroll Handler
+2025/06/24 06:39:48 [INFO] 2025-06-24 06:39:48 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 06:39:48 [LOG] 2025-06-24 06:39:48 - Get request made to GetPostsScroll Handler
+2025/06/24 06:39:48 [INFO] 2025-06-24 06:39:48 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 06:39:53 [INFO] 2025-06-24 06:39:53 - Recieved Request for fetching groups
+2025/06/24 06:39:53 [LOG] 2025-06-24 06:39:53 - Invite Request Group to join fetched successfully
+2025/06/24 06:39:53 [INFO] 2025-06-24 06:39:53 - Groups Fetched Successfuly
+2025/06/24 06:39:53 [INFO] 2025-06-24 06:39:53 - Recieved Request for fetching groups
+2025/06/24 06:39:53 [LOG] 2025-06-24 06:39:53 - Invite Request Group to join fetched successfully
+2025/06/24 06:39:53 [INFO] 2025-06-24 06:39:53 - Groups Fetched Successfuly
+2025/06/24 06:39:56 [INFO] 2025-06-24 06:39:56 - Recieved Request To fetch Group page
+2025/06/24 06:39:56 [INFO] 2025-06-24 06:39:56 - Group With ID : 4 Fetched With Success
+2025/06/24 06:39:56 [INFO] 2025-06-24 06:39:56 - Recieved Request To fetch Group page
+2025/06/24 06:39:56 [INFO] 2025-06-24 06:39:56 - Group With ID : 4 Fetched With Success
+2025/06/24 06:39:56 [LOG] 2025-06-24 06:39:56 - Get request made to GetPostsScroll Handler
+2025/06/24 06:39:56 [ERROR] 2025-06-24 06:39:56 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 06:39:56 [LOG] 2025-06-24 06:39:56 - Get request made to GetPostsScroll Handler
+2025/06/24 06:39:56 [ERROR] 2025-06-24 06:39:56 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 06:39:56 [INFO] 2025-06-24 06:39:56 - Admin requested pending invites
+2025/06/24 06:39:56 [INFO] 2025-06-24 06:39:56 - Admin requested pending invites
+2025/06/24 06:39:57 [INFO] 2025-06-24 06:39:57 - Received request to fetch FriendList
+2025/06/24 06:39:57 [INFO] 2025-06-24 06:39:57 - Friends in group 4 fetched successfully
+2025/06/24 06:40:45 [INFO] 2025-06-24 06:40:45 - Verify-token hit
+2025/06/24 06:40:46 [INFO] 2025-06-24 06:40:46 - =========== GetOtherUserProfile called ===========
+2025/06/24 06:40:46 [INFO] 2025-06-24 06:40:46 - Authenticated user ID: 38ebe970-50e9-451e-a5e7-4236671eb9b8
+2025/06/24 06:40:46 [INFO] 2025-06-24 06:40:46 - Requested profile for user ID: 38ebe970-50e9-451e-a5e7-4236671eb9b8
+2025/06/24 06:40:46 [INFO] 2025-06-24 06:40:46 - User is viewing their own profile
+2025/06/24 06:40:46 [INFO] 2025-06-24 06:40:46 - Profile returned successfully
+2025/06/24 06:40:46 [INFO] 2025-06-24 06:40:46 - =========== GetOtherUserProfile called ===========
+2025/06/24 06:40:46 [INFO] 2025-06-24 06:40:46 - Authenticated user ID: 38ebe970-50e9-451e-a5e7-4236671eb9b8
+2025/06/24 06:40:46 [INFO] 2025-06-24 06:40:46 - Requested profile for user ID: 38ebe970-50e9-451e-a5e7-4236671eb9b8
+2025/06/24 06:40:46 [INFO] 2025-06-24 06:40:46 - User is viewing their own profile
+2025/06/24 06:40:46 [INFO] 2025-06-24 06:40:46 - Profile returned successfully
+2025/06/24 06:40:46 [LOG] 2025-06-24 06:40:46 - Get request made to GetPostsScroll Handler
+2025/06/24 06:40:46 [ERROR] 2025-06-24 06:40:46 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 06:40:46 [LOG] 2025-06-24 06:40:46 - Get request made to GetPostsScroll Handler
+2025/06/24 06:40:46 [ERROR] 2025-06-24 06:40:46 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 06:40:48 [INFO] 2025-06-24 06:40:48 - Recieved Request To fetch Group page
+2025/06/24 06:40:48 [INFO] 2025-06-24 06:40:48 - Group With ID : 4 Fetched With Success
+2025/06/24 06:40:48 [INFO] 2025-06-24 06:40:48 - Recieved Request To fetch Group page
+2025/06/24 06:40:48 [INFO] 2025-06-24 06:40:48 - Group With ID : 4 Fetched With Success
+2025/06/24 06:40:48 [LOG] 2025-06-24 06:40:48 - Get request made to GetPostsScroll Handler
+2025/06/24 06:40:48 [ERROR] 2025-06-24 06:40:48 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 06:40:48 [LOG] 2025-06-24 06:40:48 - Get request made to GetPostsScroll Handler
+2025/06/24 06:40:48 [ERROR] 2025-06-24 06:40:48 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 06:40:48 [INFO] 2025-06-24 06:40:48 - Admin requested pending invites
+2025/06/24 06:40:48 [INFO] 2025-06-24 06:40:48 - Admin requested pending invites
+2025/06/24 06:40:49 [INFO] 2025-06-24 06:40:49 - Received request to fetch FriendList
+2025/06/24 06:40:49 [INFO] 2025-06-24 06:40:49 - Friends in group 4 fetched successfully
+2025/06/24 06:40:55 [INFO] 2025-06-24 06:40:55 - Recieved Invite to group  Request
+2025/06/24 06:40:55 [INFO] 2025-06-24 06:40:55 - Invite ID: 22
+2025/06/24 06:40:55 [INFO] 2025-06-24 06:40:55 - User with Id : 38ebe970-50e9-451e-a5e7-4236671eb9b8 Has Been Invited
+2025/06/24 06:40:55 [INFO] 2025-06-24 06:40:55 - Sent notification via WS to 38ebe970-50e9-451e-a5e7-4236671eb9b8
+2025/06/24 06:40:59 [INFO] 2025-06-24 06:40:59 - Verify-token hit
+2025/06/24 06:41:02 [INFO] 2025-06-24 06:41:02 - Saving GroupMember into DB
+2025/06/24 06:41:02 [INFO] 2025-06-24 06:41:02 - Notification deleted from db
+2025/06/24 06:41:05 [INFO] 2025-06-24 06:41:05 - Verify-token hit
+2025/06/24 06:41:18 [LOG] 2025-06-24 06:41:18 - Get request made to GetPostsScroll Handler
+2025/06/24 06:41:19 [INFO] 2025-06-24 06:41:19 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 06:41:19 [LOG] 2025-06-24 06:41:19 - Get request made to GetPostsScroll Handler
+2025/06/24 06:41:19 [INFO] 2025-06-24 06:41:19 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 06:43:02 [INFO] 2025-06-24 06:43:02 - Recieved Request for fetching groups
+2025/06/24 06:43:02 [LOG] 2025-06-24 06:43:02 - Invite Request Group to join fetched successfully
+2025/06/24 06:43:02 [INFO] 2025-06-24 06:43:02 - Groups Fetched Successfuly
+2025/06/24 06:43:02 [INFO] 2025-06-24 06:43:02 - Recieved Request for fetching groups
+2025/06/24 06:43:02 [LOG] 2025-06-24 06:43:02 - Invite Request Group to join fetched successfully
+2025/06/24 06:43:02 [INFO] 2025-06-24 06:43:02 - Groups Fetched Successfuly
+2025/06/24 06:43:05 [INFO] 2025-06-24 06:43:05 - Recieved Request To fetch Group page
+2025/06/24 06:43:05 [INFO] 2025-06-24 06:43:05 - Group With ID : 4 Fetched With Success
+2025/06/24 06:43:05 [INFO] 2025-06-24 06:43:05 - Recieved Request To fetch Group page
+2025/06/24 06:43:05 [INFO] 2025-06-24 06:43:05 - Group With ID : 4 Fetched With Success
+2025/06/24 06:43:05 [LOG] 2025-06-24 06:43:05 - Get request made to GetPostsScroll Handler
+2025/06/24 06:43:05 [ERROR] 2025-06-24 06:43:05 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 06:43:05 [LOG] 2025-06-24 06:43:05 - Get request made to GetPostsScroll Handler
+2025/06/24 06:43:05 [ERROR] 2025-06-24 06:43:05 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 06:43:05 [INFO] 2025-06-24 06:43:05 - Admin requested pending invites
+2025/06/24 06:43:05 [INFO] 2025-06-24 06:43:05 - Admin requested pending invites
+2025/06/24 06:43:06 [INFO] 2025-06-24 06:43:06 - Received request to fetch FriendList
+2025/06/24 06:43:06 [INFO] 2025-06-24 06:43:06 - Friends in group 4 fetched successfully
+2025/06/24 06:43:09 [INFO] 2025-06-24 06:43:09 - Verify-token hit
+2025/06/24 06:43:20 [INFO] 2025-06-24 06:43:20 - Recieved Invite to group  Request
+2025/06/24 06:43:20 [INFO] 2025-06-24 06:43:20 - Invite ID: 23
+2025/06/24 06:43:20 [INFO] 2025-06-24 06:43:20 - User with Id : 38ebe970-50e9-451e-a5e7-4236671eb9b8 Has Been Invited
+2025/06/24 06:43:20 [INFO] 2025-06-24 06:43:20 - Sent notification via WS to 38ebe970-50e9-451e-a5e7-4236671eb9b8
+2025/06/24 06:43:31 [LOG] 2025-06-24 06:43:31 - Get request made to GetPostsScroll Handler
+2025/06/24 06:43:31 [INFO] 2025-06-24 06:43:31 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 06:43:31 [LOG] 2025-06-24 06:43:31 - Get request made to GetPostsScroll Handler
+2025/06/24 06:43:31 [INFO] 2025-06-24 06:43:31 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 06:48:29 [INFO] 2025-06-24 06:48:29 - Starting HTTP server at http://localhost:8080 ...
+2025/06/24 06:48:29 [INFO] 2025-06-24 06:48:29 - Migrations applied successfully!
+2025/06/24 06:49:46 [INFO] 2025-06-24 06:49:46 - Starting HTTP server at http://localhost:8080 ...
+2025/06/24 06:49:46 [INFO] 2025-06-24 06:49:46 - Migrations applied successfully!
+2025/06/24 06:50:48 [INFO] 2025-06-24 06:50:48 - Starting HTTP server at http://localhost:8080 ...
+2025/06/24 06:50:48 [INFO] 2025-06-24 06:50:48 - Migrations applied successfully!
+2025/06/24 06:51:12 [LOG] 2025-06-24 06:51:12 - Get request made to GetPostsScroll Handler
+2025/06/24 06:51:12 [INFO] 2025-06-24 06:51:12 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 06:51:12 [LOG] 2025-06-24 06:51:12 - Get request made to GetPostsScroll Handler
+2025/06/24 06:51:12 [INFO] 2025-06-24 06:51:12 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 06:51:14 [INFO] 2025-06-24 06:51:14 - Saving GroupMember into DB
+2025/06/24 06:51:14 [INFO] 2025-06-24 06:51:14 - Notification deleted from db
+2025/06/24 06:51:14 [INFO] 2025-06-24 06:51:14 - Sent notification via WS to 1a3b436a-e419-43ab-b433-90785a20fcd1
+2025/06/24 06:51:39 [INFO] 2025-06-24 06:51:39 - Starting HTTP server at http://localhost:8080 ...
+2025/06/24 06:51:39 [INFO] 2025-06-24 06:51:39 - Migrations applied successfully!
+2025/06/24 06:51:47 [INFO] 2025-06-24 06:51:47 - Verify-token hit
+2025/06/24 06:51:52 [LOG] 2025-06-24 06:51:52 - Get request made to GetPostsScroll Handler
+2025/06/24 06:51:52 [INFO] 2025-06-24 06:51:52 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 06:51:52 [LOG] 2025-06-24 06:51:52 - Get request made to GetPostsScroll Handler
+2025/06/24 06:51:52 [INFO] 2025-06-24 06:51:52 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 06:52:12 [ERROR] 2025-06-24 06:52:12 - Error executing query: sql: no rows in result set
+2025/06/24 06:52:12 [ERROR] 2025-06-24 06:52:12 - Invalid Token in CheckUserExeting Handler: 
+2025/06/24 06:52:12 [ERROR] 2025-06-24 06:52:12 - Error executing query: sql: no rows in result set
+2025/06/24 06:52:12 [ERROR] 2025-06-24 06:52:12 - Invalid Token in CheckUserExeting Handler: 
+2025/06/24 06:52:12 [ERROR] 2025-06-24 06:52:12 - Error executing query: sql: no rows in result set
+2025/06/24 06:52:12 [ERROR] 2025-06-24 06:52:12 - Invalid Token in CheckUserExeting Handler: 
+2025/06/24 06:52:12 [ERROR] 2025-06-24 06:52:12 - Error executing query: sql: no rows in result set
+2025/06/24 06:52:12 [ERROR] 2025-06-24 06:52:12 - Invalid Token in CheckUserExeting Handler: 
+2025/06/24 06:52:13 [ERROR] 2025-06-24 06:52:13 - Error executing query: sql: no rows in result set
+2025/06/24 06:52:13 [ERROR] 2025-06-24 06:52:13 - Invalid Token in CheckUserExeting Handler: 
+2025/06/24 06:52:14 [ERROR] 2025-06-24 06:52:14 - Error executing query: sql: no rows in result set
+2025/06/24 06:52:14 [ERROR] 2025-06-24 06:52:14 - Invalid Token in CheckUserExeting Handler: 
+2025/06/24 06:52:15 [ERROR] 2025-06-24 06:52:15 - Error executing query: sql: no rows in result set
+2025/06/24 06:52:15 [ERROR] 2025-06-24 06:52:15 - Invalid Token in CheckUserExeting Handler: 
+2025/06/24 06:52:16 [ERROR] 2025-06-24 06:52:16 - Error executing query: sql: no rows in result set
+2025/06/24 06:52:16 [ERROR] 2025-06-24 06:52:16 - Invalid Token in CheckUserExeting Handler: 
+2025/06/24 06:52:17 [ERROR] 2025-06-24 06:52:17 - Error executing query: sql: no rows in result set
+2025/06/24 06:52:17 [ERROR] 2025-06-24 06:52:17 - Invalid Token in CheckUserExeting Handler: 
+2025/06/24 06:52:18 [ERROR] 2025-06-24 06:52:18 - Error executing query: sql: no rows in result set
+2025/06/24 06:52:18 [ERROR] 2025-06-24 06:52:18 - Invalid Token in CheckUserExeting Handler: 
+2025/06/24 06:52:20 [ERROR] 2025-06-24 06:52:20 - Error executing query: sql: no rows in result set
+2025/06/24 06:52:20 [ERROR] 2025-06-24 06:52:20 - Invalid Token in CheckUserExeting Handler: 
+2025/06/24 06:52:21 [ERROR] 2025-06-24 06:52:21 - Error executing query: sql: no rows in result set
+2025/06/24 06:52:21 [ERROR] 2025-06-24 06:52:21 - Invalid Token in CheckUserExeting Handler: 
+2025/06/24 06:52:22 [ERROR] 2025-06-24 06:52:22 - Error executing query: sql: no rows in result set
+2025/06/24 06:52:22 [ERROR] 2025-06-24 06:52:22 - Invalid Token in CheckUserExeting Handler: 
+2025/06/24 06:52:23 [ERROR] 2025-06-24 06:52:23 - Error executing query: sql: no rows in result set
+2025/06/24 06:52:23 [ERROR] 2025-06-24 06:52:23 - Invalid Token in CheckUserExeting Handler: 
+2025/06/24 06:52:23 [ERROR] 2025-06-24 06:52:23 - Error executing query: sql: no rows in result set
+2025/06/24 06:52:23 [ERROR] 2025-06-24 06:52:23 - Invalid Token in CheckUserExeting Handler: 
+2025/06/24 06:52:23 [ERROR] 2025-06-24 06:52:23 - Error executing query: sql: no rows in result set
+2025/06/24 06:52:23 [ERROR] 2025-06-24 06:52:23 - Invalid Token in CheckUserExeting Handler: 
+2025/06/24 06:52:41 [INFO] 2025-06-24 06:52:41 - Parsed multipart form
+2025/06/24 06:52:41 [INFO] 2025-06-24 06:52:41 - Form fields parsed successfully
+2025/06/24 06:52:41 [INFO] 2025-06-24 06:52:41 - Form fields parsed
+2025/06/24 06:52:41 [INFO] 2025-06-24 06:52:41 - Checking if email exists: omar@gmail.com
+2025/06/24 06:52:41 [WARNING] 2025-06-24 06:52:41 - Tried to register with existing email: omar@gmail.com
+2025/06/24 06:52:52 [INFO] 2025-06-24 06:52:52 - Parsed multipart form
+2025/06/24 06:52:52 [INFO] 2025-06-24 06:52:52 - Form fields parsed successfully
+2025/06/24 06:52:52 [INFO] 2025-06-24 06:52:52 - Form fields parsed
+2025/06/24 06:52:52 [INFO] 2025-06-24 06:52:52 - Checking if email exists: test@gmail.com
+2025/06/24 06:52:52 [INFO] 2025-06-24 06:52:52 - Email is unique
+2025/06/24 06:52:52 [INFO] 2025-06-24 06:52:52 - Validating registration input
+2025/06/24 06:52:52 [INFO] 2025-06-24 06:52:52 - Registration input valid
+2025/06/24 06:52:52 [INFO] 2025-06-24 06:52:52 - User input validated
+2025/06/24 06:52:52 [INFO] 2025-06-24 06:52:52 - Hashing password
+2025/06/24 06:52:52 [INFO] 2025-06-24 06:52:52 - Password hashed successfully
+2025/06/24 06:52:52 [INFO] 2025-06-24 06:52:52 - Password hashed
+2025/06/24 06:52:52 [INFO] 2025-06-24 06:52:52 - Starting avatar upload
+2025/06/24 06:52:52 [INFO] 2025-06-24 06:52:52 - No image file provided
+2025/06/24 06:52:52 [INFO] 2025-06-24 06:52:52 - Saving user to database with ID: 953b6e4a-f46c-4946-ba2c-1b09828c5722
+2025/06/24 06:52:52 [INFO] 2025-06-24 06:52:52 - User saved successfully
+2025/06/24 06:52:52 [INFO] 2025-06-24 06:52:52 - User registered with ID: 953b6e4a-f46c-4946-ba2c-1b09828c5722
+2025/06/24 06:52:52 [INFO] 2025-06-24 06:52:52 - Save Token into Sessions
+2025/06/24 06:52:52 [INFO] 2025-06-24 06:52:52 - Login successful for user: 953b6e4a-f46c-4946-ba2c-1b09828c5722
+2025/06/24 06:52:52 [INFO] 2025-06-24 06:52:52 - Success Register
+2025/06/24 06:52:52 [LOG] 2025-06-24 06:52:52 - Get request made to GetPostsScroll Handler
+2025/06/24 06:52:52 [LOG] 2025-06-24 06:52:52 - Get request made to GetPostsScroll Handler
+2025/06/24 06:52:52 [INFO] 2025-06-24 06:52:52 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 06:52:52 [INFO] 2025-06-24 06:52:52 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 06:53:04 [INFO] 2025-06-24 06:53:04 - Verify-token hit
+2025/06/24 06:53:10 [INFO] 2025-06-24 06:53:10 - Sent notification via WS to 38ebe970-50e9-451e-a5e7-4236671eb9b8
+2025/06/24 06:53:17 [INFO] 2025-06-24 06:53:17 - Verify-token hit
+2025/06/24 06:53:24 [INFO] 2025-06-24 06:53:24 - Verify-token hit
+2025/06/24 06:53:30 [INFO] 2025-06-24 06:53:30 - Recieved Request for fetching groups
+2025/06/24 06:53:30 [LOG] 2025-06-24 06:53:30 - Invite Request Group to join fetched successfully
+2025/06/24 06:53:30 [INFO] 2025-06-24 06:53:30 - Groups Fetched Successfuly
+2025/06/24 06:53:30 [INFO] 2025-06-24 06:53:30 - Recieved Request for fetching groups
+2025/06/24 06:53:30 [INFO] 2025-06-24 06:53:30 - Groups Fetched Successfuly
+2025/06/24 06:53:30 [LOG] 2025-06-24 06:53:30 - Invite Request Group to join fetched successfully
+2025/06/24 06:53:33 [INFO] 2025-06-24 06:53:33 - Recieved Request To fetch Group page
+2025/06/24 06:53:33 [INFO] 2025-06-24 06:53:33 - Group With ID : 4 Fetched With Success
+2025/06/24 06:53:33 [INFO] 2025-06-24 06:53:33 - Recieved Request To fetch Group page
+2025/06/24 06:53:33 [INFO] 2025-06-24 06:53:33 - Group With ID : 4 Fetched With Success
+2025/06/24 06:53:33 [LOG] 2025-06-24 06:53:33 - Get request made to GetPostsScroll Handler
+2025/06/24 06:53:33 [ERROR] 2025-06-24 06:53:33 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 06:53:33 [LOG] 2025-06-24 06:53:33 - Get request made to GetPostsScroll Handler
+2025/06/24 06:53:33 [ERROR] 2025-06-24 06:53:33 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 06:53:33 [INFO] 2025-06-24 06:53:33 - Admin requested pending invites
+2025/06/24 06:53:33 [INFO] 2025-06-24 06:53:33 - Admin requested pending invites
+2025/06/24 06:53:34 [INFO] 2025-06-24 06:53:34 - Received request to fetch FriendList
+2025/06/24 06:53:34 [INFO] 2025-06-24 06:53:34 - Friends in group 4 fetched successfully
+2025/06/24 06:53:36 [INFO] 2025-06-24 06:53:36 - Recieved Invite to group  Request
+2025/06/24 06:53:36 [INFO] 2025-06-24 06:53:36 - Invite ID: 24
+2025/06/24 06:53:36 [INFO] 2025-06-24 06:53:36 - User with Id : 953b6e4a-f46c-4946-ba2c-1b09828c5722 Has Been Invited
+2025/06/24 06:53:36 [INFO] 2025-06-24 06:53:36 - Sent notification via WS to 953b6e4a-f46c-4946-ba2c-1b09828c5722
+2025/06/24 06:53:41 [INFO] 2025-06-24 06:53:41 - Verify-token hit
+2025/06/24 06:53:46 [INFO] 2025-06-24 06:53:46 - Saving GroupMember into DB
+2025/06/24 06:53:46 [LOG] 2025-06-24 06:53:46 - No notification matched for deletion
+2025/06/24 06:53:46 [INFO] 2025-06-24 06:53:46 - Sent notification via WS to 1a3b436a-e419-43ab-b433-90785a20fcd1
+2025/06/24 06:53:58 [INFO] 2025-06-24 06:53:58 - Verify-token hit
+2025/06/24 06:56:01 [INFO] 2025-06-24 06:56:01 - Starting HTTP server at http://localhost:8080 ...
+2025/06/24 06:56:01 [INFO] 2025-06-24 06:56:01 - Migrations applied successfully!
+2025/06/24 06:56:08 [INFO] 2025-06-24 06:56:08 - Verify-token hit
+2025/06/24 06:56:10 [LOG] 2025-06-24 06:56:10 - No notification matched for deletion
+2025/06/24 07:03:00 [INFO] 2025-06-24 07:03:00 - Starting HTTP server at http://localhost:8080 ...
+2025/06/24 07:03:00 [INFO] 2025-06-24 07:03:00 - Migrations applied successfully!
+2025/06/24 07:04:54 [INFO] 2025-06-24 07:04:54 - Verify-token hit
+2025/06/24 07:05:01 [LOG] 2025-06-24 07:05:01 - Get request made to GetPostsScroll Handler
+2025/06/24 07:05:01 [INFO] 2025-06-24 07:05:01 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 07:05:01 [LOG] 2025-06-24 07:05:01 - Get request made to GetPostsScroll Handler
+2025/06/24 07:05:01 [INFO] 2025-06-24 07:05:01 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 07:05:03 [INFO] 2025-06-24 07:05:03 - Recieved Request for fetching groups
+2025/06/24 07:05:03 [LOG] 2025-06-24 07:05:03 - Invite Request Group to join fetched successfully
+2025/06/24 07:05:03 [INFO] 2025-06-24 07:05:03 - Groups Fetched Successfuly
+2025/06/24 07:05:03 [INFO] 2025-06-24 07:05:03 - Recieved Request for fetching groups
+2025/06/24 07:05:03 [INFO] 2025-06-24 07:05:03 - Groups Fetched Successfuly
+2025/06/24 07:05:03 [LOG] 2025-06-24 07:05:03 - Invite Request Group to join fetched successfully
+2025/06/24 07:05:05 [INFO] 2025-06-24 07:05:05 - Recieved Request To fetch Group page
+2025/06/24 07:05:05 [INFO] 2025-06-24 07:05:05 - Group With ID : 4 Fetched With Success
+2025/06/24 07:05:05 [INFO] 2025-06-24 07:05:05 - Recieved Request To fetch Group page
+2025/06/24 07:05:05 [INFO] 2025-06-24 07:05:05 - Group With ID : 4 Fetched With Success
+2025/06/24 07:05:05 [LOG] 2025-06-24 07:05:05 - Get request made to GetPostsScroll Handler
+2025/06/24 07:05:05 [ERROR] 2025-06-24 07:05:05 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 07:05:05 [LOG] 2025-06-24 07:05:05 - Get request made to GetPostsScroll Handler
+2025/06/24 07:05:05 [ERROR] 2025-06-24 07:05:05 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 07:05:05 [INFO] 2025-06-24 07:05:05 - Admin requested pending invites
+2025/06/24 07:05:05 [INFO] 2025-06-24 07:05:05 - Admin requested pending invites
+2025/06/24 07:05:06 [INFO] 2025-06-24 07:05:06 - Received request to fetch FriendList
+2025/06/24 07:05:06 [INFO] 2025-06-24 07:05:06 - Friends in group 4 fetched successfully
+2025/06/24 07:05:13 [INFO] 2025-06-24 07:05:13 - Verify-token hit
+2025/06/24 07:05:18 [INFO] 2025-06-24 07:05:18 - Recieved Invite to group  Request
+2025/06/24 07:05:18 [INFO] 2025-06-24 07:05:18 - Invite ID: 25
+2025/06/24 07:05:18 [INFO] 2025-06-24 07:05:18 - User with Id : 38ebe970-50e9-451e-a5e7-4236671eb9b8 Has Been Invited
+2025/06/24 07:05:18 [INFO] 2025-06-24 07:05:18 - Sent notification via WS to 38ebe970-50e9-451e-a5e7-4236671eb9b8
+2025/06/24 07:05:22 [INFO] 2025-06-24 07:05:22 - Verify-token hit
+2025/06/24 07:05:23 [INFO] 2025-06-24 07:05:23 - Saving GroupMember into DB
+2025/06/24 07:05:23 [LOG] 2025-06-24 07:05:23 - No notification matched for deletion
+2025/06/24 07:05:23 [INFO] 2025-06-24 07:05:23 - Sent notification via WS to 1a3b436a-e419-43ab-b433-90785a20fcd1
+2025/06/24 07:05:33 [LOG] 2025-06-24 07:05:33 - Get request made to GetPostsScroll Handler
+2025/06/24 07:05:33 [INFO] 2025-06-24 07:05:33 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 07:05:33 [LOG] 2025-06-24 07:05:33 - Get request made to GetPostsScroll Handler
+2025/06/24 07:05:33 [INFO] 2025-06-24 07:05:33 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 07:05:40 [INFO] 2025-06-24 07:05:40 - Verify-token hit
+2025/06/24 07:07:34 [INFO] 2025-06-24 07:07:34 - Saving GroupMember into DB
+2025/06/24 07:07:34 [LOG] 2025-06-24 07:07:34 - No notification matched for deletion
+2025/06/24 07:07:34 [INFO] 2025-06-24 07:07:34 - Sent notification via WS to 1a3b436a-e419-43ab-b433-90785a20fcd1
+2025/06/24 07:08:56 [INFO] 2025-06-24 07:08:56 - Starting HTTP server at http://localhost:8080 ...
+2025/06/24 07:08:56 [INFO] 2025-06-24 07:08:56 - Migrations applied successfully!
+2025/06/24 07:08:59 [INFO] 2025-06-24 07:08:59 - Verify-token hit
+2025/06/24 07:09:01 [INFO] 2025-06-24 07:09:01 - Saving GroupMember into DB
+2025/06/24 07:09:01 [LOG] 2025-06-24 07:09:01 - No notification matched for deletion
+2025/06/24 07:09:01 [INFO] 2025-06-24 07:09:01 - User 1a3b436a-e419-43ab-b433-90785a20fcd1 not connected, notification saved to DB
+2025/06/24 07:09:45 [INFO] 2025-06-24 07:09:45 - Starting HTTP server at http://localhost:8080 ...
+2025/06/24 07:09:45 [INFO] 2025-06-24 07:09:45 - Migrations applied successfully!
+2025/06/24 07:09:49 [INFO] 2025-06-24 07:09:49 - Verify-token hit
+2025/06/24 07:09:51 [INFO] 2025-06-24 07:09:51 - Saving GroupMember into DB
+2025/06/24 07:09:51 [INFO] 2025-06-24 07:09:51 - Notification deleted from db
+2025/06/24 07:09:51 [INFO] 2025-06-24 07:09:51 - User 1a3b436a-e419-43ab-b433-90785a20fcd1 not connected, notification saved to DB
+2025/06/24 07:09:56 [INFO] 2025-06-24 07:09:56 - Verify-token hit
+2025/06/24 07:10:46 [INFO] 2025-06-24 07:10:46 - Verify-token hit
+2025/06/24 07:10:56 [LOG] 2025-06-24 07:10:56 - Get request made to GetPostsScroll Handler
+2025/06/24 07:10:56 [INFO] 2025-06-24 07:10:56 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 07:10:56 [LOG] 2025-06-24 07:10:56 - Get request made to GetPostsScroll Handler
+2025/06/24 07:10:56 [INFO] 2025-06-24 07:10:56 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 07:10:57 [INFO] 2025-06-24 07:10:57 - Recieved Request for fetching groups
+2025/06/24 07:10:57 [INFO] 2025-06-24 07:10:57 - Groups Fetched Successfuly
+2025/06/24 07:10:57 [LOG] 2025-06-24 07:10:57 - Invite Request Group to join fetched successfully
+2025/06/24 07:10:57 [INFO] 2025-06-24 07:10:57 - Recieved Request for fetching groups
+2025/06/24 07:10:57 [LOG] 2025-06-24 07:10:57 - Invite Request Group to join fetched successfully
+2025/06/24 07:10:57 [INFO] 2025-06-24 07:10:57 - Groups Fetched Successfuly
+2025/06/24 07:10:59 [INFO] 2025-06-24 07:10:59 - Recieved Request To fetch Group page
+2025/06/24 07:10:59 [INFO] 2025-06-24 07:10:59 - Group With ID : 4 Fetched With Success
+2025/06/24 07:10:59 [LOG] 2025-06-24 07:10:59 - Get request made to GetPostsScroll Handler
+2025/06/24 07:10:59 [ERROR] 2025-06-24 07:10:59 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 07:10:59 [INFO] 2025-06-24 07:10:59 - Recieved Request To fetch Group page
+2025/06/24 07:10:59 [INFO] 2025-06-24 07:10:59 - Group With ID : 4 Fetched With Success
+2025/06/24 07:10:59 [LOG] 2025-06-24 07:10:59 - Get request made to GetPostsScroll Handler
+2025/06/24 07:10:59 [ERROR] 2025-06-24 07:10:59 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 07:10:59 [INFO] 2025-06-24 07:10:59 - Admin requested pending invites
+2025/06/24 07:10:59 [INFO] 2025-06-24 07:10:59 - Admin requested pending invites
+2025/06/24 07:11:01 [INFO] 2025-06-24 07:11:01 - Received request to fetch FriendList
+2025/06/24 07:11:01 [INFO] 2025-06-24 07:11:01 - Friends in group 4 fetched successfully
+2025/06/24 07:11:03 [INFO] 2025-06-24 07:11:03 - Recieved Invite to group  Request
+2025/06/24 07:11:03 [INFO] 2025-06-24 07:11:03 - Invite ID: 26
+2025/06/24 07:11:03 [INFO] 2025-06-24 07:11:03 - User with Id : 38ebe970-50e9-451e-a5e7-4236671eb9b8 Has Been Invited
+2025/06/24 07:11:03 [INFO] 2025-06-24 07:11:03 - Sent notification via WS to 38ebe970-50e9-451e-a5e7-4236671eb9b8
+2025/06/24 07:11:11 [LOG] 2025-06-24 07:11:11 - Get request made to GetPostsScroll Handler
+2025/06/24 07:11:11 [INFO] 2025-06-24 07:11:11 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 07:11:11 [LOG] 2025-06-24 07:11:11 - Get request made to GetPostsScroll Handler
+2025/06/24 07:11:11 [INFO] 2025-06-24 07:11:11 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 07:11:13 [INFO] 2025-06-24 07:11:13 - Saving GroupMember into DB
+2025/06/24 07:11:13 [INFO] 2025-06-24 07:11:13 - Notification deleted from db
+2025/06/24 07:11:13 [INFO] 2025-06-24 07:11:13 - Sent notification via WS to 1a3b436a-e419-43ab-b433-90785a20fcd1
+2025/06/24 07:11:21 [INFO] 2025-06-24 07:11:21 - Verify-token hit
+2025/06/24 07:11:31 [INFO] 2025-06-24 07:11:31 - Verify-token hit
+2025/06/24 07:11:38 [INFO] 2025-06-24 07:11:38 - Recieved Request for fetching groups
+2025/06/24 07:11:38 [INFO] 2025-06-24 07:11:38 - Groups Fetched Successfuly
+2025/06/24 07:11:38 [LOG] 2025-06-24 07:11:38 - Invite Request Group to join fetched successfully
+2025/06/24 07:11:38 [INFO] 2025-06-24 07:11:38 - Recieved Request for fetching groups
+2025/06/24 07:11:38 [LOG] 2025-06-24 07:11:38 - Invite Request Group to join fetched successfully
+2025/06/24 07:11:38 [INFO] 2025-06-24 07:11:38 - Groups Fetched Successfuly
+2025/06/24 07:11:40 [INFO] 2025-06-24 07:11:40 - Recieved Request To fetch Group page
+2025/06/24 07:11:40 [INFO] 2025-06-24 07:11:40 - Group With ID : 4 Fetched With Success
+2025/06/24 07:11:40 [INFO] 2025-06-24 07:11:40 - Recieved Request To fetch Group page
+2025/06/24 07:11:40 [INFO] 2025-06-24 07:11:40 - Group With ID : 4 Fetched With Success
+2025/06/24 07:11:40 [LOG] 2025-06-24 07:11:40 - Get request made to GetPostsScroll Handler
+2025/06/24 07:11:40 [ERROR] 2025-06-24 07:11:40 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 07:11:40 [LOG] 2025-06-24 07:11:40 - Get request made to GetPostsScroll Handler
+2025/06/24 07:11:40 [ERROR] 2025-06-24 07:11:40 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 07:11:40 [INFO] 2025-06-24 07:11:40 - Admin requested pending invites
+2025/06/24 07:11:40 [INFO] 2025-06-24 07:11:40 - Admin requested pending invites
+2025/06/24 07:11:42 [INFO] 2025-06-24 07:11:42 - Received request to fetch FriendList
+2025/06/24 07:11:42 [INFO] 2025-06-24 07:11:42 - Friends in group 4 fetched successfully
+2025/06/24 07:11:45 [INFO] 2025-06-24 07:11:45 - Recieved Invite to group  Request
+2025/06/24 07:11:45 [INFO] 2025-06-24 07:11:45 - Invite ID: 27
+2025/06/24 07:11:45 [INFO] 2025-06-24 07:11:45 - User with Id : 953b6e4a-f46c-4946-ba2c-1b09828c5722 Has Been Invited
+2025/06/24 07:11:45 [INFO] 2025-06-24 07:11:45 - Sent notification via WS to 953b6e4a-f46c-4946-ba2c-1b09828c5722
+2025/06/24 07:11:54 [INFO] 2025-06-24 07:11:54 - Verify-token hit
+2025/06/24 07:11:56 [INFO] 2025-06-24 07:11:56 - Saving GroupMember into DB
+2025/06/24 07:11:56 [INFO] 2025-06-24 07:11:56 - Notification deleted from db
+2025/06/24 07:11:56 [INFO] 2025-06-24 07:11:56 - Sent notification via WS to 1a3b436a-e419-43ab-b433-90785a20fcd1
+2025/06/24 07:11:59 [INFO] 2025-06-24 07:11:59 - Verify-token hit
+2025/06/24 07:12:05 [INFO] 2025-06-24 07:12:05 - Recieved a Admin approving request
+2025/06/24 07:12:05 [INFO] 2025-06-24 07:12:05 - Saving GroupMember into DB
+2025/06/24 07:12:05 [INFO] 2025-06-24 07:12:05 - Admin accept invite 27 successfully
+2025/06/24 07:12:05 [LOG] 2025-06-24 07:12:05 - No notification matched for deletion
+2025/06/24 07:12:05 [INFO] 2025-06-24 07:12:05 - Sent notification via WS to 953b6e4a-f46c-4946-ba2c-1b09828c5722
+2025/06/24 07:12:10 [LOG] 2025-06-24 07:12:10 - Get request made to GetPostsScroll Handler
+2025/06/24 07:12:10 [INFO] 2025-06-24 07:12:10 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 07:12:10 [LOG] 2025-06-24 07:12:10 - Get request made to GetPostsScroll Handler
+2025/06/24 07:12:10 [INFO] 2025-06-24 07:12:10 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 07:12:23 [INFO] 2025-06-24 07:12:23 - Verify-token hit
+2025/06/24 07:13:30 [INFO] 2025-06-24 07:13:30 - Recieved a Admin approving request
+2025/06/24 07:13:30 [ERROR] 2025-06-24 07:13:30 - Invite does not exist
+2025/06/24 07:14:02 [INFO] 2025-06-24 07:14:02 - Starting HTTP server at http://localhost:8080 ...
+2025/06/24 07:14:02 [INFO] 2025-06-24 07:14:02 - Migrations applied successfully!
+2025/06/24 07:14:06 [INFO] 2025-06-24 07:14:06 - Verify-token hit
+2025/06/24 07:14:10 [INFO] 2025-06-24 07:14:10 - Recieved a Admin approving request
+2025/06/24 07:14:10 [ERROR] 2025-06-24 07:14:10 - Invite does not exist
+2025/06/24 07:14:16 [INFO] 2025-06-24 07:14:16 - Verify-token hit
+2025/06/24 07:14:52 [INFO] 2025-06-24 07:14:52 - Starting HTTP server at http://localhost:8080 ...
+2025/06/24 07:14:52 [INFO] 2025-06-24 07:14:52 - Migrations applied successfully!
+2025/06/24 07:15:14 [INFO] 2025-06-24 07:15:14 - Starting HTTP server at http://localhost:8080 ...
+2025/06/24 07:15:14 [INFO] 2025-06-24 07:15:14 - Migrations applied successfully!
+2025/06/24 07:15:17 [INFO] 2025-06-24 07:15:17 - Verify-token hit
+2025/06/24 07:15:39 [INFO] 2025-06-24 07:15:39 - Verify-token hit
+2025/06/24 07:15:43 [INFO] 2025-06-24 07:15:43 - Verify-token hit
+2025/06/24 07:15:48 [INFO] 2025-06-24 07:15:48 - Verify-token hit
+2025/06/24 07:15:48 [INFO] 2025-06-24 07:15:48 - =========== GetOtherUserProfile called ===========
+2025/06/24 07:15:48 [INFO] 2025-06-24 07:15:48 - Authenticated user ID: 1a3b436a-e419-43ab-b433-90785a20fcd1
+2025/06/24 07:15:48 [INFO] 2025-06-24 07:15:48 - Requested profile for user ID: 1a3b436a-e419-43ab-b433-90785a20fcd1
+2025/06/24 07:15:48 [INFO] 2025-06-24 07:15:48 - User is viewing their own profile
+2025/06/24 07:15:48 [INFO] 2025-06-24 07:15:48 - Profile returned successfully
+2025/06/24 07:15:48 [INFO] 2025-06-24 07:15:48 - =========== GetOtherUserProfile called ===========
+2025/06/24 07:15:48 [INFO] 2025-06-24 07:15:48 - Authenticated user ID: 1a3b436a-e419-43ab-b433-90785a20fcd1
+2025/06/24 07:15:48 [INFO] 2025-06-24 07:15:48 - Requested profile for user ID: 1a3b436a-e419-43ab-b433-90785a20fcd1
+2025/06/24 07:15:48 [INFO] 2025-06-24 07:15:48 - User is viewing their own profile
+2025/06/24 07:15:48 [INFO] 2025-06-24 07:15:48 - Profile returned successfully
+2025/06/24 07:15:48 [LOG] 2025-06-24 07:15:48 - Get request made to GetPostsScroll Handler
+2025/06/24 07:15:48 [ERROR] 2025-06-24 07:15:48 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 07:15:48 [LOG] 2025-06-24 07:15:48 - Get request made to GetPostsScroll Handler
+2025/06/24 07:15:48 [ERROR] 2025-06-24 07:15:48 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 07:15:55 [INFO] 2025-06-24 07:15:55 - Recieved Request To fetch Group page
+2025/06/24 07:15:55 [INFO] 2025-06-24 07:15:55 - Group With ID : 4 Fetched With Success
+2025/06/24 07:15:55 [INFO] 2025-06-24 07:15:55 - Recieved Request To fetch Group page
+2025/06/24 07:15:55 [INFO] 2025-06-24 07:15:55 - Group With ID : 4 Fetched With Success
+2025/06/24 07:15:55 [LOG] 2025-06-24 07:15:55 - Get request made to GetPostsScroll Handler
+2025/06/24 07:15:55 [ERROR] 2025-06-24 07:15:55 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 07:15:55 [LOG] 2025-06-24 07:15:55 - Get request made to GetPostsScroll Handler
+2025/06/24 07:15:55 [ERROR] 2025-06-24 07:15:55 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 07:15:55 [INFO] 2025-06-24 07:15:55 - Admin requested pending invites
+2025/06/24 07:15:55 [INFO] 2025-06-24 07:15:55 - Admin requested pending invites
+2025/06/24 07:15:56 [INFO] 2025-06-24 07:15:56 - Received request to fetch FriendList
+2025/06/24 07:15:56 [INFO] 2025-06-24 07:15:56 - Friends in group 4 fetched successfully
+2025/06/24 07:15:58 [INFO] 2025-06-24 07:15:58 - Recieved Invite to group  Request
+2025/06/24 07:15:58 [INFO] 2025-06-24 07:15:58 - Invite ID: 28
+2025/06/24 07:15:58 [INFO] 2025-06-24 07:15:58 - User with Id : 38ebe970-50e9-451e-a5e7-4236671eb9b8 Has Been Invited
+2025/06/24 07:15:58 [INFO] 2025-06-24 07:15:58 - User 38ebe970-50e9-451e-a5e7-4236671eb9b8 not connected, notification saved to DB
+2025/06/24 07:16:12 [INFO] 2025-06-24 07:16:12 - Recieved Request for fetching groups
+2025/06/24 07:16:12 [INFO] 2025-06-24 07:16:12 - Groups Fetched Successfuly
+2025/06/24 07:16:12 [LOG] 2025-06-24 07:16:12 - Invite Request Group to join fetched successfully
+2025/06/24 07:16:12 [INFO] 2025-06-24 07:16:12 - Recieved Request for fetching groups
+2025/06/24 07:16:12 [INFO] 2025-06-24 07:16:12 - Groups Fetched Successfuly
+2025/06/24 07:16:12 [LOG] 2025-06-24 07:16:12 - Invite Request Group to join fetched successfully
+2025/06/24 07:16:17 [LOG] 2025-06-24 07:16:17 - Get request made to GetPostsScroll Handler
+2025/06/24 07:16:17 [INFO] 2025-06-24 07:16:17 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 07:16:17 [LOG] 2025-06-24 07:16:17 - Get request made to GetPostsScroll Handler
+2025/06/24 07:16:17 [INFO] 2025-06-24 07:16:17 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 07:16:20 [INFO] 2025-06-24 07:16:20 - Verify-token hit
+2025/06/24 07:16:27 [INFO] 2025-06-24 07:16:27 - Saving GroupMember into DB
+2025/06/24 07:16:27 [INFO] 2025-06-24 07:16:27 - Notification deleted from db
+2025/06/24 07:16:27 [INFO] 2025-06-24 07:16:27 - Sent notification via WS to 1a3b436a-e419-43ab-b433-90785a20fcd1
+2025/06/24 07:16:30 [INFO] 2025-06-24 07:16:30 - Verify-token hit
+2025/06/24 07:16:36 [INFO] 2025-06-24 07:16:36 - Recieved Request for fetching groups
+2025/06/24 07:16:36 [LOG] 2025-06-24 07:16:36 - Invite Request Group to join fetched successfully
+2025/06/24 07:16:36 [INFO] 2025-06-24 07:16:36 - Groups Fetched Successfuly
+2025/06/24 07:16:36 [INFO] 2025-06-24 07:16:36 - Recieved Request for fetching groups
+2025/06/24 07:16:36 [LOG] 2025-06-24 07:16:36 - Invite Request Group to join fetched successfully
+2025/06/24 07:16:36 [INFO] 2025-06-24 07:16:36 - Groups Fetched Successfuly
+2025/06/24 07:16:38 [INFO] 2025-06-24 07:16:38 - Recieved Request To fetch Group page
+2025/06/24 07:16:38 [INFO] 2025-06-24 07:16:38 - Group With ID : 4 Fetched With Success
+2025/06/24 07:16:38 [INFO] 2025-06-24 07:16:38 - Recieved Request To fetch Group page
+2025/06/24 07:16:38 [INFO] 2025-06-24 07:16:38 - Group With ID : 4 Fetched With Success
+2025/06/24 07:16:38 [LOG] 2025-06-24 07:16:38 - Get request made to GetPostsScroll Handler
+2025/06/24 07:16:38 [ERROR] 2025-06-24 07:16:38 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 07:16:38 [INFO] 2025-06-24 07:16:38 - Admin requested pending invites
+2025/06/24 07:16:38 [LOG] 2025-06-24 07:16:38 - Get request made to GetPostsScroll Handler
+2025/06/24 07:16:38 [ERROR] 2025-06-24 07:16:38 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 07:16:38 [INFO] 2025-06-24 07:16:38 - Admin requested pending invites
+2025/06/24 07:16:40 [INFO] 2025-06-24 07:16:40 - Received request to fetch FriendList
+2025/06/24 07:16:40 [INFO] 2025-06-24 07:16:40 - Friends in group 4 fetched successfully
+2025/06/24 07:16:42 [INFO] 2025-06-24 07:16:42 - Recieved Invite to group  Request
+2025/06/24 07:16:42 [INFO] 2025-06-24 07:16:42 - Invite ID: 29
+2025/06/24 07:16:42 [INFO] 2025-06-24 07:16:42 - User with Id : 953b6e4a-f46c-4946-ba2c-1b09828c5722 Has Been Invited
+2025/06/24 07:16:42 [INFO] 2025-06-24 07:16:42 - Sent notification via WS to 953b6e4a-f46c-4946-ba2c-1b09828c5722
+2025/06/24 07:16:58 [LOG] 2025-06-24 07:16:58 - Get request made to GetPostsScroll Handler
+2025/06/24 07:16:58 [INFO] 2025-06-24 07:16:58 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 07:16:58 [LOG] 2025-06-24 07:16:58 - Get request made to GetPostsScroll Handler
+2025/06/24 07:16:58 [INFO] 2025-06-24 07:16:58 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 07:17:12 [INFO] 2025-06-24 07:17:12 - Verify-token hit
+2025/06/24 07:17:16 [INFO] 2025-06-24 07:17:16 - Saving GroupMember into DB
+2025/06/24 07:17:16 [INFO] 2025-06-24 07:17:16 - Notification deleted from db
+2025/06/24 07:17:16 [INFO] 2025-06-24 07:17:16 - Sent notification via WS to 1a3b436a-e419-43ab-b433-90785a20fcd1
+2025/06/24 07:17:18 [INFO] 2025-06-24 07:17:18 - Verify-token hit
+2025/06/24 07:17:20 [INFO] 2025-06-24 07:17:20 - Recieved a Admin approving request
+2025/06/24 07:17:20 [INFO] 2025-06-24 07:17:20 - Saving GroupMember into DB
+2025/06/24 07:17:20 [INFO] 2025-06-24 07:17:20 - Admin accept invite 29 successfully
+2025/06/24 07:17:20 [LOG] 2025-06-24 07:17:20 - No notification matched for deletion
+2025/06/24 07:17:20 [INFO] 2025-06-24 07:17:20 - Sent notification via WS to 953b6e4a-f46c-4946-ba2c-1b09828c5722
+2025/06/24 07:17:22 [INFO] 2025-06-24 07:17:22 - Verify-token hit
+2025/06/24 07:17:23 [INFO] 2025-06-24 07:17:23 - =========== GetOtherUserProfile called ===========
+2025/06/24 07:17:23 [INFO] 2025-06-24 07:17:23 - Authenticated user ID: 1a3b436a-e419-43ab-b433-90785a20fcd1
+2025/06/24 07:17:23 [INFO] 2025-06-24 07:17:23 - Requested profile for user ID: 1a3b436a-e419-43ab-b433-90785a20fcd1
+2025/06/24 07:17:23 [INFO] 2025-06-24 07:17:23 - User is viewing their own profile
+2025/06/24 07:17:23 [INFO] 2025-06-24 07:17:23 - Profile returned successfully
+2025/06/24 07:17:23 [INFO] 2025-06-24 07:17:23 - =========== GetOtherUserProfile called ===========
+2025/06/24 07:17:23 [INFO] 2025-06-24 07:17:23 - Authenticated user ID: 1a3b436a-e419-43ab-b433-90785a20fcd1
+2025/06/24 07:17:23 [INFO] 2025-06-24 07:17:23 - Requested profile for user ID: 1a3b436a-e419-43ab-b433-90785a20fcd1
+2025/06/24 07:17:23 [INFO] 2025-06-24 07:17:23 - User is viewing their own profile
+2025/06/24 07:17:23 [INFO] 2025-06-24 07:17:23 - Profile returned successfully
+2025/06/24 07:17:23 [LOG] 2025-06-24 07:17:23 - Get request made to GetPostsScroll Handler
+2025/06/24 07:17:23 [ERROR] 2025-06-24 07:17:23 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 07:17:23 [LOG] 2025-06-24 07:17:23 - Get request made to GetPostsScroll Handler
+2025/06/24 07:17:23 [ERROR] 2025-06-24 07:17:23 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 07:17:46 [INFO] 2025-06-24 07:17:46 - Verify-token hit
+2025/06/24 07:17:47 [INFO] 2025-06-24 07:17:47 - =========== GetOtherUserProfile called ===========
+2025/06/24 07:17:47 [INFO] 2025-06-24 07:17:47 - Authenticated user ID: 1a3b436a-e419-43ab-b433-90785a20fcd1
+2025/06/24 07:17:47 [INFO] 2025-06-24 07:17:47 - Requested profile for user ID: 1a3b436a-e419-43ab-b433-90785a20fcd1
+2025/06/24 07:17:47 [INFO] 2025-06-24 07:17:47 - User is viewing their own profile
+2025/06/24 07:17:47 [INFO] 2025-06-24 07:17:47 - Profile returned successfully
+2025/06/24 07:17:47 [INFO] 2025-06-24 07:17:47 - =========== GetOtherUserProfile called ===========
+2025/06/24 07:17:47 [INFO] 2025-06-24 07:17:47 - Authenticated user ID: 1a3b436a-e419-43ab-b433-90785a20fcd1
+2025/06/24 07:17:47 [INFO] 2025-06-24 07:17:47 - Requested profile for user ID: 1a3b436a-e419-43ab-b433-90785a20fcd1
+2025/06/24 07:17:47 [INFO] 2025-06-24 07:17:47 - User is viewing their own profile
+2025/06/24 07:17:47 [INFO] 2025-06-24 07:17:47 - Profile returned successfully
+2025/06/24 07:17:47 [LOG] 2025-06-24 07:17:47 - Get request made to GetPostsScroll Handler
+2025/06/24 07:17:47 [ERROR] 2025-06-24 07:17:47 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 07:17:47 [LOG] 2025-06-24 07:17:47 - Get request made to GetPostsScroll Handler
+2025/06/24 07:17:47 [ERROR] 2025-06-24 07:17:47 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 07:17:52 [INFO] 2025-06-24 07:17:52 - Verify-token hit
+2025/06/24 07:17:52 [INFO] 2025-06-24 07:17:52 - =========== GetOtherUserProfile called ===========
+2025/06/24 07:17:52 [INFO] 2025-06-24 07:17:52 - Authenticated user ID: 1a3b436a-e419-43ab-b433-90785a20fcd1
+2025/06/24 07:17:52 [INFO] 2025-06-24 07:17:52 - Requested profile for user ID: 1a3b436a-e419-43ab-b433-90785a20fcd1
+2025/06/24 07:17:52 [INFO] 2025-06-24 07:17:52 - User is viewing their own profile
+2025/06/24 07:17:52 [INFO] 2025-06-24 07:17:52 - Profile returned successfully
+2025/06/24 07:17:52 [INFO] 2025-06-24 07:17:52 - =========== GetOtherUserProfile called ===========
+2025/06/24 07:17:52 [INFO] 2025-06-24 07:17:52 - Authenticated user ID: 1a3b436a-e419-43ab-b433-90785a20fcd1
+2025/06/24 07:17:52 [INFO] 2025-06-24 07:17:52 - Requested profile for user ID: 1a3b436a-e419-43ab-b433-90785a20fcd1
+2025/06/24 07:17:52 [INFO] 2025-06-24 07:17:52 - User is viewing their own profile
+2025/06/24 07:17:52 [INFO] 2025-06-24 07:17:52 - Profile returned successfully
+2025/06/24 07:17:52 [LOG] 2025-06-24 07:17:52 - Get request made to GetPostsScroll Handler
+2025/06/24 07:17:52 [ERROR] 2025-06-24 07:17:52 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 07:17:52 [LOG] 2025-06-24 07:17:52 - Get request made to GetPostsScroll Handler
+2025/06/24 07:17:52 [ERROR] 2025-06-24 07:17:52 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 07:18:06 [INFO] 2025-06-24 07:18:06 - Verify-token hit
+2025/06/24 07:18:08 [INFO] 2025-06-24 07:18:08 - Verify-token hit
+2025/06/24 07:18:09 [INFO] 2025-06-24 07:18:09 - =========== GetOtherUserProfile called ===========
+2025/06/24 07:18:09 [INFO] 2025-06-24 07:18:09 - Authenticated user ID: 1a3b436a-e419-43ab-b433-90785a20fcd1
+2025/06/24 07:18:09 [INFO] 2025-06-24 07:18:09 - Requested profile for user ID: 1a3b436a-e419-43ab-b433-90785a20fcd1
+2025/06/24 07:18:09 [INFO] 2025-06-24 07:18:09 - User is viewing their own profile
+2025/06/24 07:18:09 [INFO] 2025-06-24 07:18:09 - Profile returned successfully
+2025/06/24 07:18:09 [INFO] 2025-06-24 07:18:09 - =========== GetOtherUserProfile called ===========
+2025/06/24 07:18:09 [INFO] 2025-06-24 07:18:09 - Authenticated user ID: 1a3b436a-e419-43ab-b433-90785a20fcd1
+2025/06/24 07:18:09 [INFO] 2025-06-24 07:18:09 - Requested profile for user ID: 1a3b436a-e419-43ab-b433-90785a20fcd1
+2025/06/24 07:18:09 [INFO] 2025-06-24 07:18:09 - User is viewing their own profile
+2025/06/24 07:18:09 [INFO] 2025-06-24 07:18:09 - Profile returned successfully
+2025/06/24 07:18:09 [LOG] 2025-06-24 07:18:09 - Get request made to GetPostsScroll Handler
+2025/06/24 07:18:09 [ERROR] 2025-06-24 07:18:09 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 07:18:09 [LOG] 2025-06-24 07:18:09 - Get request made to GetPostsScroll Handler
+2025/06/24 07:18:09 [ERROR] 2025-06-24 07:18:09 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 07:19:54 [INFO] 2025-06-24 07:19:54 - Starting HTTP server at http://localhost:8080 ...
+2025/06/24 07:19:54 [INFO] 2025-06-24 07:19:54 - Migrations applied successfully!
+2025/06/24 07:20:02 [INFO] 2025-06-24 07:20:02 - Verify-token hit
+2025/06/24 07:20:07 [INFO] 2025-06-24 07:20:07 - Verify-token hit
+2025/06/24 07:20:08 [INFO] 2025-06-24 07:20:08 - =========== GetOtherUserProfile called ===========
+2025/06/24 07:20:08 [INFO] 2025-06-24 07:20:08 - Authenticated user ID: 1a3b436a-e419-43ab-b433-90785a20fcd1
+2025/06/24 07:20:08 [INFO] 2025-06-24 07:20:08 - Requested profile for user ID: 1a3b436a-e419-43ab-b433-90785a20fcd1
+2025/06/24 07:20:08 [INFO] 2025-06-24 07:20:08 - User is viewing their own profile
+2025/06/24 07:20:08 [INFO] 2025-06-24 07:20:08 - Profile returned successfully
+2025/06/24 07:20:08 [INFO] 2025-06-24 07:20:08 - =========== GetOtherUserProfile called ===========
+2025/06/24 07:20:08 [INFO] 2025-06-24 07:20:08 - Authenticated user ID: 1a3b436a-e419-43ab-b433-90785a20fcd1
+2025/06/24 07:20:08 [INFO] 2025-06-24 07:20:08 - Requested profile for user ID: 1a3b436a-e419-43ab-b433-90785a20fcd1
+2025/06/24 07:20:08 [INFO] 2025-06-24 07:20:08 - User is viewing their own profile
+2025/06/24 07:20:08 [INFO] 2025-06-24 07:20:08 - Profile returned successfully
+2025/06/24 07:20:08 [LOG] 2025-06-24 07:20:08 - Get request made to GetPostsScroll Handler
+2025/06/24 07:20:08 [ERROR] 2025-06-24 07:20:08 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 07:20:08 [LOG] 2025-06-24 07:20:08 - Get request made to GetPostsScroll Handler
+2025/06/24 07:20:08 [ERROR] 2025-06-24 07:20:08 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 07:20:26 [INFO] 2025-06-24 07:20:26 - Recieved Request To fetch Group page
+2025/06/24 07:20:26 [INFO] 2025-06-24 07:20:26 - Group With ID : 4 Fetched With Success
+2025/06/24 07:20:26 [INFO] 2025-06-24 07:20:26 - Recieved Request To fetch Group page
+2025/06/24 07:20:26 [INFO] 2025-06-24 07:20:26 - Group With ID : 4 Fetched With Success
+2025/06/24 07:20:26 [LOG] 2025-06-24 07:20:26 - Get request made to GetPostsScroll Handler
+2025/06/24 07:20:26 [ERROR] 2025-06-24 07:20:26 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 07:20:26 [LOG] 2025-06-24 07:20:26 - Get request made to GetPostsScroll Handler
+2025/06/24 07:20:26 [ERROR] 2025-06-24 07:20:26 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 07:20:26 [INFO] 2025-06-24 07:20:26 - Admin requested pending invites
+2025/06/24 07:20:26 [INFO] 2025-06-24 07:20:26 - Admin requested pending invites
+2025/06/24 07:20:27 [INFO] 2025-06-24 07:20:27 - Received request to fetch FriendList
+2025/06/24 07:20:27 [INFO] 2025-06-24 07:20:27 - Friends in group 4 fetched successfully
+2025/06/24 07:20:29 [INFO] 2025-06-24 07:20:29 - Recieved Invite to group  Request
+2025/06/24 07:20:29 [INFO] 2025-06-24 07:20:29 - Invite ID: 30
+2025/06/24 07:20:29 [INFO] 2025-06-24 07:20:29 - User with Id : 953b6e4a-f46c-4946-ba2c-1b09828c5722 Has Been Invited
+2025/06/24 07:20:29 [INFO] 2025-06-24 07:20:29 - Sent notification via WS to 953b6e4a-f46c-4946-ba2c-1b09828c5722
+2025/06/24 07:21:32 [INFO] 2025-06-24 07:21:32 - Verify-token hit
+2025/06/24 07:21:33 [INFO] 2025-06-24 07:21:33 - Saving GroupMember into DB
+2025/06/24 07:21:33 [INFO] 2025-06-24 07:21:33 - Notification deleted from db
+2025/06/24 07:21:33 [INFO] 2025-06-24 07:21:33 - Sent notification via WS to 1a3b436a-e419-43ab-b433-90785a20fcd1
+2025/06/24 07:22:14 [INFO] 2025-06-24 07:22:14 - Recieved a Admin approving request
+2025/06/24 07:22:14 [INFO] 2025-06-24 07:22:14 - Saving GroupMember into DB
+2025/06/24 07:22:14 [INFO] 2025-06-24 07:22:14 - Admin accept invite 30 successfully
+2025/06/24 07:22:14 [LOG] 2025-06-24 07:22:14 - No notification matched for deletion
+2025/06/24 07:22:14 [INFO] 2025-06-24 07:22:14 - Sent notification via WS to 953b6e4a-f46c-4946-ba2c-1b09828c5722
+2025/06/24 07:30:44 [INFO] 2025-06-24 07:30:44 - Verify-token hit
+2025/06/24 07:30:48 [INFO] 2025-06-24 07:30:48 - Verify-token hit
+2025/06/24 07:30:49 [INFO] 2025-06-24 07:30:49 - =========== GetOtherUserProfile called ===========
+2025/06/24 07:30:49 [INFO] 2025-06-24 07:30:49 - Authenticated user ID: 1a3b436a-e419-43ab-b433-90785a20fcd1
+2025/06/24 07:30:49 [INFO] 2025-06-24 07:30:49 - Requested profile for user ID: 1a3b436a-e419-43ab-b433-90785a20fcd1
+2025/06/24 07:30:49 [INFO] 2025-06-24 07:30:49 - User is viewing their own profile
+2025/06/24 07:30:49 [INFO] 2025-06-24 07:30:49 - Profile returned successfully
+2025/06/24 07:30:49 [INFO] 2025-06-24 07:30:49 - =========== GetOtherUserProfile called ===========
+2025/06/24 07:30:49 [INFO] 2025-06-24 07:30:49 - Authenticated user ID: 1a3b436a-e419-43ab-b433-90785a20fcd1
+2025/06/24 07:30:49 [INFO] 2025-06-24 07:30:49 - Requested profile for user ID: 1a3b436a-e419-43ab-b433-90785a20fcd1
+2025/06/24 07:30:49 [INFO] 2025-06-24 07:30:49 - User is viewing their own profile
+2025/06/24 07:30:49 [INFO] 2025-06-24 07:30:49 - Profile returned successfully
+2025/06/24 07:30:49 [LOG] 2025-06-24 07:30:49 - Get request made to GetPostsScroll Handler
+2025/06/24 07:30:49 [ERROR] 2025-06-24 07:30:49 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 07:30:49 [LOG] 2025-06-24 07:30:49 - Get request made to GetPostsScroll Handler
+2025/06/24 07:30:49 [ERROR] 2025-06-24 07:30:49 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 07:31:01 [INFO] 2025-06-24 07:31:01 - Recieved Request To fetch Group page
+2025/06/24 07:31:01 [LOG] 2025-06-24 07:31:01 - Not a Member 
+2025/06/24 07:31:01 [INFO] 2025-06-24 07:31:01 - Recieved Request To fetch Group page
+2025/06/24 07:31:01 [LOG] 2025-06-24 07:31:01 - Not a Member 
+2025/06/24 07:31:01 [LOG] 2025-06-24 07:31:01 - Get request made to GetPostsScroll Handler
+2025/06/24 07:31:01 [ERROR] 2025-06-24 07:31:01 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 07:31:01 [LOG] 2025-06-24 07:31:01 - Get request made to GetPostsScroll Handler
+2025/06/24 07:31:01 [ERROR] 2025-06-24 07:31:01 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 07:31:01 [INFO] 2025-06-24 07:31:01 - Admin requested pending invites
+2025/06/24 07:31:01 [INFO] 2025-06-24 07:31:01 - Admin requested pending invites
+2025/06/24 07:31:10 [INFO] 2025-06-24 07:31:10 - Verify-token hit
+2025/06/24 07:31:12 [INFO] 2025-06-24 07:31:12 - Recieved Request for fetching groups
+2025/06/24 07:31:12 [LOG] 2025-06-24 07:31:12 - Invite Request Group to join fetched successfully
+2025/06/24 07:31:12 [INFO] 2025-06-24 07:31:12 - Groups Fetched Successfuly
+2025/06/24 07:31:12 [INFO] 2025-06-24 07:31:12 - Recieved Request for fetching groups
+2025/06/24 07:31:12 [LOG] 2025-06-24 07:31:12 - Invite Request Group to join fetched successfully
+2025/06/24 07:31:12 [INFO] 2025-06-24 07:31:12 - Groups Fetched Successfuly
+2025/06/24 07:31:14 [INFO] 2025-06-24 07:31:14 - Recieved Request To fetch Group page
+2025/06/24 07:31:14 [INFO] 2025-06-24 07:31:14 - Group With ID : 4 Fetched With Success
+2025/06/24 07:31:14 [LOG] 2025-06-24 07:31:14 - Get request made to GetPostsScroll Handler
+2025/06/24 07:31:14 [ERROR] 2025-06-24 07:31:14 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 07:31:14 [INFO] 2025-06-24 07:31:14 - Recieved Request To fetch Group page
+2025/06/24 07:31:14 [INFO] 2025-06-24 07:31:14 - Group With ID : 4 Fetched With Success
+2025/06/24 07:31:14 [LOG] 2025-06-24 07:31:14 - Get request made to GetPostsScroll Handler
+2025/06/24 07:31:14 [ERROR] 2025-06-24 07:31:14 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 07:31:14 [INFO] 2025-06-24 07:31:14 - Admin requested pending invites
+2025/06/24 07:31:14 [INFO] 2025-06-24 07:31:14 - Admin requested pending invites
+2025/06/24 07:31:16 [INFO] 2025-06-24 07:31:16 - Received request to fetch FriendList
+2025/06/24 07:31:16 [INFO] 2025-06-24 07:31:16 - Friends in group 4 fetched successfully
+2025/06/24 07:31:21 [INFO] 2025-06-24 07:31:21 - Recieved Invite to group  Request
+2025/06/24 07:31:21 [INFO] 2025-06-24 07:31:21 - Invite ID: 31
+2025/06/24 07:31:21 [INFO] 2025-06-24 07:31:21 - User with Id : 38ebe970-50e9-451e-a5e7-4236671eb9b8 Has Been Invited
+2025/06/24 07:31:21 [INFO] 2025-06-24 07:31:21 - Sent notification via WS to 38ebe970-50e9-451e-a5e7-4236671eb9b8
+2025/06/24 07:31:29 [INFO] 2025-06-24 07:31:29 - Verify-token hit
+2025/06/24 07:31:32 [INFO] 2025-06-24 07:31:32 - Saving GroupMember into DB
+2025/06/24 07:31:32 [INFO] 2025-06-24 07:31:32 - Notification deleted from db
+2025/06/24 07:31:32 [INFO] 2025-06-24 07:31:32 - Sent notification via WS to 1a3b436a-e419-43ab-b433-90785a20fcd1
+2025/06/24 07:31:33 [INFO] 2025-06-24 07:31:33 - Verify-token hit
+2025/06/24 07:31:40 [LOG] 2025-06-24 07:31:40 - Get request made to GetPostsScroll Handler
+2025/06/24 07:31:40 [INFO] 2025-06-24 07:31:40 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 07:31:40 [LOG] 2025-06-24 07:31:40 - Get request made to GetPostsScroll Handler
+2025/06/24 07:31:40 [INFO] 2025-06-24 07:31:40 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 07:31:48 [INFO] 2025-06-24 07:31:48 - Recieved Request for fetching groups
+2025/06/24 07:31:48 [LOG] 2025-06-24 07:31:48 - Invite Request Group to join fetched successfully
+2025/06/24 07:31:48 [INFO] 2025-06-24 07:31:48 - Groups Fetched Successfuly
+2025/06/24 07:31:48 [INFO] 2025-06-24 07:31:48 - Recieved Request for fetching groups
+2025/06/24 07:31:48 [LOG] 2025-06-24 07:31:48 - Invite Request Group to join fetched successfully
+2025/06/24 07:31:48 [INFO] 2025-06-24 07:31:48 - Groups Fetched Successfuly
+2025/06/24 07:31:50 [INFO] 2025-06-24 07:31:50 - Recieved Request To fetch Group page
+2025/06/24 07:31:50 [INFO] 2025-06-24 07:31:50 - Group With ID : 4 Fetched With Success
+2025/06/24 07:31:50 [LOG] 2025-06-24 07:31:50 - Get request made to GetPostsScroll Handler
+2025/06/24 07:31:50 [INFO] 2025-06-24 07:31:50 - Recieved Request To fetch Group page
+2025/06/24 07:31:50 [ERROR] 2025-06-24 07:31:50 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 07:31:50 [INFO] 2025-06-24 07:31:50 - Group With ID : 4 Fetched With Success
+2025/06/24 07:31:50 [LOG] 2025-06-24 07:31:50 - Get request made to GetPostsScroll Handler
+2025/06/24 07:31:50 [ERROR] 2025-06-24 07:31:50 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 07:31:50 [INFO] 2025-06-24 07:31:50 - Admin requested pending invites
+2025/06/24 07:31:50 [INFO] 2025-06-24 07:31:50 - Admin requested pending invites
+2025/06/24 07:31:52 [INFO] 2025-06-24 07:31:52 - Received request to fetch FriendList
+2025/06/24 07:31:52 [INFO] 2025-06-24 07:31:52 - Friends in group 4 fetched successfully
+2025/06/24 07:31:59 [INFO] 2025-06-24 07:31:59 - Recieved Invite to group  Request
+2025/06/24 07:31:59 [INFO] 2025-06-24 07:31:59 - Invite ID: 32
+2025/06/24 07:31:59 [INFO] 2025-06-24 07:31:59 - User with Id : 953b6e4a-f46c-4946-ba2c-1b09828c5722 Has Been Invited
+2025/06/24 07:31:59 [INFO] 2025-06-24 07:31:59 - Sent notification via WS to 953b6e4a-f46c-4946-ba2c-1b09828c5722
+2025/06/24 07:32:12 [LOG] 2025-06-24 07:32:12 - Get request made to GetPostsScroll Handler
+2025/06/24 07:32:12 [INFO] 2025-06-24 07:32:12 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 07:32:12 [LOG] 2025-06-24 07:32:12 - Get request made to GetPostsScroll Handler
+2025/06/24 07:32:12 [INFO] 2025-06-24 07:32:12 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 07:32:29 [INFO] 2025-06-24 07:32:29 - Verify-token hit
+2025/06/24 07:32:31 [INFO] 2025-06-24 07:32:31 - Saving GroupMember into DB
+2025/06/24 07:32:31 [INFO] 2025-06-24 07:32:31 - Notification deleted from db
+2025/06/24 07:32:31 [INFO] 2025-06-24 07:32:31 - Sent notification via WS to 1a3b436a-e419-43ab-b433-90785a20fcd1
+2025/06/24 07:32:53 [INFO] 2025-06-24 07:32:53 - Verify-token hit
+2025/06/24 07:32:57 [INFO] 2025-06-24 07:32:57 - Recieved a Admin approving request
+2025/06/24 07:32:57 [INFO] 2025-06-24 07:32:57 - Saving GroupMember into DB
+2025/06/24 07:32:57 [INFO] 2025-06-24 07:32:57 - Admin accept invite 32 successfully
+2025/06/24 07:32:57 [LOG] 2025-06-24 07:32:57 - No notification matched for deletion
+2025/06/24 07:32:57 [INFO] 2025-06-24 07:32:57 - Sent notification via WS to 953b6e4a-f46c-4946-ba2c-1b09828c5722
+2025/06/24 07:33:46 [INFO] 2025-06-24 07:33:46 - Verify-token hit
+2025/06/24 07:39:17 [INFO] 2025-06-24 07:39:17 - Starting HTTP server at http://localhost:8080 ...
+2025/06/24 07:39:17 [INFO] 2025-06-24 07:39:17 - Migrations applied successfully!
+2025/06/24 07:39:26 [INFO] 2025-06-24 07:39:26 - Verify-token hit
+2025/06/24 07:39:27 [INFO] 2025-06-24 07:39:27 - Recieved a Admin approving request
+2025/06/24 07:39:27 [ERROR] 2025-06-24 07:39:27 - Invite does not exist
+2025/06/24 07:40:14 [INFO] 2025-06-24 07:40:14 - Verify-token hit
+2025/06/24 07:40:17 [INFO] 2025-06-24 07:40:17 - Verify-token hit
+2025/06/24 07:40:34 [INFO] 2025-06-24 07:40:34 - Recieved Request for fetching groups
+2025/06/24 07:40:34 [LOG] 2025-06-24 07:40:34 - Invite Request Group to join fetched successfully
+2025/06/24 07:40:34 [INFO] 2025-06-24 07:40:34 - Groups Fetched Successfuly
+2025/06/24 07:40:34 [LOG] 2025-06-24 07:40:34 - Invite Request Group to join fetched successfully
+2025/06/24 07:40:34 [INFO] 2025-06-24 07:40:34 - Recieved Request for fetching groups
+2025/06/24 07:40:34 [INFO] 2025-06-24 07:40:34 - Groups Fetched Successfuly
+2025/06/24 07:40:36 [INFO] 2025-06-24 07:40:36 - Recieved Request To fetch Group page
+2025/06/24 07:40:36 [INFO] 2025-06-24 07:40:36 - Group With ID : 4 Fetched With Success
+2025/06/24 07:40:36 [LOG] 2025-06-24 07:40:36 - Get request made to GetPostsScroll Handler
+2025/06/24 07:40:36 [INFO] 2025-06-24 07:40:36 - Recieved Request To fetch Group page
+2025/06/24 07:40:36 [INFO] 2025-06-24 07:40:36 - Group With ID : 4 Fetched With Success
+2025/06/24 07:40:36 [ERROR] 2025-06-24 07:40:36 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 07:40:36 [LOG] 2025-06-24 07:40:36 - Get request made to GetPostsScroll Handler
+2025/06/24 07:40:36 [ERROR] 2025-06-24 07:40:36 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 07:40:36 [INFO] 2025-06-24 07:40:36 - Admin requested pending invites
+2025/06/24 07:40:36 [INFO] 2025-06-24 07:40:36 - Admin requested pending invites
+2025/06/24 07:40:37 [INFO] 2025-06-24 07:40:37 - Received request to fetch FriendList
+2025/06/24 07:40:37 [INFO] 2025-06-24 07:40:37 - Friends in group 4 fetched successfully
+2025/06/24 07:40:39 [INFO] 2025-06-24 07:40:39 - Recieved Invite to group  Request
+2025/06/24 07:40:39 [INFO] 2025-06-24 07:40:39 - Invite ID: 33
+2025/06/24 07:40:39 [INFO] 2025-06-24 07:40:39 - User with Id : 953b6e4a-f46c-4946-ba2c-1b09828c5722 Has Been Invited
+2025/06/24 07:40:39 [INFO] 2025-06-24 07:40:39 - Sent notification via WS to 953b6e4a-f46c-4946-ba2c-1b09828c5722
+2025/06/24 07:40:42 [INFO] 2025-06-24 07:40:42 - Saving GroupMember into DB
+2025/06/24 07:40:42 [INFO] 2025-06-24 07:40:42 - Notification deleted from db
+2025/06/24 07:40:42 [INFO] 2025-06-24 07:40:42 - Sent notification via WS to 1a3b436a-e419-43ab-b433-90785a20fcd1
+2025/06/24 07:40:44 [INFO] 2025-06-24 07:40:44 - Verify-token hit
+2025/06/24 07:40:46 [INFO] 2025-06-24 07:40:46 - Recieved a Admin approving request
+2025/06/24 07:40:46 [INFO] 2025-06-24 07:40:46 - Saving GroupMember into DB
+2025/06/24 07:40:46 [INFO] 2025-06-24 07:40:46 - Admin accept invite 33 successfully
+2025/06/24 07:40:46 [LOG] 2025-06-24 07:40:46 - No notification matched for deletion
+2025/06/24 07:40:46 [INFO] 2025-06-24 07:40:46 - Sent notification via WS to 953b6e4a-f46c-4946-ba2c-1b09828c5722
+2025/06/24 07:40:46 [LOG] 2025-06-24 07:40:46 - No notification matched for deletion
+2025/06/24 07:40:48 [INFO] 2025-06-24 07:40:48 - Verify-token hit
+2025/06/24 07:44:17 [INFO] 2025-06-24 07:44:17 - Starting HTTP server at http://localhost:8080 ...
+2025/06/24 07:44:17 [INFO] 2025-06-24 07:44:17 - Migrations applied successfully!
+2025/06/24 07:44:32 [INFO] 2025-06-24 07:44:32 - Verify-token hit
+2025/06/24 07:44:37 [INFO] 2025-06-24 07:44:37 - Verify-token hit
+2025/06/24 07:45:18 [LOG] 2025-06-24 07:45:18 - Get request made to GetPostsScroll Handler
+2025/06/24 07:45:18 [INFO] 2025-06-24 07:45:18 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 07:45:18 [LOG] 2025-06-24 07:45:18 - Get request made to GetPostsScroll Handler
+2025/06/24 07:45:18 [INFO] 2025-06-24 07:45:18 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 07:45:21 [INFO] 2025-06-24 07:45:21 - Recieved Request for fetching groups
+2025/06/24 07:45:21 [LOG] 2025-06-24 07:45:21 - Invite Request Group to join fetched successfully
+2025/06/24 07:45:21 [INFO] 2025-06-24 07:45:21 - Groups Fetched Successfuly
+2025/06/24 07:45:21 [INFO] 2025-06-24 07:45:21 - Recieved Request for fetching groups
+2025/06/24 07:45:21 [LOG] 2025-06-24 07:45:21 - Invite Request Group to join fetched successfully
+2025/06/24 07:45:21 [INFO] 2025-06-24 07:45:21 - Groups Fetched Successfuly
+2025/06/24 07:45:24 [INFO] 2025-06-24 07:45:24 - Recieved Request To fetch Group page
+2025/06/24 07:45:24 [INFO] 2025-06-24 07:45:24 - Group With ID : 4 Fetched With Success
+2025/06/24 07:45:24 [INFO] 2025-06-24 07:45:24 - Recieved Request To fetch Group page
+2025/06/24 07:45:24 [LOG] 2025-06-24 07:45:24 - Get request made to GetPostsScroll Handler
+2025/06/24 07:45:24 [ERROR] 2025-06-24 07:45:24 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 07:45:24 [INFO] 2025-06-24 07:45:24 - Group With ID : 4 Fetched With Success
+2025/06/24 07:45:24 [LOG] 2025-06-24 07:45:24 - Get request made to GetPostsScroll Handler
+2025/06/24 07:45:24 [ERROR] 2025-06-24 07:45:24 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 07:45:24 [INFO] 2025-06-24 07:45:24 - Admin requested pending invites
+2025/06/24 07:45:24 [INFO] 2025-06-24 07:45:24 - Admin requested pending invites
+2025/06/24 07:45:25 [INFO] 2025-06-24 07:45:25 - Received request to fetch FriendList
+2025/06/24 07:45:25 [INFO] 2025-06-24 07:45:25 - Friends in group 4 fetched successfully
+2025/06/24 07:45:27 [INFO] 2025-06-24 07:45:27 - Recieved Invite to group  Request
+2025/06/24 07:45:27 [INFO] 2025-06-24 07:45:27 - Invite ID: 34
+2025/06/24 07:45:27 [INFO] 2025-06-24 07:45:27 - User with Id : 953b6e4a-f46c-4946-ba2c-1b09828c5722 Has Been Invited
+2025/06/24 07:45:27 [INFO] 2025-06-24 07:45:27 - Sent notification via WS to 953b6e4a-f46c-4946-ba2c-1b09828c5722
+2025/06/24 07:45:39 [INFO] 2025-06-24 07:45:39 - Verify-token hit
+2025/06/24 07:45:41 [INFO] 2025-06-24 07:45:41 - Saving GroupMember into DB
+2025/06/24 07:45:41 [INFO] 2025-06-24 07:45:41 - Notification deleted from db
+2025/06/24 07:45:41 [INFO] 2025-06-24 07:45:41 - Sent notification via WS to 1a3b436a-e419-43ab-b433-90785a20fcd1
+2025/06/24 07:45:44 [INFO] 2025-06-24 07:45:44 - Verify-token hit
+2025/06/24 07:45:46 [INFO] 2025-06-24 07:45:46 - Recieved a Admin approving request
+2025/06/24 07:45:46 [INFO] 2025-06-24 07:45:46 - Saving GroupMember into DB
+2025/06/24 07:45:46 [INFO] 2025-06-24 07:45:46 - Admin accept invite 34 successfully
+2025/06/24 07:45:46 [LOG] 2025-06-24 07:45:46 - No notification matched for deletion
+2025/06/24 07:45:46 [INFO] 2025-06-24 07:45:46 - Sent notification via WS to 953b6e4a-f46c-4946-ba2c-1b09828c5722
+2025/06/24 07:45:48 [INFO] 2025-06-24 07:45:48 - Verify-token hit
+2025/06/24 07:53:46 [INFO] 2025-06-24 07:53:46 - Starting HTTP server at http://localhost:8080 ...
+2025/06/24 07:53:46 [INFO] 2025-06-24 07:53:46 - Migrations applied successfully!
+2025/06/24 07:54:09 [INFO] 2025-06-24 07:54:09 - Starting HTTP server at http://localhost:8080 ...
+2025/06/24 07:54:09 [INFO] 2025-06-24 07:54:09 - Migrations applied successfully!
+2025/06/24 07:54:11 [INFO] 2025-06-24 07:54:11 - Verify-token hit
+2025/06/24 07:54:17 [INFO] 2025-06-24 07:54:17 - Verify-token hit
+2025/06/24 07:54:31 [LOG] 2025-06-24 07:54:31 - Get request made to GetPostsScroll Handler
+2025/06/24 07:54:31 [INFO] 2025-06-24 07:54:31 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 07:54:31 [LOG] 2025-06-24 07:54:31 - Get request made to GetPostsScroll Handler
+2025/06/24 07:54:31 [INFO] 2025-06-24 07:54:31 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 07:54:34 [INFO] 2025-06-24 07:54:34 - Recieved Request for fetching groups
+2025/06/24 07:54:34 [LOG] 2025-06-24 07:54:34 - Invite Request Group to join fetched successfully
+2025/06/24 07:54:34 [INFO] 2025-06-24 07:54:34 - Groups Fetched Successfuly
+2025/06/24 07:54:34 [INFO] 2025-06-24 07:54:34 - Recieved Request for fetching groups
+2025/06/24 07:54:34 [LOG] 2025-06-24 07:54:34 - Invite Request Group to join fetched successfully
+2025/06/24 07:54:34 [INFO] 2025-06-24 07:54:34 - Groups Fetched Successfuly
+2025/06/24 07:54:36 [INFO] 2025-06-24 07:54:36 - Recieved Request To fetch Group page
+2025/06/24 07:54:36 [INFO] 2025-06-24 07:54:36 - Group With ID : 4 Fetched With Success
+2025/06/24 07:54:36 [INFO] 2025-06-24 07:54:36 - Recieved Request To fetch Group page
+2025/06/24 07:54:36 [INFO] 2025-06-24 07:54:36 - Group With ID : 4 Fetched With Success
+2025/06/24 07:54:36 [LOG] 2025-06-24 07:54:36 - Get request made to GetPostsScroll Handler
+2025/06/24 07:54:36 [ERROR] 2025-06-24 07:54:36 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 07:54:36 [LOG] 2025-06-24 07:54:36 - Get request made to GetPostsScroll Handler
+2025/06/24 07:54:36 [ERROR] 2025-06-24 07:54:36 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 07:54:36 [INFO] 2025-06-24 07:54:36 - Admin requested pending invites
+2025/06/24 07:54:36 [INFO] 2025-06-24 07:54:36 - Admin requested pending invites
+2025/06/24 07:54:38 [INFO] 2025-06-24 07:54:38 - Received request to fetch FriendList
+2025/06/24 07:54:38 [INFO] 2025-06-24 07:54:38 - Friends in group 4 fetched successfully
+2025/06/24 07:58:45 [INFO] 2025-06-24 07:58:45 - Verify-token hit
+2025/06/24 07:58:49 [INFO] 2025-06-24 07:58:49 - Recieved Request To fetch Group page
+2025/06/24 07:58:49 [INFO] 2025-06-24 07:58:49 - Group With ID : 4 Fetched With Success
+2025/06/24 07:58:49 [LOG] 2025-06-24 07:58:49 - Get request made to GetPostsScroll Handler
+2025/06/24 07:58:49 [ERROR] 2025-06-24 07:58:49 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 07:58:49 [INFO] 2025-06-24 07:58:49 - Recieved Request To fetch Group page
+2025/06/24 07:58:49 [INFO] 2025-06-24 07:58:49 - Group With ID : 4 Fetched With Success
+2025/06/24 07:58:49 [LOG] 2025-06-24 07:58:49 - Get request made to GetPostsScroll Handler
+2025/06/24 07:58:49 [ERROR] 2025-06-24 07:58:49 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 07:58:49 [INFO] 2025-06-24 07:58:49 - Admin requested pending invites
+2025/06/24 07:58:49 [INFO] 2025-06-24 07:58:49 - Admin requested pending invites
+2025/06/24 07:58:57 [LOG] 2025-06-24 07:58:57 - Get request made to GetPostsScroll Handler
+2025/06/24 07:58:57 [INFO] 2025-06-24 07:58:57 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 07:58:57 [LOG] 2025-06-24 07:58:57 - Get request made to GetPostsScroll Handler
+2025/06/24 07:58:57 [INFO] 2025-06-24 07:58:57 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 07:59:01 [INFO] 2025-06-24 07:59:01 - Recieved Request for fetching groups
+2025/06/24 07:59:01 [INFO] 2025-06-24 07:59:01 - Groups Fetched Successfuly
+2025/06/24 07:59:01 [LOG] 2025-06-24 07:59:01 - Invite Request Group to join fetched successfully
+2025/06/24 07:59:01 [INFO] 2025-06-24 07:59:01 - Recieved Request for fetching groups
+2025/06/24 07:59:01 [INFO] 2025-06-24 07:59:01 - Groups Fetched Successfuly
+2025/06/24 07:59:01 [LOG] 2025-06-24 07:59:01 - Invite Request Group to join fetched successfully
+2025/06/24 07:59:03 [INFO] 2025-06-24 07:59:03 - Recieved Request To fetch Group page
+2025/06/24 07:59:03 [INFO] 2025-06-24 07:59:03 - Group With ID : 4 Fetched With Success
+2025/06/24 07:59:03 [LOG] 2025-06-24 07:59:03 - Get request made to GetPostsScroll Handler
+2025/06/24 07:59:03 [ERROR] 2025-06-24 07:59:03 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 07:59:03 [INFO] 2025-06-24 07:59:03 - Recieved Request To fetch Group page
+2025/06/24 07:59:03 [INFO] 2025-06-24 07:59:03 - Group With ID : 4 Fetched With Success
+2025/06/24 07:59:03 [LOG] 2025-06-24 07:59:03 - Get request made to GetPostsScroll Handler
+2025/06/24 07:59:03 [ERROR] 2025-06-24 07:59:03 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 07:59:03 [INFO] 2025-06-24 07:59:03 - Admin requested pending invites
+2025/06/24 07:59:03 [INFO] 2025-06-24 07:59:03 - Admin requested pending invites
+2025/06/24 07:59:06 [INFO] 2025-06-24 07:59:06 - Received request to fetch FriendList
+2025/06/24 07:59:06 [INFO] 2025-06-24 07:59:06 - Friends in group 4 fetched successfully
+2025/06/24 07:59:08 [INFO] 2025-06-24 07:59:08 - Recieved Invite to group  Request
+2025/06/24 07:59:08 [INFO] 2025-06-24 07:59:08 - Invite ID: 35
+2025/06/24 07:59:08 [INFO] 2025-06-24 07:59:08 - User with Id : 953b6e4a-f46c-4946-ba2c-1b09828c5722 Has Been Invited
+2025/06/24 07:59:08 [INFO] 2025-06-24 07:59:08 - Sent notification via WS to 953b6e4a-f46c-4946-ba2c-1b09828c5722
+2025/06/24 07:59:16 [INFO] 2025-06-24 07:59:16 - Verify-token hit
+2025/06/24 07:59:22 [INFO] 2025-06-24 07:59:22 - Verify-token hit
+2025/06/24 08:00:09 [INFO] 2025-06-24 08:00:09 - Verify-token hit
+2025/06/24 08:00:12 [INFO] 2025-06-24 08:00:12 - Saving GroupMember into DB
+2025/06/24 08:00:12 [INFO] 2025-06-24 08:00:12 - Notification deleted from db
+2025/06/24 08:00:12 [INFO] 2025-06-24 08:00:12 - Sent notification via WS to 1a3b436a-e419-43ab-b433-90785a20fcd1
+2025/06/24 08:01:31 [INFO] 2025-06-24 08:01:31 - Recieved a Admin approving request
+2025/06/24 08:01:31 [INFO] 2025-06-24 08:01:31 - Saving GroupMember into DB
+2025/06/24 08:01:31 [INFO] 2025-06-24 08:01:31 - Admin accept invite 35 successfully
+2025/06/24 08:01:31 [LOG] 2025-06-24 08:01:31 - No notification matched for deletion
+2025/06/24 08:01:31 [INFO] 2025-06-24 08:01:31 - Sent notification via WS to 953b6e4a-f46c-4946-ba2c-1b09828c5722
+2025/06/24 08:05:38 [INFO] 2025-06-24 08:05:38 - Starting HTTP server at http://localhost:8080 ...
+2025/06/24 08:05:38 [INFO] 2025-06-24 08:05:38 - Migrations applied successfully!
+2025/06/24 08:06:05 [INFO] 2025-06-24 08:06:05 - Verify-token hit
+2025/06/24 08:06:11 [INFO] 2025-06-24 08:06:11 - Verify-token hit
+2025/06/24 08:06:24 [LOG] 2025-06-24 08:06:24 - Get request made to GetPostsScroll Handler
+2025/06/24 08:06:24 [INFO] 2025-06-24 08:06:24 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 08:06:24 [LOG] 2025-06-24 08:06:24 - Get request made to GetPostsScroll Handler
+2025/06/24 08:06:24 [INFO] 2025-06-24 08:06:24 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 08:06:29 [INFO] 2025-06-24 08:06:29 - Verify-token hit
+2025/06/24 08:06:33 [INFO] 2025-06-24 08:06:33 - Recieved Request for fetching groups
+2025/06/24 08:06:33 [LOG] 2025-06-24 08:06:33 - Invite Request Group to join fetched successfully
+2025/06/24 08:06:33 [INFO] 2025-06-24 08:06:33 - Groups Fetched Successfuly
+2025/06/24 08:06:33 [INFO] 2025-06-24 08:06:33 - Recieved Request for fetching groups
+2025/06/24 08:06:33 [LOG] 2025-06-24 08:06:33 - Invite Request Group to join fetched successfully
+2025/06/24 08:06:33 [INFO] 2025-06-24 08:06:33 - Groups Fetched Successfuly
+2025/06/24 08:06:35 [INFO] 2025-06-24 08:06:35 - Recieved Request To fetch Group page
+2025/06/24 08:06:35 [INFO] 2025-06-24 08:06:35 - Group With ID : 4 Fetched With Success
+2025/06/24 08:06:35 [INFO] 2025-06-24 08:06:35 - Recieved Request To fetch Group page
+2025/06/24 08:06:35 [INFO] 2025-06-24 08:06:35 - Group With ID : 4 Fetched With Success
+2025/06/24 08:06:35 [LOG] 2025-06-24 08:06:35 - Get request made to GetPostsScroll Handler
+2025/06/24 08:06:35 [ERROR] 2025-06-24 08:06:35 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 08:06:35 [LOG] 2025-06-24 08:06:35 - Get request made to GetPostsScroll Handler
+2025/06/24 08:06:35 [ERROR] 2025-06-24 08:06:35 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 08:06:35 [INFO] 2025-06-24 08:06:35 - Admin requested pending invites
+2025/06/24 08:06:35 [INFO] 2025-06-24 08:06:35 - Admin requested pending invites
+2025/06/24 08:06:36 [INFO] 2025-06-24 08:06:36 - Received request to fetch FriendList
+2025/06/24 08:06:36 [INFO] 2025-06-24 08:06:36 - Friends in group 4 fetched successfully
+2025/06/24 08:06:38 [INFO] 2025-06-24 08:06:38 - Recieved Invite to group  Request
+2025/06/24 08:06:38 [INFO] 2025-06-24 08:06:38 - Invite ID: 36
+2025/06/24 08:06:38 [INFO] 2025-06-24 08:06:38 - User with Id : 953b6e4a-f46c-4946-ba2c-1b09828c5722 Has Been Invited
+2025/06/24 08:06:38 [INFO] 2025-06-24 08:06:38 - Sent notification via WS to 953b6e4a-f46c-4946-ba2c-1b09828c5722
+2025/06/24 08:06:41 [INFO] 2025-06-24 08:06:41 - Recieved Request To fetch Group page
+2025/06/24 08:06:41 [INFO] 2025-06-24 08:06:41 - Group With ID : 4 Fetched With Success
+2025/06/24 08:06:41 [INFO] 2025-06-24 08:06:41 - Recieved Request To fetch Group page
+2025/06/24 08:06:41 [INFO] 2025-06-24 08:06:41 - Group With ID : 4 Fetched With Success
+2025/06/24 08:06:41 [LOG] 2025-06-24 08:06:41 - Get request made to GetPostsScroll Handler
+2025/06/24 08:06:41 [ERROR] 2025-06-24 08:06:41 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 08:06:41 [LOG] 2025-06-24 08:06:41 - Get request made to GetPostsScroll Handler
+2025/06/24 08:06:41 [ERROR] 2025-06-24 08:06:41 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 08:06:41 [INFO] 2025-06-24 08:06:41 - Admin requested pending invites
+2025/06/24 08:06:41 [INFO] 2025-06-24 08:06:41 - Admin requested pending invites
+2025/06/24 08:06:46 [INFO] 2025-06-24 08:06:46 - Saving GroupMember into DB
+2025/06/24 08:06:46 [INFO] 2025-06-24 08:06:46 - Notification deleted from db
+2025/06/24 08:06:46 [INFO] 2025-06-24 08:06:46 - Sent notification via WS to 1a3b436a-e419-43ab-b433-90785a20fcd1
+2025/06/24 08:06:48 [INFO] 2025-06-24 08:06:48 - Verify-token hit
+2025/06/24 08:06:50 [INFO] 2025-06-24 08:06:50 - Recieved a Admin approving request
+2025/06/24 08:06:50 [INFO] 2025-06-24 08:06:50 - Saving GroupMember into DB
+2025/06/24 08:06:50 [INFO] 2025-06-24 08:06:50 - Admin accept invite 36 successfully
+2025/06/24 08:06:50 [LOG] 2025-06-24 08:06:50 - No notification matched for deletion
+2025/06/24 08:06:50 [INFO] 2025-06-24 08:06:50 - Sent notification via WS to 953b6e4a-f46c-4946-ba2c-1b09828c5722
+2025/06/24 08:06:53 [INFO] 2025-06-24 08:06:53 - Verify-token hit
+2025/06/24 08:07:44 [INFO] 2025-06-24 08:07:44 - Starting HTTP server at http://localhost:8080 ...
+2025/06/24 08:07:44 [INFO] 2025-06-24 08:07:44 - Migrations applied successfully!
+2025/06/24 08:08:07 [INFO] 2025-06-24 08:08:07 - Verify-token hit
+2025/06/24 08:08:11 [INFO] 2025-06-24 08:08:11 - Verify-token hit
+2025/06/24 08:08:19 [LOG] 2025-06-24 08:08:19 - Get request made to GetPostsScroll Handler
+2025/06/24 08:08:19 [INFO] 2025-06-24 08:08:19 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 08:08:19 [LOG] 2025-06-24 08:08:19 - Get request made to GetPostsScroll Handler
+2025/06/24 08:08:19 [INFO] 2025-06-24 08:08:19 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 08:08:22 [INFO] 2025-06-24 08:08:22 - Recieved Request for fetching groups
+2025/06/24 08:08:22 [LOG] 2025-06-24 08:08:22 - Invite Request Group to join fetched successfully
+2025/06/24 08:08:22 [INFO] 2025-06-24 08:08:22 - Groups Fetched Successfuly
+2025/06/24 08:08:22 [INFO] 2025-06-24 08:08:22 - Recieved Request for fetching groups
+2025/06/24 08:08:22 [LOG] 2025-06-24 08:08:22 - Invite Request Group to join fetched successfully
+2025/06/24 08:08:22 [INFO] 2025-06-24 08:08:22 - Groups Fetched Successfuly
+2025/06/24 08:08:24 [INFO] 2025-06-24 08:08:24 - Recieved Request To fetch Group page
+2025/06/24 08:08:24 [INFO] 2025-06-24 08:08:24 - Group With ID : 4 Fetched With Success
+2025/06/24 08:08:24 [INFO] 2025-06-24 08:08:24 - Recieved Request To fetch Group page
+2025/06/24 08:08:24 [INFO] 2025-06-24 08:08:24 - Group With ID : 4 Fetched With Success
+2025/06/24 08:08:24 [LOG] 2025-06-24 08:08:24 - Get request made to GetPostsScroll Handler
+2025/06/24 08:08:24 [ERROR] 2025-06-24 08:08:24 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 08:08:24 [INFO] 2025-06-24 08:08:24 - Admin requested pending invites
+2025/06/24 08:08:24 [INFO] 2025-06-24 08:08:24 - Admin requested pending invites
+2025/06/24 08:08:24 [LOG] 2025-06-24 08:08:24 - Get request made to GetPostsScroll Handler
+2025/06/24 08:08:24 [ERROR] 2025-06-24 08:08:24 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 08:08:25 [INFO] 2025-06-24 08:08:25 - Received request to fetch FriendList
+2025/06/24 08:08:25 [INFO] 2025-06-24 08:08:25 - Friends in group 4 fetched successfully
+2025/06/24 08:08:26 [INFO] 2025-06-24 08:08:26 - Recieved Invite to group  Request
+2025/06/24 08:08:26 [INFO] 2025-06-24 08:08:26 - Invite ID: 37
+2025/06/24 08:08:26 [INFO] 2025-06-24 08:08:26 - User with Id : 953b6e4a-f46c-4946-ba2c-1b09828c5722 Has Been Invited
+2025/06/24 08:08:26 [INFO] 2025-06-24 08:08:26 - Sent notification via WS to 953b6e4a-f46c-4946-ba2c-1b09828c5722
+2025/06/24 08:08:30 [INFO] 2025-06-24 08:08:30 - Saving GroupMember into DB
+2025/06/24 08:08:30 [INFO] 2025-06-24 08:08:30 - Notification deleted from db
+2025/06/24 08:08:30 [INFO] 2025-06-24 08:08:30 - Sent notification via WS to 1a3b436a-e419-43ab-b433-90785a20fcd1
+2025/06/24 08:08:35 [INFO] 2025-06-24 08:08:35 - Verify-token hit
+2025/06/24 08:08:36 [INFO] 2025-06-24 08:08:36 - Recieved a Admin approving request
+2025/06/24 08:08:36 [INFO] 2025-06-24 08:08:36 - Saving GroupMember into DB
+2025/06/24 08:08:36 [INFO] 2025-06-24 08:08:36 - Admin accept invite 37 successfully
+2025/06/24 08:08:36 [LOG] 2025-06-24 08:08:36 - No notification matched for deletion
+2025/06/24 08:08:36 [INFO] 2025-06-24 08:08:36 - Sent notification via WS to 953b6e4a-f46c-4946-ba2c-1b09828c5722
+2025/06/24 08:09:25 [INFO] 2025-06-24 08:09:25 - Starting HTTP server at http://localhost:8080 ...
+2025/06/24 08:09:25 [INFO] 2025-06-24 08:09:25 - Migrations applied successfully!
+2025/06/24 08:09:48 [INFO] 2025-06-24 08:09:48 - Verify-token hit
+2025/06/24 08:09:52 [INFO] 2025-06-24 08:09:52 - Verify-token hit
+2025/06/24 08:10:04 [LOG] 2025-06-24 08:10:04 - Get request made to GetPostsScroll Handler
+2025/06/24 08:10:04 [INFO] 2025-06-24 08:10:04 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 08:10:04 [LOG] 2025-06-24 08:10:04 - Get request made to GetPostsScroll Handler
+2025/06/24 08:10:04 [INFO] 2025-06-24 08:10:04 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 08:10:06 [INFO] 2025-06-24 08:10:06 - Recieved Request for fetching groups
+2025/06/24 08:10:06 [LOG] 2025-06-24 08:10:06 - Invite Request Group to join fetched successfully
+2025/06/24 08:10:06 [INFO] 2025-06-24 08:10:06 - Groups Fetched Successfuly
+2025/06/24 08:10:06 [INFO] 2025-06-24 08:10:06 - Recieved Request for fetching groups
+2025/06/24 08:10:06 [LOG] 2025-06-24 08:10:06 - Invite Request Group to join fetched successfully
+2025/06/24 08:10:06 [INFO] 2025-06-24 08:10:06 - Groups Fetched Successfuly
+2025/06/24 08:10:08 [INFO] 2025-06-24 08:10:08 - Recieved Request To fetch Group page
+2025/06/24 08:10:08 [INFO] 2025-06-24 08:10:08 - Group With ID : 4 Fetched With Success
+2025/06/24 08:10:08 [INFO] 2025-06-24 08:10:08 - Recieved Request To fetch Group page
+2025/06/24 08:10:08 [INFO] 2025-06-24 08:10:08 - Group With ID : 4 Fetched With Success
+2025/06/24 08:10:08 [LOG] 2025-06-24 08:10:08 - Get request made to GetPostsScroll Handler
+2025/06/24 08:10:08 [ERROR] 2025-06-24 08:10:08 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 08:10:08 [INFO] 2025-06-24 08:10:08 - Admin requested pending invites
+2025/06/24 08:10:08 [LOG] 2025-06-24 08:10:08 - Get request made to GetPostsScroll Handler
+2025/06/24 08:10:08 [ERROR] 2025-06-24 08:10:08 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 08:10:08 [INFO] 2025-06-24 08:10:08 - Admin requested pending invites
+2025/06/24 08:10:10 [INFO] 2025-06-24 08:10:10 - Received request to fetch FriendList
+2025/06/24 08:10:10 [INFO] 2025-06-24 08:10:10 - Friends in group 4 fetched successfully
+2025/06/24 08:10:11 [INFO] 2025-06-24 08:10:11 - Recieved Invite to group  Request
+2025/06/24 08:10:11 [INFO] 2025-06-24 08:10:11 - Invite ID: 38
+2025/06/24 08:10:11 [INFO] 2025-06-24 08:10:11 - User with Id : 953b6e4a-f46c-4946-ba2c-1b09828c5722 Has Been Invited
+2025/06/24 08:10:11 [INFO] 2025-06-24 08:10:11 - Sent notification via WS to 953b6e4a-f46c-4946-ba2c-1b09828c5722
+2025/06/24 08:10:25 [LOG] 2025-06-24 08:10:25 - Get request made to GetPostsScroll Handler
+2025/06/24 08:10:25 [INFO] 2025-06-24 08:10:25 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 08:10:25 [LOG] 2025-06-24 08:10:25 - Get request made to GetPostsScroll Handler
+2025/06/24 08:10:25 [INFO] 2025-06-24 08:10:25 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 08:10:35 [INFO] 2025-06-24 08:10:35 - Verify-token hit
+2025/06/24 08:10:37 [INFO] 2025-06-24 08:10:37 - Saving GroupMember into DB
+2025/06/24 08:10:38 [INFO] 2025-06-24 08:10:38 - Notification deleted from db
+2025/06/24 08:10:38 [INFO] 2025-06-24 08:10:38 - Sent notification via WS to 1a3b436a-e419-43ab-b433-90785a20fcd1
+2025/06/24 08:10:39 [INFO] 2025-06-24 08:10:39 - Verify-token hit
+2025/06/24 08:10:42 [INFO] 2025-06-24 08:10:42 - Recieved a Admin approving request
+2025/06/24 08:10:42 [INFO] 2025-06-24 08:10:42 - Saving GroupMember into DB
+2025/06/24 08:10:42 [INFO] 2025-06-24 08:10:42 - Admin accept invite 38 successfully
+2025/06/24 08:10:42 [LOG] 2025-06-24 08:10:42 - No notification matched for deletion
+2025/06/24 08:10:42 [INFO] 2025-06-24 08:10:42 - Sent notification via WS to 953b6e4a-f46c-4946-ba2c-1b09828c5722
+2025/06/24 08:10:44 [INFO] 2025-06-24 08:10:44 - Verify-token hit
+2025/06/24 08:18:57 [INFO] 2025-06-24 08:18:57 - Starting HTTP server at http://localhost:8080 ...
+2025/06/24 08:18:57 [INFO] 2025-06-24 08:18:57 - Migrations applied successfully!
+2025/06/24 08:19:41 [INFO] 2025-06-24 08:19:41 - Verify-token hit
+2025/06/24 08:19:51 [INFO] 2025-06-24 08:19:51 - Verify-token hit
+2025/06/24 08:19:54 [INFO] 2025-06-24 08:19:54 - Recieved Request for fetching groups
+2025/06/24 08:19:54 [LOG] 2025-06-24 08:19:54 - Invite Request Group to join fetched successfully
+2025/06/24 08:19:54 [INFO] 2025-06-24 08:19:54 - Groups Fetched Successfuly
+2025/06/24 08:19:54 [INFO] 2025-06-24 08:19:54 - Recieved Request for fetching groups
+2025/06/24 08:19:54 [LOG] 2025-06-24 08:19:54 - Invite Request Group to join fetched successfully
+2025/06/24 08:19:54 [INFO] 2025-06-24 08:19:54 - Groups Fetched Successfuly
+2025/06/24 08:19:56 [INFO] 2025-06-24 08:19:56 - Recieved Request To fetch Group page
+2025/06/24 08:19:56 [INFO] 2025-06-24 08:19:56 - Group With ID : 4 Fetched With Success
+2025/06/24 08:19:56 [LOG] 2025-06-24 08:19:56 - Get request made to GetPostsScroll Handler
+2025/06/24 08:19:56 [ERROR] 2025-06-24 08:19:56 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 08:19:56 [INFO] 2025-06-24 08:19:56 - Recieved Request To fetch Group page
+2025/06/24 08:19:56 [INFO] 2025-06-24 08:19:56 - Group With ID : 4 Fetched With Success
+2025/06/24 08:19:56 [LOG] 2025-06-24 08:19:56 - Get request made to GetPostsScroll Handler
+2025/06/24 08:19:56 [ERROR] 2025-06-24 08:19:56 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 08:19:56 [INFO] 2025-06-24 08:19:56 - Admin requested pending invites
+2025/06/24 08:19:56 [INFO] 2025-06-24 08:19:56 - Admin requested pending invites
+2025/06/24 08:19:58 [INFO] 2025-06-24 08:19:58 - Received request to fetch FriendList
+2025/06/24 08:19:58 [INFO] 2025-06-24 08:19:58 - Friends in group 4 fetched successfully
+2025/06/24 08:19:59 [INFO] 2025-06-24 08:19:59 - Recieved Invite to group  Request
+2025/06/24 08:19:59 [INFO] 2025-06-24 08:19:59 - Invite ID: 39
+2025/06/24 08:19:59 [INFO] 2025-06-24 08:19:59 - User with Id : 953b6e4a-f46c-4946-ba2c-1b09828c5722 Has Been Invited
+2025/06/24 08:19:59 [INFO] 2025-06-24 08:19:59 - Sent notification via WS to 953b6e4a-f46c-4946-ba2c-1b09828c5722
+2025/06/24 08:20:03 [INFO] 2025-06-24 08:20:03 - Verify-token hit
+2025/06/24 08:20:04 [INFO] 2025-06-24 08:20:04 - Saving GroupMember into DB
+2025/06/24 08:20:04 [INFO] 2025-06-24 08:20:04 - Notification deleted from db
+2025/06/24 08:20:04 [LOG] 2025-06-24 08:20:04 - No notification matched for deletion
+2025/06/24 08:20:04 [INFO] 2025-06-24 08:20:04 - Sent notification via WS to 1a3b436a-e419-43ab-b433-90785a20fcd1
+2025/06/24 08:20:06 [INFO] 2025-06-24 08:20:06 - Verify-token hit
+2025/06/24 08:20:10 [INFO] 2025-06-24 08:20:10 - Recieved a Admin approving request
+2025/06/24 08:20:10 [INFO] 2025-06-24 08:20:10 - Saving GroupMember into DB
+2025/06/24 08:20:10 [INFO] 2025-06-24 08:20:10 - Admin accept invite 39 successfully
+2025/06/24 08:20:10 [LOG] 2025-06-24 08:20:10 - No notification matched for deletion
+2025/06/24 08:20:10 [INFO] 2025-06-24 08:20:10 - Sent notification via WS to 953b6e4a-f46c-4946-ba2c-1b09828c5722
+2025/06/24 08:20:15 [INFO] 2025-06-24 08:20:15 - Verify-token hit
+2025/06/24 08:22:50 [INFO] 2025-06-24 08:22:50 - Starting HTTP server at http://localhost:8080 ...
+2025/06/24 08:22:50 [INFO] 2025-06-24 08:22:50 - Migrations applied successfully!
+2025/06/24 08:22:54 [INFO] 2025-06-24 08:22:54 - Verify-token hit
+2025/06/24 08:22:57 [INFO] 2025-06-24 08:22:57 - Recieved a Admin approving request
+2025/06/24 08:22:57 [ERROR] 2025-06-24 08:22:57 - Invite does not exist
+2025/06/24 08:23:00 [INFO] 2025-06-24 08:23:00 - Verify-token hit
+2025/06/24 08:23:28 [INFO] 2025-06-24 08:23:28 - Verify-token hit
+2025/06/24 08:23:43 [LOG] 2025-06-24 08:23:43 - Get request made to GetPostsScroll Handler
+2025/06/24 08:23:43 [INFO] 2025-06-24 08:23:43 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 08:23:43 [LOG] 2025-06-24 08:23:43 - Get request made to GetPostsScroll Handler
+2025/06/24 08:23:43 [INFO] 2025-06-24 08:23:43 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 08:23:44 [INFO] 2025-06-24 08:23:44 - Recieved Request for fetching groups
+2025/06/24 08:23:44 [LOG] 2025-06-24 08:23:44 - Invite Request Group to join fetched successfully
+2025/06/24 08:23:44 [INFO] 2025-06-24 08:23:44 - Groups Fetched Successfuly
+2025/06/24 08:23:44 [INFO] 2025-06-24 08:23:44 - Recieved Request for fetching groups
+2025/06/24 08:23:44 [LOG] 2025-06-24 08:23:44 - Invite Request Group to join fetched successfully
+2025/06/24 08:23:44 [INFO] 2025-06-24 08:23:44 - Groups Fetched Successfuly
+2025/06/24 08:23:47 [INFO] 2025-06-24 08:23:47 - Recieved Request To fetch Group page
+2025/06/24 08:23:47 [INFO] 2025-06-24 08:23:47 - Group With ID : 4 Fetched With Success
+2025/06/24 08:23:47 [LOG] 2025-06-24 08:23:47 - Get request made to GetPostsScroll Handler
+2025/06/24 08:23:47 [INFO] 2025-06-24 08:23:47 - Recieved Request To fetch Group page
+2025/06/24 08:23:47 [ERROR] 2025-06-24 08:23:47 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 08:23:47 [INFO] 2025-06-24 08:23:47 - Group With ID : 4 Fetched With Success
+2025/06/24 08:23:47 [INFO] 2025-06-24 08:23:47 - Admin requested pending invites
+2025/06/24 08:23:47 [LOG] 2025-06-24 08:23:47 - Get request made to GetPostsScroll Handler
+2025/06/24 08:23:47 [ERROR] 2025-06-24 08:23:47 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 08:23:47 [INFO] 2025-06-24 08:23:47 - Admin requested pending invites
+2025/06/24 08:23:48 [INFO] 2025-06-24 08:23:48 - Received request to fetch FriendList
+2025/06/24 08:23:48 [INFO] 2025-06-24 08:23:48 - Friends in group 4 fetched successfully
+2025/06/24 08:23:49 [INFO] 2025-06-24 08:23:49 - Recieved Invite to group  Request
+2025/06/24 08:23:49 [INFO] 2025-06-24 08:23:49 - Invite ID: 40
+2025/06/24 08:23:49 [INFO] 2025-06-24 08:23:49 - User with Id : 953b6e4a-f46c-4946-ba2c-1b09828c5722 Has Been Invited
+2025/06/24 08:23:49 [INFO] 2025-06-24 08:23:49 - Sent notification via WS to 953b6e4a-f46c-4946-ba2c-1b09828c5722
+2025/06/24 08:23:54 [INFO] 2025-06-24 08:23:54 - Verify-token hit
+2025/06/24 08:23:59 [INFO] 2025-06-24 08:23:59 - Verify-token hit
+2025/06/24 08:24:00 [INFO] 2025-06-24 08:24:00 - Saving GroupMember into DB
+2025/06/24 08:24:00 [INFO] 2025-06-24 08:24:00 - Notification deleted from db
+2025/06/24 08:24:00 [LOG] 2025-06-24 08:24:00 - No notification matched for deletion
+2025/06/24 08:24:00 [INFO] 2025-06-24 08:24:00 - Sent notification via WS to 1a3b436a-e419-43ab-b433-90785a20fcd1
+2025/06/24 08:24:02 [INFO] 2025-06-24 08:24:02 - Verify-token hit
+2025/06/24 08:24:04 [INFO] 2025-06-24 08:24:04 - Verify-token hit
+2025/06/24 08:24:06 [INFO] 2025-06-24 08:24:06 - Recieved a Admin approving request
+2025/06/24 08:24:06 [INFO] 2025-06-24 08:24:06 - Saving GroupMember into DB
+2025/06/24 08:24:06 [INFO] 2025-06-24 08:24:06 - Admin accept invite 40 successfully
+2025/06/24 08:24:06 [LOG] 2025-06-24 08:24:06 - No notification matched for deletion
+2025/06/24 08:24:06 [INFO] 2025-06-24 08:24:06 - Sent notification via WS to 953b6e4a-f46c-4946-ba2c-1b09828c5722
+2025/06/24 08:24:10 [INFO] 2025-06-24 08:24:10 - Verify-token hit
+2025/06/24 08:25:11 [INFO] 2025-06-24 08:25:11 - Starting HTTP server at http://localhost:8080 ...
+2025/06/24 08:25:11 [INFO] 2025-06-24 08:25:11 - Migrations applied successfully!
+2025/06/24 08:25:35 [INFO] 2025-06-24 08:25:35 - Starting HTTP server at http://localhost:8080 ...
+2025/06/24 08:25:35 [INFO] 2025-06-24 08:25:35 - Migrations applied successfully!
+2025/06/24 08:25:40 [INFO] 2025-06-24 08:25:40 - Verify-token hit
+2025/06/24 08:25:50 [LOG] 2025-06-24 08:25:50 - Get request made to GetPostsScroll Handler
+2025/06/24 08:25:50 [INFO] 2025-06-24 08:25:50 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 08:25:50 [LOG] 2025-06-24 08:25:50 - Get request made to GetPostsScroll Handler
+2025/06/24 08:25:50 [INFO] 2025-06-24 08:25:50 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 08:25:52 [INFO] 2025-06-24 08:25:52 - Recieved Request for fetching groups
+2025/06/24 08:25:52 [INFO] 2025-06-24 08:25:52 - Groups Fetched Successfuly
+2025/06/24 08:25:52 [LOG] 2025-06-24 08:25:52 - Invite Request Group to join fetched successfully
+2025/06/24 08:25:52 [INFO] 2025-06-24 08:25:52 - Recieved Request for fetching groups
+2025/06/24 08:25:52 [LOG] 2025-06-24 08:25:52 - Invite Request Group to join fetched successfully
+2025/06/24 08:25:52 [INFO] 2025-06-24 08:25:52 - Groups Fetched Successfuly
+2025/06/24 08:25:55 [INFO] 2025-06-24 08:25:55 - Recieved Request To fetch Group page
+2025/06/24 08:25:55 [INFO] 2025-06-24 08:25:55 - Group With ID : 4 Fetched With Success
+2025/06/24 08:25:55 [INFO] 2025-06-24 08:25:55 - Recieved Request To fetch Group page
+2025/06/24 08:25:55 [INFO] 2025-06-24 08:25:55 - Group With ID : 4 Fetched With Success
+2025/06/24 08:25:55 [LOG] 2025-06-24 08:25:55 - Get request made to GetPostsScroll Handler
+2025/06/24 08:25:55 [ERROR] 2025-06-24 08:25:55 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 08:25:55 [LOG] 2025-06-24 08:25:55 - Get request made to GetPostsScroll Handler
+2025/06/24 08:25:55 [ERROR] 2025-06-24 08:25:55 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 08:25:55 [INFO] 2025-06-24 08:25:55 - Admin requested pending invites
+2025/06/24 08:25:55 [INFO] 2025-06-24 08:25:55 - Admin requested pending invites
+2025/06/24 08:25:56 [INFO] 2025-06-24 08:25:56 - Received request to fetch FriendList
+2025/06/24 08:25:56 [INFO] 2025-06-24 08:25:56 - Friends in group 4 fetched successfully
+2025/06/24 08:25:58 [INFO] 2025-06-24 08:25:58 - Recieved Invite to group  Request
+2025/06/24 08:25:58 [INFO] 2025-06-24 08:25:58 - Invite ID: 41
+2025/06/24 08:25:58 [INFO] 2025-06-24 08:25:58 - User with Id : 953b6e4a-f46c-4946-ba2c-1b09828c5722 Has Been Invited
+2025/06/24 08:25:58 [INFO] 2025-06-24 08:25:58 - User 953b6e4a-f46c-4946-ba2c-1b09828c5722 not connected, notification saved to DB
+2025/06/24 08:26:01 [INFO] 2025-06-24 08:26:01 - Verify-token hit
+2025/06/24 08:26:04 [INFO] 2025-06-24 08:26:04 - Verify-token hit
+2025/06/24 08:26:07 [INFO] 2025-06-24 08:26:07 - Saving GroupMember into DB
+2025/06/24 08:26:07 [INFO] 2025-06-24 08:26:07 - Notification deleted from db
+2025/06/24 08:26:07 [LOG] 2025-06-24 08:26:07 - No notification matched for deletion
+2025/06/24 08:26:07 [INFO] 2025-06-24 08:26:07 - Sent notification via WS to 1a3b436a-e419-43ab-b433-90785a20fcd1
+2025/06/24 08:26:09 [INFO] 2025-06-24 08:26:09 - Verify-token hit
+2025/06/24 08:26:12 [INFO] 2025-06-24 08:26:12 - Recieved a Admin approving request
+2025/06/24 08:26:12 [INFO] 2025-06-24 08:26:12 - Saving GroupMember into DB
+2025/06/24 08:26:12 [INFO] 2025-06-24 08:26:12 - Admin accept invite 41 successfully
+2025/06/24 08:26:12 [LOG] 2025-06-24 08:26:12 - No notification matched for deletion
+2025/06/24 08:26:12 [INFO] 2025-06-24 08:26:12 - Sent notification via WS to 953b6e4a-f46c-4946-ba2c-1b09828c5722
+2025/06/24 08:26:15 [INFO] 2025-06-24 08:26:15 - Verify-token hit
+2025/06/24 08:26:49 [INFO] 2025-06-24 08:26:49 - Starting HTTP server at http://localhost:8080 ...
+2025/06/24 08:26:49 [INFO] 2025-06-24 08:26:49 - Migrations applied successfully!
+2025/06/24 08:27:25 [INFO] 2025-06-24 08:27:25 - Starting HTTP server at http://localhost:8080 ...
+2025/06/24 08:27:25 [INFO] 2025-06-24 08:27:25 - Migrations applied successfully!
+2025/06/24 08:27:28 [INFO] 2025-06-24 08:27:28 - Verify-token hit
+2025/06/24 08:27:35 [LOG] 2025-06-24 08:27:35 - Get request made to GetPostsScroll Handler
+2025/06/24 08:27:35 [INFO] 2025-06-24 08:27:35 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 08:27:35 [LOG] 2025-06-24 08:27:35 - Get request made to GetPostsScroll Handler
+2025/06/24 08:27:35 [INFO] 2025-06-24 08:27:35 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 08:27:36 [INFO] 2025-06-24 08:27:36 - Recieved Request for fetching groups
+2025/06/24 08:27:36 [INFO] 2025-06-24 08:27:36 - Groups Fetched Successfuly
+2025/06/24 08:27:36 [LOG] 2025-06-24 08:27:36 - Invite Request Group to join fetched successfully
+2025/06/24 08:27:36 [INFO] 2025-06-24 08:27:36 - Recieved Request for fetching groups
+2025/06/24 08:27:36 [INFO] 2025-06-24 08:27:36 - Groups Fetched Successfuly
+2025/06/24 08:27:36 [LOG] 2025-06-24 08:27:36 - Invite Request Group to join fetched successfully
+2025/06/24 08:27:38 [INFO] 2025-06-24 08:27:38 - Recieved Request To fetch Group page
+2025/06/24 08:27:38 [INFO] 2025-06-24 08:27:38 - Group With ID : 4 Fetched With Success
+2025/06/24 08:27:38 [INFO] 2025-06-24 08:27:38 - Recieved Request To fetch Group page
+2025/06/24 08:27:38 [INFO] 2025-06-24 08:27:38 - Group With ID : 4 Fetched With Success
+2025/06/24 08:27:38 [LOG] 2025-06-24 08:27:38 - Get request made to GetPostsScroll Handler
+2025/06/24 08:27:38 [ERROR] 2025-06-24 08:27:38 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 08:27:38 [LOG] 2025-06-24 08:27:38 - Get request made to GetPostsScroll Handler
+2025/06/24 08:27:38 [ERROR] 2025-06-24 08:27:38 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 08:27:38 [INFO] 2025-06-24 08:27:38 - Admin requested pending invites
+2025/06/24 08:27:38 [INFO] 2025-06-24 08:27:38 - Admin requested pending invites
+2025/06/24 08:27:39 [INFO] 2025-06-24 08:27:39 - Received request to fetch FriendList
+2025/06/24 08:27:39 [INFO] 2025-06-24 08:27:39 - Friends in group 4 fetched successfully
+2025/06/24 08:27:41 [INFO] 2025-06-24 08:27:41 - Recieved Invite to group  Request
+2025/06/24 08:27:41 [INFO] 2025-06-24 08:27:41 - Invite ID: 42
+2025/06/24 08:27:41 [INFO] 2025-06-24 08:27:41 - User with Id : 953b6e4a-f46c-4946-ba2c-1b09828c5722 Has Been Invited
+2025/06/24 08:27:41 [INFO] 2025-06-24 08:27:41 - User 953b6e4a-f46c-4946-ba2c-1b09828c5722 not connected, notification saved to DB
+2025/06/24 08:27:46 [INFO] 2025-06-24 08:27:46 - Verify-token hit
+2025/06/24 08:27:49 [INFO] 2025-06-24 08:27:49 - Saving GroupMember into DB
+2025/06/24 08:27:49 [INFO] 2025-06-24 08:27:49 - Notification deleted from db
+2025/06/24 08:27:49 [LOG] 2025-06-24 08:27:49 - No notification matched for deletion
+2025/06/24 08:27:49 [INFO] 2025-06-24 08:27:49 - Sent notification via WS to 1a3b436a-e419-43ab-b433-90785a20fcd1
+2025/06/24 08:27:51 [INFO] 2025-06-24 08:27:51 - Verify-token hit
+2025/06/24 08:27:53 [INFO] 2025-06-24 08:27:53 - Recieved a Admin approving request
+2025/06/24 08:27:53 [INFO] 2025-06-24 08:27:53 - Saving GroupMember into DB
+2025/06/24 08:27:53 [INFO] 2025-06-24 08:27:53 - Admin accept invite 42 successfully
+2025/06/24 08:27:53 [LOG] 2025-06-24 08:27:53 - No notification matched for deletion
+2025/06/24 08:27:53 [INFO] 2025-06-24 08:27:53 - Sent notification via WS to 953b6e4a-f46c-4946-ba2c-1b09828c5722
+2025/06/24 08:27:55 [INFO] 2025-06-24 08:27:55 - Verify-token hit
+2025/06/24 08:28:16 [INFO] 2025-06-24 08:28:16 - Starting HTTP server at http://localhost:8080 ...
+2025/06/24 08:28:16 [INFO] 2025-06-24 08:28:16 - Migrations applied successfully!
+2025/06/24 08:28:38 [INFO] 2025-06-24 08:28:38 - Starting HTTP server at http://localhost:8080 ...
+2025/06/24 08:28:38 [INFO] 2025-06-24 08:28:38 - Migrations applied successfully!
+2025/06/24 08:28:47 [INFO] 2025-06-24 08:28:47 - Verify-token hit
+2025/06/24 08:28:57 [LOG] 2025-06-24 08:28:57 - Get request made to GetPostsScroll Handler
+2025/06/24 08:28:57 [INFO] 2025-06-24 08:28:57 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 08:28:57 [LOG] 2025-06-24 08:28:57 - Get request made to GetPostsScroll Handler
+2025/06/24 08:28:57 [INFO] 2025-06-24 08:28:57 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 08:29:01 [INFO] 2025-06-24 08:29:01 - Recieved Request for fetching groups
+2025/06/24 08:29:01 [LOG] 2025-06-24 08:29:01 - Invite Request Group to join fetched successfully
+2025/06/24 08:29:01 [INFO] 2025-06-24 08:29:01 - Groups Fetched Successfuly
+2025/06/24 08:29:01 [INFO] 2025-06-24 08:29:01 - Recieved Request for fetching groups
+2025/06/24 08:29:01 [INFO] 2025-06-24 08:29:01 - Groups Fetched Successfuly
+2025/06/24 08:29:01 [LOG] 2025-06-24 08:29:01 - Invite Request Group to join fetched successfully
+2025/06/24 08:29:03 [INFO] 2025-06-24 08:29:03 - Recieved Request To fetch Group page
+2025/06/24 08:29:03 [INFO] 2025-06-24 08:29:03 - Group With ID : 4 Fetched With Success
+2025/06/24 08:29:03 [INFO] 2025-06-24 08:29:03 - Recieved Request To fetch Group page
+2025/06/24 08:29:03 [INFO] 2025-06-24 08:29:03 - Group With ID : 4 Fetched With Success
+2025/06/24 08:29:03 [LOG] 2025-06-24 08:29:03 - Get request made to GetPostsScroll Handler
+2025/06/24 08:29:03 [ERROR] 2025-06-24 08:29:03 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 08:29:03 [LOG] 2025-06-24 08:29:03 - Get request made to GetPostsScroll Handler
+2025/06/24 08:29:03 [ERROR] 2025-06-24 08:29:03 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 08:29:03 [INFO] 2025-06-24 08:29:03 - Admin requested pending invites
+2025/06/24 08:29:03 [INFO] 2025-06-24 08:29:03 - Admin requested pending invites
+2025/06/24 08:29:04 [INFO] 2025-06-24 08:29:04 - Received request to fetch FriendList
+2025/06/24 08:29:04 [INFO] 2025-06-24 08:29:04 - Friends in group 4 fetched successfully
+2025/06/24 08:29:05 [INFO] 2025-06-24 08:29:05 - Recieved Invite to group  Request
+2025/06/24 08:29:05 [INFO] 2025-06-24 08:29:05 - Invite ID: 43
+2025/06/24 08:29:05 [INFO] 2025-06-24 08:29:05 - User with Id : 953b6e4a-f46c-4946-ba2c-1b09828c5722 Has Been Invited
+2025/06/24 08:29:05 [INFO] 2025-06-24 08:29:05 - User 953b6e4a-f46c-4946-ba2c-1b09828c5722 not connected, notification saved to DB
+2025/06/24 08:29:09 [INFO] 2025-06-24 08:29:09 - Verify-token hit
+2025/06/24 08:29:13 [INFO] 2025-06-24 08:29:13 - Verify-token hit
+2025/06/24 08:29:15 [INFO] 2025-06-24 08:29:15 - Saving GroupMember into DB
+2025/06/24 08:29:15 [INFO] 2025-06-24 08:29:15 - Notification deleted from db
+2025/06/24 08:29:15 [LOG] 2025-06-24 08:29:15 - No notification matched for deletion
+2025/06/24 08:29:15 [INFO] 2025-06-24 08:29:15 - Sent notification via WS to 1a3b436a-e419-43ab-b433-90785a20fcd1
+2025/06/24 08:29:16 [INFO] 2025-06-24 08:29:16 - Verify-token hit
+2025/06/24 08:29:18 [INFO] 2025-06-24 08:29:18 - Recieved a Admin approving request
+2025/06/24 08:29:18 [INFO] 2025-06-24 08:29:18 - Saving GroupMember into DB
+2025/06/24 08:29:18 [INFO] 2025-06-24 08:29:18 - Admin accept invite 43 successfully
+2025/06/24 08:29:18 [LOG] 2025-06-24 08:29:18 - No notification matched for deletion
+2025/06/24 08:29:18 [INFO] 2025-06-24 08:29:18 - Sent notification via WS to 953b6e4a-f46c-4946-ba2c-1b09828c5722
+2025/06/24 08:29:19 [INFO] 2025-06-24 08:29:19 - Verify-token hit
+2025/06/24 08:34:50 [INFO] 2025-06-24 08:34:50 - Starting HTTP server at http://localhost:8080 ...
+2025/06/24 08:34:50 [INFO] 2025-06-24 08:34:50 - Migrations applied successfully!
+2025/06/24 08:35:18 [INFO] 2025-06-24 08:35:18 - Starting HTTP server at http://localhost:8080 ...
+2025/06/24 08:35:18 [INFO] 2025-06-24 08:35:18 - Migrations applied successfully!
+2025/06/24 08:35:21 [INFO] 2025-06-24 08:35:21 - Verify-token hit
+2025/06/24 08:35:25 [INFO] 2025-06-24 08:35:25 - Verify-token hit
+2025/06/24 08:35:33 [LOG] 2025-06-24 08:35:33 - Get request made to GetPostsScroll Handler
+2025/06/24 08:35:33 [INFO] 2025-06-24 08:35:33 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 08:35:33 [LOG] 2025-06-24 08:35:33 - Get request made to GetPostsScroll Handler
+2025/06/24 08:35:33 [INFO] 2025-06-24 08:35:33 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 08:35:34 [INFO] 2025-06-24 08:35:34 - Recieved Request for fetching groups
+2025/06/24 08:35:34 [LOG] 2025-06-24 08:35:34 - Invite Request Group to join fetched successfully
+2025/06/24 08:35:34 [INFO] 2025-06-24 08:35:34 - Groups Fetched Successfuly
+2025/06/24 08:35:34 [INFO] 2025-06-24 08:35:34 - Recieved Request for fetching groups
+2025/06/24 08:35:34 [LOG] 2025-06-24 08:35:34 - Invite Request Group to join fetched successfully
+2025/06/24 08:35:34 [INFO] 2025-06-24 08:35:34 - Groups Fetched Successfuly
+2025/06/24 08:35:36 [INFO] 2025-06-24 08:35:36 - Recieved Request To fetch Group page
+2025/06/24 08:35:36 [INFO] 2025-06-24 08:35:36 - Group With ID : 4 Fetched With Success
+2025/06/24 08:35:36 [INFO] 2025-06-24 08:35:36 - Recieved Request To fetch Group page
+2025/06/24 08:35:36 [INFO] 2025-06-24 08:35:36 - Group With ID : 4 Fetched With Success
+2025/06/24 08:35:36 [LOG] 2025-06-24 08:35:36 - Get request made to GetPostsScroll Handler
+2025/06/24 08:35:36 [ERROR] 2025-06-24 08:35:36 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 08:35:36 [LOG] 2025-06-24 08:35:36 - Get request made to GetPostsScroll Handler
+2025/06/24 08:35:36 [ERROR] 2025-06-24 08:35:36 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 08:35:36 [INFO] 2025-06-24 08:35:36 - Admin requested pending invites
+2025/06/24 08:35:36 [INFO] 2025-06-24 08:35:36 - Admin requested pending invites
+2025/06/24 08:35:38 [INFO] 2025-06-24 08:35:38 - Received request to fetch FriendList
+2025/06/24 08:35:38 [INFO] 2025-06-24 08:35:38 - Friends in group 4 fetched successfully
+2025/06/24 08:35:39 [INFO] 2025-06-24 08:35:39 - Recieved Invite to group  Request
+2025/06/24 08:35:39 [INFO] 2025-06-24 08:35:39 - Invite ID: 44
+2025/06/24 08:35:39 [INFO] 2025-06-24 08:35:39 - User with Id : 953b6e4a-f46c-4946-ba2c-1b09828c5722 Has Been Invited
+2025/06/24 08:35:39 [INFO] 2025-06-24 08:35:39 - Sent notification via WS to 953b6e4a-f46c-4946-ba2c-1b09828c5722
+2025/06/24 08:35:44 [INFO] 2025-06-24 08:35:44 - Verify-token hit
+2025/06/24 08:35:45 [INFO] 2025-06-24 08:35:45 - Saving GroupMember into DB
+2025/06/24 08:35:45 [INFO] 2025-06-24 08:35:45 - Notification deleted from db
+2025/06/24 08:35:45 [INFO] 2025-06-24 08:35:45 - Sent notification via WS to 1a3b436a-e419-43ab-b433-90785a20fcd1
+2025/06/24 08:35:48 [INFO] 2025-06-24 08:35:48 - Verify-token hit
+2025/06/24 08:35:50 [INFO] 2025-06-24 08:35:50 - Recieved a Admin approving request
+2025/06/24 08:35:50 [INFO] 2025-06-24 08:35:50 - Saving GroupMember into DB
+2025/06/24 08:35:50 [INFO] 2025-06-24 08:35:50 - Admin accept invite 44 successfully
+2025/06/24 08:35:50 [LOG] 2025-06-24 08:35:50 - No notification matched for deletion
+2025/06/24 08:35:50 [INFO] 2025-06-24 08:35:50 - Notification deleted from db
+2025/06/24 08:35:50 [INFO] 2025-06-24 08:35:50 - Sent notification via WS to 953b6e4a-f46c-4946-ba2c-1b09828c5722
+2025/06/24 08:35:52 [INFO] 2025-06-24 08:35:52 - Verify-token hit
+2025/06/24 08:36:13 [INFO] 2025-06-24 08:36:13 - Verify-token hit
+2025/06/24 08:36:42 [INFO] 2025-06-24 08:36:42 - Received request to fetch group members
+2025/06/24 08:36:42 [INFO] 2025-06-24 08:36:42 - Group members for group 4 fetched successfully
+2025/06/24 08:36:59 [INFO] 2025-06-24 08:36:59 - Verify-token hit
+2025/06/24 08:36:59 [INFO] 2025-06-24 08:36:59 - =========== GetOtherUserProfile called ===========
+2025/06/24 08:36:59 [INFO] 2025-06-24 08:36:59 - Authenticated user ID: 1a3b436a-e419-43ab-b433-90785a20fcd1
+2025/06/24 08:36:59 [INFO] 2025-06-24 08:36:59 - Requested profile for user ID: 1a3b436a-e419-43ab-b433-90785a20fcd1
+2025/06/24 08:36:59 [INFO] 2025-06-24 08:36:59 - User is viewing their own profile
+2025/06/24 08:36:59 [INFO] 2025-06-24 08:36:59 - Profile returned successfully
+2025/06/24 08:36:59 [INFO] 2025-06-24 08:36:59 - =========== GetOtherUserProfile called ===========
+2025/06/24 08:36:59 [INFO] 2025-06-24 08:36:59 - Authenticated user ID: 1a3b436a-e419-43ab-b433-90785a20fcd1
+2025/06/24 08:36:59 [INFO] 2025-06-24 08:36:59 - Requested profile for user ID: 1a3b436a-e419-43ab-b433-90785a20fcd1
+2025/06/24 08:36:59 [INFO] 2025-06-24 08:36:59 - User is viewing their own profile
+2025/06/24 08:36:59 [INFO] 2025-06-24 08:36:59 - Profile returned successfully
+2025/06/24 08:36:59 [LOG] 2025-06-24 08:36:59 - Get request made to GetPostsScroll Handler
+2025/06/24 08:36:59 [ERROR] 2025-06-24 08:36:59 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 08:36:59 [LOG] 2025-06-24 08:36:59 - Get request made to GetPostsScroll Handler
+2025/06/24 08:36:59 [ERROR] 2025-06-24 08:36:59 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 08:37:08 [LOG] 2025-06-24 08:37:08 - Get request made to GetPostsScroll Handler
+2025/06/24 08:37:08 [INFO] 2025-06-24 08:37:08 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 08:37:08 [LOG] 2025-06-24 08:37:08 - Get request made to GetPostsScroll Handler
+2025/06/24 08:37:08 [INFO] 2025-06-24 08:37:08 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 08:37:10 [INFO] 2025-06-24 08:37:10 - Recieved Request for fetching groups
+2025/06/24 08:37:10 [LOG] 2025-06-24 08:37:10 - Invite Request Group to join fetched successfully
+2025/06/24 08:37:10 [INFO] 2025-06-24 08:37:10 - Groups Fetched Successfuly
+2025/06/24 08:37:10 [INFO] 2025-06-24 08:37:10 - Recieved Request for fetching groups
+2025/06/24 08:37:10 [LOG] 2025-06-24 08:37:10 - Invite Request Group to join fetched successfully
+2025/06/24 08:37:10 [INFO] 2025-06-24 08:37:10 - Groups Fetched Successfuly
+2025/06/24 08:37:37 [INFO] 2025-06-24 08:37:37 - Starting HTTP server at http://localhost:8080 ...
+2025/06/24 08:37:37 [INFO] 2025-06-24 08:37:37 - Migrations applied successfully!
+2025/06/24 08:37:41 [INFO] 2025-06-24 08:37:41 - Verify-token hit
+2025/06/24 08:37:45 [INFO] 2025-06-24 08:37:45 - Recieved Request for fetching groups
+2025/06/24 08:37:45 [INFO] 2025-06-24 08:37:45 - Groups Fetched Successfuly
+2025/06/24 08:37:45 [LOG] 2025-06-24 08:37:45 - Invite Request Group to join fetched successfully
+2025/06/24 08:37:45 [LOG] 2025-06-24 08:37:45 - Invite Request Group to join fetched successfully
+2025/06/24 08:37:45 [INFO] 2025-06-24 08:37:45 - Recieved Request for fetching groups
+2025/06/24 08:37:45 [INFO] 2025-06-24 08:37:45 - Groups Fetched Successfuly
+2025/06/24 08:37:52 [INFO] 2025-06-24 08:37:52 - Verify-token hit
+2025/06/24 08:37:52 [INFO] 2025-06-24 08:37:52 - =========== GetOtherUserProfile called ===========
+2025/06/24 08:37:52 [INFO] 2025-06-24 08:37:52 - Authenticated user ID: 1a3b436a-e419-43ab-b433-90785a20fcd1
+2025/06/24 08:37:52 [INFO] 2025-06-24 08:37:52 - Requested profile for user ID: 1a3b436a-e419-43ab-b433-90785a20fcd1
+2025/06/24 08:37:52 [INFO] 2025-06-24 08:37:52 - User is viewing their own profile
+2025/06/24 08:37:52 [INFO] 2025-06-24 08:37:52 - Profile returned successfully
+2025/06/24 08:37:52 [INFO] 2025-06-24 08:37:52 - =========== GetOtherUserProfile called ===========
+2025/06/24 08:37:52 [INFO] 2025-06-24 08:37:52 - Authenticated user ID: 1a3b436a-e419-43ab-b433-90785a20fcd1
+2025/06/24 08:37:52 [INFO] 2025-06-24 08:37:52 - Requested profile for user ID: 1a3b436a-e419-43ab-b433-90785a20fcd1
+2025/06/24 08:37:52 [INFO] 2025-06-24 08:37:52 - User is viewing their own profile
+2025/06/24 08:37:52 [INFO] 2025-06-24 08:37:52 - Profile returned successfully
+2025/06/24 08:37:52 [LOG] 2025-06-24 08:37:52 - Get request made to GetPostsScroll Handler
+2025/06/24 08:37:52 [ERROR] 2025-06-24 08:37:52 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 08:37:52 [LOG] 2025-06-24 08:37:52 - Get request made to GetPostsScroll Handler
+2025/06/24 08:37:52 [ERROR] 2025-06-24 08:37:52 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 08:37:56 [INFO] 2025-06-24 08:37:56 - Verify-token hit
+2025/06/24 08:37:59 [INFO] 2025-06-24 08:37:59 - Recieved Request for fetching groups
+2025/06/24 08:37:59 [INFO] 2025-06-24 08:37:59 - Groups Fetched Successfuly
+2025/06/24 08:37:59 [INFO] 2025-06-24 08:37:59 - Recieved Request for fetching groups
+2025/06/24 08:37:59 [LOG] 2025-06-24 08:37:59 - Invite Request Group to join fetched successfully
+2025/06/24 08:37:59 [INFO] 2025-06-24 08:37:59 - Groups Fetched Successfuly
+2025/06/24 08:37:59 [LOG] 2025-06-24 08:37:59 - Invite Request Group to join fetched successfully
+2025/06/24 08:38:03 [INFO] 2025-06-24 08:38:03 - Recieved Request To fetch Group page
+2025/06/24 08:38:03 [INFO] 2025-06-24 08:38:03 - Group With ID : 4 Fetched With Success
+2025/06/24 08:38:03 [LOG] 2025-06-24 08:38:03 - Get request made to GetPostsScroll Handler
+2025/06/24 08:38:03 [ERROR] 2025-06-24 08:38:03 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 08:38:03 [INFO] 2025-06-24 08:38:03 - Recieved Request To fetch Group page
+2025/06/24 08:38:03 [INFO] 2025-06-24 08:38:03 - Group With ID : 4 Fetched With Success
+2025/06/24 08:38:03 [LOG] 2025-06-24 08:38:03 - Get request made to GetPostsScroll Handler
+2025/06/24 08:38:03 [ERROR] 2025-06-24 08:38:03 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 08:38:03 [INFO] 2025-06-24 08:38:03 - Admin requested pending invites
+2025/06/24 08:38:03 [INFO] 2025-06-24 08:38:03 - Admin requested pending invites
+2025/06/24 08:38:05 [INFO] 2025-06-24 08:38:05 - Received request to fetch FriendList
+2025/06/24 08:38:05 [INFO] 2025-06-24 08:38:05 - Friends in group 4 fetched successfully
+2025/06/24 08:38:07 [INFO] 2025-06-24 08:38:07 - Recieved Invite to group  Request
+2025/06/24 08:38:07 [INFO] 2025-06-24 08:38:07 - Invite ID: 45
+2025/06/24 08:38:07 [INFO] 2025-06-24 08:38:07 - User with Id : 38ebe970-50e9-451e-a5e7-4236671eb9b8 Has Been Invited
+2025/06/24 08:38:07 [INFO] 2025-06-24 08:38:07 - Sent notification via WS to 38ebe970-50e9-451e-a5e7-4236671eb9b8
+2025/06/24 08:38:19 [LOG] 2025-06-24 08:38:19 - Get request made to GetPostsScroll Handler
+2025/06/24 08:38:19 [INFO] 2025-06-24 08:38:19 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 08:38:19 [LOG] 2025-06-24 08:38:19 - Get request made to GetPostsScroll Handler
+2025/06/24 08:38:19 [INFO] 2025-06-24 08:38:19 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 08:38:23 [INFO] 2025-06-24 08:38:23 - Saving GroupMember into DB
+2025/06/24 08:38:23 [INFO] 2025-06-24 08:38:23 - Notification deleted from db
+2025/06/24 08:38:23 [INFO] 2025-06-24 08:38:23 - Sent notification via WS to 1a3b436a-e419-43ab-b433-90785a20fcd1
+2025/06/24 08:38:31 [INFO] 2025-06-24 08:38:31 - Recieved Request for fetching groups
+2025/06/24 08:38:31 [INFO] 2025-06-24 08:38:31 - Groups Fetched Successfuly
+2025/06/24 08:38:31 [LOG] 2025-06-24 08:38:31 - Invite Request Group to join fetched successfully
+2025/06/24 08:38:31 [INFO] 2025-06-24 08:38:31 - Recieved Request for fetching groups
+2025/06/24 08:38:31 [LOG] 2025-06-24 08:38:31 - Invite Request Group to join fetched successfully
+2025/06/24 08:38:31 [INFO] 2025-06-24 08:38:31 - Groups Fetched Successfuly
+2025/06/24 08:38:33 [LOG] 2025-06-24 08:38:33 - Get request made to GetPostsScroll Handler
+2025/06/24 08:38:33 [ERROR] 2025-06-24 08:38:33 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 08:38:33 [INFO] 2025-06-24 08:38:33 - Recieved Request To fetch Group page
+2025/06/24 08:38:33 [INFO] 2025-06-24 08:38:33 - Group With ID : 4 Fetched With Success
+2025/06/24 08:38:33 [INFO] 2025-06-24 08:38:33 - Recieved Request To fetch Group page
+2025/06/24 08:38:33 [INFO] 2025-06-24 08:38:33 - Admin requested pending invites
+2025/06/24 08:38:33 [INFO] 2025-06-24 08:38:33 - Group With ID : 4 Fetched With Success
+2025/06/24 08:38:33 [LOG] 2025-06-24 08:38:33 - Get request made to GetPostsScroll Handler
+2025/06/24 08:38:33 [ERROR] 2025-06-24 08:38:33 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 08:38:33 [INFO] 2025-06-24 08:38:33 - Admin requested pending invites
+2025/06/24 08:38:35 [INFO] 2025-06-24 08:38:35 - Received request to fetch FriendList
+2025/06/24 08:38:35 [INFO] 2025-06-24 08:38:35 - Friends in group 4 fetched successfully
+2025/06/24 08:38:37 [INFO] 2025-06-24 08:38:37 - Recieved Invite to group  Request
+2025/06/24 08:38:37 [INFO] 2025-06-24 08:38:37 - Invite ID: 46
+2025/06/24 08:38:37 [INFO] 2025-06-24 08:38:37 - User with Id : 953b6e4a-f46c-4946-ba2c-1b09828c5722 Has Been Invited
+2025/06/24 08:38:37 [INFO] 2025-06-24 08:38:37 - Sent notification via WS to 953b6e4a-f46c-4946-ba2c-1b09828c5722
+2025/06/24 08:38:42 [INFO] 2025-06-24 08:38:42 - Saving GroupMember into DB
+2025/06/24 08:38:42 [INFO] 2025-06-24 08:38:42 - Notification deleted from db
+2025/06/24 08:38:42 [INFO] 2025-06-24 08:38:42 - Sent notification via WS to 1a3b436a-e419-43ab-b433-90785a20fcd1
+2025/06/24 08:38:43 [INFO] 2025-06-24 08:38:43 - Verify-token hit
+2025/06/24 08:38:45 [INFO] 2025-06-24 08:38:45 - Recieved a Admin approving request
+2025/06/24 08:38:45 [INFO] 2025-06-24 08:38:45 - Saving GroupMember into DB
+2025/06/24 08:38:45 [INFO] 2025-06-24 08:38:45 - Admin accept invite 46 successfully
+2025/06/24 08:38:45 [LOG] 2025-06-24 08:38:45 - No notification matched for deletion
+2025/06/24 08:38:45 [INFO] 2025-06-24 08:38:45 - Notification deleted from db
+2025/06/24 08:38:45 [INFO] 2025-06-24 08:38:45 - Sent notification via WS to 953b6e4a-f46c-4946-ba2c-1b09828c5722
+2025/06/24 08:38:48 [LOG] 2025-06-24 08:38:48 - Get request made to GetPostsScroll Handler
+2025/06/24 08:38:48 [INFO] 2025-06-24 08:38:48 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 08:38:48 [LOG] 2025-06-24 08:38:48 - Get request made to GetPostsScroll Handler
+2025/06/24 08:38:48 [INFO] 2025-06-24 08:38:48 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 08:39:04 [LOG] 2025-06-24 08:39:04 - Get request made to GetPostsScroll Handler
+2025/06/24 08:39:04 [INFO] 2025-06-24 08:39:04 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 08:39:05 [LOG] 2025-06-24 08:39:05 - Get request made to GetPostsScroll Handler
+2025/06/24 08:39:05 [INFO] 2025-06-24 08:39:05 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 08:39:29 [INFO] 2025-06-24 08:39:29 - Starting HTTP server at http://localhost:8080 ...
+2025/06/24 08:39:29 [INFO] 2025-06-24 08:39:29 - Migrations applied successfully!

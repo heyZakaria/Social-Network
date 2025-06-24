@@ -102,17 +102,34 @@ func handleInviteResponse(w http.ResponseWriter, r *http.Request) {
 		Message: fmt.Sprintf("Your %s request has been handled successfully", action),
 	})
 
-	if newState == "Member" {
-		realTime.DeleteFollowRequestNotification(invite.Reciever_id, invite.Sender_id.String, "invite_group", invite.Id)
-	} else {
-		realTime.BuildAndDispatchNotification(db.DB,
+	realTime.DeleteFollowRequestNotification(
+		invite.Reciever_id,
+		invite.Sender_id.String,
+		"invite_group",
+		invite.Id)
+
+
+	fmt.Println("invite.Sender_id.String", invite.Sender_id.String)
+	fmt.Println("invite.Reciever_id", invite.Reciever_id)
+	fmt.Println("invite.Id", invite.Id)
+
+	if invite.Sender_id.String != creatorId {
+		realTime.BuildAndDispatchNotification(
+			db.DB,
 			invite.Id,
 			invite.Reciever_id,
 			creatorId,
 			"invite_group_admin",
-			"Want to join group",
-
-			// fmt.Sprintf("Invited to join the group %s", group.Title),
+			"Want to join your group",
+		)
+	} else {
+		realTime.BuildAndDispatchNotification(
+			db.DB,
+			invite.Id,
+			invite.Reciever_id,
+			creatorId,
+			"become_member",
+			"Accept join group",
 		)
 	}
 }
