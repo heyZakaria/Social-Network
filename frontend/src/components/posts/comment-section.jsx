@@ -169,7 +169,7 @@ export default function CommentSection({setCommentsCount, postId }) {
                   className={styles.commentAvatar}
                 >
                   <Image width={200} height={100}
-                    src={comment.Avatar || // TODO add default avatar
+                    src={comment.Avatar ||
                       "/uploads/profile.jpeg"
                     }
                     alt={comment.FirstName}

@@ -54,7 +54,6 @@ export default function usePosts({groupId , limit , ProfileId}={groupId : null ,
     }
   };
   function RefrechPosts() {
-    // TODO Fix adding posts without reloading the page
     //reseting all States to initial state
     setRefrech((prev) => prev + 1);
     setPosts([])

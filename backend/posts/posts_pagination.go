@@ -16,7 +16,6 @@ import (
 // GetPostsScroll is a handler function that handles the GET request to fetch posts with pagination
 
 func PostsPagination(w http.ResponseWriter, r *http.Request) {
-	// TODO : Handle Group privacy ( protect on privacy)
 
 	utils.Log("", "Get request made to GetPostsScroll Handler")
 	UserID := r.Context().Value(shared.UserIDKey).(string)
@@ -108,28 +107,24 @@ func PostsPagination(w http.ResponseWriter, r *http.Request) {
 			})
 			return
 		}
-		// TODO Each Post Must Check if the exist user Has Liked the post or not
-		// TODO get Likes count as well
+
+		// Get the like and comment counts for the post
 		err = db.DB.QueryRow("SELECT COUNT(*) FROM likes WHERE post_id = ?", Post.PostId).Scan(&Post.LikeCounts)
 		err = db.DB.QueryRow("SELECT COUNT(*) FROM comments WHERE post_id = ?", Post.PostId).Scan(&Post.CommentCounts)
 		// check the privacy of post,
 		stmnt, err := db.DB.Prepare("SELECT first_name, last_name, avatar, profile_status FROM users WHERE id = ?")
 		if err != nil {
 			utils.Log("ERROR", "Error Preparing Statment When trying to get Profile info of the author in GetPostsScroll Handler"+err.Error())
-			// TODO Handler The error of Prepare Statment
 			continue
 		}
 		err = stmnt.QueryRow(Post.UserID).Scan(&Profile.FirstName, &Profile.LastName, &Profile.Avatar, &Profile.Profile_Status)
 		if err != nil {
-			// TODO Handler The error of Query Row
 			utils.Log("ERROR", "Error QueryRow When trying to Execute the row of Profile info of the author in GetPostsScroll Handler"+err.Error())
-
 			continue
 		}
 		if Profile.Profile_Status == "private" && UserID != Post.UserID {
 			// Check if the User Id Has access to this post,
 			var HasAccess bool
-			// Check if the User Id Has access to this post,
 			err = db.DB.QueryRow("SELECT EXISTS(SELECT 1 FROM followers WHERE followed_id = ? AND follower_id = ?)", Post.UserID, UserID).Scan(&HasAccess)
 			if err != nil || !HasAccess {
 				continue

@@ -13,7 +13,6 @@ import (
 func LikePost(w http.ResponseWriter, r *http.Request) {
 	UserId := r.Context().Value(shared.UserIDKey).(string)
 
-	// TODO Get Post ID
 	id := r.URL.Query().Get("id")
 	PostId, err := strconv.Atoi(id)
 	if err != nil {
@@ -25,7 +24,6 @@ func LikePost(w http.ResponseWriter, r *http.Request) {
 		})
 		return
 	}
-	// TODO Check The Post ID if Its liked by the user already or not
 	stmnt, err := db.DB.Prepare("SELECT is_liked FROM likes WHERE post_id = ? AND user_id = ?")
 	if err != nil {
 		utils.Log("ERROR", "Error Preparing Statment in LikePost Handler"+err.Error())
@@ -51,7 +49,6 @@ func LikePost(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	if isLiked {
-		// TODO Unlike the post
 		likeStatus = "Unliked"
 		_, err = db.DB.Exec("DELETE FROM likes WHERE post_id = ? AND user_id = ?", PostId, UserId)
 		if err != nil {
@@ -64,7 +61,6 @@ func LikePost(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 	} else {
-		// TODO Like the post
 		likeStatus = "Liked"
 		_, err = db.DB.Exec("INSERT INTO likes (post_id, user_id) VALUES (?, ?)", PostId, UserId)
 		if err != nil {
@@ -78,7 +74,6 @@ func LikePost(w http.ResponseWriter, r *http.Request) {
 		}
 	}
 
-	// TODO Get the number of likes for the post
 	var likeCount int
 	err = db.DB.QueryRow("SELECT COUNT(*) FROM likes WHERE post_id = ?", PostId).Scan(&likeCount)
 	if err != nil {
