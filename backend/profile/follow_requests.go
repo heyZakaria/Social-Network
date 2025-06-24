@@ -49,7 +49,7 @@ func handleFriendRequest(w http.ResponseWriter, r *http.Request, query, successM
 		Success: true,
 		Message: successMsg,
 	})
-	deleteFollowRequestNotification(userID, friendID)
+	realTime.DeleteFollowRequestNotification(userID, friendID, "follow_request", 0)
 }
 
 func RejectFollowRequest(w http.ResponseWriter, r *http.Request) {
@@ -93,12 +93,3 @@ func AcceptFollowRequest(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-func deleteFollowRequestNotification(userID, senderID string) {
-	_, err := db.DB.Exec(`
-		DELETE FROM notifications 
-		WHERE user_id = ? AND sender_id = ? AND type_notification = 'follow_request'
-	`, userID, senderID)
-	if err != nil {
-		utils.Log("ERROR", "Failed to delete notification: "+err.Error())
-	}
-}

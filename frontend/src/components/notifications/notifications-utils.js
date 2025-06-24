@@ -20,7 +20,6 @@ import {
 import FollowButton from "@/components/profile/follow-button";
 import { useFriends } from "@/context/friends_context";
 
-
 export function formatDate(dateString) {
   const date = new Date(dateString);
   const now = new Date();
@@ -42,8 +41,12 @@ export function getNotificationIcon(type, className = "") {
       return <HiUser size={18} className={className} />;
     case "invite_group":
       return <HiUserGroup size={18} className={className} />;
-    case "follow_request_accepted":
+    case "group":
+      return <HiUsers size={18} className={className} />;
+    case "accept":
       return <HiCheckCircle size={18} className={className} />;
+    case "message":
+      return <HiChatBubbleOvalLeftEllipsis size={18} className={className} />;
     case "group_event":
       return <HiCalendar size={18} className={className} />;
     default:
@@ -52,110 +55,144 @@ export function getNotificationIcon(type, className = "") {
 }
 
 
-export function getActionButtons(type, id, handledRequests, accept, reject, invitedId) {
-  const { handleInviteResponse: handledMap } = useFriends();
-  const status = handledMap[id];
+export function getActionButtons(
+  type,
+  notifId,
+  handledRequests,
+  accept,
+  reject,
+  id,
+  invitedId
+) {
+  const status = handledRequests[notifId];
+  const { handleInviteResponse, handleInviteAdminResponse } = useFriends()
 
+  const actionableTypes = ["follow_request", "invite_group", "group_event", "follow", "invite_group_admin"];
+  if (!actionableTypes.includes(type)) return null;
 
-  // console.log("+++++++++++++++++++++++++++++++++++++", invitedId);
-  
-  // Special: follow_request_accepted → just FollowButton
-  if (type === "follow_request_accepted") {
+  if (type === "follow") {
     return <FollowButton targetUserId={id} />;
   }
 
-  // Show status if already handled
   if (status === "accepted") {
-    return <div className={`${styles.status} ${styles.accepted}`}>Accepted</div>;
-  }
-  if (status === "rejected") {
-    return <div className={`${styles.status} ${styles.rejected}`}>Rejected</div>;
+    let label = "Accepted";
+    if (type === "group_event") label = "Going";
+    else if (type === "invite_group") label = "Joined";
+    return <div className={`${styles.status} ${styles.accepted}`}>{label}</div>;
   }
 
-  const isFollowRequest = type === "follow_request";
-  const isGroupEvent = type === "group_event";
+  if (status === "rejected") {
+    let label = "Rejected";
+    if (type === "group_event") label = "Not Going";
+    else if (type === "invite_group") label = "Ignored";
+    return <div className={`${styles.status} ${styles.rejected}`}>{label}</div>;
+  }
+
+  const isEvent = type === "group_event";
   const isGroupInvite = type === "invite_group";
+  const isAdminReq = type === "invite_group_admin"
+
+  const handleJoinGroup = (e) => {
+    e.preventDefault();
+    console.log("inveteeeeeeeeed", invitedId);
+
+    handleInviteResponse("accept", invitedId)
+    handledRequests[notifId] = "accepted";
+  };
+
+  const handleIgnoreGroup = (e) => {
+    e.preventDefault();
+    console.log("inveteeeeeeeeed", invitedId);
+
+    handleInviteResponse("reject", invitedId)
+    handledRequests[notifId] = "rejected";
+  };
+
+  const handleGoingToEvent = (e) => {
+    e.preventDefault();
+    // accept(id);
+    handledRequests[notifId] = "accepted";
+  };
+
+  const handleNotGoingToEvent = (e) => {
+    e.preventDefault();
+    // reject(id);
+    handledRequests[notifId] = "rejected";
+  };
 
   return (
     <div className={styles.actionContainer}>
-      {/* Accept */}
-      {isFollowRequest  ? (
+      {/* Accept buttons by type */}
+      {(type === "follow_request" || isAdminReq) && (
         <button
           className={`${styles.actionButton} ${styles.acceptButton}`}
           onClick={(e) => {
             e.preventDefault();
-            accept(id);
+            if (type === "follow_request") {
+              accept(id);
+            } else {
+              handleInviteAdminResponse("accept", invitedId);
+            }
+            handledRequests[notifId] = "accepted";
           }}
         >
-          <FaCheck size={16} /> Accept
+          <FaUserPlus size={16} /> Accept
         </button>
-      ) : null}
+      )}
 
-      {/* Reject */}
-      {isFollowRequest ? (
+
+      {isGroupInvite && (
+        <button
+          className={`${styles.actionButton} ${styles.acceptButton}`}
+          onClick={handleJoinGroup}
+        >
+          <FaCheck size={16} /> Join
+        </button>
+      )}
+
+      {isEvent && (
+        <button
+          className={`${styles.actionButton} ${styles.acceptButton}`}
+          onClick={handleGoingToEvent}
+        >
+          <FaCheckCircle size={16} /> Going
+        </button>
+      )}
+
+      {/* Reject buttons by type */}
+      {(type === "follow_request" || isAdminReq) && (
         <button
           className={`${styles.actionButton} ${styles.rejectButton}`}
           onClick={(e) => {
             e.preventDefault();
-            reject(id);
+            if (type === "follow_request") {
+              reject(id);
+            } else {
+              handleInviteAdminResponse("reject", invitedId);
+            }
+            handledRequests[notifId] = "rejected";
           }}
         >
-          <FaTimes size={16} /> Reject
+          <FaUserSlash size={16} /> Reject
         </button>
-      ) : null}
-
-      {/* Reply (all types below shown explicitly) */}
-      {isGroupEvent && (
-        <>
-          <button
-            className={`${styles.actionButton} ${styles.replyButton}`}
-            onClick={(e) => {
-              e.preventDefault();
-              console.log(`Reply to event ${id}`);
-            }}
-          >
-            <FaReply size={16} /> Going
-          </button>
-
-          <button
-            className={`${styles.actionButton} ${styles.replyButton}`}
-            onClick={(e) => {
-              e.preventDefault();
-
-              console.log(`Reply to group event ${id}`);
-            }}
-          >
-            <FaReply size={16} /> Not Going
-          </button>
-        </>
       )}
 
       {isGroupInvite && (
-        <>
-          <button
-          value={"Accept"}
-            className={`${styles.actionButton} ${styles.replyButton}`}
-            onClick={(e) => {
-              e.preventDefault();
-              handledMap(e, invitedId);
-              console.log(`Reply to group invite ${invitedId}`);
-            }}
-          >
-            <FaReply size={16} /> Accept
-          </button>
+        <button
+          className={`${styles.actionButton} ${styles.rejectButton}`}
+          onClick={handleIgnoreGroup}
+        >
+          <FaTimes size={16} /> Ignore
+        </button>
+      )}
 
-          <button
-          value={"Reject"}
-            className={`${styles.actionButton} ${styles.replyButton}`}
-            onClick={(e) => {
-              e.preventDefault();
-              handledMap(e, invitedId);
-              console.log(`Reply to invite group ${invitedId}`);
-            }}
-          >
-            <FaReply size={16} /> Reject
-          </button>
-        </>
+      {isEvent && (
+        <button
+          className={`${styles.actionButton} ${styles.rejectButton}`}
+          onClick={handleNotGoingToEvent}
+        >
+          <FaTimesCircle size={16} /> Not Going
+        </button>
       )}
     </div>
   );

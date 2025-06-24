@@ -23,7 +23,7 @@ type GroupMember struct {
 }
 
 type Invite struct {
-	Id          int
+	Id          int64
 	Sender_id   sql.NullString
 	Reciever_id string
 	Group_id    string

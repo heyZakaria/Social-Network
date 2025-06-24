@@ -138,41 +138,57 @@ export function FriendsProvider({ children }) {
     }
   };
 
-  const handleRequest = async (userId, action) => {
-    const endpoint = `/api/users/${action}?id=${userId}`;
+ const handleAcceptRequest = async (userId) => {
+    const id = String(userId);
     try {
-      await fetch(endpoint, { method: "POST", credentials: "include" });
-
-      const status =
-        action === "accept"
-          ? { isFollowing: true, requestPending: false }
-          : { isFollowing: false, requestPending: false };
-
-      updateFollowStatus(String(userId), status);
-      await fetchAll();
-      setNotifications((prev) =>
-        prev.filter((n) => !(n.type === "follow_request_accepted" && n.id === userId))
-      );
+      const res = await fetch(`/api/users/accept?id=${id}`, {
+        method: "POST",
+        credentials: "include",
+      });
+      const data = await res.json();
+      console.log("Accept request response:", data);
+      // await fetchAll();
+      // return data.data.Data;
     } catch (err) {
-      console.error(`${action} error`, err);
+      console.error("Error accepting friend request:", err);
+      return null;
     }
-  };
+  }
+  const handleRejectRequest = async (userId) => {
+    const id = String(userId);
+    try {
+      const res = await fetch(`/api/users/reject?id=${id}`, {
+        method: "POST",
+        credentials: "include",
+      });
+      const data = await res.json();
+      console.log("Reject request response:", data);
+      // await fetchAll();
+      // return data.data.Data;
+    } catch (err) {
+      console.error("Error rejecting friend request:", err);
+      return null;
+    }
+  }
 
 
   const accept = async (id) => {
-    await handleRequest(id, "accept");
-    setHandledRequests(prev => ({ ...prev, [id]: "accepted" }));
+    setHandledRequests((prev) => ({ ...prev, [id]: "accepted" }));
+    await handleAcceptRequest(id);
+    fetchAll();
   };
 
   const reject = async (id) => {
-    await handleRequest(id, "reject");
-    setHandledRequests(prev => ({ ...prev, [id]: "rejected" }));
+    setHandledRequests((prev) => ({ ...prev, [id]: "rejected" }));
+    await handleRejectRequest(id);
+    fetchAll();
   };
 
-  const handleInviteResponse = async (e, id) => {
+
+  const handleInviteResponse = async (action, id) => {
 
     try {
-      const respo = await fetch(`http://localhost:8080/api/groups/group/inviteResponse?Action=${e.target.value}&Invite_id=${id}`, {
+      const respo = await fetch(`http://localhost:8080/api/groups/group/inviteResponse?Action=${action}&Invite_id=${id}`, {
         credentials: 'include',
         method: "POST"
       })
@@ -186,6 +202,23 @@ export function FriendsProvider({ children }) {
       setActionError(error.message)
     }
   }
+
+
+  const handleInviteAdminResponse = async (action, id) => {
+    try {
+      const respo = await fetch(`http://localhost:8080/api/groups/invite/approve?Action=${action}&Invite=${id}`, {
+        credentials: 'include',
+        method: "POST"
+      })
+
+      const res = await respo.json()
+      if (!respo.ok || !res.success) throw new Error(res.message || "Failed to process this action")
+      onInvite(invite.invite_id)
+    } catch (error) {
+      setActionError(error.message)
+    }
+  }
+
 
   return (
     <FriendsContext.Provider
@@ -203,6 +236,7 @@ export function FriendsProvider({ children }) {
         reject,
         startStatusPolling,
         handleInviteResponse,
+        handleInviteAdminResponse,
       }}
     >
       {children}

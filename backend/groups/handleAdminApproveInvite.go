@@ -7,6 +7,7 @@ import (
 	"strconv"
 
 	db "socialNetwork/db/sqlite"
+	"socialNetwork/realTime"
 	shared "socialNetwork/shared_packages"
 	"socialNetwork/utils"
 )
@@ -26,6 +27,9 @@ func handleAdminApproveInvite(w http.ResponseWriter, r *http.Request) {
 		})
 		return
 	}
+
+	fmt.Println("Invite_id", Invite_id)
+	fmt.Println("action", Action)
 
 	// Parse Invite ID
 	InviteIdInt, err := strconv.Atoi(Invite_id)
@@ -124,6 +128,17 @@ func handleAdminApproveInvite(w http.ResponseWriter, r *http.Request) {
 		Success: true,
 		Message: fmt.Sprintf("Your action '%s' on the invite has been completed successfully.", Action),
 	})
+	if Action == "accept" {
+		realTime.BuildAndDispatchNotification(db.DB,
+			Invite.Id,
+			Invite.Sender_id.String,
+			Invite.Reciever_id,
+			"admin_accept_invite",
+			"Admin accept to join group",
+			// fmt.Sprintf("Invited to join the group %s", group.Title),
+		)
+	}
+	realTime.DeleteFollowRequestNotification(Invite.Reciever_id, Invite.Sender_id.String, "admin_accept_invite", Invite.Id)
 }
 
 func ApprovingValidation(CurrentUserId string, InviteId int, GroupId string, SenderId string) (bool, error) {

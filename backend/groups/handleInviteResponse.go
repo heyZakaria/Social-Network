@@ -5,11 +5,13 @@ import (
 	"net/http"
 
 	db "socialNetwork/db/sqlite"
+	"socialNetwork/realTime"
 	"socialNetwork/utils"
 )
 
 func handleInviteResponse(w http.ResponseWriter, r *http.Request) {
 	// UserId := r.Context().Value(shared.UserIDKey).(string) // Use this if auth is implemented
+	newState := "Pending"
 
 	inviteId := r.URL.Query().Get("Invite_id")
 	action := r.URL.Query().Get("Action")
@@ -52,7 +54,6 @@ func handleInviteResponse(w http.ResponseWriter, r *http.Request) {
 	// fmt.Println(creatorId, invite.Reciever_id)
 	switch action {
 	case "accept":
-		newState := "Pending"
 		if invite.Sender_id.String == creatorId {
 			newState = "Member" // Promote directly if the recipient is the group admin
 		}
@@ -100,4 +101,18 @@ func handleInviteResponse(w http.ResponseWriter, r *http.Request) {
 		Success: true,
 		Message: fmt.Sprintf("Your %s request has been handled successfully", action),
 	})
+
+	if newState == "Member" {
+		realTime.DeleteFollowRequestNotification(invite.Reciever_id, invite.Sender_id.String, "invite_group", invite.Id)
+	} else {
+		realTime.BuildAndDispatchNotification(db.DB,
+			invite.Id,
+			invite.Reciever_id,
+			creatorId,
+			"invite_group_admin",
+			"Want to join group",
+
+			// fmt.Sprintf("Invited to join the group %s", group.Title),
+		)
+	}
 }

@@ -54,14 +54,15 @@ export default function NotificationItem({ notification, onClick }) {
       {/* {console.log("Notification:", notification)} */}
       {getActionButtons(
         notification.type,
-        notification.id,
+        notification.notifId,
         handledRequests,
         accept,
         reject,
+        notification.id,
         notification.invitedId,
-        styles.notificationActions
       )}
-      
+
+
     </li>
   )
 }

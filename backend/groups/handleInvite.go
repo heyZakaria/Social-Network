@@ -74,7 +74,7 @@ func handleInvite(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("Group Title", group.Title)
 	// Dispatch notification to the invited user
 	realTime.BuildAndDispatchNotification(db.DB,
-		int(Invite_id),
+		Invite_id,
 		UserId,
 		InvitedFriend,
 		"invite_group",
