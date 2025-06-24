@@ -23,22 +23,18 @@ export default function PostComponent({
   const [isExpanded, setIsExpanded] = useState(false);
   const MAX_CONTENT_LENGTH = 250; // Maximum characters to show before "See more"
 
-  const handleLike =  () => {
+  const handleLike = () => {
     async function updateLikeStatus() {
       const response = await FetchData(
         `/api/likes/react?id=${post.PostId}`, "POST")
+      console.log('responce ===> :', response);
       const LikeCounts = response.data.like_count
       const Like = response.data.success
-      console.log("post.Liked", post.Liked);
-      console.log("response", response);
-      console.log("Like Status Before", Like);
-      console.log("Like LikeCounts Before", LikeCounts);
-  
-  
+
       setIsLiked(!isLiked);
       setLikesCount(LikeCounts);
-      console.log("Like Status After", Like);
-      console.log("Like LikeCounts After", LikeCounts);
+
+
 
     }
     updateLikeStatus()
@@ -96,7 +92,7 @@ export default function PostComponent({
       </p>
     );
   };
-  
+
   return (
     <div className={styles.post}>
       <div className={styles.postHeader}>
@@ -166,9 +162,8 @@ export default function PostComponent({
 
         <div className={styles.postInteractions}>
           <button
-            className={`${styles.interactionButton} ${
-              isLiked ? styles.liked : ""
-            }`}
+            className={`${styles.interactionButton} ${isLiked ? styles.liked : ""
+              }`}
             onClick={handleLike}
           >
             <IoHeartOutline size={20} />
@@ -188,6 +183,6 @@ export default function PostComponent({
       {showCommentsSection && (
         <CommentSection setCommentsCount={setCommentsCount} postId={post.PostId} currentUser={currentUser} />
       )}
-    </div>  
+    </div>
   );
 }

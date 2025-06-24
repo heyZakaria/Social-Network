@@ -94,7 +94,6 @@ const PopupPrivacy = ({ followers, onPrivacyChange, disabled = false }) => {
                 <span className={styles.dropdownArrow}>▼</span>
             </button>
 
-            {/* Dropdown Options */}
             {showOptions && (
                 <div className={styles.optionsDropdown}>
                     <div className={styles.optionsWrapper}>

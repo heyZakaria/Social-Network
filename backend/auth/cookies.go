@@ -27,7 +27,7 @@ func SendSuccessWithToken(w http.ResponseWriter, r *http.Request, userID string)
 		Name:     "token",
 		Value:    token,
 		Path:     "/",
-		HttpOnly: true,
+		HttpOnly: false,
 
 		Secure: false,
 

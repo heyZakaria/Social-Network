@@ -7,21 +7,19 @@ import PopupInput from './popup-input';
 import PopupPrivacy from './popup-privacy';
 import { useUser } from "@/context/user_context";
 import Image from "next/image";
+import { logoutUser } from '@/app/(auth)/_logout/logout';
 
 
 const CreatePost = ({
   Refrech , GroupId
 }) => {
   // State for form data  
-  const {user : currentUser} = useUser()
+  const { user: currentUser } = useUser()
   const [postContent, setPostContent] = useState('');
   const [privacy, setPrivacy] = useState('public');
   const [selectedImage, setSelectedImage] = useState(null);
   const [allowedUsers, setAllowedUsers] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-
-  console.log("ussssssssssssser", currentUser);
-  
 
   // State for errors
   const [errors, setErrors] = useState({
@@ -56,7 +54,7 @@ const CreatePost = ({
 
     // Validate post content
     if (postContent) {
-      if (postContent.length > 10000) {
+      if (postContent.length > 10000 || postContent.length === 0) {
         newErrors.content = 'Maximum 10000 characters.';
         isValid = false;
       }
@@ -95,23 +93,6 @@ const CreatePost = ({
     return isValid;
   };
 
-  // Handle errors from API response
-  const handleErrors = (status) => {
-    switch (status) {
-      case 400:
-        setErrors(prev => ({ ...prev, content: 'Bad request. Please enter text or upload an image !!' }));
-        break;
-      case 401:
-        setErrors(prev => ({ ...prev, content: 'Unauthorized. Please log in again.' }));
-        break;
-      case 500:
-        setErrors(prev => ({ ...prev, content: 'Server error. Please try again later.' }));
-        break;
-      default:
-        setErrors(prev => ({ ...prev, content: 'An error occurred. Please try again.' }));
-    }
-  };
-
   // Reset form after successful submission
   const resetForm = () => {
     setPostContent('');
@@ -126,11 +107,11 @@ const CreatePost = ({
 
   const publishPost = async (event) => {
     event.preventDefault();
-
     // Validation
     const isValid = validateForm();
 
     if (isValid) {
+
       setIsLoading(true);
 
       try {
@@ -142,15 +123,12 @@ const CreatePost = ({
         if ((selectedImage) && (postContent)) {
           formData.append('post_image', selectedImage)
           formData.append('post_content', postContent.trim())
-          // console.log("both");
 
         } else if (selectedImage) {
           formData.append('post_image', selectedImage)
-          // console.log("only image");
 
         } else {
           formData.append('post_content', postContent.trim())
-          // console.log("only post content");
         }
 
         // Add allowed users for custom privacy
@@ -168,25 +146,27 @@ const CreatePost = ({
           credentials: 'include', // This sends cookies with the request
           body: formData,
         });
-        console.log("response----------", response);
 
         const data = await response.json();
 
         if (data.success) {
-          console.log('Post =>', data);
 
           // Reset form on success
           resetForm();
           Refrech();
-          if (data.error){
-             setErrors(prev => ({ ...prev, content:  data.error}));
+          if (data.error) {
+            setErrors(prev => ({ ...prev, content: data.error }));
           }
         } else {
-          setErrors(prev => ({ ...prev, content: data.message || 'Failed to create post' }));
+          if (data.error == "You are not Authorized.") {
+            await logoutUser()
+            window.location.href = "/login"
+          } else {
+            setErrors(prev => ({ ...prev, content: data.error }));
+          }
         }
 
       } catch (error) {
-        console.error('Error:', error);
         setErrors(prev => ({ ...prev, content: 'Network error. Please try again.' }));
       } finally {
         setIsLoading(false);
@@ -232,8 +212,7 @@ const CreatePost = ({
     // Clear content errors
     setErrors(prev => ({ ...prev, content: '' }));
   };
-  console.log("Aciba", currentUser);
-  
+
   return (
     <form onSubmit={publishPost} className={styles.postForm} id="postForm">
       <div className={styles.createPost}>
@@ -247,7 +226,6 @@ const CreatePost = ({
             postContent={postContent}
             onContentChange={handleContentChange}
             currentUser={currentUser}
-          // disabled={isLoading}
           />
         </div>
       </div>
@@ -322,7 +300,6 @@ const CreatePost = ({
         <button
           className={styles.postButton}
           type="submit"
-        // disabled={isLoading || !postContent.trim() }
         >
           {isLoading ? 'Posting...' : 'Post'}
         </button>

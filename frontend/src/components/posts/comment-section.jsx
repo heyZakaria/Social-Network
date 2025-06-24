@@ -1,36 +1,34 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import styles from "@/styles/posts.module.css";
+import { BsImage } from 'react-icons/bs';
 import EmojiPicker from "@/components/common/emoji-picker";
 import { IoPaperPlaneOutline } from 'react-icons/io5';
 import { FetchData } from "@/context/fetchJson";
 import { useUser } from '@/context/user_context';
 import Image from "next/image"
+import { logoutUser } from "@/app/(auth)/_logout/logout";
 
-export default function CommentSection({setCommentsCount, postId }) {
-   const { user: currentUser } = useUser();
+export default function CommentSection({ setCommentsCount, postId }) {
+  const { user: currentUser } = useUser();
   const [comments, setComments] = useState([]);
   const [selectedImage, setSelectedImage] = useState(null);
-
+  const [ErrorMsg, SetErrorMsg] = useState("");
   const [displayedComments, setDisplayedComments] = useState([]);
-  const [likeCount, setLike] = useState(0);
   const [newComment, setNewComment] = useState("");
-  const [isSubmitting, setIsSubmitting] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [showAllComments, setShowAllComments] = useState(false);
-  const COMMENTS_TO_SHOW = 2; // Initial number of comments to show
+  const COMMENTS_TO_SHOW = 2; 
 
   useEffect(() => {
+
+    // get comments
     const fetchComments = async () => {
       try {
         setIsLoading(true);
-        const Data = await FetchData(`/api/comment/getcomment?post_id=${postId}`)
-        console.log("================aciba==============");
-        console.log(Data);
-        console.log("==============================");
-        
+        const Data = await FetchData(`/api/comment/getcomment?post_id=${postId}`)        
         setComments(Data.data.Comments);
         updateDisplayedComments(Data.data.Comments, showAllComments);
         setIsLoading(false);
@@ -55,8 +53,28 @@ export default function CommentSection({setCommentsCount, postId }) {
     setShowAllComments(true);
   };
 
+  
   const handleEmojiSelect = (emoji) => {
     setNewComment((prevComment) => prevComment + emoji);
+  }
+
+
+  const fileInputRef = useRef(null);
+  // Handle image selection
+  const handleImageSelect = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      setSelectedImage(file);
+    }
+  };
+
+  // reset form comment
+  const resetForm = () => {
+    setNewComment('');
+    setSelectedImage(null);
+    if (fileInputRef.current) {
+      fileInputRef.current.value = '';
+    }
   };
 
 
@@ -67,7 +85,7 @@ export default function CommentSection({setCommentsCount, postId }) {
         isValid = false;
       }
       if (!newComment.trim()) {
-        isValid = false;        
+        isValid = false;
       }
     }
     if (selectedImage) {
@@ -85,46 +103,74 @@ export default function CommentSection({setCommentsCount, postId }) {
   };
 
   const handleSubmitComment = async (e) => {
-    console.log("%c Clicked On Submit ", "color:red");
-    
-    e.preventDefault();
 
-    setIsSubmitting(true);
+    e.preventDefault();
 
     const isValid = validComment()
     console.log("isValid", isValid);
-    
+
     if (isValid) {
       try {
-        
-        const newCommentObj = {
-          postId: postId,
-          content: newComment,
+
+        const formData = new FormData()
+
+        if ((selectedImage) && (newComment)) {
+          formData.append("content", newComment)
+          formData.append("comment_image", selectedImage)
+        } else if (selectedImage) {
+          formData.append("comment_image", selectedImage)
+        } else {
+          formData.append("content", newComment)
+        }
+
+        formData.append("postId", postId)
+
+        const response = await fetch('/api/comment/sendcomment', {
+          method: 'POST',
+          credentials: 'include',
+          body: formData,
+        });
+
+
+        const data = await response.json();
+
+        if (data.success) {
+          SetErrorMsg("");
+          resetForm();
+          
+          const newCommentObj = {
+            postId: postId,
+            content: newComment,
+            comment_img: data.Comment?.comment_img || null,
+            UserID: currentUser.id,
+            ID: data.data.Comment.ID,
+            FirstName: currentUser.firstName,
+            LastName: currentUser.lastName,
+            CreatedAt: new Date().toISOString(),
+            Avatar: currentUser.avatar || "/uploads/profile.jpeg"
           }
+          
+          const updatedComments = [newCommentObj, ...comments];
+          setComments(updatedComments);
+          updateDisplayedComments(updatedComments, showAllComments);
+          setCommentsCount(comments.length + 1);
+          setNewComment("");
+        } else {
+          if (data.error == "You are not Authorized.") {
+            await logoutUser()
+            window.location.href = "/login"
+          } else {
+            SetErrorMsg(data.error);
+          }
+        }
 
-        const respone = await FetchData("/api/comment/sendcomment", "POST", newCommentObj )
-        console.log("respone aciba", respone);
-        
-        newCommentObj.UserID = currentUser.id;
-        newCommentObj.ID = respone.data.Comment.ID;
-        newCommentObj.FirstName = currentUser.firstName;
-        newCommentObj.LastName = currentUser.lastName;
-        newCommentObj.CreatedAt = Date.now()
-        newCommentObj.Avatar = currentUser.avatar || "/uploads/profile.jpeg"; // Default avatar if not set
-
-        const updatedComments = [newCommentObj, ...comments];
-        setComments(updatedComments);
-        updateDisplayedComments(updatedComments, showAllComments);
-        setCommentsCount(comments.length + 1)
-        setNewComment("");
-    } catch (error) {
-      console.error("Error adding comment:", error);
-    } finally {
-      setIsSubmitting(false);
+      } catch (error) {
+        console.error("Error adding comment:", error);
+      } 
+    } else {
+      resetForm()
     }
-    }
 
-    
   };
 
   const formatDate = (dateString) => {
@@ -145,16 +191,7 @@ export default function CommentSection({setCommentsCount, postId }) {
       return `${days} ${days === 1 ? "day" : "days"} ago`;
     }
   };
-  // Avatar
-  // CreatedAt
-  // FirstName
-  // FormattedDate
-  // ID
-  // LastName
-  // UserID
-  // content
-  // postId
-  
+
   return (
     <div className={styles.commentSection}>
       {isLoading ? (
@@ -162,16 +199,18 @@ export default function CommentSection({setCommentsCount, postId }) {
       ) : (
         <>
           <div className={styles.comments}>
+
             {displayedComments.map((comment) => (
+
               <div key={comment.ID} className={styles.comment}>
                 <Link
                   href={`/profile/${comment.UserID}`}
                   className={styles.commentAvatar}
                 >
-                  <Image width={200} height={100}
-                    src={comment.Avatar ||
-                      "/uploads/profile.jpeg"
-                    }
+                  <Image
+                    width={200}
+                    height={100}
+                    src={comment.Avatar || "/uploads/profile.jpeg"}
                     alt={comment.FirstName}
                   />
                 </Link>
@@ -183,8 +222,25 @@ export default function CommentSection({setCommentsCount, postId }) {
                     >
                       {comment.FirstName} {comment.LastName}
                     </Link>
-                    <p className={styles.commentText}>{comment.content}</p>
+
+                    {comment.content && (
+                      <p className={styles.commentText}>{comment.content}</p>
+                    )}
+
+                    {comment.Comment_img && (
+                      <div className={styles.commentImage}>
+                        <Image
+                          src={comment.Comment_img}
+                          alt="Comment attachment"
+                          width={300}
+                          height={200}
+                          className={styles.commentImg}
+                          style={{ objectFit: 'cover' }}
+                        />
+                      </div>
+                    )}
                   </div>
+
                   <div className={styles.commentActions}>
                     <span className={styles.commentTime}>
                       {formatDate(comment.CreatedAt)}
@@ -216,7 +272,7 @@ export default function CommentSection({setCommentsCount, postId }) {
           )}
         </>
       )}
-
+         {ErrorMsg && <div className={styles.ErrorMessage}>{ErrorMsg}</div>}
       <form className={styles.commentForm} onSubmit={handleSubmitComment}>
         <Image width={200} height={100}
           src={currentUser.avatar || "/uploads/profile.jpeg"}
@@ -230,20 +286,55 @@ export default function CommentSection({setCommentsCount, postId }) {
             className={styles.commentInput}
             value={newComment}
             onChange={(e) => setNewComment(e.target.value)}
-            disabled={isSubmitting}
           />
           <div className={styles.commentInputActions}>
             <EmojiPicker onEmojiSelect={handleEmojiSelect} />
           </div>
         </div>
+
+        <div className={styles.buImgCont}>
+          <button
+            className={styles.imgAction}
+            onClick={() => fileInputRef.current?.click()}
+            type="button"
+          >
+            <BsImage size={20} />
+            Photo/GIF
+          </button>
+
+          <input
+            type="file"
+            ref={fileInputRef}
+            onChange={handleImageSelect}
+            accept="image/*"
+            style={{ display: 'none' }}
+          />
+        </div>
         <button
           type="submit"
           className={styles.commentSubmit}
-          disabled={isSubmitting || !newComment.trim()}
         >
           <IoPaperPlaneOutline size={16} />
         </button>
       </form>
+      {selectedImage && (
+        <div className={styles.imagePreview}>
+          <Image width={200} height={100}
+            src={URL.createObjectURL(selectedImage)}
+            className={styles.previewImage}
+          />
+          <button
+            onClick={() => {
+              setSelectedImage(null);
+              if (fileInputRef.current) fileInputRef.current.value = '';
+            }}
+            className={styles.removeImageButton}
+            type="button"
+          >
+            ×
+          </button>
+        </div>
+      )}
     </div>
   );
 }

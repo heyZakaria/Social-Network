@@ -271,36 +271,3 @@ export default function GroupCard({ children }) {
     </div>
   );
 }
-
-const FriendsList1 = [
-  {
-    id: 1,
-    name: "John Doe",
-    Pic: "https://randomuser.me/api/portraits/men/1.jpg",
-  },
-  {
-    id: 2,
-    name: "Jane Smith",
-    Pic: "https://randomuser.me/api/portraits/women/2.jpg",
-  },
-  {
-    id: 3,
-    name: "Alice Johnson",
-    Pic: "https://randomuser.me/api/portraits/women/3.jpg",
-  },
-  {
-    id: 4,
-    name: "Michael Brown",
-    Pic: "https://randomuser.me/api/portraits/men/4.jpg",
-  },
-  {
-    id: 5,
-    name: "Emily Davis",
-    Pic: "https://randomuser.me/api/portraits/women/5.jpg",
-  },
-  {
-    id: 6,
-    name: "Chris Lee",
-    Pic: "https://randomuser.me/api/portraits/men/6.jpg",
-  },
-];

@@ -17,10 +17,12 @@
   width: 100%;
   align-items: center;
 }
-.postImageWrapper{
+
+.postImageWrapper {
   width: 100%;
   text-align: center;
 }
+
 /* Create post header*/
 .createPostHeader {
   display: flex;
@@ -35,12 +37,15 @@
   object-fit: cover;
   margin-right: 10px;
 }
-.textareaContainer{
+
+.textareaContainer {
   width: 100%;
 }
-.textareaContainer textarea{
+
+.textareaContainer textarea {
   resize: none;
 }
+
 /* create post input */
 .createPostInput {
   /* margin-left: 1%; */
@@ -57,7 +62,7 @@
 }
 
 /* create post action for 3 buttons */
-.buttons{
+.buttons {
   display: flex;
 }
 
@@ -74,6 +79,7 @@
   cursor: pointer;
   transition: background-color 0.5s;
 }
+
 .photoAction:hover {
   background-color: #60667031;
 }
@@ -191,7 +197,7 @@
   color: #000000;
 }
 
-.closeButtoOptions{
+.closeButtoOptions {
   position: relative;
   /* margin-bottom: 10%; */
   margin-left: 91%;
@@ -254,12 +260,12 @@
   border-radius: 4px;
   height: 33px;
   padding: 7px 10px;
-  font-size: 14px;  
+  font-size: 14px;
   font-weight: 600;
   gap: 3px;
 }
 
-.privacyButton:hover{
+.privacyButton:hover {
   /* margin-top: 10px;
   margin-left: 650px; */
   background-color: #7c3aed;
@@ -347,73 +353,107 @@
   flex-direction: column;
 }
 
-.popupTitle{
+.popupTitle {
   font-size: 23px;
   text-align: center;
 }
 
 .followersList {
-  overflow-y: auto; /* Enable vertical scrolling */
-  padding: 5px; /* Padding around the list */
-  border: 1px solid #ccc; /* Light border around the list */
-  border-radius: 8px; /* Rounded corners */
-  background-color: #f8f9fa; /* Light background color */
+  overflow-y: auto;
+  /* Enable vertical scrolling */
+  padding: 5px;
+  /* Padding around the list */
+  border: 1px solid #ccc;
+  /* Light border around the list */
+  border-radius: 8px;
+  /* Rounded corners */
+  background-color: #f8f9fa;
+  /* Light background color */
 }
 
 .followerItem {
-  display: flex; /* Flexbox for layout */
-  align-items: center; /* Center items vertically */
-  padding: 10px; /* Padding for each item */
+  display: flex;
+  /* Flexbox for layout */
+  align-items: center;
+  /* Center items vertically */
+  padding: 10px;
+  /* Padding for each item */
 }
 
 
 
 .followerCheckbox {
-  margin-right: 12px; /* Space between checkbox and avatar */
-  cursor: pointer; /* Pointer cursor for checkbox */
+  margin-right: 12px;
+  /* Space between checkbox and avatar */
+  cursor: pointer;
+  /* Pointer cursor for checkbox */
 }
 
 .followerAvatar {
-  width: 40px; /* Avatar size */
-  height: 40px; /* Avatar size */
-  border-radius: 50%; /* Circular avatar */
-  margin-right: 15px; /* Space between avatar and name */
+  width: 40px;
+  /* Avatar size */
+  height: 40px;
+  /* Avatar size */
+  border-radius: 50%;
+  /* Circular avatar */
+  margin-right: 15px;
+  /* Space between avatar and name */
 }
 
 
 .popupFooter {
-  display: flex; /* Flexbox for footer layout */
-  justify-content: flex-end; /* Align buttons to the right */
-  margin-top: 10px; /* Space above the footer */
+  display: flex;
+  /* Flexbox for footer layout */
+  justify-content: flex-end;
+  /* Align buttons to the right */
+  margin-top: 10px;
+  /* Space above the footer */
 }
 
 .cancelButton {
-  background-color: #f44336; /* Red background for cancel button */
-  color: white; /* White text color */
-  border: none; /* No border */
-  border-radius: 5px; /* Rounded corners */
-  padding: 10px 15px; /* Padding for the button */
-  cursor: pointer; /* Pointer cursor on hover */
-  margin-right: 10px; /* Space between buttons */
-  transition: background-color 0.3s ease; /* Smooth transition */
+  background-color: #f44336;
+  /* Red background for cancel button */
+  color: white;
+  /* White text color */
+  border: none;
+  /* No border */
+  border-radius: 5px;
+  /* Rounded corners */
+  padding: 10px 15px;
+  /* Padding for the button */
+  cursor: pointer;
+  /* Pointer cursor on hover */
+  margin-right: 10px;
+  /* Space between buttons */
+  transition: background-color 0.3s ease;
+  /* Smooth transition */
 }
 
 .cancelButton:hover {
-  background-color: #d32f2fcc; /* Darker red on hover */
+  background-color: #d32f2fcc;
+  /* Darker red on hover */
 }
 
 .saveButton {
-  background-color: #5928a7; /* Green background for save button */
-  color: white; /* White text color */
-  border: none; /* No border */
-  border-radius: 5px; /* Rounded corners */
-  padding: 10px 15px; /* Padding for the button */
-  cursor: pointer; /* Pointer cursor on hover */
-  transition: background-color 0.3s ease; /* Smooth transition */
+  background-color: #5928a7;
+  /* Green background for save button */
+  color: white;
+  /* White text color */
+  border: none;
+  /* No border */
+  border-radius: 5px;
+  /* Rounded corners */
+  padding: 10px 15px;
+  /* Padding for the button */
+  cursor: pointer;
+  /* Pointer cursor on hover */
+  transition: background-color 0.3s ease;
+  /* Smooth transition */
 }
 
 .saveButton:hover {
-  background-color: #7947c3; /* Darker green on hover */
+  background-color: #7947c3;
+  /* Darker green on hover */
   color: #ffffff;
 }
 
@@ -577,11 +617,13 @@
 .comments {
   margin-bottom: 15px;
 }
-.commentsToggle{
+
+.commentsToggle {
   color: #65676b;
   background: none;
   border: none;
 }
+
 .comment {
   display: flex;
   margin-bottom: 10px;
@@ -661,7 +703,8 @@
 }
 
 .commentInputContainer {
-  flex: 1;
+  /* flex: 1; */
+  width: 80%;
   position: relative;
   display: flex;
   align-items: center;
@@ -681,6 +724,18 @@
   outline: none;
 }
 
+.ErrorMessage {
+  color: red;
+  text-align: center;
+  margin-top: 5px;
+  font-size: 12px;
+  border-radius: 4px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  display: flex;
+  justify-content: center;
+  font-weight: bold;
+}
+
 .commentInputActions {
   position: absolute;
   right: 10px;
@@ -694,7 +749,7 @@
   color: #7c3aed;
   cursor: pointer;
   padding: 8px;
-  margin-left: 5px;
+  margin-left: 1%;
 }
 
 .commentSubmit:disabled {
@@ -786,6 +841,7 @@
   max-height: 300px;
   object-fit: contain;
   border-radius: 8px;
+  margin-top: 10px;
 }
 
 .removeImageButton {
@@ -891,4 +947,82 @@
   font-size: 12px;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-weight: bold;
+}
+
+.buImgCont {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  margin-left: 2%;
+  align-items: center;
+}
+
+.imgAction {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px;
+  border: none;
+  border-radius: 6px;
+  color: #000000;
+  font-size: 12px;
+  cursor: pointer;
+  transition: background-color 0.5s;
+}
+
+.imgAction:hover {
+  background-color: #60667031;
+}
+
+/* Add these styles to your CSS module */
+
+.commentImage {
+  margin-top: 8px;
+  border-radius: 8px;
+  overflow: hidden;
+  max-width: 100%;
+}
+
+.commentImg {
+  width: 100%;
+  max-height: 150px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.commentImg:hover {
+  transform: scale(1.02);
+}
+
+/* If you want to make images clickable for full view */
+.commentImageContainer {
+  position: relative;
+  display: inline-block;
+}
+
+/* Optional: Add loading state */
+.commentImg[data-loading="true"] {
+  background: #f0f0f0;
+  min-height: 150px;
+}
+
+.error_popup {
+  width: 80%;
+  height: 80%;
+  background-color: #8a7da3;
+  position: relative;
+  align-items: center;
+}
+
+.text_error {
+  align-items: center;
+  color: red;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .commentImg {
+    max-height: 200px;
+  }
 }
