@@ -11,7 +11,7 @@ export default function ProfilePage() {
   const [profileUser, setProfileUser] = useState(null);
   const [profileLoading, setProfileLoading] = useState(true);
 
-  const { id: ids } = useParams(); // ← directly destructure
+  const { id: ids } = useParams(); 
 
   useEffect(() => {
     async function loadProfileUser() {
@@ -21,7 +21,7 @@ export default function ProfilePage() {
         });
 
         if (!res.ok) {
-          router.replace('/not-found'); // ✅ Redirect to your custom 404
+          router.replace('/not-found');
           return;
         }
 
@@ -29,19 +29,18 @@ export default function ProfilePage() {
         const user = json.data?.Data;
 
         if (!user) {
-          router.replace('/not-found'); // ✅ In case data is malformed
+          router.replace('/not-found');
           return;
         }
 
         setProfileUser(user);
-
-        if (currentUser) {
+        if (currentUser && user) {
           user.IsOwnProfile = (user.id === currentUser.id);
         }
 
       } catch (error) {
         console.error('Error fetching profile:', error);
-        router.replace('/not-found'); // ✅ On error
+        router.replace('/not-found');
       } finally {
         setProfileLoading(false);
       }

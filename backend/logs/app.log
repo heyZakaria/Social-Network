@@ -31719,3 +31719,172 @@
 2025/06/24 08:39:05 [INFO] 2025-06-24 08:39:05 - Posts fetched successfully in GetPostsScroll Handler
 2025/06/24 08:39:29 [INFO] 2025-06-24 08:39:29 - Starting HTTP server at http://localhost:8080 ...
 2025/06/24 08:39:29 [INFO] 2025-06-24 08:39:29 - Migrations applied successfully!
+2025/06/24 08:40:53 [INFO] 2025-06-24 08:40:53 - Recieved Request for fetching groups
+2025/06/24 08:40:53 [LOG] 2025-06-24 08:40:53 - Invite Request Group to join fetched successfully
+2025/06/24 08:40:53 [INFO] 2025-06-24 08:40:53 - Groups Fetched Successfuly
+2025/06/24 08:40:53 [INFO] 2025-06-24 08:40:53 - Recieved Request for fetching groups
+2025/06/24 08:40:53 [LOG] 2025-06-24 08:40:53 - Invite Request Group to join fetched successfully
+2025/06/24 08:40:53 [INFO] 2025-06-24 08:40:53 - Groups Fetched Successfuly
+2025/06/24 08:41:44 [INFO] 2025-06-24 08:41:44 - Verify-token hit
+2025/06/24 08:41:47 [INFO] 2025-06-24 08:41:47 - Recieved Request for fetching groups
+2025/06/24 08:41:47 [LOG] 2025-06-24 08:41:47 - Invite Request Group to join fetched successfully
+2025/06/24 08:41:47 [INFO] 2025-06-24 08:41:47 - Groups Fetched Successfuly
+2025/06/24 08:41:47 [INFO] 2025-06-24 08:41:47 - Recieved Request for fetching groups
+2025/06/24 08:41:47 [LOG] 2025-06-24 08:41:47 - Invite Request Group to join fetched successfully
+2025/06/24 08:41:47 [INFO] 2025-06-24 08:41:47 - Groups Fetched Successfuly
+2025/06/24 08:45:41 [LOG] 2025-06-24 08:45:41 - Get request made to GetPostsScroll Handler
+2025/06/24 08:45:41 [INFO] 2025-06-24 08:45:41 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 08:45:41 [LOG] 2025-06-24 08:45:41 - Get request made to GetPostsScroll Handler
+2025/06/24 08:45:41 [INFO] 2025-06-24 08:45:41 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 08:45:46 [LOG] 2025-06-24 08:45:46 - Start Creating the Post
+2025/06/24 08:45:46 [INFO] 2025-06-24 08:45:46 - Starting avatar upload
+2025/06/24 08:45:46 [INFO] 2025-06-24 08:45:46 - No image file provided
+2025/06/24 08:45:46 [LOG] 2025-06-24 08:45:46 - Get request made to GetPostsScroll Handler
+2025/06/24 08:45:46 [INFO] 2025-06-24 08:45:46 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 08:45:49 [INFO] 2025-06-24 08:45:49 - Verify-token hit
+2025/06/24 08:45:49 [INFO] 2025-06-24 08:45:49 - =========== GetOtherUserProfile called ===========
+2025/06/24 08:45:49 [INFO] 2025-06-24 08:45:49 - Authenticated user ID: 1a3b436a-e419-43ab-b433-90785a20fcd1
+2025/06/24 08:45:49 [INFO] 2025-06-24 08:45:49 - Requested profile for user ID: 1a3b436a-e419-43ab-b433-90785a20fcd1
+2025/06/24 08:45:49 [INFO] 2025-06-24 08:45:49 - User is viewing their own profile
+2025/06/24 08:45:49 [INFO] 2025-06-24 08:45:49 - Profile returned successfully
+2025/06/24 08:45:49 [INFO] 2025-06-24 08:45:49 - =========== GetOtherUserProfile called ===========
+2025/06/24 08:45:49 [INFO] 2025-06-24 08:45:49 - Authenticated user ID: 1a3b436a-e419-43ab-b433-90785a20fcd1
+2025/06/24 08:45:49 [INFO] 2025-06-24 08:45:49 - Requested profile for user ID: 1a3b436a-e419-43ab-b433-90785a20fcd1
+2025/06/24 08:45:49 [INFO] 2025-06-24 08:45:49 - User is viewing their own profile
+2025/06/24 08:45:49 [INFO] 2025-06-24 08:45:49 - Profile returned successfully
+2025/06/24 08:45:49 [LOG] 2025-06-24 08:45:49 - Get request made to GetPostsScroll Handler
+2025/06/24 08:45:49 [ERROR] 2025-06-24 08:45:49 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 08:45:49 [LOG] 2025-06-24 08:45:49 - Get request made to GetPostsScroll Handler
+2025/06/24 08:45:49 [ERROR] 2025-06-24 08:45:49 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 08:45:52 [INFO] 2025-06-24 08:45:52 - Verify-token hit
+2025/06/24 08:45:53 [INFO] 2025-06-24 08:45:53 - =========== GetOtherUserProfile called ===========
+2025/06/24 08:45:53 [INFO] 2025-06-24 08:45:53 - Authenticated user ID: 1a3b436a-e419-43ab-b433-90785a20fcd1
+2025/06/24 08:45:53 [INFO] 2025-06-24 08:45:53 - Requested profile for user ID: 1a3b436a-e419-43ab-b433-90785a20fcd1
+2025/06/24 08:45:53 [INFO] 2025-06-24 08:45:53 - User is viewing their own profile
+2025/06/24 08:45:53 [INFO] 2025-06-24 08:45:53 - Profile returned successfully
+2025/06/24 08:45:53 [INFO] 2025-06-24 08:45:53 - =========== GetOtherUserProfile called ===========
+2025/06/24 08:45:53 [INFO] 2025-06-24 08:45:53 - Authenticated user ID: 1a3b436a-e419-43ab-b433-90785a20fcd1
+2025/06/24 08:45:53 [INFO] 2025-06-24 08:45:53 - Requested profile for user ID: 1a3b436a-e419-43ab-b433-90785a20fcd1
+2025/06/24 08:45:53 [INFO] 2025-06-24 08:45:53 - User is viewing their own profile
+2025/06/24 08:45:53 [INFO] 2025-06-24 08:45:53 - Profile returned successfully
+2025/06/24 08:45:53 [LOG] 2025-06-24 08:45:53 - Get request made to GetPostsScroll Handler
+2025/06/24 08:45:53 [ERROR] 2025-06-24 08:45:53 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 08:45:53 [LOG] 2025-06-24 08:45:53 - Get request made to GetPostsScroll Handler
+2025/06/24 08:45:53 [ERROR] 2025-06-24 08:45:53 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 08:47:10 [INFO] 2025-06-24 08:47:10 - Verify-token hit
+2025/06/24 08:57:52 [INFO] 2025-06-24 08:57:52 - Verify-token hit
+2025/06/24 08:57:52 [INFO] 2025-06-24 08:57:52 - =========== GetOtherUserProfile called ===========
+2025/06/24 08:57:52 [INFO] 2025-06-24 08:57:52 - Authenticated user ID: 953b6e4a-f46c-4946-ba2c-1b09828c5722
+2025/06/24 08:57:52 [INFO] 2025-06-24 08:57:52 - Requested profile for user ID: 953b6e4a-f46c-4946-ba2c-1b09828c5722
+2025/06/24 08:57:52 [INFO] 2025-06-24 08:57:52 - =========== GetOtherUserProfile called ===========
+2025/06/24 08:57:52 [INFO] 2025-06-24 08:57:52 - Authenticated user ID: 953b6e4a-f46c-4946-ba2c-1b09828c5722
+2025/06/24 08:57:52 [INFO] 2025-06-24 08:57:52 - Requested profile for user ID: 953b6e4a-f46c-4946-ba2c-1b09828c5722
+2025/06/24 08:57:52 [INFO] 2025-06-24 08:57:52 - User is viewing their own profile
+2025/06/24 08:57:52 [INFO] 2025-06-24 08:57:52 - Profile returned successfully
+2025/06/24 08:57:52 [INFO] 2025-06-24 08:57:52 - User is viewing their own profile
+2025/06/24 08:57:52 [INFO] 2025-06-24 08:57:52 - Profile returned successfully
+2025/06/24 08:57:52 [LOG] 2025-06-24 08:57:52 - Get request made to GetPostsScroll Handler
+2025/06/24 08:57:52 [LOG] 2025-06-24 08:57:52 - Get request made to GetPostsScroll Handler
+2025/06/24 08:57:52 [ERROR] 2025-06-24 08:57:52 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 08:57:52 [ERROR] 2025-06-24 08:57:52 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 08:57:55 [INFO] 2025-06-24 08:57:55 - Verify-token hit
+2025/06/24 08:57:55 [INFO] 2025-06-24 08:57:55 - =========== GetOtherUserProfile called ===========
+2025/06/24 08:57:55 [INFO] 2025-06-24 08:57:55 - Authenticated user ID: 953b6e4a-f46c-4946-ba2c-1b09828c5722
+2025/06/24 08:57:55 [INFO] 2025-06-24 08:57:55 - Requested profile for user ID: 38ebe970-50e9-451e-a5e7-4236671eb9b8
+2025/06/24 08:57:55 [INFO] 2025-06-24 08:57:55 - =========== GetOtherUserProfile called ===========
+2025/06/24 08:57:55 [INFO] 2025-06-24 08:57:55 - Authenticated user ID: 953b6e4a-f46c-4946-ba2c-1b09828c5722
+2025/06/24 08:57:55 [INFO] 2025-06-24 08:57:55 - Requested profile for user ID: 38ebe970-50e9-451e-a5e7-4236671eb9b8
+2025/06/24 08:57:55 [INFO] 2025-06-24 08:57:55 - Profile returned successfully
+2025/06/24 08:57:55 [INFO] 2025-06-24 08:57:55 - Profile returned successfully
+2025/06/24 08:57:55 [LOG] 2025-06-24 08:57:55 - Get request made to GetPostsScroll Handler
+2025/06/24 08:57:55 [LOG] 2025-06-24 08:57:55 - Get request made to GetPostsScroll Handler
+2025/06/24 08:57:55 [ERROR] 2025-06-24 08:57:55 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 08:57:55 [ERROR] 2025-06-24 08:57:55 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 08:58:06 [LOG] 2025-06-24 08:58:06 - Get request made to GetPostsScroll Handler
+2025/06/24 08:58:06 [INFO] 2025-06-24 08:58:06 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 08:58:06 [LOG] 2025-06-24 08:58:06 - Get request made to GetPostsScroll Handler
+2025/06/24 08:58:06 [INFO] 2025-06-24 08:58:06 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 08:58:10 [LOG] 2025-06-24 08:58:10 - Start Creating the Post
+2025/06/24 08:58:10 [INFO] 2025-06-24 08:58:10 - Starting avatar upload
+2025/06/24 08:58:10 [INFO] 2025-06-24 08:58:10 - No image file provided
+2025/06/24 08:58:10 [LOG] 2025-06-24 08:58:10 - Get request made to GetPostsScroll Handler
+2025/06/24 08:58:10 [INFO] 2025-06-24 08:58:10 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 08:58:18 [INFO] 2025-06-24 08:58:18 - Verify-token hit
+2025/06/24 08:58:18 [INFO] 2025-06-24 08:58:18 - =========== GetOtherUserProfile called ===========
+2025/06/24 08:58:18 [INFO] 2025-06-24 08:58:18 - Authenticated user ID: 953b6e4a-f46c-4946-ba2c-1b09828c5722
+2025/06/24 08:58:18 [INFO] 2025-06-24 08:58:18 - Requested profile for user ID: 38ebe970-50e9-451e-a5e7-4236671eb9b8
+2025/06/24 08:58:18 [INFO] 2025-06-24 08:58:18 - Profile returned successfully
+2025/06/24 08:58:18 [INFO] 2025-06-24 08:58:18 - =========== GetOtherUserProfile called ===========
+2025/06/24 08:58:18 [INFO] 2025-06-24 08:58:18 - Authenticated user ID: 953b6e4a-f46c-4946-ba2c-1b09828c5722
+2025/06/24 08:58:18 [INFO] 2025-06-24 08:58:18 - Requested profile for user ID: 38ebe970-50e9-451e-a5e7-4236671eb9b8
+2025/06/24 08:58:18 [INFO] 2025-06-24 08:58:18 - Profile returned successfully
+2025/06/24 08:58:18 [LOG] 2025-06-24 08:58:18 - Get request made to GetPostsScroll Handler
+2025/06/24 08:58:18 [LOG] 2025-06-24 08:58:18 - Get request made to GetPostsScroll Handler
+2025/06/24 08:58:18 [INFO] 2025-06-24 08:58:18 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 08:58:18 [INFO] 2025-06-24 08:58:18 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 08:58:46 [LOG] 2025-06-24 08:58:46 - Get request made to GetPostsScroll Handler
+2025/06/24 08:58:46 [INFO] 2025-06-24 08:58:46 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 08:58:46 [LOG] 2025-06-24 08:58:46 - Get request made to GetPostsScroll Handler
+2025/06/24 08:58:46 [INFO] 2025-06-24 08:58:46 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 08:58:49 [LOG] 2025-06-24 08:58:49 - Start Creating the Post
+2025/06/24 08:58:49 [INFO] 2025-06-24 08:58:49 - Starting avatar upload
+2025/06/24 08:58:49 [INFO] 2025-06-24 08:58:49 - No image file provided
+2025/06/24 08:58:49 [LOG] 2025-06-24 08:58:49 - Get request made to GetPostsScroll Handler
+2025/06/24 08:58:49 [INFO] 2025-06-24 08:58:49 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 08:58:51 [INFO] 2025-06-24 08:58:51 - Verify-token hit
+2025/06/24 08:58:57 [INFO] 2025-06-24 08:58:57 - Verify-token hit
+2025/06/24 08:58:58 [INFO] 2025-06-24 08:58:58 - =========== GetOtherUserProfile called ===========
+2025/06/24 08:58:58 [INFO] 2025-06-24 08:58:58 - Authenticated user ID: 953b6e4a-f46c-4946-ba2c-1b09828c5722
+2025/06/24 08:58:58 [INFO] 2025-06-24 08:58:58 - Requested profile for user ID: 953b6e4a-f46c-4946-ba2c-1b09828c5722
+2025/06/24 08:58:58 [INFO] 2025-06-24 08:58:58 - User is viewing their own profile
+2025/06/24 08:58:58 [INFO] 2025-06-24 08:58:58 - Profile returned successfully
+2025/06/24 08:58:58 [INFO] 2025-06-24 08:58:58 - =========== GetOtherUserProfile called ===========
+2025/06/24 08:58:58 [INFO] 2025-06-24 08:58:58 - Authenticated user ID: 953b6e4a-f46c-4946-ba2c-1b09828c5722
+2025/06/24 08:58:58 [INFO] 2025-06-24 08:58:58 - Requested profile for user ID: 953b6e4a-f46c-4946-ba2c-1b09828c5722
+2025/06/24 08:58:58 [INFO] 2025-06-24 08:58:58 - User is viewing their own profile
+2025/06/24 08:58:58 [INFO] 2025-06-24 08:58:58 - Profile returned successfully
+2025/06/24 08:58:58 [LOG] 2025-06-24 08:58:58 - Get request made to GetPostsScroll Handler
+2025/06/24 08:58:58 [LOG] 2025-06-24 08:58:58 - Get request made to GetPostsScroll Handler
+2025/06/24 08:58:58 [INFO] 2025-06-24 08:58:58 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 08:58:58 [INFO] 2025-06-24 08:58:58 - Posts fetched successfully in GetPostsScroll Handler
+2025/06/24 08:59:42 [INFO] 2025-06-24 08:59:42 - Verify-token hit
+2025/06/24 08:59:43 [INFO] 2025-06-24 08:59:43 - =========== GetOtherUserProfile called ===========
+2025/06/24 08:59:43 [INFO] 2025-06-24 08:59:43 - Authenticated user ID: 953b6e4a-f46c-4946-ba2c-1b09828c5722
+2025/06/24 08:59:43 [INFO] 2025-06-24 08:59:43 - Requested profile for user ID: 953b6e4a-f46c-4946-ba2c-1b09828c5722
+2025/06/24 08:59:43 [INFO] 2025-06-24 08:59:43 - User is viewing their own profile
+2025/06/24 08:59:43 [INFO] 2025-06-24 08:59:43 - Profile returned successfully
+2025/06/24 08:59:43 [INFO] 2025-06-24 08:59:43 - =========== GetOtherUserProfile called ===========
+2025/06/24 08:59:43 [INFO] 2025-06-24 08:59:43 - Authenticated user ID: 953b6e4a-f46c-4946-ba2c-1b09828c5722
+2025/06/24 08:59:43 [INFO] 2025-06-24 08:59:43 - Requested profile for user ID: 953b6e4a-f46c-4946-ba2c-1b09828c5722
+2025/06/24 08:59:43 [INFO] 2025-06-24 08:59:43 - User is viewing their own profile
+2025/06/24 08:59:43 [INFO] 2025-06-24 08:59:43 - Profile returned successfully
+2025/06/24 08:59:43 [LOG] 2025-06-24 08:59:43 - Get request made to GetPostsScroll Handler
+2025/06/24 08:59:43 [ERROR] 2025-06-24 08:59:43 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 08:59:43 [LOG] 2025-06-24 08:59:43 - Get request made to GetPostsScroll Handler
+2025/06/24 08:59:43 [ERROR] 2025-06-24 08:59:43 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 09:04:10 [INFO] 2025-06-24 09:04:10 - Verify-token hit
+2025/06/24 09:04:10 [INFO] 2025-06-24 09:04:10 - =========== GetOtherUserProfile called ===========
+2025/06/24 09:04:10 [INFO] 2025-06-24 09:04:10 - Authenticated user ID: 953b6e4a-f46c-4946-ba2c-1b09828c5722
+2025/06/24 09:04:10 [INFO] 2025-06-24 09:04:10 - Requested profile for user ID: 953b6e4a-f46c-4946-ba2c-1b09828c5722
+2025/06/24 09:04:10 [INFO] 2025-06-24 09:04:10 - User is viewing their own profile
+2025/06/24 09:04:10 [INFO] 2025-06-24 09:04:10 - Profile returned successfully
+2025/06/24 09:04:10 [INFO] 2025-06-24 09:04:10 - =========== GetOtherUserProfile called ===========
+2025/06/24 09:04:10 [INFO] 2025-06-24 09:04:10 - Authenticated user ID: 953b6e4a-f46c-4946-ba2c-1b09828c5722
+2025/06/24 09:04:10 [INFO] 2025-06-24 09:04:10 - Requested profile for user ID: 953b6e4a-f46c-4946-ba2c-1b09828c5722
+2025/06/24 09:04:10 [INFO] 2025-06-24 09:04:10 - User is viewing their own profile
+2025/06/24 09:04:10 [INFO] 2025-06-24 09:04:10 - Profile returned successfully
+2025/06/24 09:04:18 [INFO] 2025-06-24 09:04:18 - Verify-token hit
+2025/06/24 09:04:19 [INFO] 2025-06-24 09:04:19 - =========== GetOtherUserProfile called ===========
+2025/06/24 09:04:19 [INFO] 2025-06-24 09:04:19 - Authenticated user ID: 953b6e4a-f46c-4946-ba2c-1b09828c5722
+2025/06/24 09:04:19 [INFO] 2025-06-24 09:04:19 - Requested profile for user ID: 953b6e4a-f46c-4946-ba2c-1b09828c5722
+2025/06/24 09:04:19 [INFO] 2025-06-24 09:04:19 - User is viewing their own profile
+2025/06/24 09:04:19 [INFO] 2025-06-24 09:04:19 - Profile returned successfully
+2025/06/24 09:04:19 [INFO] 2025-06-24 09:04:19 - =========== GetOtherUserProfile called ===========
+2025/06/24 09:04:19 [INFO] 2025-06-24 09:04:19 - Authenticated user ID: 953b6e4a-f46c-4946-ba2c-1b09828c5722
+2025/06/24 09:04:19 [INFO] 2025-06-24 09:04:19 - Requested profile for user ID: 953b6e4a-f46c-4946-ba2c-1b09828c5722
+2025/06/24 09:04:19 [INFO] 2025-06-24 09:04:19 - User is viewing their own profile
+2025/06/24 09:04:19 [INFO] 2025-06-24 09:04:19 - Profile returned successfully
+2025/06/24 09:04:19 [LOG] 2025-06-24 09:04:19 - Get request made to GetPostsScroll Handler
+2025/06/24 09:04:19 [ERROR] 2025-06-24 09:04:19 - No Posts found in GetPostsScroll Handler: 
+2025/06/24 09:04:19 [LOG] 2025-06-24 09:04:19 - Get request made to GetPostsScroll Handler
+2025/06/24 09:04:19 [ERROR] 2025-06-24 09:04:19 - No Posts found in GetPostsScroll Handler: 
