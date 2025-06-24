@@ -70,12 +70,12 @@ export default function Home() {
   //   setRefrech((prev) => prev + 1);
   // }
   console.log("Image Component:", Image);
-
+  
   return (
     <div className={styles.homePage}>
       {currentUser ? (
         <>
-                <CreatePost Refrech={RefrechPosts}
+                <CreatePost Refrech={RefrechPosts} currentUser={currentUser}
            />
           <PostFeeds
           posts={posts}

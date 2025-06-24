@@ -37,20 +37,30 @@ export default function ShowEventForm() {
     const validateForm = () => {
         const newErrors = {};
 
-        if (!formData.title || formData.title.trim() === "" || formData.title.length < 10 || formData.title.length > 100) {
+        if (!formData.title || formData.title.trim() === "") {
+
             newErrors.title = "Title is required.";
-        }
 
-        if (!formData.description || formData.description.trim() === "" || formData.description.length < 30 || formData.description.length > 250) {
+        } else if (formData.title.length < 10 || formData.title.length > 100) {
+
+            newErrors.title = "Title must be between 10 and 100 characters.";
+
+        } else if (!formData.description || formData.description.trim() === "") {
+
             newErrors.description = "Description is required.";
-        }
 
-        if (!formData.day || formData.day.trim() === "") {
+        } else if (formData.description.length < 30 || formData.description.length > 250) {
+
+            newErrors.description = "Description must be between 30 and 250 characters.";
+
+        } else if (!formData.day || formData.day.trim() === "") {
+
             newErrors.day = "Event day is required.";
+
         } else {
+
             const selectedDate = new Date(formData.day);
             const currentDate = new Date();
-
             if (selectedDate <= currentDate) {
                 newErrors.day = "Event date must be in the future.";
             }
@@ -64,9 +74,8 @@ export default function ShowEventForm() {
 
         if (!formData.location || formData.location.trim() === "") {
             newErrors.location = "Event location is required.";
-        }
-        if (formData.location.length < 5 || formData.location.length > 30) {
-            newErrors.location = "Event lenght is not valide.";
+        } else if (formData.location.length < 3 || formData.location.length > 30) {
+            newErrors.location = "Event Location is not valid.";
         }
 
         setErrors(newErrors);
@@ -88,7 +97,7 @@ export default function ShowEventForm() {
         }
 
         SendEventForm(formData, groupId)
-        UpcomingEvents()
+        // UpcomingEvents()
 
         setFormData({ title: "", description: "", day: "", time: "", date: "", location: "" });
         handleClick()
@@ -172,31 +181,28 @@ export default function ShowEventForm() {
 }
 
 
-function SendEventForm(formData, groupId) {
+async function SendEventForm(formData, groupId) {
     // Last version --> /groups/{id}/newEvent
-
-    fetch(`http://localhost:8080/api/groups/${groupId}/newEvent`, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-        credentials: 'include'
-
-    })
-        .then((res) => {
-            if (!res.ok) {
-                return res.json().then(errData => {
-                    throw new Error(errData.error || "Event fetch failed");
-                });
-            }
-            return res.json();
-        })
-        .then((data) => {
-            console.log("Event created:", data);
-        })
-        .catch((error) => {
-            console.error("Error creating event:", error);
-            // setServerError(error.message)
+    try {
+        const res = await fetch(`http://localhost:8080/api/groups/${groupId}/newEvent`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(formData),
+            credentials: 'include'
         });
-}   
+
+        if (!res.ok) {
+            const errData = await res.json();
+            console.log("errData", errData);
+            throw new Error(errData.error || "Event fetch failed");
+        }
+
+        const data = await res.json();
+        console.log("Event created:", data);
+    } catch (error) {
+        console.error("Error creating event:", error);
+        // setServerError(error.message)
+    }
+}

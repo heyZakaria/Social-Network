@@ -23,7 +23,7 @@ func CreateEvent(w http.ResponseWriter, r *http.Request) {
 		utils.SendJSON(w, http.StatusBadRequest, utils.JSONResponse{
 			Success: false,
 			Error:   "Invalid request format",
-			Message: "Event created successfully",
+			Message: "Please check the event details and try again.",
 		})
 		return
 	}

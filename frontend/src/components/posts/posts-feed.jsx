@@ -1,5 +1,4 @@
 
-import CreatePost from "@/components/posts/create-post";
 import PostComponent from "@/components/posts/post-component";
 import styles from "@/styles/home.module.css";
 

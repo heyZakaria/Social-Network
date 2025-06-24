@@ -9,6 +9,12 @@ import usePosts from "@/hooks/usePosts";
 import PendingInviteList from "@/components/Group/PendingInvites";
 import { FiUserPlus, FiUsers, FiCalendar } from "react-icons/fi";
 import UpcomingEvents from "@/components/events/upcoming-events";
+import styles from './GroupCard.module.css';
+import InviteFriends from "@/components/Group/InviteFriends";
+import { IoChevronBackCircleSharp, IoChevronForwardCircleSharp, IoChatbubbleEllipsesSharp } from "react-icons/io5";
+import Image from "next/image";
+import FloatingChat from "@/components/chat/floating-chat";
+import { useUser } from "@/context/user_context";
 
 
 
@@ -126,9 +132,7 @@ export default function GroupCard({ children }) {
   const [members, setMembers] = useState([]);
   const [showEvents, setShowEvents] = useState(false);
   const [showInvite, setShowInvite] = useState(false);
-  const [invitedFriends, setInvitedFriends] = useState(
-    FriendsList1.map((friend) => ({ ...friend, invited: false }))
-  );
+  const [invitedFriends, setInvitedFriends] = useState();
   const [showMembers, setShowMembers] = useState(false);
 
   const { user: currentUser } = useUser();
@@ -236,22 +240,35 @@ export default function GroupCard({ children }) {
   }
 
   return (
-    <div id={group.id} className={styles.groupCardContainer}>
-      <GroupNav
-        HandleShowInvite={HandleShowInvite}
-        HandleShowEvents={HandleShowEvents}
-        OnMembers={HandleMembersList}
-        FriendsList={invitedFriends}
-      />
-      <img
-        src={`/uploads/groups_cover/${group.covername}`}
-        alt={group.title}
-        className={styles.groupCover}
-      />
-      <h1 className={styles.groupTitle}>{group.title}</h1>
+    <div>
+      <div id={group.id} className={styles.groupCardContainer}>
+        <GroupNav
+          HandleShowInvite={HandleShowInvite}
+          HandleShowEvents={HandleShowEvents}
+          OnMembers={HandleMembersList}
+          FriendsList={invitedFriends}
+        />
+        <img
+          src={group.covername ? `/uploads/groups_cover/${group.covername}` : '/uploads/profile.jpeg'}
+          alt={group.title}
+          className={styles.groupCover}
+        />
+      </div>
+      <div id={group.id} className={styles.GroupCardContainer}>
+        <div className={styles.GroupCardHeader}>
+          <div className={styles.GroupCardHeaderContent}>
+            <Link href="/groups" className={styles.backButton}>
+              <IoChevronBackCircleSharp size={30} />
+            </Link>
+            <h1 className={styles.GroupCardTitle}>{group.title}</h1>
+          </div>
+          <div className={styles.GroupChatButton}>
+            <FloatingChat currentUser={currentUser} source={"group"} group={groupInfo} />
+          </div>
+        </div>
       <Description Text={group.description} />
 
-      <CreatePost Refrech={RefrechPosts} GroupId={groupId} />
+      <CreatePost Refrech={RefrechPosts} GroupId={groupId} currentUser={currentUser} />
 
       {showMembers && <Members members={members} />}
       {children}
@@ -268,6 +285,7 @@ export default function GroupCard({ children }) {
         currentUser={currentUser}
       />
       <PendingInviteList groupId={groupId} />
+    </div>
     </div>
   );
 }

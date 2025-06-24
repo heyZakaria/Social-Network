@@ -28,7 +28,9 @@ export default function CommentSection({ setCommentsCount, postId }) {
     const fetchComments = async () => {
       try {
         setIsLoading(true);
-        const Data = await FetchData(`/api/comment/getcomment?post_id=${postId}`)        
+        const Data = await FetchData(`/api/comment/getcomment?post_id=${postId}`)    
+        console.log("Comment Data GET", Data);
+            
         setComments(Data.data.Comments);
         updateDisplayedComments(Data.data.Comments, showAllComments);
         setIsLoading(false);
@@ -137,11 +139,33 @@ export default function CommentSection({ setCommentsCount, postId }) {
         if (data.success) {
           SetErrorMsg("");
           resetForm();
-          
+//           {
+//     "ID": "c3b66551-790d-4134-9bcd-dcb12d66d331",
+//     "UserID": "1c7d4180-e42b-4407-aa0e-a5441e1dcd94",
+//     "postId": 0,
+//     "content": "",
+//     "comment_image": "/uploads/comment/469931b4-8477-478b-a52a-90293b0f5ae0.webp",
+//     "FirstName": "Christopher",
+//     "LastName": "Jenkins",
+//     "Avatar": "",
+//     "CreatedAt": "2025-06-24T19:34:06Z",
+//     "FormattedDate": "06/24/2025, 7:34:06 PM"
+// }
+// {
+//     "postId": 2,
+//     "content": "",
+//     "comment_img": "/uploads/comment/b8d3d5b4-7312-4e89-8ac7-c10c67689523.webp",
+//     "UserID": "1c7d4180-e42b-4407-aa0e-a5441e1dcd94",
+//     "ID": "7cfdc6cf-c037-4d65-b640-adfd404a738d",
+//     "FirstName": "Christopher",
+//     "LastName": "Jenkins",
+//     "CreatedAt": "2025-06-24T18:35:31.361Z",
+//     "Avatar": "/uploads/profile.jpeg"
+// }
           const newCommentObj = {
             postId: postId,
             content: newComment,
-            comment_img: data.Comment?.comment_img || null,
+            comment_image: data?.data?.Comment?.comment_image || null,
             UserID: currentUser.id,
             ID: data.data.Comment.ID,
             FirstName: currentUser.firstName,
@@ -149,6 +173,7 @@ export default function CommentSection({ setCommentsCount, postId }) {
             CreatedAt: new Date().toISOString(),
             Avatar: currentUser.avatar || "/uploads/profile.jpeg"
           }
+        console.log("Comment Data POST", newCommentObj);
           
           const updatedComments = [newCommentObj, ...comments];
           setComments(updatedComments);
@@ -227,10 +252,10 @@ export default function CommentSection({ setCommentsCount, postId }) {
                       <p className={styles.commentText}>{comment.content}</p>
                     )}
 
-                    {comment.Comment_img && (
+                    {comment.comment_image && (
                       <div className={styles.commentImage}>
                         <Image
-                          src={comment.Comment_img}
+                          src={comment.comment_image}
                           alt="Comment attachment"
                           width={300}
                           height={200}
@@ -320,6 +345,7 @@ export default function CommentSection({ setCommentsCount, postId }) {
       {selectedImage && (
         <div className={styles.imagePreview}>
           <Image width={200} height={100}
+            alt="Selected Preview"
             src={URL.createObjectURL(selectedImage)}
             className={styles.previewImage}
           />

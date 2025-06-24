@@ -49,7 +49,7 @@ func CreatePost(w http.ResponseWriter, r *http.Request) {
 		utils.Log("ERROR", "Error Trying to Prepare Image: "+postImage)
 		utils.SendJSON(w, http.StatusInternalServerError, utils.JSONResponse{
 			Success: false,
-			Error:   "Error While Preparing Image, Please try again later.",
+			Error:   err.Error(),
 			Message: "Error occured Please try again later. " + err.Error(),
 		})
 		return

@@ -5,16 +5,14 @@ import { BsImage } from 'react-icons/bs';
 import styles from '@/styles/posts.module.css';
 import PopupInput from './popup-input';
 import PopupPrivacy from './popup-privacy';
-import { useUser } from "@/context/user_context";
 import Image from "next/image";
 import { logoutUser } from '@/app/(auth)/_logout/logout';
 
 
 const CreatePost = ({
-  Refrech , GroupId
+  Refrech , GroupId, currentUser
 }) => {
   // State for form data  
-  const { user: currentUser } = useUser()
   const [postContent, setPostContent] = useState('');
   const [privacy, setPrivacy] = useState('public');
   const [selectedImage, setSelectedImage] = useState(null);
@@ -247,6 +245,7 @@ const CreatePost = ({
       {selectedImage && (
         <div className={styles.imagePreview}>
           <Image width={200} height={100}
+          alt="Selected Image Preview"
             src={URL.createObjectURL(selectedImage)}
             className={styles.previewImage}
           />
