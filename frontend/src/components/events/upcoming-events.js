@@ -1,57 +1,151 @@
-import Link from "next/link"
-import styles from "@/styles/components.module.css"
+import { useState } from "react";
+import Link from "next/link";
+import { IoAddOutline } from "react-icons/io5";
+import styles from "@/styles/UpcomingEvents.module.css";
+import { useParams } from "next/navigation";
+let groupId
+export default function UpcomingEvents( ) {
+  const [events, setEvents] = useState([]);
+  const [attendees, setAttendees] = useState(0);
+  const [error, setError] = useState(null);
 
-export default function UpcomingEvents({ events = [] }) {
-  if (events.length === 0) {
-    return (
-      <div className={styles.container}>
-        <h3 className={styles.title}>Upcoming Events</h3>
-        <p>No upcoming events.</p>
-        <Link href="/events/create" className={styles.seeAll}>
-          Create an Event
-        </Link>
-      </div>
-    )
+  const p = useParams()
+  groupId = p.id
+  console.log("Weeeeeeeeeeee ID", groupId);
+
+  const HandleGetEvents = async () => {
+    try {
+      const e = await fetchEvents();
+      // console.log("=+=++=+++===", e);
+      setEvents(e);
+    } catch (error) {
+      console.error("Error fetching events:", error.message);
+    }
   }
-  console.log("weeeeeeeeeeeeeeeeeeee");
-  
+
+  const HandleEventPresence = (event) => {
+    console.log("ZZZZZZZZZZZZ", event, event.id);
+
+    fetch(`http://localhost:8080/api/groups/event_presence/response`, {
+      method: "POST",
+      credentials: "include",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        group_id: groupId,
+        event_id: event.id,
+        presence: event.presence
+      })
+    })
+      .then((res) => {
+        if (!res.ok) {
+          return res.json().then((errData) => {
+            throw new Error(errData.error || "Event presence err");
+          });
+        }
+
+        return res.json();
+      })
+      .then(async (data) => {
+        let e = await fetchEvents()
+
+        setEvents(e)
+      })
+      .catch((error) => {
+        console.error("Error fetching events:", error.message);
+        setError(error.message);
+      });
+  }
 
   const formatDate = (dateString) => {
-    const date = new Date(dateString)
-    const options = { month: "short", day: "numeric", hour: "2-digit", minute: "2-digit" }
-    return date.toLocaleDateString("en-US", options)
-  }
+    const date = new Date(dateString);
+    return date.toLocaleString("en-US", {
+      month: "short",
+      day: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
+    });
+  };
 
   return (
-    <div className={styles.container}>
-      <h3 className={styles.title}>Upcoming Eventss</h3>
-      <div className={styles.list}>
-        {events.slice(0, 3).map((event) => (
-          <Link href={`/events/${event.id}`} key={event.id}>
-            <div className={styles.item}>
-              <div className={styles.eventDate}>
-                <div className={styles.eventMonth}>
-                  {new Date(event.date).toLocaleString("default", { month: "short" }).toUpperCase()}
+    <div className={styles.eventsContainer}>
+      <div className={styles.eventsHeader}>
+        <h1>Events</h1>
+        <a onClick={HandleGetEvents} className={styles.createEventButton}>
+          <IoAddOutline size={20} />
+          Get Events
+        </a>
+      </div>
+
+      {error && <p className={styles.error}>{error}</p>}
+
+      <div className={styles.eventsGrid}>
+        {events.length === 0 ? (
+          <p>No events found. Click "Get Events" to load.</p>
+        ) : (
+          events.map((event) => (
+            <div key={event.id} className={styles.eventCard}>
+              <div className={styles.eventCardContent}>
+                <h3 className={styles.eventCardTitle}>{event.title}</h3>
+                <div className={styles.eventCardMeta}>
+                  <div className={styles.eventTime}>{formatDate(event.date)}</div>
+                  <div className={styles.eventLocation}>{event.location}</div>
+                  <div className={styles.eventGroup}>
+                    <Link href={`/groups/${event.group_id}`}>
+                      {event.group_name}
+                    </Link>
+                  </div>
                 </div>
-                <div className={styles.eventDay}>{new Date(event.date).getDate()}</div>
-              </div>
-              <div className={styles.info}>
-                <div className={styles.name}>{event.title}</div>
-                <div className={styles.meta}>
-                  <span>{formatDate(event.date)}</span>
-                  <span className={styles.eventLocation}>{event.location}</span>
-                  <span className={styles.eventAttendees}>{event.attendees} going</span>
+                <p className={styles.eventCardDescription}>{event.description}</p>
+                <div className={styles.eventCardFooter}>
+                  <div className={styles.eventAttendees}>
+                    <span>{event.attendees || 0} going</span>
+                  </div>
+                  <div className={styles.eventActions}>
+                    <button onClick={() => HandleEventPresence({ id: event.id, presence: "going" })} className={styles.goingButton}> Going</button>
+                    <button onClick={() => HandleEventPresence({ id: event.id, presence: "not going" })} className={styles.notGoingButton}>Not Going</button>
+                  </div>
                 </div>
               </div>
             </div>
-          </Link>
-        ))}
+          ))
+        )}
       </div>
-      {events.length > 3 && (
-        <Link href="/events" className={styles.seeAll}>
-          See All Events
-        </Link>
-      )}
     </div>
-  )
+  );
 }
+
+
+export const fetchEvents = async () => {
+
+  return fetch(`http://localhost:8080/api/groups/events/${groupId}`, {
+    method: "GET",
+    credentials: "include",
+
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+    .then(async (res) => {
+      if (!res.ok) {
+        return res.json().then((errData) => {
+          throw new Error(errData.error || "Event fetch failed");
+        });
+      }
+      ///console.log("Weeeeeeeeeeee EVENTS 1", res.json());
+      return res.json();
+    })
+    .then((data) => {
+      console.log("Weeeeeeeeeeee EVENTS 2", data);
+      return data
+      setEvents(data);
+
+      setAttendees(data.attendees)
+      setError(null);
+    })
+    .catch((error) => {
+      console.error("Error fetching events:", error.message);
+      setError(error.message);
+    });
+};

@@ -2,8 +2,9 @@ package Event
 
 import (
 	"encoding/json"
+	"fmt"
 	"net/http"
-	"strconv"
+	"strings"
 	"time"
 
 	db "socialNetwork/db/sqlite"
@@ -12,32 +13,6 @@ import (
 )
 
 func CreateEvent(w http.ResponseWriter, r *http.Request) {
-	// Check user Auth and get id
-	// Check if the user is in the group
-	// Check form input
-	/* token := middleware.GetToken(w, r)
-	if token == "" {
-		utils.Log("Error", "Token is empty")
-		utils.SendJSON(w, http.StatusUnauthorized, utils.JSONResponse{
-			Success: false,
-			Message: "Unauthorized",
-			Error:   "You are not Authorized.",
-		})
-		return
-	}
-	UserId, err := middleware.GetUserIDByToken(token)
-	if err != nil || UserId == "" {
-		utils.Log("Error", err.Error())
-		utils.SendJSON(w, http.StatusUnauthorized, utils.JSONResponse{
-			Success: false,
-			Message: err.Error(),
-		})
-		return
-	} */
-
-	// TO DO get Event Creator id
-	// TO DO check if the user is in the group
-
 	var event Event
 
 	err := json.NewDecoder(r.Body).Decode(&event)
@@ -54,8 +29,25 @@ func CreateEvent(w http.ResponseWriter, r *http.Request) {
 	}
 	UserId := r.Context().Value(shared.UserIDKey).(string)
 
-	GroupId := r.URL.Query().Get("id")
-	event.GroupID, _ = strconv.Atoi(GroupId)
+	splitedPath := strings.Split(r.URL.Path, "/")
+	if len(splitedPath) < 2 || splitedPath[1] == "" {
+		utils.SendJSON(w, http.StatusBadRequest, utils.JSONResponse{
+			Success: false,
+			Error:   "Bad request: Invalid Group Id",
+		})
+		return
+	}
+	GroupId := splitedPath[1]
+	/* event.GroupID, _ = strconv.Atoi(GroupId)
+	if err != nil {
+		utils.SendJSON(w, http.StatusBadRequest, utils.JSONResponse{
+			Success: false,
+			Error:   "Bad request: Invalid Group Id",
+		})
+		return
+	} */
+	event.Creator = UserId
+
 	GroupExist, MemberExist, Err := shared.ValidateGroup(db.DB, GroupId, UserId)
 	if Err != nil {
 		utils.SendJSON(w, http.StatusInternalServerError, utils.JSONResponse{
@@ -72,6 +64,8 @@ func CreateEvent(w http.ResponseWriter, r *http.Request) {
 			Message: "Group Does Not Exist",
 		})
 		return
+	} else {
+		fmt.Println("Group Exist")
 	}
 	if !MemberExist {
 		utils.Log("Error", "Not a Member ")
@@ -80,8 +74,11 @@ func CreateEvent(w http.ResponseWriter, r *http.Request) {
 			Message: "You're Not a Member Plz Send a Join Request",
 		})
 		return
+	} else {
+		fmt.Println("Member Exist")
 	}
-	_, err = db.DB.Exec("INSERT INTO events ( title, event_description, date_of_event, event_location) VALUES (?, ?, ?, ?)", event.Title, event.Description, event.DateOfEvent, event.EventLocation /* event.GroupID */)
+	fmt.Println("event", event)
+	_, err = db.DB.Exec("INSERT INTO events ( title, description, date_of_event, event_location, event_creator, group_id) VALUES (?, ?, ?, ?, ?, ?)", event.Title, event.Description, event.DateOfEvent, event.EventLocation, event.Creator, GroupId)
 	if err != nil {
 		utils.Log("ERROR", "Failed to create event: "+err.Error())
 		utils.SendJSON(w, http.StatusInternalServerError, utils.JSONResponse{

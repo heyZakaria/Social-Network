@@ -3,7 +3,8 @@
 import { useState } from 'react';
 import styles from "@/components/events/newEvent.module.css";
 import { useParams } from "next/navigation";
-
+import UpcomingEvents from './upcoming-events';
+let groupId
 export default function ShowEventForm() {
     const [showForm, setShowForm] = useState(false);
     const [formData, setFormData] = useState({
@@ -18,7 +19,7 @@ export default function ShowEventForm() {
     const [serverError, setServerError] = useState('')
 
     const p = useParams()
-    const groupId = p.id
+    groupId = p.id
     console.log("===================groupId:", groupId);
 
     const handleClick = () => {
@@ -61,12 +62,20 @@ export default function ShowEventForm() {
 
         formData.date = formData.day + " " + formData.time
 
-        if (!formData.location || formData.location.trim() === "" || formData.location.length < 5 || formData.location.length > 30) {
+        if (!formData.location || formData.location.trim() === "") {
             newErrors.location = "Event location is required.";
+        }
+        if (formData.location.length < 5 || formData.location.length > 30) {
+            newErrors.location = "Event lenght is not valide.";
         }
 
         setErrors(newErrors);
+        console.log("----------------->", newErrors.day);
+
         return Object.keys(newErrors).length === 0; // returns true if no errors
+    };
+    const closePopup = () => {
+        setShowForm(false);
     };
 
     const getFormData = (e) => {
@@ -78,80 +87,85 @@ export default function ShowEventForm() {
             return; // Don't submit the form if there are errors
         }
 
-
-
         SendEventForm(formData, groupId)
+        UpcomingEvents()
 
         setFormData({ title: "", description: "", day: "", time: "", date: "", location: "" });
+        handleClick()
+
     };
 
     return (
         <div className={styles.CreateEvent}>
             <button id="showEventForm" onClick={handleClick}>
-                {showForm ? "x" : 'Create Event'}
+                {showForm ? "" : 'Create Event'}
             </button>
 
             {showForm && (
-                <form onSubmit={getFormData}>
-                    <div className={styles.labelContainer}>
-                        <label htmlFor="title" className={styles.label}>Title:</label>
-                        <input
-                            type="text"
-                            name="title"
-                            value={formData.title}
-                            onChange={handleChange}
-                        />
-                        {errors.title && <p className={styles.error}>{errors.title}</p>}
-                    </div>
+                <div className={styles.popupOverlay}>
+                    <form onSubmit={getFormData} className={styles.popupContent}>
+                        {<span className={styles.closeButton} onClick={closePopup}>&times;</span>}
+                        {<h2>Create Event</h2>}
+                        <div className={styles.labelContainer}>
+                            <label htmlFor="title" className={styles.label}>Title:</label>
+                            <input
+                                type="text"
+                                name="title"
+                                value={formData.title}
+                                onChange={handleChange}
+                            />
+                            {errors.title && <p className={styles.error}>{errors.title}</p>}
+                        </div>
 
-                    <div className={styles.labelContainer}>
-                        <label htmlFor="description" className={styles.label}>Description:</label>
-                        <input
-                            type="text"
-                            name="description"
-                            value={formData.description}
-                            onChange={handleChange}
-                        />
-                        {errors.description && <p className={styles.error}>{errors.description}</p>}
-                    </div>
+                        <div className={styles.labelContainer}>
+                            <label htmlFor="description" className={styles.label}>Description:</label>
+                            <input
+                                type="text"
+                                name="description"
+                                value={formData.description}
+                                onChange={handleChange}
+                            />
+                            {errors.description && <p className={styles.error}>{errors.description}</p>}
+                        </div>
 
-                    <div className={styles.labelContainer}>
-                        <label className={styles.label}>Select Event Day:</label>
-                        <input
-                            type="date"
-                            name="day"
-                            value={formData.day}
-                            onChange={handleChange}
-                            className={styles.eventDate}
-                        />
-                        {errors.date && <p className={styles.error}>{errors.date}</p>}
-                    </div>
-                    <div className={styles.labelContainer}>
-                        <label className={styles.label}>Select Event Time:</label>
-                        <input
-                            type="time"
-                            name="time"
-                            value={formData.time}
-                            onChange={handleChange}
-                            className={styles.eventTime}
-                        />
-                        {errors.time && <p className={styles.error}>{errors.time}</p>}
-                    </div>
-                    <div>
-                        <label className={styles.label}>Location:</label>
-                        <input
-                            type="text"
-                            name="location"
-                            placeholder="Enter event location"
-                            value={formData.location}
-                            onChange={handleChange}
-                            className={styles.eventTime}
-                        />
-                        {errors.location && <p className={styles.error}>{errors.location}</p>}
-                    </div>
+                        <div className={styles.labelContainer}>
+                            <label className={styles.label}>Select Event Day:</label>
+                            <input
+                                type="date"
+                                name="day"
+                                value={formData.day}
+                                onChange={handleChange}
+                                className={styles.eventDate}
+                            />
+                            {errors.day && <p className={styles.error}>{errors.day}</p>}
+                        </div>
+                        <div className={styles.labelContainer}>
+                            <label className={styles.label}>Select Event Time:</label>
+                            <input
+                                type="time"
+                                name="time"
+                                value={formData.time}
+                                onChange={handleChange}
+                                className={styles.eventTime}
+                            />
+                            {errors.time && <p className={styles.error}>{errors.time}</p>}
+                        </div>
+                        <div className={styles.labelContainer}>
+                            <label className={styles.label}>Location:</label>
+                            <input
+                                type="text"
+                                name="location"
+                                placeholder="Enter event location"
+                                value={formData.location}
+                                onChange={handleChange}
+                                className={styles.eventTime}
+                            />
+                            {errors.location && <p className={styles.error}>{errors.location}</p>}
+                        </div>
 
-                    <button type="submit">Create Event</button>
-                </form>
+                        <button type="submit" >Create Event</button>
+                    </form>
+                </div>
             )}
         </div>
     );
@@ -160,7 +174,6 @@ export default function ShowEventForm() {
 
 function SendEventForm(formData, groupId) {
     // Last version --> /groups/{id}/newEvent
-
 
     fetch(`http://localhost:8080/api/groups/${groupId}/newEvent`, {
         method: "POST",
@@ -180,7 +193,6 @@ function SendEventForm(formData, groupId) {
             return res.json();
         })
         .then((data) => {
-            // setServerError("");
             console.log("Event created:", data);
         })
         .catch((error) => {

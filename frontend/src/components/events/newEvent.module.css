@@ -15,11 +15,10 @@
 
 /* Container for the entire form */
 .CreateEvent {
-  width: 100%;
-  max-width: 500px;
+  width: fit-content;
   margin: 40px auto;
   padding: 30px;
-  background-color: #ffffff;
+  background-color: #eef5ac69;
   border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
@@ -46,6 +45,46 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
+}
+
+
+.popupOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+.popupContent{
+    background: #fff;
+  border-radius: 12px;
+  padding: 24px;
+  max-width: 600px;
+  width: 90%;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  position: relative;
+  flex-direction: column;
+}
+
+.closeButton {
+  position: absolute;
+  top: 2px;
+  right: 12px;
+  font-size: 40px;
+  cursor: pointer;
+  color: var(--primary);
+  transition: all .7s ease;
+}
+
+.closeButton:hover{
+  font-size: 43;
+  color: var(--error);
 }
 
 /* Form label styling */
