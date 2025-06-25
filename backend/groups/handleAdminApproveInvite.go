@@ -151,11 +151,20 @@ func handleAdminApproveInvite(w http.ResponseWriter, r *http.Request) {
 		int64(invitedInt),
 	)
 
-	if Action == "accept" {
+	if Action == "accept" && Invite.Sender_id.Valid {
 		realTime.BuildAndDispatchNotification(
 			db.DB,
 			int64(invitedInt),
 			Invite.Sender_id.String,
+			Invite.Reciever_id,
+			"admin_accept_invite",
+			"Admin approved the request to join the group",
+		)
+	} else if Action == "accept" && !Invite.Sender_id.Valid {
+		realTime.BuildAndDispatchNotification(
+			db.DB,
+			int64(invitedInt),
+			UserId,
 			Invite.Reciever_id,
 			"admin_accept_invite",
 			"Admin approved the request to join the group",

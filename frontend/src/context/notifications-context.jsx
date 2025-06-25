@@ -3,7 +3,6 @@
 import { createContext, useContext, useEffect, useState, useRef } from "react";
 import { useUser } from "@/context/user_context";
 
-
 const NotificationsContext = createContext();
 
 export function NotificationsProvider({ user, children }) {
@@ -25,7 +24,6 @@ export function NotificationsProvider({ user, children }) {
       read: msg.Data.read ?? false,
       createdAt: msg.Data.createdAt,
       invitedId: msg.Data.invitedId || null,
-
     };
 
     setNotifications((prev) => {
@@ -39,38 +37,69 @@ export function NotificationsProvider({ user, children }) {
   useEffect(() => {
     if (!user) return;
 
-    // BroadcastChannel keeps tabs in sync.
+    // BroadcastChannel keeps tabs in sync
     bc.current = new BroadcastChannel("notifications_channel");
     bc.current.onmessage = (e) => handleIncoming(e.data);
 
-    const socket = new WebSocket("ws://localhost:8080/ws");
-    ws.current = socket;
+    let socket;
 
-    socket.onmessage = (e) => {
+    const initWebSocket = async () => {
       try {
-        const msg = JSON.parse(e.data);
-        if (msg.Type === "notification") {
-          bc.current.postMessage(msg);
-          handleIncoming(msg);
+        const res = await fetch("/api/get-token", { credentials: "include" });
+        const data = await res.json();
+
+        const token = data?.data?.token;
+        if (!token) {
+          console.warn("Token not found");
+          return;
         }
+
+        socket = new WebSocket(`ws://localhost:8080/ws?token=${token}`);
+        ws.current = socket;
+
+        socket.onmessage = (e) => {
+          try {
+            const msg = JSON.parse(e.data);
+            if (msg.Type === "notification") {
+              bc.current.postMessage(msg);
+              handleIncoming(msg);
+            }
+          } catch (err) {
+            console.error("WebSocket parse error:", err);
+          }
+        };
+
+        socket.onerror = (err) => console.error("WebSocket error:", err);
+        socket.onclose = () => console.log("WebSocket closed");
       } catch (err) {
-        console.error("WS parse error", err);
+        console.error("Failed to initialize WebSocket:", err);
       }
     };
 
-    socket.onerror = (err) => console.error("WebSocket error", err);
-    socket.onclose = () => console.log("WebSocket closed");
+    initWebSocket();
 
-    // Clean‑up on unmount / refresh
     return () => {
-      socket.close();
-      bc.current?.close();
+      if (socket) socket.close();
+      if (bc.current) bc.current.close();
     };
   }, [user]);
 
-  const markAsRead = () => {
-    setNotifications((prev) => prev.map((n) => ({ ...n, read: true })));
-    setUnreadCount(0);
+  const markAsRead = async () => {
+    try {
+      const res = await fetch("/api/notifications/isread", {
+        credentials: "include",
+        method: "POST",
+      });
+
+      if (!res.ok) {
+        console.error("Failed to mark notifications as read");
+      }
+      setUnreadCount(0);
+      setNotifications((prev) => prev.map((n) => ({ ...n, read: true })));
+      
+    } catch (err) {
+      console.error("Error marking notifications as read:", err);
+    }
   };
 
   return (

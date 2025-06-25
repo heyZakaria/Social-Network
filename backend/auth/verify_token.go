@@ -12,7 +12,7 @@ import (
 func VerifyTokenHandler(w http.ResponseWriter, r *http.Request) {
 	utils.Log("INFO", "Verify-token hit")
 
-	auth := r.Header.Get("Authorization") // "Bearer eyJhbGciOi..."
+	auth := r.Header.Get("Authorization")
 	token := strings.TrimSpace(strings.TrimPrefix(auth, "Bearer"))
 	if token == "" {
 		utils.SendJSON(w, http.StatusUnauthorized, utils.JSONResponse{
