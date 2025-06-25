@@ -1,55 +1,74 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import styles from "@/styles/components.module.css";
 import Image from "next/image";
+import useFetch from "@/hooks/useFetch"; // Ensure this hook exists
 
-export default function GroupSuggestions({ suggestions = [] }) {
-  const [currentSuggestions, setCurrentSuggestions] = useState(suggestions);
+export default function GroupSuggestions() {
+  const [currentSuggestions, setCurrentSuggestions] = useState([]);
+  const { data, loading, error } = useFetch("http://localhost:8080/api/groups/");
+
+  useEffect(() => {
+    if (data) {
+      const mapped = data
+        .filter(group => !["Member", "Admin"].includes(group.memberState))
+        .map(group => ({
+          id: group.id,
+          title: group.title,
+          description: group.description,
+          image: group.covername ? `/uploads/${group.covername}` : "/uploads/profile.jpeg",
+          JoiningState: group.memberState || "Join",
+          Members: group.memberCount,
+          PostCount: group.postCount ?? 0,
+          EventsCount: group.eventsCount ?? 0,
+          unreadCount: group.unreadCount ?? 0,
+        }));
+
+      setCurrentSuggestions(mapped.slice(0, 3));
+    }
+  }, [data]);
 
   const handleJoinRequest = (groupId) => {
-    // In a real app, this would send an API request to join the group
-    
+    // TODO: send actual join request API call here
 
-    // Remove from suggestions after sending request
-    setCurrentSuggestions(
-      currentSuggestions.filter((group) => group.id !== groupId)
+    // Optimistically update UI
+    setCurrentSuggestions(prev =>
+      prev.filter((group) => group.id !== groupId)
     );
   };
 
   const handleIgnore = (groupId) => {
-    // Remove from suggestions
-    setCurrentSuggestions(
-      currentSuggestions.filter((group) => group.id !== groupId)
+    setCurrentSuggestions(prev =>
+      prev.filter((group) => group.id !== groupId)
     );
   };
 
-  if (currentSuggestions.length === 0) {
-    return null;
-  }
+  if (loading) return <p>Loading suggestions...</p>;
+  if (error) return <p>Failed to load suggestions: {error.message}</p>;
+  if (currentSuggestions.length === 0) return null;
 
   return (
     <div className={styles.container}>
       <h3 className={styles.title}>Suggested Groups</h3>
       <div className={styles.list}>
-        {currentSuggestions.slice(0, 3).map((group) => (
+        {currentSuggestions.map((group) => (
           <div key={group.id} className={styles.item}>
-            <Image width={200} height={100}
-              src={group.image || "/uploads/profile.jpeg"}
+            <Image
+              width={200}
+              height={100}
+              src={group.image}
               alt={group.title}
               className={styles.groupAvatar}
             />
             <div className={styles.info}>
-              <div className={styles.name}>{group.title}</div>
+              <div className={styles.name}>{TrimName(group.title)}</div>
               <div className={styles.groupMeta}>
                 <span className={styles.memberCount}>
-                  {group.memberCount}{" "}
-                  {group.memberCount === 1 ? "member" : "members"}
+                  {group.Members} {group.Members === 1 ? "member" : "members"}
                 </span>
-                <span className={styles.privacy}>
-                  {/* {group.isPublic ? "Public" : "Private"} */}
-                </span>
+                {/* <span className={styles.privacy}>Public/Private</span> */}
               </div>
             </div>
             <div className={styles.actions}>
@@ -69,11 +88,18 @@ export default function GroupSuggestions({ suggestions = [] }) {
           </div>
         ))}
       </div>
-      {suggestions.length > 3 && (
+      {data?.length > 3 && (
         <Link href="/groups/discover" className={styles.seeAll}>
           See All Groups
         </Link>
       )}
     </div>
   );
+}
+
+
+export function TrimName(Name){
+  return (
+    Name.length > 7 ? `${Name.slice(0,6)}...` : Name 
+  )
 }

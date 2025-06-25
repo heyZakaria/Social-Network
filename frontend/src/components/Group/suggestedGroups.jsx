@@ -12,7 +12,7 @@ function SuggGroupCard({ Group, onSendJoinRequest }) {
   return (isJoinable ?
     <div className="groupCard">
       <img
-        src={`/uploads/groups_cover/${Group.covername}` || "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLlfA6Mh7quJkQ8QarreKuct5BEuFs45u8gQ&s"}
+        src={Group.covername ? `/uploads/groups_cover/${Group.covername}`  : `/uploads/groups_cover/images.jpeg` }
         alt={Group.title}
       />
       <div className="groupCardContent">
@@ -35,7 +35,7 @@ function SuggGroupCard({ Group, onSendJoinRequest }) {
     :
     <Link href={`groups/${Group.Id}`} className="groupCard">
       <img
-        src={`/uploads/groups_cover/${Group.covername}` || "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLlfA6Mh7quJkQ8QarreKuct5BEuFs45u8gQ&s"}
+        src={Group.covername ? `/uploads/groups_cover/${Group.covername}`  : `/uploads/groups_cover/images.jpeg` }
         alt={Group.title}
       />
       <div className="groupCardContent">

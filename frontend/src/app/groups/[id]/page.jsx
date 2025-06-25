@@ -15,6 +15,7 @@ import { IoChevronBackCircleSharp, IoChevronForwardCircleSharp, IoChatbubbleElli
 import Image from "next/image";
 import FloatingChat from "@/components/chat/floating-chat";
 import { useUser } from "@/context/user_context";
+import { TrimName } from "@/components/groups/group-suggestions";
 
 
 
@@ -249,7 +250,8 @@ export default function GroupCard({ children }) {
           FriendsList={invitedFriends}
         />
         <img
-          src={group.covername ? `/uploads/groups_cover/${group.covername}` : '/uploads/profile.jpeg'}
+          src={group.covername ? `/uploads/groups_cover/${group.covername}` : `/uploads/groups_cover/anonymous-hideous-facebook-cover.jpg` }
+
           alt={group.title}
           className={styles.groupCover}
         />
@@ -260,7 +262,7 @@ export default function GroupCard({ children }) {
             <Link href="/groups" className={styles.backButton}>
               <IoChevronBackCircleSharp size={30} />
             </Link>
-            <h1 className={styles.GroupCardTitle}>{group.title}</h1>
+            <h1 className={styles.GroupCardTitle}>{group.title ?  TrimName(group.title) : null}</h1>
           </div>
           <div className={styles.GroupChatButton}>
             <FloatingChat currentUser={currentUser} source={"group"} group={groupInfo} />

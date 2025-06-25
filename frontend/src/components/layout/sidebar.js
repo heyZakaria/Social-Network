@@ -127,8 +127,8 @@ export default function Sidebar({ position }) {
     <div className={styles.sidebar}>
       {position === "left" && (
         <>
-          <CurrentGroups groups={sampleCurrentGroups} />
-          <GroupSuggestions suggestions={sampleGroupSuggestions} />
+          <CurrentGroups  />
+          <GroupSuggestions />
           <UpcomingEvents events={sampleEvents} />
         </>
       )}
