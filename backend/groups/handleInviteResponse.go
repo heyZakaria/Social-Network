@@ -109,8 +109,10 @@ func handleInviteResponse(w http.ResponseWriter, r *http.Request) {
 		invite.Id)
 
 	var notify_state = "become_member"
+	var notify_content = "Accepted joining the group"
 	if action == "reject" {
 		notify_state = "reject_request"
+		notify_content = "Rejected joining the group"
 	}
 
 	if invite.Sender_id.String != creatorId {
@@ -129,7 +131,7 @@ func handleInviteResponse(w http.ResponseWriter, r *http.Request) {
 			invite.Reciever_id,
 			creatorId,
 			notify_state,
-			"Accept join group",
+			notify_content,
 		)
 	}
 }
