@@ -108,9 +108,10 @@ func handleInviteResponse(w http.ResponseWriter, r *http.Request) {
 		"invite_group",
 		invite.Id)
 
-	fmt.Println("invite.Sender_id.String", invite.Sender_id.String)
-	fmt.Println("invite.Reciever_id", invite.Reciever_id)
-	fmt.Println("invite.Id", invite.Id)
+	var notify_state = "become_member"
+	if action == "reject" {
+		notify_state = "reject_request"
+	}
 
 	if invite.Sender_id.String != creatorId {
 		notifications.BuildAndDispatchNotification(
@@ -127,7 +128,7 @@ func handleInviteResponse(w http.ResponseWriter, r *http.Request) {
 			invite.Id,
 			invite.Reciever_id,
 			creatorId,
-			"become_member",
+			notify_state,
 			"Accept join group",
 		)
 	}

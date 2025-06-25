@@ -99,8 +99,8 @@ function Members({ members, groupId }) {
                 className={styles.memberImage}
                 src={
                   member.Avatar
-                    ? `/uploads/profile_image/${member.Avatar}`
-                    : "https://img.freepik.com/free-vector/blue-circle-with-white-user_78370-4707.jpg?semt=ais_hybrid&w=740"
+                    ? `/uploads/profile_images/${member.Avatar}`
+                    : "/uploads/profile.jpeg"
                 }
                 alt={`${member.FirstName} ${member.LastName}`}
               />

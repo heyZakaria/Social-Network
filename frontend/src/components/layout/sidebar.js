@@ -119,6 +119,7 @@ export default function Sidebar({ position }) {
   const pathname = usePathname();
 
   if (!shouldShowNav(pathname)) {
+    console.log("Sidebar not shown for this path:", pathname);
     return null;
   }
 

@@ -62,7 +62,7 @@ func HandleRegister(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	utils.Log("INFO", "Password hashed")
-	ImageProvided, ImagePath, file, err := utils.PrepareImage(r, "avatar", "profile_image")
+	ImageProvided, ImagePath, file, err := utils.PrepareImage(r, "avatar", "profile_images")
 	if err != nil {
 		utils.Log("ERROR", "Avatar upload failed: "+err.Error())
 		utils.SendJSON(w, http.StatusInternalServerError, utils.JSONResponse{

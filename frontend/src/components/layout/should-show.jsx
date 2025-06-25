@@ -11,7 +11,7 @@ export default function shouldShowNav(pathname) {
     ];
 
     const isDynamicMatch =
-        /^\/(profile|group)\/[a-zA-Z0-9-]+$/.test(pathname);
+        /^\/(profile|groups)\/[a-zA-Z0-9-]+$/.test(pathname);
 
     return (
         (allowedPaths.includes(pathname) || isDynamicMatch) &&

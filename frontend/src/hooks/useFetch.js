@@ -4,6 +4,7 @@ export default function useFetch(url, method = 'GET') {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState(null);
+  const [refetch, setRefetch] = useState(0)
 
   useEffect(() => {
     let isMounted = true;
@@ -42,7 +43,10 @@ export default function useFetch(url, method = 'GET') {
     return () => {
       isMounted = false;
     };
-  }, [url, method]);
+  }, [url, method, refetch]);
 
-  return { data, error, loading };
+   function refetchListOfInvites() {
+    setRefetch((prev) => prev + 1)
+  }
+  return { data, error, loading, refetchListOfInvites };
 }
