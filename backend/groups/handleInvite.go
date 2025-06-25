@@ -5,7 +5,7 @@ import (
 	"net/http"
 
 	db "socialNetwork/db/sqlite"
-	"socialNetwork/realTime"
+	"socialNetwork/notifications"
 	shared "socialNetwork/shared_packages"
 	"socialNetwork/utils"
 )
@@ -66,14 +66,14 @@ func handleInvite(w http.ResponseWriter, r *http.Request) {
 		})
 		return
 	}
-	// Invited := strconv.Itoa(int(Invite_id)) // Convert Invite_id to int for realTime function
+	// Invited := strconv.Itoa(int(Invite_id)) // Convert Invite_id to int for notifications function
 
 	fmt.Println("Invite_id", Invite_id)
 	fmt.Println("UserId", UserId)
 	fmt.Println("InvitedFriend", InvitedFriend)
 	fmt.Println("Group Title", group.Title)
 	// Dispatch notification to the invited user
-	realTime.BuildAndDispatchNotification(db.DB,
+	notifications.BuildAndDispatchNotification(db.DB,
 		Invite_id,
 		UserId,
 		InvitedFriend,

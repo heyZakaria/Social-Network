@@ -6,7 +6,7 @@ import (
 	"net/http"
 
 	db "socialNetwork/db/sqlite"
-	"socialNetwork/realTime"
+	"socialNetwork/notifications"
 	shared "socialNetwork/shared_packages"
 	utils "socialNetwork/utils"
 )
@@ -89,7 +89,7 @@ func handleJoin(w http.ResponseWriter, r *http.Request) {
 				Error:   "Internal Error",
 			})
 		}
-		realTime.BuildAndDispatchNotification(
+		notifications.BuildAndDispatchNotification(
 			db.DB,
 			inviteId,
 			UserId,
@@ -120,7 +120,7 @@ func handleJoin(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 
-		realTime.DeleteFollowRequestNotification(
+		notifications.DeleteFollowRequestNotification(
 			adminId,
 			UserId,
 			"invite_group_admin",

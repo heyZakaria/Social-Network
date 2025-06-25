@@ -5,7 +5,7 @@ import (
 	"net/http"
 
 	db "socialNetwork/db/sqlite"
-	"socialNetwork/realTime"
+	"socialNetwork/notifications"
 	shared "socialNetwork/shared_packages"
 	"socialNetwork/utils"
 )
@@ -49,7 +49,7 @@ func handleFriendRequest(w http.ResponseWriter, r *http.Request, query, successM
 		Success: true,
 		Message: successMsg,
 	})
-	realTime.DeleteFollowRequestNotification(userID, friendID, "follow_request", 0)
+	notifications.DeleteFollowRequestNotification(userID, friendID, "follow_request", 0)
 }
 
 func RejectFollowRequest(w http.ResponseWriter, r *http.Request) {
@@ -83,7 +83,7 @@ func AcceptFollowRequest(w http.ResponseWriter, r *http.Request) {
 			utils.Log("ERROR", "Failed to fetch user name for notification: "+err.Error())
 			p.FirstName, p.LastName = "Someone", ""
 		}
-		realTime.BuildAndDispatchNotification(db.DB,
+		notifications.BuildAndDispatchNotification(db.DB,
 			0,
 			userID,
 			friendID,
@@ -92,4 +92,3 @@ func AcceptFollowRequest(w http.ResponseWriter, r *http.Request) {
 		)
 	}
 }
-

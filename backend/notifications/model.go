@@ -1,17 +1,16 @@
-package realTime
+package notifications
 
 import "github.com/gorilla/websocket"
 
-
 type Client struct {
-    Conn     *websocket.Conn
-    UserID   string
-    Send     chan MessageStruct
+	Conn   *websocket.Conn
+	UserID string
+	Send   chan MessageStruct
 }
 
 type MessageStruct struct {
-    Type string                 `json:"Type"`
-    Data map[string]interface{} `json:"Data"`
+	Type string                 `json:"Type"`
+	Data map[string]interface{} `json:"Data"`
 }
 
 type UserProfile struct {

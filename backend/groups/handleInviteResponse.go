@@ -5,7 +5,7 @@ import (
 	"net/http"
 
 	db "socialNetwork/db/sqlite"
-	"socialNetwork/realTime"
+	"socialNetwork/notifications"
 	"socialNetwork/utils"
 )
 
@@ -102,19 +102,18 @@ func handleInviteResponse(w http.ResponseWriter, r *http.Request) {
 		Message: fmt.Sprintf("Your %s request has been handled successfully", action),
 	})
 
-	realTime.DeleteFollowRequestNotification(
+	notifications.DeleteFollowRequestNotification(
 		invite.Reciever_id,
 		invite.Sender_id.String,
 		"invite_group",
 		invite.Id)
-
 
 	fmt.Println("invite.Sender_id.String", invite.Sender_id.String)
 	fmt.Println("invite.Reciever_id", invite.Reciever_id)
 	fmt.Println("invite.Id", invite.Id)
 
 	if invite.Sender_id.String != creatorId {
-		realTime.BuildAndDispatchNotification(
+		notifications.BuildAndDispatchNotification(
 			db.DB,
 			invite.Id,
 			invite.Reciever_id,
@@ -123,7 +122,7 @@ func handleInviteResponse(w http.ResponseWriter, r *http.Request) {
 			"Want to join your group",
 		)
 	} else {
-		realTime.BuildAndDispatchNotification(
+		notifications.BuildAndDispatchNotification(
 			db.DB,
 			invite.Id,
 			invite.Reciever_id,

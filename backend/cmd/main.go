@@ -5,7 +5,7 @@ import (
 	"net/http"
 
 	comment "socialNetwork/comments"
-	"socialNetwork/realTime"
+	"socialNetwork/notifications"
 
 	Group "socialNetwork/groups"
 
@@ -43,7 +43,7 @@ func main() {
 	router.Handle("/api/groups/", http.StripPrefix("/api/groups", Group.GroupMux()))
 	// router.Handle("/api/events/", http.StripPrefix("/api/events", Events.EventsMux())) // /groups/{id}/event
 
-	router.HandleFunc("/ws", realTime.WSHandler)
+	router.HandleFunc("/ws", notifications.WSHandler)
 
 	log.Fatal(http.ListenAndServe(":8080", middleware.CheckCORS(middleware.CheckUserExeting(router))))
 }

@@ -7,7 +7,7 @@ import (
 	"strconv"
 
 	db "socialNetwork/db/sqlite"
-	"socialNetwork/realTime"
+	"socialNetwork/notifications"
 	shared "socialNetwork/shared_packages"
 	"socialNetwork/utils"
 )
@@ -137,14 +137,14 @@ func handleAdminApproveInvite(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("Invite.Reciever_id", Invite.Reciever_id)
 	fmt.Println("Invite.Id", invitedInt)
 
-	realTime.DeleteFollowRequestNotification(
+	notifications.DeleteFollowRequestNotification(
 		Invite.Sender_id.String,
 		Invite.Reciever_id,
 		"admin_accept_invite",
 		int64(invitedInt),
 	)
 
-	realTime.DeleteFollowRequestNotification(
+	notifications.DeleteFollowRequestNotification(
 		UserId,
 		Invite.Reciever_id,
 		"invite_group_admin",
@@ -152,7 +152,7 @@ func handleAdminApproveInvite(w http.ResponseWriter, r *http.Request) {
 	)
 
 	if Action == "accept" && Invite.Sender_id.Valid {
-		realTime.BuildAndDispatchNotification(
+		notifications.BuildAndDispatchNotification(
 			db.DB,
 			int64(invitedInt),
 			Invite.Sender_id.String,
@@ -161,7 +161,7 @@ func handleAdminApproveInvite(w http.ResponseWriter, r *http.Request) {
 			"Admin approved the request to join the group",
 		)
 	} else if Action == "accept" && !Invite.Sender_id.Valid {
-		realTime.BuildAndDispatchNotification(
+		notifications.BuildAndDispatchNotification(
 			db.DB,
 			int64(invitedInt),
 			UserId,
