@@ -6,7 +6,7 @@ import FriendsList from "@/components/friends/friends-list";
 import UpcomingEvents from "@/components/events/upcoming-events";
 import styles from "@/styles/sidebar.module.css";
 import { usePathname } from "next/navigation";
-
+import shouldShowNav from "@/components/layout/should-show";
 
 
 // Sample data for demonstration
@@ -116,12 +116,11 @@ const sampleEvents = [
 ];
 
 export default function Sidebar({ position }) {
-  const path = usePathname();
+  const pathname = usePathname();
 
-  // const reg = /^\/profile\/\d+$/;
-  // if (!path || !(reg.test(path) || path === '/home' || path === '/events' || path === '/groups' || path === '/friends' || path === '/notifications')) {
-  //   return null;
-  // }
+  if (!shouldShowNav(pathname)) {
+    return null;
+  }
 
   return (
     <div className={styles.sidebar}>

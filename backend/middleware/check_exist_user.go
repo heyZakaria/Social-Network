@@ -10,11 +10,15 @@ import (
 
 // Handler /verify
 func CheckUserExeting(next http.Handler) http.Handler {
-
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		var UserID string
 		var err error
-		if r.URL.String() != "/api/login" && r.URL.String() != "/api/register" {
+		whitelist := map[string]bool{
+			"/api/login":        true,
+			"/api/register":     true,
+			"/api/verify-token": true,
+		}
+		if !whitelist[r.URL.Path] {
 			token := Tkn.GetToken(w, r)
 			if token == "" {
 				utils.SendJSON(w, http.StatusUnauthorized, utils.JSONResponse{

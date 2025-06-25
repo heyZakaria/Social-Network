@@ -57,9 +57,9 @@ func getFriendList(w http.ResponseWriter, r *http.Request) {
 	query := `
 		SELECT DISTINCT user_id, u.avatar, u.last_name, u.first_name
 		FROM (
-			SELECT F.follower_id AS user_id FROM followers F WHERE F.followed_id = ?
+			SELECT F.follower_id AS user_id FROM followers F WHERE F.followed_id = ? AND F.follower_status = 'accepted'
 			UNION
-			SELECT F.followed_id AS user_id FROM followers F WHERE F.follower_id = ?
+			SELECT F.followed_id AS user_id FROM followers F WHERE F.follower_id = ? AND F.follower_status = 'accepted'
 		) AS NotMemberFriends
 		JOIN users u ON u.id = NotMemberFriends.user_id
 		WHERE NOT EXISTS (

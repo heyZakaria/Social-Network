@@ -3,8 +3,16 @@
 import Link from "next/link";
 import styles from "@/styles/navbar.module.css";
 import { usePathname } from "next/navigation";
+import shouldShowNav from "@/components/layout/should-show";
+
 
 export default function Nav() {
+const pathname = usePathname();
+
+if (!shouldShowNav(pathname)) {
+  return null;
+}
+
   return (
     <nav className={styles.navbar}>
       <div className={styles.navbarContainer}>

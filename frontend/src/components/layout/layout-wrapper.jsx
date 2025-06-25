@@ -1,6 +1,8 @@
 'use client';
+
 import { useUser } from '@/context/user_context';
 import { NotificationsProvider } from '@/context/notifications-context';
+
 import Navbar from './navbar';
 import Nav from './nav';
 import Sidebar from './sidebar';
@@ -36,5 +38,5 @@ export default function LayoutWrapper({ children }) {
         </div>
       </>
     </NotificationsProvider>
-  )
+  );
 }

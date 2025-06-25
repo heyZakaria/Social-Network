@@ -4,6 +4,11 @@ import (
 	"log"
 	"net/http"
 
+	comment "socialNetwork/comments"
+	"socialNetwork/notifications"
+
+	Group "socialNetwork/groups"
+
 	"socialNetwork/auth"
 	"socialNetwork/comments"
 	db "socialNetwork/db/sqlite"
@@ -44,6 +49,7 @@ func main() {
 
 	router.HandleFunc("/ws", realTime.WSHandler)
 	router.Handle("/api/websocket/", http.StripPrefix("/api/websocket", realTime_Chat.WebSocket_CHATMux()))
+	router.HandleFunc("/ws", notifications.WSHandler)
 
 	log.Fatal(http.ListenAndServe(":8080", middleware.CheckCORS(middleware.CheckUserExeting(router))))
 }

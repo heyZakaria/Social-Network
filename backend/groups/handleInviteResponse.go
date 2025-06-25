@@ -5,11 +5,13 @@ import (
 	"net/http"
 
 	db "socialNetwork/db/sqlite"
+	"socialNetwork/notifications"
 	"socialNetwork/utils"
 )
 
 func handleInviteResponse(w http.ResponseWriter, r *http.Request) {
 	// UserId := r.Context().Value(shared.UserIDKey).(string) // Use this if auth is implemented
+	newState := "Pending"
 
 	inviteId := r.URL.Query().Get("Invite_id")
 	action := r.URL.Query().Get("Action")
@@ -52,7 +54,6 @@ func handleInviteResponse(w http.ResponseWriter, r *http.Request) {
 	// fmt.Println(creatorId, invite.Reciever_id)
 	switch action {
 	case "accept":
-		newState := "Pending"
 		if invite.Sender_id.String == creatorId {
 			newState = "Member" // Promote directly if the recipient is the group admin
 		}
@@ -100,4 +101,34 @@ func handleInviteResponse(w http.ResponseWriter, r *http.Request) {
 		Success: true,
 		Message: fmt.Sprintf("Your %s request has been handled successfully", action),
 	})
+
+	notifications.DeleteFollowRequestNotification(
+		invite.Reciever_id,
+		invite.Sender_id.String,
+		"invite_group",
+		invite.Id)
+
+	fmt.Println("invite.Sender_id.String", invite.Sender_id.String)
+	fmt.Println("invite.Reciever_id", invite.Reciever_id)
+	fmt.Println("invite.Id", invite.Id)
+
+	if invite.Sender_id.String != creatorId {
+		notifications.BuildAndDispatchNotification(
+			db.DB,
+			invite.Id,
+			invite.Reciever_id,
+			creatorId,
+			"invite_group_admin",
+			"Want to join your group",
+		)
+	} else {
+		notifications.BuildAndDispatchNotification(
+			db.DB,
+			invite.Id,
+			invite.Reciever_id,
+			creatorId,
+			"become_member",
+			"Accept join group",
+		)
+	}
 }

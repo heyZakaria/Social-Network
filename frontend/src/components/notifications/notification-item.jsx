@@ -4,16 +4,21 @@ import Image from "next/image"
 import Link from "next/link"
 import styles from "@/styles/notifications.module.css"
 import { getNotificationIcon, formatDate, getActionButtons } from "./notifications-utils"
+
 import { useFriends } from '@/context/friends_context';
 
 export default function NotificationItem({ notification, onClick }) {
-  const { handledRequests, accept, reject } = useFriends();
+  const { handledRequests, accept, reject, handleInviteResponse } = useFriends();
   return (
     <li
       className={`${styles.notificationItem} ${notification.read ? styles.read : styles.unread}`}
     >
       <Link
-        href={`/profile/${notification.id || ""}`}
+        href={
+          notification.type === "group_event" || notification.type === "invite_group"
+            ? `/group/${notification.id}`
+            : `/profile/${notification.id || ""}`
+        }
         onClick={() => onClick(notification.id)}
         className={styles.notificationAvatarLink}
       >
@@ -46,16 +51,20 @@ export default function NotificationItem({ notification, onClick }) {
           {formatDate(notification.createdAt)}
         </span>
       </div>
-      
-      {console.log("Notification:", notification)} 
+
+      {/* {console.log("Notification:", notification)} */}
       {getActionButtons(
         notification.type,
-        notification.id,
+        notification.notifId,
         handledRequests,
         accept,
         reject,
-        styles.notificationActions
+        notification.id,
+        notification.invitedId,
       )}
+
+
+
     </li>
- )
+  )
 }

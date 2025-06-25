@@ -1,4 +1,4 @@
-package realTime
+package notifications
 
 import (
 	"fmt"

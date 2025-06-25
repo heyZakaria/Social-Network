@@ -7,6 +7,7 @@ import (
 	db "socialNetwork/db/sqlite"
 	Shared_Profile "socialNetwork/profile_shared"
 	"socialNetwork/realTime"
+	"socialNetwork/notifications"
 	shared "socialNetwork/shared_packages"
 	"socialNetwork/utils"
 )
@@ -159,7 +160,8 @@ func ToggleFollowUser(w http.ResponseWriter, r *http.Request) {
 			notificationType = "follow"
 			content = "started following you"
 		}
-		realTime.BuildAndDispatchNotification(db.DB,
+		notifications.BuildAndDispatchNotification(db.DB,
+			0,
 			followerId,
 			targetUserId,
 			notificationType,

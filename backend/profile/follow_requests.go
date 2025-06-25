@@ -7,6 +7,7 @@ import (
 	db "socialNetwork/db/sqlite"
 	Shared_Profile "socialNetwork/profile_shared"
 	"socialNetwork/realTime"
+	"socialNetwork/notifications"
 	shared "socialNetwork/shared_packages"
 	"socialNetwork/utils"
 )
@@ -50,7 +51,7 @@ func handleFriendRequest(w http.ResponseWriter, r *http.Request, query, successM
 		Success: true,
 		Message: successMsg,
 	})
-	deleteFollowRequestNotification(userID, friendID)
+	notifications.DeleteFollowRequestNotification(userID, friendID, "follow_request", 0)
 }
 
 func RejectFollowRequest(w http.ResponseWriter, r *http.Request) {
@@ -84,21 +85,12 @@ func AcceptFollowRequest(w http.ResponseWriter, r *http.Request) {
 			utils.Log("ERROR", "Failed to fetch user name for notification: "+err.Error())
 			p.FirstName, p.LastName = "Someone", ""
 		}
-		realTime.BuildAndDispatchNotification(db.DB,
+		notifications.BuildAndDispatchNotification(db.DB,
+			0,
 			userID,
 			friendID,
 			"follow_request_accepted",
 			"accepted your Follow",
 		)
-	}
-}
-
-func deleteFollowRequestNotification(userID, senderID string) {
-	_, err := db.DB.Exec(`
-		DELETE FROM notifications 
-		WHERE user_id = ? AND sender_id = ? AND type_notification = 'follow_request'
-	`, userID, senderID)
-	if err != nil {
-		utils.Log("ERROR", "Failed to delete notification: "+err.Error())
 	}
 }
