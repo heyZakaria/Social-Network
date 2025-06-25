@@ -1,15 +1,24 @@
 "use client";
 
-import { createContext, useContext, useEffect, useState, useRef } from "react";
-import { useUser } from "@/context/user_context";
+import React, {
+  createContext,
+  useState,
+  useEffect,
+  useRef,
+  useContext,
+  useMemo,
+} from "react";
 
 const NotificationsContext = createContext();
 
 export function NotificationsProvider({ user, children }) {
   const [notifications, setNotifications] = useState([]);
-  const [unreadCount, setUnreadCount] = useState(0);
   const ws = useRef(null);
   const bc = useRef(null);
+
+  const unreadCount = useMemo(() => {
+    return notifications.filter((n) => !n.read).length;
+  }, [notifications]);
 
   const handleIncoming = (msg) => {
     if (msg.Type !== "notification") return;
@@ -28,33 +37,38 @@ export function NotificationsProvider({ user, children }) {
 
     setNotifications((prev) => {
       if (prev.some((n) => n.notifId === newNotif.notifId)) return prev;
-      return [newNotif, ...prev].sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+      return [newNotif, ...prev].sort(
+        (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+      );
     });
-
-    if (!newNotif.read) setUnreadCount((c) => c + 1);
   };
 
   useEffect(() => {
     if (!user) return;
 
-    // BroadcastChannel keeps tabs in sync
     bc.current = new BroadcastChannel("notifications_channel");
-    bc.current.onmessage = (e) => handleIncoming(e.data);
 
-    let socket;
+    bc.current.onmessage = (e) => {
+      const msg = e.data;
+      if (msg.Type === "notification") handleIncoming(msg);
+      else if (msg.Type === "read_all") {
+        setNotifications((prev) =>
+          prev.map((n) => ({
+            ...n,
+            read: true,
+          }))
+        );
+      }
+    };
 
     const initWebSocket = async () => {
       try {
         const res = await fetch("/api/get-token", { credentials: "include" });
         const data = await res.json();
-
         const token = data?.data?.token;
-        if (!token) {
-          console.warn("Token not found");
-          return;
-        }
+        if (!token) return;
 
-        socket = new WebSocket(`ws://localhost:8080/ws?token=${token}`);
+        const socket = new WebSocket(`ws://localhost:8080/ws?token=${token}`);
         ws.current = socket;
 
         socket.onmessage = (e) => {
@@ -79,32 +93,30 @@ export function NotificationsProvider({ user, children }) {
     initWebSocket();
 
     return () => {
-      if (socket) socket.close();
-      if (bc.current) bc.current.close();
+      ws.current?.close();
+      bc.current?.close();
     };
   }, [user]);
 
   const markAsRead = async () => {
-    try {
-      const res = await fetch("/api/notifications/isread", {
-        credentials: "include",
-        method: "POST",
-      });
+    setNotifications((prev) =>
+      prev.map((n) => ({
+        ...n,
+        read: true,
+      }))
+    );
+    bc.current?.postMessage({ Type: "read_all" });
 
-      if (!res.ok) {
-        console.error("Failed to mark notifications as read");
-      }
-      setUnreadCount(0);
-      setNotifications((prev) => prev.map((n) => ({ ...n, read: true })));
-      
-    } catch (err) {
-      console.error("Error marking notifications as read:", err);
-    }
   };
 
   return (
     <NotificationsContext.Provider
-      value={{ notifications, unreadCount, markAsRead, setNotifications }}
+      value={{
+        notifications,
+        unreadCount,
+        markAsRead,
+        setNotifications,
+      }}
     >
       {children}
     </NotificationsContext.Provider>

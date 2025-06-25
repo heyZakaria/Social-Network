@@ -10,9 +10,9 @@ import (
 
 func SendStoredNotifications(userID string, client *Client) {
     rows, err := db.DB.Query(`
-        SELECT id, sender_id, type_notification, content, invite_id, is_read, created_at
+        SELECT id, sender_id, type_notification, content, invite_id, created_at
         FROM notifications
-        WHERE user_id = ? AND is_read = 0
+        WHERE user_id = ? 
         ORDER BY created_at ASC
     `, userID)
     if err != nil {
@@ -26,11 +26,10 @@ func SendStoredNotifications(userID string, client *Client) {
             notifID                      int64
             senderID, notifType, content string
             inviteID                     sql.NullInt64
-            isRead                       bool
             createdAt                    time.Time
         )
 
-        if err := rows.Scan(&notifID, &senderID, &notifType, &content, &inviteID, &isRead, &createdAt); err != nil {
+        if err := rows.Scan(&notifID, &senderID, &notifType, &content, &inviteID, &createdAt); err != nil {
             utils.Log("ERROR", "Failed to scan: "+err.Error())
             continue
         }
@@ -50,7 +49,6 @@ func SendStoredNotifications(userID string, client *Client) {
                 "content":   content,
                 "avatar":    sender.Avatar,
                 "from":      sender.FirstName + " " + sender.LastName,
-                "read":      isRead,
                 "createdAt": createdAt.Format(time.RFC3339),
             },
         }

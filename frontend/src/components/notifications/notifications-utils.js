@@ -27,10 +27,10 @@ export function formatDate(dateString) {
 
   if (diffInSeconds < 60) return "just now";
   if (diffInSeconds < 3600)
-    return `${Math.floor(diffInSeconds / 60)} m ago`;
+    return `${Math.floor(diffInSeconds / 60)} minute(s) ago`;
   if (diffInSeconds < 86400)
-    return `${Math.floor(diffInSeconds / 3600)} h ago`;
-  return `${Math.floor(diffInSeconds / 86400)} d ago`;
+    return `${Math.floor(diffInSeconds / 3600)} hour(s) ago`;
+  return `${Math.floor(diffInSeconds / 86400)} day(s) ago`;
 }
 
 
@@ -53,146 +53,152 @@ export function getNotificationIcon(type, className = "") {
       return <HiBell size={18} className={className} />;
   }
 }
-
-
 export function getActionButtons(
   type,
   notifId,
   handledRequests,
   accept,
   reject,
-  id,
+  userId,
   invitedId
 ) {
   const status = handledRequests[notifId];
-  const { handleInviteResponse, handleInviteAdminResponse } = useFriends()
+  const {
+    setHandledRequests,
+    handleInviteResponse,
+    handleInviteAdminResponse,
+  } = useFriends();
 
-  const actionableTypes = ["follow_request", "invite_group", "group_event", "follow", "invite_group_admin"];
-  if (!actionableTypes.includes(type)) return null;
+  if (!["follow_request", "invite_group", "group_event", "follow", "invite_group_admin"].includes(type))
+    return null;
 
   if (type === "follow") {
-    return <FollowButton targetUserId={id} />;
+    return <FollowButton targetUserId={userId} />;
   }
 
   if (status === "accepted") {
     let label = "Accepted";
     if (type === "group_event") label = "Going";
     else if (type === "invite_group") label = "Joined";
-    return <div className={`${styles.status} ${styles.accepted}`}>{label}</div>;
+    else if (type === "invite_group_admin") label = "Approved";
+    return <div className={`${styles.status} ${styles.accepted}`}><FaCheckCircle /> {label}</div>;
   }
 
   if (status === "rejected") {
     let label = "Rejected";
     if (type === "group_event") label = "Not Going";
     else if (type === "invite_group") label = "Ignored";
-    return <div className={`${styles.status} ${styles.rejected}`}>{label}</div>;
+    else if (type === "invite_group_admin") label = "Refused";
+    return <div className={`${styles.status} ${styles.rejected}`}><FaTimesCircle /> {label}</div>;
   }
 
-  const isEvent = type === "group_event";
   const isGroupInvite = type === "invite_group";
-  const isAdminReq = type === "invite_group_admin"
-
-  const handleJoinGroup = (e) => {
-    e.preventDefault();
-    console.log("inveteeeeeeeeed", invitedId);
-
-    handleInviteResponse("accept", invitedId)
-    handledRequests[notifId] = "accepted";
-  };
-
-  const handleIgnoreGroup = (e) => {
-    e.preventDefault();
-    console.log("inveteeeeeeeeed", invitedId);
-
-    handleInviteResponse("reject", invitedId)
-    handledRequests[notifId] = "rejected";
-  };
-
-  const handleGoingToEvent = (e) => {
-    e.preventDefault();
-    // accept(id);
-    handledRequests[notifId] = "accepted";
-  };
-
-  const handleNotGoingToEvent = (e) => {
-    e.preventDefault();
-    // reject(id);
-    handledRequests[notifId] = "rejected";
-  };
+  const isEvent = type === "group_event";
 
   return (
     <div className={styles.actionContainer}>
-      {/* Accept buttons by type */}
-      {(type === "follow_request" || isAdminReq) && (
-        <button
-          className={`${styles.actionButton} ${styles.acceptButton}`}
-          onClick={(e) => {
-            e.preventDefault();
-            if (type === "follow_request") {
-              accept(id);
-            } else {
+      {/* Follow Request */}
+      {type === "follow_request" && (
+        <>
+          <button
+            className={`${styles.actionButton} ${styles.acceptButton}`}
+            onClick={(e) => {
+              e.preventDefault();
+              accept(userId, notifId);
+            }}
+          >
+            <FaUserPlus size={14} /> Accept
+          </button>
+
+          <button
+            className={`${styles.actionButton} ${styles.rejectButton}`}
+            onClick={(e) => {
+              e.preventDefault();
+              reject(userId, notifId);
+            }}
+          >
+            <FaUserSlash size={14} /> Reject
+          </button>
+        </>
+      )}
+
+      {/* Group Invite */}
+      {isGroupInvite && (
+        <>
+          <button
+            className={`${styles.actionButton} ${styles.acceptButton}`}
+            onClick={(e) => {
+              e.preventDefault();
+              handleInviteResponse("accept", invitedId);
+              setHandledRequests(prev => ({ ...prev, [notifId]: "accepted" }));
+            }}
+          >
+            <FaCheck size={14} /> Join
+          </button>
+
+          <button
+            className={`${styles.actionButton} ${styles.rejectButton}`}
+            onClick={(e) => {
+              e.preventDefault();
+              handleInviteResponse("reject", invitedId);
+              setHandledRequests(prev => ({ ...prev, [notifId]: "rejected" }));
+            }}
+          >
+            <FaTimes size={14} /> Ignore
+          </button>
+        </>
+      )}
+
+      {/* Group Admin Invite */}
+      {type === "invite_group_admin" && (
+        <>
+          <button
+            className={`${styles.actionButton} ${styles.acceptButton}`}
+            onClick={(e) => {
+              e.preventDefault();
               handleInviteAdminResponse("accept", invitedId);
-            }
-            handledRequests[notifId] = "accepted";
-          }}
-        >
-          <FaUserPlus size={16} /> Accept
-        </button>
-      )}
+              setHandledRequests(prev => ({ ...prev, [notifId]: "accepted" }));
+            }}
+          >
+            <FaCheckCircle size={14} /> Approve
+          </button>
 
-
-      {isGroupInvite && (
-        <button
-          className={`${styles.actionButton} ${styles.acceptButton}`}
-          onClick={handleJoinGroup}
-        >
-          <FaCheck size={16} /> Join
-        </button>
-      )}
-
-      {isEvent && (
-        <button
-          className={`${styles.actionButton} ${styles.acceptButton}`}
-          onClick={handleGoingToEvent}
-        >
-          <FaCheckCircle size={16} /> Going
-        </button>
-      )}
-
-      {/* Reject buttons by type */}
-      {(type === "follow_request" || isAdminReq) && (
-        <button
-          className={`${styles.actionButton} ${styles.rejectButton}`}
-          onClick={(e) => {
-            e.preventDefault();
-            if (type === "follow_request") {
-              reject(id);
-            } else {
+          <button
+            className={`${styles.actionButton} ${styles.rejectButton}`}
+            onClick={(e) => {
+              e.preventDefault();
               handleInviteAdminResponse("reject", invitedId);
-            }
-            handledRequests[notifId] = "rejected";
-          }}
-        >
-          <FaUserSlash size={16} /> Reject
-        </button>
+              setHandledRequests(prev => ({ ...prev, [notifId]: "rejected" }));
+            }}
+          >
+            <FaTimesCircle size={14} /> Refuse
+          </button>
+        </>
       )}
 
-      {isGroupInvite && (
-        <button
-          className={`${styles.actionButton} ${styles.rejectButton}`}
-          onClick={handleIgnoreGroup}
-        >
-          <FaTimes size={16} /> Ignore
-        </button>
-      )}
-
+      {/* Group Event */}
       {isEvent && (
-        <button
-          className={`${styles.actionButton} ${styles.rejectButton}`}
-          onClick={handleNotGoingToEvent}
-        >
-          <FaTimesCircle size={16} /> Not Going
-        </button>
+        <>
+          <button
+            className={`${styles.actionButton} ${styles.acceptButton}`}
+            onClick={(e) => {
+              e.preventDefault();
+              setHandledRequests(prev => ({ ...prev, [notifId]: "accepted" }));
+            }}
+          >
+            <FaCheckCircle size={14} /> Going
+          </button>
+
+          <button
+            className={`${styles.actionButton} ${styles.rejectButton}`}
+            onClick={(e) => {
+              e.preventDefault();
+              setHandledRequests(prev => ({ ...prev, [notifId]: "rejected" }));
+            }}
+          >
+            <FaTimesCircle size={14} /> Not Going
+          </button>
+        </>
       )}
     </div>
   );

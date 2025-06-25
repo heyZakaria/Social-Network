@@ -258,10 +258,50 @@
   gap: 4px;
 }
 
-.acceptButton:hover {
+/* .acceptButton:hover {
   background-color: #218838;
-}
+} */
 
 .rejectButton:hover {
   background-color: #c82333;
+}
+
+
+
+.actionButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.acceptButton {
+  background-color: #e6f5ea;
+  color: #1a7f37;
+  border: 1px solid #b7ebc6;
+}
+
+.rejectButton {
+  background-color: #faeaea;
+  color: #c62828;
+  border: 1px solid #f2b6b6;
+}
+
+.status {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 500;
+}
+
+.accepted {
+  color: #1a7f37;
+}
+
+.rejected {
+  color: #c62828;
 }

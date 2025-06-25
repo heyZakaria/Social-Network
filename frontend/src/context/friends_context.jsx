@@ -20,7 +20,7 @@ export function FriendsProvider({ children }) {
   const requestsRef = useRef(requests);
   const statusIntervals = useRef({});
   const pendingToggles = useRef(new Set());
-    const [actionError, setActionError] = useState(null)
+  const [actionError, setActionError] = useState(null)
 
 
   useEffect(() => { suggestionsRef.current = suggestions; }, [suggestions]);
@@ -138,7 +138,7 @@ export function FriendsProvider({ children }) {
     }
   };
 
- const handleAcceptRequest = async (userId) => {
+  const handleAcceptRequest = async (userId) => {
     const id = String(userId);
     try {
       const res = await fetch(`/api/users/accept?id=${id}`, {
@@ -172,16 +172,16 @@ export function FriendsProvider({ children }) {
   }
 
 
-  const accept = async (id) => {
-    setHandledRequests((prev) => ({ ...prev, [id]: "accepted" }));
-    await handleAcceptRequest(id);
-    fetchAll();
+  const accept = async (userId, notifId) => {
+    setHandledRequests(prev => ({ ...prev, [notifId]: "accepted" }));
+    await handleAcceptRequest(userId);
+    // fetchAll();
   };
 
-  const reject = async (id) => {
-    setHandledRequests((prev) => ({ ...prev, [id]: "rejected" }));
-    await handleRejectRequest(id);
-    fetchAll();
+  const reject = async (userId, notifId) => {
+    setHandledRequests(prev => ({ ...prev, [notifId]: "rejected" }));
+    await handleRejectRequest(userId);
+    // fetchAll();
   };
 
 
@@ -232,6 +232,7 @@ export function FriendsProvider({ children }) {
         followStatuses,
         updateFollowStatus,
         handledRequests,
+        setHandledRequests,
         accept,
         reject,
         startStatusPolling,

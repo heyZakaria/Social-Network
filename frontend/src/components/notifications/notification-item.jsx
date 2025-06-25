@@ -4,6 +4,7 @@ import Image from "next/image"
 import Link from "next/link"
 import styles from "@/styles/notifications.module.css"
 import { getNotificationIcon, formatDate, getActionButtons } from "./notifications-utils"
+
 import { useFriends } from '@/context/friends_context';
 
 export default function NotificationItem({ notification, onClick }) {
@@ -61,6 +62,7 @@ export default function NotificationItem({ notification, onClick }) {
         notification.id,
         notification.invitedId,
       )}
+
 
 
     </li>

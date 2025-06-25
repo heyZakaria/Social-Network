@@ -4,8 +4,9 @@ import (
 	"net/http"
 	"sync"
 
-	Tkn "socialNetwork/token"
 	"socialNetwork/utils"
+
+	shared "socialNetwork/shared_packages"
 
 	"github.com/gorilla/websocket"
 )
@@ -25,17 +26,7 @@ func WSHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	token := r.URL.Query().Get("token")
-
-	userID, err := Tkn.GetUserIDByToken(token)
-	if err != nil {
-		utils.SendJSON(w, http.StatusUnauthorized, utils.JSONResponse{
-			Success: false,
-			Message: "Invalid token",
-		})
-		return
-	}
-
+	userID := r.Context().Value(shared.UserIDKey).(string)
 	client := &Client{
 		Conn:   conn,
 		UserID: userID,
@@ -51,11 +42,21 @@ func WSHandler(w http.ResponseWriter, r *http.Request) {
 	mutex.Unlock()
 
 	go handleWrite(client)
+	go handleRead(client)
 	go SendStoredNotifications(userID, client)
 }
 
 func handleWrite(client *Client) {
 	for msg := range client.Send {
 		client.Conn.WriteJSON(msg)
+	}
+}
+
+func handleRead(client *Client) {
+	defer client.Conn.Close()
+	for {
+		if _, _, err := client.Conn.NextReader(); err != nil {
+			break
+		}
 	}
 }
