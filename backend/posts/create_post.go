@@ -9,27 +9,20 @@ import (
 	"socialNetwork/utils"
 )
 
-// Example URL: http://localhost:8080/posts/createpost
-// CreatePost is a handler function that handles the POST request to create a new post.
-// It also checks if the user is logged in by validating the token.
-// Below is the list of inputs expected in the request:
-// "post_content"      (required) > Input text containing the full post content.
-// "post_privacy"      (required) > Has three options to choose from: "public", "custom_users", or "followers".
-// "post_image"        (optional) > File containing the image that the user selected.
-// "allowed_users"     (optional, depends on post_privacy) > Only required if "post_privacy = custom_users".
-//
-//	This should be a list (array) of user IDs allowed to see the post.
-//
-// The function returns the post details in JSON format.
 
 var RateLimit = map[string]utils.LimitInfo{}
 
 func CreatePost(w http.ResponseWriter, r *http.Request) {
+	// Add comments for each part
+	// of the code to explain what it does
+	// Initialize a new Post object
 	PostData := Post{}
+	// Get the user ID from the request context
 	UserId := r.Context().Value(shared.UserIDKey).(string)
 
 	PostData.UserID = UserId
 	utils.Log("", "Start Creating the Post")
+
 	Privacy := map[string]bool{
 		"public":       true,
 		"custom_users": true,
@@ -39,9 +32,13 @@ func CreatePost(w http.ResponseWriter, r *http.Request) {
 	if GroupId != "" {
 		PostData.Group_id = &GroupId
 	}
-	fmt.Println("grrrroup_id:", GroupId)
+	// Parse the multipart form data with a maximum size of 10 MB
+	// This allows us to handle file uploads (like images)
 	r.ParseMultipartForm(10 << 20)
 
+	// Prepare the image from the form data
+	// This function handles the image upload and returns the image path
+	// If no image is provided, set the Post_image to an empty string
 	ImageProvided, postImage, file, err := utils.PrepareImage(r, "post_image", "posts")
 
 	PostData.Post_image = postImage
@@ -54,10 +51,9 @@ func CreatePost(w http.ResponseWriter, r *http.Request) {
 		})
 		return
 	}
-
 	PostData.Post_Content = r.FormValue("post_content")
 	PostData.Post_Content = strings.Trim(PostData.Post_Content, " ")
-	fmt.Println("leeeeeeeeeen", len(PostData.Post_Content))
+	// Check if the post content is empty or exceeds the maximum length
 	if (PostData.Post_Content == "" && postImage == "") || len(PostData.Post_Content) > 10000 {
 		utils.Log("ERROR", "Post Content is Empty")
 		utils.SendJSON(w, http.StatusBadRequest, utils.JSONResponse{
@@ -67,6 +63,7 @@ func CreatePost(w http.ResponseWriter, r *http.Request) {
 		})
 		return
 	}
+	// Validate the post privacy setting
 	PostData.Privacy = r.FormValue("post_privacy")
 	if !Privacy[PostData.Privacy] {
 		utils.Log("ERROR", "Error On the Privacy Mode user selected : "+PostData.Privacy)
@@ -83,7 +80,9 @@ func CreatePost(w http.ResponseWriter, r *http.Request) {
 	if shouldReturn {
 		return
 	}
-
+	// Insert the post data into the database
+	// This function handles the database insertion and returns the last inserted ID
+	utils.Log("INFO", "Inserting Post into Database")
 	last_id, err := PostData.InsertPost()
 	if err != nil {
 		utils.Log("ERROR", "Error Trying to save post into db")
@@ -95,18 +94,19 @@ func CreatePost(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	// Save The post ID with Users Allowed to see the post in Post-Allowed
-	//  Table in database
+	// If the post privacy is set to "custom_users", we need to handle allowed users
 	if PostData.Privacy == "custom_users" {
 		r.ParseForm()
 		PostData.AllowedUsers = r.Form["allowed_users"]
 		SaveAllowedUsers(int(last_id), PostData.AllowedUsers)
 	}
-
+	// If an image was provided, save it to the specified path
 	if ImageProvided {
 		utils.SaveImage(file, PostData.Post_image)
 	}
-
+	// Log the successful creation of the post
+	utils.Log("INFO", fmt.Sprintf("Post created successfully with ID: %d", last_id))
+	// Send a JSON response back to the client indicating success
 	utils.SendJSON(w, http.StatusOK, utils.JSONResponse{
 		Success: last_id > 0,
 		Message: "Post Created Successfully",

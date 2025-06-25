@@ -1,6 +1,8 @@
-package realTime_Chat
+package chat
 
 import (
+	db "socialNetwork/db/sqlite"
+	"socialNetwork/utils"
 	"sync"
 	"time"
 
@@ -23,7 +25,7 @@ type Client struct {
 type MessageStruct struct {
 	ID               int        `json:"id"`
 	Sender           string     `json:"sender"`
-	GroupID           string     `json:"group_id"`
+	GroupID          string     `json:"group_id"`
 	Receiver         string     `json:"receiver"`
 	Content          string     `json:"content"`
 	Type             string     `json:"type"`
@@ -35,10 +37,30 @@ type MessageStruct struct {
 	Other_first_name string     `json:"other_first_name"`
 	Other_last_name  string     `json:"other_last_name"`
 	Other_avatar     string     `json:"other_avatar"`
+	Token            string     `json:"token"`
 }
 
-type JSONRequest struct {
-	RealTimeType     string `json:"type"`
-	NotificationType string `json:"notif_type"` // check this just if the RealTimeType == "Notification"
+func (msgs *MessageStruct) InsertDB(UserID string) (bool, bool) {
 
+	stmnt, err := db.DB.Prepare(Insert_queries[msgs.Type])
+	if err != nil {
+		utils.Log("ERROR", "Error preparing statement: "+err.Error())
+		return true, true
+	}
+	defer stmnt.Close()
+
+	var Receiver string
+	if msgs.Type == "private_message" {
+		Receiver = msgs.Receiver
+	} else {
+		Receiver = msgs.GroupID
+	}
+	// Execute the statement with the provided parameters
+	_, err = stmnt.Exec(msgs.SessionID, UserID, Receiver, msgs.Content)
+	if err != nil {
+		utils.Log("ERROR", "Error inserting group message into database: "+err.Error())
+		return true, true
+	}
+
+	return false, false
 }

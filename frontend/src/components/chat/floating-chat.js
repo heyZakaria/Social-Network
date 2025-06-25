@@ -63,11 +63,8 @@ export default function FloatingChat({ currentUser, profileData, source, group }
       broadcastChannel.postMessage(JSON.stringify({ type: "refresh_chat_list" }));
       console.log("List Refreched From Socket Floating chat comp");
     });
-    // socket.onmessage = () => {
-    //   refreshChatList();
-    //   broadcastChannel.postMessage(JSON.stringify({ type: "refresh_chat_list" }));
-    //   console.log("List Refreched From Socket Floating chat comp");
-    // };
+
+    
     broadcastChannel.onmessage = (event) => {
       const data = JSON.parse(event.data);
       if (data.type === "refresh_chat_list") {

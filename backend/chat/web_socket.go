@@ -1,7 +1,6 @@
-package realTime_Chat
+package chat
 
 import (
-	"fmt"
 	"net/http"
 	"socialNetwork/utils"
 
@@ -15,7 +14,7 @@ var upgrader = websocket.Upgrader{
 
 func WSHandler(w http.ResponseWriter, r *http.Request) {
 	UserID := r.Header.Get("UserID")
-	fmt.Println("UserID from context aciba:", UserID)
+
 	conn, err := upgrader.Upgrade(w, r, nil)
 	if err != nil {
 		utils.Log("ERROR", "Failed to upgrade connection to websocket: "+err.Error())

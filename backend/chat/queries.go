@@ -1,4 +1,4 @@
-package realTime_Chat
+package chat
 
 var (
 	Insert_queries = map[string]string{

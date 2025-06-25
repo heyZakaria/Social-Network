@@ -85,12 +85,18 @@ export default function ChatComponent({ currentUser, otherUser , refresh, active
   
   socket.onmessage = (event) => {
         const data = JSON.parse(event.data);
+        console.log("WebSocket message received:", data);
+        
+        if (data.type == "error" && data.sender == currentUser.id) {
+          console.error("Error from WebSocket:", data.message);
+          socket.close();
+          document.location.href = "/login";
+          return;
+        }
         const newMsg = GenerateChat(data);
         broadcastChannel.postMessage(JSON.stringify(newMsg));
-
         console.log("Websocket Active Chatx", activeChat);
-        
-    console.log("Message received in Chat CompLD:", data);
+        console.log("Message received in Chat CompLD:", data);
   }
   
   if (broadcastChannel) {

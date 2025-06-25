@@ -31,7 +31,9 @@ export default function NotFound() {
       <p style={{ fontSize: '1.25rem' }}>This page could not be found.</p>
 
       <button
-        onClick={handleBack}
+        onClick={() => {
+          router.push('/')
+        }}
         style={{
           padding: '0.75rem 1.5rem',
           background: '#7c3aed',
@@ -42,7 +44,7 @@ export default function NotFound() {
           fontSize: '1rem',
         }}
       >
-        Go back
+        Go back home
       </button>
     </div>
   );

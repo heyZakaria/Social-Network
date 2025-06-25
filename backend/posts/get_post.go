@@ -9,19 +9,15 @@ import (
 	"socialNetwork/utils"
 )
 
-// Example URL : http://localhost:8080/posts/getsinglepost?id=1
-// GetPost is a handler function that handles the GET request to fetch a single post
-// with the given post ID
-// It checks the privacy settings of the post and ensures that the user has access to it
-// It returns the post details in JSON format
-// It also checks if the user is logged in by validating the token
-
 func GetPost(w http.ResponseWriter, r *http.Request) {
 	utils.Log("", "Get request made to GetPost Handler")
+	// Get Current USER
 	UserId := r.Context().Value(shared.UserIDKey).(string)
 
+	// Get Post ID from the URL query parameters
 	id := r.URL.Query().Get("id")
 	PostId, err := strconv.Atoi(id)
+	// Check if the Post ID is valid
 	if err != nil || PostId <= 0 {
 		utils.Log("ERROR", "Post ID is not valid in GetPost Handler: "+err.Error())
 		utils.SendJSON(w, http.StatusBadRequest, utils.JSONResponse{
@@ -31,9 +27,10 @@ func GetPost(w http.ResponseWriter, r *http.Request) {
 		})
 		return
 	}
-
+	// Initialize the Post struct
 	Post := Post{}
-	// Prepare the statement
+	// Prepare the SQL statement to get the post
+	utils.Log("INFO", "Preparing SQL statement to get the post in GetPost Handler")
 	stmnt, err := db.DB.Prepare("SELECT * FROM posts WHERE id = ?")
 	if err != nil {
 		utils.Log("ERROR", "Error Preparing Statment in GetPost Handler"+err.Error())
@@ -46,7 +43,7 @@ func GetPost(w http.ResponseWriter, r *http.Request) {
 	}
 	defer stmnt.Close()
 
-	// get the post from the database
+	// Execute the SQL statement to get the post
 	err = stmnt.QueryRow(PostId).Scan(&Post.PostId, &Post.UserID, &Post.Post_Content, &Post.Post_image, &Post.Privacy, &Post.CreatedAt)
 	if err != nil {
 		utils.Log("ERROR", "Error scanning Post in GetPost Handler: "+err.Error())

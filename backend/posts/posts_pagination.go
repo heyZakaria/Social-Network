@@ -2,7 +2,6 @@ package post
 
 import (
 	"database/sql"
-	"fmt"
 	"net/http"
 	"strconv"
 
@@ -12,56 +11,26 @@ import (
 	"socialNetwork/utils"
 )
 
-// Example URL : http://localhost:8080/posts/getposts?limit=10&offset=0
-// GetPostsScroll is a handler function that handles the GET request to fetch posts with pagination
-
 func PostsPagination(w http.ResponseWriter, r *http.Request) {
-
 	utils.Log("", "Get request made to GetPostsScroll Handler")
 	UserID := r.Context().Value(shared.UserIDKey).(string)
-	GroupId := r.URL.Query().Get("group_id")
-	// we will have both, Limit of Posts, and Offset of Posts 10 in our case
-	offset := r.URL.Query().Get("offset")
-	limit := r.URL.Query().Get("limit")
-	specificUser := r.URL.Query().Get("user_id")
-	fmt.Println("specificUser", specificUser)
-	if offset == "" || limit == "" {
-		utils.Log("ERROR", "Offset or Limit is not valid in GetPostsScroll Handler: ")
-		utils.SendJSON(w, http.StatusBadRequest, utils.JSONResponse{
-			Success: false,
-			Message: "Offset or Limit is not valid",
-			Error:   "Please check again",
-		})
+
+	// Get Params
+	// Check if the group_id, offset, limit and specific user are valid
+	Offset, Limit, GroupId, specificUser, shouldReturn := validatePaginationParams(w, r)
+	if shouldReturn {
 		return
 	}
-	Offset, err := strconv.Atoi(offset)
-	if err != nil || Offset < 0 {
-		utils.Log("ERROR", "Offset is not valid in GetPostsScroll Handler: "+err.Error())
-		utils.SendJSON(w, http.StatusBadRequest, utils.JSONResponse{
-			Success: false,
-			Message: "Offset is not valid",
-			Error:   "Please check again",
-		})
-		return
-	}
-	Limit, err := strconv.Atoi(limit)
-	if err != nil || Limit <= 0 {
-		utils.Log("ERROR", "Limit is not valid in GetPostsScroll Handler: "+err.Error())
-		utils.SendJSON(w, http.StatusBadRequest, utils.JSONResponse{
-			Success: false,
-			Message: "Limit is not valid",
-			Error:   "Please check again",
-		})
-		return
-	}
-	// we will get the posts from the database
+	// Initialize the Post struct
 	Posts := []Post{}
-	// Prepare the statement
+	// By Default we are Getting all posts in table
 	query := "SELECT * FROM posts  WHERE  group_id IS NULL ORDER BY created_at DESC LIMIT ? OFFSET ?"
 	if specificUser != "" {
+		// In case there is a request to specific user, we are getting posts of that user exact
 		query = "SELECT * FROM posts WHERE user_id = ? AND group_id IS NULL  ORDER BY created_at DESC LIMIT ? OFFSET ?"
 	} else if GroupId != "" {
-		query = "SELECT * FROM posts WHERE  group_id = ? ORDER BY created_at DESC LIMIT ? OFFSET ?"
+		// if the groupid provided we are getting posts related to that group
+		query = "SELECT * FROM posts WHERE group_id = ? ORDER BY created_at DESC LIMIT ? OFFSET ?"
 	}
 	stmnt, err := db.DB.Prepare(query)
 	if err != nil {
@@ -130,7 +99,7 @@ func PostsPagination(w http.ResponseWriter, r *http.Request) {
 				continue
 			}
 		}
-		
+
 		Post.First_name = Profile.FirstName
 		Post.Last_name = Profile.LastName
 		Post.User_avatar = Profile.Avatar
@@ -190,4 +159,43 @@ func PostsPagination(w http.ResponseWriter, r *http.Request) {
 			"posts": Posts,
 		},
 	})
+}
+
+func validatePaginationParams(w http.ResponseWriter, r *http.Request) (int, int, string, string, bool) {
+	// Get the group_id, offset, limit and specific user from the URL query parameters
+	GroupId := r.URL.Query().Get("group_id")
+	offset := r.URL.Query().Get("offset")
+	limit := r.URL.Query().Get("limit")
+	specificUser := r.URL.Query().Get("user_id")
+
+	if offset == "" || limit == "" {
+		utils.Log("ERROR", "Offset or Limit is not valid in GetPostsScroll Handler: ")
+		utils.SendJSON(w, http.StatusBadRequest, utils.JSONResponse{
+			Success: false,
+			Message: "Offset or Limit is not valid",
+			Error:   "Please check again",
+		})
+		return 0, 0, "", "", true
+	}
+	Offset, err := strconv.Atoi(offset)
+	if err != nil || Offset < 0 {
+		utils.Log("ERROR", "Offset is not valid in GetPostsScroll Handler: "+err.Error())
+		utils.SendJSON(w, http.StatusBadRequest, utils.JSONResponse{
+			Success: false,
+			Message: "Offset is not valid",
+			Error:   "Please check again",
+		})
+		return 0, 0, "", "", true
+	}
+	Limit, err := strconv.Atoi(limit)
+	if err != nil || Limit <= 0 {
+		utils.Log("ERROR", "Limit is not valid in GetPostsScroll Handler: "+err.Error())
+		utils.SendJSON(w, http.StatusBadRequest, utils.JSONResponse{
+			Success: false,
+			Message: "Limit is not valid",
+			Error:   "Please check again",
+		})
+		return 0, 0, "", "", true
+	}
+	return Offset, Limit, GroupId, specificUser, false
 }

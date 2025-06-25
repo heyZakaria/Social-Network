@@ -4,21 +4,18 @@ import (
 	"log"
 	"net/http"
 
-	comment "socialNetwork/comments"
 	"socialNetwork/notifications"
 
 	Group "socialNetwork/groups"
 
 	"socialNetwork/auth"
+	chat "socialNetwork/chat"
 	"socialNetwork/comments"
 	db "socialNetwork/db/sqlite"
-	Group "socialNetwork/groups"
 	"socialNetwork/likes"
 	"socialNetwork/middleware"
 	post "socialNetwork/posts"
 	"socialNetwork/profile"
-	"socialNetwork/realTime"
-	realTime_Chat "socialNetwork/realTimeChat"
 	"socialNetwork/utils"
 
 	_ "github.com/mattn/go-sqlite3"
@@ -47,8 +44,7 @@ func main() {
 	router.Handle("/api/groups/", http.StripPrefix("/api/groups", Group.GroupMux()))
 	// router.Handle("/api/events/", http.StripPrefix("/api/events", Events.EventsMux())) // /groups/{id}/event
 
-	router.HandleFunc("/ws", realTime.WSHandler)
-	router.Handle("/api/websocket/", http.StripPrefix("/api/websocket", realTime_Chat.WebSocket_CHATMux()))
+	router.Handle("/api/websocket/", http.StripPrefix("/api/websocket", chat.WebSocket_CHATMux()))
 	router.HandleFunc("/ws", notifications.WSHandler)
 
 	log.Fatal(http.ListenAndServe(":8080", middleware.CheckCORS(middleware.CheckUserExeting(router))))

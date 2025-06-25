@@ -5,9 +5,8 @@ import (
 	"net/http"
 
 	db "socialNetwork/db/sqlite"
-	Shared_Profile "socialNetwork/profile_shared"
-	"socialNetwork/realTime"
 	"socialNetwork/notifications"
+	Shared_Profile "socialNetwork/profile_shared"
 	shared "socialNetwork/shared_packages"
 	"socialNetwork/utils"
 )

@@ -1,10 +1,10 @@
-package realTime_Chat
+package chat
 
 import (
 	"fmt"
-	db "socialNetwork/db/sqlite"
 	Shared_groups "socialNetwork/groups_shared"
 	Shared_Profile "socialNetwork/profile_shared"
+	tkn "socialNetwork/token"
 	"socialNetwork/utils"
 	"sync"
 )
@@ -41,19 +41,19 @@ func ReadMessages(UserID string) {
 			mutex.Unlock()
 			break
 		}
-		fmt.Println("Content:", "Value:", msgs.Content)
-		fmt.Println("Type:", "Value:", msgs.Type)
-		fmt.Println("Reciver:", "Value:", msgs.Receiver)
-		fmt.Println("Sender:", "Value:", msgs.Sender)
-		fmt.Println("SessionID:", "Value:", msgs.SessionID)
-		fmt.Println("FirstTime:", "Value:", msgs.FirstTime)
-		fmt.Println("Readed:", "Value:", msgs.Readed)
-		fmt.Println("CreatedAt:", "Value:", msgs.CreatedAt)
-		fmt.Println("Other_user_id:", "Value:", msgs.Other_user_id)
-		fmt.Println("Other_first_name:", "Value:", msgs.Other_first_name)
-		fmt.Println("Other_last_name:", "Value:", msgs.Other_last_name)
-		fmt.Println("Other_avatar:", "Value:", msgs.Other_avatar)
-
+		fmt.Println("Token Value", msgs.Token)
+		u_id, err := tkn.GetUserIDByToken(msgs.Token)
+		fmt.Println("UserID Value from token", u_id, "MSG", msgs.Content)
+		if u_id == "" || err != nil {
+			utils.Log("ERROR", "Invalid token or UserID not found: "+msgs.Token)
+			client.Conn.WriteJSON(MessageStruct{
+				Type:    "error",
+				Sender:  UserID,
+				Content: "Invalid token or UserID not found",
+			})
+			continue
+		}
+		msgs.Token = "" // Clear the token after validation
 		if msgs.Type == "" || msgs.Receiver == "" || msgs.Content == "" {
 			utils.Log("ERROR", " Receiver OR Type or Content is empty")
 			fmt.Println(msgs)
@@ -61,14 +61,14 @@ func ReadMessages(UserID string) {
 		}
 		utils.Log("INFO", "Message received: "+msgs.Content)
 
-		var shouldConitnue bool
+		var shouldContinue bool
 		switch msgs.Type {
 		case "private_message":
-			shouldConitnue = msgs.Private_Chat(UserID)
+			shouldContinue = msgs.Private_Chat(UserID)
 		case "group_message":
-			shouldConitnue = msgs.Group_Chat(UserID)
+			shouldContinue = msgs.Group_Chat(UserID)
 		}
-		if shouldConitnue {
+		if shouldContinue {
 			continue
 		}
 
@@ -80,88 +80,19 @@ func ReadMessages(UserID string) {
 		}
 	}
 }
-func (msgs *MessageStruct) Group_Chat(UserID string) bool {
-	if msgs.SessionID == "" {
-		utils.Log("ERROR", "Session ID is empty for group message")
-		return true
-	}
-	// Save Chat into Database
-	shouldReturn, b := msgs.InsertDB(UserID)
-	if shouldReturn {
-		return b
-	}
-	return false
-}
-func (msgs *MessageStruct) Private_Chat(UserID string) bool {
-	if msgs.Receiver != UserID {
-		db.DB.QueryRow(`SELECT chat_session_id FROM chats WHERE sender_id = ? AND receiver_id = ?
-			OR receiver_id = ? AND sender_id = ? LIMIT 1`, UserID, msgs.Receiver, UserID, msgs.Receiver).
-			Scan(&msgs.SessionID)
-		//Generating the session ID
-		if msgs.SessionID == "" {
-			msgs.FirstTime = true
-			utils.Log("INFO", "No existing chat session found, creating a new one")
-			msgs.SessionID = utils.GenerateChatSessionID(UserID, msgs.Receiver)
-			utils.Log("INFO", "New chat session ID created: "+msgs.SessionID)
-		}
-		// Save Chat into Database
-		shouldReturn, b := msgs.InsertDB(UserID)
-		if shouldReturn {
-			return b
-		}
-	}
-	return false
-}
-
-func (msgs *MessageStruct) InsertDB(UserID string) (bool, bool) {
-
-	stmnt, err := db.DB.Prepare(Insert_queries[msgs.Type])
-	fmt.Println("Whole MSG :", msgs)
-	if err != nil {
-		utils.Log("ERROR", "Error preparing statement: "+err.Error())
-		return true, true
-	}
-	defer stmnt.Close()
-
-	var Receiver string
-	if msgs.Type == "private_message" {
-		Receiver = msgs.Receiver
-	} else {
-		Receiver = msgs.GroupID
-	}
-	fmt.Println("Query:", Insert_queries[msgs.Type])
-	fmt.Println("SessionID:", msgs.SessionID)
-	fmt.Println("UserID:", UserID)
-	fmt.Println("Receiver:", Receiver)
-	fmt.Println("msgs.Receiver:", msgs.Receiver)
-	fmt.Println("msgs.GroupID:", msgs.GroupID)
-	fmt.Println("Content:", msgs.Content)
-	// Execute the statement with the provided parameters
-	_, err = stmnt.Exec(msgs.SessionID, UserID, Receiver, msgs.Content)
-	if err != nil {
-		utils.Log("ERROR", "Error inserting group message into database: "+err.Error())
-		return true, true
-	}
-
-	return false, false
-}
 
 func WriteMessages(UserID string) {
 	profile, _ := Shared_Profile.GetUserProfileData(UserID)
-	fmt.Println("Profile for UserID:", UserID, "is", profile)
 
 	for {
 		// Grab the next message from the broadcast channel
 		client, ok := clients[UserID]
-		fmt.Println("Client found message", ok, client)
-
 		if !ok || client == nil || client.Broadcast == nil {
 			utils.Log("ERROR", "Problem passing data through the channel")
 			mutex.Unlock()
 			continue
 		}
 		message := <-clients[UserID].Broadcast
-		fmt.Println("Writing message", message)
 
 		mutex.Lock()
 		var ReciverNotFound = false

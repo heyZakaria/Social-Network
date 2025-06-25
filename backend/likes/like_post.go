@@ -9,10 +9,11 @@ import (
 	"socialNetwork/utils"
 )
 
-// http://localhost:8080/likes/react?id=1
 func LikePost(w http.ResponseWriter, r *http.Request) {
+	// Logging the start of the LikePost Handler
 	UserId := r.Context().Value(shared.UserIDKey).(string)
 
+	// Getting the post ID from the query parameters
 	id := r.URL.Query().Get("id")
 	PostId, err := strconv.Atoi(id)
 	if err != nil {
@@ -24,6 +25,7 @@ func LikePost(w http.ResponseWriter, r *http.Request) {
 		})
 		return
 	}
+	// Check if the post has been liked by the current user
 	stmnt, err := db.DB.Prepare("SELECT is_liked FROM likes WHERE post_id = ? AND user_id = ?")
 	if err != nil {
 		utils.Log("ERROR", "Error Preparing Statment in LikePost Handler"+err.Error())
@@ -48,6 +50,7 @@ func LikePost(w http.ResponseWriter, r *http.Request) {
 		})
 		return
 	}
+	// If the post is already liked, we will unlike it
 	if isLiked {
 		likeStatus = "Unliked"
 		_, err = db.DB.Exec("DELETE FROM likes WHERE post_id = ? AND user_id = ?", PostId, UserId)
@@ -61,6 +64,7 @@ func LikePost(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 	} else {
+		// If the post is not liked, we will like it
 		likeStatus = "Liked"
 		_, err = db.DB.Exec("INSERT INTO likes (post_id, user_id) VALUES (?, ?)", PostId, UserId)
 		if err != nil {
@@ -74,6 +78,7 @@ func LikePost(w http.ResponseWriter, r *http.Request) {
 		}
 	}
 
+	// After liking or unliking the post, we will get the updated like count
 	var likeCount int
 	err = db.DB.QueryRow("SELECT COUNT(*) FROM likes WHERE post_id = ?", PostId).Scan(&likeCount)
 	if err != nil {
@@ -85,6 +90,7 @@ func LikePost(w http.ResponseWriter, r *http.Request) {
 		})
 		return
 	}
+	// Log the like count and send the response
 	utils.Log("INFO", "Like count for post ID "+strconv.Itoa(PostId)+" is "+strconv.Itoa(likeCount))
 	utils.SendJSON(w, http.StatusOK, utils.JSONResponse{
 		Success: true,

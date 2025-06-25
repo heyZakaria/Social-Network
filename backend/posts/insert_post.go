@@ -6,6 +6,7 @@ import (
 	db "socialNetwork/db/sqlite"
 )
 
+//  Post inserts a new post into the database and returns the last inserted ID.
 func (p *Post) InsertPost() (lastInsertId int64, err error) {
 	statment, err := db.DB.Prepare("INSERT INTO posts (user_id, post_content, post_image, post_privacy , group_id) VALUES (?, ?, ?, ? , ?)")
 	if err != nil {
