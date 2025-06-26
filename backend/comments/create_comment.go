@@ -16,7 +16,7 @@ func CommentSaver(w http.ResponseWriter, r *http.Request) {
 
 	// here to get userId
 	UserId := r.Context().Value(shared.UserIDKey).(string)
-
+	GroupId := r.URL.Query().Get("group_id")
 	//
 	r.ParseMultipartForm(10 << 20)
 
@@ -39,12 +39,12 @@ func CommentSaver(w http.ResponseWriter, r *http.Request) {
 		fmt.Println("have problem to convert from string to int")
 	}
 
-	err = Comment.IsPostExist(postId, UserId)
+	err = Comment.IsPostExist(postId, UserId, GroupId)
 	if err != nil {
-		utils.Log("Error", "doesn't exist this post" + err.Error())
+		utils.Log("Error", "doesn't exist this post"+err.Error())
 		utils.SendJSON(w, http.StatusBadRequest, utils.JSONResponse{
 			Success: false,
-			Message: "the post doesn't exist or you don't have permission to comment on it" ,
+			Message: "the post doesn't exist or you don't have permission to comment on it",
 			Error:   err.Error(),
 		})
 		return

@@ -17,6 +17,8 @@ func LikePost(w http.ResponseWriter, r *http.Request) {
 	// Getting the post ID from the query parameters
 	id := r.URL.Query().Get("id")
 	PostId, err := strconv.Atoi(id)
+	GroupId := r.URL.Query().Get("group_id")
+
 	if err != nil {
 		utils.Log("ERROR", "Post ID is not valid in LikePost Handler: "+err.Error())
 		utils.SendJSON(w, http.StatusBadRequest, utils.JSONResponse{
@@ -27,7 +29,7 @@ func LikePost(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	Comment := comments.Comment{}
-	err = Comment.IsPostExist(PostId, UserId)
+	err = Comment.IsPostExist(PostId, UserId, GroupId)
 	if err != nil {
 		utils.Log("Error", "doesn't exist this post"+err.Error())
 		utils.SendJSON(w, http.StatusBadRequest, utils.JSONResponse{

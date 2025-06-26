@@ -1,6 +1,7 @@
 package comments
 
 import (
+	"database/sql"
 	"fmt"
 	"html"
 
@@ -42,12 +43,19 @@ func (c *Comment) InsertComment() error {
 	return nil
 }
 
-func (c *Comment) IsPostExist(postId int, UserID string) error {
+func (c *Comment) IsPostExist(postId int, UserID, GroupId string) error {
 	var Post post.Post
 	var ProfileStatus string
 
-	query := "SELECT * FROM posts  WHERE group_id IS NULL AND id = ?"
-	row := db.DB.QueryRow(query, postId)
+	var query string
+	var row *sql.Row
+	if GroupId != "" {
+		query = "SELECT * FROM posts  WHERE group_id = ? AND id = ?"
+		row = db.DB.QueryRow(query, GroupId, postId)
+	} else {
+		query = "SELECT * FROM posts  WHERE group_id IS NULL AND id = ?"
+		row = db.DB.QueryRow(query, postId)
+	}
 	err := row.Scan(&Post.PostId, &Post.UserID, &Post.Post_Content, &Post.Post_image, &Post.Privacy, &Post.Group_id, &Post.CreatedAt)
 
 	stmnt, err := db.DB.Prepare("SELECT profile_status FROM users WHERE id = ?")
@@ -59,6 +67,8 @@ func (c *Comment) IsPostExist(postId int, UserID string) error {
 	err = stmnt.QueryRow(Post.UserID).Scan(&ProfileStatus)
 	if err != nil {
 		utils.Log("ERROR", "Error QueryRow When trying to Execute the row of Profile info of the author in GetPostsScroll Handler"+err.Error())
+		utils.Log("ERROR", "Post.UserID:"+Post.UserID)
+		fmt.Println(Post)
 		return fmt.Errorf("Error executing query: %v", err)
 	}
 

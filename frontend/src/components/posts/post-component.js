@@ -15,6 +15,7 @@ export default function PostComponent({
   user,
   currentUser,
   showComments = false,
+  GroupId
 }) {
   const [isLiked, setIsLiked] = useState(post.Liked);
   const [likesCount, setLikesCount] = useState(post.LikeCounts);
@@ -26,7 +27,7 @@ export default function PostComponent({
   const handleLike = () => {
     async function updateLikeStatus() {
       const response = await FetchData(
-        `/api/likes/react?id=${post.PostId}`, "POST")
+        `/api/likes/react?id=${post.PostId}${GroupId ? `&group_id=${GroupId}` : ``}`, "POST")
       console.log('responce ===> :', response);
       const LikeCounts = response.data.like_count
       const Like = response.data.success
@@ -181,7 +182,7 @@ export default function PostComponent({
       </div>
 
       {showCommentsSection && (
-        <CommentSection setCommentsCount={setCommentsCount} postId={post.PostId} currentUser={currentUser} />
+        <CommentSection setCommentsCount={setCommentsCount} postId={post.PostId} currentUser={currentUser} GroupId={GroupId} />
       )}
     </div>
   );

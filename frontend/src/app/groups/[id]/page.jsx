@@ -285,6 +285,7 @@ export default function GroupCard({ children }) {
         loadMore={loadMore}
         hasMore={hasMore}
         currentUser={currentUser}
+        GroupId={groupId}
       />
       <PendingInviteList groupId={groupId} />
     </div>

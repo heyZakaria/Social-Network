@@ -11,7 +11,7 @@ import { useUser } from '@/context/user_context';
 import Image from "next/image"
 import { logoutUser } from "@/app/(auth)/_logout/logout";
 
-export default function CommentSection({ setCommentsCount, postId }) {
+export default function CommentSection({ setCommentsCount, postId, GroupId}) {
   const { user: currentUser } = useUser();
   const [comments, setComments] = useState([]);
   const [selectedImage, setSelectedImage] = useState(null);
@@ -126,8 +126,7 @@ export default function CommentSection({ setCommentsCount, postId }) {
         }
 
         formData.append("postId", postId)
-
-        const response = await fetch('/api/comment/sendcomment', {
+        const response = await fetch(GroupId ? `/api/comment/sendcomment?group_id=${GroupId}` : `/api/comment/sendcomment`, {
           method: 'POST',
           credentials: 'include',
           body: formData,

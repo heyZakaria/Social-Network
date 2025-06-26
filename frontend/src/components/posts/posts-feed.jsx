@@ -2,7 +2,7 @@
 import PostComponent from "@/components/posts/post-component";
 import styles from "@/styles/home.module.css";
 
-export default function PostFeeds({posts , loading , hasMore , loadMore  , currentUser }){
+export default function PostFeeds({posts , loading , hasMore , loadMore  , currentUser ,GroupId}){
 return (
   <div className={styles.mainContent}>
             <div className={styles.contentArea}>
@@ -17,6 +17,7 @@ return (
                         post={post}
                         user={currentUser} // or actual logged in user
                         currentUser={currentUser}
+                        GroupId={GroupId}
                       />
                     ))}
 
