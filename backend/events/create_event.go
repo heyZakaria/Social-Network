@@ -8,6 +8,8 @@ import (
 	"time"
 
 	db "socialNetwork/db/sqlite"
+	Shared_groups "socialNetwork/groups_shared"
+	"socialNetwork/notifications"
 	shared "socialNetwork/shared_packages"
 	"socialNetwork/utils"
 )
@@ -93,6 +95,30 @@ func CreateEvent(w http.ResponseWriter, r *http.Request) {
 		Success: true,
 		Message: "Event created successfully",
 	})
+
+	mg, err := Shared_groups.GetMembersOfGroup(GroupId, UserId)
+	if err != nil {
+		utils.Log("ERROR", "Error geting members of group")
+		utils.SendJSON(w, http.StatusInternalServerError, utils.JSONResponse{
+			Success: false,
+			Error:   "Error in server",
+		})
+	}
+	var gmIDS []string
+
+	for _, user := range mg {
+		if UserId != user.User_id {
+			gmIDS = append(gmIDS, user.User_id)
+		}
+	}
+
+	notifications.BroadcastNotification(
+		db.DB,
+		UserId,
+		gmIDS,
+		"group_event",
+		""
+	)
 }
 
 func ValideEventForm(event Event) bool {
