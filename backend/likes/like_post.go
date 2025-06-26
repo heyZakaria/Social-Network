@@ -4,6 +4,7 @@ import (
 	"net/http"
 	"strconv"
 
+	"socialNetwork/comments"
 	db "socialNetwork/db/sqlite"
 	shared "socialNetwork/shared_packages"
 	"socialNetwork/utils"
@@ -22,6 +23,17 @@ func LikePost(w http.ResponseWriter, r *http.Request) {
 			Success: false,
 			Message: "Post ID is not valid",
 			Error:   "Please check again",
+		})
+		return
+	}
+	Comment := comments.Comment{}
+	err = Comment.IsPostExist(PostId, UserId)
+	if err != nil {
+		utils.Log("Error", "doesn't exist this post"+err.Error())
+		utils.SendJSON(w, http.StatusBadRequest, utils.JSONResponse{
+			Success: false,
+			Message: "the post doesn't exist or you don't have permission to react on it",
+			Error:   err.Error(),
 		})
 		return
 	}

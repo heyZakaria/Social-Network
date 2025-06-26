@@ -44,7 +44,7 @@ func CommentSaver(w http.ResponseWriter, r *http.Request) {
 		utils.Log("Error", "doesn't exist this post" + err.Error())
 		utils.SendJSON(w, http.StatusBadRequest, utils.JSONResponse{
 			Success: false,
-			Message: "doesn't exist this post" ,
+			Message: "the post doesn't exist or you don't have permission to comment on it" ,
 			Error:   err.Error(),
 		})
 		return
