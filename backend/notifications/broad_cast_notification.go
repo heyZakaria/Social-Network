@@ -10,7 +10,7 @@ import (
 
 func SendStoredNotifications(userID string, client *Client) {
 	rows, err := db.DB.Query(`
-        SELECT id, sender_id, type_notification, content, invite_id, created_at
+        SELECT id, sender_id, type_notification, content, event_id, group_id,  invite_id, created_at
         FROM notifications
         WHERE user_id = ? 
         ORDER BY created_at ASC
@@ -24,12 +24,12 @@ func SendStoredNotifications(userID string, client *Client) {
 	for rows.Next() {
 		var (
 			notifID                      int64
-			senderID, notifType, content string
+			senderID, notifType, content, groupID, eventID string
 			inviteID                     sql.NullInt64
 			createdAt                    time.Time
 		)
 
-		if err := rows.Scan(&notifID, &senderID, &notifType, &content, &inviteID, &createdAt); err != nil {
+		if err := rows.Scan(&notifID, &senderID, &notifType, &content, &eventID, &groupID,  &inviteID, &createdAt); err != nil {
 			utils.Log("ERROR", "Failed to scan: "+err.Error())
 			continue
 		}
@@ -55,6 +55,8 @@ func SendStoredNotifications(userID string, client *Client) {
 				"avatar":    sender.Avatar,
 				"from":      sender.FirstName + " " + sender.LastName,
 				"createdAt": createdAt.Format(time.RFC3339),
+				"event_id":  eventID,
+				"group_id":  groupID,
 			},
 		}
 
@@ -62,9 +64,9 @@ func SendStoredNotifications(userID string, client *Client) {
 	}
 }
 
-func BroadcastNotification(db *sql.DB, senderID string, receiverIDs []string, notifType, content string) {
+func BroadcastNotification(db *sql.DB, senderID string, receiverIDs []string, notifType, content, groupID string, eventID int) {
 	for _, receiverID := range receiverIDs {
-		BuildAndDispatchNotification(db, 0, senderID, receiverID, notifType, content)
+		BuildAndDispatchNotification(db, 0, senderID, receiverID, notifType, content, groupID, eventID)
 	}
 }
 

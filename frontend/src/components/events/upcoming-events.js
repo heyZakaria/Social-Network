@@ -3,8 +3,11 @@ import Link from "next/link";
 import { IoAddOutline } from "react-icons/io5";
 import styles from "@/styles/UpcomingEvents.module.css";
 import { useParams } from "next/navigation";
+import { useFriends } from "@/context/friends_context";
+
 let groupId
 export default function UpcomingEvents( ) {
+  const {HandleEventPresence, fetchEvents} = useFriends()
   const [events, setEvents] = useState([]);
   const [attendees, setAttendees] = useState(0);
   const [error, setError] = useState(null);
@@ -23,40 +26,40 @@ export default function UpcomingEvents( ) {
     }
   }
 
-  const HandleEventPresence = (event) => {
-    console.log("ZZZZZZZZZZZZ", event, event.id);
+  // const HandleEventPresence = (event) => {
+  //   console.log("ZZZZZZZZZZZZ", event, event.id);
 
-    fetch(`http://localhost:8080/api/groups/event_presence/response`, {
-      method: "POST",
-      credentials: "include",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        group_id: groupId,
-        event_id: event.id,
-        presence: event.presence
-      })
-    })
-      .then((res) => {
-        if (!res.ok) {
-          return res.json().then((errData) => {
-            throw new Error(errData.error || "Event presence err");
-          });
-        }
+  //   fetch(`http://localhost:8080/api/groups/event_presence/response`, {
+  //     method: "POST",
+  //     credentials: "include",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify({
+  //       group_id: groupId,
+  //       event_id: event.id,
+  //       presence: event.presence
+  //     })
+  //   })
+  //     .then((res) => {
+  //       if (!res.ok) {
+  //         return res.json().then((errData) => {
+  //           throw new Error(errData.error || "Event presence err");
+  //         });
+  //       }
 
-        return res.json();
-      })
-      .then(async (data) => {
-        let e = await fetchEvents()
+  //       return res.json();
+  //     })
+  //     .then(async (data) => {
+  //       let e = await fetchEvents()
 
-        setEvents(e)
-      })
-      .catch((error) => {
-        console.error("Error fetching events:", error.message);
-        setError(error.message);
-      });
-  }
+  //       setEvents(e)
+  //     })
+  //     .catch((error) => {
+  //       console.error("Error fetching events:", error.message);
+  //       setError(error.message);
+  //     });
+  // }
 
   const formatDate = (dateString) => {
     const date = new Date(dateString);
@@ -117,35 +120,35 @@ export default function UpcomingEvents( ) {
 }
 
 
-export const fetchEvents = async () => {
+// export const fetchEvents = async () => {
 
-  return fetch(`http://localhost:8080/api/groups/events/${groupId}`, {
-    method: "GET",
-    credentials: "include",
+//   return fetch(`http://localhost:8080/api/groups/events/${groupId}`, {
+//     method: "GET",
+//     credentials: "include",
 
-    headers: {
-      "Content-Type": "application/json",
-    },
-  })
-    .then(async (res) => {
-      if (!res.ok) {
-        return res.json().then((errData) => {
-          throw new Error(errData.error || "Event fetch failed");
-        });
-      }
-      ///console.log("Weeeeeeeeeeee EVENTS 1", res.json());
-      return res.json();
-    })
-    .then((data) => {
-      console.log("Weeeeeeeeeeee EVENTS 2", data);
-      return data
-      setEvents(data);
+//     headers: {
+//       "Content-Type": "application/json",
+//     },
+//   })
+//     .then(async (res) => {
+//       if (!res.ok) {
+//         return res.json().then((errData) => {
+//           throw new Error(errData.error || "Event fetch failed");
+//         });
+//       }
+//       ///console.log("Weeeeeeeeeeee EVENTS 1", res.json());
+//       return res.json();
+//     })
+//     .then((data) => {
+//       console.log("Weeeeeeeeeeee EVENTS 2", data);
+//       return data
+//       setEvents(data);
 
-      setAttendees(data.attendees)
-      setError(null);
-    })
-    .catch((error) => {
-      console.error("Error fetching events:", error.message);
-      setError(error.message);
-    });
-};
+//       setAttendees(data.attendees)
+//       setError(null);
+//     })
+//     .catch((error) => {
+//       console.error("Error fetching events:", error.message);
+//       setError(error.message);
+//     });
+// };

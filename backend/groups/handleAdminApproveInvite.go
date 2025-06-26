@@ -159,6 +159,8 @@ func handleAdminApproveInvite(w http.ResponseWriter, r *http.Request) {
 			Invite.Reciever_id,
 			"admin_accept_invite",
 			"Admin approved the request to join the group",
+			"",
+			0,
 		)
 	} else if Action == "accept" && !Invite.Sender_id.Valid {
 		notifications.BuildAndDispatchNotification(
@@ -168,6 +170,8 @@ func handleAdminApproveInvite(w http.ResponseWriter, r *http.Request) {
 			Invite.Reciever_id,
 			"admin_accept_invite",
 			"Admin approved the request to join the group",
+			"",
+			0,
 		)
 	}
 }

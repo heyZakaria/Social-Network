@@ -96,6 +96,8 @@ func handleJoin(w http.ResponseWriter, r *http.Request) {
 			adminId,
 			"invite_group_admin",
 			"Want to join your group",
+			"",
+			0,
 		)
 
 	case "Canceling":

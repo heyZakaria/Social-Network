@@ -165,6 +165,8 @@ func ToggleFollowUser(w http.ResponseWriter, r *http.Request) {
 			targetUserId,
 			notificationType,
 			content,
+			"",
+			0,
 		)
 	}
 }

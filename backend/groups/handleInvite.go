@@ -79,6 +79,8 @@ func handleInvite(w http.ResponseWriter, r *http.Request) {
 		InvitedFriend,
 		"invite_group",
 		fmt.Sprintf("Invited to join the group %s", group.Title),
+		"",
+		0,
 	)
 }
 

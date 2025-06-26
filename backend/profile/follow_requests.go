@@ -90,6 +90,8 @@ func AcceptFollowRequest(w http.ResponseWriter, r *http.Request) {
 			friendID,
 			"follow_request_accepted",
 			"accepted your Follow",
+			"",
+			0,
 		)
 	}
 }

@@ -108,8 +108,8 @@ func handleInviteResponse(w http.ResponseWriter, r *http.Request) {
 		"invite_group",
 		invite.Id)
 
-	var notify_state = "become_member"
-	var notify_content = "Accepted joining the group"
+	notify_state := "become_member"
+	notify_content := "Accepted joining the group"
 	if action == "reject" {
 		notify_state = "reject_request"
 		notify_content = "Rejected joining the group"
@@ -123,6 +123,8 @@ func handleInviteResponse(w http.ResponseWriter, r *http.Request) {
 			creatorId,
 			"invite_group_admin",
 			"Want to join your group",
+			"",
+			0,
 		)
 	} else {
 		notifications.BuildAndDispatchNotification(
@@ -132,6 +134,8 @@ func handleInviteResponse(w http.ResponseWriter, r *http.Request) {
 			creatorId,
 			notify_state,
 			notify_content,
+			"",
+			0,
 		)
 	}
 }

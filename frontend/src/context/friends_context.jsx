@@ -219,6 +219,57 @@ export function FriendsProvider({ children }) {
     }
   }
 
+  const HandleEventPresence = async (groupId, eventId, action) => {
+    try {
+      res = await fetch(`http://localhost:8080/api/groups/event_presence/response`, {
+        method: "POST",
+        credentials: "include",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          group_id: groupId,
+          event_id: eventId,
+          presence: action
+        })
+      })
+      resp = await res.json()
+      if (!resp.ok || !resp.success) {
+        console.error("Faild to comming event")
+      }
+    } catch {
+      console.error("Faild to comming event")
+
+    }
+  }
+
+
+  const fetchEvents = async () => {
+
+    return fetch(`http://localhost:8080/api/groups/events/${groupId}`, {
+      method: "GET",
+      credentials: "include",
+
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then(async (res) => {
+        if (!res.ok) {
+          return res.json().then((errData) => {
+            throw new Error(errData.error || "Event fetch failed");
+          });
+        }
+        return res.json();
+      })
+      .then((data) => {
+        return data
+      })
+      .catch((error) => {
+        console.error("Error fetching events:", error.message);
+        setError(error.message);
+      });
+  };
 
   return (
     <FriendsContext.Provider
@@ -238,6 +289,8 @@ export function FriendsProvider({ children }) {
         startStatusPolling,
         handleInviteResponse,
         handleInviteAdminResponse,
+        HandleEventPresence,
+        fetchEvents,
       }}
     >
       {children}

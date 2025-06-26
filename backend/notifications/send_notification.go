@@ -25,7 +25,8 @@ func DispatchNotificationToUser(toUserID string, notif MessageStruct) {
 func BuildAndDispatchNotification(
 	db *sql.DB,
 	inviteID int64,
-	senderID, receiverID, notifType, content string,
+	senderID, receiverID, notifType, content, groupID string,
+	eventID int,
 ) {
 	if senderID == "" || receiverID == "" || senderID == receiverID {
 		return
@@ -37,7 +38,7 @@ func BuildAndDispatchNotification(
 		sender.FirstName, sender.LastName, sender.Avatar = "Someone", "", ""
 	}
 
-	notifID, err := SaveNotificationToDB(db, receiverID, senderID, notifType, content, inviteID)
+	notifID, err := SaveNotificationToDB(db, receiverID, senderID, notifType, content, groupID, eventID, inviteID)
 	if err != nil {
 		utils.Log("ERROR", "DB insert/update: "+err.Error())
 		return
@@ -55,6 +56,8 @@ func BuildAndDispatchNotification(
 			"from":      fmt.Sprintf("%s %s", sender.FirstName, sender.LastName),
 			"read":      false,
 			"createdAt": time.Now().Format(time.RFC3339),
+			"group_id":  groupID,
+			"event_id":  eventID,
 		},
 	}
 	DispatchNotificationToUser(receiverID, notif)

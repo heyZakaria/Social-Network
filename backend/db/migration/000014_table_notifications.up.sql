@@ -4,16 +4,11 @@ CREATE TABLE IF NOT EXISTS notifications (
   sender_id TEXT NOT NULL,
   type_notification TEXT NOT NULL,
   content TEXT,
-  invite_id INTEGER,
+  invite_id INTEGER NOT NULL DEFAULT 0,
+  event_id INTEGER,
+  group_id TEXT,
   is_read BOOLEAN DEFAULT FALSE,
-  created_at DATETIME DEFAULT CURRENT_TIMESTAMP
-);
-
-CREATE UNIQUE INDEX IF NOT EXISTS idx_notifications_unique
-ON notifications (
-  user_id,
-  sender_id,
-  type_notification,
-  content,
-  IFNULL(invite_id, 0)
+  created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+  
+  UNIQUE(user_id, sender_id, type_notification, content, event_id, group_id, invite_id)
 );

@@ -118,6 +118,8 @@ func CreateEvent(w http.ResponseWriter, r *http.Request) {
 		gmIDS,
 		"group_event",
 		"Create Event",
+		GroupId,
+		event.ID,
 	)
 }
 
