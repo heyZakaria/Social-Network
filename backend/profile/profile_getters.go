@@ -1,6 +1,7 @@
 package profile
 
 import (
+	"fmt"
 	"net/http"
 
 	db "socialNetwork/db/sqlite"
@@ -132,21 +133,32 @@ func GetOtherUserProfile(w http.ResponseWriter, r *http.Request) {
 	`, currentUserId, profile.UserID).Scan(&status)
 
 	if err == nil {
-		if status == "accepted" {
+		switch status {
+		case "accepted":
 			profile.IsFollowing = true
-		} else if status == "pending" {
+		case "pending":
 			profile.RequestPending = true
 		}
 	} else {
 		profile.IsFollowing = false
 		profile.RequestPending = false
 	}
+	var ShowMessageButton bool
+	err = db.DB.QueryRow(`SELECT EXISTS(SELECT 1 FROM followers WHERE (follower_id = ?
+        AND followed_id = ?) OR (follower_id = ?
+        AND followed_id = ?) AND follower_status = 'accepted');`, profile.UserID, currentUserId, currentUserId, profile.UserID).Scan(&ShowMessageButton)
+	if (err != nil) || ShowMessageButton == false {
+		profile.ShowMessage = false
+	} else {
+		profile.ShowMessage = true
+	}
+	fmt.Println("ShowMessageButton value", ShowMessageButton)
 	utils.Log("INFO", "Profile returned successfully")
 
 	utils.SendJSON(w, http.StatusOK, utils.JSONResponse{
 		Success: true,
 		Message: "User profile retrieved successfully",
-		Data: map[string]interface{}{
+		Data: map[string]any{
 			"Data": profile,
 		},
 	})

@@ -116,7 +116,7 @@ export function FriendsProvider({ children }) {
     }
   };
 
-  const toggleFollow = async (userId) => {
+  const toggleFollow = async (userId, showMessageButtonFunc) => {
     const id = String(userId);
     pendingToggles.current.add(id);
     try {
@@ -128,6 +128,11 @@ export function FriendsProvider({ children }) {
       };
       updateFollowStatus(id, updatedStatus);
       fetchAll();
+      if (updatedStatus.isFollowing) {
+        showMessageButtonFunc(true);
+      } else {
+        showMessageButtonFunc(false);
+      }
       return updatedStatus;
     } catch {
       const errorStatus = { isFollowing: false, requestPending: false };

@@ -4,7 +4,7 @@ import { useFriends } from "@/context/friends_context";
 import { FaUserPlus, FaUserCheck, FaClock } from "react-icons/fa";
 import styles from "@/styles/profile.module.css";
 
-function FollowButton({ targetUserId }) {
+function FollowButton({ targetUserId, showMessage }) {
   const {
     followStatuses,
     toggleFollow,
@@ -31,18 +31,19 @@ function FollowButton({ targetUserId }) {
   }, [followStatuses, targetUserId]);
 
   const handleClick = async () => {
+    
     if (status.isFollowing) {
       setConfirm(true);
     } else {
       setLoading(true);
-      await toggleFollow(targetUserId);
+      await toggleFollow(targetUserId, showMessage);
     }
   };
 
   const confirmUnfollow = async () => {
     setLoading(true);
     setConfirm(false);
-    await toggleFollow(targetUserId);
+    await toggleFollow(targetUserId, showMessage);
   };
 
   return (

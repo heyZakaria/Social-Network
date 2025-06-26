@@ -16,15 +16,15 @@ import FollowButton from "@/components/profile/follow-button";
 import Image from "next/image";
 import { broadcastChannel, socket, websocket } from "@/lib/websocket/websocket";
 import { FetchData } from "@/context/fetchJson";
-import { date } from "zod";
-export default function FloatingChat({ currentUser, profileData, source, group }) {
+import { date, set } from "zod";
+export default function FloatingChat({ currentUser, profileData, source, group}) {
   const [isOpen, setIsOpen] = useState(false);
   const [activeChat, setActiveChat] = useState(null);
   const [refresh, setRefresh] = useState(0);
   const [recentChats, setRecentChats] = useState([]);
   const [unreadCount, setUnreadCount] = useState(0);
   const [newMessage, setNewMessage] = useState("");
-
+  const [showMessageButton, setShowMessageButton] = useState(profileData?.ShowMessage || false);
   useEffect(() => {
     // In a real app, this would be an API call
     // For now, we'll use mock data
@@ -163,10 +163,9 @@ export default function FloatingChat({ currentUser, profileData, source, group }
       ) : (
         <div className={styles.profileActions}>
           {source === "profile" && (
-            <FollowButton targetUserId={profileData?.id} />
+            <FollowButton targetUserId={profileData?.id} showMessage={setShowMessageButton} />
           )}
-          {profileData?.profile_status === "public" ||
-          profileData?.CanView ||
+          {showMessageButton ||
           source == "group" ? (
             <button
               className={styles.messageButton}

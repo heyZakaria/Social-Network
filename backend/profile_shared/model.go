@@ -31,5 +31,6 @@ type UserProfile struct {
 	IsOwnProfile   bool
 	CanView        bool
 	IsFollowing    bool
+	ShowMessage    bool
 	RequestPending bool
 }
