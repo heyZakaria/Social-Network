@@ -41,5 +41,5 @@ export async function middleware(req) {
 }
 
 export const config = {
-  matcher: ['/friends/:path*', '/profile/:path*', '/group/:path*', '/notifications/:path*'],
+  matcher: ['/friends/:path*', '/profile/:path*', '/groups/:path*', '/notifications/:path*'],
 }

@@ -16,7 +16,7 @@ export default function NotificationItem({ notification, onClick }) {
       <Link
         href={
           notification.type === "group_event" || notification.type === "invite_group"
-            ? `/group/${notification.id}`
+            ? `/groups/${notification.id}`
             : `/profile/${notification.id || ""}`
         }
         onClick={() => onClick(notification.id)}
