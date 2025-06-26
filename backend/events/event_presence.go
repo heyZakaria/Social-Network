@@ -4,10 +4,12 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
+	"strings"
+
 	db "socialNetwork/db/sqlite"
+	"socialNetwork/notifications"
 	shared "socialNetwork/shared_packages"
 	"socialNetwork/utils"
-	"strings"
 )
 
 func GroupEventResponse(w http.ResponseWriter, r *http.Request) {
@@ -66,7 +68,6 @@ func GroupEventResponse(w http.ResponseWriter, r *http.Request) {
     UPDATE event_presence 
     SET status = ? 
     WHERE group_id = ? AND event_id = ? AND user_id = ?`, EventResp.Presence, EventResp.Group_id, EventResp.Event_id, UserId)
-
 	if err != nil {
 		utils.Log("ERROR", "Failed to instert event presence: "+err.Error())
 		utils.SendJSON(w, http.StatusInternalServerError, utils.JSONResponse{
@@ -100,11 +101,28 @@ func GroupEventResponse(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 	}
+	var creator_event_id string
 
+	err = db.DB.QueryRow("SELECT event_creator FROM events WHERE group_id = ? AND id = ?", EventResp.Group_id, EventResp.Event_id).Scan(&creator_event_id)
+	if err != nil {
+		utils.Log("ERROR", "Error getting creator_event_id: "+err.Error())
+		utils.SendJSON(w, http.StatusInternalServerError, utils.JSONResponse{
+			Success: false,
+			Error:   "Internal Error",
+		})
+		return
+	}
 	utils.Log("INFO", "Event Presence Inserted in DB successfully")
 	utils.SendJSON(w, http.StatusOK, utils.JSONResponse{
 		Success: true,
 		Message: "Event presence inserted successfully",
 		Data:    EventResp,
 	})
+
+	notifications.DeleteFollowRequestNotification(
+		UserId,
+		creator_event_id,
+		"group_event",
+		0,
+	)
 }
