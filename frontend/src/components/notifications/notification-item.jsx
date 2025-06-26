@@ -61,6 +61,8 @@ export default function NotificationItem({ notification, onClick }) {
         reject,
         notification.id,
         notification.invitedId,
+        notification.groupId,
+        notification.eventId
       )}
 
 

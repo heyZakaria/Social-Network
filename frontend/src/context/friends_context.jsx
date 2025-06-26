@@ -218,10 +218,9 @@ export function FriendsProvider({ children }) {
       setActionError(error.message)
     }
   }
-
   const HandleEventPresence = async (groupId, eventId, action) => {
     try {
-      res = await fetch(`http://localhost:8080/api/groups/event_presence/response`, {
+      const response = await fetch(`http://localhost:8080/api/groups/event_presence/response`, {
         method: "POST",
         credentials: "include",
         headers: {
@@ -230,46 +229,57 @@ export function FriendsProvider({ children }) {
         body: JSON.stringify({
           group_id: groupId,
           event_id: eventId,
-          presence: action
-        })
-      })
-      resp = await res.json()
-      if (!resp.ok || !resp.success) {
-        console.error("Faild to comming event")
-      }
-    } catch {
-      console.error("Faild to comming event")
-
-    }
-  }
-
-
-  const fetchEvents = async () => {
-
-    return fetch(`http://localhost:8080/api/groups/events/${groupId}`, {
-      method: "GET",
-      credentials: "include",
-
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-      .then(async (res) => {
-        if (!res.ok) {
-          return res.json().then((errData) => {
-            throw new Error(errData.error || "Event fetch failed");
-          });
-        }
-        return res.json();
-      })
-      .then((data) => {
-        return data
-      })
-      .catch((error) => {
-        console.error("Error fetching events:", error.message);
-        setError(error.message);
+          presence: action,
+        }),
       });
+
+      console.log("group_id", groupId);
+      console.log("eventId", eventId);
+      console.log("presence", action);
+
+      
+      
+      if (!response.ok) {
+        // const errData = await response.json();
+        throw new Error(errData.error || "Event presence error");
+      }
+
+      // await response.json(); // If you need the response data, assign it to a variable
+
+      // const events = await fetchEvents(groupId);
+      // setEvents(events);
+
+    } catch (error) {
+      console.error("Error handling event presence:", error.message);
+      // setError(error.message);
+    }
   };
+
+  const fetchEvents = async (groupId) => {
+    try {
+      const response = await fetch(`http://localhost:8080/api/groups/events/${groupId}`, {
+        method: "GET",
+        credentials: "include",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      if (!response.ok) {
+        const errData = await response.json();
+        throw new Error(errData.error || "Event fetch failed");
+      }
+
+      const data = await response.json();
+      return data;
+
+    } catch (error) {
+      console.error("Error fetching events:", error.message);
+      setError(error.message);
+      return null;
+    }
+  };
+
 
   return (
     <FriendsContext.Provider

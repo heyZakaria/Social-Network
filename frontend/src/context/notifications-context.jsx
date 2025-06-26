@@ -33,6 +33,8 @@ export function NotificationsProvider({ user, children }) {
       read: msg.Data.read ?? false,
       createdAt: msg.Data.createdAt,
       invitedId: msg.Data.invitedId || null,
+      groupId: msg.Data.groupId || "",
+      eventId: msg.Data.eventId || null,
     };
 
     setNotifications((prev) => {

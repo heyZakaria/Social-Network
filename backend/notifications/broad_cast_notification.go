@@ -55,8 +55,8 @@ func SendStoredNotifications(userID string, client *Client) {
 				"avatar":    sender.Avatar,
 				"from":      sender.FirstName + " " + sender.LastName,
 				"createdAt": createdAt.Format(time.RFC3339),
-				"event_id":  eventID,
-				"group_id":  groupID,
+				"eventId":  eventID,
+				"groupId":  groupID,
 			},
 		}
 

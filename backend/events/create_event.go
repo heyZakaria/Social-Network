@@ -112,6 +112,22 @@ func CreateEvent(w http.ResponseWriter, r *http.Request) {
 		}
 	}
 
+	err = db.DB.QueryRow("SELECT id FROM events WHERE group_id = ? AND event_creator = ?", EventResp.Group_id, EventResp.Event_id).Scan(&creator_event_id)
+	if err != nil {
+		utils.Log("ERROR", "Error getting creator_event_id: "+err.Error())
+		utils.SendJSON(w, http.StatusInternalServerError, utils.JSONResponse{
+			Success: false,
+			Error:   "Internal Error",
+		})
+		return
+	}
+	utils.Log("INFO", "Event Presence Inserted in DB successfully")
+	utils.SendJSON(w, http.StatusOK, utils.JSONResponse{
+		Success: true,
+		Message: "Event presence inserted successfully",
+		Data:    EventResp,
+	})
+
 	notifications.BroadcastNotification(
 		db.DB,
 		UserId,

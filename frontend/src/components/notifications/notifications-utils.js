@@ -60,13 +60,16 @@ export function getActionButtons(
   accept,
   reject,
   userId,
-  invitedId
+  invitedId,
+  groupId,
+  eventId
 ) {
   const status = handledRequests[notifId];
   const {
     setHandledRequests,
     handleInviteResponse,
     handleInviteAdminResponse,
+    HandleEventPresence,
   } = useFriends();
 
   if (!["follow_request", "invite_group", "group_event", "follow", "invite_group_admin"].includes(type))
@@ -183,6 +186,7 @@ export function getActionButtons(
             className={`${styles.actionButton} ${styles.acceptButton}`}
             onClick={(e) => {
               e.preventDefault();
+              HandleEventPresence(groupId, eventId, "going")
               setHandledRequests(prev => ({ ...prev, [notifId]: "accepted" }));
             }}
           >
@@ -193,6 +197,7 @@ export function getActionButtons(
             className={`${styles.actionButton} ${styles.rejectButton}`}
             onClick={(e) => {
               e.preventDefault();
+              HandleEventPresence(groupId, eventId, "not going")
               setHandledRequests(prev => ({ ...prev, [notifId]: "rejected" }));
             }}
           >
