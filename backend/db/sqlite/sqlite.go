@@ -33,6 +33,10 @@ func InitDB(dataSourceName string) (*sql.DB, error) {
 	if err != nil {
 		return nil, fmt.Errorf("failed to enable foreign keys: %w", err)
 	}
+	_, err = DB.Exec("PRAGMA journal_mode=WAL;")
+	if err != nil {
+		log.Fatalf("Failed to enable WAL mode: %v", err)
+	}
 
 	initMig()
 	return DB, nil
