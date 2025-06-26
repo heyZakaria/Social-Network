@@ -135,7 +135,7 @@ export default function Sidebar({ position }) {
 
       {position === "right" && (
         <>
-          <FriendsList friends={sampleFriends} title="Online Friends" />
+          {/* <FriendsList friends={sampleFriends} title="Online Friends" /> */}
           <FriendSuggestions suggestions={sampleFriendSuggestions} />
         </>
       )}

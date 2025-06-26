@@ -16,7 +16,7 @@ function FriendSuggestions() {
     <div className={styles.container}>
       <h3 className={styles.title}>People You May Know</h3>
       <div className={styles.list}>
-        {suggestions.slice(0, 5).map((user) => (
+        {suggestions.slice(0, 10).map((user) => (
           <div key={user.id} className={styles.item}>
             <Link href={`/profile/${user.id}`}>
               <Image
