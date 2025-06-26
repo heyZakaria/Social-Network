@@ -22,7 +22,15 @@ export default function PendingInviteList({ groupId }) {
 
   if (loading) return <p>Loading...</p>
 
-  if (!invites || invites.length == 0) return <p>No Invites</p>
+  if (!invites || invites.length == 0) return <p style={
+                      { color: "#7c3aed",
+                        textAlign: "center" ,
+                        fontSize: "18px",
+                        fontWeight: "600",
+                        padding: "20px",
+                        backgroundColor: "white"
+                      }
+                    }>No invites yet</p>
   return (
     <>
       <ul className={styles.inviteList}>
@@ -98,7 +106,15 @@ export function RequestsToJoinGroup() {
   if (loading) return <p>Loading...</p>
   console.log("invvvvvvvvvvvvvvvvvvvv", invites);
 
-  if (!invites || invites.length == 0) return <p>No Invites</p>
+  if (!invites || invites.length == 0) return <p style={
+                      { color: "#7c3aed",
+                        textAlign: "center" ,
+                        fontSize: "18px",
+                        fontWeight: "600",
+                        padding: "20px",
+                        backgroundColor: "white"
+                      }
+                    }>No invites yet</p>
   return (
     <>
       <ul className={styles.inviteList}>

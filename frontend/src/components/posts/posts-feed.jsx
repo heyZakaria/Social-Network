@@ -33,7 +33,15 @@ return (
                   </>
                 ) : (
                   <div className={styles.emptyState}>
-                    <p>No posts yet</p>
+                    <p style={
+                      { color: "#7c3aed",
+                        textAlign: "center" ,
+                        fontSize: "18px",
+                        fontWeight: "600",
+                        padding: "20px",
+                        backgroundColor: "white"
+                      }
+                    }>No posts yet</p>
                   </div>
                 )}
               </div>
