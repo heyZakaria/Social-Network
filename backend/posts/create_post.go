@@ -88,7 +88,7 @@ func CreatePost(w http.ResponseWriter, r *http.Request) {
 		utils.Log("ERROR", "Error Trying to save post into db")
 		utils.SendJSON(w, http.StatusInternalServerError, utils.JSONResponse{
 			Success: false,
-			Message: "Error Inserting Post, Try again later.",
+			Message: "Error Inserting Post, Try again later." + err.Error(),
 			Error:   "Internal Server Error, Try again later.",
 		})
 		return

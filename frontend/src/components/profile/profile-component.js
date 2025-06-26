@@ -18,7 +18,8 @@ export default function ProfileComponent({ ProfileData }) {
   }
   const {user: currentUser} = useUser()
   const {posts , loading , hasMore , loadMore } = usePosts({groupId:null , ProfileId:ProfileData.id , limit:10})
-
+  console.log("ProfileData:", ProfileData);
+  
   // const [posts, setPosts] = useState([]);
   // const [offset, setOffset] = useState(0);
   // const limit = 10; // You can change this value if needed
@@ -83,6 +84,7 @@ export default function ProfileComponent({ ProfileData }) {
             <div className={styles.profileNameSection}>
               <h1 className={styles.profileName}>
                 {ProfileData.firstName} {ProfileData.lastName}
+                
                 {ProfileData.nickname && (
                   <span className={styles.nickname}>
                     ({ProfileData.nickname})
@@ -92,7 +94,7 @@ export default function ProfileComponent({ ProfileData }) {
                 <FloatingChat currentUser={currentUser} profileData={ProfileData} source="profile" />
              
             </div>
-
+            
             <div className={styles.profileStats}>
               <div className={styles.stat}>
                 <span className={styles.statNumber}>
@@ -116,6 +118,16 @@ export default function ProfileComponent({ ProfileData }) {
             {ProfileData.bio && ( // TODO Change the logic
               <div className={styles.profileBio}>{ProfileData.bio}</div>
             )}
+            <div>
+              {ProfileData.CanView ? (
+                <>
+                  Email: {ProfileData.email}<br></br>
+                  Birthday: {new Date(ProfileData.birthday).toLocaleDateString()}
+                </>
+              ) : (
+                ""
+              )}
+            </div>
           </div>
         </div>
       </div>

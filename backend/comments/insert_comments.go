@@ -7,6 +7,7 @@ import (
 
 	db "socialNetwork/db/sqlite"
 	post "socialNetwork/posts"
+	shared "socialNetwork/shared_packages"
 	"socialNetwork/utils"
 
 	"github.com/gofrs/uuid/v5"
@@ -50,6 +51,13 @@ func (c *Comment) IsPostExist(postId int, UserID, GroupId string) error {
 	var query string
 	var row *sql.Row
 	if GroupId != "" {
+		GroupExist, MemberExist, Err := shared.ValidateGroup(db.DB, GroupId, UserID)
+		if Err != nil {
+			return Err
+		}
+		if !GroupExist || !MemberExist {
+			return fmt.Errorf("Either group does not exist or user is not a member of the group")
+		}
 		query = "SELECT * FROM posts  WHERE group_id = ? AND id = ?"
 		row = db.DB.QueryRow(query, GroupId, postId)
 	} else {

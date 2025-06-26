@@ -9,8 +9,8 @@ import { useUser } from "@/context/user_context";
 
 export default function Login() {
   const router = useRouter();
-  const [email, setEmail] = useState("omar@gmail.com");
-  const [password, setPassword] = useState("Abcd1234");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
   const [serverError, setServerErrors] = useState("");
@@ -67,7 +67,6 @@ if (currentUser) {
       setLoading(false);
     }
   };
-  if (loading) return <div>Loading...</div>;
 
   return (
 
@@ -86,6 +85,7 @@ if (currentUser) {
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            placeholder="Enter your email"
             className={styles.inputEmail}
           />
           {errors.email && <p className={styles.error}>{errors.email}</p>}
@@ -95,6 +95,7 @@ if (currentUser) {
           <input
             type="password"
             value={password}
+            placeholder="Enter your password"
             onChange={(e) => setPassword(e.target.value)}
             className={styles.inputPassword}
           />
