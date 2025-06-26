@@ -1,5 +1,5 @@
 CREATE TABLE IF NOT EXISTS events (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    id TEXT PRIMARY KEY ,
     title TEXT NOT NULL CHECK(LENGTH(title) > 10 AND LENGTH(title) <100),
     `description` TEXT NOT NULL CHECK(LENGTH(`description`) >= 30 AND LENGTH(`description`) <250),
     date_of_event TEXT NOT NULL,

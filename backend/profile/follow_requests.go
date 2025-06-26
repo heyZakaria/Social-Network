@@ -91,7 +91,7 @@ func AcceptFollowRequest(w http.ResponseWriter, r *http.Request) {
 			"follow_request_accepted",
 			"accepted your Follow",
 			"",
-			0,
+			"",
 		)
 	}
 }

@@ -5,7 +5,7 @@ CREATE TABLE IF NOT EXISTS notifications (
   type_notification TEXT NOT NULL,
   content TEXT,
   invite_id INTEGER NOT NULL DEFAULT 0,
-  event_id INTEGER,
+  event_id TEXT,
   group_id TEXT,
   is_read BOOLEAN DEFAULT FALSE,
   created_at DATETIME DEFAULT CURRENT_TIMESTAMP,

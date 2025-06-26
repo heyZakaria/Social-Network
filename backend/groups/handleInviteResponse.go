@@ -124,7 +124,7 @@ func handleInviteResponse(w http.ResponseWriter, r *http.Request) {
 			"invite_group_admin",
 			"Want to join your group",
 			"",
-			0,
+			"",
 		)
 	} else {
 		notifications.BuildAndDispatchNotification(
@@ -135,7 +135,7 @@ func handleInviteResponse(w http.ResponseWriter, r *http.Request) {
 			notify_state,
 			notify_content,
 			"",
-			0,
+			"",
 		)
 	}
 }

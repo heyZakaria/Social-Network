@@ -12,6 +12,7 @@ import (
 	"socialNetwork/notifications"
 	shared "socialNetwork/shared_packages"
 	"socialNetwork/utils"
+	"github.com/google/uuid"
 )
 
 func CreateEvent(w http.ResponseWriter, r *http.Request) {
@@ -80,7 +81,11 @@ func CreateEvent(w http.ResponseWriter, r *http.Request) {
 		fmt.Println("Member Exist")
 	}
 	fmt.Println("event", event)
-	_, err = db.DB.Exec("INSERT INTO events ( title, description, date_of_event, event_location, event_creator, group_id) VALUES (?, ?, ?, ?, ?, ?)", event.Title, event.Description, event.DateOfEvent, event.EventLocation, event.Creator, GroupId)
+
+	
+	eventId := uuid.New().String()
+
+	_, err = db.DB.Exec("INSERT INTO events (id, title, description, date_of_event, event_location, event_creator, group_id) VALUES (?, ?, ?, ?, ?, ?, ?)", eventId, event.Title, event.Description, event.DateOfEvent, event.EventLocation, event.Creator, GroupId)
 	if err != nil {
 		utils.Log("ERROR", "Failed to create event: "+err.Error())
 		utils.SendJSON(w, http.StatusInternalServerError, utils.JSONResponse{
@@ -112,22 +117,6 @@ func CreateEvent(w http.ResponseWriter, r *http.Request) {
 		}
 	}
 
-	err = db.DB.QueryRow("SELECT id FROM events WHERE group_id = ? AND event_creator = ?", EventResp.Group_id, EventResp.Event_id).Scan(&creator_event_id)
-	if err != nil {
-		utils.Log("ERROR", "Error getting creator_event_id: "+err.Error())
-		utils.SendJSON(w, http.StatusInternalServerError, utils.JSONResponse{
-			Success: false,
-			Error:   "Internal Error",
-		})
-		return
-	}
-	utils.Log("INFO", "Event Presence Inserted in DB successfully")
-	utils.SendJSON(w, http.StatusOK, utils.JSONResponse{
-		Success: true,
-		Message: "Event presence inserted successfully",
-		Data:    EventResp,
-	})
-
 	notifications.BroadcastNotification(
 		db.DB,
 		UserId,
@@ -135,7 +124,7 @@ func CreateEvent(w http.ResponseWriter, r *http.Request) {
 		"group_event",
 		"Create Event",
 		GroupId,
-		event.ID,
+		eventId,
 	)
 }
 

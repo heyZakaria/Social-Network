@@ -64,7 +64,7 @@ func SendStoredNotifications(userID string, client *Client) {
 	}
 }
 
-func BroadcastNotification(db *sql.DB, senderID string, receiverIDs []string, notifType, content, groupID string, eventID int) {
+func BroadcastNotification(db *sql.DB, senderID string, receiverIDs []string, notifType, content, groupID, eventID string) {
 	for _, receiverID := range receiverIDs {
 		BuildAndDispatchNotification(db, 0, senderID, receiverID, notifType, content, groupID, eventID)
 	}

@@ -7,8 +7,7 @@ import (
 
 func SaveNotificationToDB(
 	db *sql.DB,
-	userID, senderID, notifType, content, groupID string,
-	eventID int,     // event_id is TEXT in schema, so changed from int to string
+	userID, senderID, notifType, content, groupID, eventID string,
 	inviteID int64,
 ) (int64, error) {
 	// Normalize inviteID to 0 if negative (or any rule you want)

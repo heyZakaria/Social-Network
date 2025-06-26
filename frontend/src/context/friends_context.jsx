@@ -203,7 +203,6 @@ export function FriendsProvider({ children }) {
     }
   }
 
-
   const handleInviteAdminResponse = async (action, id) => {
     try {
       const respo = await fetch(`http://localhost:8080/api/groups/invite/approve?Action=${action}&Invite=${id}`, {
@@ -218,6 +217,7 @@ export function FriendsProvider({ children }) {
       setActionError(error.message)
     }
   }
+
   const HandleEventPresence = async (groupId, eventId, action) => {
     try {
       const response = await fetch(`http://localhost:8080/api/groups/event_presence/response`, {
@@ -231,52 +231,14 @@ export function FriendsProvider({ children }) {
           event_id: eventId,
           presence: action,
         }),
-      });
-
-      console.log("group_id", groupId);
-      console.log("eventId", eventId);
-      console.log("presence", action);
-
-      
+      });  
       
       if (!response.ok) {
-        // const errData = await response.json();
-        throw new Error(errData.error || "Event presence error");
+        throw new Error("Event presence error");
       }
 
-      // await response.json(); // If you need the response data, assign it to a variable
-
-      // const events = await fetchEvents(groupId);
-      // setEvents(events);
-
-    } catch (error) {
-      console.error("Error handling event presence:", error.message);
-      // setError(error.message);
-    }
-  };
-
-  const fetchEvents = async (groupId) => {
-    try {
-      const response = await fetch(`http://localhost:8080/api/groups/events/${groupId}`, {
-        method: "GET",
-        credentials: "include",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-
-      if (!response.ok) {
-        const errData = await response.json();
-        throw new Error(errData.error || "Event fetch failed");
-      }
-
-      const data = await response.json();
-      return data;
-
-    } catch (error) {
-      console.error("Error fetching events:", error.message);
-      setError(error.message);
-      return null;
+    } catch {
+      console.error("Error handling event presence");
     }
   };
 
@@ -300,7 +262,6 @@ export function FriendsProvider({ children }) {
         handleInviteResponse,
         handleInviteAdminResponse,
         HandleEventPresence,
-        fetchEvents,
       }}
     >
       {children}

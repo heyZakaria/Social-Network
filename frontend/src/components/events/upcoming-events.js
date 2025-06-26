@@ -6,10 +6,9 @@ import { useParams } from "next/navigation";
 import { useFriends } from "@/context/friends_context";
 
 let groupId
-export default function UpcomingEvents( ) {
-  const {HandleEventPresence, fetchEvents} = useFriends()
+export default function UpcomingEvents() {
+  const { HandleEventPresence } = useFriends()
   const [events, setEvents] = useState([]);
-  const [attendees, setAttendees] = useState(0);
   const [error, setError] = useState(null);
 
   const p = useParams()
@@ -26,41 +25,6 @@ export default function UpcomingEvents( ) {
     }
   }
 
-  // const HandleEventPresence = (event) => {
-  //   console.log("ZZZZZZZZZZZZ", event, event.id);
-
-  //   fetch(`http://localhost:8080/api/groups/event_presence/response`, {
-  //     method: "POST",
-  //     credentials: "include",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //     body: JSON.stringify({
-  //       group_id: groupId,
-  //       event_id: event.id,
-  //       presence: event.presence
-  //     })
-  //   })
-  //     .then((res) => {
-  //       if (!res.ok) {
-  //         return res.json().then((errData) => {
-  //           throw new Error(errData.error || "Event presence err");
-  //         });
-  //       }
-
-  //       return res.json();
-  //     })
-  //     .then(async (data) => {
-  //       let e = await fetchEvents()
-
-  //       setEvents(e)
-  //     })
-  //     .catch((error) => {
-  //       console.error("Error fetching events:", error.message);
-  //       setError(error.message);
-  //     });
-  // }
-
   const formatDate = (dateString) => {
     const date = new Date(dateString);
     return date.toLocaleString("en-US", {
@@ -70,7 +34,7 @@ export default function UpcomingEvents( ) {
       minute: "2-digit",
     });
   };
-
+  
   return (
     <div className={styles.eventsContainer}>
       <div className={styles.eventsHeader}>
@@ -83,7 +47,7 @@ export default function UpcomingEvents( ) {
 
       {error && <p className={styles.error}>{error}</p>}
 
-      <div className={styles.eventsGrid}>
+      <div className={styles.eventGrid}>
         {events.length === 0 ? (
           <p>No events found. Click "Get Events" to load.</p>
         ) : (
@@ -106,8 +70,8 @@ export default function UpcomingEvents( ) {
                     <span>{event.attendees || 0} going</span>
                   </div>
                   <div className={styles.eventActions}>
-                    <button onClick={() => HandleEventPresence({ id: event.id, presence: "going" })} className={styles.goingButton}> Going</button>
-                    <button onClick={() => HandleEventPresence({ id: event.id, presence: "not going" })} className={styles.notGoingButton}>Not Going</button>
+                    <button onClick={() => HandleEventPresence(groupId, event.id, "going")} className={styles.goingButton}> Going</button>
+                    <button onClick={() => HandleEventPresence(groupId, event.id, "not going")} className={styles.notGoingButton}>Not Going</button>
                   </div>
                 </div>
               </div>
@@ -120,35 +84,35 @@ export default function UpcomingEvents( ) {
 }
 
 
-// export const fetchEvents = async () => {
+export const fetchEvents = async () => {
 
-//   return fetch(`http://localhost:8080/api/groups/events/${groupId}`, {
-//     method: "GET",
-//     credentials: "include",
+  const res = await fetch(`http://localhost:8080/api/groups/events/${groupId}`, {
+    method: "GET",
+    credentials: "include",
 
-//     headers: {
-//       "Content-Type": "application/json",
-//     },
-//   })
-//     .then(async (res) => {
-//       if (!res.ok) {
-//         return res.json().then((errData) => {
-//           throw new Error(errData.error || "Event fetch failed");
-//         });
-//       }
-//       ///console.log("Weeeeeeeeeeee EVENTS 1", res.json());
-//       return res.json();
-//     })
-//     .then((data) => {
-//       console.log("Weeeeeeeeeeee EVENTS 2", data);
-//       return data
-//       setEvents(data);
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+    .then(async (res) => {
+      if (!res.ok) {
+        return res.json().then((errData) => {
+          throw new Error(errData.error || "Event fetch failed");
+        });
+      }
+      ///console.log("Weeeeeeeeeeee EVENTS 1", res.json());
+      return res.json();
+    })
+    .then((data) => {
+      console.log("Weeeeeeeeeeee EVENTS 2", data);
+      return data
+      // setEvents(data);
 
-//       setAttendees(data.attendees)
-//       setError(null);
-//     })
-//     .catch((error) => {
-//       console.error("Error fetching events:", error.message);
-//       setError(error.message);
-//     });
-// };
+      // setAttendees(data.attendees)
+      // setError(null);
+    })
+    .catch((error) => {
+      console.error("Error fetching events:", error.message);
+      setError(error.message);
+    });
+};

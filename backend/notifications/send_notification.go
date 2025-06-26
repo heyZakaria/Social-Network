@@ -25,8 +25,7 @@ func DispatchNotificationToUser(toUserID string, notif MessageStruct) {
 func BuildAndDispatchNotification(
 	db *sql.DB,
 	inviteID int64,
-	senderID, receiverID, notifType, content, groupID string,
-	eventID int,
+	senderID, receiverID, notifType, content, groupID, eventID string,
 ) {
 	if senderID == "" || receiverID == "" || senderID == receiverID {
 		return

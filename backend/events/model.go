@@ -17,6 +17,6 @@ type Events []Event
 
 type EventResponse struct {
 	Group_id string `json:"group_id"`
-	Event_id int    `json:"event_id"`
+	Event_id string    `json:"event_id"`
 	Presence string `json:"presence"`
 }
