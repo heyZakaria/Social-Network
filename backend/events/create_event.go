@@ -2,7 +2,6 @@ package Event
 
 import (
 	"encoding/json"
-	"fmt"
 	"net/http"
 	"strings"
 	"time"
@@ -12,6 +11,7 @@ import (
 	"socialNetwork/notifications"
 	shared "socialNetwork/shared_packages"
 	"socialNetwork/utils"
+
 	"github.com/google/uuid"
 )
 
@@ -67,9 +67,8 @@ func CreateEvent(w http.ResponseWriter, r *http.Request) {
 			Message: "Group Does Not Exist",
 		})
 		return
-	} else {
-		fmt.Println("Group Exist")
 	}
+
 	if !MemberExist {
 		utils.Log("Error", "Not a Member ")
 		utils.SendJSON(w, http.StatusForbidden, utils.JSONResponse{
@@ -77,12 +76,8 @@ func CreateEvent(w http.ResponseWriter, r *http.Request) {
 			Message: "You're Not a Member Plz Send a Join Request",
 		})
 		return
-	} else {
-		fmt.Println("Member Exist")
 	}
-	fmt.Println("event", event)
 
-	
 	eventId := uuid.New().String()
 
 	_, err = db.DB.Exec("INSERT INTO events (id, title, description, date_of_event, event_location, event_creator, group_id) VALUES (?, ?, ?, ?, ?, ?, ?)", eventId, event.Title, event.Description, event.DateOfEvent, event.EventLocation, event.Creator, GroupId)

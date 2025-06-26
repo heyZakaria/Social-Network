@@ -20,7 +20,6 @@ export default function ShowEventForm() {
 
     const p = useParams()
     groupId = p.id
-    console.log("===================groupId:", groupId);
 
     const handleClick = () => {
         setShowForm(!showForm);
@@ -97,7 +96,6 @@ export default function ShowEventForm() {
         }
 
         SendEventForm(formData, groupId)
-        // UpcomingEvents()
 
         setFormData({ title: "", description: "", day: "", time: "", date: "", location: "" });
         handleClick()
@@ -203,6 +201,5 @@ async function SendEventForm(formData, groupId) {
         console.log("Event created:", data);
     } catch (error) {
         console.error("Error creating event:", error);
-        // setServerError(error.message)
     }
 }

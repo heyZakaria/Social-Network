@@ -2,7 +2,6 @@ package Event
 
 import (
 	"encoding/json"
-	"fmt"
 	"net/http"
 	"strings"
 
@@ -20,7 +19,7 @@ func GroupEventResponse(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		utils.Log("ERROR", "Failed to decode request body: "+err.Error())
 	}
-	fmt.Println("EEEEEE", EventResp)
+	// fmt.Println("EEEEEE", EventResp)
 	splitedPath := strings.Split(r.URL.Path, "/")
 	if len(splitedPath) < 2 || splitedPath[1] == "" {
 		utils.SendJSON(w, http.StatusBadRequest, utils.JSONResponse{

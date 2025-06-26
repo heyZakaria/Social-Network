@@ -1,3 +1,4 @@
+"use client"
 import { useState } from "react";
 import Link from "next/link";
 import { IoAddOutline } from "react-icons/io5";
@@ -13,12 +14,10 @@ export default function UpcomingEvents() {
 
   const p = useParams()
   groupId = p.id
-  console.log("Weeeeeeeeeeee ID", groupId);
 
   const HandleGetEvents = async () => {
     try {
       const e = await fetchEvents();
-      // console.log("=+=++=+++===", e);
       setEvents(e);
     } catch (error) {
       console.error("Error fetching events:", error.message);
@@ -48,10 +47,10 @@ export default function UpcomingEvents() {
       {error && <p className={styles.error}>{error}</p>}
 
       <div className={styles.eventGrid}>
-        {events.length === 0 ? (
+        {events?.length == 0? (
           <p>No events found. Click "Get Events" to load.</p>
         ) : (
-          events.map((event) => (
+          events?.map((event) => (
             <div key={event.id} className={styles.eventCard}>
               <div className={styles.eventCardContent}>
                 <h3 className={styles.eventCardTitle}>{event.title}</h3>
@@ -86,7 +85,7 @@ export default function UpcomingEvents() {
 
 export const fetchEvents = async () => {
 
-  const res = await fetch(`http://localhost:8080/api/groups/events/${groupId}`, {
+ return fetch(`http://localhost:8080/api/groups/events/${groupId}`, {
     method: "GET",
     credentials: "include",
 
@@ -100,16 +99,12 @@ export const fetchEvents = async () => {
           throw new Error(errData.error || "Event fetch failed");
         });
       }
-      ///console.log("Weeeeeeeeeeee EVENTS 1", res.json());
       return res.json();
     })
     .then((data) => {
-      console.log("Weeeeeeeeeeee EVENTS 2", data);
+      // console.log("Weeeeeeeeeeee EVENTS 2", data);
       return data
-      // setEvents(data);
-
-      // setAttendees(data.attendees)
-      // setError(null);
+   
     })
     .catch((error) => {
       console.error("Error fetching events:", error.message);
