@@ -16,8 +16,9 @@ import FollowButton from "@/components/profile/follow-button";
 import Image from "next/image";
 import { broadcastChannel, socket, websocket } from "@/lib/websocket/websocket";
 import { FetchData } from "@/context/fetchJson";
-import { date, set } from "zod";
-export default function FloatingChat({ currentUser, profileData, source, group}) {
+
+
+export default function FloatingChat({ currentUser, profileData, source, group }) {
   const [isOpen, setIsOpen] = useState(false);
   const [activeChat, setActiveChat] = useState(null);
   const [refresh, setRefresh] = useState(0);
@@ -44,7 +45,6 @@ export default function FloatingChat({ currentUser, profileData, source, group})
             response.data.ChatList.reduce((acc, chat) => acc + chat.readed, 0)
           );
         }
-        console.log("Unread Count", unreadCount);
       } catch (error) {
         console.error("Error fetching recent chats:", error);
       }

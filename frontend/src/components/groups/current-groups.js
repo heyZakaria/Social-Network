@@ -10,7 +10,7 @@ import useFetch from "@/hooks/useFetch"; // Make sure this path is correct
 
 export default function CurrentGroups() {
   const [groups, setGroups] = useState([]);
-  const { data, loading, error } = useFetch("http://localhost:8080/api/groups/");
+  const { data, loading, error } = useFetch("/api/groups/");
 
   useEffect(() => {
     if (data) {
@@ -44,7 +44,7 @@ export default function CurrentGroups() {
     return (
       <div className={styles.container}>
         <h3 className={styles.title}>Your Groups</h3>
-        <p>You haven't joined any groups yet.</p>
+        <p>You haven&apos;t joined any groups yet.</p>
         <Link href="/groups" className={styles.seeAll}>
           Discover Groups
         </Link>

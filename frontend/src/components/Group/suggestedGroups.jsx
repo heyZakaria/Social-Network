@@ -52,7 +52,7 @@ function SuggGroupCard({ Group, onSendJoinRequest }) {
 }
 
 export default function GroupsList() {
-  const { data, loading, error } = useFetch("http://localhost:8080/api/groups/");
+  const { data, loading, error } = useFetch("/api/groups/");
 
   const [Groups, setGroups] = useState([]);
   const [FiltredGroups, setFiltredGroups] = useState([]);
@@ -98,7 +98,7 @@ console.log("grrrrrrrrroups",Groups);
 
   const SendorCancelJoinRequest = async (groupId, CurrentUserState) => {
     try {
-      const respo = await fetch(`http://localhost:8080/api/groups/join?id=${groupId}&action=${CurrentUserState == "Join" ? "Joining" : "Canceling"}`, {
+      const respo = await fetch(`/api/groups/join?id=${groupId}&action=${CurrentUserState == "Join" ? "Joining" : "Canceling"}`, {
         credentials: "include",
         method: "POST"
       });

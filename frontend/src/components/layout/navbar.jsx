@@ -141,14 +141,14 @@ export default function Navbar({ user }) {
             >
               <HiUsers size={24} />
             </Link>
-            <Link
+            {/* <Link
               href="/events"
               className={`${styles.navLink} ${isActive("/events") ? styles.active : ""
                 }`}
               onClick={closeAllMenus}
             >
               <HiCalendar size={24} />
-            </Link>
+            </Link> */}
           </div>
 
           <div className={styles.navbarRight}>
@@ -253,14 +253,14 @@ export default function Navbar({ user }) {
                     <HiUser size={16} />
                     My Profile
                   </Link>
-                  <Link
+                  {/* <Link
                     href="/settings"
                     className={styles.userDropdownItem}
                     onClick={closeAllMenus}
                   >
                     <HiCog size={16} />
                     Settings
-                  </Link>
+                  </Link> */}
                   <button
                     onClick={handleLogout}
                     className={styles.userDropdownItem}
@@ -306,14 +306,14 @@ export default function Navbar({ user }) {
                 <HiUsers size={20} />
                 Groups
               </Link>
-              <Link
+              {/* <Link
                 href="/events"
                 className={styles.mobileMenuItem}
                 onClick={closeAllMenus}
               >
                 <HiCalendar size={20} />
                 Events
-              </Link>
+              </Link> */}
               <Link
                 href="/profile"
                 className={styles.mobileMenuItem}
@@ -322,14 +322,14 @@ export default function Navbar({ user }) {
                 <HiUser size={20} />
                 Profile
               </Link>
-              <Link
+              {/* <Link
                 href="/settings"
                 className={styles.mobileMenuItem}
                 onClick={closeAllMenus}
               >
                 <HiCog size={20} />
                 Settings
-              </Link>
+              </Link> */}
               <button onClick={handleLogout} className={styles.mobileMenuItem}>
                 <HiArrowRightOnRectangle size={20} />
                 Logout

@@ -182,7 +182,7 @@ export default function ShowEventForm() {
 async function SendEventForm(formData, groupId) {
     // Last version --> /groups/{id}/newEvent
     try {
-        const res = await fetch(`http://localhost:8080/api/groups/${groupId}/newEvent`, {
+        const res = await fetch(`/api/groups/${groupId}/newEvent`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

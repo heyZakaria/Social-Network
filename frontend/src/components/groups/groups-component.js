@@ -105,7 +105,7 @@ export default function GroupsComponent({
                 <div className={styles.emptyStateIcon}>
                   <HiUserGroup size={48} />
                 </div>
-                <h2>You haven't joined any groups yet</h2>
+                <h2>You haven&apos;t joined any groups yet</h2>
                 <p>Discover groups or create your own</p>
                 <button
                   className={styles.emptyStateButton}

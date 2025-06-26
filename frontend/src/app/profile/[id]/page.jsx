@@ -49,7 +49,7 @@ export default function ProfilePage() {
     loadProfileUser();
   }, [ids, currentUser, router]);
 
-  if (loading || profileLoading) return <div>Loading...</div>;
+  if (loading) return <div>Loading...</div>;
 
   return (
     <ProfileComponent

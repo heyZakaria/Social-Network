@@ -146,8 +146,7 @@ export default function GroupCard({ children }) {
 
   const handleInvite = async (id) => {
     try {
-      const respo = await fetch(
-        `http://localhost:8080/api/groups/invite?Invited_id=${id}&Group_id=${groupId}`,
+      const respo = await fetch(`/api/groups/invite?Invited_id=${id}&Group_id=${groupId}`,
         {
           method: "POST",
           credentials: "include",
@@ -164,8 +163,7 @@ export default function GroupCard({ children }) {
   const HandleShowInvite = async () => {
     if (!showInvite) {
       try {
-        const resp = await fetch(
-          `http://localhost:8080/api/groups/group/FriendList?id=${groupId}`,
+        const resp = await fetch(`/api/groups/group/FriendList?id=${groupId}`,
           { credentials: "include" }
         );
         if (!resp.ok) throw new Error("Something Happened, Try Again");
@@ -185,8 +183,7 @@ export default function GroupCard({ children }) {
   const HandleMembersList = async () => {
     if (!showMembers) {
       try {
-        const resp = await fetch(
-          `http://localhost:8080/api/groups/group/members?id=${groupId}`,
+        const resp = await fetch(`/api/groups/group/members?id=${groupId}`,
           { credentials: "include" }
         );
         if (!resp.ok) throw new Error("Something Happened, Try Again");
@@ -210,7 +207,7 @@ export default function GroupCard({ children }) {
 
   useEffect(() => {
     if (!groupId) return;
-    fetch(`http://localhost:8080/api/groups/group/?id=${groupId}`, {
+    fetch(`/api/groups/group/?id=${groupId}`, {
       credentials: "include",
       method: "GET",
     })

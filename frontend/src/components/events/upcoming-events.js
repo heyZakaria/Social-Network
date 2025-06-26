@@ -6,6 +6,7 @@ import styles from "@/styles/UpcomingEvents.module.css";
 import { useParams } from "next/navigation";
 import { useFriends } from "@/context/friends_context";
 
+
 let groupId
 export default function UpcomingEvents() {
   const { HandleEventPresence } = useFriends()
@@ -38,17 +39,17 @@ export default function UpcomingEvents() {
     <div className={styles.eventsContainer}>
       <div className={styles.eventsHeader}>
         <h1>Events</h1>
-        <a onClick={HandleGetEvents} className={styles.createEventButton}>
+        <button onClick={HandleGetEvents} className={styles.createEventButton}>
           <IoAddOutline size={20} />
           Get Events
-        </a>
+        </button>
       </div>
 
       {error && <p className={styles.error}>{error}</p>}
 
       <div className={styles.eventGrid}>
-        {events?.length == 0? (
-          <p>No events found. Click "Get Events" to load.</p>
+        {events.length === 0 ? (
+          <p>No events found. Click Get Events to load.</p>
         ) : (
           events?.map((event) => (
             <div key={event.id} className={styles.eventCard}>
@@ -85,7 +86,7 @@ export default function UpcomingEvents() {
 
 export const fetchEvents = async () => {
 
- return fetch(`http://localhost:8080/api/groups/events/${groupId}`, {
+  const res = await fetch(`/api/groups/events/${groupId}`, {
     method: "GET",
     credentials: "include",
 

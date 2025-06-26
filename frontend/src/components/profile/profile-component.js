@@ -13,53 +13,14 @@ import PostFeeds from "../posts/posts-feed";
 import { useUser } from "@/context/user_context";
 export default function ProfileComponent({ ProfileData }) {
   const [activeTab, setActiveTab] = useState("posts");
-  if (!ProfileData) {
-    return <div>Loading...</div>;
-  }
-  const {user: currentUser} = useUser()
-  const {posts , loading , hasMore , loadMore } = usePosts({groupId:null , ProfileId:ProfileData.id , limit:10})
-  console.log("ProfileData:", ProfileData);
-  
-  // const [posts, setPosts] = useState([]);
-  // const [offset, setOffset] = useState(0);
-  // const limit = 10; // You can change this value if needed
-  // const [loading, setLoading] = useState(false);
-  // const [hasMore, setHasMore] = useState(true); // for pagination
 
-//   useEffect(() => {
-//     async function fetchPosts() {
-//       setLoading(true);
-//       try {
-//         const data = await FetchData(`/api/posts/getposts?limit=${limit}&offset=${offset}&user_id=${ProfileData.id}`);
-//         if (data.success === false) {
-//           setHasMore(false);
-//           setLoading(false);
-//           return
-//         }
-//         if (data.data.posts.length < limit) setHasMore(false); // no more posts
-//         setPosts((prev) => {
-//           const existingIds = new Set(prev.map((p) => p.PostId));
-//           const uniqueNewPosts = data.data.posts.filter((p) => !existingIds.has(p.PostId));
-//           return [...prev, ...uniqueNewPosts];
-//         });
-//       } finally {
-//         setLoading(false);
-//       }
-//     }
-//     if (activeTab === "posts" && hasMore) {
-//       fetchPosts();
-//     }
-//   // eslint-disable-next-line react-hooks/exhaustive-deps
-//   }, [activeTab, offset, ProfileData.id]);
+  const { user: currentUser } = useUser()
 
-//   console.log("Followers:", ProfileData.followers);
-// console.log("Following:", ProfileData.following);
-
-//   const loadMore = () => {
-//     if (!loading && hasMore) {
-//       setOffset((prev) => prev + limit);
-//     }
-//   };
+  const { posts, loading, hasMore, loadMore } = usePosts({
+  groupId: null,
+  ProfileId: ProfileData ? ProfileData.id : null,
+  limit: 10,
+});
 
   return (
     <div className={styles.profileContainer}>
@@ -91,8 +52,8 @@ export default function ProfileComponent({ ProfileData }) {
                   </span>
                 )}
               </h1>
-                <FloatingChat currentUser={currentUser} profileData={ProfileData} source="profile" />
-             
+              <FloatingChat currentUser={currentUser} profileData={ProfileData} source="profile" />
+
             </div>
             
             <div className={styles.profileStats}>
@@ -160,42 +121,13 @@ export default function ProfileComponent({ ProfileData }) {
 
           <div className={styles.tabContent}>
             {activeTab === "posts" && (
-              // <div className={styles.postsGrid}>
-              //   {loading && posts.length === 0 ? (
-              //     <p>{loading}Loading... {posts.length}</p>
-              //   ) : posts.length > 0 ? (
-              //     <>
-              //       {posts.map((post) => (
-              //         <PostComponent
-              //           key={post.PostId}
-              //           post={post}
-              //           user={ProfileData} // or actual logged in user
-              //           currentUser={ProfileData}
-              //         />
-              //       ))}
-              //       {hasMore && (
-              //         <button
-              //           className={styles.loadMoreButton}
-              //           onClick={loadMore}
-              //           disabled={loading}
-              //         >
-              //           {loading ? "Loading..." : "Load More"}
-              //         </button>
-              //       )}
-              //     </>
-              //   ) : (
-              //     <div className={styles.emptyState}>
-              //       <p>No posts yet</p>
-              //     </div>
-              //   )}
-              // </div>
-               <PostFeeds
-                      posts={posts}
-                    loading={loading}
-                    loadMore={loadMore}
-                    hasMore={hasMore}
-                    currentUser={ProfileData}
-                ></PostFeeds>
+              <PostFeeds
+                posts={posts}
+                loading={loading}
+                loadMore={loadMore}
+                hasMore={hasMore}
+                currentUser={ProfileData}
+              ></PostFeeds>
             )}
 
             {activeTab === "followers" && (

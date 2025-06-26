@@ -40,7 +40,7 @@ export default function ChatComponent({ currentUser, otherUser , refresh, active
 
     // In a real app, we would set up a WebSocket connection here
     // and clean it up in the return function
-  }, [currentUser.id, otherUser.other_user_id]);
+  }, [currentUser.id, otherUser.other_user_id, otherUser.session_id]);
 
   useEffect(() => {
     // Scroll to bottom when messages change

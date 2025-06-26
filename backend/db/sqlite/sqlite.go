@@ -6,6 +6,7 @@ import (
 	"log"
 	"os"
 	"path/filepath"
+
 	"socialNetwork/utils"
 
 	_ "github.com/golang-migrate/migrate/v4/database/sqlite3"
@@ -43,14 +44,25 @@ func InitDB(dataSourceName string) (*sql.DB, error) {
 }
 
 func initMig() error {
+	fmt.Println("Running initMig...")
+	fmt.Println("Running initMig...")
+
+	files, err := filepath.Glob("db/sqlite/migrations/*.up.sql") // أو migrations/*.up.sql حسب الحل
+	if err != nil {
+		fmt.Println("Glob error:", err)
+	}
+	fmt.Println("MIG FILES:", files)
 
 	dir, err := os.Getwd()
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	migrationsPath := filepath.Join(dir, "../db/migration")
-	DatabasePath := filepath.Join(dir, "../db/sqlite/database.db")
+	migrationsPath := filepath.Join(dir, "db/migration")
+	DatabasePath := filepath.Join(dir, "db/sqlite/database.db")
+
+	fmt.Println("Migrations path:", migrationsPath)
+	fmt.Println("Database path:", DatabasePath)
 
 	sourceURL := "file://" + migrationsPath
 	dbURL := "sqlite3://" + DatabasePath
@@ -58,14 +70,13 @@ func initMig() error {
 	m, err := migrate.New(sourceURL, dbURL)
 	if err != nil {
 		utils.Log("ERROR", "Migration init error "+err.Error())
-
 		log.Fatal("Migration init error: ---", err)
 	}
 
 	if err := m.Up(); err != nil && err != migrate.ErrNoChange {
 		log.Fatal("Migration up error: ", err)
 	}
-	utils.Log("INFO", "Migrations applied successfully!")
 
+	utils.Log("INFO", "Migrations applied successfully!")
 	return nil
 }

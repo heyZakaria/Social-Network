@@ -10,7 +10,7 @@ import { INFINITE_CACHE } from "next/dist/lib/constants";
 export default function PendingInviteList({ groupId }) {
   const [err, setError] = useState(null)
   const [invites, setInvites] = useState([])
-  const { data, error, loading } = useFetch(`http://localhost:8080/api/groups/group/pending?group_id=${groupId}`)
+  const { data, error, loading } = useFetch(`/api/groups/group/pending?group_id=${groupId}`)
 
   useEffect(() => {
     if (data) setInvites(data)
@@ -54,7 +54,7 @@ function PendingInvite({ invite, onInvite }) {
 
   const handleInviteResponse = async (e) => {
     try {
-      const respo = await fetch(`http://localhost:8080/api/groups/invite/approve?Action=${e.target.value}&Invite=${invite.invite_id}`, {
+      const respo = await fetch(`/api/groups/invite/approve?Action=${e.target.value}&Invite=${invite.invite_id}`, {
         credentials: 'include',
         method: "POST"
       })
@@ -91,7 +91,7 @@ function PendingInvite({ invite, onInvite }) {
 export function RequestsToJoinGroup() {
   const [err, setError] = useState(null)
   const [invites, setInvites] = useState([])
-  const { data, error, loading } = useFetch(`http://localhost:8080/api/groups/group/groupInvites`)
+  const { data, error, loading } = useFetch(`/api/groups/group/groupInvites`)
   console.log("dataaaa", data);
 
   useEffect(() => {

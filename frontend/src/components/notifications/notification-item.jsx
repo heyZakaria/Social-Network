@@ -1,14 +1,23 @@
-"use client"
+"use client";
 
-import Image from "next/image"
-import Link from "next/link"
-import styles from "@/styles/notifications.module.css"
-import { getNotificationIcon, formatDate, getActionButtons } from "./notifications-utils"
+import Image from "next/image";
+import Link from "next/link";
+import styles from "@/styles/notifications.module.css";
+import { getNotificationIcon, formatDate, getActionButtons } from "./notifications-utils";
 
-import { useFriends } from '@/context/friends_context';
+import { useFriends } from "@/context/friends_context";
 
 export default function NotificationItem({ notification, onClick }) {
-  const { handledRequests, accept, reject, handleInviteResponse } = useFriends();
+  const {
+    handledRequests,
+    accept,
+    reject,
+    handleInviteResponse,
+    setHandledRequests,
+    handleInviteAdminResponse,
+    HandleEventPresence,
+  } = useFriends();
+
   return (
     <li
       className={`${styles.notificationItem} ${notification.read ? styles.read : styles.unread}`}
@@ -16,10 +25,10 @@ export default function NotificationItem({ notification, onClick }) {
       <Link
         href={
           notification.type === "group_event" || notification.type === "invite_group"
-            ? `/groups/${notification.id}`
+            ? `/groups/${notification.groupId}` // يبدو أن هنا خاص تستخدم groupId مش notification.id
             : `/profile/${notification.id || ""}`
         }
-        onClick={() => onClick(notification.id)}
+        onClick={() => onClick(notification.notifId)}
         className={styles.notificationAvatarLink}
       >
         <Image
@@ -27,7 +36,9 @@ export default function NotificationItem({ notification, onClick }) {
           height={45}
           src={notification.avatar || "/uploads/profile.jpeg"}
           alt={notification.from || "User"}
-          className={`${styles.notificationAvatar} ${notification.read ? styles.avatarRead : styles.avatarUnread}`}
+          className={`${styles.notificationAvatar} ${
+            notification.read ? styles.avatarRead : styles.avatarUnread
+          }`}
         />
         <span className={styles.notificationIconWrapper}>
           {getNotificationIcon(notification.type, styles.notificationIcon)}
@@ -53,6 +64,7 @@ export default function NotificationItem({ notification, onClick }) {
       </div>
 
       {console.log("Notification:", notification)}
+
       {getActionButtons(
         notification.type,
         notification.notifId,
@@ -62,11 +74,14 @@ export default function NotificationItem({ notification, onClick }) {
         notification.id,
         notification.invitedId,
         notification.groupId,
-        notification.eventId
+        notification.eventId,
+        {
+          setHandledRequests,
+          handleInviteResponse,
+          handleInviteAdminResponse,
+          HandleEventPresence,
+        }
       )}
-
-
-
     </li>
-  )
+  );
 }

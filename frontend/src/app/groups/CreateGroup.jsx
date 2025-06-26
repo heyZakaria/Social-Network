@@ -110,7 +110,7 @@ export default function CreateGroupCard() {
       data.append("Title", formData.Title);
       if (formData.Image) data.append("Image", formData.Image);
 
-      const Resp = await fetch("http://localhost:8080/api/groups/", {
+      const Resp = await fetch("/api/groups/", {
         method: "POST",
         credentials: "include",
         body: data,

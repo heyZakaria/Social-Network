@@ -34,7 +34,7 @@ export function NotificationsProvider({ user, children }) {
       createdAt: msg.Data.createdAt,
       invitedId: msg.Data.invitedId || null,
       groupId: msg.Data.groupId || "",
-      eventId: msg.Data.eventId || null,
+      eventId: msg.Data.eventId || "",
     };
 
     setNotifications((prev) => {
@@ -70,7 +70,9 @@ export function NotificationsProvider({ user, children }) {
         const token = data?.data?.token;
         if (!token) return;
 
-        const socket = new WebSocket(`ws://localhost:8080/ws?token=${token}`);
+        const protocol = window.location.protocol === "https:" ? "wss" : "ws";
+        const socket = new WebSocket(`${protocol}://${window.location.host}/api/websocket/ws?token=${token}`);
+
         ws.current = socket;
 
         socket.onmessage = (e) => {

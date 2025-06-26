@@ -43,7 +43,7 @@ export default function usePosts({groupId , limit , ProfileId}={groupId : null ,
     setLoading(true); // TODO WAiting before setting it true
       x();
     
-  }, [refrech ,offset , groupId]);
+  },[refrech, offset, groupId, ProfileId, limit]);
 
   console.log("posts", posts);
   console.log("hasMore", hasMore);

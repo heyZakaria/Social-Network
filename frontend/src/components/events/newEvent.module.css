@@ -1,9 +1,8 @@
-:root {
+/* :root {
   --primary: #7c3aed;
-  --secondary: #fff;
   --textColor: #555;
   --error: #ff4b4b;
-}
+} */
 
 
 .labelContainer {
@@ -26,7 +25,7 @@
 /* Button to toggle form visibility */
 .CreateEvent button {
   padding: 12px 20px;
-  background-color: var(--primary);
+  background-color: #7c3aed;
   color: white;
   border: none;
   border-radius: 6px;
@@ -78,13 +77,13 @@
   right: 12px;
   font-size: 40px;
   cursor: pointer;
-  color: var(--primary);
+  color: #7c3aed;
   transition: all .7s ease;
 }
 
 .closeButton:hover{
   font-size: 43;
-  color: var(--error);
+  color: #ff4b4b;
 }
 
 /* Form label styling */
@@ -92,7 +91,7 @@
   font-size: 14px;
   font-weight: 600;
   margin-bottom: 8px;
-  color: var(--textColor);
+  color: #555;
   
 }
 
@@ -107,7 +106,7 @@
 
 .CreateEvent input[type="text"]:focus {
   outline: none;
-  border-color: var(--primary);
+  border-color: #7c3aed;
 }
 
 /* Date input fields */
@@ -118,15 +117,15 @@
   border: 1px solid #ddd;
   border-radius: 6px;
   font-size: 16px;
-  color: var(--textColor);
+  color: #555;
   transition: border-color 0.3s;
-  color: var(--primary);
+  color: #7c3aed;
 }
 
 /* Submit button */
 .CreateEvent .submitButton {
   padding: 12px;
-  background-color: var(--primary);
+  background-color: #7c3aed;
   color: white;
   border: none;
   border-radius: 6px;
@@ -147,7 +146,7 @@
 
 /* Error messages */
 .error {
-  color: var(--error);
+  color: #ff4b4b;
   font-size: 13px;
   margin-top: 5px;
 }

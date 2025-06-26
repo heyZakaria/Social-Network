@@ -32,7 +32,10 @@ func main() {
 
 	router := http.NewServeMux()
 
-	_, err = db.InitDB("../db/sqlite/database.db")
+	_, err = db.InitDB("/db/sqlite/database.db")
+	if err != nil {
+		log.Fatal("Failed to initialize database:", err)
+	}
 
 	router.Handle("/api/", http.StripPrefix("/api", auth.AuthMux()))
 

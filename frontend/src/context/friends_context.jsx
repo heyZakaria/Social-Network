@@ -193,7 +193,7 @@ export function FriendsProvider({ children }) {
   const handleInviteResponse = async (action, id) => {
 
     try {
-      const respo = await fetch(`http://localhost:8080/api/groups/group/inviteResponse?Action=${action}&Invite_id=${id}`, {
+      const respo = await fetch(`/api/groups/group/inviteResponse?Action=${action}&Invite_id=${id}`, {
         credentials: 'include',
         method: "POST"
       })
@@ -210,7 +210,7 @@ export function FriendsProvider({ children }) {
 
   const handleInviteAdminResponse = async (action, id) => {
     try {
-      const respo = await fetch(`http://localhost:8080/api/groups/invite/approve?Action=${action}&Invite=${id}`, {
+      const respo = await fetch(`/api/groups/invite/approve?Action=${action}&Invite=${id}`, {
         credentials: 'include',
         method: "POST"
       })
@@ -225,7 +225,7 @@ export function FriendsProvider({ children }) {
 
   const HandleEventPresence = async (groupId, eventId, action) => {
     try {
-      const response = await fetch(`http://localhost:8080/api/groups/event_presence/response`, {
+      const response = await fetch(`/api/groups/event_presence/response`, {
         method: "POST",
         credentials: "include",
         headers: {

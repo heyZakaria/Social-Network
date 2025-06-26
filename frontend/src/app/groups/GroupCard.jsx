@@ -3,9 +3,7 @@ import styles from './CreateGroup.module.css';
 import InviteFriends from "@/components/Group/InviteFriends";
 import GroupsList from "@/components/Group/suggestedGroups";
 import { IoChevronBackCircleSharp , IoChevronForwardCircleSharp } from "react-icons/io5";
-
-
-
+import Link from 'next/link'
 
 
 function isMember(DummyTest) {
@@ -38,10 +36,10 @@ function GroupNav({OnMembers, HandleShowInvite}) {
   if (isMember(true)) {
     Nav = (
       <div className={styles.GroupNav}>
-        <a href="#" onClick={()=>{ HandleShowInvite()}}>Invite Friends</a>
-                <a href="#" onClick={()=>{ OnMembers()}}>Members</a>
+        <Link href="#" onClick={()=>{ HandleShowInvite()}}>Invite Friends</Link>
+                <Link href="#" onClick={()=>{ OnMembers()}}>Members</Link>
 
-        <a href="#" onClick={()=>{console.log("DisplayEVents")}}>Events</a>
+        <Link href="#" onClick={()=>{console.log("DisplayEVents")}}>Events</Link>
         
       </div>
     );

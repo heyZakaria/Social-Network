@@ -27,7 +27,7 @@ function FriendsPage() {
   
   
 
-  if (loading && currentUser) return <div className={styles.loading}>Loading...</div>;
+  if (loading) return <div className={styles.loading}>Loading...</div>;
 
   return (
     <div className={styles.friendsContainer}>
