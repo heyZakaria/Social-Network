@@ -39,14 +39,12 @@ func CommentSaver(w http.ResponseWriter, r *http.Request) {
 		fmt.Println("have problem to convert from string to int")
 	}
 
-	err = Comment.IsPostExist(postId)
-	fmt.Println("ycvyhsgver", err)
+	err = Comment.IsPostExist(postId, UserId)
 	if err != nil {
-		fmt.Println("hihihihih")
-		utils.Log("Error", "doesn't exist this post")
+		utils.Log("Error", "doesn't exist this post" + err.Error())
 		utils.SendJSON(w, http.StatusBadRequest, utils.JSONResponse{
 			Success: false,
-			Message: "doesn't exist this post",
+			Message: "doesn't exist this post" ,
 			Error:   err.Error(),
 		})
 		return

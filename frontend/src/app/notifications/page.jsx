@@ -49,6 +49,7 @@ export default function Page() {
   return (
     <>
       <ul className={styles.notificationsContainer}>
+        
         {notifications.map((n) => (
           <NotificationItem key={n.notifId} notification={n} onClick={handleClick} />
         ))}
