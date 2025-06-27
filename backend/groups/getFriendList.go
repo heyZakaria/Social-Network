@@ -67,10 +67,10 @@ func getFriendList(w http.ResponseWriter, r *http.Request) {
 			WHERE GM.user_id = NotMemberFriends.user_id AND GM.group_id = ?
 		)
 		AND NOT EXISTS (
-		SELECT 1 FROM group_invite gi WHERE gi.reciever_id = user_id )
+		SELECT 1 FROM group_invite gi WHERE gi.reciever_id = user_id AND gi.group_id  =?) 
 		AND NotMemberFriends.user_id != ?
 	`
-	rows, err := db.DB.Query(query, userId, userId, groupId, userId)
+	rows, err := db.DB.Query(query, userId, userId, groupId, groupId, userId)
 	if err != nil {
 		utils.Log("ERROR", "Failed to query FriendList: "+err.Error())
 		utils.SendJSON(w, http.StatusInternalServerError, utils.JSONResponse{
