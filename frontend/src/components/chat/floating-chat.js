@@ -64,7 +64,7 @@ export default function FloatingChat({ currentUser, profileData, source, group }
       console.log("List Refreched From Socket Floating chat comp");
     });
 
-    
+
     broadcastChannel.onmessage = (event) => {
       const data = JSON.parse(event.data);
       if (data.type === "refresh_chat_list") {
@@ -94,7 +94,7 @@ export default function FloatingChat({ currentUser, profileData, source, group }
       chat.other_last_name = ""
       chat.type = "group_message"
       chat.other_avatar = group.covername || "/uploads/profile.jpeg"
-    }else {
+    } else {
       chat.session_id = generateChatSessionID(currentUser?.id, profileData?.id)
       chat.other_user_id = profileData?.id
       chat.other_first_name = profileData?.firstName
@@ -150,14 +150,16 @@ export default function FloatingChat({ currentUser, profileData, source, group }
     }
   };
 
+  console.log("profileData", profileData);
+
+
   return (
     <>
       {profileData?.IsOwnProfile ? (
         <div className={styles.profileActions}>
           {/* <Link href="/settings" className={styles.editButton}>
-            Edit Profile
-          </Link> */}
-
+      Edit Profile
+    </Link> */}
           <PrivacyToggle user={profileData} />
         </div>
       ) : (
@@ -165,13 +167,13 @@ export default function FloatingChat({ currentUser, profileData, source, group }
           {source === "profile" && (
             <FollowButton targetUserId={profileData?.id} showMessage={setShowMessageButton} />
           )}
-          {showMessageButton ||
-          source == "group" ? (
+
+          {(profileData?.IsFollowing && showMessageButton) || source === "group" ? (
             <button
               className={styles.messageButton}
               onClick={() => handleChatSelect(GenerateChat())}
             >
-              {source == "group" ? (
+              {source === "group" ? (
                 <>
                   <IoChatbubbleEllipsesSharp size={30} />
                   Chat ROOM
@@ -183,6 +185,7 @@ export default function FloatingChat({ currentUser, profileData, source, group }
           ) : null}
         </div>
       )}
+
 
       <div className={styles.floatingChatContainer}>
         {isOpen && activeChat ? (
@@ -246,9 +249,8 @@ export default function FloatingChat({ currentUser, profileData, source, group }
                 recentChats.map((chat) => (
                   <div
                     key={chat.id}
-                    className={`${styles.chatListItem} ${
-                      chat.readed > 0 ? styles.unread : ""
-                    }`}
+                    className={`${styles.chatListItem} ${chat.readed > 0 ? styles.unread : ""
+                      }`}
                     onClick={() => handleChatSelect(chat)}
                   >
                     <div className={styles.chatListItemAvatar}>

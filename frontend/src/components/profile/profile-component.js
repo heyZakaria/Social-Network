@@ -22,9 +22,6 @@ export default function ProfileComponent({ ProfileData }) {
     limit: 10,
   });
 
-  console.log("ProfileData", currentUser);
-
-
   return (
     <div className={styles.profileContainer}>
       <div className={styles.profileHeader}>
