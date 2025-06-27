@@ -17,17 +17,20 @@ export default function ProfileComponent({ ProfileData }) {
   const { user: currentUser } = useUser()
 
   const { posts, loading, hasMore, loadMore } = usePosts({
-  groupId: null,
-  ProfileId: ProfileData ? ProfileData.id : null,
-  limit: 10,
-});
+    groupId: null,
+    ProfileId: ProfileData ? ProfileData.id : null,
+    limit: 10,
+  });
+
+  console.log("ProfileData", currentUser);
+
 
   return (
     <div className={styles.profileContainer}>
       <div className={styles.profileHeader}>
         <div className={styles.profileCover}>
           <Image width={200} height={100}
-            src={ProfileData.avatar || "/uploads/profile.jpeg"} // ./uploads/profile_image/b27c2604-404b-48e4-a20c-f4afa29a9c57.jpeg
+            src={(ProfileData?.avatar) || "/uploads/profile.jpeg"}
             alt="Cover"
             className={styles.coverImage}
           />
@@ -35,7 +38,7 @@ export default function ProfileComponent({ ProfileData }) {
         <div className={styles.profileInfo}>
           <div className={styles.profileAvatar}>
             <Image width={200} height={100}
-              src={ProfileData.avatar || "/uploads/profile.jpeg"}
+              src={(ProfileData?.avatar) || "/uploads/profile.jpeg"}
               alt="Profile Avatar"
               className={styles.avatarImage}
             />
@@ -45,7 +48,7 @@ export default function ProfileComponent({ ProfileData }) {
             <div className={styles.profileNameSection}>
               <h1 className={styles.profileName}>
                 {ProfileData.firstName} {ProfileData.lastName}
-                
+
                 {ProfileData.nickname && (
                   <span className={styles.nickname}>
                     ({ProfileData.nickname})
@@ -55,7 +58,7 @@ export default function ProfileComponent({ ProfileData }) {
               <FloatingChat currentUser={currentUser} profileData={ProfileData} source="profile" />
 
             </div>
-            
+
             <div className={styles.profileStats}>
               <div className={styles.stat}>
                 <span className={styles.statNumber}>
@@ -76,7 +79,7 @@ export default function ProfileComponent({ ProfileData }) {
                 following
               </div>
             </div>
-            {ProfileData.bio && ( // TODO Change the logic
+            {ProfileData.bio && (
               <div className={styles.profileBio}>{ProfileData.bio}</div>
             )}
             <div>

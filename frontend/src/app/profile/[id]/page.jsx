@@ -11,7 +11,7 @@ export default function ProfilePage() {
   const [profileUser, setProfileUser] = useState(null);
   const [profileLoading, setProfileLoading] = useState(true);
 
-  const { id: ids } = useParams(); 
+  const { id: ids } = useParams();
 
   useEffect(() => {
     async function loadProfileUser() {
@@ -49,7 +49,9 @@ export default function ProfilePage() {
     loadProfileUser();
   }, [ids, currentUser, router]);
 
-  if (loading) return <div>Loading...</div>;
+  if (loading || profileLoading || !profileUser) {
+    return <div>Loading profile...</div>;
+  }
 
   return (
     <ProfileComponent
