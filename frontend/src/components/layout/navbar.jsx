@@ -315,7 +315,7 @@ export default function Navbar({ user }) {
                 Events
               </Link> */}
               <Link
-                href="/profile"
+                href={`/profile/${user.id}`}
                 className={styles.mobileMenuItem}
                 onClick={closeAllMenus}
               >

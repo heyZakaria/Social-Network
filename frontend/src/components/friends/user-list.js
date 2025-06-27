@@ -9,9 +9,13 @@ import Image from "next/image";
 
 export default function UserList({ type, users }) {
   const { user: currentUser } = useUser();
-  if ( users.length === 0) {
+  if (!users || users.length === 0) {
     return <div className={styles.emptyState}>No {type} yet</div>;
   }
+  if (!currentUser) {
+    return null;
+  }
+  console.log("UserList: users", users);
   
   return (
     <div className={styles.userList}>
@@ -39,6 +43,7 @@ export default function UserList({ type, users }) {
               {currentUser && user.id !== currentUser.id && (
                 <FollowButton targetUserId={user.id} />
               )}
+              {/* <button className={styles.messageButton}>Message</button> */}
             </div>
           </div>
         )
