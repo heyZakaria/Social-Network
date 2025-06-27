@@ -153,7 +153,7 @@ if (currentUser) {
     if (formData.avatar) submitData.append("avatar", formData.avatar);
 
     try {
-      const res = await fetch("api/register", {
+      const res = await fetch("/api/register", {
         method: "POST",
         body: submitData,
       });

@@ -1,13 +1,16 @@
 "use client";
 
-import React, {
+import * as React from "react";
+const {
   createContext,
   useState,
   useEffect,
   useRef,
   useContext,
   useMemo,
-} from "react";
+} = React;
+
+
 
 const NotificationsContext = createContext();
 
@@ -71,7 +74,7 @@ export function NotificationsProvider({ user, children }) {
         if (!token) return;
 
         const protocol = window.location.protocol === "https:" ? "wss" : "ws";
-        const socket = new WebSocket(`${protocol}://${window.location.host}/api/websocket/ws?token=${token}`);
+        const socket = new WebSocket(`${protocol}://${window.location.host}/api/ws?token=${token}`);
 
         ws.current = socket;
 

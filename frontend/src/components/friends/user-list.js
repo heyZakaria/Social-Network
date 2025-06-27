@@ -15,7 +15,6 @@ export default function UserList({ type, users }) {
   if (!currentUser) {
     return null;
   }
-  console.log("UserList: users", users);
   
   return (
     <div className={styles.userList}>
@@ -43,7 +42,6 @@ export default function UserList({ type, users }) {
               {currentUser && user.id !== currentUser.id && (
                 <FollowButton targetUserId={user.id} />
               )}
-              {/* <button className={styles.messageButton}>Message</button> */}
             </div>
           </div>
         )

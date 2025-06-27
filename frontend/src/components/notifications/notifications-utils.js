@@ -15,10 +15,8 @@ import {
   FaTimesCircle,
   FaUserPlus,
   FaUserSlash,
-  FaReply
 } from "react-icons/fa";
 import FollowButton from "@/components/profile/follow-button";
-import { useFriends } from "@/context/friends_context";
 
 export function formatDate(dateString) {
   const date = new Date(dateString);
@@ -27,10 +25,10 @@ export function formatDate(dateString) {
 
   if (diffInSeconds < 60) return "just now";
   if (diffInSeconds < 3600)
-    return `${Math.floor(diffInSeconds / 60)} minute(s) ago`;
+    return `${Math.floor(diffInSeconds / 60)} m ago`;
   if (diffInSeconds < 86400)
-    return `${Math.floor(diffInSeconds / 3600)} hour(s) ago`;
-  return `${Math.floor(diffInSeconds / 86400)} day(s) ago`;
+    return `${Math.floor(diffInSeconds / 3600)} h ago`;
+  return `${Math.floor(diffInSeconds / 86400)} d ago`;
 }
 
 

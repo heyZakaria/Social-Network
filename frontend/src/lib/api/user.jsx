@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 
 export async function fetchUserProfile(userId, router) {
   try {
-    const response = await fetch(`api/users/${userId}/profile`, {
+    const response = await fetch(`/api/users/${userId}/profile`, {
         credentials: 'include',
         headers: {
           'Accept': 'application/json',

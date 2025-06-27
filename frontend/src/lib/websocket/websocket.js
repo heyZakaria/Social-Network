@@ -48,8 +48,6 @@ export const OpenWebSocket = () => {
 		const protocol = window.location.protocol === "https:" ? "wss" : "ws";
 		const socket = new WebSocket(`${protocol}://${window.location.host}/api/websocket/ws`);
 
-		// In Next.js, BroadcastChannel is only available in the browser.
-
 		socket.onopen = () => {
 			console.log("🟢  WebSocket connection established");
 		};

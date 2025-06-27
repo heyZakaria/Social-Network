@@ -1,8 +1,7 @@
 'use client';
-import { createContext, useContext, useState, useEffect, useRef } from "react";
+import { createContext, useContext, useState, useEffect, useRef, useCallback } from "react";
 import { useUser } from "@/context/user_context";
 import { useNotifications } from "@/context/notifications-context";
-
 
 const FriendsContext = createContext();
 
@@ -16,24 +15,39 @@ export function FriendsProvider({ children }) {
   const [followStatuses, setFollowStatuses] = useState({});
   const [handledRequests, setHandledRequests] = useState({});
   const [hasFetched, setHasFetched] = useState(false);
-  const suggestionsRef = useRef(suggestions);
-  const requestsRef = useRef(requests);
-  const statusIntervals = useRef({});
+  const [actionError, setActionError] = useState(null);
+  
+  // Cache refs for comparison
+  const lastFetchTime = useRef(0);
+  const isRefreshing = useRef(false);
   const pendingToggles = useRef(new Set());
-  const [actionError, setActionError] = useState(null)
 
-
-  useEffect(() => { suggestionsRef.current = suggestions; }, [suggestions]);
-  useEffect(() => { requestsRef.current = requests; }, [requests]);
-
-  const updateFollowStatus = (userId, status) => {
+  const updateFollowStatus = useCallback((userId, status) => {
     const id = String(userId);
-    setFollowStatuses(prev => ({ ...prev, [id]: status }));
+    setFollowStatuses(prev => {
+      const currentStatus = prev[id];
+      // Only update if status actually changed
+      if (!currentStatus || 
+          currentStatus.isFollowing !== status.isFollowing || 
+          currentStatus.requestPending !== status.requestPending) {
+        return { ...prev, [id]: status };
+      }
+      return prev;
+    });
     setStatusCache(prev => ({ ...prev, [id]: status }));
-  };
+  }, []);
 
-  const fetchAll = async () => {
+  const fetchAll = useCallback(async (force = false) => {
+    // Prevent multiple concurrent fetches
+    if (isRefreshing.current && !force) return;
+    
+    // Throttle requests - only fetch if 2+ seconds have passed
+    const now = Date.now();
+    if (!force && now - lastFetchTime.current < 2000) return;
+    
+    isRefreshing.current = true;
     setLoading(true);
+    
     try {
       const res = await fetch("/api/users/friends", { credentials: "include" });
       const data = await res.json();
@@ -41,109 +55,128 @@ export function FriendsProvider({ children }) {
       const newSuggestions = data.data?.suggestions || [];
       const newRequests = data.data?.requests || [];
 
-      if (JSON.stringify(newSuggestions) !== JSON.stringify(suggestionsRef.current)) setSuggestions(newSuggestions);
-      if (JSON.stringify(newRequests) !== JSON.stringify(requestsRef.current)) setRequests(newRequests);
+      setSuggestions(prev => {
+        if (JSON.stringify(newSuggestions) !== JSON.stringify(prev)) {
+          return newSuggestions;
+        }
+        return prev;
+      });
+
+      setRequests(prev => {
+        if (JSON.stringify(newRequests) !== JSON.stringify(prev)) {
+          return newRequests;
+        }
+        return prev;
+      });
+
+      lastFetchTime.current = now;
     } catch (e) {
+      console.error("Error fetching friends data:", e);
       setSuggestions([]);
       setRequests([]);
     } finally {
       setLoading(false);
+      isRefreshing.current = false;
     }
-  };
+  }, []);
 
+  // Initial fetch only
   useEffect(() => {
-    if (!currentUser) return;
-    if (!hasFetched) {
-      fetchAll();
-      setHasFetched(true);
-    }
+    if (!currentUser || hasFetched) return;
+    
+    fetchAll(true);
+    setHasFetched(true);
+  }, [currentUser, fetchAll, hasFetched]);
 
-    const intervalId = setInterval(() => {
-      fetchAll();
-      suggestionsRef.current.forEach(user => startStatusPolling(user.id));
-      requestsRef.current.forEach(user => startStatusPolling(user.id));
-    }, 1000);
-
-    return () => {
-      clearInterval(intervalId);
-      Object.values(statusIntervals.current).forEach(clearInterval);
-    };
-  }, [currentUser]);
-
+  // Clean up handled requests when requests change
   useEffect(() => {
     setHandledRequests(prev => {
       const updated = { ...prev };
+      let hasChanges = false;
+      
       for (const r of requests) {
         if (updated[r.id]) {
           delete updated[r.id];
+          hasChanges = true;
         }
       }
-      return updated;
+      
+      return hasChanges ? updated : prev;
     });
   }, [requests]);
 
-  const startStatusPolling = (userId) => {
+  const getFollowStatus = useCallback(async (userId) => {
     const id = String(userId);
-    if (statusIntervals.current[id]) return;
 
-    const fetchAndUpdate = async () => {
-      if (!pendingToggles.current.has(id)) {
-        await getFollowStatus(id);
-      }
-    };
-
-    fetchAndUpdate();
-    statusIntervals.current[id] = setInterval(fetchAndUpdate, 1000);
-  };
-
-  const getFollowStatus = async (userId) => {
-    const id = String(userId);
+    // Return cached status if available and recent
+    const cachedStatus = followStatuses[id];
+    if (cachedStatus) {
+      return cachedStatus;
+    }
 
     try {
-      const res = await fetch(`/api/users/follow?id=${id}`, { method: "GET", credentials: "include" });
+      const res = await fetch(`/api/users/follow?id=${id}`, { 
+        method: "GET", 
+        credentials: "include" 
+      });
       const data = await res.json();
+      
       const status = {
         isFollowing: data.data.Data?.IsFollowing || false,
         requestPending: data.data.Data?.RequestPending || false,
       };
+      
       updateFollowStatus(id, status);
-      fetchAll();
       return status;
     } catch {
       const defaultStatus = { isFollowing: false, requestPending: false };
       updateFollowStatus(id, defaultStatus);
       return defaultStatus;
     }
-  };
+  }, [followStatuses, updateFollowStatus]);
 
-  const toggleFollow = async (userId, showMessageButtonFunc) => {
+  const startStatusPolling = useCallback((userId) => {
+    // Just fetch the status once, no polling
+    getFollowStatus(userId);
+  }, [getFollowStatus]);
+
+  const toggleFollow = useCallback(async (userId, showMessageButtonFunc) => {
     const id = String(userId);
     pendingToggles.current.add(id);
+    
     try {
-      const res = await fetch(`/api/users/follow?id=${id}`, { method: "POST", credentials: "include" });
+      const res = await fetch(`/api/users/follow?id=${id}`, { 
+        method: "POST", 
+        credentials: "include" 
+      });
       const data = await res.json();
+      
       const updatedStatus = {
         isFollowing: data.data.Data?.IsFollowing || false,
         requestPending: data.data.Data?.RequestPending || false,
       };
+      
       updateFollowStatus(id, updatedStatus);
-      fetchAll();
-      if (updatedStatus.isFollowing) {
-        showMessageButtonFunc(true);
-      } else {
-        showMessageButtonFunc(false);
+      
+      // Refresh data after successful toggle
+      setTimeout(() => fetchAll(), 500);
+      
+      if (showMessageButtonFunc) {
+        showMessageButtonFunc(updatedStatus.isFollowing);
       }
+      
       return updatedStatus;
-    } catch {
+    } catch (error) {
+      console.error("Error toggling follow:", error);
       const errorStatus = { isFollowing: false, requestPending: false };
       updateFollowStatus(id, errorStatus);
       return errorStatus;
     } finally {
       pendingToggles.current.delete(id);
     }
-  };
+  }, [updateFollowStatus, fetchAll]);
 
-  const handleAcceptRequest = async (userId) => {
+  const handleAcceptRequest = useCallback(async (userId) => {
     const id = String(userId);
     try {
       const res = await fetch(`/api/users/accept?id=${id}`, {
@@ -152,14 +185,17 @@ export function FriendsProvider({ children }) {
       });
       const data = await res.json();
       console.log("Accept request response:", data);
-      // await fetchAll();
-      // return data.data.Data;
+      
+      // Refresh data after successful action
+      setTimeout(() => fetchAll(), 500);
+      return data;
     } catch (err) {
       console.error("Error accepting friend request:", err);
       return null;
     }
-  }
-  const handleRejectRequest = async (userId) => {
+  }, [fetchAll]);
+
+  const handleRejectRequest = useCallback(async (userId) => {
     const id = String(userId);
     try {
       const res = await fetch(`/api/users/reject?id=${id}`, {
@@ -168,62 +204,69 @@ export function FriendsProvider({ children }) {
       });
       const data = await res.json();
       console.log("Reject request response:", data);
-      // await fetchAll();
-      // return data.data.Data;
+      
+      // Refresh data after successful action
+      setTimeout(() => fetchAll(), 500);
+      return data;
     } catch (err) {
       console.error("Error rejecting friend request:", err);
       return null;
     }
-  }
+  }, [fetchAll]);
 
-
-  const accept = async (userId, notifId) => {
+  const accept = useCallback(async (userId, notifId) => {
     setHandledRequests(prev => ({ ...prev, [notifId]: "accepted" }));
     await handleAcceptRequest(userId);
-    // fetchAll();
-  };
+  }, [handleAcceptRequest]);
 
-  const reject = async (userId, notifId) => {
+  const reject = useCallback(async (userId, notifId) => {
     setHandledRequests(prev => ({ ...prev, [notifId]: "rejected" }));
     await handleRejectRequest(userId);
-    // fetchAll();
-  };
+  }, [handleRejectRequest]);
 
-
-  const handleInviteResponse = async (action, id) => {
-
+  const handleInviteResponse = useCallback(async (action, id) => {
     try {
-      const respo = await fetch(`/api/groups/group/inviteResponse?Action=${action}&Invite_id=${id}`, {
+      const response = await fetch(`/api/groups/group/inviteResponse?Action=${action}&Invite_id=${id}`, {
         credentials: 'include',
         method: "POST"
-      })
+      });
 
-      const res = await respo.json()
-      if (!respo.ok || !res.success) throw new Error(res.message || "Failed to process this action")
-      onInvite(invite.invite_id)
-
-
+      const res = await response.json();
+      if (!response.ok || !res.success) {
+        throw new Error(res.message || "Failed to process this action");
+      }
+      
+      // Refresh data after successful action
+      setTimeout(() => fetchAll(), 500);
+      return res;
     } catch (error) {
-      setActionError(error.message)
+      setActionError(error.message);
+      throw error;
     }
-  }
+  }, [fetchAll]);
 
-  const handleInviteAdminResponse = async (action, id) => {
+  const handleInviteAdminResponse = useCallback(async (action, id) => {
     try {
-      const respo = await fetch(`/api/groups/invite/approve?Action=${action}&Invite=${id}`, {
+      const response = await fetch(`/api/groups/invite/approve?Action=${action}&Invite=${id}`, {
         credentials: 'include',
         method: "POST"
-      })
+      });
 
-      const res = await respo.json()
-      if (!respo.ok || !res.success) throw new Error(res.message || "Failed to process this action")
-      onInvite(invite.invite_id)
+      const res = await response.json();
+      if (!response.ok || !res.success) {
+        throw new Error(res.message || "Failed to process this action");
+      }
+      
+      // Refresh data after successful action
+      setTimeout(() => fetchAll(), 500);
+      return res;
     } catch (error) {
-      setActionError(error.message)
+      setActionError(error.message);
+      throw error;
     }
-  }
+  }, [fetchAll]);
 
-  const HandleEventPresence = async (groupId, eventId, action) => {
+  const HandleEventPresence = useCallback(async (groupId, eventId, action) => {
     try {
       const response = await fetch(`/api/groups/event_presence/response`, {
         method: "POST",
@@ -237,16 +280,26 @@ export function FriendsProvider({ children }) {
           presence: action,
         }),
       });
-
+      
       if (!response.ok) {
         throw new Error("Event presence error");
       }
 
-    } catch {
-      console.error("Error handling event presence");
+      const data = await response.json();
+      
+      // Refresh data after successful action
+      setTimeout(() => fetchAll(), 500);
+      return data;
+    } catch (error) {
+      console.error("Error handling event presence:", error);
+      throw error;
     }
-  };
+  }, [fetchAll]);
 
+  // Manual refresh function for when needed
+  const refreshData = useCallback(() => {
+    fetchAll(true);
+  }, [fetchAll]);
 
   return (
     <FriendsContext.Provider
@@ -255,6 +308,7 @@ export function FriendsProvider({ children }) {
         requests,
         loading,
         refetch: fetchAll,
+        refreshData,
         getFollowStatus,
         toggleFollow,
         followStatuses,
@@ -267,6 +321,8 @@ export function FriendsProvider({ children }) {
         handleInviteResponse,
         handleInviteAdminResponse,
         HandleEventPresence,
+        actionError,
+        setActionError,
       }}
     >
       {children}
