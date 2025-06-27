@@ -79,14 +79,12 @@ export default function ProfileComponent({ ProfileData }) {
             {ProfileData.bio && (
               <div className={styles.profileBio}>{ProfileData.bio}</div>
             )}
-            <div>
-              {ProfileData.CanView ? (
+            <div className={styles.profileInf}>
+              {ProfileData.CanView && (
                 <>
-                  Email: {ProfileData.email}<br></br>
-                  Birthday: {new Date(ProfileData.birthday).toLocaleDateString()}
+                  <div><strong>Email:</strong> {ProfileData.email}</div>
+                  <div><strong>Birthday:</strong> {new Date(ProfileData.birthday).toLocaleDateString()}</div>
                 </>
-              ) : (
-                ""
               )}
             </div>
           </div>
