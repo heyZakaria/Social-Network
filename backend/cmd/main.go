@@ -16,6 +16,7 @@ import (
 	db "socialNetwork/db/sqlite"
 	"socialNetwork/likes"
 	"socialNetwork/middleware"
+	uploads "socialNetwork/pictures"
 	post "socialNetwork/posts"
 	"socialNetwork/profile"
 	"socialNetwork/utils"
@@ -62,6 +63,7 @@ func main() {
 
 	router.Handle("/api/websocket/", http.StripPrefix("/api/websocket", chat.WebSocket_CHATMux()))
 	router.HandleFunc("/api/ws", notifications.WSHandler)
+	router.HandleFunc("/api/images/", uploads.ServeUpload)
 
 	log.Fatal(http.ListenAndServe(":8080", middleware.CheckCORS(middleware.CheckUserExeting(router))))
 }

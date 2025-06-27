@@ -7,6 +7,7 @@ import (
 	"net/http"
 	"os"
 	"path/filepath"
+	"strings"
 
 	"github.com/google/uuid"
 )
@@ -51,7 +52,7 @@ func PrepareImage(r *http.Request, ImageName, ImagePath string) (imageProvided b
 		"image/jpeg": true,
 		"image/png":  true,
 		"image/webp": true,
-		"image/gif": true,
+		"image/gif":  true,
 	}
 
 	if !allowedTypes[contentType] {
@@ -61,7 +62,7 @@ func PrepareImage(r *http.Request, ImageName, ImagePath string) (imageProvided b
 
 	file.Seek(0, io.SeekStart)
 
-	uploadPhotos := "../../frontend/public/uploads/" + ImagePath
+	uploadPhotos := "./images/" + ImagePath
 	if _, err := os.Stat(uploadPhotos); os.IsNotExist(err) {
 		err := os.MkdirAll(uploadPhotos, os.ModePerm)
 		if err != nil {
@@ -74,12 +75,13 @@ func PrepareImage(r *http.Request, ImageName, ImagePath string) (imageProvided b
 	avatarFilename = uuid.New().String() + filepath.Ext(handler.Filename) //sdafsdafk2323.jpg
 	Log("INFO", "Generated avatar filename: "+avatarFilename)
 
-	return true, "/uploads/" + ImagePath + "/" + avatarFilename, file, nil
+	return true, "/api/images/" + ImagePath + "/" + avatarFilename, file, nil
 }
 
 func SaveImage(file multipart.File, path string) {
 	fmt.Println("===> path", path)
-	dst, err := os.Create(filepath.Join("../../frontend/public/" + path))
+	path = strings.TrimPrefix(path, "/api")
+	dst, err := os.Create("./" + path)
 	if err != nil {
 		Log("ERROR", "Failed to create image file: "+err.Error())
 		return
