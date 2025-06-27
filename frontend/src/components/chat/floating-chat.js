@@ -168,7 +168,7 @@ export default function FloatingChat({ currentUser, profileData, source, group }
             <FollowButton targetUserId={profileData?.id} showMessage={setShowMessageButton} />
           )}
 
-          {(profileData?.IsFollowing && showMessageButton) || source === "group" ? (
+          {(profileData?.IsFollowing || showMessageButton) || source === "group" ? (
             <button
               className={styles.messageButton}
               onClick={() => handleChatSelect(GenerateChat())}

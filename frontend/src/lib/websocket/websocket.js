@@ -55,7 +55,9 @@ export const OpenWebSocket = () => {
 		socket.onclose = () => {
 			console.log("🔴 WebSocket connection closed");
 		};
-
+		socket.onerror = () => {
+			console.log("🟠 WebSocket error occurred");
+		};
 	} else {
 		console.warn("WebSocket is already open or connecting.", socket.readyState);
 	}

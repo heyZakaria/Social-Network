@@ -32,7 +32,7 @@ func ServeUpload(w http.ResponseWriter, r *http.Request) {
 
 	// Clean path & prevent “../” traversal.
 	clean := filepath.Clean(relPath)
-	utils.Log("", "Cleaned path: "+ clean)
+	utils.Log("", "Cleaned path: "+clean)
 	if strings.Contains(clean, "..") {
 		utils.Log("", "Path contains '..', returning 400")
 		http.Error(w, "invalid path", http.StatusBadRequest)
@@ -41,7 +41,7 @@ func ServeUpload(w http.ResponseWriter, r *http.Request) {
 
 	// Build absolute path and verify it is still inside uploadRoot.
 	full := filepath.Join(uploadRoot, clean)
-	utils.Log("", "Full path: "+ full)
+	utils.Log("", "Full path: "+full)
 	if !strings.HasPrefix(filepath.Clean(full), filepath.Clean(uploadRoot)) {
 		utils.Log("", "Full path is outside uploadRoot, returning 403")
 		http.Error(w, "forbidden", http.StatusForbidden)
@@ -49,6 +49,9 @@ func ServeUpload(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// Open the file
+	if os.Getenv("ENV") != "docker" {
+		full = "../" + full
+	}
 	file, err := os.Open(full)
 	if err != nil {
 		if os.IsNotExist(err) {
@@ -62,7 +65,7 @@ func ServeUpload(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	defer file.Close()
-	utils.Log("", "File opened successfully: "+ file.Name())
+	utils.Log("", "File opened successfully: "+file.Name())
 
 	// Detect & set content-type (ServeContent doesn’t sniff when Name has extension)
 	if ctype := mime.TypeByExtension(filepath.Ext(full)); ctype != "" {

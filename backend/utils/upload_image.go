@@ -64,7 +64,11 @@ func PrepareImage(r *http.Request, ImageName, ImagePath string) (imageProvided b
 
 	uploadPhotos := "./images/" + ImagePath
 	if _, err := os.Stat(uploadPhotos); os.IsNotExist(err) {
+		if os.Getenv("ENV") != "docker" {
+			uploadPhotos = "." + uploadPhotos
+		}
 		err := os.MkdirAll(uploadPhotos, os.ModePerm)
+		Log("INFO", "create directory: "+uploadPhotos)
 		if err != nil {
 			Log("ERROR", "Failed to create directory: "+err.Error())
 			return false, "", file, fmt.Errorf("Cannot create directory")
@@ -81,7 +85,10 @@ func PrepareImage(r *http.Request, ImageName, ImagePath string) (imageProvided b
 func SaveImage(file multipart.File, path string) {
 	fmt.Println("===> path", path)
 	path = strings.TrimPrefix(path, "/api")
-	dst, err := os.Create("./" + path)
+	if os.Getenv("ENV") != "docker" {
+		path = ".." + path
+	}
+	dst, err := os.Create(path)
 	if err != nil {
 		Log("ERROR", "Failed to create image file: "+err.Error())
 		return
