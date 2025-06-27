@@ -3,6 +3,8 @@ package main
 import (
 	"log"
 	"net/http"
+	"os"
+	"path/filepath"
 
 	"socialNetwork/notifications"
 
@@ -32,7 +34,19 @@ func main() {
 
 	router := http.NewServeMux()
 
-	_, err = db.InitDB("/db/sqlite/database.db")
+	var dbPath string
+
+	if os.Getenv("ENV") == "docker" {
+		dbPath = "/app/db/sqlite/database.db"
+	} else {
+		wd, err := os.Getwd()
+		if err != nil {
+			log.Fatal(err)
+		}
+		dbPath = filepath.Join(wd, "../db/sqlite/database.db")
+	}
+
+	_, err = db.InitDB(dbPath)
 	if err != nil {
 		log.Fatal("Failed to initialize database:", err)
 	}

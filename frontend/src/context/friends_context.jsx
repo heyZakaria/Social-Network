@@ -200,8 +200,8 @@ export function FriendsProvider({ children }) {
 
       const res = await respo.json()
       if (!respo.ok || !res.success) throw new Error(res.message || "Failed to process this action")
-      // onInvite(invite.invite_id)
-      // console.log(onInvite);
+      onInvite(invite.invite_id)
+
 
     } catch (error) {
       setActionError(error.message)
@@ -236,8 +236,8 @@ export function FriendsProvider({ children }) {
           event_id: eventId,
           presence: action,
         }),
-      });  
-      
+      });
+
       if (!response.ok) {
         throw new Error("Event presence error");
       }

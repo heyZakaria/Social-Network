@@ -44,28 +44,24 @@ func InitDB(dataSourceName string) (*sql.DB, error) {
 }
 
 func initMig() error {
-	fmt.Println("Running initMig...")
-	fmt.Println("Running initMig...")
-
-	files, err := filepath.Glob("db/sqlite/migrations/*.up.sql") // أو migrations/*.up.sql حسب الحل
-	if err != nil {
-		fmt.Println("Glob error:", err)
-	}
-	fmt.Println("MIG FILES:", files)
-
 	dir, err := os.Getwd()
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	migrationsPath := filepath.Join(dir, "db/migration")
-	DatabasePath := filepath.Join(dir, "db/sqlite/database.db")
+	var migrationsPath string
+	var databasePath string
 
-	fmt.Println("Migrations path:", migrationsPath)
-	fmt.Println("Database path:", DatabasePath)
+	if os.Getenv("ENV") == "docker" {
+		migrationsPath = "/app/db/migration"
+		databasePath = "/app/db/sqlite/database.db"
+	} else {
+		migrationsPath = filepath.Join(dir, "../db/migration")
+		databasePath = filepath.Join(dir, "../db/sqlite/database.db")
+	}
 
 	sourceURL := "file://" + migrationsPath
-	dbURL := "sqlite3://" + DatabasePath
+	dbURL := "sqlite3://" + databasePath
 
 	m, err := migrate.New(sourceURL, dbURL)
 	if err != nil {
@@ -76,7 +72,7 @@ func initMig() error {
 	if err := m.Up(); err != nil && err != migrate.ErrNoChange {
 		log.Fatal("Migration up error: ", err)
 	}
-
 	utils.Log("INFO", "Migrations applied successfully!")
+
 	return nil
 }

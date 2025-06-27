@@ -21,11 +21,7 @@ function FriendsPage() {
     handledRequests,
     accept,
     reject,
-  } = useFriends();
-  console.log("Requests:", requests);
-  console.log("Suggestions:", suggestions);
-  
-  
+  } = useFriends();  
 
   if (loading) return <div className={styles.loading}>Loading...</div>;
 

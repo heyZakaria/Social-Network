@@ -1,7 +1,6 @@
 'use client';
 import { createContext, useContext, useState, useEffect } from 'react';
-import { OpenWebSocket, broadcastChannel } from '@/lib/websocket/websocket.js'; // Adjust the import path as needed
-import FloatingChat from '@/components/chat/floating-chat';
+import { OpenWebSocket, broadcastChannel } from '@/lib/websocket/websocket.js';
 const UserContext = createContext(null);
 
 export function UserProvider({ children }) {
@@ -20,8 +19,6 @@ export function UserProvider({ children }) {
         setUser(json.data.Data);
         OpenWebSocket();
        
-        console.log("//////////////////////////////////",json.data.Data);
-        
       } else {
         setUser(null);
       }

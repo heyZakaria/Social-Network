@@ -1,5 +1,9 @@
 localhost {
-  reverse_proxy /api/* backend:8080
-  reverse_proxy frontend:3000
   tls internal
+
+  @api path /api/*
+  reverse_proxy @api backend:8080
+
+  @static not path /api/*
+  reverse_proxy @static frontend:3000
 }

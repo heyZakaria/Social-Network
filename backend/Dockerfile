@@ -3,8 +3,6 @@ FROM golang:1.24-alpine
 WORKDIR /app
 
 COPY . .
-COPY ./db ./db
-COPY ./migrations ./migrations
 
 ENV CGO_ENABLED=1
 
