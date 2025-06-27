@@ -2,6 +2,7 @@ package auth
 
 import (
 	"net/http"
+	"os"
 	"time"
 
 	tkn "socialNetwork/token"
@@ -23,17 +24,22 @@ func SendSuccessWithToken(w http.ResponseWriter, r *http.Request, userID string)
 	// set cookies manual like we recieve it in graphql
 	// w.Header().Set("Authorization", "Bearer "+token)
 
+	secureFlag := false
+	sameSiteFlag := http.SameSiteLaxMode
+
+	if os.Getenv("ENV") == "docker" {
+		secureFlag = true
+		sameSiteFlag = http.SameSiteNoneMode
+	}
+
 	http.SetCookie(w, &http.Cookie{
 		Name:     "token",
 		Value:    token,
 		Path:     "/",
-		HttpOnly: false,
-
-		Secure: false,
-
-		// secure vs CSRF attacks (Cross Site Request Forgery)
-		SameSite: http.SameSiteLaxMode,
-		Expires:  time.Now().Add(time.Hour * 24),
+		HttpOnly: true,
+		Secure:   secureFlag,
+		SameSite: sameSiteFlag,
+		Expires:  time.Now().Add(24 * time.Hour),
 	})
 
 	utils.Log("INFO", "Save Token into Sessions")

@@ -26,7 +26,7 @@ func CheckCORS(next http.Handler) http.Handler {
 
 			if isPreflight(r) && slices.Contains(methodAllowlist, method) {
 				w.Header().Set("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS")
-				w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
+				w.Header().Set("Access-Control-Allow-Headers", "Content-Type, Authorization, Cookie")
 				w.Header().Set("Access-Control-Allow-Max-Age", "84000")
 				w.WriteHeader(http.StatusNoContent)
 				return

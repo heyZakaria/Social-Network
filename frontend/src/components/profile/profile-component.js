@@ -11,6 +11,9 @@ import { FaLock } from "react-icons/fa";
 import usePosts from "@/hooks/usePosts";
 import PostFeeds from "../posts/posts-feed";
 import { useUser } from "@/context/user_context";
+import { FiMail } from "react-icons/fi";
+import { BsCalendarDate } from "react-icons/bs";
+
 export default function ProfileComponent({ ProfileData }) {
   const [activeTab, setActiveTab] = useState("posts");
 
@@ -82,8 +85,14 @@ export default function ProfileComponent({ ProfileData }) {
             <div className={styles.profileInf}>
               {ProfileData.CanView && (
                 <>
-                  <div><strong>Email:</strong> {ProfileData.email}</div>
-                  <div><strong>Birthday:</strong> {new Date(ProfileData.birthday).toLocaleDateString()}</div>
+                  <div className={styles.infoItem}>
+                    <FiMail className={styles.icon} />
+                    <span><strong>Email:</strong> {ProfileData.email}</span>
+                  </div>
+                  <div className={styles.infoItem}>
+                    <BsCalendarDate className={styles.icon} />
+                    <span><strong>Birthday:</strong> {new Date(ProfileData.birthday).toLocaleDateString()}</span>
+                  </div>
                 </>
               )}
             </div>

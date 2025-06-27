@@ -507,3 +507,15 @@ input:checked + .slider:before {
   line-height: 1.6;
   margin-top: 1rem;
 }
+
+.infoItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.icon {
+  color: #7c3aed;
+  font-size: 1.2rem;
+}

@@ -62,7 +62,7 @@ export default function CreateGroupCard() {
             return
         }
         try {
-            const Resp = fetch("/api/groups", {
+            const Resp = fetch("/api/groups/", {
                 method: "POST",
                 headers: {
                     'Content-type': 'application/json'

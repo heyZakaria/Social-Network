@@ -110,12 +110,15 @@ export default function CreateGroupCard() {
       data.append("Title", formData.Title);
       if (formData.Image) data.append("Image", formData.Image);
 
-      const Resp = await fetch("/api/groups", {
+      const Resp = await fetch("/api/groups/", {
         method: "POST",
         credentials: "include",
         body: data,
       });
       const Data = await Resp.json();
+
+      console.log("Data of GRoups", Data);
+      
 
       if (Resp.ok) {
         setSuccessMsg("Group created successfully");
