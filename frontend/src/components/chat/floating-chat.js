@@ -16,8 +16,7 @@ import FollowButton from "@/components/profile/follow-button";
 import Image from "next/image";
 import { broadcastChannel, socket, websocket } from "@/lib/websocket/websocket";
 import { FetchData } from "@/context/fetchJson";
-
-
+import { date } from "zod";
 export default function FloatingChat({ currentUser, profileData, source, group }) {
   const [isOpen, setIsOpen] = useState(false);
   const [activeChat, setActiveChat] = useState(null);
@@ -25,7 +24,7 @@ export default function FloatingChat({ currentUser, profileData, source, group }
   const [recentChats, setRecentChats] = useState([]);
   const [unreadCount, setUnreadCount] = useState(0);
   const [newMessage, setNewMessage] = useState("");
-  const [showMessageButton, setShowMessageButton] = useState(profileData?.ShowMessage || false);
+
   useEffect(() => {
     // In a real app, this would be an API call
     // For now, we'll use mock data
@@ -45,6 +44,7 @@ export default function FloatingChat({ currentUser, profileData, source, group }
             response.data.ChatList.reduce((acc, chat) => acc + chat.readed, 0)
           );
         }
+        console.log("Unread Count", unreadCount);
       } catch (error) {
         console.error("Error fetching recent chats:", error);
       }
@@ -64,7 +64,7 @@ export default function FloatingChat({ currentUser, profileData, source, group }
       console.log("List Refreched From Socket Floating chat comp");
     });
 
-
+    
     broadcastChannel.onmessage = (event) => {
       const data = JSON.parse(event.data);
       if (data.type === "refresh_chat_list") {
@@ -94,7 +94,7 @@ export default function FloatingChat({ currentUser, profileData, source, group }
       chat.other_last_name = ""
       chat.type = "group_message"
       chat.other_avatar = group.covername || "/uploads/profile.jpeg"
-    } else {
+    }else {
       chat.session_id = generateChatSessionID(currentUser?.id, profileData?.id)
       chat.other_user_id = profileData?.id
       chat.other_first_name = profileData?.firstName
@@ -150,30 +150,29 @@ export default function FloatingChat({ currentUser, profileData, source, group }
     }
   };
 
-  console.log("profileData", profileData);
-
-
   return (
     <>
       {profileData?.IsOwnProfile ? (
         <div className={styles.profileActions}>
           {/* <Link href="/settings" className={styles.editButton}>
-      Edit Profile
-    </Link> */}
+            Edit Profile
+          </Link> */}
+
           <PrivacyToggle user={profileData} />
         </div>
       ) : (
         <div className={styles.profileActions}>
           {source === "profile" && (
-            <FollowButton targetUserId={profileData?.id} showMessage={setShowMessageButton} />
+            <FollowButton targetUserId={profileData?.id} />
           )}
-
-          {(profileData?.IsFollowing || showMessageButton) || source === "group" ? (
+          {profileData?.profile_status === "public" ||
+          profileData?.CanView ||
+          source == "group" ? (
             <button
               className={styles.messageButton}
               onClick={() => handleChatSelect(GenerateChat())}
             >
-              {source === "group" ? (
+              {source == "group" ? (
                 <>
                   <IoChatbubbleEllipsesSharp size={30} />
                   Chat ROOM
@@ -185,7 +184,6 @@ export default function FloatingChat({ currentUser, profileData, source, group }
           ) : null}
         </div>
       )}
-
 
       <div className={styles.floatingChatContainer}>
         {isOpen && activeChat ? (
@@ -249,8 +247,9 @@ export default function FloatingChat({ currentUser, profileData, source, group }
                 recentChats.map((chat) => (
                   <div
                     key={chat.id}
-                    className={`${styles.chatListItem} ${chat.readed > 0 ? styles.unread : ""
-                      }`}
+                    className={`${styles.chatListItem} ${
+                      chat.readed > 0 ? styles.unread : ""
+                    }`}
                     onClick={() => handleChatSelect(chat)}
                   >
                     <div className={styles.chatListItemAvatar}>

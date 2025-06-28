@@ -60,7 +60,7 @@ func Get_Chat_History(w http.ResponseWriter, r *http.Request) {
 		UserID, UserID, Session_ID).Scan(&Exists)
 	if err != nil || !Exists {
 		utils.Log("ERROR", "Error Trying in Get_Chat_History Handler sessionID: "+Session_ID)
-		utils.SendJSON(w, http.StatusBadRequest, utils.JSONResponse{
+		utils.SendJSON(w, http.StatusOK, utils.JSONResponse{
 			Success: false,
 			Message: "No messages yet. Start the conversation!",
 		})

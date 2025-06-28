@@ -6,18 +6,15 @@ if (typeof window !== "undefined" && "BroadcastChannel" in window) {
 } else {
 	broadcastChannel = null;
 }
-function getCookie(name) {
-	const match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'))
-	if (match) return match[2]
-	return null
-}
 
 export const websocket = {
-	send: (message) => {
-		const token = getCookie('token');
+	send: async (message) => {
+		const res = await fetch("/api/get-token", { credentials: "include" });
+        const data = await res.json();
+        const token = data?.data?.token;
 		if (token === null || !token || token == "") {
 			socket.close();
-			document.location.href = "/login";
+    	    document.location.href = "/login";
 			return
 		}
 		message.token = token;
@@ -44,21 +41,19 @@ export const closeWebSocket = () => {
 export const OpenWebSocket = () => {
 	// on message broadcast channel
 
-	if (!socket || (socket.readyState !== WebSocket.OPEN && socket.readyState !== WebSocket.CONNECTING)) {
-		const protocol = window.location.protocol === "https:" ? "wss" : "ws";
-		const socket = new WebSocket(`${protocol}://${window.location.host}/api/websocket/ws`);
+ if (!socket || (socket.readyState !== WebSocket.OPEN && socket.readyState !== WebSocket.CONNECTING)) {
+    socket = new WebSocket(`ws://localhost:8080/api/websocket/ws`);
+	// In Next.js, BroadcastChannel is only available in the browser.
+	
+    socket.onopen = () => {
+        console.log("🟢  WebSocket connection established");
+    };
 
-		socket.onopen = () => {
-			console.log("🟢  WebSocket connection established");
-		};
-
-		socket.onclose = () => {
-			console.log("🔴 WebSocket connection closed");
-		};
-		socket.onerror = () => {
-			console.log("🟠 WebSocket error occurred");
-		};
-	} else {
-		console.warn("WebSocket is already open or connecting.", socket.readyState);
-	}
+    socket.onclose = () => {
+        console.log("🔴 WebSocket connection closed");
+    };
+    
+ } else {
+  console.warn("WebSocket is already open or connecting.", socket.readyState);
+ }
 }

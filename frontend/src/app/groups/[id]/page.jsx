@@ -247,7 +247,7 @@ export default function GroupCard({ children }) {
           FriendsList={invitedFriends}
         />
         <img
-          src={group.covername ? `/images/groups_cover/${group.covername}` : `/uploads/profile.jpeg` }
+          src={group.covername ? `/api/images/groups_cover/${group.covername}` : `/uploads/profile.jpeg` }
 
           alt={group.title}
           className={styles.groupCover}
