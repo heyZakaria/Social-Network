@@ -19,7 +19,7 @@ export default function GroupSuggestions() {
           id: group.id,
           title: group.title,
           description: group.description,
-          image: group.covername ? `/uploads/${group.covername}` : "/uploads/profile.jpeg",
+          image: group.covername ? `/api/images/groups_cover/${group.covername}` : "/uploads/profile.jpeg",
           JoiningState: group.memberState || "Join",
           Members: group.memberCount,
           PostCount: group.postCount ?? 0,
@@ -49,7 +49,8 @@ export default function GroupSuggestions() {
   if (loading) return <p>Loading suggestions...</p>;
   if (error) return <p>Failed to load suggestions: {error.message}</p>;
   if (currentSuggestions.length === 0) return null;
-
+  console.log(currentSuggestions);
+  
   return (
     <div className={styles.container}>
       <h3 className={styles.title}>Suggested Groups</h3>

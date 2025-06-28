@@ -53,7 +53,8 @@ function SuggGroupCard({ Group, onSendJoinRequest }) {
 
 export default function GroupsList() {
   const { data, loading, error } = useFetch("/api/groups/GET");
-
+  console.log("Groups Data:", data);
+  
   const [Groups, setGroups] = useState([]);
   const [FiltredGroups, setFiltredGroups] = useState([]);
   const [FilterState, setFilterState] = useState(["Admin", "Member"]);
