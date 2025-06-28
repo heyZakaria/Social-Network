@@ -32,7 +32,6 @@ func getGroup(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	if !GroupExist {
-
 		utils.Log("Error", "Bad request : Group Does Not Exist")
 		utils.SendJSON(w, http.StatusNotFound, utils.JSONResponse{
 			Success: false,
