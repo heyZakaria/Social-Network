@@ -15,8 +15,10 @@ import {
   FaTimesCircle,
   FaUserPlus,
   FaUserSlash,
+  FaUserFriends,
 } from "react-icons/fa";
 import FollowButton from "@/components/profile/follow-button";
+import { useFriends } from "@/context/friends_context";
 
 export function formatDate(dateString) {
   const date = new Date(dateString);
@@ -65,10 +67,10 @@ export function getActionButtons(
     setHandledRequests,
     handleInviteResponse,
     handleInviteAdminResponse,
-    HandleEventPresence,
   }
 ) {
   const status = handledRequests[notifId];
+  const { HandleEventPresence } = useFriends()
 
 
   if (!["follow_request", "invite_group", "group_event", "follow", "invite_group_admin"].includes(type))
@@ -185,6 +187,10 @@ export function getActionButtons(
             className={`${styles.actionButton} ${styles.acceptButton}`}
             onClick={(e) => {
               e.preventDefault();
+              console.log("Group ID:", groupId);
+              console.log("Event ID:", eventId);
+              console.log("Notification ID:", notifId);
+              
               HandleEventPresence(groupId, eventId, "going")
               setHandledRequests(prev => ({ ...prev, [notifId]: "accepted" }));
             }}

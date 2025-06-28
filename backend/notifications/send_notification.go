@@ -55,8 +55,8 @@ func BuildAndDispatchNotification(
 			"from":      fmt.Sprintf("%s %s", sender.FirstName, sender.LastName),
 			"read":      false,
 			"createdAt": time.Now().Format(time.RFC3339),
-			"eventId":  groupID,
-			"groupId":  eventID,
+			"eventId":   eventID,
+			"groupId":   groupID,
 		},
 	}
 	DispatchNotificationToUser(receiverID, notif)

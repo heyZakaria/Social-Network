@@ -284,7 +284,8 @@ export function FriendsProvider({ children }) {
       });
       
       if (!response.ok) {
-        throw new Error("Event presence error");
+        console.log("error in response", response);
+        
       }
 
       const data = await response.json();

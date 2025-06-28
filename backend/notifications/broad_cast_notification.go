@@ -24,7 +24,7 @@ func SendStoredNotifications(userID string, client *Client) {
 	for rows.Next() {
 		var (
 			notifID                      int64
-			senderID, notifType, content, groupID, eventID string
+			senderID, notifType, content, eventID, groupID string
 			inviteID                     sql.NullInt64
 			createdAt                    time.Time
 		)

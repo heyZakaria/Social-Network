@@ -77,7 +77,6 @@ export default function NotificationItem({ notification, onClick }) {
           setHandledRequests,
           handleInviteResponse,
           handleInviteAdminResponse,
-          HandleEventPresence,
         }
       )}
     </li>
