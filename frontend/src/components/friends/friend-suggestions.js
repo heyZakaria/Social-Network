@@ -5,10 +5,11 @@ import { useFriends } from "@/context/friends_context"
 import FollowButton from '@/components/profile/follow-button'
 import Image from "next/image"
 import styles from "@/styles/components.module.css"
-import React from "react"
+import React, { useState } from "react"
 
 function FriendSuggestions() {
   const { suggestions = [] } = useFriends()
+  const [showMessageButton, setShowMessageButton] = useState(false);
 
   if (!suggestions.length) return null
 
@@ -36,7 +37,7 @@ function FriendSuggestions() {
               </Link>
 
               <div className={styles.actions}>
-                <FollowButton targetUserId={user.id} />
+                <FollowButton targetUserId={user.id} showMessage={setShowMessageButton}/>
               </div>
             </div>
           </div>
