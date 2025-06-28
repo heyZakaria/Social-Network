@@ -8,11 +8,7 @@ import useFetch from "@/hooks/useFetch"; // Ensure this hook exists
 
 export default function GroupSuggestions() {
   const [currentSuggestions, setCurrentSuggestions] = useState([]);
-<<<<<<< HEAD
-  const { data, loading, error } = useFetch("/api/groups/");
-=======
   const { data, loading, error } = useFetch("/api/groups/GET");
->>>>>>> 47edb1f (Fixing Group Errors)
 
   useEffect(() => {
    

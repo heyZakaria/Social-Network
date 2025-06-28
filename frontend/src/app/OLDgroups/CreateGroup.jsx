@@ -62,11 +62,7 @@ export default function CreateGroupCard() {
             return
         }
         try {
-<<<<<<< HEAD
-            const Resp = fetch("/api/groups/", {
-=======
             const Resp = fetch("/api/groups/POST", {
->>>>>>> 47edb1f (Fixing Group Errors)
                 method: "POST",
                 headers: {
                     'Content-type': 'application/json'

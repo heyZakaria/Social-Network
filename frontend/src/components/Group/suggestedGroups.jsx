@@ -52,11 +52,7 @@ function SuggGroupCard({ Group, onSendJoinRequest }) {
 }
 
 export default function GroupsList() {
-<<<<<<< HEAD
-  const { data, loading, error } = useFetch("/api/groups/");
-=======
   const { data, loading, error } = useFetch("/api/groups/GET");
->>>>>>> 47edb1f (Fixing Group Errors)
 
   const [Groups, setGroups] = useState([]);
   const [FiltredGroups, setFiltredGroups] = useState([]);
