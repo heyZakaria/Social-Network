@@ -23,6 +23,8 @@ export default function FloatingChat({ currentUser, profileData, source, group }
   const [recentChats, setRecentChats] = useState([]);
   const [unreadCount, setUnreadCount] = useState(0);
   const [newMessage, setNewMessage] = useState("");
+  const [showMessageButton, setShowMessageButton] = useState(profileData?.ShowMessage || false);
+
 
   useEffect(() => {
     // In a real app, this would be an API call
@@ -146,7 +148,8 @@ export default function FloatingChat({ currentUser, profileData, source, group }
       return `${days}d`;
     }
   };
-
+  console.log("profileData", profileData);
+  
   return (
     <>
       {profileData?.IsOwnProfile ? (
@@ -160,11 +163,9 @@ export default function FloatingChat({ currentUser, profileData, source, group }
       ) : (
         <div className={styles.profileActions}>
           {source === "profile" && (
-            <FollowButton targetUserId={profileData?.id} />
+            <FollowButton targetUserId={profileData?.id} showMessage={setShowMessageButton} />
           )}
-          {profileData?.profile_status === "public" ||
-          profileData?.CanView ||
-          source == "group" ? (
+          {profileData?.IsFollowing || showMessageButton || source == "group" ? (
             <button
               className={styles.messageButton}
               onClick={() => handleChatSelect(GenerateChat())}

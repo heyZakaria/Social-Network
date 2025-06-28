@@ -161,8 +161,10 @@ export function FriendsProvider({ children }) {
       // Refresh data after successful toggle
       setTimeout(() => fetchAll(), 500);
       
-      if (showMessageButtonFunc) {
-        showMessageButtonFunc(updatedStatus.isFollowing);
+      if (updatedStatus.isFollowing) {
+        showMessageButtonFunc(true);
+      } else {
+        showMessageButtonFunc(false);
       }
       
       return updatedStatus;
