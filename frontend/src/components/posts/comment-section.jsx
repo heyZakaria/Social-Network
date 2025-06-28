@@ -29,7 +29,7 @@ export default function CommentSection({ setCommentsCount, postId, GroupId}) {
       try {
         setIsLoading(true);
         const Data = await FetchData(`/api/comment/getcomment?post_id=${postId}`)    
-        console.log("Comment Data GET", Data);
+
             
         setComments(Data.data.Comments);
         updateDisplayedComments(Data.data.Comments, showAllComments);
@@ -109,7 +109,7 @@ export default function CommentSection({ setCommentsCount, postId, GroupId}) {
     e.preventDefault();
 
     const isValid = validComment()
-    console.log("isValid", isValid);
+
 
     if (isValid) {
       try {
@@ -172,7 +172,7 @@ export default function CommentSection({ setCommentsCount, postId, GroupId}) {
             CreatedAt: new Date().toISOString(),
             Avatar: currentUser.avatar || "/uploads/profile.jpeg"
           }
-        console.log("Comment Data POST", newCommentObj);
+
           
           const updatedComments = [newCommentObj, ...comments];
           setComments(updatedComments);

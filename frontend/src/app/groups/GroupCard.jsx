@@ -23,7 +23,7 @@ function GroupNav({OnMembers, HandleShowInvite}) {
             // -----> Should Fetch To InviteEndpoint
             // const Resp = await fetch()
           } catch (error) {
-            console.log(error);
+
           }
           setJoinRequest(!JoinRequest);
         }}
@@ -168,7 +168,7 @@ if (ShowInvite){
               setShowInvite(prev=> !prev)
 }
 
-        console.log("toggled Members");
+
         
       }
   

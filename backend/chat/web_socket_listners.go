@@ -41,9 +41,9 @@ func ReadMessages(UserID string) {
 			mutex.Unlock()
 			break
 		}
-		fmt.Println("Token Value", msgs.Token)
+
 		u_id, err := tkn.GetUserIDByToken(msgs.Token)
-		fmt.Println("UserID Value from token", u_id, "MSG", msgs.Content)
+
 		if u_id == "" || err != nil {
 			utils.Log("ERROR", "Invalid token or UserID not found: "+msgs.Token)
 			client.Conn.WriteJSON(MessageStruct{
@@ -56,7 +56,7 @@ func ReadMessages(UserID string) {
 		msgs.Token = "" // Clear the token after validation
 		if msgs.Type == "" || msgs.Receiver == "" || msgs.Content == "" {
 			utils.Log("ERROR", " Receiver OR Type or Content is empty")
-			fmt.Println(msgs)
+
 			continue
 		}
 		utils.Log("INFO", "Message received: "+msgs.Content)

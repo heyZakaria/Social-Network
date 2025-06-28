@@ -1,7 +1,6 @@
 package notifications
 
 import (
-	"fmt"
 	"net/http"
 	"sync"
 
@@ -21,7 +20,7 @@ var (
 )
 
 func WSHandler(w http.ResponseWriter, r *http.Request) {
-	fmt.Println("heeeeeeeeeeeeeeeere")
+
 	conn, err := upgrader.Upgrade(w, r, nil)
 	if err != nil {
 		utils.Log("ERROR", "Failed to upgrade: "+err.Error())

@@ -37,7 +37,7 @@ function GroupNav({ OnMembers, HandleShowInvite, HandleShowEvents }) {
           try {
             // TODO: Should Fetch To InviteEndpoint
           } catch (error) {
-            console.log(error);
+
           }
           setJoinRequest(!joinRequest);
         }}
@@ -213,11 +213,11 @@ export default function GroupCard({ children }) {
     })
       .then(async (res) => {
         const Data = await res.json();
-        console.log("DATA of GROUP", Data.data, "===============");
+
         setGroup(Data.data);
 
-        console.log("group after set", group);
-        console.log("Data.data", Data.data);
+
+
 
         if (!res.ok) throw new Error(Data.message);
       })

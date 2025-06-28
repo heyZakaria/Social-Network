@@ -78,7 +78,7 @@ export default function ShowEventForm() {
         }
 
         setErrors(newErrors);
-        console.log("----------------->", newErrors.day);
+
 
         return Object.keys(newErrors).length === 0; // returns true if no errors
     };
@@ -193,12 +193,12 @@ async function SendEventForm(formData, groupId) {
 
         if (!res.ok) {
             const errData = await res.json();
-            console.log("errData", errData);
+
             throw new Error(errData.error || "Event fetch failed");
         }
 
         const data = await res.json();
-        console.log("Event created:", data);
+
     } catch (error) {
         console.error("Error creating event:", error);
     }

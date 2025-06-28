@@ -28,7 +28,7 @@ export default function PostComponent({
     async function updateLikeStatus() {
       const response = await FetchData(
         `/api/likes/react?id=${post.PostId}${GroupId ? `&group_id=${GroupId}` : ``}`, "POST")
-      console.log('responce ===> :', response);
+
       const LikeCounts = response.data.like_count
       const Like = response.data.success
 

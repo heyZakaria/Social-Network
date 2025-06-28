@@ -116,7 +116,7 @@ export default function CreateGroupCard() {
       });
       const Data = await Resp.json();
 
-      console.log("Data of GRoups", Data);
+
       
 
       if (Resp.ok) {

@@ -83,7 +83,7 @@ func PrepareImage(r *http.Request, ImageName, ImagePath string) (imageProvided b
 }
 
 func SaveImage(file multipart.File, path string) {
-	fmt.Println("===> path", path)
+
 	path = strings.TrimPrefix(path, "/api")
 	if os.Getenv("ENV") != "docker" {
 		path = ".." + path

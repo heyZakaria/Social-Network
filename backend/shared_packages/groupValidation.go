@@ -7,7 +7,7 @@ import (
 
 func ValidateGroup(Db *sql.DB, GroupId string, UserId string) (bool, bool, error) {
 	var groupExist, memberExist bool
-	fmt.Println(GroupId)
+
 	CheckGroupQuery := "SELECT EXISTS(SELECT 1 FROM groups WHERE id = ?)"
 	err := Db.QueryRow(CheckGroupQuery, GroupId).Scan(&groupExist)
 	if err != nil {

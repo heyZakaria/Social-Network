@@ -1,7 +1,6 @@
 package profile
 
 import (
-	"fmt"
 	"net/http"
 
 	db "socialNetwork/db/sqlite"
@@ -152,7 +151,7 @@ func GetOtherUserProfile(w http.ResponseWriter, r *http.Request) {
 	} else {
 		profile.ShowMessage = true
 	}
-	fmt.Println("ShowMessageButton value", ShowMessageButton)
+
 	utils.Log("INFO", "Profile returned successfully")
 
 	utils.SendJSON(w, http.StatusOK, utils.JSONResponse{

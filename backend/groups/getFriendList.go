@@ -93,7 +93,7 @@ func getFriendList(w http.ResponseWriter, r *http.Request) {
 		}
 		Users = append(Users, u)
 	}
-	fmt.Println("useres", Users)
+
 	utils.Log("INFO", fmt.Sprintf("Friends in group %s fetched successfully", groupId))
 	utils.SendJSON(w, http.StatusOK, utils.JSONResponse{
 		Success: true,

@@ -76,7 +76,7 @@ func (c *Comment) IsPostExist(postId int, UserID, GroupId string) error {
 	if err != nil {
 		utils.Log("ERROR", "Error QueryRow When trying to Execute the row of Profile info of the author in GetPostsScroll Handler"+err.Error())
 		utils.Log("ERROR", "Post.UserID:"+Post.UserID)
-		fmt.Println(Post)
+
 		return fmt.Errorf("Error executing query: %v", err)
 	}
 

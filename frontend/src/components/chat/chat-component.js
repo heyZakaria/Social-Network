@@ -26,7 +26,7 @@ export default function ChatComponent({ currentUser, otherUser , refresh, active
        
         setTimeout(async () => {
           const response = await FetchData(`/api/websocket/Get_Chat_History?session_id=${otherUser.session_id}`)
-          console.log("Response Chat History", response);
+
           setMessages(response?.data?.Messages || []);
           setIsLoading(false);
         }, 1000);
@@ -55,7 +55,7 @@ export default function ChatComponent({ currentUser, otherUser , refresh, active
     e.preventDefault();
 
     if (!newMessage.trim()) return;
-    console.log("currentUSER", currentUser);
+
     
     // In a real app, this would send the message through WebSocket
     // For now, we'll just add it to the local state
@@ -85,12 +85,12 @@ export default function ChatComponent({ currentUser, otherUser , refresh, active
   
   socket.onmessage = (event) => {
         const data = JSON.parse(event.data);
-        console.log("WebSocket message received:", data);
+
         
         const newMsg = GenerateChat(data);
         broadcastChannel.postMessage(JSON.stringify(newMsg));
-        console.log("Websocket Active Chatx", activeChat);
-        console.log("Message received in Chat CompLD:", data);
+
+
   }
   
   if (broadcastChannel) {
@@ -99,7 +99,7 @@ export default function ChatComponent({ currentUser, otherUser , refresh, active
       const data = JSON.parse(event.data);
       GenerateChat(data);
 
-      console.log("Message received in Chat CompLD:", data);
+
     }
   } else {
       console.warn("BroadcastChannel is not supported in this environment.");
@@ -194,11 +194,11 @@ export default function ChatComponent({ currentUser, otherUser , refresh, active
       createdAt: new Date().toISOString(),
       other_first_name: data.other_first_name || ""
     };
-    console.log("MSG Recived", newMsg);
+
 
     if (currentUser.id == data.receiver && activeChat.other_user_id == data.sender ||
       activeChat.other_user_id == data.receiver) {
-      console.log("%c Msg Recived", "color: green; font-weight: bold;", data);
+
 
       setMessages((prevMessages) => [...prevMessages, newMsg]);
       if (data.receiver == currentUser.id) {

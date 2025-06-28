@@ -1,7 +1,6 @@
 package profile
 
 import (
-	"fmt"
 	"net/http"
 
 	db "socialNetwork/db/sqlite"
@@ -66,8 +65,6 @@ func RejectFollowRequest(w http.ResponseWriter, r *http.Request) {
 func AcceptFollowRequest(w http.ResponseWriter, r *http.Request) {
 	userID := r.Context().Value(shared.UserIDKey).(string)
 	friendID := r.URL.Query().Get("id")
-
-	fmt.Println("AcceptFollowRequest called", "UserID:", userID, "FriendID:", friendID)
 
 	handleFriendRequest(
 		w, r,

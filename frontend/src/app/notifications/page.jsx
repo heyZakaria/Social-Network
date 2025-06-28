@@ -12,7 +12,7 @@ export default function Page() {
   const [isLoading, setIsLoading] = useState(true)
   const { user: currentUser } = useUser()
 
-  console.log("Notifications++++++++++++++++:", notifications);
+
   
   useEffect(() => {
     if (notifications) setIsLoading(false)

@@ -184,7 +184,7 @@ export function FriendsProvider({ children }) {
         credentials: "include",
       });
       const data = await res.json();
-      console.log("Accept request response:", data);
+
       
       // Refresh data after successful action
       setTimeout(() => fetchAll(), 500);
@@ -203,7 +203,7 @@ export function FriendsProvider({ children }) {
         credentials: "include",
       });
       const data = await res.json();
-      console.log("Reject request response:", data);
+
       
       // Refresh data after successful action
       setTimeout(() => fetchAll(), 500);

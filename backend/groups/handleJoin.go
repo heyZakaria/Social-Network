@@ -141,10 +141,6 @@ func handleJoin(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 
-		fmt.Println("UserId", UserId)
-		fmt.Println("adminId", adminId)
-		fmt.Println("inviteId", inviteID)
-
 		utils.Log("LOG", "dlete from notification")
 
 	}

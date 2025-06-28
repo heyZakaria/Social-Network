@@ -1,7 +1,6 @@
 package chat
 
 import (
-	"fmt"
 	"net/http"
 	db "socialNetwork/db/sqlite"
 	shared "socialNetwork/shared_packages"
@@ -15,8 +14,7 @@ func Get_Chat_History(w http.ResponseWriter, r *http.Request) {
 	Session_ID := r.URL.Query().Get("session_id")
 	Chat_List := r.URL.Query().Get("chat_list")
 	var Messages []MessageStruct
-	fmt.Println("Session_ID: ", Session_ID)
-	fmt.Println("Chat_List: ", Chat_List)
+
 	if Chat_List == "fetch" {
 		// Get The Chat List
 		var shouldReturn bool
@@ -25,7 +23,7 @@ func Get_Chat_History(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 		utils.Log("INFO", "Chat USERS List Fetched successfully")
-		fmt.Println("Data Length: ", len(Messages))
+
 		utils.SendJSON(w, http.StatusOK, utils.JSONResponse{
 			Success: true,
 			Message: "Chat List Fetched successfully",

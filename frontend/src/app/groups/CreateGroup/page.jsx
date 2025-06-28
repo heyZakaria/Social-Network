@@ -46,7 +46,7 @@ export default function CreateGroupCard() {
 
     const handleFileChange = (e) => {
         const Selectedfile = e.target.files[0]
-        console.log(Selectedfile);
+
         if (!Selectedfile) {
             SetFormErr(prevData => ({ ...prevData, ImgErr: null }))
             SetFile(null)
@@ -114,7 +114,7 @@ export default function CreateGroupCard() {
             }
             SetFormErr(prevData => ({ ...prevData, TitleErr: null }))
         }
-        console.log(e, e.target);
+
 
         const { name, value } = e.target
         if (name === 'Title') {
@@ -130,7 +130,7 @@ export default function CreateGroupCard() {
         e.preventDefault()
 
         if (formData.Description === '' || formData.Title === '' || FormErr.TitleErr !== null || FormErr.DescriptionErr !== null || FormErr.ImgErr !== null) {
-            console.log("here", formData, FormErr);
+
 
 
             return
@@ -141,7 +141,7 @@ export default function CreateGroupCard() {
             data.append('Title', formData.Title);
 
             if (formData.Image) {
-                console.log(formData.Image);
+
                 data.append('Image', formData.Image);
             }
             const Resp = await fetch("/api/groups/", {

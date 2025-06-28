@@ -81,7 +81,7 @@ export default function GroupsList() {
       HandleGroupSection(mapped)
     }
   }, [data]);
-console.log("grrrrrrrrroups",Groups);
+
 
   const HandleGroupSection = (Joinst) => {
     setshowCreateGroup(false)

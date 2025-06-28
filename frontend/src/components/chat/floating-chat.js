@@ -38,22 +38,22 @@ export default function FloatingChat({ currentUser, profileData, source, group }
           response?.data?.ChatList
         );
         setRecentChats(response?.data?.ChatList || []);
-        console.log("recent chat", response?.data?.ChatList);
+
         if (response?.data?.ChatList) {
           setUnreadCount(
             response.data.ChatList.reduce((acc, chat) => acc + chat.readed, 0)
           );
         }
-        console.log("Unread Count", unreadCount);
+
       } catch (error) {
         console.error("Error fetching recent chats:", error);
       }
     };
     fetchRecentChats();
   }, [refresh]);
-  console.log("Broadcast Channelx", broadcastChannel);
+
   broadcastChannel.onmessage = (event) => {
-    console.log("BROD", event.data);
+
     refreshChatList()
   }
 
@@ -61,7 +61,7 @@ export default function FloatingChat({ currentUser, profileData, source, group }
     socket.addEventListener("message", () => {
       refreshChatList();
       broadcastChannel.postMessage(JSON.stringify({ type: "refresh_chat_list" }));
-      console.log("List Refreched From Socket Floating chat comp");
+
     });
 
     
@@ -69,7 +69,7 @@ export default function FloatingChat({ currentUser, profileData, source, group }
       const data = JSON.parse(event.data);
       if (data.type === "refresh_chat_list") {
         refreshChatList("broadcast");
-        console.log("List Refreched From Broadcast Channel Floating chat comp");
+
       }
     }
   }
@@ -82,7 +82,7 @@ export default function FloatingChat({ currentUser, profileData, source, group }
   }
 
   const GenerateChat = () => {
-    console.log("group Data", group);
+
     const chat = {
       id: Date.now(),
     }
@@ -106,8 +106,8 @@ export default function FloatingChat({ currentUser, profileData, source, group }
   };
   const handleChatSelect = (chat) => {
     setActiveChat(chat);
-    console.log("Chat Example 1", chat);
-    console.log("Active Chat 1", activeChat);
+
+
     setIsOpen(true);
     setUnreadCount((prev) => prev - chat.readed);
   };
@@ -128,7 +128,7 @@ export default function FloatingChat({ currentUser, profileData, source, group }
   };
 
   const refreshChatList = (from) => {
-    console.log("Refreshing chat list form : ", from);
+
     setRefresh((prev) => prev + 1);
   };
   const formatTime = (dateString) => {

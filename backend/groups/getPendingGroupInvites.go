@@ -2,7 +2,6 @@ package Group
 
 import (
 	"database/sql"
-	"fmt"
 	"net/http"
 
 	db "socialNetwork/db/sqlite"
@@ -31,7 +30,7 @@ func handlePendingInvites(w http.ResponseWriter, r *http.Request) {
 			SELECT 1 FROM groupMember 
 			WHERE user_id = ? AND group_id = ? AND memberState = 'Admin'
 		)`
-	fmt.Println(GroupId, UserId)
+
 	err := db.DB.QueryRow(checkAdminQuery, UserId, GroupId).Scan(&isAdmin)
 	if err != nil || !isAdmin {
 		utils.SendJSON(w, http.StatusForbidden, utils.JSONResponse{
@@ -73,7 +72,7 @@ WHERE
 	rows, err := db.DB.Query(query, GroupId, GroupId)
 	if err != nil {
 		if err == sql.ErrNoRows {
-			fmt.Println("hgeeeeeeeeeeeeeeere")
+
 		}
 		utils.Log("ERROR", "Eroor Getting rows in Pending Invite")
 
@@ -113,7 +112,6 @@ WHERE
 		pending = append(pending, entry)
 	}
 
-	fmt.Println("peeeeeending", pending)
 	utils.SendJSON(w, http.StatusOK, utils.JSONResponse{
 		Success: true,
 		Message: "Pending invites fetched successfully",

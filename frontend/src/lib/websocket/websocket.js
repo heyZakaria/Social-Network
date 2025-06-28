@@ -34,7 +34,7 @@ export const isWebSocketOpen = () => {
 export const closeWebSocket = () => {
 	if (socket) {
 		socket.close();
-		console.log("WebSocket connection closed by client");
+
 	}
 };
 
@@ -46,11 +46,11 @@ export const OpenWebSocket = () => {
 	// In Next.js, BroadcastChannel is only available in the browser.
 	
     socket.onopen = () => {
-        console.log("🟢  WebSocket connection established");
+
     };
 
     socket.onclose = () => {
-        console.log("🔴 WebSocket connection closed");
+
     };
     
  } else {

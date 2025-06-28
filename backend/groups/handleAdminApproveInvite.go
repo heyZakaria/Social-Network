@@ -28,9 +28,6 @@ func handleAdminApproveInvite(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	fmt.Println("Invite_id", Invite_id)
-	fmt.Println("action", Action)
-
 	// Parse Invite ID
 	InviteIdInt, err := strconv.Atoi(Invite_id)
 	if err != nil {
@@ -132,10 +129,6 @@ func handleAdminApproveInvite(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		utils.Log("ERROR", "Invalid Invite ID format during notification cleanup")
 	}
-
-	fmt.Println("Invite.Sender_id.String", Invite.Sender_id.String)
-	fmt.Println("Invite.Reciever_id", Invite.Reciever_id)
-	fmt.Println("Invite.Id", invitedInt)
 
 	notifications.DeleteFollowRequestNotification(
 		Invite.Sender_id.String,

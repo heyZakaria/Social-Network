@@ -1,7 +1,6 @@
 package auth
 
 import (
-	"fmt"
 	"net/http"
 	"strings"
 
@@ -21,9 +20,6 @@ func VerifyTokenHandler(w http.ResponseWriter, r *http.Request) {
 		})
 		return
 	}
-	fmt.Println("Received auth:", auth)
-
-	fmt.Println("Verifying token:", token)
 
 	if _, err := Tkn.GetUserIDByToken(token); err != nil {
 		utils.SendJSON(w, http.StatusUnauthorized, utils.JSONResponse{

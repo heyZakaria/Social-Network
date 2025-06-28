@@ -16,7 +16,7 @@ func handleInvite(w http.ResponseWriter, r *http.Request) {
 	UserId := r.Context().Value(shared.UserIDKey).(string)
 	InvitedFriend := r.URL.Query().Get("Invited_id")
 	GroupId := r.URL.Query().Get("Group_id")
-	fmt.Println(UserId, InvitedFriend, GroupId)
+
 	err, Validated := InviteValidation(UserId, InvitedFriend, GroupId)
 	if err != nil || !Validated {
 		utils.Log("ERROR", "Error : Bad Request in InviteValidation"+err.Error())
@@ -68,10 +68,6 @@ func handleInvite(w http.ResponseWriter, r *http.Request) {
 	}
 	// Invited := strconv.Itoa(int(Invite_id)) // Convert Invite_id to int for notifications function
 
-	fmt.Println("Invite_id", Invite_id)
-	fmt.Println("UserId", UserId)
-	fmt.Println("InvitedFriend", InvitedFriend)
-	fmt.Println("Group Title", group.Title)
 	// Dispatch notification to the invited user
 	notifications.BuildAndDispatchNotification(db.DB,
 		Invite_id,

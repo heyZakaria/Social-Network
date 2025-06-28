@@ -8,7 +8,7 @@ export async function middleware(req) {
     return NextResponse.redirect(new URL('/login', req.url))
   }
 
-  console.log('Middleware: Verifying token:', token);
+
   
 
   const backendURL =
@@ -26,11 +26,11 @@ export async function middleware(req) {
     })
 
     if (!res.ok) {
-      console.log('Middleware: Token verification failed:', res.status, res.statusText);
+
       
       return NextResponse.redirect(new URL('/login', req.url))
     }
-    console.log('Middleware: Token verified successfully');
+
     
 
     return NextResponse.next()

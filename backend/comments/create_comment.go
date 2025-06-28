@@ -1,7 +1,6 @@
 package comments
 
 import (
-	"fmt"
 	"net/http"
 	"strconv"
 
@@ -36,7 +35,7 @@ func CommentSaver(w http.ResponseWriter, r *http.Request) {
 	// this part to get post id
 	postId, err := strconv.Atoi(r.FormValue("postId"))
 	if err != nil {
-		fmt.Println("have problem to convert from string to int")
+
 	}
 
 	err = Comment.IsPostExist(postId, UserId, GroupId)

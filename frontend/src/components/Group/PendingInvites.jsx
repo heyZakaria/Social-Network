@@ -92,7 +92,7 @@ export function RequestsToJoinGroup() {
   const [err, setError] = useState(null)
   const [invites, setInvites] = useState([])
   const { data, error, loading } = useFetch(`/api/groups/group/groupInvites`)
-  console.log("dataaaa", data);
+
 
   useEffect(() => {
     if (data) setInvites(data)
@@ -104,7 +104,7 @@ export function RequestsToJoinGroup() {
   }, [error])
 
   if (loading) return <p>Loading...</p>
-  console.log("invvvvvvvvvvvvvvvvvvvv", invites);
+
 
   if (!invites || invites.length == 0) return <p style={
                       { color: "#7c3aed",
@@ -157,7 +157,7 @@ function PendingRequest({ invite, onInvite }) {
         <button onClick={(e) => {
           e.preventDefault();
           handleInviteResponse("accept", invite.invite_id)
-          console.log("INVITEDDDDDD", invite.invite_id);
+
           
 
         }} className={styles.button}>Accept</button>

@@ -24,9 +24,6 @@ func handleInviteResponse(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	fmt.Println("Invite ID:", inviteId)
-	fmt.Println("Action:", action)
-
 	var invite Invite
 	err := db.DB.QueryRow(`
 		SELECT id, sender_id, reciever_id, group_id, Joinstate 

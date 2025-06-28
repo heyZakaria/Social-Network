@@ -15,8 +15,8 @@ export default function usePosts({groupId , limit , ProfileId}={groupId : null ,
         `/api/posts/getposts?limit=${limit}&offset=${offset}${GroupQuery}${ProfileQuery}`
       );
       if (data?.data?.posts?.length < limit) {
-        console.log("no more posts", data.data.posts.length);
-        console.log("no more posts", data.data.posts);
+
+
         setHasMore(false); // no more posts
       }
       
@@ -27,7 +27,7 @@ export default function usePosts({groupId , limit , ProfileId}={groupId : null ,
           (p) => !existingIds.has(p.PostId)
         );
         if (uniqueNewPosts?.length === 0) {
-          console.log("no new posts");
+
           return prev; // No new posts, return previous state
         }
         combinedPosts = [...prev, ...uniqueNewPosts || []];
@@ -45,8 +45,8 @@ export default function usePosts({groupId , limit , ProfileId}={groupId : null ,
     
   },[refrech, offset, groupId, ProfileId, limit]);
 
-  console.log("posts", posts);
-  console.log("hasMore", hasMore);
+
+
 
   const loadMore = () => {
     if (!loading && hasMore) {

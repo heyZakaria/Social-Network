@@ -136,7 +136,7 @@ const CreatePost = ({
           });
         }
 
-        console.log("data", formData);
+
 
 
         const response = await fetch(GroupId ? `/api/posts/createpost?group_id=${GroupId}` : `/api/posts/createpost`, {

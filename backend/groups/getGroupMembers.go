@@ -17,7 +17,7 @@ func getGroupMembers(w http.ResponseWriter, r *http.Request) {
 
 	groupId := r.URL.Query().Get("id")
 	userId := r.Context().Value(shared.UserIDKey).(string)
-	fmt.Println("groupId : ", groupId, "User:", userId)
+
 	if groupId == "" || userId == "" {
 		utils.Log("ERROR", "Missing group ID or user ID")
 		utils.SendJSON(w, http.StatusBadRequest, utils.JSONResponse{
@@ -62,7 +62,6 @@ func getGroupMembers(w http.ResponseWriter, r *http.Request) {
 		})
 		return
 	}
-	fmt.Println(groupMembers)
 
 	utils.Log("INFO", fmt.Sprintf("Group members for group %s fetched successfully", groupId))
 	utils.SendJSON(w, http.StatusOK, utils.JSONResponse{

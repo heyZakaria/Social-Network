@@ -22,7 +22,7 @@ func GetGroupEvents(w http.ResponseWriter, r *http.Request) {
 	}
 	GroupId := splitedPath[2]
 	/* GroupID, err := strconv.Atoi(GroupId)
-	fmt.Println("group_id", r.URL.Path,"group_id_3awtany", GroupId,  "group_id_3awtany 2", GroupID)
+
 	if err != nil {
 		utils.SendJSON(w, http.StatusBadRequest, utils.JSONResponse{
 			Success: false,
