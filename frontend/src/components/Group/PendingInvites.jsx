@@ -157,14 +157,12 @@ function PendingRequest({ invite, onInvite }) {
         <button onClick={(e) => {
           e.preventDefault();
           handleInviteResponse("accept", invite.invite_id)
-
-          
-
+          onInvite(invite.invite_id)
         }} className={styles.button}>Accept</button>
         <button onClick={(e) => {
           e.preventDefault();
           handleInviteResponse("reject", invite.invite_id)
-
+          onInvite(invite.invite_id)
         }} className={styles.button}>Reject</button>
       </div>
     </li>

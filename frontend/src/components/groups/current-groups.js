@@ -20,7 +20,7 @@ export default function CurrentGroups() {
           id: group.id,
           title: group.title,
           description: group.description,
-          image: group.covername ? `/uploads/${group.covername}` : "/uploads/profile.jpeg",
+          image: group.covername ? `/api/images/groups_cover/${group.covername}` : "/uploads/profile.jpeg",
           JoiningState: group.memberState || "Join",
           Members: group.memberCount,
           PostCount: group.postCount ?? 0,
