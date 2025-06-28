@@ -11,7 +11,7 @@ export default function InviteFriends({ FriendsList, onInvite }) {
         {FriendsList.map((friend) => (
           <li key={friend.id} className="friendItemCard">
             <p>{`${friend.firstName} ${friend.lastName}`}</p>
-            <img src={friend.avatar || "https://img.freepik.com/free-vector/blue-circle-with-white-user_78370-4707.jpg?semt=ais_hybrid&w=740" } alt={friend.name} />
+            <img src={friend.avatar || "/uploads/invite_profie.jpg" } alt={friend.name} />
             <InviteButton
               UserId={friend.id}
               HandleClick={() => onInvite(friend.id)}
