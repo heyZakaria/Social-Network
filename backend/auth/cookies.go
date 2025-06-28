@@ -21,9 +21,6 @@ func SendSuccessWithToken(w http.ResponseWriter, r *http.Request, userID string)
 		})
 		return
 	}
-	// set cookies manual like we recieve it in graphql
-	// w.Header().Set("Authorization", "Bearer "+token)
-
 	secureFlag := false
 	sameSiteFlag := http.SameSiteLaxMode
 

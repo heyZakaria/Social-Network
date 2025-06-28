@@ -90,7 +90,7 @@ export default function GroupSuggestions() {
         ))}
       </div>
       {data?.length > 3 && (
-        <Link href="/groups/discover" className={styles.seeAll}>
+        <Link href="/groups" className={styles.seeAll}>
           See All Groups
         </Link>
       )}
