@@ -83,11 +83,15 @@ func PrepareImage(r *http.Request, ImageName, ImagePath string) (imageProvided b
 }
 
 func SaveImage(file multipart.File, path string) {
+	fmt.Println("Path before creating:", path)
 
-	path = strings.TrimPrefix(path, "/api")
-	if os.Getenv("ENV") != "docker" {
-		path = ".." + path
+	path = strings.TrimPrefix(path, "/api")// /images/profile_images/sdafsdafk2323.jpg
+
+	if os.Getenv("ENV") == "docker" {
+		path = "." + path
 	}
+	fmt.Println("Path after creating:", path)
+
 	dst, err := os.Create(path)
 	if err != nil {
 		Log("ERROR", "Failed to create image file: "+err.Error())

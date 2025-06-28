@@ -4,18 +4,17 @@ import (
 	"fmt"
 	Shared_groups "socialNetwork/groups_shared"
 	Shared_Profile "socialNetwork/profile_shared"
-	tkn "socialNetwork/token"
 	"socialNetwork/utils"
 	"sync"
 )
 
-var clients = make(map[string]*Client)
+var Clients = make(map[string]*Client)
 
 // var broadcast = make(chan MessageStruct)
 var mutex = &sync.Mutex{}
 
 func ReadMessages(UserID string) {
-	client, ok := clients[UserID]
+	client, ok := Clients[UserID]
 	if !ok || client == nil || client.Conn == nil {
 		utils.Log("ERROR", "Client not found or connection is nil for UserID: "+UserID)
 		return
@@ -25,7 +24,7 @@ func ReadMessages(UserID string) {
 
 	for {
 		mutex.Lock()
-		client, ok := clients[UserID]
+		client, ok := Clients[UserID]
 		mutex.Unlock()
 		if !ok || client == nil || client.Conn == nil {
 			utils.Log("ERROR", "Client not found or connection is nil for UserID: "+UserID)
@@ -37,23 +36,11 @@ func ReadMessages(UserID string) {
 			utils.Log("ERROR", "Error reading JSON: "+err.Error())
 			client.Conn.Close()
 			mutex.Lock()
-			delete(clients, UserID)
+			delete(Clients, UserID)
 			mutex.Unlock()
 			break
 		}
 
-		u_id, err := tkn.GetUserIDByToken(msgs.Token)
-
-		if u_id == "" || err != nil {
-			utils.Log("ERROR", "Invalid token or UserID not found: "+msgs.Token)
-			client.Conn.WriteJSON(MessageStruct{
-				Type:    "error",
-				Sender:  UserID,
-				Content: "Invalid token or UserID not found",
-			})
-			continue
-		}
-		msgs.Token = "" // Clear the token after validation
 		if msgs.Type == "" || msgs.Receiver == "" || msgs.Content == "" {
 			utils.Log("ERROR", " Receiver OR Type or Content is empty")
 
@@ -73,7 +60,7 @@ func ReadMessages(UserID string) {
 		}
 
 		mutex.Lock()
-		client, ok = clients[UserID]
+		client, ok = Clients[UserID]
 		mutex.Unlock()
 		if ok {
 			client.Broadcast <- msgs
@@ -86,17 +73,17 @@ func WriteMessages(UserID string) {
 
 	for {
 		// Grab the next message from the broadcast channel
-		client, ok := clients[UserID]
+		client, ok := Clients[UserID]
 		if !ok || client == nil || client.Broadcast == nil {
 			utils.Log("ERROR", "Problem passing data through the channel")
 			mutex.Unlock()
 			continue
 		}
-		message := <-clients[UserID].Broadcast
+		message := <-Clients[UserID].Broadcast
 
 		mutex.Lock()
 		var ReciverNotFound = false
-		client, ok = clients[message.Receiver]
+		client, ok = Clients[message.Receiver]
 		if !ok || client == nil || client.Conn == nil {
 			utils.Log("ERROR", "Client not found or connection is nil for Receiver: "+message.Receiver)
 			ReciverNotFound = true
@@ -121,7 +108,7 @@ func WriteMessages(UserID string) {
 			}
 
 			for _, member := range groupMembers {
-				client, ok = clients[member.User_id]
+				client, ok = Clients[member.User_id]
 				if !ok || client == nil || client.Conn == nil {
 					utils.Log("ERROR", "Client not found or connection is nil for Receiver: "+member.User_id)
 					continue
@@ -138,11 +125,11 @@ func WriteMessages(UserID string) {
 }
 
 func WriteMessage(UserID string, message MessageStruct) {
-	err := clients[UserID].Conn.WriteJSON(message)
+	err := Clients[UserID].Conn.WriteJSON(message)
 	if err != nil {
 		utils.Log("ERROR", "Error sending message to Receiver: "+UserID)
-		clients[UserID].Conn.Close()
-		delete(clients, UserID)
+		Clients[UserID].Conn.Close()
+		delete(Clients, UserID)
 	}
 	utils.Log("INFO", fmt.Sprintf("Message sent to %s: %s", UserID, message.Content))
 }

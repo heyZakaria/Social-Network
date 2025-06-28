@@ -9,21 +9,11 @@ if (typeof window !== "undefined" && "BroadcastChannel" in window) {
 
 export const websocket = {
 	send: async (message) => {
-		const res = await fetch("/api/get-token", { credentials: "include" });
-        const data = await res.json();
-        const token = data?.data?.token;
-		if (token === null || !token || token == "") {
-			socket.close();
-    	    document.location.href = "/login";
-			return
-		}
-		message.token = token;
 		if (socket?.readyState === WebSocket.OPEN) {
 			socket.send(JSON.stringify(message));
 		} else {
 			console.warn("WebSocket is not open. Cannot send message.");
 		}
-		message.token = null; // Clear token after sending
 	},
 };
 

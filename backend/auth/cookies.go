@@ -2,7 +2,6 @@ package auth
 
 import (
 	"net/http"
-	"os"
 	"time"
 
 	tkn "socialNetwork/token"
@@ -21,22 +20,15 @@ func SendSuccessWithToken(w http.ResponseWriter, r *http.Request, userID string)
 		})
 		return
 	}
-	secureFlag := false
-	sameSiteFlag := http.SameSiteLaxMode
-
-	if os.Getenv("ENV") == "docker" {
-		secureFlag = true
-		sameSiteFlag = http.SameSiteNoneMode
-	}
 
 	http.SetCookie(w, &http.Cookie{
 		Name:     "token",
 		Value:    token,
 		Path:     "/",
 		HttpOnly: true,
-		Secure:   secureFlag,
-		SameSite: sameSiteFlag,
-		Expires:  time.Now().Add(24 * time.Hour),
+		Secure:   false,
+		SameSite: http.SameSiteStrictMode,
+		Expires:  time.Now().Add((24 * time.Hour) * 7), // 7 days
 	})
 
 	utils.Log("INFO", "Save Token into Sessions")

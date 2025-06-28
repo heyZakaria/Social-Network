@@ -42,7 +42,7 @@ func WSHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	mutex.Lock()
-	clients[UserID] = client
+	Clients[UserID] = client
 	utils.Log("INFO", "Client added to map")
 	mutex.Unlock()
 

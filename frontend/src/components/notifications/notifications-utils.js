@@ -67,10 +67,10 @@ export function getActionButtons(
     setHandledRequests,
     handleInviteResponse,
     handleInviteAdminResponse,
+    HandleEventPresence,
   }
 ) {
   const status = handledRequests[notifId];
-  const { HandleEventPresence } = useFriends()
 
 
   if (!["follow_request", "invite_group", "group_event", "follow", "invite_group_admin"].includes(type))

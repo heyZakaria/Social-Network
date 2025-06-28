@@ -39,7 +39,7 @@ export default function ChatComponent({ currentUser, otherUser , refresh, active
 
     // In a real app, we would set up a WebSocket connection here
     // and clean it up in the return function
-  }, [currentUser.id, otherUser.other_user_id]);
+  }, [currentUser.id, otherUser.other_user_id, otherUser.session_id]);
 
   useEffect(() => {
     // Scroll to bottom when messages change
@@ -83,22 +83,20 @@ export default function ChatComponent({ currentUser, otherUser , refresh, active
   };
   
   socket.onmessage = (event) => {
-        const data = JSON.parse(event.data);
-
-        
-        const newMsg = GenerateChat(data);
-        broadcastChannel.postMessage(JSON.stringify(newMsg));
-
-
+    const data = JSON.parse(event.data);
+    if (data.type == "error"){
+      socket.close();
+      return;
+    }
+    const newMsg = GenerateChat(data);
+    broadcastChannel.postMessage(JSON.stringify(newMsg));
   }
   
   if (broadcastChannel) {
     broadcastChannel.onmessage = (event) => {
-      refresh("from broadcast channel");
+      // refresh("from broadcast channel");
       const data = JSON.parse(event.data);
       GenerateChat(data);
-
-
     }
   } else {
       console.warn("BroadcastChannel is not supported in this environment.");
@@ -197,10 +195,8 @@ export default function ChatComponent({ currentUser, otherUser , refresh, active
 
     if (currentUser.id == data.receiver && activeChat.other_user_id == data.sender ||
       activeChat.other_user_id == data.receiver) {
-
-
-      setMessages((prevMessages) => [...prevMessages, newMsg]);
-      if (data.receiver == currentUser.id) {
+        setMessages((prevMessages) => [...prevMessages, newMsg]);
+        if (data.receiver == activeChat.other_user_id) {
         fetch(`/api/websocket/set_readed?session_id=${data.session_id}`);
       }
     }

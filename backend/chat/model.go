@@ -37,7 +37,6 @@ type MessageStruct struct {
 	Other_first_name string     `json:"other_first_name"`
 	Other_last_name  string     `json:"other_last_name"`
 	Other_avatar     string     `json:"other_avatar"`
-	Token            string     `json:"token"`
 }
 
 func (msgs *MessageStruct) InsertDB(UserID string) (bool, bool) {

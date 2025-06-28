@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import styles from "@/styles/floating-chat.module.css";
 import ChatComponent from "./chat-component";
 import {
@@ -52,11 +52,10 @@ export default function FloatingChat({ currentUser, profileData, source, group }
   }, [refresh]);
 
   broadcastChannel.onmessage = (event) => {
-
     refreshChatList()
   }
 
-  if (socket && websocket) {
+  if (socket) {
     socket.addEventListener("message", () => {
       refreshChatList();
       broadcastChannel.postMessage(JSON.stringify({ type: "refresh_chat_list" }));
@@ -126,10 +125,20 @@ export default function FloatingChat({ currentUser, profileData, source, group }
     setNewMessage((prevMessage) => prevMessage + emoji);
   };
 
-  const refreshChatList = (from) => {
-
-    setRefresh((prev) => prev + 1);
+  const refreshChatList = () => {
+    if (isMountedRef.current) {
+      setRefresh((prev) => prev + 1);
+    }
   };
+
+  const isMountedRef = useRef(false);
+
+  useEffect(() => {
+    isMountedRef.current = true;
+    return () => {
+      isMountedRef.current = false;
+    };
+  }, []);
   const formatTime = (dateString) => {
     const date = new Date(dateString);
     const now = new Date();
