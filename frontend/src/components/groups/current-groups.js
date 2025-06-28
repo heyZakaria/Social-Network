@@ -10,7 +10,11 @@ import useFetch from "@/hooks/useFetch"; // Make sure this path is correct
 
 export default function CurrentGroups() {
   const [groups, setGroups] = useState([]);
+<<<<<<< HEAD
   const { data, loading, error } = useFetch("/api/groups/");
+=======
+  const { data, loading, error } = useFetch("/api/groups/GET");
+>>>>>>> 47edb1f (Fixing Group Errors)
 
   useEffect(() => {
     if (data) {

@@ -86,7 +86,11 @@ export default function UpcomingEvents() {
 
 export const fetchEvents = async () => {
 
+<<<<<<< HEAD
   const res = await fetch(`/api/groups/events/${groupId}`, {
+=======
+ return fetch(`/api/groups/events/${groupId}`, {
+>>>>>>> 47edb1f (Fixing Group Errors)
     method: "GET",
     credentials: "include",
 

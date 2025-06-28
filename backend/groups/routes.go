@@ -9,8 +9,8 @@ import (
 func GroupMux() http.Handler {
 	mux := http.NewServeMux()
 
-	mux.HandleFunc("POST /", createGroup)
-	mux.HandleFunc("GET /", fetchGroups)
+	mux.HandleFunc("GET /GET", fetchGroups)
+	mux.HandleFunc("POST /POST", createGroup)
 	mux.HandleFunc("GET /group/", getGroup)
 	mux.HandleFunc("POST /invite", handleInvite)
 	mux.HandleFunc("POST /join", handleJoin)

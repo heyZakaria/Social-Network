@@ -226,7 +226,11 @@ export function FriendsProvider({ children }) {
 
   const handleInviteResponse = useCallback(async (action, id) => {
     try {
+<<<<<<< HEAD
       const response = await fetch(`/api/groups/group/inviteResponse?Action=${action}&Invite_id=${id}`, {
+=======
+      const respo = await fetch(`/api/groups/group/inviteResponse?Action=${action}&Invite_id=${id}`, {
+>>>>>>> 47edb1f (Fixing Group Errors)
         credentials: 'include',
         method: "POST"
       });
@@ -247,7 +251,11 @@ export function FriendsProvider({ children }) {
 
   const handleInviteAdminResponse = useCallback(async (action, id) => {
     try {
+<<<<<<< HEAD
       const response = await fetch(`/api/groups/invite/approve?Action=${action}&Invite=${id}`, {
+=======
+      const respo = await fetch(`/api/groups/invite/approve?Action=${action}&Invite=${id}`, {
+>>>>>>> 47edb1f (Fixing Group Errors)
         credentials: 'include',
         method: "POST"
       });

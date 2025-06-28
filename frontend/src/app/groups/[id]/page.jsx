@@ -146,7 +146,12 @@ export default function GroupCard({ children }) {
 
   const handleInvite = async (id) => {
     try {
+<<<<<<< HEAD
       const respo = await fetch(`/api/groups/invite?Invited_id=${id}&Group_id=${groupId}`,
+=======
+      const respo = await fetch(
+        `/api/groups/invite?Invited_id=${id}&Group_id=${groupId}`,
+>>>>>>> 47edb1f (Fixing Group Errors)
         {
           method: "POST",
           credentials: "include",
@@ -163,7 +168,12 @@ export default function GroupCard({ children }) {
   const HandleShowInvite = async () => {
     if (!showInvite) {
       try {
+<<<<<<< HEAD
         const resp = await fetch(`/api/groups/group/FriendList?id=${groupId}`,
+=======
+        const resp = await fetch(
+          `/api/groups/group/FriendList?id=${groupId}`,
+>>>>>>> 47edb1f (Fixing Group Errors)
           { credentials: "include" }
         );
         if (!resp.ok) throw new Error("Something Happened, Try Again");
@@ -183,7 +193,12 @@ export default function GroupCard({ children }) {
   const HandleMembersList = async () => {
     if (!showMembers) {
       try {
+<<<<<<< HEAD
         const resp = await fetch(`/api/groups/group/members?id=${groupId}`,
+=======
+        const resp = await fetch(
+          `/api/groups/group/members?id=${groupId}`,
+>>>>>>> 47edb1f (Fixing Group Errors)
           { credentials: "include" }
         );
         if (!resp.ok) throw new Error("Something Happened, Try Again");

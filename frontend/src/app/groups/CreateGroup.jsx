@@ -109,8 +109,12 @@ export default function CreateGroupCard() {
       data.append("Description", formData.Description);
       data.append("Title", formData.Title);
       if (formData.Image) data.append("Image", formData.Image);
+<<<<<<< HEAD
 
       const Resp = await fetch("/api/groups/", {
+=======
+      const Resp = await fetch("/api/groups/POST", {
+>>>>>>> 47edb1f (Fixing Group Errors)
         method: "POST",
         credentials: "include",
         body: data,
@@ -127,7 +131,7 @@ export default function CreateGroupCard() {
         setErr(Data.msg || "Error occurred");
       }
     } catch (error) {
-      setErr("Error sending request");
+      setErr("Error sending request" + error.message);
     }
   }
 
