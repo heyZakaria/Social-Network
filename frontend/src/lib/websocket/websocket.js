@@ -42,7 +42,7 @@ export const OpenWebSocket = () => {
 	// on message broadcast channel
 
  if (!socket || (socket.readyState !== WebSocket.OPEN && socket.readyState !== WebSocket.CONNECTING)) {
-    socket = new WebSocket(`ws://localhost:8080/api/websocket/ws`);
+    socket = new WebSocket(`/api/websocket/ws`);
 	// In Next.js, BroadcastChannel is only available in the browser.
 	
     socket.onopen = () => {

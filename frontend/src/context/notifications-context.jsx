@@ -73,8 +73,7 @@ export function NotificationsProvider({ user, children }) {
         const token = data?.data?.token;
         if (!token) return;
 
-        const protocol = window.location.protocol === "https:" ? "wss" : "ws";
-        const socket = new WebSocket(`${protocol}://${window.location.host}/api/ws?token=${token}`);
+        const socket = new WebSocket(`/api/ws?token=${token}`);
 
         ws.current = socket;
 
