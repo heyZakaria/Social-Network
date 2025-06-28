@@ -34,6 +34,7 @@ export default function UpcomingEvents() {
       minute: "2-digit",
     });
   };
+  console.log("events", events);
   
   return (
     <div className={styles.eventsContainer}>
@@ -70,8 +71,18 @@ export default function UpcomingEvents() {
                     <span>{event.attendees || 0} going</span>
                   </div>
                   <div className={styles.eventActions}>
-                    <button onClick={() => HandleEventPresence(groupId, event.id, "going")} className={styles.goingButton}> Going</button>
-                    <button onClick={() => HandleEventPresence(groupId, event.id, "not going")} className={styles.notGoingButton}>Not Going</button>
+                    <button onClick={() => {
+                       HandleEventPresence(groupId, event.id, "going")
+                       HandleGetEvents()
+                      }
+                    }
+                    className={styles.goingButton}> Going</button>
+                    <button onClick={() => {
+                        HandleEventPresence(groupId, event.id, "not going")
+                         HandleGetEvents()
+                      } 
+                    }
+                  className={styles.notGoingButton}>Not Going</button>
                   </div>
                 </div>
               </div>
