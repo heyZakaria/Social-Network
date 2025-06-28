@@ -63,8 +63,6 @@ export default function NotificationItem({ notification, onClick }) {
         </span>
       </div>
 
-      {console.log("Notification:", notification)}
-
       {getActionButtons(
         notification.type,
         notification.notifId,

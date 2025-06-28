@@ -12,7 +12,7 @@ function SuggGroupCard({ Group, onSendJoinRequest }) {
   return (isJoinable ?
     <div className="groupCard">
       <img
-        src={Group.covername ? `/uploads/groups_cover/${Group.covername}`  : `/uploads/groups_cover/images.jpeg` }
+        src={Group.covername ? `/api/images/groups_cover/${Group.covername}`  : `/uploads/profile.jpeg` }
         alt={Group.title}
       />
       <div className="groupCardContent">
@@ -35,7 +35,7 @@ function SuggGroupCard({ Group, onSendJoinRequest }) {
     :
     <Link href={`groups/${Group.Id}`} className="groupCard">
       <img
-        src={Group.covername ? `/uploads/groups_cover/${Group.covername}`  : `/uploads/groups_cover/images.jpeg` }
+        src={Group.covername ? `/api/images/groups_cover/${Group.covername}`  : `/uploads/profile.jpeg` }
         alt={Group.title}
       />
       <div className="groupCardContent">

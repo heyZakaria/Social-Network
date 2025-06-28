@@ -6,7 +6,6 @@ import EmojiPicker from "@/components/common/emoji-picker";
 import { IoSendSharp } from "react-icons/io5";
 import Image from "next/image";
 import {socket, websocket, broadcastChannel } from "@/lib/websocket/websocket";
-import { FetchData } from "@/context/fetchJson";
 
 export default function ChatComponent({ currentUser, otherUser , refresh, activeChat}) {
   const [messages, setMessages] = useState([]);
@@ -25,8 +24,8 @@ export default function ChatComponent({ currentUser, otherUser , refresh, active
         // Generate Session id 
        
         setTimeout(async () => {
-          const response = await FetchData(`/api/websocket/Get_Chat_History?session_id=${otherUser.session_id}`)
-
+          const res = await fetch(`/api/websocket/Get_Chat_History?session_id=${otherUser.session_id}`)
+          const response = await res.json();
           setMessages(response?.data?.Messages || []);
           setIsLoading(false);
         }, 1000);

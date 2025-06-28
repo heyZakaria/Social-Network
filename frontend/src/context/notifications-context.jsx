@@ -90,7 +90,6 @@ export function NotificationsProvider({ user, children }) {
         };
 
         socket.onerror = (err) => console.error("WebSocket error:", err);
-        socket.onclose = () => console.log("WebSocket closed");
       } catch (err) {
         console.error("Failed to initialize WebSocket:", err);
       }

@@ -15,7 +15,6 @@ import PrivacyToggle from "@/components/profile/privacy-toggle";
 import FollowButton from "@/components/profile/follow-button";
 import Image from "next/image";
 import { broadcastChannel, socket, websocket } from "@/lib/websocket/websocket";
-import { FetchData } from "@/context/fetchJson";
 import { date } from "zod";
 export default function FloatingChat({ currentUser, profileData, source, group }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -30,13 +29,11 @@ export default function FloatingChat({ currentUser, profileData, source, group }
     // For now, we'll use mock data
     const fetchRecentChats = async () => {
       try {
-        const response = await FetchData(
+
+        const res = await fetch(
           `/api/websocket/Get_Chat_History?chat_list=fetch`
         );
-        console.log(
-          "Response List Of users Chat History ",
-          response?.data?.ChatList
-        );
+        const response = await res.json();
         setRecentChats(response?.data?.ChatList || []);
 
         if (response?.data?.ChatList) {

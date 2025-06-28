@@ -6,7 +6,6 @@ import styles from "@/styles/posts.module.css";
 import { BsImage } from 'react-icons/bs';
 import EmojiPicker from "@/components/common/emoji-picker";
 import { IoPaperPlaneOutline } from 'react-icons/io5';
-import { FetchData } from "@/context/fetchJson";
 import { useUser } from '@/context/user_context';
 import Image from "next/image"
 import { logoutUser } from "@/app/(auth)/_logout/logout";
@@ -28,8 +27,8 @@ export default function CommentSection({ setCommentsCount, postId, GroupId}) {
     const fetchComments = async () => {
       try {
         setIsLoading(true);
-        const Data = await FetchData(`/api/comment/getcomment?post_id=${postId}`)    
-
+        const response = await fetch(`/api/comment/getcomment?post_id=${postId}`)    
+        const Data = await response.json();
             
         setComments(Data.data.Comments);
         updateDisplayedComments(Data.data.Comments, showAllComments);

@@ -135,10 +135,6 @@ const CreatePost = ({
             formData.append('allowed_users', userId);
           });
         }
-
-
-
-
         const response = await fetch(GroupId ? `/api/posts/createpost?group_id=${GroupId}` : `/api/posts/createpost`, {
           method: 'POST',
           credentials: 'include', // This sends cookies with the request
@@ -148,7 +144,6 @@ const CreatePost = ({
         const data = await response.json();
 
         if (data.success) {
-
           // Reset form on success
           resetForm();
           Refrech();

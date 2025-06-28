@@ -11,6 +11,7 @@ func AuthMux() http.Handler {
 	mux.HandleFunc("POST /login", HandleLogin)
 	mux.HandleFunc("GET /get-token", GetTokenHandler)
 	mux.HandleFunc("POST /verify-token", VerifyTokenHandler)
+	mux.HandleFunc("GET /logout", HandleLogout)
 
 	return mux
 }

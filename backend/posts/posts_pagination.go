@@ -143,7 +143,7 @@ func PostsPagination(w http.ResponseWriter, r *http.Request) {
 	// check if there are no posts
 	if len(Posts) == 0 {
 		utils.Log("ERROR", "No Posts found in GetPostsScroll Handler: ")
-		utils.SendJSON(w, http.StatusNotFound, utils.JSONResponse{
+		utils.SendJSON(w, http.StatusOK, utils.JSONResponse{
 			Success: true,
 			Message: "You reached the end of the posts",
 			Error:   "No Posts found",
