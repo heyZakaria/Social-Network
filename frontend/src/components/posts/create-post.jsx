@@ -155,7 +155,7 @@ const CreatePost = ({
             await logoutUser()
             window.location.href = "/login"
           } else {
-            setErrors(prev => ({ ...prev, content: data.error }));
+            setErrors(prev => ({ ...prev, content: data.message }));
           }
         }
 

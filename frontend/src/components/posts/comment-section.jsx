@@ -183,7 +183,9 @@ export default function CommentSection({ setCommentsCount, postId, GroupId}) {
             await logoutUser()
             window.location.href = "/login"
           } else {
-            SetErrorMsg(data.error);
+            console.log("commenterror" , data , data.message);
+            
+            SetErrorMsg(data.message);
           }
         }
 

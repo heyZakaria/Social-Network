@@ -136,12 +136,13 @@ export function RequestsToJoinGroup() {
 function PendingRequest({ invite, onInvite }) {
   const [actionError, setActionError] = useState(null)
   const { handleInviteResponse } = useFriends()
-
+  console.log("invite", invite);
+  
   return (
     <li className={styles.inviteCard}>
       <Link href={`/profile/${invite.invite_id}`}>
         <Image
-          src={`/uploads/profile_images/${invite.avatar || "anon.png"}`}
+          src={invite.avatar ? `${invite.avatar}` : `/uploads/profile.jpeg`}
           alt={`${invite.first_name} ${invite.last_name}` || "Img"}
           width={60}
           height={60}
