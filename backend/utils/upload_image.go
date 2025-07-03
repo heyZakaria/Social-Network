@@ -89,6 +89,8 @@ func SaveImage(file multipart.File, path string) {
 
 	if os.Getenv("ENV") == "docker" {
 		path = "." + path
+	}else{
+		path = ".." + path
 	}
 	fmt.Println("Path after creating:", path)
 
